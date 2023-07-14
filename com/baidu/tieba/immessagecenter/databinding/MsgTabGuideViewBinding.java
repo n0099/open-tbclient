@@ -71,23 +71,23 @@ public final class MsgTabGuideViewBinding implements ViewBinding {
             int i = R.id.obfuscated_res_0x7f09006a;
             TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09006a);
             if (textView != null) {
-                i = R.id.obfuscated_res_0x7f090fcd;
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fcd);
+                i = R.id.obfuscated_res_0x7f090fdd;
+                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fdd);
                 if (imageView != null) {
-                    i = R.id.obfuscated_res_0x7f090fd4;
-                    FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fd4);
+                    i = R.id.obfuscated_res_0x7f090fe4;
+                    FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fe4);
                     if (frameLayout != null) {
-                        i = R.id.obfuscated_res_0x7f0919c4;
-                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919c4);
+                        i = R.id.obfuscated_res_0x7f0919db;
+                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919db);
                         if (relativeLayout != null) {
-                            i = R.id.obfuscated_res_0x7f0919c5;
-                            ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919c5);
+                            i = R.id.obfuscated_res_0x7f0919dc;
+                            ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919dc);
                             if (imageView2 != null) {
-                                i = R.id.obfuscated_res_0x7f0919c6;
-                                FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919c6);
+                                i = R.id.obfuscated_res_0x7f0919dd;
+                                FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919dd);
                                 if (frameLayout2 != null) {
-                                    i = R.id.obfuscated_res_0x7f09250b;
-                                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09250b);
+                                    i = R.id.obfuscated_res_0x7f09253f;
+                                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09253f);
                                     if (textView2 != null) {
                                         return new MsgTabGuideViewBinding((ConstraintLayout) view2, textView, imageView, frameLayout, relativeLayout, imageView2, frameLayout2, textView2);
                                     }
@@ -117,7 +117,7 @@ public final class MsgTabGuideViewBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0627, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0633, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

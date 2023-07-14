@@ -96,7 +96,7 @@ public final class c extends com.kwad.components.ad.draw.kwai.a implements View.
     };
 
     private void a(boolean z, int i) {
-        com.kwad.components.core.c.a.a.a(new a.C0641a(this.bh.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i).aj(z).a(new a.b() { // from class: com.kwad.components.ad.draw.a.c.3
+        com.kwad.components.core.c.a.a.a(new a.C0646a(this.bh.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i).aj(z).a(new a.b() { // from class: com.kwad.components.ad.draw.a.c.3
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 com.kwad.sdk.core.report.a.a(c.this.mAdTemplate, 1, c.this.aK.mRootContainer.getTouchCoords());
@@ -191,12 +191,12 @@ public final class c extends com.kwad.components.ad.draw.kwai.a implements View.
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09123a);
-        this.bi = (TextView) findViewById(R.id.obfuscated_res_0x7f09123e);
-        this.bj = (TextView) findViewById(R.id.obfuscated_res_0x7f09123c);
-        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09123d);
-        this.bk = (TextView) findViewById(R.id.obfuscated_res_0x7f09123b);
-        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091239);
+        this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09124e);
+        this.bi = (TextView) findViewById(R.id.obfuscated_res_0x7f091252);
+        this.bj = (TextView) findViewById(R.id.obfuscated_res_0x7f091250);
+        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091251);
+        this.bk = (TextView) findViewById(R.id.obfuscated_res_0x7f09124f);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09124d);
         this.bl = drawDownloadProgressBar;
         drawDownloadProgressBar.setTextSize(16);
     }

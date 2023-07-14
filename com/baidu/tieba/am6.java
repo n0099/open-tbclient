@@ -1,123 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.common.jscore.BridgeConfig_tbadkcore;
-import com.baidu.tieba.common.jscore.JsInterfaces_tbadkcore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.webkit.WebResourceResponse;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.core.webview.flyweight.loader.WebViewDiskLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class am6 {
+public class am6 extends bm6<WebResourceResponse> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
+    public static volatile am6 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final cm6 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947620031, "Lcom/baidu/tieba/am6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947620031, "Lcom/baidu/tieba/am6;");
+    @Override // com.baidu.tieba.bm6
+    public boolean e(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public am6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new HashSet();
-        a = new HashSet();
+        this.b = new cm6();
+        WebViewDiskLoader webViewDiskLoader = new WebViewDiskLoader();
+        webViewDiskLoader.d(this.b);
+        d(webViewDiskLoader);
     }
 
-    public static void a() {
+    public static am6 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            try {
-                b();
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            BridgeConfig_tbadkcore.register();
-            JsInterfaces_tbadkcore.register();
-        }
-    }
-
-    public static void c(String str) {
-        JSONArray jSONArray;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a.clear();
-            try {
-                jSONArray = new JSONArray(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONArray = null;
-            }
-            if (tm6.c(jSONArray)) {
-                return;
-            }
-            ij6 ij6Var = (ij6) ServiceManager.getService(ij6.a);
-            if (ij6Var != null) {
-                str2 = ij6Var.b();
-            } else {
-                str2 = com.kuaishou.weapon.p0.q1.e;
-            }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("limitVersion", "99.99.99.99");
-                    String optString2 = optJSONObject.optString("url", "");
-                    if (!TextUtils.isEmpty(optString2) && an6.a(str2, optString)) {
-                        rm6.b("newHybrid", "我被加入到了黑名单:" + optString2);
-                        a.add(optString2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (am6.class) {
+                    if (c == null) {
+                        c = new am6();
                     }
                 }
             }
+            return c;
         }
+        return (am6) invokeV.objValue;
     }
 
-    public static void d(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bm6
+    /* renamed from: h */
+    public WebResourceResponse c(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) && jSONObject != null) {
-            try {
-                c(jSONObject.optString("wv_black_url_list", "[]"));
-                yl6.b(jSONObject.optString("wv_prefetch_config", "[]"));
-            } catch (Exception unused) {
-                rm6.b("newHybrid", "parseSupportUrlList error!");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, map)) == null) {
+            if (a() != null) {
+                return a().b(str, str2, map);
             }
+            return null;
         }
+        return (WebResourceResponse) invokeLLL.objValue;
     }
 
-    public static boolean e(String str) {
-        InterceptResult invokeL;
+    public void f(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            ij6 ij6Var = (ij6) ServiceManager.getService(ij6.a);
-            if (ij6Var == null || !ij6Var.a() || TextUtils.isEmpty(str) || str.contains("https://unknown-tmp/") || str.contains("https://ad-tmp/")) {
-                return false;
-            }
-            for (String str2 : a) {
-                if (str.contains(str2)) {
-                    return false;
-                }
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, map) == null) {
+            this.b.p(str, map);
         }
-        return invokeL.booleanValue;
     }
 }

@@ -1,49 +1,109 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"StaticFieldLeak"})
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class as4 extends ms4 {
+public class as4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile as4 d;
+    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public as4() {
-        super("aiapp_open_stat");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625735, "Lcom/baidu/tieba/as4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947625735, "Lcom/baidu/tieba/as4;");
                 return;
             }
         }
+        a = Arrays.asList("TAH-AN00", "TET-AN00");
     }
 
-    public static as4 e() {
+    public static int a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            double b = b(activity) * 0.5199999809265137d;
+            if (b < 1148.0d) {
+                return 1148;
+            }
+            return (int) b;
+        }
+        return invokeL.intValue;
+    }
+
+    public static double b(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (!c(activity)) {
+                return 0.0d;
+            }
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            return displayMetrics.widthPixels;
+        }
+        return invokeL.doubleValue;
+    }
+
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
+            if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (as4.class) {
-                    if (d == null) {
-                        d = new as4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            String str = Build.MANUFACTURER;
+            String str2 = Build.MODEL;
+            if (TextUtils.equals("HUAWEI", str) && !TextUtils.isEmpty(str2)) {
+                for (String str3 : a) {
+                    if (str2.contains(str3)) {
+                        return true;
                     }
                 }
             }
-            return d;
+            return false;
         }
-        return (as4) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            double d = displayMetrics.widthPixels;
+            double d2 = displayMetrics.heightPixels;
+            if (d == 0.0d || d2 == 0.0d || d2 / d >= 1.5d) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

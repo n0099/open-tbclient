@@ -1,44 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class cl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public cl8() {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return da5.p().l(da5.t(str), false);
         }
+        return invokeL.booleanValue;
     }
 
-    public void a(JSONObject jSONObject) {
+    public static void b(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.optInt("agree", 0);
-            jSONObject.optInt("replyme", 0);
-            jSONObject.optInt("atme", 0);
-            jSONObject.optInt("fans", 0);
-            jSONObject.optInt("pletter", 0);
-            jSONObject.optInt("bookmark", 0);
-        } catch (Exception e) {
-            BdLog.detailException(e);
+        if (interceptable == null || interceptable.invokeLZ(65537, null, str, z) == null) {
+            da5.p().A(da5.t(str), z);
         }
     }
 }

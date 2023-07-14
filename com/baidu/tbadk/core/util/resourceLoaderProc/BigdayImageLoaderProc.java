@@ -12,35 +12,35 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.ax5;
+import com.baidu.tieba.ey5;
 import com.baidu.tieba.fc;
-import com.baidu.tieba.in;
 import com.baidu.tieba.jc;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.rg;
+import com.baidu.tieba.jn;
+import com.baidu.tieba.qg;
 import com.baidu.tieba.sg;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class BigdayImageLoaderProc implements sg<in> {
+public class BigdayImageLoaderProc implements tg<jn> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public in m122decodeToResource(byte[] bArr, Object... objArr) {
+    public jn m122decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
             return null;
         }
-        return (in) invokeLL.objValue;
+        return (jn) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.sg
+    @Override // com.baidu.tieba.tg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class BigdayImageLoaderProc implements sg<in> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.sg
+    @Override // com.baidu.tieba.tg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public class BigdayImageLoaderProc implements sg<in> {
         }
     }
 
-    @Override // com.baidu.tieba.sg
+    @Override // com.baidu.tieba.tg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class BigdayImageLoaderProc implements sg<in> {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            jc jcVar = new jc(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(rg.h().g(str, 41)), DiskFileOperate.Action.INFO);
+            jc jcVar = new jc(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(sg.h().g(str, 41)), DiskFileOperate.Action.INFO);
             jcVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
             jcVar.setIsFormatData(false);
             jcVar.setSdCard(false);
@@ -109,11 +109,11 @@ public class BigdayImageLoaderProc implements sg<in> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.sg
-    public in getFromLocal(String str, String str2, int i, int i2, pg pgVar, Object... objArr) {
+    @Override // com.baidu.tieba.tg
+    public jn getFromLocal(String str, String str2, int i, int i2, qg qgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), pgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), qgVar, objArr})) == null) {
             byte[] bArr = new byte[0];
             jc jcVar = new jc(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.READ);
             jcVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
@@ -121,10 +121,10 @@ public class BigdayImageLoaderProc implements sg<in> {
             jcVar.setSavedCache(true);
             jcVar.setIsFormatData(false);
             jcVar.setLock(bArr);
-            if (pgVar != null) {
+            if (qgVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(jcVar);
-                pgVar.a = diskCancelWorker;
+                qgVar.a = diskCancelWorker;
             }
             boolean isWifiNet = BdNetTypeUtil.isWifiNet();
             if (!fc.f().a(jcVar)) {
@@ -148,25 +148,25 @@ public class BigdayImageLoaderProc implements sg<in> {
             if (bitmap == null) {
                 return null;
             }
-            return new in(bitmap, jcVar.isGif(), str2);
+            return new jn(bitmap, jcVar.isGif(), str2);
         }
-        return (in) invokeCommon.objValue;
+        return (jn) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.sg
-    public in getFromRemote(String str, String str2, int i, int i2, pg pgVar, Object... objArr) {
+    @Override // com.baidu.tieba.tg
+    public jn getFromRemote(String str, String str2, int i, int i2, qg qgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), pgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), qgVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            ax5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
+            ey5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
             WebClient webClient = new WebClient();
-            if (pgVar != null) {
-                pgVar.a = webClient;
+            if (qgVar != null) {
+                qgVar.a = webClient;
             }
             byte[] downloadImageBytes = webClient.downloadImageBytes(str, false);
             boolean needCache = webClient.needCache();
@@ -178,36 +178,36 @@ public class BigdayImageLoaderProc implements sg<in> {
                 jcVar.setSavedCache(true);
                 jcVar.setGif(false);
                 fc.f().a(jcVar);
-                if (pgVar != null) {
+                if (qgVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                     diskCancelWorker.setOperate(jcVar);
-                    pgVar.a = diskCancelWorker;
+                    qgVar.a = diskCancelWorker;
                 }
             }
             return null;
         }
-        return (in) invokeCommon.objValue;
+        return (jn) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.sg
-    public in getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tieba.tg
+    public jn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            return TbImageMemoryCache.u().w(str);
+            return TbImageMemoryCache.v().A(str);
         }
-        return (in) invokeCommon.objValue;
+        return (jn) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.sg
+    @Override // com.baidu.tieba.tg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof in)) {
-            in inVar = (in) obj;
-            if (inVar.u()) {
-                TbImageMemoryCache.u().l(str, inVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof jn)) {
+            jn jnVar = (jn) obj;
+            if (jnVar.u()) {
+                TbImageMemoryCache.v().m(str, jnVar);
             }
         }
     }

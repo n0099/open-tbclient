@@ -31,12 +31,12 @@ import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.tieba.da5;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.jp5;
-import com.baidu.tieba.m95;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.tka;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.nq5;
+import com.baidu.tieba.rta;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.y95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,14 +46,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MainTabActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
     public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,13 +122,13 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    m95.d((Activity) data);
+                    y95.d((Activity) data);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,10 +162,10 @@ public class MainTabActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            m95.f(tbPageContext.getPageActivity(), 1, true);
+                            y95.f(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            m95.f(tbPageContext.getPageActivity(), 2, true);
+                            y95.f(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
@@ -173,7 +173,7 @@ public class MainTabActivityStatic {
                         try {
                             Uri parse = Uri.parse(str);
                             if (parse != null && !StringUtils.isNull(parse.getQueryParameter("subTabIndex"))) {
-                                int e = vg.e(parse.getQueryParameter("subTabIndex"), 0);
+                                int e = wg.e(parse.getQueryParameter("subTabIndex"), 0);
                                 if (e == 1) {
                                     i = 18;
                                 } else {
@@ -198,7 +198,7 @@ public class MainTabActivityStatic {
                             i = -1;
                         }
                         if (i != -1) {
-                            m95.f(tbPageContext.getPageActivity(), i, true);
+                            y95.f(tbPageContext.getPageActivity(), i, true);
                             return 1;
                         }
                     }
@@ -217,7 +217,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -253,7 +253,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -287,15 +287,15 @@ public class MainTabActivityStatic {
                 return;
             }
             if (!data.booleanValue()) {
-                jp5.b().m(jp5.b().j());
-                jp5.b().c();
-            } else if (!jp5.b().i() && jp5.b().k()) {
-                jp5.b().o();
+                nq5.b().m(nq5.b().j());
+                nq5.b().c();
+            } else if (!nq5.b().i() && nq5.b().k()) {
+                nq5.b().o();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -329,15 +329,15 @@ public class MainTabActivityStatic {
                 return;
             }
             if (data.booleanValue()) {
-                jp5.b().m(jp5.b().j());
-                jp5.b().c();
-            } else if (!jp5.b().i() && jp5.b().k()) {
-                jp5.b().o();
+                nq5.b().m(nq5.b().j());
+                nq5.b().c();
+            } else if (!nq5.b().i() && nq5.b().k()) {
+                nq5.b().o();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class g implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -388,11 +388,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                tka.j(tbPageContext, "", forumWriteData);
+                                rta.j(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                tka.j(tbPageContext, str2, forumWriteData2);
+                                rta.j(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));
@@ -406,7 +406,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class h implements CustomMessageTask.CustomRunnable<MainTabActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -439,7 +439,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class i implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -473,7 +473,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class j implements CustomMessageTask.CustomRunnable<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -623,7 +623,7 @@ public class MainTabActivityStatic {
         if (b2 != a || c2 != b) {
             a = b2;
             b = c2;
-            r95.p().F("message_count", b2);
+            da5.p().F("message_count", b2);
             ChatTabUnreadCountData chatTabUnreadCountData = new ChatTabUnreadCountData();
             chatTabUnreadCountData.setCountNum(b2);
             chatTabUnreadCountData.setShowTip(c2);

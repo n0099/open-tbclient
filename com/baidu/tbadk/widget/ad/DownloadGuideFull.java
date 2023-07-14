@@ -24,10 +24,10 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import tbclient.TiebaPlusInfo;
 @Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 \u00182\u00020\u0001:\u0001\u0018B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u000b\u001a\u00020\fH\u0002J\u0010\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\u000fH\u0016J\b\u0010\u0010\u001a\u00020\fH\u0016J\u0010\u0010\u0011\u001a\u00020\f2\u0006\u0010\u0012\u001a\u00020\u0013H\u0016J\u0010\u0010\u0014\u001a\u00020\f2\u0006\u0010\u0015\u001a\u00020\u0016H\u0016J\b\u0010\u0017\u001a\u00020\fH\u0016R\u001b\u0010\u0005\u001a\u00020\u00068BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\t\u0010\n\u001a\u0004\b\u0007\u0010\b¨\u0006\u0019"}, d2 = {"Lcom/baidu/tbadk/widget/ad/DownloadGuideFull;", "Lcom/baidu/tbadk/widget/ad/AbsDownloadGuide;", "mContext", "Landroid/content/Context;", "(Landroid/content/Context;)V", "guideProgressView", "Lcom/baidu/tbadk/widget/ad/GuideProgressView;", "getGuideProgressView", "()Lcom/baidu/tbadk/widget/ad/GuideProgressView;", "guideProgressView$delegate", "Lkotlin/Lazy;", "initView", "", "installOrUnUpdateInfo", "installOrUnType", "", "onSkinChanged", "setData", "data", "Lcom/baidu/tbadk/core/data/ThreadData;", "updateInfo", "downloadData", "Lcom/baidu/tbadk/download/DownloadData;", "updateJustStart", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DownloadGuideFull extends AbsDownloadGuide {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int m = 2131167410;
+    public static final int m = 2131167433;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy l;
 
@@ -253,7 +253,7 @@ public final class DownloadGuideFull extends AbsDownloadGuide {
             ViewGroup.LayoutParams layoutParams = getGuideProgressView().getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = UtilHelper.getDimenPixelSize(m);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ez5
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.i06
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

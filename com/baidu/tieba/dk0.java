@@ -1,64 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class dk0 {
+public abstract class dk0 {
     public static /* synthetic */ Interceptable $ic;
-    public static fk0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947707296, "Lcom/baidu/tieba/dk0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947707296, "Lcom/baidu/tieba/dk0;");
-        }
-    }
+    @Nullable
+    public abstract String a();
+
+    public abstract String b();
+
+    public abstract boolean d(Context context, fk0 fk0Var, @Nullable Map<String, Object> map, @Nullable jk0 jk0Var);
 
     public dk0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static fk0 a() {
-        InterceptResult invokeV;
+    public void c(jk0 jk0Var, @Nullable fk0 fk0Var, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (dk0.class) {
-                    if (a == null) {
-                        a = (fk0) ServiceManager.getService(fk0.a);
-                    }
-                    if (a == null) {
-                        a = fk0.b;
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jk0Var, fk0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            ok0.b(jk0Var, fk0Var, i, z);
         }
-        return (fk0) invokeV.objValue;
     }
 }

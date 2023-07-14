@@ -10,9 +10,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.o88;
-import com.baidu.tieba.x98;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.jd8;
+import com.baidu.tieba.te8;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
 
     /* loaded from: classes8.dex */
     public interface a {
-        void a(View view2, o88 o88Var, int i);
+        void a(View view2, jd8 jd8Var, int i);
     }
 
     static {
@@ -51,8 +51,8 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
                 return;
             }
         }
-        e = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        f = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
+        e = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        f = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -76,11 +76,11 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public boolean b(o88 o88Var) {
+    public boolean b(jd8 jd8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o88Var)) == null) {
-            int b = o88Var.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jd8Var)) == null) {
+            int b = jd8Var.b();
             int i = this.d;
             if (b == i) {
                 return false;
@@ -89,7 +89,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
             if (gameContactsItemView != null) {
                 gameContactsItemView.a();
             }
-            int b2 = o88Var.b();
+            int b2 = jd8Var.b();
             this.d = b2;
             GameContactsItemView gameContactsItemView2 = this.a.get(Integer.valueOf(b2));
             if (gameContactsItemView2 != null) {
@@ -147,17 +147,17 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         d();
     }
 
-    public void a(@NonNull List<o88> list) {
+    public void a(@NonNull List<jd8> list) {
         ImMessageCenterPojo h;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             for (int i = 0; i < list.size(); i++) {
-                o88 o88Var = list.get(i);
-                GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(o88Var.b()));
+                jd8 jd8Var = list.get(i);
+                GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(jd8Var.b()));
                 if (gameContactsItemView != null) {
-                    gameContactsItemView.setGameMatchUser(o88Var);
+                    gameContactsItemView.setGameMatchUser(jd8Var);
                     gameContactsItemView.setVisibility(0);
-                    if (o88Var.b() != this.d && (h = x98.n().h(o88Var.d(), 2)) != null && h.getUnread_count() > 0) {
+                    if (jd8Var.b() != this.d && (h = te8.n().h(jd8Var.d(), 2)) != null && h.getUnread_count() > 0) {
                         gameContactsItemView.g(h.getUnread_count());
                     }
                 }
@@ -241,7 +241,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
             this.d = gameContactsItemView.getGameMatchUser().b();
             a aVar = this.b;
             if (aVar != null) {
-                o88 gameMatchUser = gameContactsItemView.getGameMatchUser();
+                jd8 gameMatchUser = gameContactsItemView.getGameMatchUser();
                 if (z) {
                     i = 2;
                 } else {

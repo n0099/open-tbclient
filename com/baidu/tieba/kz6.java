@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.easteregg.data.EasterEggAdData;
+import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public class kz6 {
+public final class kz6 implements fg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<lz6> a;
+    public final jz6 a;
 
     public kz6() {
         Interceptable interceptable = $ic;
@@ -26,42 +27,32 @@ public class kz6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+        Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
+        this.a = new jz6(inst);
     }
 
-    public List<lz6> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.fg5
+    public void parseJson(JSONObject json) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static kz6 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray("recommend_forum_info")) == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            try {
+                JSONObject optJSONObject2 = json.optJSONObject("floating_icon");
+                if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("easter_egg")) != null) {
+                    EasterEggAdDataHolder.b.a().c(EasterEggAdData.Companion.b(optJSONObject));
+                    jz6 jz6Var = this.a;
+                    String jSONObject = optJSONObject.toString();
+                    Intrinsics.checkNotNullExpressionValue(jSONObject, "easterEggJsonObject.toString()");
+                    jz6Var.c(jSONObject);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                arrayList.add(lz6.o(optJSONArray.optJSONObject(i)));
-            }
-            kz6 kz6Var = new kz6();
-            kz6Var.c(arrayList);
-            return kz6Var;
-        }
-        return (kz6) invokeL.objValue;
-    }
-
-    public void c(List<lz6> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
         }
     }
 }

@@ -25,7 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jkb;
+import com.baidu.tieba.gtb;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
@@ -124,7 +124,7 @@ public final class AssistActivity extends Activity {
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (str.startsWith(jkb.g(false))) {
+            if (str.startsWith(gtb.g(false))) {
                 try {
                     Intent intent = new Intent();
                     String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -167,7 +167,7 @@ public final class AssistActivity extends Activity {
                     e.printStackTrace();
                     return true;
                 }
-            } else if (!str.startsWith(jkb.g(true))) {
+            } else if (!str.startsWith(gtb.g(true))) {
                 return false;
             } else {
                 try {

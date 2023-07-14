@@ -1,13 +1,10 @@
 package com.baidu.tieba;
+
+import android.graphics.drawable.Animatable;
+import com.facebook.imagepipeline.image.ImageInfo;
 /* loaded from: classes6.dex */
 public interface k16 {
-    boolean a(String str);
+    void a(String str, ImageInfo imageInfo, Animatable animatable);
 
-    void b(int i);
-
-    boolean c(g16 g16Var);
-
-    void dismiss();
-
-    void show();
+    void b(String str, Throwable th);
 }

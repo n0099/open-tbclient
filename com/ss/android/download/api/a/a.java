@@ -20,17 +20,17 @@ public class a implements k {
         AlertDialog show = new AlertDialog.Builder(bVar.a).setTitle(bVar.b).setMessage(bVar.c).setPositiveButton(bVar.d, new DialogInterface.OnClickListener() { // from class: com.ss.android.download.api.a.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                b.InterfaceC0723b interfaceC0723b = com.ss.android.download.api.model.b.this.h;
-                if (interfaceC0723b != null) {
-                    interfaceC0723b.a(dialogInterface);
+                b.InterfaceC0728b interfaceC0728b = com.ss.android.download.api.model.b.this.h;
+                if (interfaceC0728b != null) {
+                    interfaceC0728b.a(dialogInterface);
                 }
             }
         }).setNegativeButton(bVar.e, new DialogInterface.OnClickListener() { // from class: com.ss.android.download.api.a.a.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                b.InterfaceC0723b interfaceC0723b = com.ss.android.download.api.model.b.this.h;
-                if (interfaceC0723b != null) {
-                    interfaceC0723b.b(dialogInterface);
+                b.InterfaceC0728b interfaceC0728b = com.ss.android.download.api.model.b.this.h;
+                if (interfaceC0728b != null) {
+                    interfaceC0728b.b(dialogInterface);
                 }
             }
         }).show();
@@ -38,9 +38,9 @@ public class a implements k {
         show.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.ss.android.download.api.a.a.3
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                b.InterfaceC0723b interfaceC0723b = com.ss.android.download.api.model.b.this.h;
-                if (interfaceC0723b != null) {
-                    interfaceC0723b.c(dialogInterface);
+                b.InterfaceC0728b interfaceC0728b = com.ss.android.download.api.model.b.this.h;
+                if (interfaceC0728b != null) {
+                    interfaceC0728b.c(dialogInterface);
                 }
             }
         });

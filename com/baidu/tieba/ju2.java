@@ -1,152 +1,103 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.face.platform.ConstPath;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tieba.e82;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ju2 extends iu2 {
+public class ju2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static e82.g b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ju2(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947895714, "Lcom/baidu/tieba/ju2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947895714, "Lcom/baidu/tieba/ju2;");
                 return;
             }
         }
+        a = fs1.a;
     }
 
-    @Override // com.baidu.tieba.mu2, com.baidu.tieba.lu2
-    public void a(String str, String str2) {
-        String str3;
+    public static void a(e82.g gVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && e(str)) {
-            boolean equals = TextUtils.equals(str2, "auto");
-            boolean equals2 = TextUtils.equals(str2, "api");
-            gu2 gu2Var = this.a;
-            String str4 = "1";
-            if (equals) {
-                str3 = "1";
-            } else {
-                str3 = "0";
-            }
-            gu2Var.g("autoPlay", str3);
-            gu2 gu2Var2 = this.a;
-            if (!equals2) {
-                str4 = "0";
-            }
-            gu2Var2.g("playMethod", str4);
+        if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
+            b = gVar;
         }
     }
 
-    @Override // com.baidu.tieba.iu2, com.baidu.tieba.mu2, com.baidu.tieba.lu2
-    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
-        String str;
-        long j;
-        long j2;
-        long j3;
-        long j4;
+    public static void b(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
-            UbcFlowEvent g = hybridUbcFlow.g("fe_slave_dispatch_start");
-            UbcFlowEvent g2 = hybridUbcFlow.g("fe_master_page_oninit_start");
-            UbcFlowEvent g3 = hybridUbcFlow.g("master_page_onload_start");
-            UbcFlowEvent g4 = hybridUbcFlow.g("video_fe_init");
-            UbcFlowEvent g5 = hybridUbcFlow.g("video_fe_init_end");
-            long j5 = 0;
-            if (g != null) {
-                gu2 gu2Var = this.a;
-                if (z) {
-                    j4 = g.g();
-                } else {
-                    j4 = 0;
-                }
-                gu2Var.i("fe_slave_dispatch_start", j4);
-            }
-            if (g2 != null) {
-                gu2 gu2Var2 = this.a;
-                if (z) {
-                    j3 = g2.g();
-                } else {
-                    j3 = 0;
-                }
-                gu2Var2.i("fe_master_page_oninit_start", j3);
-            }
-            if (g3 != null) {
-                gu2 gu2Var3 = this.a;
-                if (z) {
-                    j2 = g3.g();
-                } else {
-                    j2 = 0;
-                }
-                gu2Var3.i("master_page_onload_start", j2);
-            }
-            if (g4 != null) {
-                gu2 gu2Var4 = this.a;
-                if (z) {
-                    j = g4.g();
-                } else {
-                    j = 0;
-                }
-                gu2Var4.i("video_fe_init", j);
-            }
-            if (g5 != null) {
-                gu2 gu2Var5 = this.a;
-                if (z) {
-                    j5 = g5.g();
-                }
-                gu2Var5.i("video_fe_init_end", j5);
-            }
-            gu2 gu2Var6 = this.a;
-            if (z) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            gu2Var6.g("fmpArrived", str);
-            if (this.a.f()) {
-                this.a.k();
-                hu2.e();
-            }
+        if (interceptable == null || interceptable.invokeLI(65538, null, editText, i) == null) {
+            e(editText, ConstPath.KEY_BLUR, i);
         }
     }
 
-    @Override // com.baidu.tieba.mu2, com.baidu.tieba.lu2
-    public void c() {
+    public static void d(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.a.d("video_will_play")) {
-                this.a.h("video_play_cancel");
-            }
-            d();
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, editText, i) == null) {
+            e(editText, "confirm", i);
         }
     }
 
-    public final boolean e(String str) {
-        InterceptResult invokeL;
+    public static void f(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TextUtils.equals(this.b, str);
+        if (interceptable == null || interceptable.invokeLI(65542, null, editText, i) == null) {
+            e(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void c(f82 f82Var, EditText editText, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65539, null, f82Var, editText, i) == null) && editText != null && b != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("value", editText.getText());
+                jSONObject.put("eventName", "change");
+                jSONObject.put("cursorOffset", editText.getSelectionStart());
+                jSONObject.put("keyCode", i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            f82Var.j(editText.getText().toString());
+            f82Var.l(editText.getSelectionStart(), editText.getSelectionEnd());
+            b.a(String.valueOf(editText.getTag()), jSONObject);
+        }
+    }
+
+    public static void e(EditText editText, String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i) == null) && editText != null && b != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("value", editText.getText());
+                jSONObject.put("eventName", str);
+                jSONObject.put("cursorOffset", editText.getText().length());
+                jSONObject.put("keyboardHeight", "" + mp3.O(i));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            b.a(String.valueOf(editText.getTag()), jSONObject);
+        }
     }
 }

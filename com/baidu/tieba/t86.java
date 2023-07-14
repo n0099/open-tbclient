@@ -1,91 +1,58 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
+import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class t86 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes8.dex */
+public class t86 implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static boolean b;
-    public static boolean c;
-    public static long d;
-    public static String e;
-    public static long f;
-    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, long j) {
+    public t86() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST_SUCCESS_NOT_SHOW);
-            statisticItem.param("obj_source", str);
-            statisticItem.param("obj_type", "a064");
-            if (u86.b.equals(str)) {
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
-            statisticItem.param(TiebaStatic.Params.SPLASH_UNI, j);
-            TiebaStatic.log(statisticItem);
         }
     }
 
-    public static void b() {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && b && a && c) {
-            if (u86.b.equals(g)) {
-                a(u86.c, null, d);
-            } else {
-                a(u86.b, e, f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof GetContactListRequestMessage)) {
+                List<kg5> e = w86.f().e();
+                if (e != null) {
+                    Iterator<kg5> it = e.iterator();
+                    while (it.hasNext()) {
+                        kg5 next = it.next();
+                        if ((xi.isEmpty(next.e()) && xi.isEmpty(next.f())) || next.h() == 1) {
+                            it.remove();
+                        }
+                    }
+                }
+                GetContactListResponsedMessage getContactListResponsedMessage = new GetContactListResponsedMessage();
+                getContactListResponsedMessage.setContacts(e);
+                return getContactListResponsedMessage;
             }
-            c();
+            return null;
         }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            b = false;
-            a = false;
-            c = false;
-            d = 0L;
-            e = null;
-            f = 0L;
-            g = null;
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            c = true;
-            g = str;
-            b();
-        }
-    }
-
-    public static void e(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
-            a = true;
-            d = j;
-            b();
-        }
-    }
-
-    public static void f(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (i == 3 && !bw5.v()) {
-                return;
-            }
-            b = true;
-            e = bw5.m(i);
-            f = j;
-            b();
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

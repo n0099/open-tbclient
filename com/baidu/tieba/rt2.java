@@ -8,17 +8,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class rt2 extends wp2<nu2> {
+public class rt2 extends pp2<gu2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.wp2
+    @Override // com.baidu.tieba.pp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "goForeground" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setDataSource" : (String) invokeV.objValue;
     }
 
     public rt2() {
@@ -36,13 +37,25 @@ public class rt2 extends wp2<nu2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wp2
+    @Override // com.baidu.tieba.pp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull nu2 nu2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull gu2 gu2Var) {
+        Object obj;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, nu2Var) == null) {
-            nu2Var.b0();
-            d(nu2Var, command.what, null, false);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gu2Var) != null) || (obj = command.obj) == null) {
+            return;
         }
+        ArrayList arrayList = (ArrayList) obj;
+        if (command.arg1 != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        String str = (String) arrayList.get(0);
+        String f = rk3.l().f(str, (String) arrayList.get(1));
+        command.ret = gu2Var.O(str, f, (String) arrayList.get(2), z) ? 1 : 0;
+        String str2 = command.what;
+        d(gu2Var, str2, "DataSource: " + str + " ;UserAgent: " + ((String) arrayList.get(2)) + " ;Cookies: " + f + ";hideUrlLog: " + z, true);
     }
 }

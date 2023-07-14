@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes8.dex */
-public class z44 extends ej3 {
+public class z44 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile z44 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String k;
+    public List<b54> a;
 
     public z44() {
         Interceptable interceptable = $ic;
@@ -27,29 +28,50 @@ public class z44 extends ej3 {
                 return;
             }
         }
-        this.k = "";
+        this.a = new CopyOnWriteArrayList();
     }
 
-    @Override // com.baidu.tieba.ej3
-    public JSONObject f() {
+    public static z44 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
-            try {
-                this.h.put("error_code", this.k);
-            } catch (JSONException e) {
-                if (ej3.j) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (z44.class) {
+                    if (b == null) {
+                        b = new z44();
+                    }
                 }
             }
-            if (ej3.j) {
-                Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
-            }
-            return super.f();
+            return b;
         }
-        return (JSONObject) invokeV.objValue;
+        return (z44) invokeV.objValue;
+    }
+
+    public void a(b54 b54Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, b54Var) == null) && b54Var != null && !this.a.contains(b54Var)) {
+            this.a.add(b54Var);
+        }
+    }
+
+    public void d(b54 b54Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b54Var) == null) && this.a.contains(b54Var)) {
+            this.a.remove(b54Var);
+        }
+    }
+
+    public void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            for (b54 b54Var : this.a) {
+                if (i == 16) {
+                    b54Var.c();
+                } else if (i == 17) {
+                    b54Var.b(str);
+                }
+                d(b54Var);
+            }
+        }
     }
 }

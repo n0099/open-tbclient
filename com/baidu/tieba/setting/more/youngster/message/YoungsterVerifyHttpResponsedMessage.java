@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.more.youngster.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ew9;
+import com.baidu.tieba.f4a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ew9 mSearchMajorResultData;
+    public f4a mSearchMajorResultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public YoungsterVerifyHttpResponsedMessage() {
@@ -34,13 +34,13 @@ public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessag
         }
     }
 
-    public ew9 getData() {
+    public f4a getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mSearchMajorResultData;
         }
-        return (ew9) invokeV.objValue;
+        return (f4a) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -50,9 +50,9 @@ public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessag
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                ew9 ew9Var = new ew9();
-                this.mSearchMajorResultData = ew9Var;
-                ew9Var.a(optJSONObject);
+                f4a f4aVar = new f4a();
+                this.mSearchMajorResultData = f4aVar;
+                f4aVar.a(optJSONObject);
             }
         }
     }

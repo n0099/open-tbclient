@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class h extends com.kwad.sdk.mvp.a {
     @NonNull
     public KsScene fn;
@@ -46,7 +46,7 @@ public final class h extends com.kwad.sdk.mvp.a {
     public String yf;
     public boolean yg;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void b(@NonNull com.kwad.sdk.core.report.f fVar);
     }
@@ -64,7 +64,7 @@ public final class h extends com.kwad.sdk.mvp.a {
 
     public final void a(Context context, final int i, int i2, final a aVar) {
         final AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate);
-        com.kwad.components.core.c.a.a.a(new a.C0641a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i2).aj(false).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.h.2
+        com.kwad.components.core.c.a.a.a(new a.C0646a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i2).aj(false).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.h.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 String jC;
@@ -136,7 +136,7 @@ public final class h extends com.kwad.sdk.mvp.a {
             return null;
         }
         String jB = jB();
-        final ImageView imageView = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913d8);
+        final ImageView imageView = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913ec);
         Bitmap createBitmap = Bitmap.createBitmap(this.mRootContainer.getWidth(), this.mRootContainer.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         Bitmap bitmap = this.yc.ky().getBitmap();

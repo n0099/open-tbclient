@@ -6,7 +6,7 @@ import com.kwad.components.ad.reward.k;
 import com.kwad.components.ad.reward.presenter.e;
 import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.kwad.components.ad.reward.presenter.a implements View.OnClickListener, c, com.kwad.components.core.webview.b.d.b {
     public View sK;
     public final Runnable sL = new Runnable() { // from class: com.kwad.components.ad.reward.presenter.a.a.b.1
@@ -65,7 +65,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.sK = findViewById(R.id.obfuscated_res_0x7f09128e);
+        this.sK = findViewById(R.id.obfuscated_res_0x7f0912a2);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

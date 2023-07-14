@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
+import com.baidu.tieba.newinterest.model.InterestSelectionStyleAModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nc9 {
+public class nc9<V> implements xc9<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l9 a;
-    public NavigationBarCoverTip b;
-    public TextView c;
-    public int d;
+    public InterestSelectionStyleAModel a;
+    public gc9 b;
+    public BaseInterestSelectionFragment c;
 
-    public nc9(l9 l9Var, NavigationBarCoverTip navigationBarCoverTip) {
+    public nc9(BaseInterestSelectionFragment baseInterestSelectionFragment, gc9 gc9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l9Var, navigationBarCoverTip};
+            Object[] objArr = {baseInterestSelectionFragment, gc9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,48 +30,42 @@ public class nc9 {
                 return;
             }
         }
-        this.a = l9Var;
-        this.b = navigationBarCoverTip;
-        b();
+        this.c = baseInterestSelectionFragment;
+        this.b = gc9Var;
+        this.a = new InterestSelectionStyleAModel(gc9Var, this);
     }
 
-    public void a(String str) {
+    @Override // com.baidu.tieba.xc9
+    public void a(V v) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.b == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, v) == null) && (baseInterestSelectionFragment = this.c) != null) {
+            baseInterestSelectionFragment.I1();
         }
-        if (!wi.isEmpty(str) && this.d <= 0) {
-            this.b.setVisibility(0);
-            this.d++;
-            this.c.setText(str);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
-            this.b.removeAllViews();
-            this.b.addView(this.c);
-            this.b.k(this.a.getPageActivity(), 5000);
-            return;
-        }
-        c();
-        this.b.setVisibility(8);
     }
 
-    public final void b() {
+    public void b() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new TextView(this.a.getPageActivity());
-            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            this.c.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
-            this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
-            this.c.setGravity(19);
-            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
-            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
+            interestSelectionStyleAModel.onDestroy();
         }
     }
 
     public void c() {
-        NavigationBarCoverTip navigationBarCoverTip;
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (navigationBarCoverTip = this.b) != null) {
-            navigationBarCoverTip.i();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
+            interestSelectionStyleAModel.a0();
+        }
+    }
+
+    @Override // com.baidu.tieba.xc9
+    public void onError(int i, String str) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (baseInterestSelectionFragment = this.c) != null) {
+            baseInterestSelectionFragment.J1(str);
         }
     }
 }

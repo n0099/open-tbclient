@@ -1,5 +1,6 @@
 package com.baidu.tieba.newfaceshop.facemake;
 
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +42,7 @@ public class UploadFaceGroupResponseMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                this.mGroupId = jSONObject.optString("package_id");
+                this.mGroupId = jSONObject.optString(TableDefine.EmojiColumns.COLUMN_PACKAGE_ID);
             }
         }
     }

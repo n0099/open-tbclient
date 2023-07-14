@@ -23,7 +23,7 @@ import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.kb;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.mb;
-import com.baidu.tieba.xa8;
+import com.baidu.tieba.tf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,20 +48,20 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
 
     /* loaded from: classes6.dex */
     public interface e {
-        void P(UserInfoBigVip userInfoBigVip, boolean z);
+        void O(UserInfoBigVip userInfoBigVip, boolean z);
 
-        void T0(boolean z);
+        void R0(boolean z);
 
         void onFailed(String str);
 
-        void u1(boolean z);
+        void r1(boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -112,10 +112,10 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                 this.a.f = true;
                 if (this.a.a != null && this.a.c != null) {
                     if (responsedMessage == null) {
-                        this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e0f));
+                        this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e1f));
                     } else if (responsedMessage.getError() != 0) {
                         if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                            this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e0f));
+                            this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e1f));
                         } else {
                             this.a.c.onFailed(responsedMessage.getErrorString());
                         }
@@ -124,14 +124,14 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                             RecommendDetailHttpResponseMessage recommendDetailHttpResponseMessage = (RecommendDetailHttpResponseMessage) responsedMessage;
                             if (recommendDetailHttpResponseMessage.getDetailInfo() != null) {
                                 this.a.e = true;
-                                this.a.c.P(recommendDetailHttpResponseMessage.getDetailInfo(), true);
+                                this.a.c.O(recommendDetailHttpResponseMessage.getDetailInfo(), true);
                             }
                         }
                         if (responsedMessage instanceof RecommendDetailSocketResponseMessage) {
                             RecommendDetailSocketResponseMessage recommendDetailSocketResponseMessage = (RecommendDetailSocketResponseMessage) responsedMessage;
                             if (recommendDetailSocketResponseMessage.getDetailInfo() != null) {
                                 this.a.e = true;
-                                this.a.c.P(recommendDetailSocketResponseMessage.getDetailInfo(), true);
+                                this.a.c.O(recommendDetailSocketResponseMessage.getDetailInfo(), true);
                             }
                         }
                     }
@@ -184,28 +184,28 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             if (requestUpdateMaskInfoMessage.getMaskType() == 6 && this.a.a != null && this.a.c != null) {
                 if (responseUpdateMaskInfoMessage.getError() != 0) {
                     if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
                     } else {
                         this.a.a.showToast(responseUpdateMaskInfoMessage.getErrorString());
                     }
                     if (requestUpdateMaskInfoMessage.getMute()) {
-                        this.a.b.A1(requestUpdateMaskInfoMessage.isMuteNotifications());
+                        this.a.b.x1(requestUpdateMaskInfoMessage.isMuteNotifications());
                         return;
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        this.a.c.T0(false);
+                        this.a.c.R0(false);
                         return;
                     } else {
-                        this.a.c.u1(false);
+                        this.a.c.r1(false);
                         return;
                     }
                 }
                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                    this.a.c.T0(true);
+                    this.a.c.R0(true);
                 } else {
-                    this.a.c.u1(true);
+                    this.a.c.r1(true);
                 }
                 if (requestUpdateMaskInfoMessage.getMaskType() == 6) {
-                    this.a.e0(requestUpdateMaskInfoMessage.isMuteNotifications());
+                    this.a.f0(requestUpdateMaskInfoMessage.isMuteNotifications());
                 }
             }
         }
@@ -247,12 +247,12 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     UserInfoBigVip userInfoBigVip = (UserInfoBigVip) customResponsedMessage.getData();
                     if (this.a.c != null && userInfoBigVip != null) {
                         this.a.e = true;
-                        this.a.c.P(userInfoBigVip, false);
+                        this.a.c.O(userInfoBigVip, false);
                     }
-                    this.a.h0();
+                    this.a.i0();
                     return;
                 }
-                this.a.h0();
+                this.a.i0();
             }
         }
     }
@@ -289,7 +289,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                xa8.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.g), this.a);
+                tf8.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.g), this.a);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -324,10 +324,10 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         this.c = eVar;
         MessageManager.getInstance().registerListener(this.h);
         MessageManager.getInstance().registerListener(this.i);
-        f0();
+        g0();
     }
 
-    public void g0(long j) {
+    public void h0(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
             this.g = j;
@@ -335,14 +335,14 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         }
     }
 
-    public void i0(boolean z) {
+    public void j0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.d = z;
         }
     }
 
-    public boolean b0() {
+    public boolean c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -351,16 +351,16 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         return invokeV.booleanValue;
     }
 
-    public boolean c0() {
+    public boolean d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean d0() {
+    public boolean e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -369,14 +369,14 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         return invokeV.booleanValue;
     }
 
-    public final void f0() {
+    public final void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             registerListener(new b(this, 104102));
         }
     }
 
-    public final void h0() {
+    public final void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             RecommendDetailRequestMessage recommendDetailRequestMessage = new RecommendDetailRequestMessage();
@@ -393,19 +393,19 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         }
     }
 
-    public void e0(boolean z) {
+    public void f0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            boolean c0 = c0();
-            i0(z);
+            boolean d0 = d0();
+            j0(z);
             new d(this, !z).execute(new Void[0]);
-            if (c0 != c0()) {
+            if (d0 != d0()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(2));
             }
         }
     }
 
-    public void j0(int i, boolean z) {
+    public void k0(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();

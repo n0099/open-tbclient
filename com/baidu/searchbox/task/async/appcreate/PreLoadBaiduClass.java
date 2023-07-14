@@ -20,7 +20,7 @@ public class PreLoadBaiduClass extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         try {
-            Class.forName("com.baidu.tieba.yl1");
+            Class.forName("com.baidu.tieba.rl1");
         } catch (ClassNotFoundException e) {
             Log.e(LaunchTask.TAG, "preLoadClass exception " + e.toString());
             e.printStackTrace();
@@ -44,7 +44,7 @@ public class PreLoadBaiduClass extends LaunchTask {
             e4.printStackTrace();
         }
         try {
-            Class.forName("com.baidu.tieba.e7a");
+            Class.forName("com.baidu.tieba.pfa");
         } catch (ClassNotFoundException e5) {
             Log.e(LaunchTask.TAG, "preLoadClass exception " + e5.toString());
             e5.printStackTrace();

@@ -1,91 +1,57 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.ImShareCardCommonData;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActHot;
 /* loaded from: classes6.dex */
 public class kca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    public static String a(l9 l9Var, String str) {
-        InterceptResult invokeLL;
+    public kca() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, l9Var, str)) == null) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    sb.append(jSONArray.optJSONObject(i).optString("src"));
-                }
-                return sb.toString();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return l9Var.getString(R.string.pic_str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String b(l9 l9Var, ChatMessage chatMessage) {
-        InterceptResult invokeLL;
-        String string;
-        ImShareCardCommonData c;
+    public void a(ActHot actHot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, l9Var, chatMessage)) == null) {
-            int msgType = chatMessage.getMsgType();
-            String str = "";
-            if (msgType != 1) {
-                if (msgType != 2) {
-                    if (msgType != 3) {
-                        if (msgType != 30) {
-                            if (msgType != 32) {
-                                if (msgType != 33) {
-                                    if (msgType != 37) {
-                                        if (msgType == 38 && (c = gc8.c(chatMessage)) != null) {
-                                            if (c.getType() == 1) {
-                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_topic_share);
-                                            } else if (c.getType() == 2) {
-                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_compilation_share);
-                                            }
-                                        }
-                                    } else {
-                                        str = l9Var.getString(R.string.last_msg_chatroom_share);
-                                    }
-                                } else {
-                                    str = l9Var.getString(R.string.last_msg_forum_share);
-                                }
-                            } else {
-                                str = l9Var.getString(R.string.last_msg_thread_share);
-                            }
-                        }
-                    } else {
-                        str = l9Var.getString(R.string.voice_str);
-                    }
-                } else {
-                    str = a(l9Var, chatMessage.getContent());
-                }
-                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
-                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
-                        string = l9Var.getString(R.string.private_message_report_person);
-                    } else {
-                        string = l9Var.getString(R.string.private_message_is_report_name);
-                    }
-                    return string + chatMessage.getToUserInfo().getUserName() + l9Var.getString(R.string.private_message_report_content) + str;
-                }
-                return l9Var.getString(R.string.private_message_is_report_name);
-            }
-            str = chatMessage.getContent();
-            if (chatMessage == null) {
-            }
-            return l9Var.getString(R.string.private_message_is_report_name);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, actHot) != null) || actHot == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        String str = actHot.bsize;
+        if (str != null) {
+            try {
+                String[] split = str.split(",");
+                this.a = wg.e(split[0], 1);
+                this.b = wg.e(split[1], 1);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+        if (this.a <= 0) {
+            this.a = 1;
+        }
+        if (this.b <= 0) {
+            this.b = 1;
+        }
+        String str2 = actHot.img_src;
+        String str3 = actHot.link;
+        String str4 = actHot.author_name;
+        String str5 = actHot.img_des;
+        actHot.img_type.intValue();
     }
 }

@@ -1,32 +1,20 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
-import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.aperf.param.IAperfOverlayContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class a5a {
+public class a5a implements IAperfOverlayContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<b5a> a;
-    public final i5a b;
 
     public a5a() {
         Interceptable interceptable = $ic;
@@ -38,159 +26,17 @@ public class a5a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new i5a();
     }
 
-    public boolean b() {
+    @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
+    public String getAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.isEmpty();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbConfig.getVersion();
         }
-        return invokeV.booleanValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public void a(b5a b5aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, b5aVar) != null) || b5aVar == null) {
-            return;
-        }
-        this.a.add(b5aVar);
-        if (b5aVar.getClass().getAnnotation(kp.class) != null) {
-            try {
-                this.b.a((d5a) Class.forName("com.baidu.tieba.h5power." + b5aVar.getClass().getSimpleName() + d5a.PROXY_CLASS_NAME_SUFFIX).getConstructor(b5aVar.getClass()).newInstance(b5aVar));
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-        }
-    }
-
-    public boolean c(WebView webView, String str, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, jsPromptResult)) == null) {
-            if (str.startsWith("tiebaapp")) {
-                f(webView, str);
-                return false;
-            }
-            return d(str, jsPromptResult);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final boolean g(TbPageContext<?> tbPageContext, String str, f5a f5aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, str, f5aVar)) == null) {
-            if (f5aVar == null || f5aVar.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
-                return false;
-            }
-            f5aVar.s(true);
-            f5aVar.z(0);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public void i(WebView webView, String str, @Nullable HashMap hashMap) {
-        i5a i5aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str, hashMap) != null) || (i5aVar = this.b) == null) {
-            return;
-        }
-        this.b.e(webView, i5aVar.f(webView, str, hashMap));
-    }
-
-    public boolean d(String str, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, jsPromptResult)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            try {
-                ew8 hybridLog = HybridLog.getInstance();
-                hybridLog.c("JsBridge", "processJSON json:" + str);
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("interfaceName");
-                String optString2 = jSONObject.optString("methodName");
-                String optString3 = jSONObject.optString("param");
-                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
-                    return e(optString, optString2, optString3, jsPromptResult);
-                }
-                ew8 hybridLog2 = HybridLog.getInstance();
-                hybridLog2.b("JsBridge", "processJSON fail interfaceName:" + optString + " methodName:" + optString2 + " params:" + optString3);
-                return false;
-            } catch (JSONException e) {
-                ew8 hybridLog3 = HybridLog.getInstance();
-                hybridLog3.b("JsBridge", "processJSON JSONException:" + e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void f(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, webView, str) != null) || this.b == null) {
-            return;
-        }
-        ew8 hybridLog = HybridLog.getInstance();
-        hybridLog.c("JsBridge", "processScheme scheme:" + str);
-        h5a h5aVar = new h5a();
-        f5a f5aVar = new f5a();
-        String a = j5a.a(str);
-        h5aVar.f(a);
-        String d = j5a.d(str);
-        h5aVar.h(d);
-        String b = j5a.b(str);
-        f5aVar.w(b);
-        if (wi.isEmpty(a) || wi.isEmpty(d) || wi.isEmpty(b)) {
-            f5aVar.z(101);
-        }
-        try {
-            h5aVar.j(j5a.f(str));
-        } catch (JSONException unused) {
-            h5aVar.j(new JSONObject());
-            f5aVar.z(101);
-        }
-        h5aVar.i(j5a.e(str));
-        h5aVar.g(j5a.c(str));
-        f5a c = this.b.c(h5aVar, f5aVar);
-        if (c.g()) {
-            this.b.d(webView, c);
-        } else {
-            g(q2a.c(webView.getContext()), str, c);
-        }
-    }
-
-    public final boolean e(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, jsPromptResult)) == null) {
-            if (ListUtils.getCount(this.a) > 0) {
-                Iterator<b5a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    b5a next = it.next();
-                    if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

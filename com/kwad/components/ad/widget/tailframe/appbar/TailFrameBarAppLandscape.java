@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TailFrameBarAppLandscape extends a {
     public TailFrameBarAppLandscape(Context context) {
         this(context, null);
@@ -20,6 +20,6 @@ public class TailFrameBarAppLandscape extends a {
 
     @Override // com.kwad.components.ad.widget.tailframe.appbar.a
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d04e3;
+        return R.layout.obfuscated_res_0x7f0d04ee;
     }
 }

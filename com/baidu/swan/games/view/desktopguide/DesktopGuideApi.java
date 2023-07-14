@@ -19,32 +19,32 @@ import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.menu.PopupWindow;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cc3;
-import com.baidu.tieba.ef4;
-import com.baidu.tieba.ff4;
-import com.baidu.tieba.j42;
-import com.baidu.tieba.kk3;
-import com.baidu.tieba.mj2;
-import com.baidu.tieba.ms1;
-import com.baidu.tieba.n02;
+import com.baidu.tieba.c42;
+import com.baidu.tieba.dk3;
+import com.baidu.tieba.fj2;
+import com.baidu.tieba.fs1;
+import com.baidu.tieba.g02;
+import com.baidu.tieba.he4;
+import com.baidu.tieba.ih3;
+import com.baidu.tieba.jk3;
+import com.baidu.tieba.mp3;
 import com.baidu.tieba.oe4;
-import com.baidu.tieba.ph3;
-import com.baidu.tieba.qk3;
-import com.baidu.tieba.tp3;
-import com.baidu.tieba.ve4;
-import com.baidu.tieba.vi3;
-import com.baidu.tieba.wp3;
-import com.baidu.tieba.zw2;
+import com.baidu.tieba.oi3;
+import com.baidu.tieba.pp3;
+import com.baidu.tieba.sw2;
+import com.baidu.tieba.vb3;
+import com.baidu.tieba.xe4;
+import com.baidu.tieba.ye4;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes4.dex */
-public class DesktopGuideApi implements ff4 {
-    public static final boolean n = ms1.a;
-    public volatile j42 b;
+public class DesktopGuideApi implements ye4 {
+    public static final boolean n = fs1.a;
+    public volatile c42 b;
     public volatile DesktopGuideType c;
     public PopupWindow d;
     public Runnable e;
     public AtomicBoolean f = new AtomicBoolean(false);
-    public ve4 g;
+    public oe4 g;
     public volatile long h;
     public volatile long i;
     public volatile long j;
@@ -53,11 +53,11 @@ public class DesktopGuideApi implements ff4 {
     public long m;
 
     /* loaded from: classes4.dex */
-    public class a implements n02.a {
+    public class a implements g02.a {
         public a() {
         }
 
-        @Override // com.baidu.tieba.n02.a
+        @Override // com.baidu.tieba.g02.a
         public void b(int i) {
             if (i != 0 || DesktopGuideApi.this.d == null || !DesktopGuideApi.this.d.y()) {
                 return;
@@ -66,7 +66,7 @@ public class DesktopGuideApi implements ff4 {
             DesktopGuideApi.this.o(DesktopApiStatus.USER_CANCEL);
         }
 
-        @Override // com.baidu.tieba.n02.a
+        @Override // com.baidu.tieba.g02.a
         public void a() {
             if (DesktopGuideApi.this.d != null && DesktopGuideApi.this.d.y()) {
                 DesktopGuideApi.this.p();
@@ -90,13 +90,13 @@ public class DesktopGuideApi implements ff4 {
     /* loaded from: classes4.dex */
     public class c implements Runnable {
         public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ cc3 b;
+        public final /* synthetic */ vb3 b;
         public final /* synthetic */ String c;
         public final /* synthetic */ Bitmap d;
 
-        public c(SwanAppActivity swanAppActivity, cc3 cc3Var, String str, Bitmap bitmap) {
+        public c(SwanAppActivity swanAppActivity, vb3 vb3Var, String str, Bitmap bitmap) {
             this.a = swanAppActivity;
-            this.b = cc3Var;
+            this.b = vb3Var;
             this.c = str;
             this.d = bitmap;
         }
@@ -120,19 +120,19 @@ public class DesktopGuideApi implements ff4 {
         public void onClick(View view2) {
             DesktopGuideApi.this.p();
             DesktopGuideApi.this.o(DesktopApiStatus.USER_CANCEL);
-            vi3.f(this.a.ubcType, "flow_close_close", "click");
+            oi3.f(this.a.ubcType, "flow_close_close", "click");
         }
     }
 
     /* loaded from: classes4.dex */
     public class e implements View.OnClickListener {
         public final /* synthetic */ Activity a;
-        public final /* synthetic */ cc3 b;
+        public final /* synthetic */ vb3 b;
         public final /* synthetic */ DesktopGuideType c;
 
-        public e(Activity activity, cc3 cc3Var, DesktopGuideType desktopGuideType) {
+        public e(Activity activity, vb3 vb3Var, DesktopGuideType desktopGuideType) {
             this.a = activity;
-            this.b = cc3Var;
+            this.b = vb3Var;
             this.c = desktopGuideType;
         }
 
@@ -146,7 +146,7 @@ public class DesktopGuideApi implements ff4 {
             } else {
                 str = "flow_add";
             }
-            vi3.f(this.c.ubcType, str, "click");
+            oi3.f(this.c.ubcType, str, "click");
         }
     }
 
@@ -176,14 +176,14 @@ public class DesktopGuideApi implements ff4 {
     }
 
     /* loaded from: classes4.dex */
-    public class h implements ph3.f {
-        public final /* synthetic */ cc3 a;
+    public class h implements ih3.f {
+        public final /* synthetic */ vb3 a;
 
-        public h(cc3 cc3Var) {
-            this.a = cc3Var;
+        public h(vb3 vb3Var) {
+            this.a = vb3Var;
         }
 
-        @Override // com.baidu.tieba.ph3.f
+        @Override // com.baidu.tieba.ih3.f
         public void a(int i) {
             DesktopApiStatus desktopApiStatus;
             String str;
@@ -204,7 +204,7 @@ public class DesktopGuideApi implements ff4 {
                 str = "desk_notknown";
             }
             DesktopGuideApi.this.o(desktopApiStatus);
-            vi3.f(DesktopGuideApi.this.c.ubcType, str, "click");
+            oi3.f(DesktopGuideApi.this.c.ubcType, str, "click");
         }
     }
 
@@ -212,9 +212,9 @@ public class DesktopGuideApi implements ff4 {
     public final void p() {
         Runnable runnable = this.e;
         if (runnable != null) {
-            wp3.d0(runnable);
+            pp3.d0(runnable);
         }
-        wp3.e0(new g());
+        pp3.e0(new g());
     }
 
     public final void q() {
@@ -225,7 +225,7 @@ public class DesktopGuideApi implements ff4 {
         if (this.g != null) {
             return;
         }
-        ve4 c2 = ve4.c();
+        oe4 c2 = oe4.c();
         this.g = c2;
         if (c2 != null) {
             c2.a(new a());
@@ -233,7 +233,7 @@ public class DesktopGuideApi implements ff4 {
     }
 
     public final void x() {
-        kk3 a2 = qk3.a();
+        dk3 a2 = jk3.a();
         this.k = a2.getLong("swan_favorite_guide_duration", 3L);
         this.l = a2.getLong("swan_favorite_guide_intervalDays", 3L);
         this.m = a2.getLong("swan_favorite_guide_maxTimes", 3L);
@@ -268,8 +268,8 @@ public class DesktopGuideApi implements ff4 {
 
     /* loaded from: classes4.dex */
     public enum DesktopGuideType {
-        BAR("bar", -1, 992, "desk_flow", R.string.obfuscated_res_0x7f0f157a),
-        BAR_AUTOHIDE("bar-autohide", -1, 865, "desk_flow_close", R.string.obfuscated_res_0x7f0f157a);
+        BAR("bar", -1, 992, "desk_flow", R.string.obfuscated_res_0x7f0f1590),
+        BAR_AUTOHIDE("bar-autohide", -1, 865, "desk_flow_close", R.string.obfuscated_res_0x7f0f1590);
         
         @StringRes
         public int defaultText;
@@ -297,7 +297,7 @@ public class DesktopGuideApi implements ff4 {
         }
     }
 
-    public DesktopGuideApi(mj2 mj2Var) {
+    public DesktopGuideApi(fj2 fj2Var) {
         x();
         q();
     }
@@ -305,24 +305,24 @@ public class DesktopGuideApi implements ff4 {
     @AnyThread
     public final void o(DesktopApiStatus desktopApiStatus) {
         if (this.b != null) {
-            oe4.call(this.b, desktopApiStatus.success, new ef4(desktopApiStatus.statusCode, desktopApiStatus.statusMsg));
+            he4.call(this.b, desktopApiStatus.success, new xe4(desktopApiStatus.statusCode, desktopApiStatus.statusMsg));
         }
     }
 
-    public final void m(@NonNull Context context, @NonNull cc3 cc3Var) {
-        zw2.a Y = cc3Var.Y();
+    public final void m(@NonNull Context context, @NonNull vb3 vb3Var) {
+        sw2.a Y = vb3Var.Y();
         if (Y == null) {
             o(DesktopApiStatus.EXEC_FAILURE);
         } else {
-            ph3.k(context, Y, new h(cc3Var));
+            ih3.k(context, Y, new h(vb3Var));
         }
     }
 
     public final void n(ViewGroup viewGroup, DesktopGuideType desktopGuideType) {
         ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
         int i = desktopGuideType.showWidth4px;
-        int g2 = tp3.g(7.0f);
-        int o = tp3.o(null);
+        int g2 = mp3.g(7.0f);
+        int o = mp3.o(null);
         int i2 = g2 * 2;
         if (o - i < i2) {
             i = o - i2;
@@ -331,15 +331,15 @@ public class DesktopGuideApi implements ff4 {
         viewGroup.setLayoutParams(layoutParams);
     }
 
-    public final boolean s(@NonNull Context context, @NonNull cc3 cc3Var) {
-        if (ph3.s(context, cc3Var.Z(), cc3Var.b) == 1) {
+    public final boolean s(@NonNull Context context, @NonNull vb3 vb3Var) {
+        if (ih3.s(context, vb3Var.Z(), vb3Var.b) == 1) {
             return true;
         }
         return false;
     }
 
     public final void t(@NonNull String str) {
-        String string = qk3.a().getString(str, "");
+        String string = jk3.a().getString(str, "");
         String[] split = string.split("#");
         if (split.length == 3 && TextUtils.isDigitsOnly(split[0]) && TextUtils.isDigitsOnly(split[1]) && TextUtils.isDigitsOnly(split[2])) {
             this.h = Long.parseLong(split[0]);
@@ -351,18 +351,18 @@ public class DesktopGuideApi implements ff4 {
         }
     }
 
-    public final void u(@NonNull cc3 cc3Var, long j, long j2, long j3) {
-        kk3 a2 = qk3.a();
-        a2.putString("desktop_guide_count_" + cc3Var.b, j + "#" + j2 + "#" + j3);
+    public final void u(@NonNull vb3 vb3Var, long j, long j2, long j3) {
+        dk3 a2 = jk3.a();
+        a2.putString("desktop_guide_count_" + vb3Var.b, j + "#" + j2 + "#" + j3);
     }
 
     public void v(JsObject jsObject) {
-        j42 F = j42.F(jsObject);
+        c42 F = c42.F(jsObject);
         if (F == null) {
-            F = new j42();
+            F = new c42();
         }
         this.b = F;
-        cc3 M = cc3.M();
+        vb3 M = vb3.M();
         if (M == null) {
             o(DesktopApiStatus.EXEC_FAILURE);
             return;
@@ -390,51 +390,51 @@ public class DesktopGuideApi implements ff4 {
             }
             this.f.set(true);
             u(M, 1 + this.h, currentTimeMillis, 0L);
-            wp3.e0(new c(w, M, B, wp3.i(M.Y(), "ShowAddToDesktopGuide", false)));
+            pp3.e0(new c(w, M, B, pp3.i(M.Y(), "ShowAddToDesktopGuide", false)));
             return;
         }
         o(DesktopApiStatus.REACH_MAX_TIMES);
     }
 
     @UiThread
-    public final void w(@NonNull Activity activity, @NonNull cc3 cc3Var, @NonNull DesktopGuideType desktopGuideType, @NonNull String str, Bitmap bitmap) {
+    public final void w(@NonNull Activity activity, @NonNull vb3 vb3Var, @NonNull DesktopGuideType desktopGuideType, @NonNull String str, Bitmap bitmap) {
         Runnable runnable;
         r();
-        ve4 ve4Var = this.g;
-        if (ve4Var != null) {
-            ve4Var.b(1);
+        oe4 oe4Var = this.g;
+        if (oe4Var != null) {
+            oe4Var.b(1);
         }
-        View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00a9, (ViewGroup) null, false);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad8);
+        View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00a8, (ViewGroup) null, false);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ae2);
         if (desktopGuideType.limit != -1 && str.length() > desktopGuideType.limit) {
             str = str.substring(0, desktopGuideType.limit - 1) + "...";
         }
         textView.setText(str);
-        n((ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090ad7), desktopGuideType);
-        ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad9);
+        n((ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090ae1), desktopGuideType);
+        ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ae3);
         if (bitmap != null) {
             imageView.setImageBitmap(bitmap);
         } else {
             imageView.setImageResource(R.drawable.obfuscated_res_0x7f080159);
         }
-        ImageView imageView2 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad6);
+        ImageView imageView2 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ae0);
         if (desktopGuideType == DesktopGuideType.BAR_AUTOHIDE) {
             imageView2.setVisibility(8);
         } else {
             imageView2.setOnClickListener(new d(desktopGuideType));
         }
-        Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090ad4);
+        Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090ade);
         button.setText(R.string.obfuscated_res_0x7f0f0195);
-        button.setOnClickListener(new e(activity, cc3Var, desktopGuideType));
+        button.setOnClickListener(new e(activity, vb3Var, desktopGuideType));
         PopupWindow popupWindow = new PopupWindow(inflate, -1, -2);
         this.d = popupWindow;
         popupWindow.M(16);
-        this.d.P(activity.getWindow().getDecorView(), 81, 0, tp3.g(50.0f));
+        this.d.P(activity.getWindow().getDecorView(), 81, 0, mp3.g(50.0f));
         this.d.J(new f());
         if (desktopGuideType == DesktopGuideType.BAR_AUTOHIDE && (runnable = this.e) != null) {
-            wp3.d0(runnable);
-            wp3.b0(this.e, this.k * 1000);
+            pp3.d0(runnable);
+            pp3.b0(this.e, this.k * 1000);
         }
-        vi3.f(desktopGuideType.ubcType, ff4.a, "show");
+        oi3.f(desktopGuideType.ubcType, ye4.a, "show");
     }
 }

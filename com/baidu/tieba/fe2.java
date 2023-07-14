@@ -2,14 +2,29 @@ package com.baidu.tieba;
 
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.ee2;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface fe2<T extends ee2> extends ge2<T> {
-    void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo);
+public class fe2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public PMSAppInfo b;
+    public PrefetchEvent.c c;
 
-    void d(cm2 cm2Var);
-
-    boolean i();
-
-    void j(boolean z, ne2 ne2Var);
+    public fe2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

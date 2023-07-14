@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public Object oR;
     public AdTemplate oS;

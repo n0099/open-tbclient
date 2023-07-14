@@ -1,21 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.model.AdBaseModel;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface ke1 {
-    void a(AdBaseModel adBaseModel);
+public class ke1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(AdBaseModel adBaseModel);
+    public abstract void a(String str);
 
-    void c(AdBaseModel adBaseModel);
+    public abstract void b(@NonNull ls0 ls0Var);
 
-    void d(AdBaseModel adBaseModel);
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
-    void e(AdBaseModel adBaseModel, String str);
+    public abstract void d();
 
-    void f(AdBaseModel adBaseModel);
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
 
-    void g(boolean z, AdBaseModel adBaseModel);
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
 
-    void h(AdBaseModel adBaseModel);
+    public ke1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

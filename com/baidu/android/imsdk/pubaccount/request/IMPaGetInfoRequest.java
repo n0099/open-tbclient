@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -216,7 +217,13 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                                     paInfo.setPaExt(optString);
                                     if (!TextUtils.isEmpty(optString)) {
                                         try {
-                                            paInfo.setSubsetType(new JSONObject(optString).optInt(Constants.EXTRA_SUB_PA_TYPE, 0));
+                                            JSONObject jSONObject3 = new JSONObject(optString);
+                                            paInfo.setSubsetType(jSONObject3.optInt(Constants.EXTRA_SUB_PA_TYPE, 0));
+                                            if (jSONObject3.has("default_do_not_disturb")) {
+                                                if (!Utility.readBooleanData(this.mContext, Utility.readUid(this.mContext) + "_" + paInfo.getPaId(), false)) {
+                                                    paInfo.setDisturb(jSONObject3.optInt("default_do_not_disturb"));
+                                                }
+                                            }
                                         } catch (JSONException e) {
                                             LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e);
                                         }

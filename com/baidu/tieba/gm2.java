@@ -1,25 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.en2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public class gm2 extends cm2 {
+import java.io.File;
+/* loaded from: classes6.dex */
+public abstract class gm2<T extends en2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
+    @NonNull
+    public T a;
 
-    public gm2() {
+    public gm2(@NonNull T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,22 +31,25 @@ public class gm2 extends cm2 {
                 return;
             }
         }
-        this.a = "route";
+        this.a = t;
     }
 
-    @Override // com.baidu.tieba.cm2
-    public void m(Map<String, Object> map) {
+    @NonNull
+    public File b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("fromId", this.c);
-            map.put("toId", this.d);
-            map.put("toTabIndex", this.g);
-            if (!TextUtils.isEmpty(this.e)) {
-                map.put("routeType", this.e);
-            }
-            if (!TextUtils.isEmpty(this.f)) {
-                map.put("toPage", this.f);
-            }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return new File(a(), String.valueOf(j));
         }
+        return (File) invokeJ.objValue;
+    }
+
+    public File a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.f();
+        }
+        return (File) invokeV.objValue;
     }
 }

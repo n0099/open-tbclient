@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,21 +10,68 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class w92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public JSONArray g;
+    public Context a;
+    public b b;
+    public c c;
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        void onConnected();
+    }
+
+    /* loaded from: classes8.dex */
+    public interface c {
+        void start();
+
+        void stop();
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w92 a;
+
+        public a(w92 w92Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w92Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w92Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!y82.e() && w92.e() == 0) {
+                    if (!y82.f()) {
+                        v82.c("V8Inspector", "Unknown inspect mode");
+                        return;
+                    }
+                    this.a.c = new z92(q92.e(), this.a.b);
+                } else {
+                    this.a.c = new aa2(String.format("v8in%s_devtools_remote", this.a.a.getPackageName()), this.a.b);
+                }
+                this.a.c.start();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -42,91 +86,75 @@ public class w92 {
                 return;
             }
         }
-        h = ms1.a;
+        int i = 0;
+        if (jk3.a().getBoolean("Inspector", false)) {
+            i = 2;
+        }
+        d = i;
     }
 
-    public w92() {
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ExecutorUtilsExt.postOnSerial(new a(this), "V8Inspector");
+        }
+    }
+
+    public void i() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cVar = this.c) != null) {
+            cVar.stop();
+            this.c = null;
+        }
+    }
+
+    public w92(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = context;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public static void g(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
-                return false;
+        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
+            dk3 a2 = jk3.a();
+            if (i == 2) {
+                z = true;
+            } else {
+                z = false;
             }
-            return true;
+            a2.putBoolean("Inspector", z);
+            d = i;
         }
-        return invokeV.booleanValue;
     }
 
-    public static w92 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void f(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            w92 w92Var = new w92();
-            try {
-                w92Var.a = jSONObject.getString("appKey");
-                w92Var.b = jSONObject.getString(DeepLinkItem.DEEPLINK_APPURL_KEY) + "?swanJsVersion=" + hl3.h(0) + "&appVersion=" + wp3.D();
-                w92Var.c = jSONObject.getString("wsUrl");
-                w92Var.d = jSONObject.optString("notInHistory", "1");
-                w92Var.e = jSONObject.optString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD);
-                w92Var.f = jSONObject.optString("slavePreload");
-                w92Var.g = jSONObject.optJSONArray("hosts");
-                return w92Var;
-            } catch (JSONException unused) {
-                if (h) {
-                    Log.e("WirelessDebugModel", "DebuggerLaunchAction params is invalid");
-                    return null;
-                }
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.b = bVar;
         }
-        return (w92) invokeL.objValue;
-    }
-
-    public String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return b(i, this.b);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public String c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return b(i, this.c);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public final String b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
-            if (this.g != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.g.length()) {
-                Uri parse = Uri.parse(str);
-                String optString = this.g.optString(i);
-                if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
-                    return str.replace(parse.getHost(), optString);
-                }
-            }
-            return str;
-        }
-        return (String) invokeIL.objValue;
     }
 }

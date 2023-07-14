@@ -3,66 +3,20 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
-import rx.internal.operators.NotificationLite;
 /* loaded from: classes5.dex */
-public class fxb<T> implements ysb<T> {
+public class fxb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ysb<? super T> a;
-    public boolean b;
-    public volatile boolean c;
-    public a d;
+    public int a;
+    public int b;
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Object[] a;
-        public int b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                int i = this.b;
-                Object[] objArr = this.a;
-                if (objArr == null) {
-                    objArr = new Object[16];
-                    this.a = objArr;
-                } else if (i == objArr.length) {
-                    Object[] objArr2 = new Object[(i >> 2) + i];
-                    System.arraycopy(objArr, 0, objArr2, 0, i);
-                    this.a = objArr2;
-                    objArr = objArr2;
-                }
-                objArr[i] = obj;
-                this.b = i + 1;
-            }
-        }
-    }
-
-    public fxb(ysb<? super T> ysbVar) {
+    public fxb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ysbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,121 +26,30 @@ public class fxb<T> implements ysb<T> {
                 return;
             }
         }
-        this.a = ysbVar;
+        this.a = 0;
+        this.b = 0;
     }
 
-    @Override // com.baidu.tieba.ysb
-    public void onCompleted() {
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return String.format("playerContextId:%d playTaskId:%d ", Integer.valueOf(this.b), Integer.valueOf(this.a));
         }
-        synchronized (this) {
-            if (this.c) {
-                return;
-            }
-            this.c = true;
-            if (this.b) {
-                a aVar = this.d;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.d = aVar;
-                }
-                aVar.a(NotificationLite.b());
-                return;
-            }
-            this.b = true;
-            this.a.onCompleted();
+        return (String) invokeV.objValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
         }
     }
 
-    @Override // com.baidu.tieba.ysb
-    public void onError(Throwable th) {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            jtb.e(th);
-            if (this.c) {
-                return;
-            }
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                this.c = true;
-                if (this.b) {
-                    a aVar = this.d;
-                    if (aVar == null) {
-                        aVar = new a();
-                        this.d = aVar;
-                    }
-                    aVar.a(NotificationLite.c(th));
-                    return;
-                }
-                this.b = true;
-                this.a.onError(th);
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0031, code lost:
-        continue;
-     */
-    @Override // com.baidu.tieba.ysb
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onNext(T t) {
-        Object[] objArr;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.c) {
-            return;
-        }
-        synchronized (this) {
-            if (this.c) {
-                return;
-            }
-            if (this.b) {
-                a aVar = this.d;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.d = aVar;
-                }
-                aVar.a(NotificationLite.i(t));
-                return;
-            }
-            this.b = true;
-            try {
-                this.a.onNext(t);
-                while (true) {
-                    synchronized (this) {
-                        a aVar2 = this.d;
-                        if (aVar2 == null) {
-                            this.b = false;
-                            return;
-                        }
-                        this.d = null;
-                        for (Object obj : aVar2.a) {
-                            if (obj == null) {
-                                break;
-                            }
-                            try {
-                                if (NotificationLite.a(this.a, obj)) {
-                                    this.c = true;
-                                    return;
-                                }
-                            } catch (Throwable th) {
-                                this.c = true;
-                                jtb.e(th);
-                                this.a.onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                                return;
-                            }
-                        }
-                    }
-                }
-            } catch (Throwable th2) {
-                this.c = true;
-                jtb.g(th2, this.a, t);
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
         }
     }
 }

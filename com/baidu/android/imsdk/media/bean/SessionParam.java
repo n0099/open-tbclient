@@ -49,6 +49,9 @@ public class SessionParam implements Parcelable, RequestParam {
     public long sortUpdateTimeBegin;
     public long sortUpdateTimeEnd;
     public long timeInterval;
+    public long toContacterPaUid;
+    public long toContacterUk;
+    public int toContacterUserType;
     public int type;
     public List<Integer> userNumChatTypes;
 
@@ -209,6 +212,9 @@ public class SessionParam implements Parcelable, RequestParam {
         this.contacterImUk = parcel.readLong();
         this.screenKey = parcel.readString();
         this.deleteMode = parcel.readInt();
+        this.toContacterUk = parcel.readLong();
+        this.toContacterUserType = parcel.readInt();
+        this.toContacterPaUid = parcel.readLong();
     }
 
     public static SessionParam getAdvisoryReadOrDelParam(long j, long j2, long j3, int i, int i2) {
@@ -323,6 +329,9 @@ public class SessionParam implements Parcelable, RequestParam {
             parcel.writeLong(this.contacterImUk);
             parcel.writeString(this.screenKey);
             parcel.writeInt(this.deleteMode);
+            parcel.writeLong(this.toContacterUk);
+            parcel.writeInt(this.toContacterUserType);
+            parcel.writeLong(this.toContacterPaUid);
         }
     }
 }

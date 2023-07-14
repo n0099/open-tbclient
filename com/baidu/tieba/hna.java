@@ -1,234 +1,59 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.SelectForumData;
-import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.write.view.ForumTabSelectedView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class hna extends tna<ioa> implements vna {
+public abstract class hna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ForumTabSelectedView g;
-    @Nullable
-    public View h;
-    public String i;
-    public final ForumTabSelectedView.d j;
+    public String a;
+    public int b;
+    public int c;
 
-    @Override // com.baidu.tieba.yna
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
-        }
-    }
+    public abstract void b(String str);
 
-    @Override // com.baidu.tieba.yna
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements ForumTabSelectedView.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hna a;
-
-        public a(hna hnaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hnaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hnaVar;
-        }
-
-        @Override // com.baidu.tieba.write.view.ForumTabSelectedView.d
-        public void a(FrsTabItemData frsTabItemData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, frsTabItemData) == null) {
-                ((ioa) this.a.d).b = frsTabItemData;
-                hna hnaVar = this.a;
-                hnaVar.y(hnaVar.d);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hna(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ioa.class);
+    public hna(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = new a(this);
-        this.i = this.a.getString(R.string.obfuscated_res_0x7f0f07d4);
+        this.a = str;
     }
 
-    public final void C(FrsTabInfoData frsTabInfoData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, frsTabInfoData) == null) && frsTabInfoData != null && !ListUtils.isEmpty(frsTabInfoData.tabList)) {
-            ArrayList arrayList = new ArrayList();
-            for (FrsTabItemData frsTabItemData : frsTabInfoData.tabList) {
-                String str = this.i;
-                if ((str != null && frsTabItemData != null && str.equals(frsTabItemData.name)) || frsTabItemData.isNoShowInPublisher) {
-                    arrayList.add(frsTabItemData);
-                }
-            }
-            frsTabInfoData.tabList.removeAll(arrayList);
-        }
-    }
-
-    @Override // com.baidu.tieba.yna
-    public void c(WriteData writeData) {
-        ForumTabSelectedView forumTabSelectedView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) != null) || (forumTabSelectedView = this.g) == null || forumTabSelectedView.getVisibility() != 0 || writeData == null) {
-            return;
-        }
-        D d = this.d;
-        if (((ioa) d).a != null) {
-            writeData.setIsForumBusinessAccount(((ioa) d).a.isForumBusinessAccount);
-        }
-        FrsTabItemData selectedTabItemData = this.g.getSelectedTabItemData();
-        if (selectedTabItemData == null) {
-            return;
-        }
-        writeData.setTabId(selectedTabItemData.tabId);
-        writeData.setTabName(selectedTabItemData.name);
-        writeData.setIsGeneralTab(selectedTabItemData.isGeneralTab);
-    }
-
-    @Override // com.baidu.tieba.yna
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            ForumTabSelectedView forumTabSelectedView = this.g;
-            if (forumTabSelectedView != null) {
-                forumTabSelectedView.o(i);
-            }
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0210);
-        }
-    }
-
-    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
-    public void q(@NonNull List<yna<?>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            super.q(list);
-            for (yna<?> ynaVar : list) {
-                if (ynaVar instanceof cna) {
-                    w((cna) ynaVar);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vna
-    public void onUpdate(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || !(obj instanceof SelectForumData) || this.c == null) {
-            return;
-        }
-        SelectForumData selectForumData = (SelectForumData) obj;
-        if (!ListUtils.isEmpty(selectForumData.tabInfoList)) {
-            FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
-            frsTabInfoData.selectedTabId = -1;
-            List<FrsTabItemData> list = selectForumData.tabInfoList;
-            frsTabInfoData.tabList = list;
-            if (selectForumData.isForumBusinessAccount && list != null) {
-                FrsTabItemData frsTabItemData = new FrsTabItemData();
-                frsTabItemData.tabId = 505;
-                frsTabItemData.name = "官方";
-                frsTabInfoData.tabList.add(0, frsTabItemData);
-            }
-            frsTabInfoData.isForumBusinessAccount = selectForumData.isForumBusinessAccount;
-            if (this.g != null) {
-                C(frsTabInfoData);
-                this.g.setData(frsTabInfoData);
-                if (this.g.getVisibility() == 0) {
-                    this.c.setVisibility(0);
-                } else {
-                    this.c.setVisibility(8);
-                }
-            }
-            ((ioa) this.d).a = frsTabInfoData;
-            WriteData writeData = this.e;
-            if (writeData != null) {
-                writeData.setFrsTabInfoData(frsTabInfoData);
-                return;
-            }
-            return;
-        }
-        this.c.setVisibility(8);
-    }
-
-    @Override // com.baidu.tieba.yna
-    public View s(@NonNull ViewGroup viewGroup) {
+    public static hna a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d050e, viewGroup, false);
-            this.c = inflate;
-            this.g = (ForumTabSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f090d5e);
-            this.h = this.c.findViewById(R.id.obfuscated_res_0x7f090d5b);
-            ForumTabSelectedView forumTabSelectedView = this.g;
-            if (forumTabSelectedView != null) {
-                forumTabSelectedView.setBgColor(R.color.CAM_X0205);
-                WriteData writeData = this.e;
-                if (writeData != null) {
-                    C(writeData.getFrsTabInfoData());
-                    this.g.setData(this.e.getFrsTabInfoData());
-                    if (this.g.getVisibility() == 0) {
-                        this.c.setVisibility(0);
-                    } else {
-                        this.c.setVisibility(8);
-                    }
-                }
-                this.g.setActivity(this.a);
-                this.g.setTabSelectedListener(this.j);
-            }
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new ena(str);
         }
-        return (View) invokeL.objValue;
+        return (hna) invokeL.objValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+        }
     }
 }

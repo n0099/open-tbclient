@@ -10,8 +10,8 @@ import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tieba.ab;
-import com.baidu.tieba.ct5;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.gu5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -159,10 +159,10 @@ public class AlaJumpStatStatic {
     public static final void b(Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, obj, str) == null) {
-            dh statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            eh statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "ala_jump_fail");
             statsItem.b("config", str);
-            statsItem.c("startTime", Long.valueOf(System.currentTimeMillis() - ct5.b().c()));
+            statsItem.c("startTime", Long.valueOf(System.currentTimeMillis() - gu5.b().c()));
             if (obj instanceof AlaLiveRoomActivityConfig) {
                 AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
                 statsItem.b(SapiAccount.SAPI_ACCOUNT_FROMTYPE, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE));

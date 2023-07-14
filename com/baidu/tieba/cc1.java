@@ -1,28 +1,104 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.net.Uri;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tieba.rd1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class cc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ec1 a;
-    public boolean b;
-    public int c;
-    public final JSONObject d;
+    public CheckBox a;
+    public TextView b;
+    public String c;
+    public Context d;
+    public rd1 e;
+    public mb1 f;
 
-    public cc1() {
+    /* loaded from: classes5.dex */
+    public class a implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cc1 a;
+
+        public a(cc1 cc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cc1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cc1Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                dialogInterface.dismiss();
+                this.a.d(true);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cc1 a;
+
+        public b(cc1 cc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cc1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cc1Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                dialogInterface.dismiss();
+                this.a.d(false);
+            }
+        }
+    }
+
+    public cc1(Context context, String str, @NonNull mb1 mb1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, mb1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,124 +108,66 @@ public class cc1 {
                 return;
             }
         }
-        this.b = true;
-        this.c = -1;
-        this.d = new JSONObject();
-        ec1 ec1Var = new ec1();
-        this.a = ec1Var;
-        ec1Var.a = System.currentTimeMillis();
+        this.d = context;
+        this.f = mb1Var;
+        this.c = str;
+        b();
     }
 
-    public String a(String str, long j, long j2, boolean z) {
-        InterceptResult invokeCommon;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("adinfo", str);
-                jSONObject.put("isbrowser", String.valueOf(j));
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("aderrorcode", String.valueOf(j2));
-                jSONObject2.put("multipleaccess", String.valueOf(z));
-                jSONObject2.put(PrefetchEvent.MODULE, "0");
-                jSONObject.put("adext", jSONObject2.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = View.inflate(this.d, R.layout.nad_light_browser_geolocation_dialog, null);
+            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091e84);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091740);
+            this.b = textView;
+            textView.setTextColor(this.d.getResources().getColor(R.color.nad_box_dialog_message_text_color));
+            this.b.setText(c());
+            rd1.a aVar = new rd1.a(this.d);
+            aVar.o(R.string.nad_geolocation_permissions_prompt_title);
+            aVar.p(inflate);
+            aVar.j(R.string.nad_geolocation_permissions_prompt_dont_share, new b(this));
+            aVar.m(R.string.nad_geolocation_permissions_prompt_share, new a(this));
+            this.e = aVar.a();
+        }
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Uri parse = Uri.parse(this.c);
+            String str = this.c;
+            if ("http".equals(parse.getScheme())) {
+                str = this.c.substring(7);
             }
-            return jSONObject.toString();
+            return String.format(this.d.getResources().getString(R.string.nad_geolocation_permissions_prompt_message), str);
         }
-        return (String) invokeCommon.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void b(String str, String str2, String str3, String str4, long j) {
+    public final void d(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) != null) || this.a == null) {
-            return;
-        }
-        if (str3 == null) {
-            str3 = "";
-        }
-        y31 g = new y31().g("1006");
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("ext", str2);
-            g.b("f1", jSONObject.toString());
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("timing", str);
-            g.b("f2", jSONObject2.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        ec1 ec1Var = this.a;
-        g.b("f3", str4);
-        g.b("f4", String.valueOf(j));
-        g.b("f6", String.valueOf(this.c));
-        g.b("f7", "ad");
-        g.b("f14", "");
-        g.b("f15", String.valueOf(this.a.a));
-        g.b("f16", String.format(Locale.CHINA, "%.3f", Float.valueOf((((float) ((currentTimeMillis - ec1Var.d) + ec1Var.e)) * 1.0f) / 1000.0f)));
-        g.b("f17", str3);
-        g.b("f18", String.valueOf(this.a.b));
-        g.b("f19", String.valueOf(this.a.c));
-        g.b("f20", String.valueOf(this.a.d));
-        g.b("f21", String.valueOf(this.a.f));
-        g.c("f23", this.d);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ec1 ec1Var = this.a;
-            ec1Var.a = 0L;
-            ec1Var.e = 0L;
-            ec1Var.f = 0L;
-            ec1Var.d = 0L;
-            ec1Var.c = 0L;
-            ec1Var.b = 0L;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.d = System.currentTimeMillis();
-            ec1 ec1Var = this.a;
-            long j = ec1Var.d - ec1Var.c;
-            if (j < 0) {
-                j = 0;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            boolean isChecked = this.a.isChecked();
+            if (isChecked) {
+                if (z) {
+                    i = R.string.nad_geolocation_permissions_prompt_toast_allowed;
+                } else {
+                    i = R.string.nad_geolocation_permissions_prompt_toast_disallowed;
+                }
+                g61.a().a(this.d.getApplicationContext(), i);
             }
-            this.a.e += j;
+            this.f.a(this.c, z, isChecked);
         }
     }
 
     public void e() {
+        rd1 rd1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.c = System.currentTimeMillis();
-            if (this.b) {
-                ec1 ec1Var = this.a;
-                long j = ec1Var.c - ec1Var.a;
-                if (j < 0) {
-                    j = 0;
-                }
-                this.a.e = j;
-                this.b = false;
-            }
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.b = System.currentTimeMillis();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a.f = System.currentTimeMillis();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (rd1Var = this.e) != null) {
+            w61.b(rd1Var);
         }
     }
 }

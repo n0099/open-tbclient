@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,12 +53,12 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     public float q;
     public ViewTreeObserver.OnGlobalLayoutListener r;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void a(int i, int i2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface h {
         void a();
 
@@ -80,7 +80,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         public volatile boolean m;
         public e n;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a implements h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class b implements h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -204,7 +204,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class c implements h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -358,7 +358,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -391,10 +391,10 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     heartSurfaceView.h = heartSurfaceView.getWidth();
                     HeartSurfaceView heartSurfaceView2 = this.a;
                     heartSurfaceView2.g = heartSurfaceView2.getHeight();
-                    float dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070569);
-                    float dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07056a);
-                    float dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070566);
-                    float dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070568);
+                    float dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070570);
+                    float dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070571);
+                    float dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07056c);
+                    float dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07056f);
                     PointF pointF = new PointF(dimensionPixelSize, this.a.g - dimensionPixelSize3);
                     PointF pointF2 = new PointF(dimensionPixelSize, dimensionPixelSize4);
                     PointF pointF3 = new PointF(dimensionPixelSize2, this.a.g - dimensionPixelSize3);
@@ -403,13 +403,13 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     this.a.i.add(Pair.create(pointF, pointF2));
                     this.a.i.add(Pair.create(pointF3, pointF4));
                     this.a.j = new PointF(0.0f, this.a.g * 0.5f);
-                    this.a.k = new PointF(this.a.h + this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070567), this.a.g * 0.5f);
+                    this.a.k = new PointF(this.a.h + this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07056d), this.a.g * 0.5f);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -450,7 +450,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -510,7 +510,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class d extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -578,7 +578,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -679,7 +679,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class i extends f {
         public static /* synthetic */ Interceptable $ic = null;
         public static float m = 1.0f;
@@ -802,7 +802,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class j extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1152,11 +1152,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             ArrayList<Bitmap> arrayList = new ArrayList<>();
             this.m = arrayList;
-            arrayList.add(r(R.drawable.obfuscated_res_0x7f080f4c));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080f4d));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080f4e));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080f4f));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080f50));
+            arrayList.add(r(R.drawable.obfuscated_res_0x7f080f57));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080f58));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080f59));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080f5a));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080f5b));
         }
     }
 
@@ -1222,11 +1222,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             this.e = false;
             ArrayList<Bitmap> arrayList = new ArrayList<>();
             this.m = arrayList;
-            arrayList.add(s(R.drawable.obfuscated_res_0x7f080f4c));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080f4d));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080f4e));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080f4f));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080f50));
+            arrayList.add(s(R.drawable.obfuscated_res_0x7f080f57));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080f58));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080f59));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080f5a));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080f5b));
         }
     }
 }

@@ -1,41 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class t01 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public int d;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+/* loaded from: classes8.dex */
+public interface t01 {
+    void a(@Nullable oy0 oy0Var);
 
-    public t01() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = -1;
-    }
+    void b(@NonNull qy0 qy0Var);
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "VideoPrepareModel{videoUrl='" + this.a + "', interactUrl='" + this.b + "', isNeedPrepare=" + this.c + ", playerStageType=" + this.d + '}';
-        }
-        return (String) invokeV.objValue;
-    }
+    void c(int i, @NonNull ny0 ny0Var);
+
+    void d(@NonNull mx0 mx0Var);
+
+    void e(ny0 ny0Var);
+
+    void f(@NonNull qy0 qy0Var);
+
+    void release();
 }

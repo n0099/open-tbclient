@@ -7,8 +7,8 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh;
-import com.baidu.tieba.mi;
+import com.baidu.tieba.ch;
+import com.baidu.tieba.ni;
 import java.io.File;
 import java.io.FileFilter;
 /* loaded from: classes4.dex */
@@ -56,7 +56,7 @@ public class DeleteApkTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        bh.a().b(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
+        ch.a().b(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
             @Override // java.lang.Runnable
             public void run() {
                 DeleteApkTask.this.deleteApkFile();
@@ -71,7 +71,7 @@ public class DeleteApkTask extends LaunchTask {
         StringBuilder sb = new StringBuilder();
         sb.append(BdBaseApplication.getInst().getFilesDir());
         sb.append(File.separator);
-        if (mi.a()) {
+        if (ni.a()) {
             str = "so_64_cache";
         } else {
             str = "so_cache";

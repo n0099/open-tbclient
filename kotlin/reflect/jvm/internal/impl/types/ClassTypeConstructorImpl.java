@@ -10,7 +10,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.SupertypeLoopChecker;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.resolve.DescriptorUtils;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ClassTypeConstructorImpl extends AbstractClassTypeConstructor implements TypeConstructor {
     public final ClassDescriptor classDescriptor;
     public final List<TypeParameterDescriptor> parameters;
@@ -97,7 +97,7 @@ public class ClassTypeConstructorImpl extends AbstractClassTypeConstructor imple
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.reflect.jvm.internal.impl.types.AbstractClassTypeConstructor, kotlin.reflect.jvm.internal.impl.types.AbstractTypeConstructor, kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getDeclarationDescriptor */
-    public ClassDescriptor mo2099getDeclarationDescriptor() {
+    public ClassDescriptor mo2101getDeclarationDescriptor() {
         ClassDescriptor classDescriptor = this.classDescriptor;
         if (classDescriptor == null) {
             $$$reportNull$$$0(5);

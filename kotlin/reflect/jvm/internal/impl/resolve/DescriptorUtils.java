@@ -39,7 +39,7 @@ import kotlin.reflect.jvm.internal.impl.types.KotlinTypeKt;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.TypeUtils;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeChecker;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DescriptorUtils {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final FqName CONTINUATION_INTERFACE_FQ_NAME_EXPERIMENTAL;
@@ -623,7 +623,7 @@ public class DescriptorUtils {
         if (classDescriptor2 == null) {
             $$$reportNull$$$0(25);
         }
-        for (KotlinType kotlinType : classDescriptor.getTypeConstructor().mo2100getSupertypes()) {
+        for (KotlinType kotlinType : classDescriptor.getTypeConstructor().mo2102getSupertypes()) {
             if (isSameClass(kotlinType, classDescriptor2.getOriginal())) {
                 return true;
             }
@@ -638,9 +638,9 @@ public class DescriptorUtils {
         if (declarationDescriptor == null) {
             $$$reportNull$$$0(29);
         }
-        ClassifierDescriptor mo2099getDeclarationDescriptor = kotlinType.getConstructor().mo2099getDeclarationDescriptor();
-        if (mo2099getDeclarationDescriptor != null) {
-            DeclarationDescriptor original = mo2099getDeclarationDescriptor.getOriginal();
+        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
+        if (mo2101getDeclarationDescriptor != null) {
+            DeclarationDescriptor original = mo2101getDeclarationDescriptor.getOriginal();
             if ((original instanceof ClassifierDescriptor) && (declarationDescriptor instanceof ClassifierDescriptor) && ((ClassifierDescriptor) declarationDescriptor).getTypeConstructor().equals(((ClassifierDescriptor) original).getTypeConstructor())) {
                 return true;
             }
@@ -659,7 +659,7 @@ public class DescriptorUtils {
         if (isSameClass(kotlinType, declarationDescriptor)) {
             return true;
         }
-        for (KotlinType kotlinType2 : kotlinType.getConstructor().mo2100getSupertypes()) {
+        for (KotlinType kotlinType2 : kotlinType.getConstructor().mo2102getSupertypes()) {
             if (isSubtypeOfClass(kotlinType2, declarationDescriptor)) {
                 return true;
             }
@@ -687,7 +687,7 @@ public class DescriptorUtils {
         if (typeConstructor == null) {
             $$$reportNull$$$0(44);
         }
-        ClassDescriptor classDescriptor = (ClassDescriptor) typeConstructor.mo2099getDeclarationDescriptor();
+        ClassDescriptor classDescriptor = (ClassDescriptor) typeConstructor.mo2101getDeclarationDescriptor();
         if (classDescriptor == null) {
             $$$reportNull$$$0(45);
         }
@@ -808,7 +808,7 @@ public class DescriptorUtils {
         if (classDescriptor == null) {
             $$$reportNull$$$0(42);
         }
-        for (KotlinType kotlinType : classDescriptor.getTypeConstructor().mo2100getSupertypes()) {
+        for (KotlinType kotlinType : classDescriptor.getTypeConstructor().mo2102getSupertypes()) {
             ClassDescriptor classDescriptorForType = getClassDescriptorForType(kotlinType);
             if (classDescriptorForType.getKind() != ClassKind.INTERFACE) {
                 return classDescriptorForType;
@@ -915,11 +915,11 @@ public class DescriptorUtils {
         if (kotlinType == null) {
             $$$reportNull$$$0(18);
         }
-        ClassifierDescriptor mo2099getDeclarationDescriptor = kotlinType.getConstructor().mo2099getDeclarationDescriptor();
-        if (mo2099getDeclarationDescriptor == null) {
+        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
+        if (mo2101getDeclarationDescriptor == null) {
             return null;
         }
-        return getContainingModuleOrNull(mo2099getDeclarationDescriptor);
+        return getContainingModuleOrNull(mo2101getDeclarationDescriptor);
     }
 
     public static Visibility getDefaultConstructorVisibility(ClassDescriptor classDescriptor) {

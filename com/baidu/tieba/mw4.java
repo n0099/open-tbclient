@@ -1,28 +1,123 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class mw4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public static int b = 2;
-    public static int c = 3;
-    public static int d = 1;
-    public static int e = 2;
-    public static int f = 3;
-    public static int g = 4;
-    public static int h = 5;
-    public static int i = 6;
-    public static int j = 7;
-    public static int k = 8;
-    public static int l = 9;
-    public static nw4 m;
+    public static /* synthetic */ Interceptable $ic;
+    public static View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.getTag() != null && (view2.getTag() instanceof kw4)) {
+                if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                    yi.Q(view2.getContext(), R.string.no_network_guide);
+                    return;
+                }
+                kw4 kw4Var = (kw4) view2.getTag();
+                AlaUserInfoData alaUserInfoData = kw4Var.a;
+                if (alaUserInfoData == null) {
+                    return;
+                }
+                AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+                long j = alaUserInfoData.anchor_live;
+                if (j != 0) {
+                    alaLiveInfoCoreData.liveID = j;
+                } else {
+                    long j2 = alaUserInfoData.enter_live;
+                    if (j2 != 0) {
+                        alaLiveInfoCoreData.liveID = j2;
+                    } else {
+                        long j3 = alaUserInfoData.live_id;
+                        if (j3 != 0) {
+                            alaLiveInfoCoreData.liveID = j3;
+                        } else {
+                            return;
+                        }
+                    }
+                }
+                int i = kw4Var.b;
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (i != 1) {
+                    if (i != 2 && i != 3 && i != 4) {
+                        if (i != 5) {
+                            if (i == 7) {
+                                if (alaUserInfoData.ala_id != 0) {
+                                    TiebaStatic.log(new StatisticItem("c11855").param("uid", currentAccount).param("click_uid", alaUserInfoData.ala_id).param(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS, alaUserInfoData.live_status));
+                                }
+                                TiebaStatic.log(new StatisticItem("c12542"));
+                                if (kw4Var.c && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                    BdToast b = BdToast.b(view2.getContext(), String.format(view2.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex));
+                                    b.g(BdToast.ToastIcon.FAILURE);
+                                    b.q();
+                                    return;
+                                }
+                            }
+                        } else {
+                            TiebaStatic.log(new StatisticItem("c11852").param("uid", currentAccount));
+                        }
+                    } else {
+                        TiebaStatic.log(new StatisticItem("c11851").param("uid", currentAccount));
+                    }
+                } else {
+                    TiebaStatic.log(new StatisticItem("c11850").param("uid", currentAccount));
+                }
+                int i2 = kw4Var.b;
+                if (i2 == 5) {
+                    str = AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION;
+                } else if (i2 == 7) {
+                    str = AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY;
+                } else {
+                    str = AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2911003, new AlaLiveRoomActivityConfig(view2.getContext(), alaLiveInfoCoreData, str, null, false, "")));
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,20 +132,20 @@ public class mw4 {
                 return;
             }
         }
-        m = new nw4();
+        a = new a();
     }
 
-    public static void a(@NonNull int i2, @NonNull int i3, String str, String str2, String str3, int i4) {
+    public static TextView a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, Integer.valueOf(i4)}) == null) {
-            ow4 ow4Var = new ow4();
-            ow4Var.a = i2;
-            ow4Var.b = i3;
-            ow4Var.c = str;
-            ow4Var.d = str2;
-            ow4Var.e = str3;
-            ow4Var.f = i4;
-            m.a(ow4Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null || MessageManager.getInstance().findTask(2911003) == null) {
+                return null;
+            }
+            TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.ala_tail_view_layout, (ViewGroup) null);
+            textView.setOnClickListener(a);
+            return textView;
         }
+        return (TextView) invokeL.objValue;
     }
 }

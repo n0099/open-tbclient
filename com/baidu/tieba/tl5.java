@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.HandlerThread;
-import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,41 +9,72 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.HashMap;
+import java.util.Iterator;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tl5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 4;
+public final class tl5 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<HandlerThread> a;
-    public final AtomicInteger b;
-
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public final HashMap<String, Integer> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948185068, "Lcom/baidu/tieba/tl5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948185068, "Lcom/baidu/tieba/tl5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948185068, "Lcom/baidu/tieba/tl5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        b = new a(null);
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948185068, "Lcom/baidu/tieba/tl5;");
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final tl5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
+            }
+            return (tl5) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
-        public static final tl5 a;
+        public static final b a;
+        public static final tl5 b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -60,11 +90,36 @@ public class tl5 {
                     return;
                 }
             }
-            a = new tl5(null);
+            a = new b();
+            b = new tl5();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final tl5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (tl5) invokeV.objValue;
         }
     }
 
     public tl5() {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,56 +132,71 @@ public class tl5 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new AtomicInteger(0);
-    }
-
-    public static tl5 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        this.a = new HashMap<>();
+        String cache = da5.p().w("festival_global_switches_key", "");
+        Intrinsics.checkNotNullExpressionValue(cache, "cache");
+        if (cache.length() > 0) {
+            z = true;
+        } else {
+            z = false;
         }
-        return (tl5) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b.getAndIncrement();
-        }
-        return invokeV.intValue;
-    }
-
-    public /* synthetic */ tl5(a aVar) {
-        this();
-    }
-
-    public Looper c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int i2 = i % c;
-            if (i2 >= this.a.size()) {
-                HandlerThread handlerThread = new HandlerThread("FrameDecoderExecutor-" + i2);
-                handlerThread.start();
-                this.a.add(handlerThread);
-                Looper looper = handlerThread.getLooper();
-                if (looper == null) {
-                    return Looper.getMainLooper();
+        if (z) {
+            try {
+                c(new JSONObject(cache));
+            } catch (Exception e) {
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    e.printStackTrace();
+                    return;
                 }
-                return looper;
-            } else if (this.a.get(i2) != null) {
-                Looper looper2 = this.a.get(i2).getLooper();
-                if (looper2 == null) {
-                    return Looper.getMainLooper();
-                }
-                return looper2;
-            } else {
-                return Looper.getMainLooper();
+                throw e;
             }
         }
-        return (Looper) invokeI.objValue;
+    }
+
+    public final boolean a(String key) {
+        InterceptResult invokeL;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Integer num2 = this.a.get("global_switch");
+            if ((num2 != null && num2.intValue() == 0) || (num = this.a.get(key)) == null || num.intValue() != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            this.a.clear();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                Intrinsics.checkNotNullExpressionValue(keys, "keys");
+                while (keys.hasNext()) {
+                    String key = keys.next();
+                    HashMap<String, Integer> hashMap = this.a;
+                    Intrinsics.checkNotNullExpressionValue(key, "key");
+                    hashMap.put(key, Integer.valueOf(jSONObject.optInt(key)));
+                }
+            }
+        }
+    }
+
+    public final void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            da5.p().J("festival_global_switches_key", (jSONObject == null || (r5 = jSONObject.toString()) == null) ? "" : "");
+        }
+    }
+
+    public final void update(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            c(jSONObject);
+            b(jSONObject);
+        }
     }
 }

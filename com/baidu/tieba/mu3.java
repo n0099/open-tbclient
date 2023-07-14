@@ -1,100 +1,32 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import androidx.transition.Transition;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.payment.PaymentManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.zw2;
+import com.baidu.swan.apps.impl.nalib.encrypt.EncryptConstant;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tieba.di3;
+import com.baidu.tieba.ku3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Singleton
-@Service
-/* loaded from: classes6.dex */
-public class mu3 implements mx1 {
+/* loaded from: classes7.dex */
+public class mu3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public PaymentManager a;
-
-    /* loaded from: classes6.dex */
-    public class a extends mi1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-
-        public a(mu3 mu3Var, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mu3Var, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-        }
-
-        @Override // com.baidu.tieba.mi1
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                if (mu3.b) {
-                    Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
-                }
-                gs4.j(mu3.d());
-                gs4.N(String.valueOf(this.a), mu3.d());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends mi1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(mu3 mu3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mu3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.mi1
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && mu3.b) {
-                Log.d("RebateInfoManager", "requestSingleRebateInfo onResult: " + i + " " + str);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -109,102 +41,173 @@ public class mu3 implements mx1 {
                 return;
             }
         }
-        b = ms1.a;
+        a = fs1.a;
     }
 
-    public mu3() {
+    @Nullable
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), "AES"), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
+                return Base64.encodeToString(cipher.doFinal(str.getBytes("utf-8")), 2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("info", "encrypt request param fail with exception : " + e.getMessage());
+                } catch (JSONException e2) {
+                    if (a) {
+                        e2.printStackTrace();
+                    }
+                }
+                f(jSONObject.toString());
+                return null;
             }
         }
-        this.a = new PaymentManager();
+        return (String) invokeL.objValue;
     }
 
-    public static /* synthetic */ File d() {
-        return e();
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static void b(ku3 ku3Var, lu3 lu3Var) {
+        String str;
+        char c;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, ku3Var, lu3Var) == null) && ku3Var != null && lu3Var != null) {
+            if (TextUtils.isEmpty(lu3Var.a)) {
+                str = "unknown";
+            } else {
+                str = lu3Var.a;
+            }
+            int i = 0;
+            switch (str.hashCode()) {
+                case -1395470197:
+                    if (str.equals("bd09ll")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3017163:
+                    if (str.equals("bd09")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 98175376:
+                    if (str.equals("gcj02")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 113079775:
+                    if (str.equals("wgs84")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            i = -1;
+                        } else {
+                            i = 3;
+                        }
+                    } else {
+                        i = 2;
+                    }
+                } else {
+                    i = 1;
+                }
+            }
+            ku3.c cVar = ku3Var.c;
+            cVar.a = i;
+            cVar.b = lu3Var.b;
+            cVar.c = lu3Var.c;
+        }
     }
 
-    public static File e() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new File(AppRuntime.getAppContext().getFilesDir().getPath(), "rebate_info_timestamp");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String e = SwanAppNetworkUtils.e();
+            if ("wifi".equals(e)) {
+                return 1;
+            }
+            if ("2g".equals(e)) {
+                return 2;
+            }
+            if ("3g".equals(e)) {
+                return 3;
+            }
+            if ("4g".equals(e)) {
+                return 4;
+            }
+            if ("5g".equals(e)) {
+                return 5;
+            }
+            return 0;
         }
-        return (File) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.mx1
-    public boolean a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        cc3 b0;
-        zw2.a W;
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        TelephonyManager telephonyManager;
+        String simOperator;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            if (!kg3.l() || (b0 = cc3.b0()) == null || (W = b0.W()) == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
+                return 0;
             }
-            f(str, ir4.g().u(AppRuntime.getAppContext()), jv2.h0().i(jv2.c()), ds3.i(b0.getApplicationContext()), str2, str3, jv2.n().a(), W.T());
-            return true;
+            if (!"46000".equals(simOperator) && !"46002".equals(simOperator) && !"46007".equals(simOperator)) {
+                if ("46001".equals(simOperator)) {
+                    return 3;
+                }
+                if (!"46003".equals(simOperator)) {
+                    return 0;
+                }
+                return 2;
+            }
+            return 1;
         }
-        return invokeLLL.booleanValue;
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.mx1
-    public void b() {
+    public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String E = gs4.E(e());
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (!TextUtils.isEmpty(E)) {
-                try {
-                    if (currentTimeMillis - Long.parseLong(E) < 86400) {
-                        if (b) {
-                            Log.d("RebateInfoManager", "requestBatchRebateInfo: 相邻请求时间需要大于一天");
-                            return;
-                        }
-                        return;
-                    }
-                } catch (NumberFormatException e) {
-                    if (b) {
-                        e.printStackTrace();
-                        return;
-                    }
-                    return;
-                }
-            }
-            this.a.p(new a(this, currentTimeMillis));
+        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
+        if (a) {
+            Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
+        }
+        di3.b bVar = new di3.b(10003);
+        bVar.i(str);
+        bVar.h(vb3.g0());
+        bVar.m();
     }
 
-    public final void f(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
+    public static boolean e(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("masterId", str);
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("userPassId", str2);
-                }
-                jSONObject.put("cuid", str3);
-                jSONObject.put("bduss", str4);
-                jSONObject.put(Transition.MATCH_ITEM_ID_STR, str5);
-                jSONObject.put("businessId", str6);
-                jSONObject.put("naid", str7);
-                jSONObject.put("scene", str8);
-                this.a.o(jSONObject, new b(this));
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if ((context.getResources().getConfiguration().screenLayout & 15) >= 3) {
+                return true;
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

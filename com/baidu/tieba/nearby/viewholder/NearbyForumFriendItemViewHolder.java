@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,55 +52,55 @@ public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = context;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091f39);
-        this.c = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910b2);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b3);
-        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b5);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f091471);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911e6);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926ae);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b4);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926af);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b2);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091470);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911e5);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b1);
-        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b0);
-        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926ad);
-        a();
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091f6b);
+        this.c = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910c3);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926e8);
+        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926ea);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f091485);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911f8);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926e3);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926e9);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926e4);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926e7);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091484);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911f7);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926e6);
+        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926e5);
+        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926e2);
+        b();
     }
 
-    public final void a() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c.setConrers(15);
             this.c.setIsRound(true);
             this.c.setPlaceHolder(3);
-            s75 d = s75.d(this.d);
+            d85 d = d85.d(this.d);
             d.D(R.string.F_X01);
             d.C(R.dimen.T_X06);
-            s75 d2 = s75.d(this.g);
+            d85 d2 = d85.d(this.g);
             d2.D(R.string.F_X01);
             d2.C(R.dimen.T_X10);
-            s75 d3 = s75.d(this.h);
+            d85 d3 = d85.d(this.h);
             d3.D(R.string.F_X01);
             d3.C(R.dimen.T_X10);
-            s75 d4 = s75.d(this.i);
+            d85 d4 = d85.d(this.i);
             d4.D(R.string.F_X01);
             d4.C(R.dimen.T_X10);
-            s75 d5 = s75.d(this.o);
+            d85 d5 = d85.d(this.o);
             d5.D(R.string.F_X01);
             d5.C(R.dimen.T_X10);
-            s75 d6 = s75.d(this.p);
+            d85 d6 = d85.d(this.p);
             d6.C(R.string.F_X01);
             d6.C(R.dimen.T_X10);
-            s75 d7 = s75.d(this.m);
+            d85 d7 = d85.d(this.m);
             d7.D(R.string.F_X01);
             d7.C(R.dimen.T_X08);
-            s75 d8 = s75.d(this.j);
+            d85 d8 = d85.d(this.j);
             d8.D(R.string.F_X01);
             d8.C(R.dimen.T_X10);
-            s75 d9 = s75.d(this.n);
+            d85 d9 = d85.d(this.n);
             d9.D(R.string.F_X01);
             d9.C(R.dimen.T_X08);
         }

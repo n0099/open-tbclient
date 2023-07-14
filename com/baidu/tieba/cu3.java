@@ -1,37 +1,72 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppQuickLoginDialog;
-import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cu3 {
+public class cu3 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SwanAppLoginAndGetMobileDialog a(String str, boolean z, QuickLoginInfo quickLoginInfo, String str2, String str3) {
-        InterceptResult invokeCommon;
-        SwanAppLoginAndGetMobileDialog swanAppPhoneLoginDialog;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), quickLoginInfo, str2, str3})) == null) {
-            Bundle bundle = new Bundle();
-            if (quickLoginInfo != null && quickLoginInfo.supportQuickLogin) {
-                swanAppPhoneLoginDialog = new SwanAppQuickLoginDialog();
-            } else {
-                swanAppPhoneLoginDialog = new SwanAppPhoneLoginDialog();
+    /* loaded from: classes5.dex */
+    public class a implements du3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cu3 a;
+
+        public a(cu3 cu3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cu3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            bundle.putString("auth_tip", str);
-            bundle.putBoolean("is_night", z);
-            bundle.putParcelable("quick_login_info", quickLoginInfo);
-            bundle.putString("app_id", str3);
-            bundle.putString("launch_from", str2);
-            swanAppPhoneLoginDialog.setArguments(bundle);
-            return swanAppPhoneLoginDialog;
+            this.a = cu3Var;
         }
-        return (SwanAppLoginAndGetMobileDialog) invokeCommon.objValue;
+
+        @Override // com.baidu.tieba.du3
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.mResult.putInt("quick_login", i);
+                this.a.finish();
+            }
+        }
+    }
+
+    public cu3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            eu3.d(getAgent(), uo3.f(this.mParams, "quick_login_mode", 0), new a(this));
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

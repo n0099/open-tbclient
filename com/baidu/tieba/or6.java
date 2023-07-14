@@ -1,33 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.ad.AbsDownloadGuide;
+import com.baidu.tbadk.widget.ad.DownloadGuideFull;
+import com.baidu.tbadk.widget.ad.DownloadGuidePart;
+import com.baidu.tieba.b67;
+import com.baidu.tieba.feed.widget.roundcorners.RoundFrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.PbContent;
 /* loaded from: classes7.dex */
-public class or6 {
+public final class or6 implements b67.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public int c;
-    public long d;
-    public long e;
-    public String f;
-    public long g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public int m;
-    public double n;
+    public RoundFrameLayout a;
+    public AbsDownloadGuide b;
+    public String c;
 
     public or6() {
         Interceptable interceptable = $ic;
@@ -39,151 +36,124 @@ public class or6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = "part";
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b67.r
+    public void a(ViewGroup view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.m;
-        }
-        return invokeV.intValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.longValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public double i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.n;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (StringUtils.isNull(this.l)) {
-                return this.k;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            AbsDownloadGuide absDownloadGuide = this.b;
+            if (absDownloadGuide == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+                absDownloadGuide = null;
             }
-            return this.l;
+            absDownloadGuide.q();
         }
-        return (String) invokeV.objValue;
     }
 
-    public int k() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b67.f
+    public ViewGroup create(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            this.a = new RoundFrameLayout(context);
+            int g = yi.g(context, R.dimen.tbds21);
+            RoundFrameLayout roundFrameLayout = this.a;
+            if (roundFrameLayout == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                roundFrameLayout = null;
+            }
+            roundFrameLayout.setRadiusPx(0, 0, g, g);
+            this.b = new DownloadGuidePart(context);
+            RoundFrameLayout roundFrameLayout2 = this.a;
+            if (roundFrameLayout2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                roundFrameLayout2 = null;
+            }
+            AbsDownloadGuide absDownloadGuide = this.b;
+            if (absDownloadGuide == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+                absDownloadGuide = null;
+            }
+            roundFrameLayout2.addView(absDownloadGuide);
+            RoundFrameLayout roundFrameLayout3 = this.a;
+            if (roundFrameLayout3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                return null;
+            }
+            return roundFrameLayout3;
         }
-        return invokeV.intValue;
+        return (ViewGroup) invokeL.objValue;
     }
 
-    public String l() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b67.f
+    public void update(ViewGroup view2, m87 downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, downloadData) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
+            Map<String, String> a = downloadData.a().a();
+            String type = downloadData.getType();
+            AbsDownloadGuide absDownloadGuide = null;
+            if (!Intrinsics.areEqual(type, this.c)) {
+                RoundFrameLayout roundFrameLayout = this.a;
+                if (roundFrameLayout == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                    roundFrameLayout = null;
+                }
+                AbsDownloadGuide absDownloadGuide2 = this.b;
+                if (absDownloadGuide2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+                    absDownloadGuide2 = null;
+                }
+                roundFrameLayout.removeView(absDownloadGuide2);
+                if (Intrinsics.areEqual(type, "part")) {
+                    Context context = view2.getContext();
+                    Intrinsics.checkNotNullExpressionValue(context, "view.context");
+                    this.b = new DownloadGuidePart(context);
+                } else if (Intrinsics.areEqual(type, "full")) {
+                    Context context2 = view2.getContext();
+                    Intrinsics.checkNotNullExpressionValue(context2, "view.context");
+                    this.b = new DownloadGuideFull(context2);
+                }
+                RoundFrameLayout roundFrameLayout2 = this.a;
+                if (roundFrameLayout2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                    roundFrameLayout2 = null;
+                }
+                AbsDownloadGuide absDownloadGuide3 = this.b;
+                if (absDownloadGuide3 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+                    absDownloadGuide3 = null;
+                }
+                roundFrameLayout2.addView(absDownloadGuide3);
+            }
+            ThreadData threadData = new ThreadData();
+            ArrayList arrayList = new ArrayList();
+            PbContent.Builder builder = new PbContent.Builder();
+            builder.type = 35;
+            builder.tiebaplus_info = ks6.a(downloadData.a());
+            PbContent build = builder.build(true);
+            Intrinsics.checkNotNullExpressionValue(build, "contentBuilder.build(true)");
+            arrayList.add(build);
+            threadData.setRichAbstractList(arrayList);
+            threadData.isTiebaPlusAdThread = Intrinsics.areEqual(a.get("is_tie_plus_ad"), "1");
+            threadData.tiebaPlusOrderId = a.get("tie_plus_order_id");
+            threadData.tid = a.get("thread_id");
+            threadData.setFid(wg.g(a.get("forum_id"), 0L));
+            AbsDownloadGuide absDownloadGuide4 = this.b;
+            if (absDownloadGuide4 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+            } else {
+                absDownloadGuide = absDownloadGuide4;
+            }
+            absDownloadGuide.setData(threadData);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("order_id");
-        jSONObject.optLong(MemberPayActivityConfig.SCENE_ID);
-        this.b = jSONObject.optLong("scores");
-        this.c = jSONObject.optInt("status");
-        this.d = jSONObject.optLong("create_time");
-        this.e = jSONObject.optLong("finish_time");
-        this.f = jSONObject.optString("title");
-        this.g = jSONObject.optLong("money");
-        jSONObject.optString("preg_field");
-        this.k = jSONObject.optString("user_name");
-        this.l = jSONObject.optString("user_nickname");
-        this.h = jSONObject.optString("activity_desc");
-        this.i = jSONObject.optString("activity_url");
-        this.j = jSONObject.optString("button_name");
-        this.m = jSONObject.optInt("price_type", 0);
-        this.n = jSONObject.optDouble("order_yy_amount", 0.0d);
-        jSONObject.optDouble("order_amount", 0.0d);
     }
 }

@@ -1,8 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
@@ -10,26 +15,60 @@ public class ua5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, String str, String str2) {
+    public static void a(ImageView imageView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65536, null, i, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14987");
-            statisticItem.param("obj_source", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param(TiebaStatic.Params.FRIEND_UID, str);
-            statisticItem.param("obj_id", str2);
-            TiebaStatic.log(statisticItem);
+        if ((interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) && imageView != null) {
+            WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.width = yi.g(TbadkApplication.getInst(), R.dimen.tbds52);
+                layoutParams.height = yi.g(TbadkApplication.getInst(), R.dimen.tbds52);
+                imageView.setLayoutParams(layoutParams);
+            }
         }
     }
 
-    public static void b(int i, String str) {
+    public static void b(ViewGroup viewGroup) {
+        ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i, str) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14986");
-            statisticItem.param("obj_source", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param(TiebaStatic.Params.FRIEND_UID, str);
-            TiebaStatic.log(statisticItem);
+        if ((interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
+            layoutParams.height = yi.g(TbadkApplication.getInst(), R.dimen.tbds120);
+            viewGroup.setLayoutParams(layoutParams);
+        }
+    }
+
+    public static void c(TextView textView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, textView) == null) && textView != null) {
+            d85.d(textView).x(R.color.CAM_X0107);
+        }
+    }
+
+    public static void d(TextView textView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, textView) == null) && textView != null) {
+            d85.d(textView).C(R.dimen.tbds36);
+        }
+    }
+
+    public static void e(TextView textView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) && textView != null) {
+            d85 d = d85.d(textView);
+            d.C(R.dimen.tbds36);
+            d.x(R.color.CAM_X0107);
+        }
+    }
+
+    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) && tBLottieAnimationView != null) {
+            if (i == 4) {
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_night);
+            } else {
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_day);
+            }
+            tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
         }
     }
 }

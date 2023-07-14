@@ -15,12 +15,12 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.b61;
-import com.baidu.tieba.g61;
-import com.baidu.tieba.ok0;
+import com.baidu.tieba.e71;
+import com.baidu.tieba.rk0;
+import com.baidu.tieba.z61;
 /* loaded from: classes3.dex */
 public class NadDragView extends RelativeLayout {
-    public static final int p = g61.c.c(ok0.b()) / 5;
+    public static final int p = e71.c.c(rk0.b()) / 5;
     public final Matrix a;
     public View b;
     public Bitmap c;
@@ -183,7 +183,7 @@ public class NadDragView extends RelativeLayout {
         int i = action & 255;
         if (i == 0) {
             if (this.c == null) {
-                this.c = b61.a(this.b);
+                this.c = z61.b(this.b);
             }
             if (this.d == null && this.c != null) {
                 int measuredWidth = getMeasuredWidth();
@@ -197,7 +197,7 @@ public class NadDragView extends RelativeLayout {
             if (this.e == null && (bitmap = this.c) != null) {
                 int height = bitmap.getHeight();
                 int width = bitmap.getWidth();
-                float b2 = g61.c.b(getContext());
+                float b2 = e71.c.b(getContext());
                 int i2 = (int) (height * b2);
                 int i3 = (int) (width * b2);
                 if (i3 > this.c.getWidth() && this.c.getWidth() != 0) {
@@ -208,8 +208,8 @@ public class NadDragView extends RelativeLayout {
                     i3 = (int) (i3 / ((i2 * 1.0f) / this.c.getHeight()));
                     i2 = this.c.getHeight();
                 }
-                int c = (g61.c.c(getContext()) - i2) / 2;
-                int e = (g61.c.e(getContext()) - i3) / 2;
+                int c = (e71.c.c(getContext()) - i2) / 2;
+                int e = (e71.c.e(getContext()) - i3) / 2;
                 this.e = new Rect(e, c, i3 + e, i2 + c);
                 this.f = new Rect(0, 0, this.c.getWidth(), this.c.getHeight());
             }

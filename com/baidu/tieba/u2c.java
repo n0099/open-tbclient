@@ -1,144 +1,127 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tieba.u1c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
+import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes8.dex */
-public class u2c extends Dialog {
+public final class u2c<T> implements u1c.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public AbsPayMessageReceiver b;
-    public PayFlowType c;
-    public Context d;
+    public final u1c<T> a;
+    public final m2c<? super T, Boolean> b;
 
     /* loaded from: classes8.dex */
-    public class a extends AbsPayMessageReceiver {
+    public static final class a<T> extends a2c<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u2c this$0;
+        public final a2c<? super T> e;
+        public final m2c<? super T, Boolean> f;
+        public boolean g;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(u2c u2cVar, PayFlowType payFlowType) {
-            super(payFlowType);
+        public a(a2c<? super T> a2cVar, m2c<? super T, Boolean> m2cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u2cVar, payFlowType};
+                Object[] objArr = {a2cVar, m2cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((PayFlowType) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.this$0 = u2cVar;
+            this.e = a2cVar;
+            this.f = m2cVar;
+            e(0L);
         }
 
-        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
-        public void onAllPayFlowViewRelease() {
+        @Override // com.baidu.tieba.a2c
+        public void f(w1c w1cVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RLog.info(this.this$0.a, "onAllPayFlowViewRelease");
-                this.this$0.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, w1cVar) == null) {
+                super.f(w1cVar);
+                this.e.f(w1cVar);
             }
         }
 
-        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
-        public void onDialogPayFlowViewRelease() {
+        @Override // com.baidu.tieba.v1c
+        public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                RLog.info(this.this$0.a, "onDialogPayFlowViewRelease");
-                this.this$0.dismiss();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                if (this.g) {
+                    h6c.j(th);
+                    return;
+                }
+                this.g = true;
+                this.e.onError(th);
             }
         }
 
-        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
-        public void onWalletPayFlowViewRelease() {
+        @Override // com.baidu.tieba.v1c
+        public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                RLog.info(this.this$0.a, "onWalletPayFlowViewRelease");
-                this.this$0.dismiss();
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
+                return;
+            }
+            this.e.onCompleted();
+        }
+
+        @Override // com.baidu.tieba.v1c
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                try {
+                    if (this.f.call(t).booleanValue()) {
+                        this.e.onNext(t);
+                    } else {
+                        e(1L);
+                    }
+                } catch (Throwable th) {
+                    g2c.e(th);
+                    unsubscribe();
+                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u2c(Context context, int i, PayFlowType payFlowType) {
-        super(context, i);
+    public u2c(u1c<T> u1cVar, m2c<? super T, Boolean> m2cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), payFlowType};
+            Object[] objArr = {u1cVar, m2cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "AutoHideSoftInputDialog";
-        this.a += "@" + hashCode();
-        this.d = context;
-        this.c = payFlowType;
+        this.a = u1cVar;
+        this.b = m2cVar;
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    public void call(a2c<? super T> a2cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            RLog.info(this.a, "onCreate");
-            this.b = new a(this, this.c);
-            t1c.d(getContext(), this.b);
+        if (interceptable == null || interceptable.invokeL(1048576, this, a2cVar) == null) {
+            a aVar = new a(a2cVar, this.b);
+            a2cVar.b(aVar);
+            this.a.O(aVar);
         }
     }
 
-    @Override // android.app.Dialog, android.content.DialogInterface
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View currentFocus = getCurrentFocus();
-            if (currentFocus instanceof EditText) {
-                ((InputMethodManager) getContext().getSystemService("input_method")).hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
-            }
-            if (e2c.a.a(this.d)) {
-                super.dismiss();
-            }
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onStop();
-            RLog.info(this.a, MissionEvent.MESSAGE_STOP);
-            if (this.b != null) {
-                t1c.e(getContext(), this.b);
-                this.b = null;
-            }
-        }
+    @Override // com.baidu.tieba.u1c.a, com.baidu.tieba.i2c
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((a2c) ((a2c) obj));
     }
 }

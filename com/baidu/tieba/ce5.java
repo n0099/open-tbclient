@@ -11,7 +11,8 @@ import org.json.JSONObject;
 public class ce5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public long a;
+    public String b;
 
     public ce5() {
         Interceptable interceptable = $ic;
@@ -31,20 +32,26 @@ public class ce5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        try {
-            this.a = jSONObject.optString("checkurl", null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.a = jSONObject.optLong("version", 0L);
+        this.b = jSONObject.optString("text", "");
     }
 }

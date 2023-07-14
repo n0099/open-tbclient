@@ -8,10 +8,10 @@ import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.tieba.ew8;
-import com.baidu.tieba.km;
+import com.baidu.tieba.h29;
+import com.baidu.tieba.k95;
 import com.baidu.tieba.lm;
-import com.baidu.tieba.z85;
+import com.baidu.tieba.mm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(d1 = {"\u0000<\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u0006\n\u0002\b\u0014\n\u0002\u0010!\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\u001a\u0010\u0010+\u001a\u00020$2\u0006\u0010,\u001a\u00020-H\u0002\u001a\u0006\u0010.\u001a\u00020$\u001a&\u0010/\u001a\u00020\u00012\u0006\u0010&\u001a\u00020\u00012\n\b\u0002\u00100\u001a\u0004\u0018\u00010\u00012\b\b\u0002\u00101\u001a\u00020 H\u0007\u001a\u001a\u00102\u001a\u00020 2\u0006\u00103\u001a\u00020\u00012\b\u00104\u001a\u0004\u0018\u00010\u0001H\u0002\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0003\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0004\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0005\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0006\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0007\u001a\u00020\bX\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\t\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\n\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u000b\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\f\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\r\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u000e\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u000f\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0010\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0011\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0012\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0013\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0014\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"\u000e\u0010\u0015\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0016\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0017\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0018\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0019\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u001a\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u001b\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u0014\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\u00010\u001dX\u0082\u0004¢\u0006\u0002\n\u0000\"\u0017\u0010\u001e\u001a\b\u0012\u0004\u0012\u00020 0\u001f¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010!\"J\u0010\"\u001a>\u0012\u0019\u0012\u0017\u0012\u0004\u0012\u00020$0\u001f¢\u0006\f\b%\u0012\b\b&\u0012\u0004\b\b('\u0012\u0019\u0012\u0017\u0012\u0004\u0012\u00020$0\u001f¢\u0006\f\b%\u0012\b\b&\u0012\u0004\b\b((\u0012\u0004\u0012\u00020$0#X\u0082\u0004¢\u0006\u0002\n\u0000\"\u0014\u0010)\u001a\b\u0012\u0004\u0012\u00020\u00010\u001dX\u0082\u0004¢\u0006\u0002\n\u0000\"\u0014\u0010*\u001a\b\u0012\u0004\u0012\u00020\u00010\u001dX\u0082\u0004¢\u0006\u0002\n\u0000¨\u00065"}, d2 = {"APPEAR_DARK", "", "APPEAR_DAY", "DARK_NORMAL", "DARK_STAND", "DAY_NORMAL", "DAY_STAND", "DEFAULT_LOW_END_DEVICE_SCORE", "", "EXIT_DARK", "EXIT_DAY", "FUNNY_SPRITE_CHAT_BASEBOARD", "FUNNY_SPRITE_CHAT_LIGHT", "FUNNY_SPRITE_CHAT_STAGE", "FUNNY_SPRITE_CHAT_STATIC_RES", "FUNNY_SPRITE_CHAT_WALL", "FUNNY_SPRITE_RES_AFX", "FUNNY_SPRITE_RES_WEBP", "LOG_TAG", "MP4", "RES_FILE_PATH", "RUSH_RES", "SEE_RES", "SHOW_DARK", "SHOW_DAY", "TEMP_FOLDER", "WEBP", "ZIP", "chatStaticResList", "", "isAllResExist", "Lkotlin/Function0;", "", "()Lkotlin/jvm/functions/Function0;", "judgeDeviceScore", "Lkotlin/Function2;", "", "Lkotlin/ParameterName;", "name", "highEnd", "lowEnd", "notificationResList", "resList", "deleteFiles", "file", "Ljava/io/File;", "downloadRes", "getResPathByName", "notificationPath", "isNameNeedPrefix", "unzipResFile", "resFileName", "resZip", "tbadkcore_release"}, k = 2, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000<\n\u0000\n\u0002\u0010\u000e\n\u0002\b\b\n\u0002\u0010\u0006\n\u0002\b\u0015\n\u0002\u0010!\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\u001a\u0010\u0010.\u001a\u00020'2\u0006\u0010/\u001a\u000200H\u0002\u001a\u0006\u00101\u001a\u00020'\u001a&\u00102\u001a\u00020\u00012\u0006\u0010)\u001a\u00020\u00012\n\b\u0002\u00103\u001a\u0004\u0018\u00010\u00012\b\b\u0002\u00104\u001a\u00020#H\u0007\u001a\u001a\u00105\u001a\u00020#2\u0006\u00106\u001a\u00020\u00012\b\u00107\u001a\u0004\u0018\u00010\u0001H\u0002\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0003\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0004\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0005\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0006\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0007\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\b\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\t\u001a\u00020\nX\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u000b\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\f\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\r\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u000e\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u000f\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0010\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0011\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0012\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0013\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0014\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0015\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0016\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0017\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"\u000e\u0010\u0018\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0019\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u001a\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u001b\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u001c\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u001d\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u001e\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u0014\u0010\u001f\u001a\b\u0012\u0004\u0012\u00020\u00010 X\u0082\u0004¢\u0006\u0002\n\u0000\"\u0017\u0010!\u001a\b\u0012\u0004\u0012\u00020#0\"¢\u0006\b\n\u0000\u001a\u0004\b!\u0010$\"J\u0010%\u001a>\u0012\u0019\u0012\u0017\u0012\u0004\u0012\u00020'0\"¢\u0006\f\b(\u0012\b\b)\u0012\u0004\b\b(*\u0012\u0019\u0012\u0017\u0012\u0004\u0012\u00020'0\"¢\u0006\f\b(\u0012\b\b)\u0012\u0004\b\b(+\u0012\u0004\u0012\u00020'0&X\u0082\u0004¢\u0006\u0002\n\u0000\"\u0014\u0010,\u001a\b\u0012\u0004\u0012\u00020\u00010 X\u0082\u0004¢\u0006\u0002\n\u0000\"\u0014\u0010-\u001a\b\u0012\u0004\u0012\u00020\u00010 X\u0082\u0004¢\u0006\u0002\n\u0000¨\u00068"}, d2 = {"APPEAR_DARK", "", "APPEAR_DAY", "DARK_DISAPPEAR", "DARK_NORMAL", "DARK_STAND", "DAY_DISAPPEAR", "DAY_NORMAL", "DAY_STAND", "DEFAULT_LOW_END_DEVICE_SCORE", "", "EXIT_DARK", "EXIT_DAY", "FUNNY_SPRITE_CHAT_BASEBOARD", "FUNNY_SPRITE_CHAT_LIGHT", "FUNNY_SPRITE_CHAT_STAGE", "FUNNY_SPRITE_CHAT_STATIC_RES", "FUNNY_SPRITE_CHAT_WALL", "FUNNY_SPRITE_RES_AFX", "FUNNY_SPRITE_RES_WEBP", "LOG_TAG", "MP4", "NEW_USER_GUIDE_RES", "RES_FILE_PATH", "RUSH_RES", "SEE_RES", "SHOW_DARK", "SHOW_DAY", "TEMP_FOLDER", "WEBP", "ZIP", "chatStaticResList", "", "isAllResExist", "Lkotlin/Function0;", "", "()Lkotlin/jvm/functions/Function0;", "judgeDeviceScore", "Lkotlin/Function2;", "", "Lkotlin/ParameterName;", "name", "highEnd", "lowEnd", "notificationResList", "resList", "deleteFiles", "file", "Ljava/io/File;", "downloadRes", "getResPathByName", "notificationPath", "isNameNeedPrefix", "unzipResFile", "resFileName", "resZip", "tbadkcore_release"}, k = 2, mv = {1, 6, 0}, xi = 48)
 @JvmName(name = "FunnySpriteResDownloadUtil")
 /* loaded from: classes7.dex */
 public final class FunnySpriteResDownloadUtil {
@@ -76,7 +76,7 @@ public final class FunnySpriteResDownloadUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) {
                 super.onDownloadError(packageInfo, errorInfo);
-                ew8 defaultLog = DefaultLog.getInstance();
+                h29 defaultLog = DefaultLog.getInstance();
                 StringBuilder sb = new StringBuilder();
                 sb.append("Sprite Res Download Fail! Error Msg: ");
                 if (errorInfo != null) {
@@ -102,10 +102,10 @@ public final class FunnySpriteResDownloadUtil {
                     String resZip = packageInfo.name;
                     Intrinsics.checkNotNullExpressionValue(resZip, "resZip");
                     String replace$default = StringsKt__StringsJVMKt.replace$default(resZip, ".zip", "", false, 4, (Object) null);
-                    ew8 defaultLog = DefaultLog.getInstance();
+                    h29 defaultLog = DefaultLog.getInstance();
                     defaultLog.c("SpriteResDownload", "Sprite Res Download Success! Res Name: " + resZip + ". Duration: " + (System.currentTimeMillis() - j));
                     boolean l = FunnySpriteResDownloadUtil.l(replace$default, resZip);
-                    ew8 defaultLog2 = DefaultLog.getInstance();
+                    h29 defaultLog2 = DefaultLog.getInstance();
                     StringBuilder sb = new StringBuilder();
                     sb.append("Sprite Res UnZip ");
                     if (l) {
@@ -136,7 +136,7 @@ public final class FunnySpriteResDownloadUtil {
             }
         }
         a = BdBaseApplication.getInst().getFilesDir().toString() + File.separator + "res_cache";
-        b = CollectionsKt__CollectionsKt.mutableListOf("day_stand", "dark_stand", "day_normal", "dark_normal", "personal_chat_sprite_stage");
+        b = CollectionsKt__CollectionsKt.mutableListOf("day_stand", "dark_stand", "day_normal", "dark_normal", "day_disappear", "dark_disappear", "personal_chat_sprite_stage");
         c = CollectionsKt__CollectionsKt.mutableListOf("funny_sprite_chat_wall", "funny_sprite_chat_baseboard", "funny_sprite_chat_light");
         d = CollectionsKt__CollectionsKt.mutableListOf("funny_sprite_appear_day", "funny_sprite_appear_dark", "funny_sprite_show_day", "funny_sprite_show_dark", "funny_sprite_show_dark", "funny_sprite_exit_day", "funny_sprite_exit_dark");
         e = FunnySpriteResDownloadUtil$isAllResExist$1.INSTANCE;
@@ -233,11 +233,11 @@ public final class FunnySpriteResDownloadUtil {
             });
             String str = "com.baidu.tieba.resloader." + ((String) objectRef.element) + ".zip";
             DefaultLog.getInstance().c("SpriteResDownload", "Sprite Res download start. Res : " + str);
-            km kmVar = new km(str, new a(System.currentTimeMillis()));
+            lm lmVar = new lm(str, new a(System.currentTimeMillis()));
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(lm.a);
+            requestParams.setRunType(mm.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(kmVar);
+            requestParams.addChannel(lmVar);
             PmsManager.getInstance().execute(requestParams);
         }
     }
@@ -406,7 +406,7 @@ public final class FunnySpriteResDownloadUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
             String str3 = a + File.separator + str;
-            boolean b2 = z85.b(a + File.separator + str2, str3 + "_temp");
+            boolean b2 = k95.b(a + File.separator + str2, str3 + "_temp");
             DefaultLog.getInstance().c("SpriteResDownload", "Sprite Res UnZip State in unzipResFile: " + b2);
             if (b2) {
                 File file = new File(str3);

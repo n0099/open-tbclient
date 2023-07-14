@@ -1,38 +1,97 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.impl.CronetLibraryLoader;
+import org.chromium.base.NativeLibraryLoadedStatus;
+import org.chromium.base.annotations.CheckDiscard;
+import org.chromium.base.natives.GEN_JNI;
+@CheckDiscard("crbug.com/993421")
 /* loaded from: classes5.dex */
-public class b1b {
+public final class b1b implements CronetLibraryLoader.b {
     public static /* synthetic */ Interceptable $ic;
+    public static CronetLibraryLoader.b a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static double a(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) {
-            if (byteBuffer == null || i == 0) {
-                return 0.0d;
-            }
-            byteBuffer.position(i);
-            byteBuffer.flip();
-            byte[] bArr = new byte[i];
-            byteBuffer.get(bArr);
-            byteBuffer.position(i);
-            byteBuffer.flip();
-            double d = 0.0d;
-            for (int i2 = 0; i2 < i; i2 += 2) {
-                int i3 = (bArr[i2] & 255) + ((bArr[i2 + 1] & 255) << 8);
-                if (i3 >= 32768) {
-                    i3 = 65535 - i3;
-                }
-                d += i3 * i3;
-            }
-            double d2 = (d / i) / 2.0d;
-            return Math.abs(d2 > 0.0d ? Math.log10(d2) * 10.0d : 0.0d);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947593526, "Lcom/baidu/tieba/b1b;")) == null) {
+            return;
         }
-        return invokeLI.doubleValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947593526, "Lcom/baidu/tieba/b1b;");
+        }
+    }
+
+    public b1b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_cronetInitOnInitThread();
+        }
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_getTurboNetVersion();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_getTurboNetHandler();
+        }
+        return invokeV.longValue;
+    }
+
+    public static CronetLibraryLoader.b d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (GEN_JNI.TESTING_ENABLED) {
+                CronetLibraryLoader.b bVar = a;
+                if (bVar != null) {
+                    return bVar;
+                }
+                if (GEN_JNI.REQUIRE_MOCK) {
+                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetLibraryLoader.Natives. The current configuration requires all native implementations to have a mock instance.");
+                }
+            }
+            NativeLibraryLoadedStatus.checkLoaded(false);
+            return new b1b();
+        }
+        return (CronetLibraryLoader.b) invokeV.objValue;
     }
 }

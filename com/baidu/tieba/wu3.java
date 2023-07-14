@@ -1,89 +1,139 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import android.util.Log;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public class wu3 implements zv2 {
+public class wu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vs1 a;
-
-        public a(wu3 wu3Var, vs1 vs1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wu3Var, vs1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void a(String str) {
+        int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if (ru3.a) {
+                Log.d("BDTLS", "bdtls success");
             }
-            this.a = vs1Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                Bundle bundle = delegateResult.mResult;
-                if (bundle == null) {
-                    this.a.a(0);
+            gv3 m = xu3.l().m();
+            if (m == null) {
+                if (ru3.a) {
+                    Log.d("BDTLS", "bdtls ubc data is null");
                     return;
                 }
-                String string = bundle.getString("invoiceInfo");
-                if (TextUtils.isEmpty(string)) {
-                    this.a.a(0);
+                return;
+            }
+            try {
+                int i4 = -1;
+                if (m.d() != null) {
+                    i = m.d().intValue();
                 } else {
-                    this.a.b(cp3.d(string));
+                    i = -1;
+                }
+                if (m.f() != null) {
+                    i2 = m.f().intValue();
+                } else {
+                    i2 = -1;
+                }
+                if (m.e() != null) {
+                    i3 = m.e().intValue();
+                } else {
+                    i3 = -1;
+                }
+                if (m.g() != null) {
+                    i4 = m.g().intValue();
+                }
+                if (ru3.a) {
+                    Log.d("BDTLS", "bdtls ubc get data");
+                }
+                yi3 yi3Var = new yi3();
+                yi3Var.b = str;
+                yi3Var.a("dh_group_id", Integer.valueOf(i));
+                yi3Var.a("dh_secret", Integer.valueOf(i2));
+                yi3Var.a("dh_pub_c", Integer.valueOf(i3));
+                yi3Var.a("dh_pub_s", Integer.valueOf(i4));
+                if (ru3.a) {
+                    Log.d("BDTLS", "bdtls ubc create event");
+                }
+                oi3.d(yi3Var);
+            } catch (Exception e) {
+                if (ru3.a) {
+                    Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    public wu3() {
+    public static void b(gv3 gv3Var, Bdtls$Alert bdtls$Alert) {
+        String str;
+        int i;
+        int i2;
+        int i3;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65537, null, gv3Var, bdtls$Alert) == null) {
+            if (ru3.a) {
+                Log.d("BDTLS", "bdtls ubc");
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.zv2
-    public void a(Context context, String str, String str2, vs1 vs1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, vs1Var) == null) && context != null && vs1Var != null) {
-            DelegateUtils.callOnMainWithActivity((Activity) context, MainProcessDelegateActivity.class, vu3.class, new a(this, vs1Var));
+            if (gv3Var != null && bdtls$Alert != null) {
+                try {
+                    if (bdtls$Alert.getLevel() == 1) {
+                        str = "warning";
+                    } else {
+                        str = "fatal_error";
+                    }
+                    int i4 = -1;
+                    if (gv3Var.d() != null) {
+                        i = gv3Var.d().intValue();
+                    } else {
+                        i = -1;
+                    }
+                    if (gv3Var.f() != null) {
+                        i2 = gv3Var.f().intValue();
+                    } else {
+                        i2 = -1;
+                    }
+                    if (gv3Var.e() != null) {
+                        i3 = gv3Var.e().intValue();
+                    } else {
+                        i3 = -1;
+                    }
+                    if (gv3Var.g() != null) {
+                        i4 = gv3Var.g().intValue();
+                    }
+                    if (bdtls$Alert.getDescription() != null) {
+                        str2 = new String(bdtls$Alert.getDescription().toByteArray());
+                    } else {
+                        str2 = "";
+                    }
+                    if (ru3.a) {
+                        Log.d("BDTLS", "bdtls ubc get data");
+                    }
+                    yi3 yi3Var = new yi3();
+                    yi3Var.b = "alert";
+                    yi3Var.e = str;
+                    yi3Var.a("dh_group_id", Integer.valueOf(i));
+                    yi3Var.a("dh_secret", Integer.valueOf(i2));
+                    yi3Var.a("dh_pub_c", Integer.valueOf(i3));
+                    yi3Var.a("dh_pub_s", Integer.valueOf(i4));
+                    yi3Var.a("alert_msg", str2);
+                    if (ru3.a) {
+                        Log.d("BDTLS", "bdtls ubc create event");
+                    }
+                    oi3.d(yi3Var);
+                } catch (Exception e) {
+                    if (ru3.a) {
+                        Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                        e.printStackTrace();
+                    }
+                }
+            } else if (ru3.a) {
+                Log.d("BDTLS", "bdtls ubc data is null");
+            }
         }
     }
 }

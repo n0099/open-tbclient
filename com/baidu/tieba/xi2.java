@@ -1,79 +1,19 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import android.net.Uri;
+import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class xi2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final boolean b;
-    public static Runnable c;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                mw3.e(AppRuntime.getAppContext());
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                mw3.d(AppRuntime.getAppContext()).g();
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -88,97 +28,35 @@ public class xi2 {
                 return;
             }
         }
-        a = ms1.a;
-        jv2.g0().getSwitch("swan_cpu_booster", 0);
-        b = b(0);
-        if (a) {
-            Log.d("SwanCpuBoosterWrapper", "swan_cpu_booster - 0");
-            Log.d("SwanCpuBoosterWrapper", "SWAN_CPU_BOOSTER - " + b);
-        }
-        a();
+        a = DownloadConstants.LOCAL_DATA_URI_PREFIX + ui2.b + "/history_with_app";
+        b = DownloadConstants.LOCAL_DATA_URI_PREFIX + ui2.b + "/history";
+        c = DownloadConstants.LOCAL_DATA_URI_PREFIX + ui2.b + "/history_with_aps_pms";
     }
 
-    public static void a() {
-        long j;
+    public static Uri a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !b) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return Uri.parse(b);
         }
-        if (a) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
-        }
-        mw3.b(a);
-        if (c == null) {
-            c = new b();
-        }
-        if (a) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("SwanCpuBoosterWrapper", "init cpu booster cost - " + (currentTimeMillis - j) + "ms");
-        }
+        return (Uri) invokeV.objValue;
     }
 
-    public static void e() {
-        long j;
+    public static Uri b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || !b) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Uri.parse(a);
         }
-        if (a) {
-            Log.d("SwanCpuBoosterWrapper", "startBooster");
-        }
-        if (a) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
-        }
-        d(c);
-        if (a) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("SwanCpuBoosterWrapper", "startBooster cost - " + (currentTimeMillis - j) + "ms");
-        }
+        return (Uri) invokeV.objValue;
     }
 
-    public static boolean b(int i) {
-        InterceptResult invokeI;
+    public static Uri c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i <= 0) {
-                return false;
-            }
-            if (i == 1) {
-                return true;
-            }
-            if (i != 2) {
-                return false;
-            }
-            return jv2.u0().a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Uri.parse(c);
         }
-        return invokeI.booleanValue;
-    }
-
-    public static void d(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) != null) || runnable == null) {
-            return;
-        }
-        ExecutorUtilsExt.postOnElastic(runnable, "SwanCpuBoosterWrapper", 0);
-    }
-
-    public static void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65539, null, z) != null) || !b) {
-            return;
-        }
-        if (a) {
-            Log.d("SwanCpuBoosterWrapper", "cpu-booster preInit async ? - " + z);
-        }
-        a aVar = new a();
-        if (z) {
-            ExecutorUtilsExt.postOnElastic(aVar, "booster-preInit", 3);
-        } else {
-            aVar.run();
-        }
+        return (Uri) invokeV.objValue;
     }
 }

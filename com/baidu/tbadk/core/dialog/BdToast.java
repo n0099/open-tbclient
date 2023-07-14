@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hj;
-import com.baidu.tieba.s2a;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.dba;
+import com.baidu.tieba.ij;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -170,7 +170,7 @@ public class BdToast {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i, i2)) == null) {
-            i(i, i2, UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f0703d7));
+            i(i, i2, UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f0703dd));
             return this;
         }
         return (BdToast) invokeII.objValue;
@@ -182,13 +182,13 @@ public class BdToast {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Toast toast = new Toast(this.a);
             this.b = toast;
-            hj.a(toast);
+            ij.a(toast);
             r();
             o();
             if (this.o != 0) {
-                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(xi.g(this.a, R.dimen.tbds32), this.o));
+                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(this.a, R.dimen.tbds32), this.o));
             } else {
-                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(xi.g(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             }
             p();
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0101, 1);
@@ -355,21 +355,21 @@ public class BdToast {
             }
             this.e.k(this.j);
             this.e.setVisibility(0);
-            s75 d = s75.d(this.c);
+            d85 d = d85.d(this.c);
             d.o(R.string.J_X06);
-            d.h(s2a.a(SkinManager.getColor(R.color.CAM_X0611), 0.8f));
-            int g = xi.g(this.a, R.dimen.tbds6);
-            int g2 = xi.g(this.a, R.dimen.tbds23);
-            int g3 = xi.g(this.a, R.dimen.M_W_X007);
-            int g4 = xi.g(this.a, R.dimen.M_W_X007);
+            d.h(dba.a(SkinManager.getColor(R.color.CAM_X0611), 0.8f));
+            int g = yi.g(this.a, R.dimen.tbds6);
+            int g2 = yi.g(this.a, R.dimen.tbds23);
+            int g3 = yi.g(this.a, R.dimen.M_W_X007);
+            int g4 = yi.g(this.a, R.dimen.M_W_X007);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f.getLayoutParams();
             layoutParams.topMargin = g;
             layoutParams.bottomMargin = g2;
             layoutParams.leftMargin = g3;
             layoutParams.rightMargin = g4;
             this.f.requestLayout();
-            s75.d(this.g).C(R.dimen.T_X07);
-            ((LinearLayout.LayoutParams) this.g.getLayoutParams()).topMargin = xi.g(this.a, R.dimen.tbds7);
+            d85.d(this.g).C(R.dimen.T_X07);
+            ((LinearLayout.LayoutParams) this.g.getLayoutParams()).topMargin = yi.g(this.a, R.dimen.tbds7);
             this.g.requestLayout();
         }
     }

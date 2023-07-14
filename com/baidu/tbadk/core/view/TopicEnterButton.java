@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.data.RecommendTopicData;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ix5;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.my5;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,15 +46,15 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        b = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        c = xi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
-        int l = xi.l(TbadkCoreApplication.getInst()) / 2;
-        xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-        xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
-        xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        b = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        c = yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        int l = yi.l(TbadkCoreApplication.getInst()) / 2;
+        yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+        yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
-    public void a() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setHeight((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds62));
@@ -62,14 +62,14 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             setGravity(17);
             setPadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0);
             setOnClickListener(this);
-            c();
+            e();
         }
     }
 
-    public void c() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            s75 d = s75.d(this);
+            d85 d = d85.d(this);
             d.D(R.string.F_X01);
             d.C(R.dimen.T_X09);
             d.x(R.color.CAM_X0304);
@@ -105,7 +105,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        a();
+        d();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -127,7 +127,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        a();
+        d();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -149,17 +149,17 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        a();
+        d();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         RecommendTopicData.RecommendTopicListData recommendTopicListData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (recommendTopicListData = this.a) != null && !wi.isEmpty(recommendTopicListData.getTopicName())) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (recommendTopicListData = this.a) != null && !xi.isEmpty(recommendTopicListData.getTopicName())) {
             if (NewWebHotTopicPageSwitch.isOn()) {
                 if (view2.getContext() instanceof BaseActivity) {
-                    ix5.f(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
+                    my5.f(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
                     return;
                 }
                 return;

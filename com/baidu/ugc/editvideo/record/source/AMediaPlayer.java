@@ -9,7 +9,7 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AMediaPlayer implements IMediaPlayer {
     public static MediaInfo sMediaInfo;
     public Uri dataSource;

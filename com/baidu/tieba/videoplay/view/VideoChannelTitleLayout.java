@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.expandable.ExpandableTextView;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -95,8 +95,8 @@ public class VideoChannelTitleLayout extends ViewGroup {
         if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || i <= 0) {
             return;
         }
-        int g = xi.g(getContext(), R.dimen.tbds8);
-        int g2 = xi.g(getContext(), R.dimen.M_W_X001);
+        int g = yi.g(getContext(), R.dimen.tbds8);
+        int g2 = yi.g(getContext(), R.dimen.M_W_X001);
         ExpandableTextView expandableTextView = (ExpandableTextView) getChildAt(0);
         View childAt = getChildAt(1);
         CharSequence text = expandableTextView.getContentView().getText();

@@ -1,494 +1,86 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Outline;
-import android.graphics.Rect;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewOutlineProvider;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webpanel.PanelScrollView;
-import com.baidu.nadcore.webpanel.proxy.WebPanelBrowserContainer;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.tieba.g61;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class o81 implements s81, ea1, da1 {
+public abstract class o81 {
     public static /* synthetic */ Interceptable $ic;
+    public static final o81 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public z81 a;
-    public w81 b;
-    public x81 c;
-    public final Activity d;
 
-    @Override // com.baidu.tieba.ea1, com.baidu.tieba.pb1
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
+    public abstract void a(Context context, f11 f11Var, boolean z);
 
-    @Override // com.baidu.tieba.ea1, com.baidu.tieba.pb1
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    public abstract void b(@Nullable String str, @Nullable String str2);
 
     /* loaded from: classes7.dex */
-    public static final class a extends ViewOutlineProvider {
+    public class a extends o81 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LinearLayout a;
 
-        public a(LinearLayout linearLayout) {
+        @Override // com.baidu.tieba.o81
+        public void a(Context context, f11 f11Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLZ(1048576, this, context, f11Var, z) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.o81
+        public void b(@Nullable String str, @Nullable String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {linearLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = linearLayout;
-        }
-
-        @Override // android.view.ViewOutlineProvider
-        public void getOutline(View view2, Outline outline) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, outline) == null) {
-                Rect rect = new Rect(0, 0, this.a.getMeasuredWidth(), this.a.getMeasuredHeight());
-                if (outline != null) {
-                    outline.setRoundRect(rect, g61.c.a(wc1.a(), 0.0f));
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static final class b extends ViewOutlineProvider {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LinearLayout a;
-
-        public b(LinearLayout linearLayout) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986017, "Lcom/baidu/tieba/o81;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {linearLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = linearLayout;
-        }
-
-        @Override // android.view.ViewOutlineProvider
-        public void getOutline(View view2, Outline outline) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, outline) == null) {
-                Rect rect = new Rect(0, 0, this.a.getMeasuredWidth(), this.a.getMeasuredHeight());
-                if (outline != null) {
-                    outline.setRoundRect(rect, g61.c.a(wc1.a(), 18.0f));
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947986017, "Lcom/baidu/tieba/o81;");
+                return;
             }
         }
+        a = new a();
     }
 
-    public o81(Activity activity) {
+    public o81() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        this.d = activity;
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void g(int i) {
-        z81 z81Var;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (z81Var = this.a) != null && (e = z81Var.e()) != null && (e.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
-            ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
-            if (layoutParams != null) {
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-                layoutParams2.topMargin = i;
-                e.setLayoutParams(layoutParams2);
-                return;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type android.widget.FrameLayout.LayoutParams");
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void p(q81 controlHelper) {
-        x81 x81Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, controlHelper) == null) {
-            Intrinsics.checkNotNullParameter(controlHelper, "controlHelper");
-            z81 z81Var = this.a;
-            if (z81Var != null) {
-                x81 x81Var2 = new x81(z81Var);
-                this.c = x81Var2;
-                if (x81Var2 != null) {
-                    x81Var2.q(this.b);
-                }
-                x81 x81Var3 = this.c;
-                if (x81Var3 != null) {
-                    x81Var3.o(controlHelper);
-                }
-                w81 w81Var = this.b;
-                if (w81Var != null && w81Var.t() && (x81Var = this.c) != null) {
-                    x81Var.k();
-                }
-                z81Var.n(this.c);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void a() {
-        x81 x81Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (x81Var = this.c) != null) {
-            x81Var.j();
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public ViewGroup.LayoutParams b() {
-        InterceptResult invokeV;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            z81 z81Var = this.a;
-            if (z81Var != null && (e = z81Var.e()) != null) {
-                return e.getLayoutParams();
-            }
-            return null;
-        }
-        return (ViewGroup.LayoutParams) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void e() {
-        z81 z81Var;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (z81Var = this.a) != null && (e = z81Var.e()) != null && Build.VERSION.SDK_INT >= 21) {
-            e.setOutlineProvider(new a(e));
-            e.setClipToOutline(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.ea1, com.baidu.tieba.pb1
-    public Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s81
-    public boolean h() {
-        InterceptResult invokeV;
-        AbsNadBrowserView m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            z81 z81Var = this.a;
-            if (z81Var != null && (m = z81Var.m()) != null && m.d()) {
-                z81 z81Var2 = this.a;
-                if (z81Var2 != null) {
-                    z81Var2.g();
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s81
-    public boolean j() {
-        InterceptResult invokeV;
-        AbsNadBrowserView m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            z81 z81Var = this.a;
-            if (z81Var != null && (m = z81Var.m()) != null) {
-                return m.w();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s81
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            x81 x81Var = this.c;
-            if (x81Var != null) {
-                return x81Var.h();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void onDestroy() {
-        x81 x81Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            w81 w81Var = this.b;
-            if (w81Var != null && w81Var.t() && (x81Var = this.c) != null) {
-                x81Var.t();
-            }
-            z81 z81Var = this.a;
-            if (z81Var != null) {
-                z81Var.onPause();
-            }
-            z81 z81Var2 = this.a;
-            if (z81Var2 != null) {
-                z81Var2.onDestroy();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.da1
-    public void q() {
-        x81 x81Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (x81Var = this.c) != null) {
-            x81Var.g();
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void v() {
-        z81 z81Var;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (z81Var = this.a) != null && (e = z81Var.e()) != null && Build.VERSION.SDK_INT >= 21) {
-            e.setOutlineProvider(new b(e));
-            e.setClipToOutline(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void c(View.OnLayoutChangeListener onLayoutChangeListener) {
-        z81 z81Var;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onLayoutChangeListener) == null) && (z81Var = this.a) != null && (e = z81Var.e()) != null) {
-            e.removeOnLayoutChangeListener(onLayoutChangeListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void i(FrameLayout.LayoutParams params) {
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            z81 z81Var = this.a;
-            if (z81Var != null && (e = z81Var.e()) != null) {
-                e.setLayoutParams(params);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void k(int i) {
-        z81 z81Var;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (z81Var = this.a) != null && (e = z81Var.e()) != null) {
-            ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
-            layoutParams.height = i;
-            e.setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void l(w81 w81Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, w81Var) == null) {
-            this.b = w81Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void m(boolean z) {
-        x81 x81Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048590, this, z) == null) && (x81Var = this.c) != null) {
-            x81Var.n(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void r(String str) {
-        z81 z81Var;
-        AbsNadBrowserView m;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && (z81Var = this.a) != null && (m = z81Var.m()) != null) {
-            AbsNadBrowserView.B(m, str, null, 2, null);
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void s(View.OnLayoutChangeListener onLayoutChangeListener) {
-        z81 z81Var;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, onLayoutChangeListener) == null) && (z81Var = this.a) != null && (e = z81Var.e()) != null) {
-            e.addOnLayoutChangeListener(onLayoutChangeListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void u(u81 u81Var) {
-        x81 x81Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048599, this, u81Var) == null) && (x81Var = this.c) != null) {
-            x81Var.p(u81Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.ea1, com.baidu.tieba.pb1
-    public Intent getIntent() {
-        InterceptResult invokeV;
-        String b2;
-        String c;
-        String f;
-        String h;
-        String i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Intent intent = new Intent();
-            HashMap hashMap = new HashMap();
-            w81 w81Var = this.b;
-            if (w81Var != null && (i = w81Var.i()) != null) {
-                hashMap.put("url", i);
-                hashMap.put("lp_real_url", i);
-                intent.putExtra("url", i);
-                intent.putExtra("lp_real_url", i);
-            }
-            w81 w81Var2 = this.b;
-            if (w81Var2 != null && (h = w81Var2.h()) != null) {
-                hashMap.put("sdk_script", h);
-                intent.putExtra("sdk_script", h);
-            }
-            w81 w81Var3 = this.b;
-            if (w81Var3 != null && (f = w81Var3.f()) != null) {
-                hashMap.put("log_switch", f);
-                intent.putExtra("log_switch", f);
-            }
-            w81 w81Var4 = this.b;
-            if (w81Var4 != null && (c = w81Var4.c()) != null) {
-                hashMap.put(MigrateStatisticUtils.EXT_INFO, c);
-                intent.putExtra(MigrateStatisticUtils.EXT_INFO, c);
-            }
-            w81 w81Var5 = this.b;
-            if (w81Var5 != null && (b2 = w81Var5.b()) != null) {
-                hashMap.put("charge_url", b2);
-                intent.putExtra("charge_url", b2);
-            }
-            hashMap.put("lp_org_type", "pop_web");
-            intent.putExtra("lp_org_type", "pop_web");
-            intent.putExtra("map", hashMap);
-            return intent;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void o(ViewGroup parent) {
-        ViewParent viewParent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, parent) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            ViewGroup viewGroup = null;
-            WebPanelBrowserContainer webPanelBrowserContainer = new WebPanelBrowserContainer(this, new f91(), null);
-            this.a = webPanelBrowserContainer;
-            webPanelBrowserContainer.t0(false);
-            webPanelBrowserContainer.s0(false);
-            webPanelBrowserContainer.t();
-            webPanelBrowserContainer.z(this);
-            webPanelBrowserContainer.v();
-            v();
-            LinearLayout e = webPanelBrowserContainer.e();
-            if (e != null) {
-                e.setPadding(0, 0, 0, PanelScrollView.A);
-            }
-            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
-            FrameLayout h = webPanelBrowserContainer.h();
-            if (h != null) {
-                viewParent = h.getParent();
-            } else {
-                viewParent = null;
-            }
-            if (viewParent instanceof ViewGroup) {
-                viewGroup = viewParent;
-            }
-            ViewGroup viewGroup2 = viewGroup;
-            if (viewGroup2 != null) {
-                viewGroup2.removeView(h);
-            }
-            parent.addView(h, layoutParams);
-        }
-    }
-
-    @Override // com.baidu.tieba.s81
-    public void t(int i, boolean z) {
-        x81 x81Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && (x81Var = this.c) != null) {
-            x81Var.i(i, z);
         }
     }
 }

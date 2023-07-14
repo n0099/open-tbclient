@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
+import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x39 {
+public class x39 implements BrowserProxyService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<hh5> a;
-    public boolean b;
 
     public x39() {
         Interceptable interceptable = $ic;
@@ -29,24 +27,17 @@ public class x39 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.searchbox.live.interfaces.service.BrowserProxyService
+    @NonNull
+    public IBrowserView buildLightBrowserViewInstance() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("user_info_list");
-        boolean z = false;
-        if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                hh5 hh5Var = new hh5();
-                hh5Var.a(optJSONArray.optJSONObject(i));
-                this.a.add(hh5Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (en6.e("https://live-tmp/")) {
+                return new y39();
             }
+            return new v39();
         }
-        if (jSONObject.optInt("has_more", 0) == 1) {
-            z = true;
-        }
-        this.b = z;
+        return (IBrowserView) invokeV.objValue;
     }
 }

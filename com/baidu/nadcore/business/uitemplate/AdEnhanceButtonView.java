@@ -20,62 +20,63 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.as0;
-import com.baidu.tieba.b31;
-import com.baidu.tieba.c61;
-import com.baidu.tieba.ck0;
-import com.baidu.tieba.di0;
-import com.baidu.tieba.dm0;
-import com.baidu.tieba.fs0;
-import com.baidu.tieba.g61;
-import com.baidu.tieba.jj0;
-import com.baidu.tieba.lj0;
-import com.baidu.tieba.lk0;
+import com.baidu.tieba.a71;
+import com.baidu.tieba.bs0;
+import com.baidu.tieba.do0;
+import com.baidu.tieba.e71;
+import com.baidu.tieba.ei0;
+import com.baidu.tieba.es0;
+import com.baidu.tieba.fk0;
+import com.baidu.tieba.gm0;
+import com.baidu.tieba.ho0;
+import com.baidu.tieba.ke1;
+import com.baidu.tieba.kj0;
+import com.baidu.tieba.ls0;
+import com.baidu.tieba.me1;
+import com.baidu.tieba.mj0;
+import com.baidu.tieba.n41;
 import com.baidu.tieba.ok0;
-import com.baidu.tieba.qi0;
-import com.baidu.tieba.qm0;
-import com.baidu.tieba.qr0;
-import com.baidu.tieba.r31;
-import com.baidu.tieba.se1;
-import com.baidu.tieba.tn0;
-import com.baidu.tieba.tr0;
-import com.baidu.tieba.ue1;
-import com.baidu.tieba.xc1;
-import com.baidu.tieba.xn0;
+import com.baidu.tieba.pc1;
+import com.baidu.tieba.qs0;
+import com.baidu.tieba.ri0;
+import com.baidu.tieba.rk0;
+import com.baidu.tieba.tm0;
+import com.baidu.tieba.x31;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AdEnhanceButtonView extends FrameLayout implements ue1<View> {
-    public static final int q;
+public class AdEnhanceButtonView extends FrameLayout implements me1<View> {
     public static final int r;
     public static final int s;
     public static final int t;
     public static final int u;
     public static final int v;
+    public static final int w;
     public int a;
-    public NadEnhanceButtonDownloadView b;
-    public LinearLayout c;
-    public TextView d;
-    public AdImageView e;
-    public qm0 f;
-    public List<xc1> g;
-    public int h;
+    public int b;
+    public NadEnhanceButtonDownloadView c;
+    public LinearLayout d;
+    public TextView e;
+    public AdImageView f;
+    public tm0 g;
+    public List<pc1> h;
     public int i;
-    public View j;
-    public se1 k;
-    public SimpleAdInfoView l;
-    public boolean m;
-    public int n;
+    public int j;
+    public View k;
+    public ke1 l;
+    public SimpleAdInfoView m;
+    public boolean n;
     public int o;
     public int p;
+    public int q;
 
-    @Override // com.baidu.tieba.ue1
+    @Override // com.baidu.tieba.me1
     public void setBtnIconNightModeEnable(boolean z) {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends xc1 {
-        @Override // com.baidu.tieba.xc1
+    public class a extends pc1 {
+        @Override // com.baidu.tieba.pc1
         public void c() {
         }
 
@@ -83,10 +84,10 @@ public class AdEnhanceButtonView extends FrameLayout implements ue1<View> {
             super(j, j2);
         }
 
-        @Override // com.baidu.tieba.xc1
+        @Override // com.baidu.tieba.pc1
         public void d() {
-            if (AdEnhanceButtonView.this.k != null) {
-                AdEnhanceButtonView.this.k.e();
+            if (AdEnhanceButtonView.this.l != null) {
+                AdEnhanceButtonView.this.l.e();
             }
         }
     }
@@ -106,26 +107,26 @@ public class AdEnhanceButtonView extends FrameLayout implements ue1<View> {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             float animatedFraction = valueAnimator.getAnimatedFraction();
-            if (AdEnhanceButtonView.this.m) {
-                this.a.height = Math.round(AdEnhanceButtonView.r * animatedFraction);
-                this.a.topMargin = Math.round(AdEnhanceButtonView.t * animatedFraction);
-                AdEnhanceButtonView.this.j.requestLayout();
-                this.b.height = Math.round(AdEnhanceButtonView.this.a * animatedFraction);
-                this.b.topMargin = Math.round(AdEnhanceButtonView.v * animatedFraction);
-                this.b.bottomMargin = Math.round(AdEnhanceButtonView.u * animatedFraction);
-                AdEnhanceButtonView.this.l.setY(this.c + Math.round(AdEnhanceButtonView.r * (1.0f - animatedFraction)) + Math.round(AdEnhanceButtonView.v * animatedFraction));
-                AdEnhanceButtonView.this.l.setAlpha(animatedFraction);
-                AdEnhanceButtonView.this.l.requestLayout();
+            if (AdEnhanceButtonView.this.n) {
+                this.a.height = Math.round(AdEnhanceButtonView.this.a * animatedFraction);
+                this.a.topMargin = Math.round(AdEnhanceButtonView.u * animatedFraction);
+                AdEnhanceButtonView.this.k.requestLayout();
+                this.b.height = Math.round(AdEnhanceButtonView.this.b * animatedFraction);
+                this.b.topMargin = Math.round(AdEnhanceButtonView.w * animatedFraction);
+                this.b.bottomMargin = Math.round(AdEnhanceButtonView.v * animatedFraction);
+                AdEnhanceButtonView.this.m.setY(this.c + Math.round(AdEnhanceButtonView.this.a * (1.0f - animatedFraction)) + Math.round(AdEnhanceButtonView.w * animatedFraction));
+                AdEnhanceButtonView.this.m.setAlpha(animatedFraction);
+                AdEnhanceButtonView.this.m.requestLayout();
                 return;
             }
-            this.a.height = Math.round(AdEnhanceButtonView.r * animatedFraction);
-            this.a.topMargin = Math.round(AdEnhanceButtonView.s * animatedFraction);
-            AdEnhanceButtonView.this.j.requestLayout();
+            this.a.height = Math.round(AdEnhanceButtonView.this.a * animatedFraction);
+            this.a.topMargin = Math.round(AdEnhanceButtonView.t * animatedFraction);
+            AdEnhanceButtonView.this.k.requestLayout();
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c extends xc1 {
+    public class c extends pc1 {
         public final /* synthetic */ ValueAnimator c;
         public final /* synthetic */ Animation d;
         public final /* synthetic */ View e;
@@ -138,20 +139,20 @@ public class AdEnhanceButtonView extends FrameLayout implements ue1<View> {
             this.e = view2;
         }
 
-        @Override // com.baidu.tieba.xc1
+        @Override // com.baidu.tieba.pc1
         public void c() {
             this.c.cancel();
             this.d.cancel();
             AdEnhanceButtonView.this.E();
         }
 
-        @Override // com.baidu.tieba.xc1
+        @Override // com.baidu.tieba.pc1
         public void d() {
             if (this.c.isRunning()) {
                 return;
             }
-            if (AdEnhanceButtonView.this.k != null) {
-                AdEnhanceButtonView.this.k.f();
+            if (AdEnhanceButtonView.this.l != null) {
+                AdEnhanceButtonView.this.l.f();
             }
             this.d.cancel();
             this.c.start();
@@ -168,17 +169,17 @@ public class AdEnhanceButtonView extends FrameLayout implements ue1<View> {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             float animatedFraction = valueAnimator.getAnimatedFraction();
-            View view2 = AdEnhanceButtonView.this.B() ? AdEnhanceButtonView.this.b : AdEnhanceButtonView.this.c;
+            View view2 = AdEnhanceButtonView.this.B() ? AdEnhanceButtonView.this.c : AdEnhanceButtonView.this.d;
             if (view2.getBackground() instanceof GradientDrawable) {
                 GradientDrawable gradientDrawable = (GradientDrawable) view2.getBackground();
-                gradientDrawable.setColor(lj0.d(animatedFraction, AdEnhanceButtonView.this.o, AdEnhanceButtonView.this.getBtnFinalColor()));
-                gradientDrawable.setCornerRadius(AdEnhanceButtonView.this.n);
+                gradientDrawable.setColor(mj0.d(animatedFraction, AdEnhanceButtonView.this.p, AdEnhanceButtonView.this.getBtnFinalColor()));
+                gradientDrawable.setCornerRadius(AdEnhanceButtonView.this.o);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e extends xc1 {
+    public class e extends pc1 {
         public final /* synthetic */ ValueAnimator c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -187,18 +188,18 @@ public class AdEnhanceButtonView extends FrameLayout implements ue1<View> {
             this.c = valueAnimator;
         }
 
-        @Override // com.baidu.tieba.xc1
+        @Override // com.baidu.tieba.pc1
         public void c() {
             this.c.cancel();
         }
 
-        @Override // com.baidu.tieba.xc1
+        @Override // com.baidu.tieba.pc1
         public void d() {
             if (this.c.isRunning()) {
                 return;
             }
-            if (AdEnhanceButtonView.this.k != null) {
-                AdEnhanceButtonView.this.k.c();
+            if (AdEnhanceButtonView.this.l != null) {
+                AdEnhanceButtonView.this.l.c();
             }
             this.c.start();
         }
@@ -211,118 +212,118 @@ public class AdEnhanceButtonView extends FrameLayout implements ue1<View> {
 
         @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView.c
         public void a(String str) {
-            if (AdEnhanceButtonView.this.k != null) {
-                AdEnhanceButtonView.this.k.a(str);
+            if (AdEnhanceButtonView.this.l != null) {
+                AdEnhanceButtonView.this.l.a(str);
             }
         }
     }
 
     /* loaded from: classes3.dex */
     public class g implements View.OnClickListener {
-        public final /* synthetic */ qr0 a;
+        public final /* synthetic */ bs0 a;
 
-        public g(qr0 qr0Var) {
-            this.a = qr0Var;
+        public g(bs0 bs0Var) {
+            this.a = bs0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            AdEnhanceButtonView.this.f.m();
-            lj0.b(this.a.h);
+            AdEnhanceButtonView.this.g.l();
+            mj0.b(this.a.h);
         }
     }
 
     /* loaded from: classes3.dex */
     public class h implements View.OnClickListener {
-        public final /* synthetic */ qr0 a;
+        public final /* synthetic */ bs0 a;
 
-        public h(qr0 qr0Var) {
-            this.a = qr0Var;
+        public h(bs0 bs0Var) {
+            this.a = bs0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (AdEnhanceButtonView.this.k != null) {
-                as0 as0Var = new as0();
-                as0Var.c = true;
-                qr0 qr0Var = this.a;
-                String str = qr0Var.t;
-                as0Var.a = str;
-                if (qr0Var.a == 0 && AdEnhanceButtonView.this.q(str).booleanValue()) {
-                    as0Var.a = "";
+            if (AdEnhanceButtonView.this.l != null) {
+                ls0 ls0Var = new ls0();
+                ls0Var.c = true;
+                bs0 bs0Var = this.a;
+                String str = bs0Var.t;
+                ls0Var.a = str;
+                if (bs0Var.a == 0 && AdEnhanceButtonView.this.p(str).booleanValue()) {
+                    ls0Var.a = "";
                 }
-                AdEnhanceButtonView.this.k.b(as0Var);
+                AdEnhanceButtonView.this.l.b(ls0Var);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class i extends xn0<qi0> {
-        public final /* synthetic */ qr0 b;
+    public class i extends ho0<ri0> {
+        public final /* synthetic */ bs0 b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public i(Class cls, qr0 qr0Var) {
+        public i(Class cls, bs0 bs0Var) {
             super(cls);
-            this.b = qr0Var;
+            this.b = bs0Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xn0
-        public void onEvent(@NonNull qi0 qi0Var) {
+        @Override // com.baidu.tieba.ho0
+        public void onEvent(@NonNull ri0 ri0Var) {
             GradientDrawable gradientDrawable;
-            if ("4".equals(qi0Var.a)) {
-                if (qi0Var.h) {
+            if ("4".equals(ri0Var.a)) {
+                if (ri0Var.h) {
                     AdEnhanceButtonView.this.x(this.b);
                     return;
                 }
-                if (qi0Var.f != null) {
-                    AdEnhanceButtonView.this.e.o(qi0Var.f);
+                if (ri0Var.f != null) {
+                    AdEnhanceButtonView.this.f.o(ri0Var.f);
                 }
-                if (qi0Var.g != null) {
-                    AdEnhanceButtonView.this.d.setText(qi0Var.g);
+                if (ri0Var.g != null) {
+                    AdEnhanceButtonView.this.e.setText(ri0Var.g);
                 }
-                if (qi0Var.d != null && qi0Var.e != null && (gradientDrawable = (GradientDrawable) AdEnhanceButtonView.this.c.getBackground()) != null) {
+                if (ri0Var.d != null && ri0Var.e != null && (gradientDrawable = (GradientDrawable) AdEnhanceButtonView.this.d.getBackground()) != null) {
                     gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-                    gradientDrawable.setColors(new int[]{c61.a(qi0Var.d, R.color.nad_reward_full_tail_btn_color), c61.a(qi0Var.e, R.color.nad_reward_full_tail_btn_color)});
-                    AdEnhanceButtonView.this.c.setBackground(gradientDrawable);
+                    gradientDrawable.setColors(new int[]{a71.a(ri0Var.d, R.color.nad_reward_full_tail_btn_color), a71.a(ri0Var.e, R.color.nad_reward_full_tail_btn_color)});
+                    AdEnhanceButtonView.this.d.setBackground(gradientDrawable);
                 }
-                r31.b(new ClogBuilder().y(ClogBuilder.LogType.REWARD_SHOW_TASK).u(ClogBuilder.Page.WELFARETAIL).p(qi0Var.i).k("4").l(qi0Var.c));
+                n41.e(new ClogBuilder().y(ClogBuilder.LogType.REWARD_SHOW_TASK).u(ClogBuilder.Page.WELFARETAIL).p(ri0Var.i).k("4").l(ri0Var.c));
             }
         }
     }
 
     static {
-        g61.c.a(ok0.b(), 8.0f);
-        q = g61.c.a(ok0.b(), 12.0f);
-        r = g61.c.a(ok0.b(), 33.0f);
-        s = g61.c.a(ok0.b(), 9.0f);
-        t = g61.c.a(ok0.b(), 28.0f);
-        u = g61.c.a(ok0.b(), 11.0f);
-        v = g61.c.a(ok0.b(), 7.0f);
+        e71.c.a(rk0.b(), 8.0f);
+        r = e71.c.a(rk0.b(), 12.0f);
+        s = e71.c.a(rk0.b(), 33.0f);
+        t = e71.c.a(rk0.b(), 9.0f);
+        u = e71.c.a(rk0.b(), 28.0f);
+        v = e71.c.a(rk0.b(), 11.0f);
+        w = e71.c.a(rk0.b(), 7.0f);
     }
 
     public final void z() {
-        ViewGroup.LayoutParams layoutParams = this.j.getLayoutParams();
-        ViewGroup.LayoutParams layoutParams2 = this.l.getLayoutParams();
-        View view2 = this.j;
+        ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.m.getLayoutParams();
+        View view2 = this.k;
         if (view2 != null && (layoutParams instanceof ViewGroup.MarginLayoutParams) && (layoutParams2 instanceof ViewGroup.MarginLayoutParams)) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
-            if (this.m) {
-                marginLayoutParams.height = r;
-                marginLayoutParams.topMargin = t;
+            if (this.n) {
+                marginLayoutParams.height = this.a;
+                marginLayoutParams.topMargin = u;
                 view2.requestLayout();
-                marginLayoutParams2.height = this.a;
-                marginLayoutParams2.topMargin = v;
-                marginLayoutParams2.bottomMargin = u;
-                this.l.setAlpha(1.0f);
-                this.l.requestLayout();
+                marginLayoutParams2.height = this.b;
+                marginLayoutParams2.topMargin = w;
+                marginLayoutParams2.bottomMargin = v;
+                this.m.setAlpha(1.0f);
+                this.m.requestLayout();
                 return;
             }
-            marginLayoutParams.height = r;
-            marginLayoutParams.topMargin = s;
+            marginLayoutParams.height = this.a;
+            marginLayoutParams.topMargin = t;
             view2.requestLayout();
-            this.l.setVisibility(8);
+            this.m.setVisibility(8);
         }
     }
 
@@ -332,14 +333,14 @@ public class AdEnhanceButtonView extends FrameLayout implements ue1<View> {
 
     public AdEnhanceButtonView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.h = 0;
         this.i = 0;
-        this.k = null;
-        this.m = false;
-        this.n = g61.c.a(ok0.b(), 17.0f);
-        this.o = getResources().getColor(R.color.nad_enhancement_btn_first_bg_color);
-        this.p = getResources().getColor(R.color.nad_enhancement_btn_bg_color);
-        r(context);
+        this.j = 0;
+        this.l = null;
+        this.n = false;
+        this.o = e71.c.a(rk0.b(), 17.0f);
+        this.p = getResources().getColor(R.color.nad_enhancement_btn_first_bg_color);
+        this.q = getResources().getColor(R.color.nad_enhancement_btn_bg_color);
+        q(context);
         C(attributeSet);
     }
 
@@ -349,53 +350,84 @@ public class AdEnhanceButtonView extends FrameLayout implements ue1<View> {
         setBtnPlaceholder(view2);
     }
 
-    public final void A(@NonNull tr0 tr0Var) {
-        int i2 = tr0Var.a;
+    public final void A(@NonNull es0 es0Var) {
+        int i2 = es0Var.a;
         if (i2 != 0) {
             if (i2 != 1) {
                 if (i2 == 2) {
-                    w(tr0Var);
+                    w(es0Var);
                     return;
                 }
                 return;
             }
-            v(tr0Var);
+            v(es0Var);
             return;
         }
-        b31.b(this.g, new a(tr0Var.b, tr0Var.c));
+        x31.b(this.h, new a(es0Var.b, es0Var.c));
     }
 
-    public final void D(@NonNull qr0 qr0Var) {
-        tn0.a().b(this, new i(qi0.class, qr0Var));
+    public final void D(@NonNull bs0 bs0Var) {
+        do0.a().b(this, new i(ri0.class, bs0Var));
     }
 
-    public Boolean q(@Nullable String str) {
+    public Boolean p(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return Boolean.FALSE;
         }
-        if (!lk0.o(str)) {
+        if (!ok0.o(str)) {
             return Boolean.FALSE;
         }
-        return Boolean.valueOf("rewardWebPanel".equals(new ck0(str).a()));
+        return Boolean.valueOf("rewardWebPanel".equals(new fk0(str).a()));
     }
 
-    public final void s(@NonNull qr0 qr0Var) {
-        List<tr0> list = qr0Var.o;
+    public final void r(@NonNull bs0 bs0Var) {
+        List<es0> list = bs0Var.o;
         if (list != null && list.size() > 0) {
-            this.g = new ArrayList();
-            for (tr0 tr0Var : list) {
-                if (tr0Var != null) {
-                    A(tr0Var);
+            this.h = new ArrayList();
+            for (es0 es0Var : list) {
+                if (es0Var != null) {
+                    A(es0Var);
                 }
             }
         }
     }
 
+    public void setBtnCornerRadius(int i2) {
+        this.o = i2;
+    }
+
+    public void setBtnHeight(int i2) {
+        this.a = i2;
+        LinearLayout linearLayout = this.d;
+        if (linearLayout != null) {
+            ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
+            layoutParams.height = this.a;
+            this.d.setLayoutParams(layoutParams);
+        }
+        NadEnhanceButtonDownloadView nadEnhanceButtonDownloadView = this.c;
+        if (nadEnhanceButtonDownloadView != null) {
+            ViewGroup.LayoutParams layoutParams2 = nadEnhanceButtonDownloadView.getLayoutParams();
+            layoutParams2.height = this.a;
+            this.c.setLayoutParams(layoutParams2);
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ue1
+    @Override // com.baidu.tieba.me1
     public void setBtnPlaceholder(View view2) {
-        this.j = view2;
+        this.k = view2;
         E();
+    }
+
+    public void setBtnTextSize(float f2) {
+        NadEnhanceButtonDownloadView nadEnhanceButtonDownloadView = this.c;
+        if (nadEnhanceButtonDownloadView != null) {
+            nadEnhanceButtonDownloadView.setTextSize(f2);
+        }
+        TextView textView = this.e;
+        if (textView != null) {
+            textView.setTextSize(1, f2);
+        }
     }
 
     public void setContainer(@NonNull ViewGroup viewGroup) {
@@ -406,273 +438,278 @@ public class AdEnhanceButtonView extends FrameLayout implements ue1<View> {
         viewGroup.addView(this);
     }
 
-    @Override // com.baidu.tieba.ue1
-    public void setData(@NonNull qr0 qr0Var) {
-        if (!qr0Var.b()) {
+    @Override // com.baidu.tieba.me1
+    public void setData(@NonNull bs0 bs0Var) {
+        if (!bs0Var.b()) {
             setVisibility(8);
             return;
         }
-        setTag(qr0Var);
+        setTag(bs0Var);
         setVisibility(0);
-        t(qr0Var.s);
-        if (!y(qr0Var)) {
-            x(qr0Var);
+        s(bs0Var.s);
+        if (!y(bs0Var)) {
+            x(bs0Var);
         }
         z();
-        u(false);
-        s(qr0Var);
-        D(qr0Var);
+        t(false);
+        r(bs0Var);
+        D(bs0Var);
     }
 
-    @Override // com.baidu.tieba.ue1
-    public void setEnhanceBtnListener(@NonNull se1 se1Var) {
-        this.k = se1Var;
+    @Override // com.baidu.tieba.me1
+    public void setEnhanceBtnListener(@NonNull ke1 ke1Var) {
+        this.l = ke1Var;
     }
 
-    @Override // com.baidu.tieba.ue1
+    @Override // com.baidu.tieba.me1
     public void setVisible(int i2) {
         setVisibility(i2);
     }
 
-    public final boolean B() {
-        qr0 qr0Var;
-        if (!(getTag() instanceof qr0) || (qr0Var = (qr0) getTag()) == null) {
+    public boolean B() {
+        bs0 bs0Var;
+        if (!(getTag() instanceof bs0) || (bs0Var = (bs0) getTag()) == null) {
             return false;
         }
-        if (qr0Var.e) {
-            if (qr0Var.p == null || qr0Var.a != 2) {
+        if (!bs0Var.e && !bs0Var.u) {
+            if (bs0Var.s == null || bs0Var.p == null || bs0Var.a != 2) {
                 return false;
             }
             return true;
-        } else if (qr0Var.s == null || qr0Var.p == null || qr0Var.a != 2) {
+        } else if (bs0Var.p == null || bs0Var.a != 2) {
             return false;
         } else {
             return true;
         }
-    }
-
-    public final void E() {
-        View view2 = this.j;
-        if (view2 != null) {
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            layoutParams.height = r;
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = s;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ue1
-    public void a() {
-        List<xc1> list = this.g;
-        if (list != null) {
-            for (xc1 xc1Var : list) {
-                xc1Var.c();
-            }
-        }
-        this.h = 0;
-        this.i = 0;
-    }
-
-    public int getBtnFinalColor() {
-        if ((getTag() instanceof qr0) && !TextUtils.isEmpty(((qr0) getTag()).r)) {
-            return lj0.f(((qr0) getTag()).r, R.color.nad_enhancement_btn_bg_color);
-        }
-        return this.p;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.ue1
-    public View getRealView() {
-        if (!(getTag() instanceof qr0)) {
-            return this.c;
-        }
-        if (((qr0) getTag()).a != 2) {
-            return this.c;
-        }
-        return this.b;
     }
 
     public final void C(AttributeSet attributeSet) {
         if (attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, di0.NadEnhanceButtonView);
-        this.n = obtainStyledAttributes.getDimensionPixelSize(2, g61.c.a(ok0.b(), 8.0f));
-        this.o = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.nad_enhancement_btn_first_bg_color));
-        this.p = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.nad_enhancement_btn_bg_color));
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ei0.NadEnhanceButtonView);
+        this.o = obtainStyledAttributes.getDimensionPixelSize(2, e71.c.a(rk0.b(), 8.0f));
+        this.p = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.nad_enhancement_btn_first_bg_color));
+        this.q = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.nad_enhancement_btn_bg_color));
         obtainStyledAttributes.recycle();
     }
 
-    public final void r(Context context) {
+    public final void q(Context context) {
         LayoutInflater.from(context).inflate(R.layout.nad_enhance_button_view, this);
-        this.b = (NadEnhanceButtonDownloadView) findViewById(R.id.ad_video_download_btn);
-        this.c = (LinearLayout) findViewById(R.id.common_btn);
-        this.d = (TextView) findViewById(R.id.common_btn_text);
-        this.e = (AdImageView) findViewById(R.id.common_btn_icon);
-        this.l = (SimpleAdInfoView) findViewById(R.id.app_info_container);
+        this.c = (NadEnhanceButtonDownloadView) findViewById(R.id.ad_video_download_btn);
+        this.d = (LinearLayout) findViewById(R.id.common_btn);
+        this.e = (TextView) findViewById(R.id.common_btn_text);
+        this.f = (AdImageView) findViewById(R.id.common_btn_icon);
+        this.m = (SimpleAdInfoView) findViewById(R.id.app_info_container);
+        u();
     }
 
-    public final void t(@Nullable fs0 fs0Var) {
-        if (!lj0.a(fs0Var)) {
-            this.m = false;
-            this.l.setVisibility(8);
+    public final void s(@Nullable qs0 qs0Var) {
+        if (!mj0.a(qs0Var)) {
+            this.n = false;
+            this.m.setVisibility(8);
             return;
         }
-        this.m = true;
-        this.l.setVisibility(0);
-        this.l.setAdInfo(fs0Var);
-        this.l.setAfterListener(new f());
-        this.a = this.l.getHeight();
-        this.l.measure(-2, -2);
-        this.a = this.l.getMeasuredHeight();
+        this.n = true;
+        this.m.setVisibility(0);
+        this.m.setAdInfo(qs0Var);
+        this.m.setAfterListener(new f());
+        this.b = this.m.getHeight();
+        this.m.measure(-2, -2);
+        this.b = this.m.getMeasuredHeight();
     }
 
-    public final void u(boolean z) {
+    public final void t(boolean z) {
         int btnFinalColor;
         View view2;
         if (z) {
-            btnFinalColor = this.o;
+            btnFinalColor = this.p;
         } else {
             btnFinalColor = getBtnFinalColor();
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(btnFinalColor);
-        gradientDrawable.setCornerRadius(this.n);
+        gradientDrawable.setCornerRadius(this.o);
         if (B()) {
-            view2 = this.b;
-        } else {
             view2 = this.c;
+        } else {
+            view2 = this.d;
         }
         view2.setBackground(gradientDrawable);
         if (B()) {
-            this.b.setProgressColor(getResources().getColor(R.color.nad_mini_video_ad_download_progress_color));
+            this.c.setProgressColor(getResources().getColor(R.color.nad_mini_video_ad_download_progress_color));
         }
     }
 
-    @Override // com.baidu.tieba.ue1
+    @Override // com.baidu.tieba.me1
     public void update(int i2) {
-        List<xc1> list = this.g;
-        if (list != null && this.h < b31.l(list)) {
-            xc1 xc1Var = (xc1) b31.d(this.g, this.h);
-            if (xc1Var != null && i2 * 1000 >= this.i) {
-                xc1Var.d();
-                this.i = (int) (this.i + xc1Var.b() + xc1Var.a());
-                this.h++;
+        List<pc1> list = this.h;
+        if (list != null && this.i < x31.l(list)) {
+            pc1 pc1Var = (pc1) x31.d(this.h, this.i);
+            if (pc1Var != null && i2 * 1000 >= this.j) {
+                pc1Var.d();
+                this.j = (int) (this.j + pc1Var.b() + pc1Var.a());
+                this.i++;
                 return;
             }
             return;
         }
-        se1 se1Var = this.k;
-        if (se1Var != null) {
-            se1Var.d();
+        ke1 ke1Var = this.l;
+        if (ke1Var != null) {
+            ke1Var.d();
         }
     }
 
-    public final void w(@NonNull tr0 tr0Var) {
-        if (tr0Var.c <= 0) {
+    public final void w(@NonNull es0 es0Var) {
+        if (es0Var.c <= 0) {
             return;
         }
-        u(true);
-        ValueAnimator duration = ValueAnimator.ofFloat(1.0f).setDuration(tr0Var.c);
+        t(true);
+        ValueAnimator duration = ValueAnimator.ofFloat(1.0f).setDuration(es0Var.c);
         duration.addUpdateListener(new d());
-        b31.b(this.g, new e(tr0Var.b, tr0Var.c, duration));
+        x31.b(this.h, new e(es0Var.b, es0Var.c, duration));
     }
 
-    public final void v(@NonNull tr0 tr0Var) {
+    public final void E() {
+        View view2 = this.k;
+        if (view2 != null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            layoutParams.height = this.a;
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = t;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.me1
+    public void a() {
+        List<pc1> list = this.h;
+        if (list != null) {
+            for (pc1 pc1Var : list) {
+                pc1Var.c();
+            }
+        }
+        this.i = 0;
+        this.j = 0;
+    }
+
+    public int getBtnFinalColor() {
+        if ((getTag() instanceof bs0) && !TextUtils.isEmpty(((bs0) getTag()).r)) {
+            return mj0.f(((bs0) getTag()).r, R.color.nad_enhancement_btn_bg_color);
+        }
+        return this.q;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tieba.me1
+    public View getRealView() {
+        if (!(getTag() instanceof bs0)) {
+            return this.d;
+        }
+        if (((bs0) getTag()).a != 2) {
+            return this.d;
+        }
+        return this.c;
+    }
+
+    public void u() {
+        setBtnHeight(s);
+    }
+
+    public final void v(@NonNull es0 es0Var) {
         E();
-        if (tr0Var.c <= 0) {
+        if (es0Var.c <= 0) {
             return;
         }
-        ValueAnimator duration = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(tr0Var.c);
-        ViewGroup.LayoutParams layoutParams = this.j.getLayoutParams();
-        ViewGroup.LayoutParams layoutParams2 = this.l.getLayoutParams();
-        if (this.j != null && (layoutParams instanceof ViewGroup.MarginLayoutParams) && (layoutParams2 instanceof ViewGroup.MarginLayoutParams)) {
+        ValueAnimator duration = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(es0Var.c);
+        ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.m.getLayoutParams();
+        if (this.k != null && (layoutParams instanceof ViewGroup.MarginLayoutParams) && (layoutParams2 instanceof ViewGroup.MarginLayoutParams)) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
-            float y = this.l.getY();
+            float y = this.m.getY();
             marginLayoutParams.height = 0;
             marginLayoutParams.topMargin = 0;
-            this.j.requestLayout();
-            if (this.m) {
+            this.k.requestLayout();
+            if (this.n) {
                 marginLayoutParams2.height = 0;
                 marginLayoutParams2.topMargin = 0;
                 marginLayoutParams2.bottomMargin = 0;
-                this.l.requestLayout();
-                this.l.setVisibility(0);
+                this.m.requestLayout();
+                this.m.setVisibility(0);
             } else {
-                this.l.setVisibility(8);
+                this.m.setVisibility(8);
             }
             duration.addUpdateListener(new b(marginLayoutParams, marginLayoutParams2, y));
         }
         View realView = getRealView();
         Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.nad_max_pop_view_fade_in);
-        loadAnimation.setDuration(tr0Var.c);
+        loadAnimation.setDuration(es0Var.c);
         realView.setVisibility(8);
         realView.setAnimation(loadAnimation);
-        b31.b(this.g, new c(tr0Var.b, tr0Var.c, duration, loadAnimation, realView));
+        x31.b(this.h, new c(es0Var.b, es0Var.c, duration, loadAnimation, realView));
     }
 
-    public final void x(@NonNull qr0 qr0Var) {
-        if (!TextUtils.isEmpty(qr0Var.c)) {
-            this.e.o(qr0Var.c);
+    public final void x(@NonNull bs0 bs0Var) {
+        if (!TextUtils.isEmpty(bs0Var.c)) {
+            this.f.o(bs0Var.c);
         } else {
-            this.e.setImageDrawable(getContext().getResources().getDrawable(R.drawable.nad_ebtn_icon));
+            this.f.setImageDrawable(getContext().getResources().getDrawable(R.drawable.nad_ebtn_icon));
         }
-        if (!TextUtils.isEmpty(qr0Var.b)) {
-            this.d.setText(qr0Var.b);
+        if (!TextUtils.isEmpty(bs0Var.b)) {
+            this.e.setText(bs0Var.b);
         } else {
-            this.d.setText(getResources().getText(R.string.nad_command_btn_text));
+            this.e.setText(getResources().getText(R.string.nad_command_btn_text));
         }
-        this.d.setTextColor(lj0.f("", R.color.nad_white));
-        this.c.setOnClickListener(new h(qr0Var));
-        this.b.setVisibility(8);
-        if (qr0Var.f) {
-            this.e.setVisibility(8);
+        this.e.setTextColor(mj0.f("", R.color.nad_white));
+        this.d.setOnClickListener(new h(bs0Var));
+        this.c.setVisibility(8);
+        if (bs0Var.f) {
+            this.f.setVisibility(8);
         } else {
-            this.e.setVisibility(0);
+            this.f.setVisibility(0);
         }
-        if (qr0Var.g) {
-            this.d.setText(R.string.nad_button_open);
-            if (qr0Var.q != null) {
-                r31.b(new ClogBuilder().j("openbtn").y(ClogBuilder.LogType.FREE_SHOW).u(ClogBuilder.Page.WELFAREMAXLP).p(qr0Var.q.d));
+        if (bs0Var.g) {
+            this.e.setText(R.string.nad_button_open);
+            if (bs0Var.q != null) {
+                n41.e(new ClogBuilder().j("openbtn").y(ClogBuilder.LogType.FREE_SHOW).u(ClogBuilder.Page.WELFAREMAXLP).p(bs0Var.q.d));
             }
         }
     }
 
-    public final boolean y(@NonNull qr0 qr0Var) {
-        if (B() && qr0Var.p != null && qr0Var.q != null) {
-            this.b.setIconArrowSwitch(qr0Var.f);
-            qr0Var.a = 2;
-            if (qr0Var.d) {
-                dm0 d2 = dm0.d(qr0Var.p, qr0Var.q.d, qr0Var.t);
+    public final boolean y(@NonNull bs0 bs0Var) {
+        if (B() && bs0Var.p != null && bs0Var.q != null) {
+            this.c.setIconArrowSwitch(bs0Var.f);
+            bs0Var.a = 2;
+            if (bs0Var.d) {
+                gm0 d2 = gm0.d(bs0Var.p, bs0Var.q.d, bs0Var.t);
                 d2.q.a = ClogBuilder.Page.WELFAREMAXLP.type;
-                jj0 jj0Var = new jj0(d2, this.b);
-                this.f = jj0Var;
-                jj0Var.A();
+                kj0 kj0Var = new kj0(d2, this.c);
+                this.g = kj0Var;
+                kj0Var.z();
             } else {
-                this.f = new qm0(dm0.d(qr0Var.p, qr0Var.q.d, qr0Var.t), this.b);
+                this.g = new tm0(gm0.d(bs0Var.p, bs0Var.q.d, bs0Var.t), this.c);
             }
-            this.b.setCornerRadius(this.n);
-            this.b.setTextSize(12.0f);
-            NadEnhanceButtonDownloadView nadEnhanceButtonDownloadView = this.b;
-            int i2 = q;
+            this.c.setCornerRadius(this.o);
+            this.c.setTextSize(12.0f);
+            NadEnhanceButtonDownloadView nadEnhanceButtonDownloadView = this.c;
+            int i2 = r;
             nadEnhanceButtonDownloadView.setImageViewLayout(new FrameLayout.LayoutParams(i2, i2));
-            this.c.setVisibility(8);
-            this.b.setVisibility(0);
-            this.b.setOnClickListener(new g(qr0Var));
-            if (!TextUtils.isEmpty(qr0Var.c)) {
-                this.b.setStateImageIcon(qr0Var.c);
+            this.d.setVisibility(8);
+            this.c.setVisibility(0);
+            this.c.setOnClickListener(new g(bs0Var));
+            if (!TextUtils.isEmpty(bs0Var.c)) {
+                this.c.setStateImageIcon(bs0Var.c);
                 return true;
             }
-            this.b.setStateImageRes(R.drawable.nad_ebtn_icon);
+            this.c.setStateImageRes(R.drawable.nad_ebtn_icon);
             return true;
         }
-        if (this.f != null) {
-            this.f = null;
+        if (this.g != null) {
+            this.g = null;
         }
-        this.b.setVisibility(8);
+        this.c.setVisibility(8);
         return false;
     }
 }

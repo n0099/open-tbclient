@@ -1,29 +1,78 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedLiveComponent;
 /* loaded from: classes5.dex */
 public final class a77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final b87 a;
+    public final kb7 b;
+    public boolean c;
 
-    public static final void a(FeedLiveComponent feedLiveComponent, List<t87<?>> dataList, v57 feedExtraData) {
+    public a77(b87 data, kb7 statData, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedLiveComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedLiveComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            c67 c67Var = new c67();
-            c67Var.a = feedLiveComponent.top_label;
-            c67Var.b = feedLiveComponent.bottom_label;
-            c67Var.c = feedLiveComponent.audience_label;
-            c67Var.d = feedLiveComponent.cover_url;
-            c67Var.f = feedLiveComponent.schema;
-            c67Var.e = w57.b(feedExtraData, "live_head_show");
-            dataList.add(new u87(new q47(c67Var, null, 2, null), "live"));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, statData, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(statData, "statData");
+        this.a = data;
+        this.b = statData;
+        this.c = z;
+    }
+
+    public /* synthetic */ a77(b87 b87Var, kb7 kb7Var, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(b87Var, kb7Var, (i & 4) != 0 ? true : z);
+    }
+
+    public final b87 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (b87) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final kb7 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (kb7) invokeV.objValue;
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
         }
     }
 }

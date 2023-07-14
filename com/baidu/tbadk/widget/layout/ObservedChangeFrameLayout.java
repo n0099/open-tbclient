@@ -4,17 +4,17 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.w06;
+import com.baidu.tieba.a26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ObservedChangeFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w06 a;
+    public a26 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservedChangeFrameLayout(Context context) {
@@ -78,13 +78,13 @@ public class ObservedChangeFrameLayout extends FrameLayout {
         }
     }
 
-    public w06 getOnSizeChangeListener() {
+    public a26 getOnSizeChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (w06) invokeV.objValue;
+        return (a26) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -92,17 +92,17 @@ public class ObservedChangeFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            w06 w06Var = this.a;
-            if (w06Var != null) {
-                w06Var.a(this, i, i2, i3, i4);
+            a26 a26Var = this.a;
+            if (a26Var != null) {
+                a26Var.a(this, i, i2, i3, i4);
             }
         }
     }
 
-    public void setOnSizeChangeListener(w06 w06Var) {
+    public void setOnSizeChangeListener(a26 a26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w06Var) == null) {
-            this.a = w06Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a26Var) == null) {
+            this.a = a26Var;
         }
     }
 }

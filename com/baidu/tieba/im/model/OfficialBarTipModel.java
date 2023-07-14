@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -8,17 +9,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.xa8;
-import com.baidu.tieba.z78;
+import com.baidu.tieba.tf8;
+import com.baidu.tieba.uc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
 /* loaded from: classes6.dex */
 public class OfficialBarTipModel extends ImBaseMessageCenterModel {
@@ -88,13 +90,13 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
         return invokeL.booleanValue;
     }
 
-    public void deleteSelectedDatas(z78 z78Var) {
-        LinkedList<ImMessageCenterShowItemData> linkedList;
+    public void deleteSelectedDatas(uc8 uc8Var) {
+        List<ImMessageCenterShowItemData> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z78Var) != null) || (linkedList = this.mList) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uc8Var) != null) || (list = this.mList) == null) {
             return;
         }
-        ListIterator<ImMessageCenterShowItemData> listIterator = linkedList.listIterator();
+        ListIterator<ImMessageCenterShowItemData> listIterator = list.listIterator();
         ArrayList arrayList = new ArrayList();
         while (listIterator.hasNext()) {
             ImMessageCenterShowItemData next = listIterator.next();
@@ -102,7 +104,7 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
                 arrayList.add(next);
             }
         }
-        asyncDeleteMsgList(arrayList, 4, z78Var);
+        asyncDeleteMsgList(arrayList, 4, uc8Var);
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
@@ -135,18 +137,22 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
-    public void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    public void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData, @Nullable ImBaseMessageCenterModel.AsyncCallback asyncCallback) {
         ImMessageCenterShowItemData buildNormalItem;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, imMessageCenterPojo, imMessageCenterShowItemData) != null) || (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) == null) {
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, imMessageCenterPojo, imMessageCenterShowItemData, asyncCallback) != null) || (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) == null) {
             return;
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
-        OfficialSettingItemData a = xa8.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        OfficialSettingItemData a = tf8.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         if (a != null) {
             buildNormalItem.setGroupSetting(a);
         }
-        insertShowData(buildNormalItem, this.mList);
+        if (asyncCallback == null) {
+            insertShowData(buildNormalItem, this.mList);
+        } else {
+            asyncCallback.doInsert(buildNormalItem);
+        }
     }
 
     public void subscribeBar(boolean z, String str) {

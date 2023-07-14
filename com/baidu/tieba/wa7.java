@@ -1,163 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.forbidden.fans.GetForbiddenFansResponse;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedFeedback;
+import tbclient.FeedbackReason;
 /* loaded from: classes8.dex */
-public class wa7 {
+public final class wa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o35 a;
-    public ArrayList<va7> b;
-    public b c;
-    public HttpMessageListener d;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(int i, String str, ArrayList<va7> arrayList);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wa7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(wa7 wa7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wa7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final u87 a(FeedFeedback feedFeedback, s87 feedExtraData) {
+        InterceptResult invokeLL;
+        w87 w87Var;
+        int i;
+        Object v87Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, feedFeedback, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(feedFeedback, "<this>");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            String type = feedFeedback.type;
+            Intrinsics.checkNotNullExpressionValue(type, "type");
+            String str = feedFeedback.title;
+            String str2 = feedFeedback.button_text;
+            String str3 = feedFeedback.common_id;
+            String str4 = feedFeedback.type;
+            if (Intrinsics.areEqual(str4, ImageViewerConfig.FROM_CONCERN)) {
+                w87Var = new w87(feedExtraData.a().a().get("user_id"), feedExtraData.a().a().get("portrait"));
+            } else if (Intrinsics.areEqual(str4, "recommend_post")) {
+                String str5 = feedExtraData.a().a().get("thread_id");
+                String str6 = feedExtraData.a().a().get("forum_id");
+                List<FeedbackReason> list = feedFeedback.dislike;
+                SparseArray sparseArray = new SparseArray();
+                for (FeedbackReason feedbackReason : list) {
+                    Integer num = feedbackReason.id;
+                    Intrinsics.checkNotNullExpressionValue(num, "reason.id");
+                    sparseArray.put(num.intValue(), feedbackReason.reason);
                 }
-            }
-            this.a = wa7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof GetForbiddenFansResponse)) {
-                return;
-            }
-            GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-            this.a.a = getForbiddenFansResponse.getPageData();
-            if (this.a.b == null) {
-                this.a.b = new ArrayList();
-            }
-            if (this.a.a != null) {
-                if (this.a.a.a() == 1) {
-                    this.a.b.clear();
+                List<FeedbackReason> list2 = feedFeedback.dislike;
+                SparseArray sparseArray2 = new SparseArray();
+                for (FeedbackReason feedbackReason2 : list2) {
+                    Integer num2 = feedbackReason2.id;
+                    Intrinsics.checkNotNullExpressionValue(num2, "reason.id");
+                    sparseArray2.put(num2.intValue(), feedbackReason2.extra);
                 }
-                if (getForbiddenFansResponse.getFansList() != null) {
-                    this.a.b.addAll(getForbiddenFansResponse.getFansList());
+                String str7 = feedExtraData.a().a().get("weight");
+                String str8 = feedExtraData.a().a().get("source");
+                String str9 = feedExtraData.a().a().get("threadType");
+                if (str9 != null) {
+                    i = Integer.parseInt(str9);
+                } else {
+                    i = 0;
                 }
+                v87Var = new v87(str5, str6, null, sparseArray, sparseArray2, str7, str8, feedExtraData.a().a().get("extra"), i, 4, null);
+                return new u87(type, str, str2, str3, v87Var);
+            } else {
+                w87Var = null;
             }
-            if (this.a.c != null) {
-                this.a.c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.a.b);
-            }
+            v87Var = w87Var;
+            return new u87(type, str, str2, str3, v87Var);
         }
-    }
-
-    public wa7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.GET_FORBIDDEN_FANS);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.d);
-    }
-
-    public void j(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            o35 o35Var = this.a;
-            if (o35Var != null && o35Var.b() == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-            httpMessage.addParam("rn", 20);
-            httpMessage.addParam("pn", 1);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.d);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            o35 o35Var = this.a;
-            int i = 1;
-            if (o35Var != null && o35Var.b() != 1) {
-                return;
-            }
-            o35 o35Var2 = this.a;
-            if (o35Var2 != null) {
-                i = 1 + o35Var2.a();
-            }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-            httpMessage.addParam("rn", 20);
-            httpMessage.addParam("pn", i);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
+        return (u87) invokeLL.objValue;
     }
 }

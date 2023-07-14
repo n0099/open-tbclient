@@ -1,25 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public abstract class al1 {
+public class al1<T> implements cl1<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public void a(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-        }
-    }
-
-    public abstract boolean c(Context context, cl1 cl1Var, wk1 wk1Var);
+    public T a;
+    public zk1<T> b;
+    public zk1<T> c;
 
     public al1() {
         Interceptable interceptable = $ic;
@@ -35,21 +28,45 @@ public abstract class al1 {
         }
     }
 
-    public boolean b(Context context, cl1 cl1Var, wk1 wk1Var) {
-        InterceptResult invokeLLL;
+    public static al1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cl1Var, wk1Var)) == null) {
-            return d(context, cl1Var, wk1Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new al1();
         }
-        return invokeLLL.booleanValue;
+        return (al1) invokeV.objValue;
     }
 
-    public final boolean d(Context context, cl1 cl1Var, wk1 wk1Var) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.cl1
+    public T get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, cl1Var, wk1Var)) == null) {
-            return c(context, cl1Var, wk1Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            T t = this.a;
+            if (t != null) {
+                return t;
+            }
+            zk1<T> zk1Var = this.b;
+            if (zk1Var != null) {
+                T t2 = zk1Var.get();
+                this.a = t2;
+                return t2;
+            }
+            zk1<T> zk1Var2 = this.c;
+            if (zk1Var2 != null) {
+                return zk1Var2.get();
+            }
+            return null;
         }
-        return invokeLLL.booleanValue;
+        return (T) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cl1
+    public void a(zk1<T> zk1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zk1Var) == null) {
+            this.b = zk1Var;
+            this.a = null;
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,54 +8,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
-public final class htb {
+public class htb {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<htb> b;
+    public static htb b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final atb a;
+    public zsb a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947836659, "Lcom/baidu/tieba/htb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947836659, "Lcom/baidu/tieba/htb;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947836659, "Lcom/baidu/tieba/htb;")) == null) {
+            return;
         }
-        b = new AtomicReference<>();
-    }
-
-    public static htb a() {
-        htb htbVar;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            do {
-                htb htbVar2 = b.get();
-                if (htbVar2 != null) {
-                    return htbVar2;
-                }
-                htbVar = new htb();
-            } while (!b.compareAndSet(null, htbVar));
-            return htbVar;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return (htb) invokeV.objValue;
-    }
-
-    public static atb b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a().a;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947836659, "Lcom/baidu/tieba/htb;");
         }
-        return (atb) invokeV.objValue;
     }
 
     public htb() {
@@ -71,11 +43,30 @@ public final class htb {
                 return;
             }
         }
-        atb b2 = ftb.a().b().b();
-        if (b2 != null) {
-            this.a = b2;
-        } else {
-            this.a = new itb(Looper.getMainLooper());
+        this.a = null;
+    }
+
+    public static htb b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                b = new htb();
+            }
+            return b;
+        }
+        return (htb) invokeV.objValue;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            zsb zsbVar = this.a;
+            if (zsbVar != null) {
+                zsbVar.info("authsdk", str);
+            } else {
+                Log.i("authsdk", str);
+            }
         }
     }
 }

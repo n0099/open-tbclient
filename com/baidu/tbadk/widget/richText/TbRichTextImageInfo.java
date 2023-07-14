@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.PbContent;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TbRichTextImageInfo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +190,7 @@ public class TbRichTextImageInfo extends OrmObject {
         this.l = pbContent.cdn_src_active;
     }
 
-    public String U() {
+    public String V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -199,7 +199,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String V() {
+    public String W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -208,7 +208,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String W() {
+    public String X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -217,7 +217,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String X() {
+    public String Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -226,7 +226,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public long Y() {
+    public long Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -235,7 +235,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return invokeV.longValue;
     }
 
-    public boolean Z() {
+    public boolean a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -244,7 +244,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return invokeV.booleanValue;
     }
 
-    public boolean a0() {
+    public boolean b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -253,7 +253,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return invokeV.booleanValue;
     }
 
-    public boolean b0() {
+    public boolean c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -262,7 +262,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return invokeV.booleanValue;
     }
 
-    public boolean c0() {
+    public boolean d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -316,14 +316,14 @@ public class TbRichTextImageInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void d0(boolean z) {
+    public void e0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.k = z;
         }
     }
 
-    public void e0(String str) {
+    public void f0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.h = str;

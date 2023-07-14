@@ -1,40 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.BIMManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.im.message.RequestOfficialBarMenuLocalMessage;
+import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
+import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "ChatUtil")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class qg8 {
+public class qg8 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final long a(String str) {
-        InterceptResult invokeL;
+    public qg8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Intrinsics.checkNotNullParameter(str, "<this>");
-            try {
-                String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(str);
-                Intrinsics.checkNotNullExpressionValue(bdUidFromBdUK, "getBdUidFromBdUK(this)");
-                return Long.parseLong(bdUidFromBdUK);
-            } catch (NumberFormatException unused) {
-                return 0L;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeL.longValue;
     }
 
-    public static final String b(String str) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Intrinsics.checkNotNullParameter(str, "<this>");
-            return BIMManager.getBdUKFromBdUid(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof RequestOfficialBarMenuLocalMessage)) {
+                o55.e();
+                byte[] bArr = o55.c("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForumId());
+                ResponseOfficialBarMenuLocalMessage responseOfficialBarMenuLocalMessage = new ResponseOfficialBarMenuLocalMessage();
+                try {
+                    responseOfficialBarMenuLocalMessage.decodeInBackGround(2001177, bArr);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return responseOfficialBarMenuLocalMessage;
+            }
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

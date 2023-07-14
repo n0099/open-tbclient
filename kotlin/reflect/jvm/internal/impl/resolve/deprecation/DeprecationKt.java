@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.resolve.deprecation;
 
 import kotlin.reflect.jvm.internal.impl.descriptors.CallableDescriptor;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DeprecationKt {
     public static final CallableDescriptor.UserDataKey<Object> DEPRECATED_FUNCTION_KEY = new CallableDescriptor.UserDataKey<Object>() { // from class: kotlin.reflect.jvm.internal.impl.resolve.deprecation.DeprecationKt$DEPRECATED_FUNCTION_KEY$1
     };

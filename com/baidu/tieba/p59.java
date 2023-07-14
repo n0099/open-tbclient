@@ -1,17 +1,65 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService;
+import com.baidu.searchbox.live.interfaces.sharechennel.IShareCallback;
+import com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel;
+import com.baidu.searchbox.live.interfaces.sharechennel.ShareEntity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class p59 {
+public class p59 implements ShareChannelService {
     public static /* synthetic */ Interceptable $ic;
-    public static p59 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
+
+    /* loaded from: classes7.dex */
+    public class a implements IShareChannel {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p59 a;
+
+        public a(p59 p59Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p59Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p59Var;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel
+        public void shareToChannel(ShareEntity shareEntity, int i, IShareCallback iShareCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, shareEntity, i, iShareCallback) == null) {
+                if (i == 1) {
+                    this.a.c(6, shareEntity, iShareCallback);
+                } else if (i == 3) {
+                    this.a.c(2, shareEntity, iShareCallback);
+                } else if (i == 2) {
+                    this.a.c(3, shareEntity, iShareCallback);
+                } else if (i == 4) {
+                    this.a.c(8, shareEntity, iShareCallback);
+                }
+            }
+        }
+    }
 
     public p59() {
         Interceptable interceptable = $ic;
@@ -23,44 +71,88 @@ public class p59 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService
+    public IShareChannel buildShareChannel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new a(this);
+        }
+        return (IShareChannel) invokeV.objValue;
+    }
+
+    public final boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i != 2 && i != 3) {
+                if (i != 6) {
+                    if (i != 8) {
+                        return false;
+                    }
+                    boolean b = cca.b(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
+                    if (!b) {
+                        yi.R(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f139e));
+                        return b;
+                    }
+                    return b;
+                }
+                boolean b2 = cca.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
+                if (!b2) {
+                    yi.R(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13bc));
+                    return b2;
+                }
+                return b2;
+            }
+            boolean b3 = cca.b(TbadkCoreApplication.getInst(), "com.tencent.mm");
+            if (!b3) {
+                yi.R(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13c3));
+                return b3;
+            }
+            return b3;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final void c(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, shareEntity, iShareCallback) != null) || shareEntity == null) {
+            return;
+        }
+        if (!b(i)) {
+            if (iShareCallback != null) {
+                iShareCallback.onShare(0, 0, "");
                 return;
             }
+            return;
         }
-        this.a = false;
+        ShareItem d = d(shareEntity);
+        if (d == null) {
+            return;
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaSDKShareEmptyActivityConfig(TbadkCoreApplication.getInst(), d, i, 2)));
     }
 
-    public static p59 b() {
-        InterceptResult invokeV;
+    public final ShareItem d(ShareEntity shareEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new p59();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, shareEntity)) == null) {
+            if (shareEntity != null) {
+                ShareItem shareItem = new ShareItem();
+                shareItem.v = shareEntity.title;
+                shareItem.w = shareEntity.content;
+                shareItem.A = shareEntity.imageUrl;
+                shareItem.x = shareEntity.linkUrl;
+                shareItem.u = String.valueOf(shareEntity.liveId);
+                shareItem.A0 = String.valueOf(shareEntity.userId);
+                return shareItem;
             }
-            return b;
+            return null;
         }
-        return (p59) invokeV.objValue;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = false;
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a = z;
-        }
+        return (ShareItem) invokeL.objValue;
     }
 }

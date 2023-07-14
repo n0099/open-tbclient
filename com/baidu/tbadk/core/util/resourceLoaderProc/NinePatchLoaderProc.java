@@ -8,9 +8,9 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.ic;
-import com.baidu.tieba.in;
 import com.baidu.tieba.jc;
-import com.baidu.tieba.og;
+import com.baidu.tieba.jn;
+import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -109,7 +109,7 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public in createImageFromDiskPicOperate(jc jcVar, String str, int i, int i2) {
+    public jn createImageFromDiskPicOperate(jc jcVar, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, jcVar, str, i, i2)) == null) {
@@ -122,15 +122,15 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
             if (bitmap == null) {
                 return null;
             }
-            return new in(bitmap, false, str, icVar.g());
+            return new jn(bitmap, false, str, icVar.h());
         }
-        return (in) invokeLLII.objValue;
+        return (jn) invokeLLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     /* renamed from: decodeToResource */
-    public in mo120decodeToResource(byte[] bArr, Object... objArr) {
+    public jn mo120decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) {
@@ -140,10 +140,10 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
             if (Bytes2NineBitmap != null) {
                 z = true;
             }
-            og.c(z, System.currentTimeMillis() - currentTimeMillis);
-            return new in(Bytes2NineBitmap);
+            pg.c(z, System.currentTimeMillis() - currentTimeMillis);
+            return new jn(Bytes2NineBitmap);
         }
-        return (in) invokeLL.objValue;
+        return (jn) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

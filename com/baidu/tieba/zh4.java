@@ -1,34 +1,39 @@
 package com.baidu.tieba;
 
+import android.graphics.PointF;
+import android.view.animation.Interpolator;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class zh4 implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
+public class zh4 implements Interpolator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaiduMap a;
-    public List<OverlayOptions> b;
-    public List<Overlay> c;
+    public int a;
+    public final PointF b;
+    public final PointF c;
 
-    public abstract List<OverlayOptions> b();
+    public final double a(double d, double d2, double d3, double d4, double d5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) {
+            double d6 = 1.0d - d;
+            double d7 = d * d;
+            double d8 = d6 * d6;
+            return (d8 * d6 * d2) + (d8 * 3.0d * d * d3) + (d6 * 3.0d * d7 * d4) + (d7 * d * d5);
+        }
+        return invokeCommon.doubleValue;
+    }
 
-    public zh4(BaiduMap baiduMap) {
+    public zh4(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMap};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,54 +43,42 @@ public abstract class zh4 implements BaiduMap.OnMarkerClickListener, BaiduMap.On
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = baiduMap;
-        if (0 == 0) {
-            this.b = new ArrayList();
-        }
-        if (this.c == null) {
-            this.c = new ArrayList();
-        }
+        this.a = 0;
+        this.b = new PointF();
+        PointF pointF = new PointF();
+        this.c = pointF;
+        PointF pointF2 = this.b;
+        pointF2.x = f;
+        pointF2.y = f2;
+        pointF.x = f3;
+        pointF.y = f4;
     }
 
-    public final void a() {
+    @Override // android.animation.TimeInterpolator
+    public float getInterpolation(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
-            return;
-        }
-        c();
-        if (b() != null) {
-            this.b.addAll(b());
-        }
-        for (OverlayOptions overlayOptions : this.b) {
-            this.c.add(this.a.addOverlay(overlayOptions));
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a == null) {
-            return;
-        }
-        for (Overlay overlay : this.c) {
-            overlay.remove();
-        }
-        this.b.clear();
-        this.c.clear();
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a != null && this.c.size() > 0) {
-            LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.c) {
-                if (overlay instanceof Marker) {
-                    builder.include(((Marker) overlay).getPosition());
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
+            int i = this.a;
+            float f2 = f;
+            while (true) {
+                if (i >= 4096) {
+                    break;
                 }
+                f2 = (i * 1.0f) / 4096.0f;
+                if (a(f2, 0.0d, this.b.x, this.c.x, 1.0d) >= f) {
+                    this.a = i;
+                    break;
+                }
+                i++;
             }
-            this.a.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            double a = a(f2, 0.0d, this.b.y, this.c.y, 1.0d);
+            if (a > 0.999d) {
+                a = 1.0d;
+                this.a = 0;
+            }
+            return (float) a;
         }
+        return invokeF.floatValue;
     }
 }

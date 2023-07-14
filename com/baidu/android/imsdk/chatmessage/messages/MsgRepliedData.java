@@ -374,19 +374,26 @@ public class MsgRepliedData implements Parcelable, NoProGuard {
                             if (msgType != 8) {
                                 if (msgType != 18) {
                                     if (msgType != 55) {
-                                        if (msgType != 39) {
-                                            if (msgType == 40 && (chatMsg instanceof FansGroupAtMsg)) {
-                                                jSONObject3.put("text", ((FansGroupAtMsg) chatMsg).getText());
+                                        if (msgType != 61) {
+                                            if (msgType != 39) {
+                                                if (msgType == 40 && (chatMsg instanceof FansGroupAtMsg)) {
+                                                    jSONObject3.put("text", ((FansGroupAtMsg) chatMsg).getText());
+                                                }
+                                            } else if (chatMsg instanceof FansGroupInviteMsg) {
+                                                FansGroupInviteMsg fansGroupInviteMsg = (FansGroupInviteMsg) chatMsg;
+                                                if (TextUtils.isEmpty(fansGroupInviteMsg.getTitle())) {
+                                                    jSONObject3.put("text", "邀请你加入群聊");
+                                                } else {
+                                                    jSONObject3.put("text", fansGroupInviteMsg.getTitle());
+                                                }
+                                                jSONObject3.put("inviteGroupId", fansGroupInviteMsg.getGroupId());
+                                                jSONObject3.put("invitor", fansGroupInviteMsg.getInvitor());
                                             }
-                                        } else if (chatMsg instanceof FansGroupInviteMsg) {
-                                            FansGroupInviteMsg fansGroupInviteMsg = (FansGroupInviteMsg) chatMsg;
-                                            if (TextUtils.isEmpty(fansGroupInviteMsg.getTitle())) {
-                                                jSONObject3.put("text", "邀请你加入群聊");
-                                            } else {
-                                                jSONObject3.put("text", fansGroupInviteMsg.getTitle());
-                                            }
-                                            jSONObject3.put("inviteGroupId", fansGroupInviteMsg.getGroupId());
-                                            jSONObject3.put("invitor", fansGroupInviteMsg.getInvitor());
+                                        } else if (chatMsg instanceof QuickProductCardMsg) {
+                                            QuickProductCardMsg quickProductCardMsg = (QuickProductCardMsg) chatMsg;
+                                            jSONObject3.put("text", quickProductCardMsg.getTitle());
+                                            jSONObject3.put("url", quickProductCardMsg.getSchema());
+                                            jSONObject3.put("image", quickProductCardMsg.getImage());
                                         }
                                     } else if ((chatMsg instanceof NetDiskFileMsg) && (files = (netDiskFileMsg = (NetDiskFileMsg) chatMsg).getFiles()) != null && files.length > 0) {
                                         NetDiskFileMsg.NetDiskFile netDiskFile = files[0];

@@ -1,113 +1,281 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.coreExtra.data.WriteVoteData;
+import com.baidu.tieba.eza;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Stack;
+import java.io.Serializable;
 /* loaded from: classes7.dex */
-public final class pwa {
+public class pwa extends rwa<pxa> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Stack<WeakReference<Activity>> a;
+    @Nullable
+    public RelativeLayout g;
+    @Nullable
+    public eza h;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements eza.b {
         public static /* synthetic */ Interceptable $ic;
-        public static final pwa a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pwa a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-502956814, "Lcom/baidu/tieba/pwa$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-502956814, "Lcom/baidu/tieba/pwa$a;");
+        public a(pwa pwaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pwaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new pwa((byte) 0);
+            this.a = pwaVar;
+        }
+
+        @Override // com.baidu.tieba.eza.b
+        public void a(WriteVoteData writeVoteData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, writeVoteData) == null) {
+                if (this.a.b != null) {
+                    this.a.b.w();
+                }
+                ((pxa) this.a.d).a = writeVoteData;
+                if (this.a.e != null) {
+                    this.a.e.setWriteVoteData(writeVoteData);
+                }
+            }
         }
     }
 
-    public pwa() {
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WriteVoteData a;
+        public final /* synthetic */ pwa b;
+
+        public b(pwa pwaVar, WriteVoteData writeVoteData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pwaVar, writeVoteData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pwaVar;
+            this.a = writeVoteData;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.b.F(this.a);
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WRITE_VOTE_VIEW_SHOW).param("obj_source", 3));
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pwa(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, pxa.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Stack<>();
     }
 
-    public final Stack<WeakReference<Activity>> a() {
-        InterceptResult invokeV;
+    public final void F(WriteVoteData writeVoteData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (Stack) invokeV.objValue;
-    }
-
-    public /* synthetic */ pwa(byte b) {
-        this();
-    }
-
-    public final void c(WeakReference<Activity> weakReference) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
-            this.a.add(weakReference);
+        if (interceptable == null || interceptable.invokeL(1048576, this, writeVoteData) == null) {
+            WriteVoteActivityConfig writeVoteActivityConfig = new WriteVoteActivityConfig(this.a.getPageActivity(), 25048);
+            if (writeVoteData != null) {
+                writeVoteActivityConfig.setExtraData(writeVoteData);
+            }
+            this.a.sendMessage(new CustomMessage(2002001, writeVoteActivityConfig));
         }
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wwa
+    public void a(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < this.a.size(); i++) {
-                Activity activity = this.a.get(i).get();
-                if (activity != null) {
-                    sb.append(activity.getClass().getSimpleName());
-                    sb.append("->");
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) && this.e != null && writeData.getWriteVoteData() != null) {
+            this.e.setWriteVoteData(writeData.getWriteVoteData());
+            G();
+        }
+    }
+
+    @Override // com.baidu.tieba.wwa
+    public void c(WriteData writeData) {
+        eza ezaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) && (ezaVar = this.h) != null) {
+            writeData.setWriteVoteData(ezaVar.c());
+        }
+    }
+
+    @Override // com.baidu.tieba.wwa
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
+            writeData.setWriteVoteData(((pxa) this.d).a);
+        }
+    }
+
+    @Override // com.baidu.tieba.wwa
+    public void onChangeSkinType(int i) {
+        eza ezaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (ezaVar = this.h) != null) {
+            ezaVar.d(i);
+        }
+    }
+
+    public final void G() {
+        WriteData writeData;
+        WriteVoteData writeVoteData;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (writeData = this.e) == null || this.h == null) {
+            return;
+        }
+        D d = this.d;
+        if (((pxa) d).a != null) {
+            writeVoteData = ((pxa) d).a;
+            writeData.setWriteVoteData(writeVoteData);
+        } else if (writeData.getWriteVoteData() != null) {
+            ((pxa) this.d).a = this.e.getWriteVoteData();
+            writeVoteData = this.e.getWriteVoteData();
+        } else {
+            ((pxa) this.d).a = null;
+            return;
+        }
+        b bVar = new b(this, writeVoteData);
+        this.h.g(bVar);
+        this.h.f(bVar);
+        this.h.h(writeVoteData);
+        this.h.i(true);
+        ywa ywaVar = this.b;
+        if (ywaVar != null) {
+            ywaVar.i();
+        }
+    }
+
+    @Override // com.baidu.tieba.rwa, com.baidu.tieba.wwa
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 != -1 || i != 25048 || intent == null) {
+                return;
+            }
+            Serializable serializableExtra = intent.getSerializableExtra(IntentConfig.WRITE_VOTE_DATA);
+            if (serializableExtra instanceof WriteVoteData) {
+                ((pxa) this.d).a = (WriteVoteData) serializableExtra;
+                G();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rwa, com.baidu.tieba.wwa
+    public void r(zi5 zi5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, zi5Var) == null) {
+            super.r(zi5Var);
+            if (zi5Var.a == 22) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 10));
+                WriteVoteData writeVoteData = null;
+                eza ezaVar = this.h;
+                if (ezaVar != null && ezaVar.c() != null) {
+                    writeVoteData = this.h.c();
+                }
+                F(writeVoteData);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WRITE_VOTE_VIEW_SHOW).param("obj_source", 2));
+                ywa ywaVar = this.b;
+                if (ywaVar != null) {
+                    ywaVar.E();
                 }
             }
-            if (sb.length() > 0) {
-                return sb.substring(0, sb.length() - 2);
-            }
-            return "没有路径了";
         }
-        return (String) invokeV.objValue;
     }
 
-    public final void d(Activity activity) {
+    @Override // com.baidu.tieba.wwa
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (this.a != null) {
-                for (int i = 0; i < this.a.size(); i++) {
-                    if (this.a.get(i).get() == activity) {
-                        Stack<WeakReference<Activity>> stack = this.a;
-                        stack.remove(stack.get(i));
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0596, viewGroup, false);
+            this.c = inflate;
+            RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09299e);
+            this.g = relativeLayout;
+            eza ezaVar = new eza(this.a, relativeLayout);
+            this.h = ezaVar;
+            ezaVar.e(new a(this));
+            WriteData writeData = this.e;
+            if (writeData != null) {
+                ((pxa) this.d).a = writeData.getWriteVoteData();
+                G();
             }
-            b();
+            return this.c;
         }
+        return (View) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.rwa, com.baidu.tieba.wwa
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (((pxa) this.d).a != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

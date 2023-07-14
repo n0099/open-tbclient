@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ScrollView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ih1;
+import com.baidu.tieba.bh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class MaxHeightScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
             Resources resources = getContext().getResources();
-            return (((resources.getDisplayMetrics().heightPixels * f) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070b0d)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070271)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070274);
+            return (((resources.getDisplayMetrics().heightPixels * f) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070b25)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070276)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027a);
         }
         return invokeF.floatValue;
     }
@@ -118,7 +118,7 @@ public class MaxHeightScrollView extends ScrollView {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ih1.MaxHeightScrollView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, bh1.MaxHeightScrollView);
             this.a = obtainStyledAttributes.getFloat(1, -1.0f);
             this.b = obtainStyledAttributes.getFloat(2, -1.0f);
             obtainStyledAttributes.recycle();

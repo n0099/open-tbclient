@@ -1,72 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.os.Build;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.SelectForumConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.view.NormalItemCell;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.SelectForumData;
-import com.baidu.tieba.epa;
+import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tieba.kna;
+import com.baidu.tieba.video.meida.MultiAudioMixer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.coremedia.iso.boxes.Container;
+import com.facebook.imageutils.JfifUtil;
+import com.googlecode.mp4parser.FileDataSourceImpl;
+import com.googlecode.mp4parser.authoring.Movie;
+import com.googlecode.mp4parser.authoring.Track;
+import com.googlecode.mp4parser.authoring.builder.DefaultMp4Builder;
+import com.googlecode.mp4parser.authoring.container.mp4.MovieCreator;
+import com.googlecode.mp4parser.authoring.tracks.AACTrackImpl;
+import com.googlecode.mp4parser.authoring.tracks.AppendTrack;
+import com.googlecode.mp4parser.authoring.tracks.CroppedTrack;
+import com.qq.e.comm.adevent.AdEventType;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class lna extends tna<moa> {
+public class lna {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile lna a;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public NormalItemCell g;
-    @Nullable
-    public epa h;
-    public final epa.b i;
-
-    @Override // com.baidu.tieba.yna
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yna
-    public void c(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yna
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
-        }
-    }
 
     /* loaded from: classes6.dex */
-    public class a implements epa.b {
+    public class a implements MultiAudioMixer.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lna a;
+        public FileOutputStream a;
+        public final /* synthetic */ String b;
 
-        public a(lna lnaVar) {
+        public a(lna lnaVar, String str) throws FileNotFoundException {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lnaVar};
+                Object[] objArr = {lnaVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -76,187 +64,515 @@ public class lna extends tna<moa> {
                     return;
                 }
             }
-            this.a = lnaVar;
+            this.b = str;
+            this.a = new FileOutputStream(this.b);
         }
 
-        @Override // com.baidu.tieba.epa.b
-        public void a(@NonNull SelectForumData selectForumData) {
+        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
+        public void onMixComplete() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, selectForumData) == null) {
-                if (this.a.e != null) {
-                    this.a.e.setForumId(selectForumData.forumId);
-                    this.a.e.setForumName(selectForumData.forumName);
-                    this.a.e.setFirstClass(selectForumData.firstCategory);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                if (this.a.g != null) {
-                    this.a.g.setSubTitle(selectForumData.forumName);
+            }
+        }
+
+        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
+        public void onMixError(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                this.a.y(selectForumData);
+            }
+        }
+
+        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
+        public void onMixing(byte[] bArr) throws IOException {
+            FileOutputStream fileOutputStream;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) && (fileOutputStream = this.a) != null) {
+                fileOutputStream.write(bArr);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lna a;
-
-        public b(lna lnaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lnaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lnaVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.a.a.getPageActivity())));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lna(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, moa.class);
+    public lna() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new a(this);
+        kna.g();
     }
 
-    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
-    public void j(@NonNull aoa aoaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aoaVar) == null) {
-            super.j(aoaVar);
-            if (this.h == null) {
-                epa epaVar = new epa();
-                this.h = epaVar;
-                epaVar.c(this.i);
-            }
-            this.h.b(this.a.getUniqueId());
-        }
-    }
-
-    @Override // com.baidu.tieba.yna
-    public void onChangeSkinType(int i) {
-        NormalItemCell normalItemCell;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (normalItemCell = this.g) != null) {
-            normalItemCell.d();
-        }
-    }
-
-    public final boolean G() {
+    public static lna e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WriteData writeData = this.e;
-            if (writeData != null && "2".equals(writeData.getCallFrom())) {
-                return TextUtils.isEmpty(this.e.getForumName());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (lna.class) {
+                    if (a == null) {
+                        a = new lna();
+                    }
+                }
+            }
+            return a;
+        }
+        return (lna) invokeV.objValue;
+    }
+
+    public final void a(long j, long j2, List<Track> list, List<Track> list2) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), list, list2}) == null) {
+            Movie movie = new Movie();
+            long j3 = 0;
+            while (j > j3) {
+                long j4 = j - j3;
+                if (j4 >= j2) {
+                    movie.addTrack(new AppendTrack((Track[]) list.toArray(new Track[list.size()])));
+                    j3 += j2;
+                } else {
+                    double d = j4 / 1000;
+                    double d2 = 0.0d;
+                    boolean z = false;
+                    for (Track track : list) {
+                        if (track.getSyncSamples() != null && track.getSyncSamples().length > 0) {
+                            if (!z) {
+                                d2 = d(track, d2, false);
+                                d = d(track, d, true);
+                                z = true;
+                            } else {
+                                throw new RuntimeException("The startTime has already been corrected by another track with SyncSample. Not Supported.");
+                            }
+                        }
+                    }
+                    for (Track track2 : list) {
+                        long j5 = -1;
+                        long j6 = -1;
+                        int i = 0;
+                        long j7 = 0;
+                        double d3 = -1.0d;
+                        double d4 = 0.0d;
+                        while (i < track2.getSampleDurations().length) {
+                            long j8 = j3;
+                            long j9 = track2.getSampleDurations()[i];
+                            int i2 = (d4 > d3 ? 1 : (d4 == d3 ? 0 : -1));
+                            if (i2 > 0 && d4 <= d2) {
+                                j5 = j7;
+                            }
+                            if (i2 > 0 && d4 <= d) {
+                                j6 = j7;
+                            }
+                            j7++;
+                            i++;
+                            d3 = d4;
+                            d2 = d2;
+                            d4 = (j9 / track2.getTrackMetaData().getTimescale()) + d4;
+                            j3 = j8;
+                        }
+                        movie.addTrack(new CroppedTrack(track2, j5, j6));
+                        d2 = d2;
+                    }
+                    j3 += j4;
+                }
+            }
+            for (Track track3 : movie.getTracks()) {
+                if (track3.getHandler().equals("soun")) {
+                    list2.add(track3);
+                }
+            }
+        }
+    }
+
+    public final long b(String str, List<Track> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list)) == null) {
+            try {
+                long j = 0;
+                for (Track track : MovieCreator.build(str).getTracks()) {
+                    if (track.getHandler().equals("soun")) {
+                        list.add(track);
+                        j += (track.getDuration() * 1000) / track.getTrackMetaData().getTimescale();
+                    }
+                }
+                return j;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    public final ina c(String str, List<Track> list, List<Track> list2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, list, list2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new ina(-1L, 1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a37));
+            }
+            if (!new File(str).exists()) {
+                return new ina(-1L, 2, TbadkCoreApplication.getInst().getString(R.string.file_not_exist));
+            }
+            long j = 0;
+            try {
+                for (Track track : MovieCreator.build(str).getTracks()) {
+                    if (list2 != null && track.getHandler().equals("soun")) {
+                        list2.add(track);
+                    }
+                    if (track.getHandler().equals("vide")) {
+                        list.add(track);
+                        j += (track.getDuration() * 1000) / track.getTrackMetaData().getTimescale();
+                    }
+                }
+                return new ina(j, 0, "");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return new ina(-1L, 3, v89.a(e));
+            }
+        }
+        return (ina) invokeLLL.objValue;
+    }
+
+    public mna i(List<String> list, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        LinkedList linkedList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048583, this, list, str, z)) == null) {
+            if (list != null && !TextUtils.isEmpty(str)) {
+                long currentTimeMillis = System.currentTimeMillis();
+                File file = new File(str);
+                file.mkdirs();
+                if (file.exists()) {
+                    file.delete();
+                }
+                LinkedList linkedList2 = new LinkedList();
+                LinkedList linkedList3 = new LinkedList();
+                for (int i = 0; i < list.size(); i++) {
+                    try {
+                        String str2 = list.get(i);
+                        if (z) {
+                            linkedList = linkedList3;
+                        } else {
+                            linkedList = null;
+                        }
+                        ina c = c(str2, linkedList2, linkedList);
+                        if (c.a != -1) {
+                            long j = c.a;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return new mna(11, v89.a(e));
+                    }
+                }
+                j(str, linkedList2, linkedList3);
+                BdLog.e("mixingVideoByVideo videoList length = " + list.size() + " cost = " + (System.currentTimeMillis() - currentTimeMillis));
+                return new mna(0, "");
+            }
+            return new mna(10, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a37));
+        }
+        return (mna) invokeLLZ.objValue;
+    }
+
+    public final double d(Track track, double d, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{track, Double.valueOf(d), Boolean.valueOf(z)})) == null) {
+            int length = track.getSyncSamples().length;
+            double[] dArr = new double[length];
+            int i = 0;
+            double d2 = 0.0d;
+            long j = 0;
+            double d3 = 0.0d;
+            for (int i2 = 0; i2 < track.getSampleDurations().length; i2++) {
+                long j2 = track.getSampleDurations()[i2];
+                j++;
+                if (Arrays.binarySearch(track.getSyncSamples(), j) >= 0) {
+                    dArr[Arrays.binarySearch(track.getSyncSamples(), j)] = d3;
+                }
+                d3 += j2 / track.getTrackMetaData().getTimescale();
+            }
+            while (i < length) {
+                double d4 = dArr[i];
+                if (d4 > d) {
+                    if (z) {
+                        return d4;
+                    }
+                    return d2;
+                }
+                i++;
+                d2 = d4;
+            }
+            return dArr[length - 1];
+        }
+        return invokeCommon.doubleValue;
+    }
+
+    public final void j(String str, List<Track> list, List<Track> list2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, list, list2) == null) {
+            Movie movie = new Movie();
+            if (list2 != null && list2.size() > 0) {
+                movie.addTrack(new AppendTrack((Track[]) list2.toArray(new Track[list2.size()])));
+            }
+            if (list != null && list.size() > 0) {
+                movie.addTrack(new AppendTrack((Track[]) list.toArray(new Track[list.size()])));
+            }
+            Container build = new DefaultMp4Builder().build(movie);
+            FileChannel channel = new RandomAccessFile(String.format(str, new Object[0]), "rw").getChannel();
+            build.writeContainer(channel);
+            channel.close();
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v3, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    public boolean f(String str, String str2, String... strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, strArr)) == null) {
+            ?? r2 = 0;
+            if (strArr != null) {
+                int i = 2;
+                if (strArr.length >= 2) {
+                    String str3 = str2 + "temp_" + System.currentTimeMillis();
+                    File[] fileArr = new File[strArr.length];
+                    try {
+                        kna.a d = kna.d(strArr[0]);
+                        if (d == null) {
+                            return false;
+                        }
+                        kna.a aVar = new kna.a();
+                        char c = 1;
+                        int i2 = 0;
+                        boolean z = true;
+                        while (i2 < strArr.length) {
+                            if (i2 != 0) {
+                                aVar = kna.d(strArr[i2]);
+                                if (aVar == null) {
+                                    return r2;
+                                }
+                                kna.a[] aVarArr = new kna.a[i];
+                                aVarArr[r2] = d;
+                                aVarArr[c] = aVar;
+                                z = kna.h(aVarArr);
+                            }
+                            String str4 = str2 + "temp_" + i2 + "_" + System.currentTimeMillis();
+                            if (new fna(strArr[i2]).a(str4, z, d, aVar) != null) {
+                                if (!z && i2 != 0 && aVar.c()) {
+                                    String str5 = str2 + "resample_" + System.currentTimeMillis();
+                                    long currentTimeMillis = System.currentTimeMillis();
+                                    boolean i3 = kna.i(str4, str5, aVar.a, d.a);
+                                    BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
+                                    if (i3) {
+                                        str4 = str5;
+                                    }
+                                }
+                                fileArr[i2] = new File(str4);
+                            }
+                            i2++;
+                            r2 = 0;
+                            i = 2;
+                            c = 1;
+                        }
+                        MultiAudioMixer a2 = MultiAudioMixer.a();
+                        try {
+                            a2.d(new a(this, str3));
+                            a2.b(fileArr);
+                            hna a3 = hna.a(str3);
+                            a3.d(d.a);
+                            a3.c(d.b);
+                            a3.b(str);
+                            return true;
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            return false;
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                }
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
-    public void d() {
+    public mna g(String str, String str2) {
+        InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.d();
-            epa epaVar = this.h;
-            if (epaVar != null) {
-                epaVar.d();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
-    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, bundle, intent, writeData) == null) {
-            super.m(bundle, intent, writeData);
-            if (bundle != null) {
-                str = bundle.getString(WriteActivityConfig.FORUM_FIRST_CATEGORY);
-            } else if (intent != null) {
-                str = intent.getStringExtra(WriteActivityConfig.FORUM_FIRST_CATEGORY);
-            } else {
-                str = "";
-            }
-            writeData.setFirstClass(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (G()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.a.getPageActivity())));
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yna
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0537, viewGroup, false);
-            this.c = inflate;
-            this.g = (NormalItemCell) inflate.findViewById(R.id.obfuscated_res_0x7f091db8);
-            NormalItemCell.a aVar = new NormalItemCell.a();
-            aVar.a = R.color.CAM_X0206;
-            aVar.c = R.drawable.icon_pure_ba16;
-            aVar.b = 1;
-            aVar.f = this.a.getString(R.string.obfuscated_res_0x7f0f043b);
-            aVar.e = this.a.getString(R.string.obfuscated_res_0x7f0f0439);
-            NormalItemCell normalItemCell = this.g;
-            if (normalItemCell != null) {
-                normalItemCell.setConfig(aVar);
-                this.g.setOnClickListener(new b(this));
-                WriteData writeData = this.e;
-                if (writeData != null && "2".equals(writeData.getCallFrom()) && !TextUtils.isEmpty(this.e.getForumName())) {
-                    this.g.setSubTitle(this.e.getForumName());
-                    this.g.setOnClickListener(null);
-                    this.g.a();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                long currentTimeMillis = System.currentTimeMillis();
+                File file = new File(str2);
+                file.mkdirs();
+                if (file.exists()) {
+                    file.delete();
+                }
+                LinkedList linkedList = new LinkedList();
+                try {
+                    ina c = c(str, linkedList, null);
+                    if (c.a == -1) {
+                        if (c.b == 1) {
+                            i = 218;
+                        } else if (c.b == 2) {
+                            i = 219;
+                        } else {
+                            i = PassFaceRecogManager.j;
+                        }
+                        return new mna(i, c.c);
+                    }
+                    BdLog.e("mixingVideoByAudio videoTracks = " + linkedList.size());
+                    j(str2, linkedList, null);
+                    return new mna(0, "");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return new mna(221, v89.a(e));
+                } finally {
+                    BdLog.e("mixingVideoByAudio cost = " + (System.currentTimeMillis() - currentTimeMillis));
                 }
             }
-            return this.c;
+            return new mna(217, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a37));
         }
-        return (View) invokeL.objValue;
+        return (mna) invokeLL.objValue;
+    }
+
+    public mna h(String str, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        String str4;
+        LinkedList linkedList;
+        int i;
+        mna mnaVar;
+        StringBuilder sb;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                long currentTimeMillis = System.currentTimeMillis();
+                String str5 = yla.f + (TbMd5.getNameMd5FromUrl(str + str2 + str3) + "/");
+                new File(str5).mkdirs();
+                File file = new File(str3);
+                file.mkdirs();
+                if (file.exists()) {
+                    file.delete();
+                }
+                LinkedList linkedList2 = new LinkedList();
+                LinkedList linkedList3 = new LinkedList();
+                LinkedList linkedList4 = new LinkedList();
+                LinkedList linkedList5 = new LinkedList();
+                try {
+                    ina c = c(str, linkedList2, linkedList3);
+                    long j = c.a;
+                    if (j == -1) {
+                        if (c.b == 1) {
+                            i2 = 210;
+                        } else if (c.b == 2) {
+                            i2 = AdEventType.VIDEO_LOADING;
+                        } else {
+                            i2 = 212;
+                        }
+                        mnaVar = new mna(i2, c.c);
+                        FileHelper.deleteFileOrDir(new File(str5));
+                        sb = new StringBuilder();
+                    } else {
+                        long b = b(str2, linkedList4);
+                        if (b == -1) {
+                            if (c.b == 1) {
+                                i = 213;
+                            } else if (c.b == 2) {
+                                i = Constants.METHOD_IM_EMOJI;
+                            } else {
+                                i = 215;
+                            }
+                            mnaVar = new mna(i, c.c);
+                            FileHelper.deleteFileOrDir(new File(str5));
+                            sb = new StringBuilder();
+                        } else {
+                            try {
+                                a(j, b, linkedList4, linkedList5);
+                                if (z && linkedList3.size() > 0 && Build.VERSION.SDK_INT >= 16) {
+                                    String str6 = str5 + "temp_" + System.currentTimeMillis();
+                                    j(str6, null, linkedList5);
+                                    String str7 = str5 + "temp_" + System.currentTimeMillis();
+                                    linkedList = linkedList3;
+                                    j(str7, null, linkedList);
+                                    String str8 = str5 + "temp_" + System.currentTimeMillis() + ".acc";
+                                    if (f(str8, str5, str6, str7)) {
+                                        AACTrackImpl aACTrackImpl = new AACTrackImpl(new FileDataSourceImpl(str8));
+                                        linkedList5.clear();
+                                        linkedList5.add(aACTrackImpl);
+                                    }
+                                    BdLog.e("mixingVideoByAudio mixing cost = " + (System.currentTimeMillis() - currentTimeMillis));
+                                } else {
+                                    linkedList = linkedList3;
+                                }
+                                BdLog.e("mixingVideoByAudio audioTracks = " + linkedList.size() + " musicTracks = " + linkedList5.size() + " videoTracks = " + linkedList2.size());
+                                j(str3, linkedList2, linkedList5);
+                                mna mnaVar2 = new mna(0, "");
+                                FileHelper.deleteFileOrDir(new File(str5));
+                                BdLog.e("mixingVideoByAudio cost = " + (System.currentTimeMillis() - currentTimeMillis));
+                                return mnaVar2;
+                            } catch (Exception e) {
+                                e = e;
+                                str4 = "mixingVideoByAudio cost = ";
+                                try {
+                                    e.printStackTrace();
+                                    mna mnaVar3 = new mna(JfifUtil.MARKER_SOI, v89.a(e));
+                                    FileHelper.deleteFileOrDir(new File(str5));
+                                    BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
+                                    return mnaVar3;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    FileHelper.deleteFileOrDir(new File(str5));
+                                    BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                str4 = "mixingVideoByAudio cost = ";
+                                FileHelper.deleteFileOrDir(new File(str5));
+                                BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
+                                throw th;
+                            }
+                        }
+                    }
+                    sb.append("mixingVideoByAudio cost = ");
+                    sb.append(System.currentTimeMillis() - currentTimeMillis);
+                    BdLog.e(sb.toString());
+                    return mnaVar;
+                } catch (Exception e2) {
+                    e = e2;
+                    str4 = "mixingVideoByAudio cost = ";
+                } catch (Throwable th3) {
+                    th = th3;
+                    str4 = "mixingVideoByAudio cost = ";
+                }
+            } else {
+                return new mna(209, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a37));
+            }
+        } else {
+            return (mna) invokeCommon.objValue;
+        }
     }
 }

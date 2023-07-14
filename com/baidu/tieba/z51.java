@@ -1,205 +1,105 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.searchbox.elasticthread.queue.QueueManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
 /* loaded from: classes8.dex */
 public class z51 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948310835, "Lcom/baidu/tieba/z51;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948310835, "Lcom/baidu/tieba/z51;");
-        }
-    }
-
-    public static void e(String str, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, exc) == null) {
-        }
-    }
+    public final y51[] a;
 
     public z51() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new y51[4];
+        if (n51.s.length != 4) {
+            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
+        }
+        for (int i3 = 0; i3 < 4; i3++) {
+            this.a[i3] = new y51();
         }
     }
 
-    public static String a() {
+    public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = a;
-            if (str == null) {
-                synchronized (z51.class) {
-                    str = a;
-                    if (str == null) {
-                        Context b = ok0.b();
-                        String c = c();
-                        if (c == null && (c = b(b)) == null) {
-                            c = b.getPackageName();
-                        }
-                        a = c;
-                        str = c;
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!c(0).d()) {
+                return 9999999.0d;
             }
-            return str;
+            double d = 0.0d;
+            for (int i = 0; i < 4; i++) {
+                d += this.a[i].a() * n51.s[i];
+            }
+            return d / 1000.0d;
         }
-        return (String) invokeV.objValue;
+        return invokeV.doubleValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public ElasticTask b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses == null) {
-                return null;
-            }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            for (int i = 0; i < 4; i++) {
+                if (!this.a[i].d()) {
+                    return this.a[i].b();
                 }
             }
             return null;
         }
-        return (String) invokeL.objValue;
+        return (ElasticTask) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0036 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x000c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    public static String c() {
-        InterceptResult invokeV;
-        ?? r2;
-        BufferedReader bufferedReader;
+    public y51 c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            BufferedReader bufferedReader2 = 0;
-            BufferedReader bufferedReader3 = null;
-            try {
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ProcessUtils.CMD_LINE_NAME))));
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e) {
-                e = e;
-                r2 = null;
-            }
-            try {
-                String readLine = bufferedReader.readLine();
-                if (readLine != null) {
-                    readLine = readLine.trim();
-                }
-                try {
-                    bufferedReader.close();
-                    return readLine;
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                    return readLine;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                r2 = null;
-                bufferedReader3 = bufferedReader;
-                e("AppProcessManager", e);
-                if (bufferedReader3 != null) {
-                    try {
-                        bufferedReader3.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int i2 = 0;
+            while (true) {
+                int[] iArr = n51.a;
+                if (i2 < iArr.length) {
+                    if (iArr[i2] == i) {
+                        return this.a[i2];
                     }
+                    i2++;
+                } else {
+                    y51[] y51VarArr = this.a;
+                    return y51VarArr[y51VarArr.length - 1];
                 }
-                bufferedReader2 = r2;
-                return bufferedReader2;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = bufferedReader;
-                if (bufferedReader2 != 0) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                throw th;
             }
+        } else {
+            return (y51) invokeI.objValue;
         }
-        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:8:0x001b A[Catch: Exception -> 0x003a, TryCatch #0 {Exception -> 0x003a, blocks: (B:5:0x0005, B:6:0x0015, B:8:0x001b, B:10:0x002d, B:12:0x0031), top: B:25:0x0005 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean d(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
+    public void e(ElasticTask elasticTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            try {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                    String str2 = runningAppProcessInfo.processName;
-                    int myPid = Process.myPid();
-                    if (str2.equals(str) || runningAppProcessInfo.pid == myPid) {
-                        if (runningAppProcessInfo.importance != 100) {
-                            return false;
-                        }
-                        return true;
-                    }
-                    while (r4.hasNext()) {
-                    }
-                }
-                return false;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
+            c(elasticTask.b()).e(elasticTask);
         }
-        return invokeLL.booleanValue;
+    }
+
+    public void d(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
+            c(i).c(runnable, str, i);
+        }
     }
 }

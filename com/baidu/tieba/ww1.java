@@ -1,21 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public interface ww1 {
-    void a(Context context, JSONObject jSONObject);
+    boolean a();
 
-    void b(Context context, JSONObject jSONObject);
+    /* loaded from: classes8.dex */
+    public static class a implements ww1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
+        @Override // com.baidu.tieba.ww1
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
-    void d(Context context, String[] strArr, int i);
-
-    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
-
-    void f(Context context, JSONObject jSONObject);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

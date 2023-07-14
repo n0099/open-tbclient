@@ -1,12 +1,20 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Callback;
+import okhttp3.Request;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class a94 implements r94 {
+public class a94 implements it1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,19 +32,21 @@ public class a94 implements r94 {
         }
     }
 
-    @Override // com.baidu.tieba.r94
-    public void a(qc4 qc4Var, pc4 pc4Var) {
+    @Override // com.baidu.tieba.it1
+    public HttpManager a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, qc4Var, pc4Var) == null) && pc4Var != null) {
-            pc4Var.a(qc4Var, "Method 'shareVideo' is not implemented.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ca4.b();
         }
+        return (HttpManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.r94
-    public void b(hc4 hc4Var, gc4 gc4Var) {
+    @Override // com.baidu.tieba.it1
+    public void call(HttpManager httpManager, Request request, Callback callback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hc4Var, gc4Var) == null) && gc4Var != null) {
-            gc4Var.a(hc4Var, "Method 'clipVideo' is not implemented.");
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpManager, request, callback) == null) && httpManager != null && (httpManager instanceof ca4)) {
+            ((ca4) httpManager).call(request, callback);
         }
     }
 }

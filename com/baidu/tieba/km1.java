@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import android.view.View;
-import com.baidu.sdk.container.filedownloader.MaterialLoadErrorCode;
 /* loaded from: classes6.dex */
 public interface km1 {
-    void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode);
+    void a(lm1 lm1Var);
 
-    void onLoadingComplete(String str, View view2, Bitmap bitmap);
+    void c(jm1 jm1Var);
 
-    void onLoadingStarted(String str, View view2);
+    View getAdView();
+
+    void load();
 }

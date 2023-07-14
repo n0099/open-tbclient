@@ -5,11 +5,11 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.content.ContextCompat;
@@ -21,8 +21,11 @@ import com.baidu.nadcore.utils.ExtensionsKt;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cq0;
-import com.baidu.tieba.ps0;
+import com.baidu.tieba.dt0;
+import com.baidu.tieba.ei0;
+import com.baidu.tieba.fq0;
+import com.baidu.tieba.jq0;
+import com.baidu.tieba.nq0;
 import java.util.concurrent.TimeUnit;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -120,7 +123,8 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
+            public void onAnimationEnd(Animator a) {
+                Intrinsics.checkNotNullParameter(a, "a");
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.5f);
                 ofFloat.addUpdateListener(new C0125a());
                 ofFloat.setDuration(200L).start();
@@ -140,10 +144,10 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
     /* loaded from: classes3.dex */
     public static final class a implements ValueAnimator.AnimatorUpdateListener {
-        public final /* synthetic */ ps0 b;
+        public final /* synthetic */ dt0 b;
 
-        public a(ps0 ps0Var) {
-            this.b = ps0Var;
+        public a(dt0 dt0Var) {
+            this.b = dt0Var;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -156,7 +160,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
                     NadVideoRewardCountDownView.this.getTvCountDown().setVisibility(8);
                     NadVideoRewardCountDownView.this.getTvDesc().setText(this.b.x());
                     NadVideoRewardCountDownView.this.getIvIcon().setVisibility(8);
-                    NadVideoRewardCountDownView.this.r(this.b.w());
+                    NadVideoRewardCountDownView.this.p(this.b.w());
                 }
                 NadVideoRewardCountDownView.this.getLlCountDown().setAlpha(floatValue);
                 return;
@@ -179,25 +183,25 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
     }
 
     /* loaded from: classes3.dex */
-    public static final class d extends cq0 {
-        public final /* synthetic */ ps0 k;
+    public static final class d extends nq0 {
+        public final /* synthetic */ dt0 k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(ps0 ps0Var, int i, long j, long j2) {
+        public d(dt0 dt0Var, int i, long j, long j2) {
             super(j, j2);
-            this.k = ps0Var;
+            this.k = dt0Var;
         }
 
-        @Override // com.baidu.tieba.cq0
+        @Override // com.baidu.tieba.nq0
         public void l() {
             Function0<Unit> countDownFinish = NadVideoRewardCountDownView.this.getCountDownFinish();
             if (countDownFinish != null) {
                 countDownFinish.invoke();
             }
-            NadVideoRewardCountDownView.this.q(this.k);
+            NadVideoRewardCountDownView.this.o(this.k);
         }
 
-        @Override // com.baidu.tieba.cq0
+        @Override // com.baidu.tieba.nq0
         public void m(long j) {
             Function0<Unit> bigCardShowCallback;
             Function0<Unit> suspendShowCallback;
@@ -220,7 +224,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
         @Override // java.lang.Runnable
         public final void run() {
-            cq0 countDownTime = NadVideoRewardCountDownView.this.getCountDownTime();
+            nq0 countDownTime = NadVideoRewardCountDownView.this.getCountDownTime();
             if (countDownTime != null) {
                 countDownTime.n();
             }
@@ -255,7 +259,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final LinearLayout invoke() {
-                View findViewById = NadVideoRewardCountDownView.this.findViewById(R.id.obfuscated_res_0x7f0915f4);
+                View findViewById = NadVideoRewardCountDownView.this.findViewById(R.id.obfuscated_res_0x7f091608);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.ll_limit)");
                 return (LinearLayout) findViewById;
             }
@@ -330,9 +334,14 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
                 return (LottieAnimationView) findViewById;
             }
         });
-        LayoutInflater.from(context).inflate(R.layout.nad_reward_video_lp_countdown, this);
+        LayoutInflater from = LayoutInflater.from(context);
+        fq0 a2 = jq0.a();
+        Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
+        from.inflate(a2.l(), this);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ei0.NadVideoRewardCountDownView);
+        Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "context.obtainStyledAttr…VideoRewardCountDownView)");
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadius(ExtensionsKt.d(14, context));
+        gradientDrawable.setCornerRadius(obtainStyledAttributes.getDimension(0, ExtensionsKt.d(14, context)));
         gradientDrawable.setStroke(ExtensionsKt.d(1, context), ContextCompat.getColor(context, R.color.nad_welfare_countdown_stroke));
         int color = ContextCompat.getColor(context, R.color.nad_welfare_countdown_bg);
         gradientDrawable.setColors(new int[]{color, color});
@@ -345,48 +354,23 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
     }
 
     @Override // com.baidu.nadcore.lp.reward.view.AbsRewardCountDownView
-    public void f(String tips) {
+    public void d(String tips) {
         Intrinsics.checkNotNullParameter(tips, "tips");
         getTvCountDown().setVisibility(8);
         getTvDesc().setText(tips);
     }
 
-    public final void q(ps0 ps0Var) {
+    public final void o(dt0 dt0Var) {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f, 1.0f);
-        ofFloat.addUpdateListener(new a(ps0Var));
+        ofFloat.addUpdateListener(new a(dt0Var));
         ofFloat.setDuration(400L).start();
-    }
-
-    @Override // com.baidu.nadcore.lp.reward.view.AbsRewardCountDownView
-    public void a(ViewGroup viewGroup, int i, boolean z, Function0<? extends ViewGroup.MarginLayoutParams> lp) {
-        Intrinsics.checkNotNullParameter(viewGroup, "viewGroup");
-        Intrinsics.checkNotNullParameter(lp, "lp");
-        super.a(viewGroup, i, z, new Function0<ViewGroup.MarginLayoutParams>() { // from class: com.baidu.nadcore.lp.reward.view.NadVideoRewardCountDownView$attachToViewGroup$1
-            {
-                super(0);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // kotlin.jvm.functions.Function0
-            public final ViewGroup.MarginLayoutParams invoke() {
-                ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
-                Context context = NadVideoRewardCountDownView.this.getContext();
-                Intrinsics.checkNotNullExpressionValue(context, "context");
-                marginLayoutParams.leftMargin = ExtensionsKt.d(14, context);
-                Context context2 = NadVideoRewardCountDownView.this.getContext();
-                Intrinsics.checkNotNullExpressionValue(context2, "context");
-                marginLayoutParams.topMargin = ExtensionsKt.d(6, context2);
-                return marginLayoutParams;
-            }
-        });
     }
 
     @Override // com.baidu.nadcore.lp.reward.view.AbsRewardCountDownView
     public long getMillisUntilFinished() {
         long j;
         long millis = TimeUnit.SECONDS.toMillis(this.o);
-        cq0 countDownTime = getCountDownTime();
+        nq0 countDownTime = getCountDownTime();
         if (countDownTime != null) {
             j = countDownTime.j();
         } else {
@@ -395,7 +379,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         return millis - j;
     }
 
-    public final void r(String str) {
+    public final void p(String str) {
         boolean z;
         if (str.length() == 0) {
             z = true;
@@ -409,10 +393,10 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         }
     }
 
-    public final void s(ps0 ps0Var) {
+    public final void q(dt0 dt0Var) {
         getTvCountDown().setVisibility(0);
         getIvIcon().setVisibility(0);
-        getTvDesc().setText(ps0Var.z());
+        getTvDesc().setText(dt0Var.z());
         getLlLimit().setVisibility(8);
         getLottieView().setVisibility(8);
         getLlCountDown().setAlpha(1.0f);
@@ -421,10 +405,10 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
     @Override // com.baidu.nadcore.lp.reward.view.AbsRewardCountDownView
     @SuppressLint({"SetTextI18n"})
-    public void setData(int i, ps0 rewardData, Function0<Unit> onFinish) {
+    public void setData(int i, dt0 rewardData, Function0<Unit> onFinish) {
         Intrinsics.checkNotNullParameter(rewardData, "rewardData");
         Intrinsics.checkNotNullParameter(onFinish, "onFinish");
-        s(rewardData);
+        q(rewardData);
         setCountDownFinish(onFinish);
         this.o = i;
         getIvIcon().o(rewardData.y());

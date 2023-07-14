@@ -3,35 +3,35 @@ package com.baidu.tieba.themeCenter.bubble.group;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.fs5;
-import com.baidu.tieba.iba;
+import com.baidu.tieba.jt5;
+import com.baidu.tieba.lja;
+import com.baidu.tieba.nja;
+import com.baidu.tieba.oja;
 import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel;
-import com.baidu.tieba.uaa;
-import com.baidu.tieba.waa;
-import com.baidu.tieba.xaa;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupModel a;
-    public xaa b;
-    public uaa c;
+    public oja b;
+    public lja c;
     public BubbleGroupModel.c d;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.cs5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.gt5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "b010" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements BubbleGroupModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,9 +56,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
-        public void a(int i, String str, iba ibaVar, List<waa> list) {
+        public void a(int i, String str, zja zjaVar, List<nja> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, ibaVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, zjaVar, list}) == null) {
                 BubbleGroupActivity bubbleGroupActivity = this.a;
                 bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.b.d());
                 this.a.b.i();
@@ -67,7 +67,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
                     this.a.b.j();
                     return;
                 }
-                this.a.b.k(ibaVar, list, this.a.a.b0());
+                this.a.b.k(zjaVar, list, this.a.a.c0());
             }
         }
     }
@@ -89,17 +89,17 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public fs5 getPageStayDurationItem() {
+    public jt5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            fs5 pageStayDurationItem = super.getPageStayDurationItem();
+            jt5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (fs5) invokeV.objValue;
+        return (jt5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -112,10 +112,10 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        xaa xaaVar;
+        oja ojaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (xaaVar = this.b) != null) {
-            showLoadingView(xaaVar.d());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (ojaVar = this.b) != null) {
+            showLoadingView(ojaVar.d());
             this.a.loadData();
         }
     }
@@ -125,9 +125,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            xaa xaaVar = this.b;
-            if (xaaVar != null) {
-                xaaVar.f();
+            oja ojaVar = this.b;
+            if (ojaVar != null) {
+                ojaVar.f();
             }
         }
     }
@@ -139,12 +139,12 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
             super.onCreate(bundle);
             BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
             this.a = bubbleGroupModel;
-            bubbleGroupModel.e0(this.d);
-            uaa uaaVar = new uaa(getPageContext());
-            this.c = uaaVar;
-            xaa xaaVar = new xaa(this, uaaVar);
-            this.b = xaaVar;
-            xaaVar.e();
+            bubbleGroupModel.f0(this.d);
+            lja ljaVar = new lja(getPageContext());
+            this.c = ljaVar;
+            oja ojaVar = new oja(this, ljaVar);
+            this.b = ojaVar;
+            ojaVar.e();
             showLoadingView(this.b.d());
             this.a.loadData();
         }

@@ -33,7 +33,7 @@ import com.kwad.sdk.utils.bd;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends a {
     public static long gO = 400;
     public aa dP;
@@ -134,8 +134,8 @@ public final class b extends a {
 
     private com.kwad.components.ad.f.kwai.kwai.a cP() {
         final com.kwad.components.ad.f.kwai.kwai.a aVar = new com.kwad.components.ad.f.kwai.kwai.a();
-        this.gh.gs.add(new c.InterfaceC0605c() { // from class: com.kwad.components.ad.interstitial.b.kwai.b.6
-            @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0605c
+        this.gh.gs.add(new c.InterfaceC0610c() { // from class: com.kwad.components.ad.interstitial.b.kwai.b.6
+            @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0610c
             public final void cH() {
                 aVar.ey();
             }
@@ -301,7 +301,7 @@ public final class b extends a {
         return new w.a() { // from class: com.kwad.components.ad.interstitial.b.kwai.b.3
             @Override // com.kwad.components.core.webview.jshandler.w.a
             public final void a(com.kwad.components.core.webview.a.b bVar) {
-                AdWebViewActivityProxy.launch(b.this.getContext(), new AdWebViewActivityProxy.a.C0648a().ao(bVar.title).ap(bVar.url).N(b.this.gh.mAdTemplate).nx());
+                AdWebViewActivityProxy.launch(b.this.getContext(), new AdWebViewActivityProxy.a.C0653a().ao(bVar.title).ap(bVar.url).N(b.this.gh.mAdTemplate).nx());
             }
         };
     }
@@ -323,8 +323,8 @@ public final class b extends a {
         com.kwad.components.ad.f.kwai.kwai.b j = com.kwad.components.ad.f.kwai.kwai.b.j(this.gh.mAdTemplate);
         this.gY = j;
         if (j != null) {
-            j.a(new b.InterfaceC0596b() { // from class: com.kwad.components.ad.interstitial.b.kwai.b.4
-                @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0596b
+            j.a(new b.InterfaceC0601b() { // from class: com.kwad.components.ad.interstitial.b.kwai.b.4
+                @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0601b
                 public final void C(int i) {
                     if (i == com.kwad.components.ad.f.kwai.kwai.b.kt) {
                         b.this.gh.b(b.this.getContext(), b.this.gh.mAdTemplate);
@@ -407,7 +407,7 @@ public final class b extends a {
     @Override // com.kwad.components.ad.interstitial.b.kwai.a, com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0913ec);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091400);
         this.hP = frameLayout;
         frameLayout.setVisibility(0);
     }

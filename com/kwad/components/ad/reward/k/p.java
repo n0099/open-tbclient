@@ -13,7 +13,7 @@ import com.kwad.components.core.widget.KSCornerButton;
 import com.kwad.components.core.widget.KsConvertButton;
 import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class p extends v implements View.OnClickListener {
     public KsLogoView bq;
     public TextView li;
@@ -28,10 +28,10 @@ public class p extends v implements View.OnClickListener {
     public TextView wa;
     public a wb;
     @LayoutRes
-    public int wc = R.layout.obfuscated_res_0x7f0d04bc;
+    public int wc = R.layout.obfuscated_res_0x7f0d04c7;
     public boolean wd = true;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void hs();
 
@@ -126,23 +126,23 @@ public class p extends v implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09139c);
-        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091399);
-        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09139e);
-        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09139f);
-        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091397);
-        this.wa = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091398);
-        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09139b);
-        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091394);
-        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f09139d);
+        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913b0);
+        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913ad);
+        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913b2);
+        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913b3);
+        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913ab);
+        this.wa = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913ac);
+        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913af);
+        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913a8);
+        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f0913b1);
     }
 
     public int jb() {
-        return R.id.obfuscated_res_0x7f091396;
+        return R.id.obfuscated_res_0x7f0913aa;
     }
 
     public int jc() {
-        return R.id.obfuscated_res_0x7f091395;
+        return R.id.obfuscated_res_0x7f0913a9;
     }
 
     @Override // android.view.View.OnClickListener

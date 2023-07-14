@@ -14,21 +14,21 @@ import kotlin.reflect.jvm.internal.impl.protobuf.FieldSet;
 import kotlin.reflect.jvm.internal.impl.protobuf.Internal;
 import kotlin.reflect.jvm.internal.impl.protobuf.MessageLite;
 import kotlin.reflect.jvm.internal.impl.protobuf.WireFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class GeneratedMessageLite extends AbstractMessageLite implements Serializable {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface ExtendableMessageOrBuilder<MessageType extends ExtendableMessage> extends MessageLiteOrBuilder {
     }
 
     public void makeExtensionsImmutable() {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class ExtendableMessage<MessageType extends ExtendableMessage<MessageType>> extends GeneratedMessageLite implements ExtendableMessageOrBuilder<MessageType> {
         public final FieldSet<ExtensionDescriptor> extensions;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public class ExtensionWriter {
             public final Iterator<Map.Entry<ExtensionDescriptor, Object>> iter;
             public final boolean messageSetWireFormat;
@@ -136,7 +136,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     }
 
     /* renamed from: kotlin.reflect.jvm.internal.impl.protobuf.GeneratedMessageLite$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$JavaType;
 
@@ -154,7 +154,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Builder<MessageType extends GeneratedMessageLite, BuilderType extends Builder> extends AbstractMessageLite.Builder<BuilderType> {
         public ByteString unknownFields = ByteString.EMPTY;
 
@@ -171,7 +171,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.reflect.jvm.internal.impl.protobuf.AbstractMessageLite.Builder
         /* renamed from: clone */
-        public BuilderType mo2097clone() {
+        public BuilderType mo2099clone() {
             throw new UnsupportedOperationException("This is supposed to be overridden by subclasses.");
         }
 
@@ -181,7 +181,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class ExtendableBuilder<MessageType extends ExtendableMessage<MessageType>, BuilderType extends ExtendableBuilder<MessageType, BuilderType>> extends Builder<MessageType, BuilderType> implements ExtendableMessageOrBuilder<MessageType> {
         public FieldSet<ExtensionDescriptor> extensions = FieldSet.emptySet();
         public boolean extensionsIsMutable;
@@ -216,7 +216,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class ExtensionDescriptor implements FieldSet.FieldDescriptorLite<ExtensionDescriptor> {
         public final Internal.EnumLiteMap<?> enumTypeMap;
         public final boolean isPacked;
@@ -273,7 +273,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class GeneratedExtension<ContainingType extends MessageLite, Type> {
         public final ContainingType containingTypeDefaultInstance;
         public final Type defaultValue;

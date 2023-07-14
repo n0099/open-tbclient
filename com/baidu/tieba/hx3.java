@@ -1,56 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.fx3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.tieba.el4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Map;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public final class hx3 extends fx3.a {
+public class hx3 implements fm4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final hx3 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947839046, "Lcom/baidu/tieba/hx3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947839046, "Lcom/baidu/tieba/hx3;");
-                return;
-            }
-        }
-        b = new hx3();
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public hx3() {
-        super(r0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((fx3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        fx3 a = gx3.a();
-        Intrinsics.checkNotNullExpressionValue(a, "Ioc.impl()");
+    }
+
+    @Override // com.baidu.tieba.el4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, el4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            if (PMSConstants.a(gj4.b())) {
+                yk4.b(str, map, map2, jSONObject, new yu3(aVar));
+            } else {
+                yk4.b(str, map, map2, jSONObject, new fl4(aVar));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.fm4
+    public rl4 c(String str, int i) throws Exception {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            return pl4.a(str, i);
+        }
+        return (rl4) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.el4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, el4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
+            if (PMSConstants.a(gj4.b())) {
+                yk4.a(str, map, map2, new yu3(aVar));
+            } else {
+                yk4.a(str, map, map2, new fl4(aVar));
+            }
+        }
     }
 }

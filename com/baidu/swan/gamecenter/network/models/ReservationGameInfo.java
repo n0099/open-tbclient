@@ -1,5 +1,6 @@
 package com.baidu.swan.gamecenter.network.models;
 
+import com.baidu.android.imsdk.db.TableDefine;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
@@ -12,7 +13,7 @@ public class ReservationGameInfo implements Serializable {
     public boolean auto_download;
     @SerializedName("download_url")
     public String download_url;
-    @SerializedName("package_id")
+    @SerializedName(TableDefine.EmojiColumns.COLUMN_PACKAGE_ID)
     public String package_id;
     @SerializedName("resource_id")
     public String resource_id;

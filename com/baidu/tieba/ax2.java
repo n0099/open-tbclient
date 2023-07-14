@@ -1,189 +1,203 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.swan.apps.SwanAppLauncherActivity;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.tieba.ax2;
+import com.baidu.tieba.bx2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class ax2<SelfT extends ax2<SelfT>> extends cx2<SelfT> {
+public final class ax2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static final Map<String, ax2> e;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
+    public final bx2 b;
+    public final String c;
 
     /* loaded from: classes5.dex */
-    public static final class a extends ax2<a> {
+    public class a implements oq3<bx2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ax2 a;
 
-        public a i1() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (a) invokeV.objValue;
-        }
-
-        public a() {
+        public a(ax2 ax2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ax2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = ax2Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oq3
+        /* renamed from: c */
+        public void a(bx2 bx2Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bx2Var) == null) && ax2.d) {
+                d();
             }
         }
 
-        @Override // com.baidu.tieba.yq3
-        public /* bridge */ /* synthetic */ yq3 e() {
-            i1();
-            return this;
+        public final void b(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && ax2.d) {
+                Log.i(str, str2);
+            }
         }
 
-        @Override // com.baidu.tieba.ax2, com.baidu.tieba.fx2
-        public /* bridge */ /* synthetic */ fx2 update(Bundle bundle) {
-            return super.update(bundle);
+        public final synchronized void d() {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                synchronized (this) {
+                    b("SwanLaunch", "\n\n\n");
+                    b("SwanLaunch", ">>>>>> SWAN Launch Log For " + this.a.c);
+                    StringBuilder sb = new StringBuilder();
+                    for (Map.Entry entry : this.a.a.entrySet()) {
+                        sb.append(String.format("%s[%s] ", entry.getKey(), entry.getValue()));
+                    }
+                    for (bx2.b bVar : this.a.b.i()) {
+                        StringBuilder sb2 = new StringBuilder();
+                        for (String str2 : bVar.b) {
+                            sb2.append(str2);
+                            sb2.append(" ");
+                        }
+                        for (String str3 : bVar.a) {
+                            String h = this.a.b.h();
+                            if (TextUtils.isEmpty(bVar.c)) {
+                                str = h;
+                            } else {
+                                str = bVar.c;
+                            }
+                            b(str, String.format(Locale.getDefault(), "[%s]> %s%s>>> %s", h, sb, sb2, str3));
+                        }
+                    }
+                }
+            }
         }
     }
 
-    public ax2() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947630478, "Lcom/baidu/tieba/ax2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947630478, "Lcom/baidu/tieba/ax2;");
+                return;
+            }
+        }
+        d = fs1.a;
+        e = new HashMap();
+    }
+
+    public final oq3<bx2> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (oq3) invokeV.objValue;
+    }
+
+    public bx2.b e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.d();
+        }
+        return (bx2.b) invokeV.objValue;
+    }
+
+    public synchronized ax2 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                this.b.j();
+            }
+            return this;
+        }
+        return (ax2) invokeV.objValue;
+    }
+
+    public ax2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap();
+        bx2 bx2Var = new bx2();
+        bx2Var.g("SwanLaunch");
+        bx2Var.l(c());
+        this.b = bx2Var;
+        this.c = str;
     }
 
-    public static String d1(String str, int i, JSONObject jSONObject) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, str, i, jSONObject)) == null) {
-            return e1(str, null, i, jSONObject);
-        }
-        return (String) invokeLIL.objValue;
-    }
-
-    public static String e1(String str, String str2, int i, JSONObject jSONObject) {
-        InterceptResult invokeLLIL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, str, str2, i, jSONObject)) == null) {
-            if (i == 1) {
-                str3 = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
-            } else {
-                str3 = "swan";
-            }
-            Uri.Builder builder = new Uri.Builder();
-            builder.scheme(UnitedSchemeConstants.UNITED_SCHEME).authority(str3).appendPath(str);
-            if (!TextUtils.isEmpty(str2)) {
-                builder.appendEncodedPath(str2);
-            } else if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            if (jSONObject != null) {
-                builder.appendQueryParameter("_baiduboxapp", jSONObject.toString());
-            }
-            builder.build();
-            return builder.toString();
-        }
-        return (String) invokeLLIL.objValue;
-    }
-
-    public static ax2 f1(Bundle bundle) {
+    public static ax2 d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
-            a aVar = new a();
-            aVar.update(bundle);
-            return aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            ax2 ax2Var = e.get(str);
+            if (ax2Var == null) {
+                ax2 ax2Var2 = new ax2(str);
+                e.put(str, ax2Var2);
+                return ax2Var2;
+            }
+            return ax2Var;
         }
         return (ax2) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fx2
-    public SelfT update(Bundle bundle) {
+    public bx2.b f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            f92.h(bundle);
-            return (SelfT) super.update(bundle);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.b.e(str);
         }
-        return (SelfT) invokeL.objValue;
+        return (bx2.b) invokeL.objValue;
     }
 
-    public static Intent g1(Context context, ax2 ax2Var) {
+    public bx2.b g(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, ax2Var)) == null) {
-            if (context != null && ax2Var != null) {
-                Intent intent = new Intent();
-                intent.setAction("com.baidu.searchbox.action.aiapps.LAUNCH");
-                intent.setComponent(new ComponentName(context, SwanAppLauncherActivity.class));
-                if (context instanceof Application) {
-                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                intent.putExtras(ax2Var.D());
-                return intent;
-            }
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            return this.b.f(str, str2);
         }
-        return (Intent) invokeLL.objValue;
-    }
-
-    public static String h1(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, str, str2, i)) == null) {
-            if (i == 1) {
-                str3 = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
-            } else {
-                str3 = "swan";
-            }
-            Uri.Builder builder = new Uri.Builder();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            builder.scheme(UnitedSchemeConstants.UNITED_SCHEME).authority(str3).appendPath(str).appendQueryParameter("_baiduboxapp", jSONObject.toString()).build();
-            return builder.toString();
-        }
-        return (String) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.fx2
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanAppLaunchParams{appId='" + H() + "', from='" + T() + "', page='" + e0() + "', isDebug=" + n0() + ", extraData=" + P() + ", clickId='" + L() + "', launchScheme='" + W() + "', notInHistory='" + c0() + "'}";
-        }
-        return (String) invokeV.objValue;
+        return (bx2.b) invokeLL.objValue;
     }
 }

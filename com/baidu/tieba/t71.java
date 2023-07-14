@@ -1,174 +1,111 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.view.animation.LinearInterpolator;
+import android.provider.Settings;
+import android.view.Window;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.g61;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public abstract class t71 {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes8.dex */
+public class t71 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ValueAnimator.AnimatorUpdateListener a;
-    public final Rect b;
-    public Drawable.Callback c;
-    public ValueAnimator d;
-    public long e;
-    public float f;
-    public float g;
 
-    public abstract void c(float f);
-
-    public abstract void d(Canvas canvas);
-
-    public abstract void h();
-
-    public abstract void i(int i);
-
-    public abstract void l(ColorFilter colorFilter);
-
-    /* loaded from: classes7.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t71 a;
-
-        public a(t71 t71Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t71Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t71Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948134011, "Lcom/baidu/tieba/t71;")) == null) {
+            return;
         }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.a.c(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.a.f();
-            }
-        }
-    }
-
-    public t71(Context context) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948134011, "Lcom/baidu/tieba/t71;");
+        }
+    }
+
+    public static int c(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
+            if (i < i2) {
+                i = i2;
+            }
+            return i > i3 ? i3 : i;
+        }
+        return invokeIII.intValue;
+    }
+
+    public static int a(Activity activity) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if (activity != null) {
+                float f = activity.getWindow().getAttributes().screenBrightness;
+                if (f < 0.0f) {
+                    i = b(activity);
+                } else {
+                    i = (int) (f * 255.0f);
+                }
+                int i2 = a;
+                if (i2 >= 0 && i <= 50) {
+                    return i2;
+                }
+                return i;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
             }
         }
-        this.a = new a(this);
-        this.b = new Rect();
-        e(context);
-        m();
+        return invokeL.intValue;
     }
 
-    public void b(Animator.AnimatorListener animatorListener) {
+    public static void f(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
-            this.d.addListener(animatorListener);
+        if (interceptable == null || interceptable.invokeL(65542, null, activity) == null) {
+            e(activity, -1);
         }
     }
 
-    public final void e(Context context) {
+    public static void d(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f = g61.c.a(context, 31.0f);
-            this.g = g61.c.a(context, 31.0f);
-            this.e = 1333L;
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) && activity != null) {
+            a = c(i, 0, 255);
+            int c = c(i, 50, 255);
+            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+            attributes.screenBrightness = Float.valueOf(c).floatValue() * 0.003921569f;
+            activity.getWindow().setAttributes(attributes);
         }
     }
 
-    public void j(Rect rect) {
+    public static void e(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect) == null) {
-            this.b.set(rect);
-        }
-    }
-
-    public void k(Drawable.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, callback) == null) {
-            this.c = callback;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.invalidateDrawable(null);
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d.isRunning();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.d.removeUpdateListener(this.a);
-            this.d.setRepeatCount(0);
-            this.d.setDuration(0L);
-            this.d.end();
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.d = ofFloat;
-            ofFloat.setRepeatCount(-1);
-            this.d.setRepeatMode(1);
-            this.d.setDuration(this.e);
-            this.d.setInterpolator(new LinearInterpolator());
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            h();
-            this.d.addUpdateListener(this.a);
-            this.d.setRepeatCount(-1);
-            this.d.setDuration(this.e);
-            this.d.setStartDelay(200L);
-            this.d.start();
+        if ((interceptable == null || interceptable.invokeLI(65541, null, activity, i) == null) && activity != null) {
+            Window window = activity.getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.screenBrightness = i;
+            window.setAttributes(attributes);
         }
     }
 }

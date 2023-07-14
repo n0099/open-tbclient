@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import android.graphics.Bitmap;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,16 +11,51 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class wh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static wh1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public xh1 a;
+    public LruCache<String, Bitmap> a;
 
-    public wh1(xh1 xh1Var) {
+    /* loaded from: classes8.dex */
+    public class a extends LruCache<String, Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(wh1 wh1Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bitmap)) == null) {
+                return bitmap.getByteCount() / 1024;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    public wh1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xh1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,34 +65,34 @@ public class wh1 {
                 return;
             }
         }
-        this.a = xh1Var;
+        this.a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
     }
 
-    public static void c(xh1 xh1Var) {
+    public void a(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, xh1Var) == null) && b == null) {
-            synchronized (wh1.class) {
-                if (b == null) {
-                    b = new wh1(xh1Var);
-                }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+            String b = bi1.b(str);
+            if (b(b) == null) {
+                this.a.put(b, bitmap);
             }
         }
     }
 
-    public static wh1 b() {
-        InterceptResult invokeV;
+    public final Bitmap b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a.get(str);
         }
-        return (wh1) invokeV.objValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    public void a(ImageView imageView, String str) {
-        xh1 xh1Var;
+    public Bitmap c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) && (xh1Var = this.a) != null) {
-            xh1Var.a(imageView, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return b(bi1.b(str));
         }
+        return (Bitmap) invokeL.objValue;
     }
 }

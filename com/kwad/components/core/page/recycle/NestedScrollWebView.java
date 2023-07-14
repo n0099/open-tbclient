@@ -12,7 +12,7 @@ import androidx.core.view.NestedScrollingChild;
 import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.VelocityTrackerCompat;
 import com.kwad.components.core.webview.KsAdWebView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NestedScrollWebView extends KsAdWebView implements NestedScrollingChild {
     public int GI;
     public int GJ;

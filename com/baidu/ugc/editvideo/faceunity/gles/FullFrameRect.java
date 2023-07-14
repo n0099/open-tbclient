@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 
 import android.opengl.Matrix;
 import com.baidu.ugc.editvideo.faceunity.gles.Drawable2d;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FullFrameRect {
     public float mAngle;
     public Texture2dProgram mProgram;

@@ -1,41 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class jz3 implements qv1 {
-    public static /* synthetic */ Interceptable $ic;
+public class jz3 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static float a = 3.0f;
+    public static float b = 1.5f;
+    public static float c = 0.12f;
+    public static float d = 0.06f;
+    public static float e = 0.13f;
+    public static float f = 0.12f;
+    public static float g = 0.19f;
+    public static float h = 0.05f;
+    public static float i = 0.48f;
+    public static float j = 0.33f;
+    public static float k = 0.19f;
+    public static float l = 0.45f;
+    public static float m = 0.15f;
+    public static float n = 0.12f;
+    public static float o = 0.13f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jz3() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947900550, "Lcom/baidu/tieba/jz3;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
         }
-    }
-
-    @Override // com.baidu.tieba.qv1
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return context.getPackageName() + ".swan.fileprovider";
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947900550, "Lcom/baidu/tieba/jz3;");
         }
-        return (String) invokeL.objValue;
     }
 }

@@ -10,9 +10,9 @@ import com.baidu.nps.main.manager.Bundle;
 import com.baidu.tbadk.util.gson.JavaGsonWidget;
 import com.baidu.tbadk.util.gson.KotlinGsonWidget;
 import com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory;
-import com.baidu.tieba.ew8;
-import com.baidu.tieba.j05;
-import com.baidu.tieba.sw5;
+import com.baidu.tieba.h29;
+import com.baidu.tieba.s05;
+import com.baidu.tieba.wx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -82,8 +82,8 @@ public final class DataExt {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
                 Intrinsics.checkNotNullParameter(f, "f");
-                sw5 sw5Var = (sw5) f.getAnnotation(sw5.class);
-                if (sw5Var != null && !sw5Var.serialize()) {
+                wx5 wx5Var = (wx5) f.getAnnotation(wx5.class);
+                if (wx5Var != null && !wx5Var.serialize()) {
                     return true;
                 }
                 return false;
@@ -127,8 +127,8 @@ public final class DataExt {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
                 Intrinsics.checkNotNullParameter(f, "f");
-                sw5 sw5Var = (sw5) f.getAnnotation(sw5.class);
-                if (sw5Var != null && !sw5Var.deserialize()) {
+                wx5 wx5Var = (wx5) f.getAnnotation(wx5.class);
+                if (wx5Var != null && !wx5Var.deserialize()) {
                     return true;
                 }
                 return false;
@@ -250,7 +250,7 @@ public final class DataExt {
         }
         GsonBuilder gsonBuilder = new GsonBuilder();
         JavaGsonWidget.BadNumberFix.c(gsonBuilder);
-        Gson create = gsonBuilder.registerTypeAdapter(JavaGsonWidget.a, new JavaGsonWidget.MapDeserializerDoubleAsIntFix()).registerTypeAdapter(KotlinGsonWidget.a, new KotlinGsonWidget.MapDeserializerDoubleAsIntFix(DataExt$GSON$1.INSTANCE)).registerTypeAdapterFactory(KotlinReflectiveTypeAdapterFactory.b.a(!j05.e())).addSerializationExclusionStrategy(new a()).addDeserializationExclusionStrategy(new b()).create();
+        Gson create = gsonBuilder.registerTypeAdapter(JavaGsonWidget.a, new JavaGsonWidget.MapDeserializerDoubleAsIntFix()).registerTypeAdapter(KotlinGsonWidget.a, new KotlinGsonWidget.MapDeserializerDoubleAsIntFix(DataExt$GSON$1.INSTANCE)).registerTypeAdapterFactory(KotlinReflectiveTypeAdapterFactory.b.a(!s05.e())).addSerializationExclusionStrategy(new a()).addDeserializationExclusionStrategy(new b()).create();
         Intrinsics.checkNotNullExpressionValue(create, "registerTypeAdapter(Gson…     })\n        .create()");
         GSON = create;
     }
@@ -264,7 +264,7 @@ public final class DataExt {
             try {
                 return (T) GSON.fromJson(str, (Class<Object>) clazz);
             } catch (Exception e) {
-                ew8 defaultLog = DefaultLog.getInstance();
+                h29 defaultLog = DefaultLog.getInstance();
                 defaultLog.b(GSON_FORMAT_LOG, "toEntity | gson format string " + str + " to instance " + clazz.getSimpleName() + " error: " + e.getMessage());
                 throw e;
             }
@@ -296,7 +296,7 @@ public final class DataExt {
                 }
                 return list;
             } catch (Exception e) {
-                ew8 defaultLog = DefaultLog.getInstance();
+                h29 defaultLog = DefaultLog.getInstance();
                 defaultLog.b(GSON_FORMAT_LOG, "toEntityList | gson format string " + str + " to instance " + clazz.getSimpleName() + " error: " + e.getMessage());
                 throw e;
             }
@@ -381,7 +381,7 @@ public final class DataExt {
                 Intrinsics.checkNotNullExpressionValue(json, "GSON.toJson(this)");
                 return json;
             } catch (Exception e) {
-                ew8 defaultLog = DefaultLog.getInstance();
+                h29 defaultLog = DefaultLog.getInstance();
                 defaultLog.b(GSON_FORMAT_LOG, "toJson | gson format instance " + obj + " to string error: " + e.getMessage());
                 throw e;
             }
@@ -399,7 +399,7 @@ public final class DataExt {
                 Intrinsics.checkNotNullExpressionValue(fromJson, "GSON.fromJson(this, JavaGsonWidget.MAP_TYPE)");
                 return (Map) fromJson;
             } catch (Exception e) {
-                ew8 defaultLog = DefaultLog.getInstance();
+                h29 defaultLog = DefaultLog.getInstance();
                 defaultLog.b(GSON_FORMAT_LOG, "toMap | gson format string " + str + " to map error: " + e.getMessage());
                 throw e;
             }

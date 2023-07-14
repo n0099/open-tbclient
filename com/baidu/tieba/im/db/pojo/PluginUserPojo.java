@@ -31,7 +31,7 @@ public class PluginUserPojo extends OrmObject {
         }
     }
 
-    public static PluginUserPojo U(PluginUser pluginUser) {
+    public static PluginUserPojo V(PluginUser pluginUser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pluginUser)) == null) {
@@ -49,7 +49,7 @@ public class PluginUserPojo extends OrmObject {
         return (PluginUserPojo) invokeL.objValue;
     }
 
-    public static PluginUserPojo V(tbclient.PluginUser pluginUser) {
+    public static PluginUserPojo W(tbclient.PluginUser pluginUser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, pluginUser)) == null) {

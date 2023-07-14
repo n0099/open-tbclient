@@ -1,61 +1,74 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import java.util.HashMap;
+/* loaded from: classes5.dex */
 public class a51 {
     public static /* synthetic */ Interceptable $ic;
-    public static a51 b;
+    public static final HashMap<Class<? extends g51>, g51> a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public b51 a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947566060, "Lcom/baidu/tieba/a51;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947566060, "Lcom/baidu/tieba/a51;");
+                return;
+            }
+        }
+        a = new HashMap<>();
+    }
 
     public a51() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.a = new y41();
-        if (!r41.a()) {
-            this.a = new z41();
         }
     }
 
-    public static a51 b() {
-        InterceptResult invokeV;
+    public static <T extends g51> T a(Class<T> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            T t = (T) a.get(cls);
+            if (t == null) {
                 synchronized (a51.class) {
-                    if (b == null) {
-                        b = new a51();
+                    t = (T) a.get(cls);
+                    if (t == null) {
+                        t = (T) b51.a(cls);
+                        a.put(cls, t);
                     }
                 }
             }
-            return b;
+            return t;
         }
-        return (a51) invokeV.objValue;
+        return (T) invokeL.objValue;
     }
 
-    @NonNull
-    public b51 a() {
-        InterceptResult invokeV;
+    public static <T extends g51> f51 b(Class<T> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            return a(cls).b();
         }
-        return (b51) invokeV.objValue;
+        return (f51) invokeL.objValue;
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,7 +69,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                     this.a.f();
                 } else {
-                    this.a.a();
+                    this.a.b();
                 }
             }
         }
@@ -98,31 +98,18 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         this.b = (LinearLayout) view2.findViewById(R.id.pb_more_view);
         this.c = (TextView) view2.findViewById(R.id.pb_more_text);
         this.e = (ImageView) this.a.findViewById(R.id.no_data_image);
-        this.h = xi.g(this.a.getContext(), R.dimen.tbds156);
+        this.h = yi.g(this.a.getContext(), R.dimen.tbds156);
         this.f = this.a.findViewById(R.id.empty_view);
-        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091d2e);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091d48);
         this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);
-        b();
+        a();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.setVisibility(8);
-            String str = this.g;
-            if (str != null) {
-                this.c.setText(str);
-            } else {
-                this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
-            }
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.c.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0109));
             this.b.setBackgroundResource(R.drawable.pb_foot_more_trans_selector);
         }
@@ -132,7 +119,20 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0bd7));
+            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0be2));
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.setVisibility(8);
+            String str = this.g;
+            if (str != null) {
+                this.c.setText(str);
+            } else {
+                this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
+            }
         }
     }
 

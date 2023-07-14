@@ -42,8 +42,8 @@ public class ic extends jc {
         this.f = new Rect();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x007b A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x007c A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x006d A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x006e A[RETURN] */
     @Override // com.baidu.tieba.jc, com.baidu.adp.lib.Disk.ops.DiskFileOperate
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -60,11 +60,11 @@ public class ic extends jc {
                         BitmapFactory.Options options = new BitmapFactory.Options();
                         this.b = options;
                         options.inDither = false;
-                        int i = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
+                        int g = g();
                         BitmapFactory.Options options2 = this.b;
-                        options2.inScreenDensity = i;
-                        options2.inTargetDensity = i;
-                        options2.inDensity = i;
+                        options2.inScreenDensity = g;
+                        options2.inTargetDensity = g;
+                        options2.inDensity = g;
                     }
                     int a = jc.a.a();
                     ByteArrayInputStream byteArrayInputStream2 = null;
@@ -79,18 +79,18 @@ public class ic extends jc {
                     }
                     try {
                         this.a = BitmapFactory.decodeStream(byteArrayInputStream, this.f, this.b);
-                        ug.c(byteArrayInputStream);
+                        vg.c(byteArrayInputStream);
                     } catch (Error e2) {
                         e = e2;
                         byteArrayInputStream2 = byteArrayInputStream;
                         BdLog.e(e.getMessage());
-                        ug.c(byteArrayInputStream2);
+                        vg.c(byteArrayInputStream2);
                         if (this.a != null) {
                         }
                     } catch (Throwable th2) {
                         th = th2;
                         byteArrayInputStream2 = byteArrayInputStream;
-                        ug.c(byteArrayInputStream2);
+                        vg.c(byteArrayInputStream2);
                         throw th;
                     }
                     if (this.a != null) {
@@ -104,10 +104,19 @@ public class ic extends jc {
         return invokeL.booleanValue;
     }
 
-    public Rect g() {
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
+        }
+        return invokeV.intValue;
+    }
+
+    public Rect h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.f;
         }
         return (Rect) invokeV.objValue;

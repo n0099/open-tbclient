@@ -1,87 +1,98 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yf6 extends kn<og6, CardViewHolder<mh6>> {
+public class yf6 extends io5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public AlaGameFrsLiveTabVideoFragment c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yf6(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), og6.b);
+    @Override // com.baidu.tieba.io5
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public yf6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.c = new AlaGameFrsLiveTabVideoFragment();
+        b().a = this.c;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public CardViewHolder<mh6> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.io5
+    public jo5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            jo5 jo5Var = new jo5();
+            jo5Var.e = 3;
+            jo5Var.b = R.string.ala_live;
+            jo5Var.i = jo5.k;
+            return jo5Var;
+        }
+        return (jo5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.io5
+    public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new mh6(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    public final void s(og6 og6Var, mh6 mh6Var) {
+    public void g(String str) {
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, og6Var, mh6Var) == null) {
-            dg6 c = og6Var.c();
-            if (c != null && c.a() != null && !TextUtils.isEmpty(c.a().a())) {
-                mh6Var.t(c.a().a());
-                mh6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
-                notifyDataSetChanged();
-                return;
-            }
-            mh6Var.q(8);
-            notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (alaGameFrsLiveTabVideoFragment = this.c) != null) {
+            alaGameFrsLiveTabVideoFragment.J1(str);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, og6 og6Var, CardViewHolder<mh6> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void h(String str) {
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, og6Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
-            }
-            s(og6Var, cardViewHolder.a());
-            return cardViewHolder.a().h();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaGameFrsLiveTabVideoFragment = this.c) != null) {
+            alaGameFrsLiveTabVideoFragment.K1(str);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void i(boolean z) {
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (alaGameFrsLiveTabVideoFragment = this.c) != null) {
+            alaGameFrsLiveTabVideoFragment.L1(z);
+        }
     }
 }

@@ -1,171 +1,104 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.coreExtra.data.FriendBotPostConfigData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class u79 {
+public class u79 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public String b;
+    public View c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948164050, "Lcom/baidu/tieba/u79;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948164050, "Lcom/baidu/tieba/u79;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final void a(String str) {
+    public u79() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            a.a(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    @JvmStatic
-    public static final Map<String, Long> b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.b() : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final boolean c() {
-        InterceptResult invokeV;
+    public View a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.c() : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d094f, (ViewGroup) null);
+            this.a = inflate;
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0923ce);
+            this.a.setTag(this);
+            return this.a;
+        }
+        return (View) invokeL.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
+            this.a.setBackgroundColor(o89.a(str));
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public void e(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
         }
+    }
 
-        @JvmStatic
-        public final void a(String tid) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, tid) == null) {
-                Intrinsics.checkNotNullParameter(tid, "tid");
-                if (TextUtils.isEmpty(tid)) {
-                    return;
-                }
-                String str = "friend_bot_sha_time" + tid;
-                Map<String, Long> b = b();
-                if (b.containsKey(str)) {
-                    b.remove(str);
-                    String jSONObject = new JSONObject(b).toString();
-                    Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject(tidMap as Map<*, *>).toString()");
-                    r95.p().J("friend_bot_sha_time_tids", jSONObject);
-                }
+    public void f(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            View view2 = this.c;
+            if (z) {
+                i = 0;
+            } else {
+                i = 4;
             }
+            view2.setVisibility(i);
         }
+    }
 
-        @JvmStatic
-        public final Map<String, Long> b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String w = r95.p().w("friend_bot_sha_time_tids", "");
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                try {
-                    JSONObject jSONObject = new JSONObject(w);
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        long optLong = jSONObject.optLong(next);
-                        if (optLong > 0) {
-                            Long valueOf = Long.valueOf(optLong);
-                            Intrinsics.checkNotNullExpressionValue(next, "next");
-                            linkedHashMap.put(next, valueOf);
-                        }
-                    }
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                return linkedHashMap;
+    public void c(TbPageContext<?> tbPageContext) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            q05 layoutMode = tbPageContext.getLayoutMode();
+            if (skinType == 4) {
+                z = true;
+            } else {
+                z = false;
             }
-            return (Map) invokeV.objValue;
-        }
-
-        @JvmStatic
-        public final boolean c() {
-            InterceptResult invokeV;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                FriendBotPostConfigData friendBotPostConfigData = TbSingleton.getInstance().getFriendBotPostConfigData();
-                if (friendBotPostConfigData == null) {
-                    return false;
-                }
-                Integer pbFirstFloorBotBubbleShow = friendBotPostConfigData.getPbFirstFloorBotBubbleShow();
-                if (pbFirstFloorBotBubbleShow != null) {
-                    i = pbFirstFloorBotBubbleShow.intValue();
-                } else {
-                    i = 0;
-                }
-                long r = r95.p().r("friend_bot_guide_show", 0L);
-                if (i == 0) {
-                    if (r > 0) {
-                        return false;
-                    }
-                    return true;
-                } else if (i != 1) {
-                    return false;
-                } else {
-                    if (r < 0) {
-                        return true;
-                    }
-                    return !TimeHelper.isSameDay(r, System.currentTimeMillis());
-                }
-            }
-            return invokeV.booleanValue;
+            layoutMode.l(z);
+            tbPageContext.getLayoutMode().k(this.a);
+            this.a.setBackgroundColor(o89.a(this.b));
         }
     }
 }

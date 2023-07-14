@@ -1,140 +1,241 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.os.RemoteCallbackList;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rtb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.List;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
-import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.OnErrorThrowable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.render.IRemoteListener;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class jtb {
     public static /* synthetic */ Interceptable $ic;
+    public static jtb b;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
+    public RemoteCallbackList<IRemoteListener> a;
 
-    public static void a(Throwable th, Throwable th2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, th, th2) == null) {
-            HashSet hashSet = new HashSet();
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return;
-                }
-                th = th.getCause();
-                if (!hashSet.contains(th.getCause())) {
-                    hashSet.add(th.getCause());
-                    i = i2;
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            try {
-                th.initCause(th2);
-            } catch (Throwable unused) {
+        }
+
+        public final jtb a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return jtb.b;
             }
+            return (jtb) invokeV.objValue;
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
     }
 
-    public static Throwable b(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return new RuntimeException("Stack too deep to get final cause");
-                }
-                th = th.getCause();
-                i = i2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947896241, "Lcom/baidu/tieba/jtb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return th;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947896241, "Lcom/baidu/tieba/jtb;");
+                return;
+            }
         }
-        return (Throwable) invokeL.objValue;
+        c = new a(null);
+        b = new jtb();
     }
 
-    public static RuntimeException c(Throwable th) {
-        InterceptResult invokeL;
+    public jtb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-            if (!(th instanceof RuntimeException)) {
-                if (th instanceof Error) {
-                    throw ((Error) th);
-                }
-                throw new RuntimeException(th);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            throw ((RuntimeException) th);
         }
-        return (RuntimeException) invokeL.objValue;
+        this.a = new RemoteCallbackList<>();
     }
 
-    public static void d(List<? extends Throwable> list) {
+    public final synchronized void b(String str, String str2) {
+        boolean z;
+        RemoteCallbackList<IRemoteListener> remoteCallbackList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, list) == null) && list != null && !list.isEmpty()) {
-            if (list.size() == 1) {
-                Throwable th = list.get(0);
-                if (!(th instanceof RuntimeException)) {
-                    if (th instanceof Error) {
-                        throw ((Error) th);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            synchronized (this) {
+                if (!Intrinsics.areEqual(str, "")) {
+                    int i = 1;
+                    if (str2 != null && str2.length() != 0) {
+                        z = false;
+                    } else {
+                        z = true;
                     }
-                    throw new RuntimeException(th);
-                }
-                throw ((RuntimeException) th);
-            }
-            throw new CompositeException(list);
-        }
-    }
-
-    public static void e(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
-            if (!(th instanceof OnErrorNotImplementedException)) {
-                if (!(th instanceof OnErrorFailedException)) {
-                    if (!(th instanceof OnCompletedFailedException)) {
-                        if (!(th instanceof VirtualMachineError)) {
-                            if (!(th instanceof ThreadDeath)) {
-                                if (!(th instanceof LinkageError)) {
-                                    return;
+                    if (!z) {
+                        try {
+                            int beginBroadcast = this.a.beginBroadcast();
+                            rtb.a aVar = rtb.b;
+                            aVar.a("listener size = " + beginBroadcast);
+                            if (1 <= beginBroadcast) {
+                                while (true) {
+                                    this.a.getBroadcastItem(i - 1).action(str, str2);
+                                    if (i == beginBroadcast) {
+                                        break;
+                                    }
+                                    i++;
                                 }
-                                throw ((LinkageError) th);
                             }
-                            throw ((ThreadDeath) th);
+                            remoteCallbackList = this.a;
+                        } catch (Exception e) {
+                            rtb.a aVar2 = rtb.b;
+                            aVar2.c("(executeAction) ex: " + e.getMessage());
+                            e.printStackTrace();
+                            remoteCallbackList = this.a;
                         }
-                        throw ((VirtualMachineError) th);
+                        remoteCallbackList.finishBroadcast();
                     }
-                    throw ((OnCompletedFailedException) th);
                 }
-                throw ((OnErrorFailedException) th);
             }
-            throw ((OnErrorNotImplementedException) th);
         }
     }
 
-    public static void f(Throwable th, ysb<?> ysbVar) {
+    public final synchronized boolean c(String str, String str2) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, th, ysbVar) == null) {
-            e(th);
-            ysbVar.onError(th);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            synchronized (this) {
+                if (!Intrinsics.areEqual(str, "")) {
+                    if (str2 != null && str2.length() != 0) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (!z) {
+                        try {
+                            int beginBroadcast = this.a.beginBroadcast();
+                            if (1 <= beginBroadcast) {
+                                int i = 1;
+                                while (true) {
+                                    this.a.getBroadcastItem(i - 1).transData(str, str2);
+                                    if (i == beginBroadcast) {
+                                        break;
+                                    }
+                                    i++;
+                                }
+                            }
+                            this.a.finishBroadcast();
+                            return true;
+                        } catch (Exception e) {
+                            rtb.a aVar = rtb.b;
+                            aVar.c("(executeData) ex: " + e.getMessage());
+                            e.printStackTrace();
+                            this.a.finishBroadcast();
+                            return false;
+                        }
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final synchronized boolean f(String str, Bitmap bitmap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bitmap)) == null) {
+            synchronized (this) {
+                if (Intrinsics.areEqual(str, "")) {
+                    return false;
+                }
+                try {
+                    int beginBroadcast = this.a.beginBroadcast();
+                    rtb.a aVar = rtb.b;
+                    aVar.f("(sendBitmap) channelId: " + str + ", size = " + beginBroadcast);
+                    if (1 <= beginBroadcast) {
+                        int i = 1;
+                        while (true) {
+                            this.a.getBroadcastItem(i - 1).transBitmap(str, bitmap);
+                            if (i == beginBroadcast) {
+                                break;
+                            }
+                            i++;
+                        }
+                    }
+                    this.a.finishBroadcast();
+                    return true;
+                } catch (Exception e) {
+                    rtb.a aVar2 = rtb.b;
+                    aVar2.c("(sendBitmap) ex: " + e.getMessage());
+                    e.printStackTrace();
+                    this.a.finishBroadcast();
+                    return false;
+                }
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void d(IRemoteListener iRemoteListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iRemoteListener) == null) {
+            this.a.register(iRemoteListener);
         }
     }
 
-    public static void g(Throwable th, ysb<?> ysbVar, Object obj) {
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, th, ysbVar, obj) == null) {
-            e(th);
-            ysbVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            b("reportCrash", str);
         }
     }
 
-    public static void h(Throwable th, ctb<?> ctbVar, Object obj) {
+    public final boolean g(String str, Bitmap bitmap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, th, ctbVar, obj) == null) {
-            e(th);
-            ctbVar.b(OnErrorThrowable.addValueAsLastCause(th, obj));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, bitmap)) == null) {
+            return f(str, bitmap);
         }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean h(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
+            return c(str, str2);
+        }
+        return invokeLL.booleanValue;
     }
 }

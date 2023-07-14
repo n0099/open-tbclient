@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class qz0 extends tv0 {
+public class qz0 implements tz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,16 +25,30 @@ public abstract class qz0 extends tv0 {
         }
     }
 
-    public fu0 q() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.tz0
+    @NonNull
+    public mz0 create(@NonNull String str) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            eu0 g = super.g();
-            if (g != null) {
-                return (fu0) g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -812096555) {
+                if (hashCode == 26276517 && str.equals("CyberNetPlayer")) {
+                    c = 0;
+                }
+                c = 65535;
+            } else {
+                if (str.equals("CyberSysPlayer")) {
+                    c = 1;
+                }
+                c = 65535;
             }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.BaseVideoPlayer");
+            if (c != 0) {
+                return new wz0();
+            }
+            return new oz0();
         }
-        return (fu0) invokeV.objValue;
+        return (mz0) invokeL.objValue;
     }
 }

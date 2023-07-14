@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface t5 extends a7 {
     m3 b();
 

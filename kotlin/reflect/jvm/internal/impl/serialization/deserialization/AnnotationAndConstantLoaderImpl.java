@@ -15,12 +15,12 @@ import kotlin.reflect.jvm.internal.impl.resolve.constants.ConstantValue;
 import kotlin.reflect.jvm.internal.impl.serialization.SerializerExtensionProtocol;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.ProtoContainer;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class AnnotationAndConstantLoaderImpl implements AnnotationAndConstantLoader<AnnotationDescriptor, ConstantValue<?>> {
     public final AnnotationDeserializer deserializer;
     public final SerializerExtensionProtocol protocol;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 

@@ -4,12 +4,10 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.ChatObject;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.chatmessage.request.RequestContants;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.group.GroupMessageManagerImpl;
 import com.baidu.android.imsdk.internal.MessageParser;
@@ -101,13 +99,13 @@ public class AdvisoryFilterSessionTask extends TaskManager.Task {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, chatMsg)) == null) {
-            if (chatMsg != null) {
-                str = chatMsg.getRecommendDescription();
-            } else {
+            if (chatMsg == null) {
                 str = "";
+            } else {
+                str = chatMsg.getRecommendDescription();
             }
             if (TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equalsIgnoreCase(str)) {
-                return IMConstants.IM_GROUP_MSG_DEFAULT_RECOMMEND_DESC;
+                return "";
             }
             return str;
         }
@@ -150,7 +148,7 @@ public class AdvisoryFilterSessionTask extends TaskManager.Task {
                         long optLong4 = jSONObject.optLong("sort_update_time_us");
                         long j3 = jSONObject.getLong("contacter_uk");
                         long j4 = jSONObject.getLong("contacter_bduid");
-                        long optLong5 = jSONObject.optLong(RequestContants.EXTRA_CONTACTER_PA_UID, -1L);
+                        long optLong5 = jSONObject.optLong("contacter_pa_uid", -1L);
                         long j5 = jSONObject.getLong("unread_num");
                         i = i5;
                         try {

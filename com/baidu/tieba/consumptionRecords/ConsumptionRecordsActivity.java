@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kn5;
+import com.baidu.tieba.jo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,7 +81,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0226);
+            setContentView(R.layout.obfuscated_res_0x7f0d0228);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -90,14 +90,14 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void t1(kn5 kn5Var, FragmentTabIndicator fragmentTabIndicator, String str) {
+    public final void t1(jo5 jo5Var, FragmentTabIndicator fragmentTabIndicator, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, kn5Var, fragmentTabIndicator, str) != null) || kn5Var == null) {
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jo5Var, fragmentTabIndicator, str) != null) || jo5Var == null) {
             return;
         }
         FragmentTabHost.c cVar = new FragmentTabHost.c();
-        cVar.c = kn5Var.a;
-        fragmentTabIndicator.setText(kn5Var.b);
+        cVar.c = jo5Var.a;
+        fragmentTabIndicator.setText(jo5Var.b);
         if (!TextUtils.isEmpty(str)) {
             fragmentTabIndicator.setText(str);
         }
@@ -110,31 +110,31 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public final void w1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091e43);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091e65);
             this.b = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.b.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
             SigleRecordsFragment sigleRecordsFragment = new SigleRecordsFragment();
             this.c = sigleRecordsFragment;
             sigleRecordsFragment.Y1(1);
-            kn5 kn5Var = new kn5();
-            kn5Var.a = this.c;
-            kn5Var.b = R.string.obfuscated_res_0x7f0f06db;
-            t1(kn5Var, v1(getPageContext().getPageActivity()), null);
+            jo5 jo5Var = new jo5();
+            jo5Var.a = this.c;
+            jo5Var.b = R.string.obfuscated_res_0x7f0f06e4;
+            t1(jo5Var, v1(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment2 = new SigleRecordsFragment();
             this.d = sigleRecordsFragment2;
             sigleRecordsFragment2.Y1(2);
-            kn5 kn5Var2 = new kn5();
-            kn5Var2.a = this.d;
-            kn5Var2.b = R.string.obfuscated_res_0x7f0f0a6d;
-            t1(kn5Var2, v1(getPageContext().getPageActivity()), null);
+            jo5 jo5Var2 = new jo5();
+            jo5Var2.a = this.d;
+            jo5Var2.b = R.string.obfuscated_res_0x7f0f0a78;
+            t1(jo5Var2, v1(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
             this.e = sigleRecordsFragment3;
             sigleRecordsFragment3.Y1(3);
-            kn5 kn5Var3 = new kn5();
-            kn5Var3.a = this.e;
-            kn5Var3.b = R.string.obfuscated_res_0x7f0f11be;
-            t1(kn5Var3, v1(getPageContext().getPageActivity()), null);
+            jo5 jo5Var3 = new jo5();
+            jo5Var3.a = this.e;
+            jo5Var3.b = R.string.obfuscated_res_0x7f0f11d0;
+            t1(jo5Var3, v1(getPageContext().getPageActivity()), null);
             this.b.k(3);
             this.b.setCurrentTab(u1(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
         }

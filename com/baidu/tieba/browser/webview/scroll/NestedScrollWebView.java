@@ -18,8 +18,8 @@ import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.ViewCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jm6;
-import com.baidu.tieba.qm6;
+import com.baidu.tieba.nn6;
+import com.baidu.tieba.un6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,10 +38,10 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
     public OverScroller g;
     public int h;
     public NestedScrollingChildHelper i;
-    public qm6 j;
+    public un6 j;
     public boolean k;
     public long l;
-    public jm6 m;
+    public nn6 m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NestedScrollWebView(Context context) {
@@ -104,7 +104,7 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
             int abs = Math.abs(((int) motionEvent.getRawY()) - this.c);
             if (System.currentTimeMillis() - this.l < 250 && abs < 30) {
                 this.l = 0L;
-                this.m.g(view2, motionEvent);
+                this.m.j(view2, motionEvent);
                 return;
             }
             this.l = System.currentTimeMillis();
@@ -321,17 +321,17 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
         }
     }
 
-    public void setOnDoubleClickListener(jm6 jm6Var) {
+    public void setOnDoubleClickListener(nn6 nn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, jm6Var) == null) {
-            this.m = jm6Var;
+        if (interceptable == null || interceptable.invokeL(1048598, this, nn6Var) == null) {
+            this.m = nn6Var;
         }
     }
 
-    public void setOnScrollChangeListener(qm6 qm6Var) {
+    public void setOnScrollChangeListener(un6 un6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, qm6Var) == null) {
-            this.j = qm6Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, un6Var) == null) {
+            this.j = un6Var;
         }
     }
 

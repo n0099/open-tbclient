@@ -246,24 +246,6 @@ public class NetworkUtil {
         return invokeL.booleanValue;
     }
 
-    public static boolean isUserUnlocked(Context context) {
-        InterceptResult invokeL;
-        UserManager userManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 24 && (userManager = (UserManager) ContextCompat.getSystemService(context, "user")) != null) {
-                try {
-                    return userManager.isUserUnlocked();
-                } catch (RuntimeException e) {
-                    Logger.e(TAG, "dealType rethrowFromSystemServer:", e);
-                    return true;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
     @Deprecated
     public static NetworkInfo.DetailedState networkStatus(Context context) {
         InterceptResult invokeL;
@@ -429,6 +411,24 @@ public class NetworkUtil {
             return null;
         }
         return (SignalStrength) invokeL.objValue;
+    }
+
+    public static boolean isUserUnlocked(Context context) {
+        InterceptResult invokeL;
+        UserManager userManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 24 && (userManager = (UserManager) ContextCompat.getSystemService(context, "user")) != null) {
+                try {
+                    return userManager.isUserUnlocked();
+                } catch (RuntimeException e) {
+                    Logger.e(TAG, "dealType rethrowFromSystemServer:", e);
+                    return true;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     @SuppressLint({"MissingPermission", "NewApi"})

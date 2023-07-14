@@ -1,124 +1,119 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.tieba.ru2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j74 {
+public class j74 extends sd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static long b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947836194, "Lcom/baidu/tieba/j74;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public class a implements ru2.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ru2.c
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947836194, "Lcom/baidu/tieba/j74;");
+        }
+
+        public a(j74 j74Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j74Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ru2.c
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0161, 1).show();
+            }
+        }
+
+        @Override // com.baidu.tieba.ru2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                File c = k74.c();
+                File b = k74.b();
+                if (c.exists() && zr4.U(c.getPath(), b.getPath())) {
+                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0162, 1).show();
+                } else {
+                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0161, 1).show();
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j74(sc3 sc3Var) {
+        super(sc3Var, "/swanAPI/debugGameExtensionCore");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ms1.a;
-        b = 86400000L;
-        c = "duration_permission_list";
     }
 
-    public static void a(JsObject jsObject) {
-        k74 k74Var;
+    @Override // com.baidu.tieba.sd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, jsObject) == null) {
-            cc3 M = cc3.M();
-            j42 j42Var = null;
-            if (jsObject != null && M != null && b(M)) {
-                if (a) {
-                    Log.e("SwanGameDurationApi", "params is " + jsObject.toString());
-                }
-                j42 F = j42.F(jsObject);
-                String B = F.B("swanGameId");
-                if (!TextUtils.isEmpty(B)) {
-                    kk3 a2 = qk3.a();
-                    if (!c(Long.valueOf(a2.getLong(B + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
-                        a2.putLong(B + "_Duration", 0L);
-                    }
-                    k74Var = new k74();
-                    k74Var.duration = a2.getLong(B + "_Duration", 0L);
-                } else {
-                    k74Var = null;
-                }
-                j42Var = F;
-            } else {
-                k74Var = null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
+            if (!sd3.b) {
+                return false;
             }
-            oe4.call(j42Var, true, k74Var);
-        }
-    }
-
-    public static boolean b(cc3 cc3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cc3Var)) == null) {
-            String string = qk3.a().getString(c, "");
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    JSONArray jSONArray = new JSONArray(string);
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        if (cc3.g0().contains(jSONArray.optString(i))) {
-                            return true;
-                        }
-                    }
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                }
+            JSONObject a2 = sd3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f015f, 1).show();
+                return false;
             }
+            String optString = a2.optString("downloadurl");
+            if (TextUtils.isEmpty(optString)) {
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0160, 1).show();
+                return false;
+            }
+            l84.f(optString, new a(this));
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Long l, Long l2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, l, l2)) == null) {
-            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void d(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && j2 > j && cc3.M() != null && !TextUtils.isEmpty(cc3.g0())) {
-            String g0 = cc3.g0();
-            kk3 a2 = qk3.a();
-            long j3 = a2.getLong(g0 + "_LastPause", 0L);
-            long j4 = a2.getLong(g0 + "_Duration", 0L);
-            if (c(Long.valueOf(j), Long.valueOf(j2))) {
-                if (c(Long.valueOf(j3), Long.valueOf(j))) {
-                    a2.putLong(g0 + "_Duration", (j4 + j2) - j);
-                } else {
-                    a2.putLong(g0 + "_Duration", j2 - j);
-                }
-            } else {
-                a2.putLong(g0 + "_Duration", j2 % b);
-            }
-            a2.putLong(g0 + "_LastPause", System.currentTimeMillis());
-        }
+        return invokeLLLL.booleanValue;
     }
 }

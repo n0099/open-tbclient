@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.gif.GifInfo;
@@ -13,10 +14,10 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbMemeImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotiondetail.data.EmotionDetailData;
-import com.baidu.tieba.in;
-import com.baidu.tieba.qg;
+import com.baidu.tieba.jn;
 import com.baidu.tieba.rg;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,14 +28,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class EmotionDetailImageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
-    public static final float d;
+    public static final float e;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
     public ProgressBar b;
     public int c;
+    public BdUniqueId d;
 
     /* loaded from: classes5.dex */
-    public class a extends qg<in> {
+    public class a extends rg<jn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionDetailData a;
@@ -59,7 +61,7 @@ public class EmotionDetailImageView extends FrameLayout {
             this.a = emotionDetailData;
         }
 
-        @Override // com.baidu.tieba.qg
+        @Override // com.baidu.tieba.rg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -68,18 +70,18 @@ public class EmotionDetailImageView extends FrameLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qg
-        public void onLoaded(in inVar, String str, int i) {
+        @Override // com.baidu.tieba.rg
+        public void onLoaded(jn jnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inVar, str, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jnVar, str, i) == null) {
                 this.b.b.setVisibility(8);
-                if (inVar != null) {
+                if (jnVar != null) {
                     this.b.a = new TbMemeImageView(this.b.getContext());
-                    ((TbMemeImageView) this.b.a).g(inVar);
+                    ((TbMemeImageView) this.b.a).h(jnVar);
                     EmotionDetailImageView emotionDetailImageView = this.b;
                     ImageView imageView = emotionDetailImageView.a;
                     EmotionDetailData.PicInfo picInfo = this.a.pic_info;
-                    emotionDetailImageView.g(imageView, picInfo.width, picInfo.height, 200, 200);
+                    emotionDetailImageView.h(imageView, picInfo.width, picInfo.height, 200, 200);
                     EmotionDetailImageView emotionDetailImageView2 = this.b;
                     emotionDetailImageView2.addView(emotionDetailImageView2.a);
                 }
@@ -100,7 +102,15 @@ public class EmotionDetailImageView extends FrameLayout {
                 return;
             }
         }
-        d = xi.i(TbadkCoreApplication.getInst());
+        e = yi.i(TbadkCoreApplication.getInst());
+    }
+
+    public void e() {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (imageView = this.a) != null && (imageView instanceof TbMemeImageView)) {
+            ((TbMemeImageView) imageView).g();
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -122,7 +132,8 @@ public class EmotionDetailImageView extends FrameLayout {
             }
         }
         this.b = null;
-        e();
+        this.d = null;
+        f();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -145,7 +156,8 @@ public class EmotionDetailImageView extends FrameLayout {
             }
         }
         this.b = null;
-        e();
+        this.d = null;
+        f();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -168,28 +180,36 @@ public class EmotionDetailImageView extends FrameLayout {
             }
         }
         this.b = null;
-        e();
+        this.d = null;
+        f();
     }
 
-    public final void e() {
+    public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            this.d = bdUniqueId;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             ProgressBar progressBar = new ProgressBar(getContext(), null, 16843399);
             this.b = progressBar;
-            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08123e));
+            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081253));
             layoutParams.gravity = 17;
             this.b.setLayoutParams(layoutParams);
             this.b.setIndeterminate(true);
             addView(this.b);
-            this.c = xi.l(getContext());
+            this.c = yi.l(getContext());
         }
     }
 
-    public void f(EmotionDetailData emotionDetailData, int i, boolean z) {
+    public void g(EmotionDetailData emotionDetailData, int i, boolean z) {
         EmotionDetailData.PicInfo picInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{emotionDetailData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && emotionDetailData != null && (picInfo = emotionDetailData.pic_info) != null && !TextUtils.isEmpty(picInfo.pic_url)) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{emotionDetailData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && emotionDetailData != null && (picInfo = emotionDetailData.pic_info) != null && !TextUtils.isEmpty(picInfo.pic_url)) {
             if (z) {
                 GifView gifView = new GifView(getContext());
                 this.a = gifView;
@@ -207,26 +227,26 @@ public class EmotionDetailImageView extends FrameLayout {
                 ((GifView) this.a).l0(gifInfo);
                 ImageView imageView = this.a;
                 EmotionDetailData.PicInfo picInfo3 = emotionDetailData.pic_info;
-                g(imageView, picInfo3.width, picInfo3.height, 200, 200);
+                h(imageView, picInfo3.width, picInfo3.height, 200, 200);
                 addView(this.a);
                 this.b.setVisibility(8);
                 return;
             }
             this.b.setVisibility(0);
-            rg.h().m(emotionDetailData.pic_info.pic_url, i, new a(this, emotionDetailData), null);
+            sg.h().m(emotionDetailData.pic_info.pic_url, i, new a(this, emotionDetailData), this.d);
         }
     }
 
-    public final boolean g(ImageView imageView, int i, int i2, int i3, int i4) {
+    public final boolean h(ImageView imageView, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{imageView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{imageView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             int i5 = this.c;
             if (i5 > 0) {
                 i4 = (int) (i5 * 0.5f);
                 i3 = i5;
             }
-            int[] n = xi.n(i, i2, i3, i4);
+            int[] n = yi.n(i, i2, i3, i4);
             if (n == null) {
                 return false;
             }
@@ -234,12 +254,12 @@ public class EmotionDetailImageView extends FrameLayout {
             int i6 = iArr[0];
             int i7 = iArr[1];
             if (i3 > i6) {
-                float f = d;
+                float f = e;
                 if (f > 1.0f) {
                     float f2 = i6;
                     float f3 = i3;
                     if (f2 * f > f3) {
-                        i6 = i3 - (xi.g(getContext(), R.dimen.obfuscated_res_0x7f07020f) * 2);
+                        i6 = i3 - (yi.g(getContext(), R.dimen.obfuscated_res_0x7f07020f) * 2);
                     } else {
                         float f4 = f3 * 0.68f;
                         if (f2 * f > f4) {

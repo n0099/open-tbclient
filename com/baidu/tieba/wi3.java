@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.zw2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,57 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wi3 {
+public class wi3 extends yi3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean x;
+    public static int y;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HashMap a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ String c;
-
-        public a(HashMap hashMap, File file, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hashMap, file, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hashMap;
-            this.b = file;
-            this.c = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            qw1 u;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (u = jv2.u()) != null) {
-                u.a(this.a, this.b, null, "error_js");
-                if (wi3.a) {
-                    Log.d("V8StabilityHelper", "extraData :" + this.a.toString());
-                    Log.d("V8StabilityHelper", "filePath :" + this.c);
-                }
-            }
-        }
-    }
+    public boolean v;
+    public JSONObject w;
 
     static {
         InterceptResult invokeClinit;
@@ -79,118 +36,177 @@ public class wi3 {
                 return;
             }
         }
-        a = ms1.a;
+        x = fs1.a;
+        y = 35;
     }
 
-    public static void b(V8ExceptionInfo v8ExceptionInfo) {
+    public wi3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, v8ExceptionInfo) == null) {
-            if (v8ExceptionInfo == null) {
-                if (a) {
-                    Log.d("V8StabilityHelper", "empty exceptionInfo");
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            c(v8ExceptionInfo);
-            d(v8ExceptionInfo);
         }
+        this.v = false;
+        this.c = "NA";
     }
 
-    public static void c(V8ExceptionInfo v8ExceptionInfo) {
+    @Override // com.baidu.tieba.yi3, com.baidu.tieba.xi3
+    public JSONObject f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, v8ExceptionInfo) == null) {
-            if (!jv2.g0().A()) {
-                if (a) {
-                    Log.d("V8StabilityHelper", "stability switch off");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
             }
-            zw2.a aVar = null;
-            cc3 M = cc3.M();
-            if (M != null) {
-                aVar = M.Y();
-            }
-            vn3 vn3Var = new vn3();
-            vn3Var.k(5L);
-            vn3Var.i(37L);
-            dj3 dj3Var = new dj3();
-            dj3Var.p(vn3Var);
-            dj3Var.r(aVar);
-            dj3Var.q(vi3.n(bc3.K().k()));
-            dj3Var.m(cc3.g0());
-            JSONObject jSONObject = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
-                    jSONObject.put("exceptionMsg", v8ExceptionInfo.exceptionMsg);
+                if (this.w != null) {
+                    if (this.v) {
+                        String z = pp3.z(y);
+                        if (!TextUtils.isEmpty(z)) {
+                            this.w.put("stacktrace", z);
+                        }
+                    }
+                    if (this.w.length() != 0) {
+                        this.h.put("info", this.w);
+                    }
                 }
-                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
-                    jSONObject.put("exceptionTrace", v8ExceptionInfo.exceptionTrace);
+                ExtensionCore T2 = pi2.U().T();
+                if (T2 != null) {
+                    this.h.put("extension_ver", T2.extensionCoreVersionName);
                 }
-                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
-                    jSONObject.put("exceptionType", v8ExceptionInfo.exceptionType);
-                }
-                dj3Var.e(jSONObject);
             } catch (JSONException e) {
-                if (a) {
+                if (x) {
                     e.printStackTrace();
                 }
             }
-            vi3.R(dj3Var);
+            return super.f();
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static void d(V8ExceptionInfo v8ExceptionInfo) {
+    public wi3 l(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, v8ExceptionInfo) == null) {
-            if (!jv2.g0().G()) {
-                if (a) {
-                    Log.d("V8StabilityHelper", "upload js switch off");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            if (str != null && str2 != null) {
+                if (this.w == null) {
+                    this.w = new JSONObject();
                 }
-            } else if (TextUtils.isEmpty(v8ExceptionInfo.filePath)) {
-            } else {
-                String str = v8ExceptionInfo.filePath;
-                if (str.startsWith("script:")) {
-                    if (a) {
-                        Log.d("V8StabilityHelper", "file path start with js code prefix");
-                        return;
+                try {
+                    this.w.put(str, str2);
+                } catch (JSONException e) {
+                    if (x) {
+                        e.printStackTrace();
                     }
-                    return;
-                }
-                SwanCoreVersion e = hl3.e(bc3.K().k());
-                if (e != null && !TextUtils.isEmpty(e.swanCorePath)) {
-                    if (!str.startsWith(e.swanCorePath)) {
-                        if (a) {
-                            Log.d("V8StabilityHelper", "file path is not swan core path");
-                            return;
-                        }
-                        return;
-                    }
-                    File file = new File(str);
-                    if (!file.exists()) {
-                        return;
-                    }
-                    HashMap hashMap = new HashMap();
-                    cc3 M = cc3.M();
-                    if (!TextUtils.isEmpty(cc3.g0())) {
-                        hashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, cc3.g0());
-                    }
-                    if (M != null && !TextUtils.isEmpty(M.k0())) {
-                        hashMap.put("appVersion", M.k0());
-                    }
-                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
-                        hashMap.put("exceptionMsg", v8ExceptionInfo.exceptionMsg);
-                    }
-                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
-                        hashMap.put("exceptionTrace", v8ExceptionInfo.exceptionTrace);
-                    }
-                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
-                        hashMap.put("exceptionType", v8ExceptionInfo.exceptionType);
-                    }
-                    wo3.k(new a(hashMap, file, str), "error_js");
                 }
             }
+            return this;
         }
+        return (wi3) invokeLL.objValue;
+    }
+
+    public wi3 m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.f = str;
+            return this;
+        }
+        return (wi3) invokeL.objValue;
+    }
+
+    public wi3 n(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.v = z;
+            return this;
+        }
+        return (wi3) invokeZ.objValue;
+    }
+
+    public wi3 o(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.b = String.valueOf(i);
+            return this;
+        }
+        return (wi3) invokeI.objValue;
+    }
+
+    public wi3 p(@NonNull on3 on3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, on3Var)) == null) {
+            this.b = String.valueOf(on3Var.a());
+            String sb = on3Var.g().toString();
+            if (!TextUtils.isEmpty(sb)) {
+                l("detail", sb);
+            }
+            return this;
+        }
+        return (wi3) invokeL.objValue;
+    }
+
+    public wi3 q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.a = str;
+            return this;
+        }
+        return (wi3) invokeL.objValue;
+    }
+
+    public wi3 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.g = str;
+            return this;
+        }
+        return (wi3) invokeL.objValue;
+    }
+
+    public wi3 t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (wi3) invokeL.objValue;
+    }
+
+    public wi3 r(vw2 vw2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, vw2Var)) == null) {
+            if (vw2Var == null) {
+                return this;
+            }
+            if (!TextUtils.isEmpty(vw2Var.T())) {
+                this.c = vw2Var.T();
+            }
+            if (!TextUtils.isEmpty(vw2Var.H())) {
+                this.f = vw2Var.H();
+            }
+            if (!TextUtils.isEmpty(vw2Var.W())) {
+                this.p = vw2Var.W();
+            }
+            if (!TextUtils.isEmpty(vw2Var.e0())) {
+                this.s = vw2Var.e0();
+            }
+            return this;
+        }
+        return (wi3) invokeL.objValue;
     }
 }

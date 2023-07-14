@@ -1,94 +1,107 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class nl8 extends kn<ll8, CardViewHolder<ol8>> {
+public final class nl8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final nl8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public qo6 b;
-    public String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nl8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948006415, "Lcom/baidu/tieba/nl8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948006415, "Lcom/baidu/tieba/nl8;");
                 return;
             }
         }
-        this.a = tbPageContext;
+        a = new nl8();
     }
 
-    @Override // com.baidu.tieba.kn
-    public ho getOnAdapterItemClickListener() {
+    public nl8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @JvmStatic
+    public static final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c15.t().j();
         }
-        return (ho) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public CardViewHolder<ol8> onCreateViewHolder(ViewGroup viewGroup) {
+    @JvmStatic
+    public static final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String h = c15.t().h();
+            if (h == null) {
+                return "";
+            }
+            return h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final boolean c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
+            if (j == a()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean d(String uid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ol8 ol8Var = new ol8(this.a, viewGroup);
-            qo6 qo6Var = this.b;
-            if (qo6Var != null) {
-                ol8Var.k(qo6Var);
-            }
-            return new CardViewHolder<>(ol8Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uid)) == null) {
+            Intrinsics.checkNotNullParameter(uid, "uid");
+            return c(wg.g(uid, 0L));
         }
-        return (CardViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void u(String str) {
+    @JvmStatic
+    public static final boolean e(String uk) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, uk)) == null) {
+            Intrinsics.checkNotNullParameter(uk, "uk");
+            return c(ql8.a(uk));
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ll8 ll8Var, CardViewHolder<ol8> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ll8Var, cardViewHolder})) == null) {
-            if (ll8Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().y(this.c);
-                cardViewHolder.a().i(ll8Var);
-                return cardViewHolder.getView();
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 }

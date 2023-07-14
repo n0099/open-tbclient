@@ -1,426 +1,74 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.bigday.GetBigdayInfoHttpResMessage;
-import com.baidu.tbadk.core.bigday.GetBigdayInfoReqMessage;
-import com.baidu.tbadk.core.bigday.GetBigdayInfoSocketResMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
-import com.baidu.tbadk.switchs.BigdaySwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.GetBigday.BigdayInfo;
-import tbclient.GetBigday.GetBigdayResIdl;
 /* loaded from: classes5.dex */
 public class f15 {
     public static /* synthetic */ Interceptable $ic;
-    public static f15 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public e15 a;
-    public e15 b;
-    public SparseArray<Long> c;
-    public ArrayList<e15> d;
-    public BdUniqueId e;
+    public int a;
+    public String b;
+    public int c;
+    public String d;
+    public boolean e;
     public boolean f;
-    public kb g;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947711295, "Lcom/baidu/tieba/f15;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947711295, "Lcom/baidu/tieba/f15;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends kb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f15 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(f15 f15Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f15Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = f15Var;
-        }
-
-        @Override // com.baidu.tieba.kb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && !responsedMessage.hasError()) {
-                this.a.f = true;
-                ArrayList<e15> arrayList = null;
-                if (responsedMessage instanceof GetBigdayInfoSocketResMessage) {
-                    arrayList = ((GetBigdayInfoSocketResMessage) responsedMessage).bigdayInfos;
-                } else if (responsedMessage instanceof GetBigdayInfoHttpResMessage) {
-                    arrayList = ((GetBigdayInfoHttpResMessage) responsedMessage).bigdayInfos;
-                }
-                this.a.m(arrayList);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<Void, Void, ArrayList<e15>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f15 a;
-
-        public b(f15 f15Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f15Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = f15Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ArrayList<e15> arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-                super.onPostExecute(arrayList);
-                if (arrayList == null) {
-                    return;
-                }
-                this.a.l(arrayList);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ArrayList<e15> doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            byte[] bArr;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                ArrayList<e15> arrayList = new ArrayList<>();
-                f55.d();
-                xe<byte[]> b = f55.b("tb.bigday_datas");
-                if (b != null && (bArr = b.get("tb.bigday_datas")) != null) {
-                    try {
-                        GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
-                        if (getBigdayResIdl.data != null) {
-                            for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
-                                if (bigdayInfo != null) {
-                                    e15 e15Var = new e15();
-                                    e15Var.b(bigdayInfo);
-                                    if (e15Var.a()) {
-                                        arrayList.add(e15Var);
-                                    }
-                                }
-                            }
-                            return arrayList;
-                        }
-                        return arrayList;
-                    } catch (Exception unused) {
-                        return null;
-                    }
-                }
-                return arrayList;
-            }
-            return (ArrayList) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c extends DiskFileOperate implements cc {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<String> a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(String str, String str2, DiskFileOperate.Action action, ArrayList<e15> arrayList) {
-            super(str, str2, action);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, action, arrayList};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new ArrayList<>();
-            Iterator<e15> it = arrayList.iterator();
-            while (it.hasNext()) {
-                e15 next = it.next();
-                if (next != null) {
-                    String g = rg.h().g(next.a, 41);
-                    if (!StringUtils.isNULL(g)) {
-                        String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(g);
-                        if (!StringUtils.isNULL(nameMd5FromUrl)) {
-                            this.a.add(nameMd5FromUrl);
-                        }
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.cc
-        public boolean compare(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                if (file != null && !StringUtils.isNULL(file.getName())) {
-                    return !this.a.contains(file.getName());
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
+    public String g;
 
     public f15() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = false;
-        this.g = new a(this, CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);
-        v3a.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
-        v3a.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
-        MessageManager.getInstance().registerListener(this.g);
-        this.c = new SparseArray<>();
+        this.a = -202;
+        this.c = -100000;
+        this.d = "未触发任何实名操作返回或实名时放弃返回";
     }
 
-    public static f15 i() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (h == null) {
-                h = new f15();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.e && this.f) {
+                return 3;
             }
-            return h;
-        }
-        return (f15) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.g);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            new b(this).execute(new Void[0]);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f = false;
-            GetBigdayInfoReqMessage getBigdayInfoReqMessage = new GetBigdayInfoReqMessage();
-            getBigdayInfoReqMessage.setTag(this.e);
-            MessageManager.getInstance().sendMessage(getBigdayInfoReqMessage);
-        }
-    }
-
-    public final void d(ArrayList<e15> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            ArrayList arrayList2 = new ArrayList();
-            ListUtils.addAll(arrayList2, 0, arrayList);
-            ListUtils.add(arrayList2, this.a);
-            ListUtils.add(arrayList2, this.b);
-            c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES, arrayList2);
-            cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-            cVar.setSdCard(false);
-            cVar.setSavedCache(true);
-            fc.f().a(cVar);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || ListUtils.isEmpty(this.d)) {
-            return;
-        }
-        Iterator<e15> it = this.d.iterator();
-        while (it.hasNext()) {
-            e15 next = it.next();
-            if (!BigdayImageLoaderProc.isImageFileExist(next.a)) {
-                rg.h().m(next.a, 41, null, this.e);
+            if (this.f) {
+                return 2;
             }
+            if (this.e) {
+                return 1;
+            }
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public final e15 g(List<e15> list, int i) {
-        InterceptResult invokeLI;
+    public static f15 b(AccountRealNameResult accountRealNameResult) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, list, i)) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                for (e15 e15Var : list) {
-                    if (e15Var.a() && e15Var.e == i) {
-                        long currentTimeMillis = System.currentTimeMillis() / 1000;
-                        long j = e15Var.f;
-                        if (j > currentTimeMillis) {
-                            this.c.put(i, Long.valueOf(j));
-                            return null;
-                        } else if (e15Var.g >= currentTimeMillis) {
-                            return e15Var;
-                        }
-                    }
-                }
-                return null;
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, accountRealNameResult)) == null) {
+            f15 f15Var = new f15();
+            f15Var.a = accountRealNameResult.getResultCode();
+            f15Var.b = accountRealNameResult.getResultMsg();
+            int i = accountRealNameResult.errorStep;
+            f15Var.g = accountRealNameResult.callbackkey;
+            f15Var.e = accountRealNameResult.juniorRealNameSuc;
+            f15Var.f = accountRealNameResult.seniorRealNameSuc;
+            f15Var.c = accountRealNameResult.subResultCode;
+            f15Var.d = accountRealNameResult.subResultMsg;
+            return f15Var;
         }
-        return (e15) invokeLI.objValue;
-    }
-
-    public e15 h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (i == 1) {
-                if (this.a == null && this.c.get(i, 0L).longValue() != 0 && this.c.get(i, 0L).longValue() < currentTimeMillis) {
-                    this.a = g(this.d, 1);
-                }
-                e15 e15Var = this.a;
-                if (e15Var != null && (currentTimeMillis < e15Var.f || currentTimeMillis > e15Var.g)) {
-                    this.a = g(this.d, 1);
-                }
-                e15 e15Var2 = this.a;
-                if (e15Var2 != null && BigdayImageLoaderProc.isImageFileExist(e15Var2.a)) {
-                    return this.a;
-                }
-            } else if (i == 3) {
-                if (this.b == null && this.c.get(i, 0L).longValue() != 0 && this.c.get(i, 0L).longValue() < currentTimeMillis) {
-                    this.a = g(this.d, 3);
-                }
-                e15 e15Var3 = this.b;
-                if (e15Var3 != null && (currentTimeMillis < e15Var3.f || currentTimeMillis > e15Var3.g)) {
-                    this.b = g(this.d, 3);
-                }
-                e15 e15Var4 = this.b;
-                if (e15Var4 != null && BigdayImageLoaderProc.isImageFileExist(e15Var4.a)) {
-                    return this.b;
-                }
-            }
-            return null;
-        }
-        return (e15) invokeI.objValue;
-    }
-
-    public final void l(ArrayList<e15> arrayList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, arrayList) != null) || ListUtils.isEmpty(arrayList) || this.f) {
-            return;
-        }
-        this.a = g(arrayList, 1);
-        this.b = g(arrayList, 3);
-        this.d = arrayList;
-        f();
-        e15 e15Var = this.a;
-        if (e15Var != null && BigdayImageLoaderProc.isImageFileExist(e15Var.a) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > r95.p().r("key_bigday_next_showtime_home", 0L)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.a));
-        }
-    }
-
-    public final void m(ArrayList<e15> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
-            e15 g = g(arrayList, 1);
-            e15 g2 = g(arrayList, 3);
-            d(arrayList);
-            this.d = arrayList;
-            if (g != null && g.a()) {
-                this.a = g;
-            }
-            if (g2 != null && g2.a()) {
-                this.b = g2;
-            }
-            f();
-            e15 e15Var = this.a;
-            if (e15Var != null && BigdayImageLoaderProc.isImageFileExist(e15Var.a) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > r95.p().r("key_bigday_next_showtime_home", 0L)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.a));
-            }
-        }
-    }
-
-    public void n(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
-            this.e = bdUniqueId;
-        }
+        return (f15) invokeL.objValue;
     }
 }

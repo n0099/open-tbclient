@@ -1,58 +1,123 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.p55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActHot;
-import tbclient.ActPost;
-import tbclient.LinkInfo;
 /* loaded from: classes5.dex */
-public class b4a {
+public class b4a extends p55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<z3a> a;
-    public ArrayList<a4a> b;
+    public LinearLayout a;
+    public EditText b;
 
-    public b4a() {
+    /* loaded from: classes5.dex */
+    public class a implements p55.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ b4a b;
+
+        public a(b4a b4aVar, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b4aVar, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = b4aVar;
+            this.a = activity;
+        }
+
+        @Override // com.baidu.tieba.p55.e
+        public void onClick(p55 p55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
+                if (!xi.isEmpty(this.b.b.getText().toString())) {
+                    TbSingleton.getInstance().setVisitPreviewServer(true);
+                    String obj = this.b.b.getText().toString();
+                    TbSingleton.getInstance().setPubEnvValue(obj);
+                    yi.Q(this.a, R.string.obfuscated_res_0x7f0f03f4);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921508, obj));
+                }
+                this.b.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements p55.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b4a a;
+
+        public b(b4a b4aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b4aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b4aVar;
+        }
+
+        @Override // com.baidu.tieba.p55.e
+        public void onClick(p55 p55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b4a(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-    }
-
-    public void a(ActPost actPost) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, actPost) != null) || actPost == null) {
-            return;
-        }
-        String str = actPost.list_head;
-        for (ActHot actHot : actPost.act_hot) {
-            if (actHot != null) {
-                z3a z3aVar = new z3a();
-                z3aVar.a(actHot);
-                this.a.add(z3aVar);
-            }
-        }
-        List<LinkInfo> list = actPost.link_info;
-        for (LinkInfo linkInfo : list) {
-            if (list != null) {
-                a4a a4aVar = new a4a();
-                a4aVar.a(linkInfo);
-                this.b.add(a4aVar);
-            }
-        }
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d026b, (ViewGroup) null);
+        this.a = linearLayout;
+        setContentView(linearLayout);
+        this.b = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090a66);
+        setPositiveButton(R.string.obfuscated_res_0x7f0f04c1, new a(this, activity));
+        setNegativeButton(R.string.obfuscated_res_0x7f0f03ce, new b(this));
     }
 }

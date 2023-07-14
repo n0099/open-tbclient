@@ -50,7 +50,7 @@ public class MediaPojo extends OrmObject {
         }
     }
 
-    public String U() {
+    public String V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -68,7 +68,7 @@ public class MediaPojo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void V(Media media) {
+    public void W(Media media) {
         int intValue;
         int intValue2;
         int intValue3;

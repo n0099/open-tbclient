@@ -1,60 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.view.MotionEvent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.data.ChatRoomEntranceData;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 /* loaded from: classes8.dex */
 public interface xo5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatFloatEntranceService");
+    BroadcastReceiver a(@NonNull Context context, @NonNull zo5 zo5Var);
 
-    /* loaded from: classes8.dex */
-    public interface a {
-    }
+    void b(@NonNull Context context, long j, long j2, int i, long j3, yo5 yo5Var);
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void C1(long j, String str, boolean z, boolean z2);
+    void c(@NonNull Context context, @NonNull BroadcastReceiver broadcastReceiver);
 
-        void F(ChatRoomEntranceData chatRoomEntranceData);
-
-        void G0(boolean z);
-
-        boolean R();
-
-        void S0();
-
-        void U0(MotionEvent motionEvent);
-
-        boolean Y0();
-
-        void d();
-
-        void destroy();
-
-        Fragment e();
-
-        int getState();
-
-        void onActivityResult(int i, int i2, Intent intent);
-
-        boolean p0();
-
-        void p1(boolean z);
-
-        void s1();
-
-        boolean v1(String str);
-    }
-
-    void a(@Nullable a aVar);
-
-    @NonNull
-    b b(String str, ap5 ap5Var);
-
-    void onChangeSkinType(int i);
+    void d(@NonNull Context context, @NonNull ChatMsg chatMsg, long j, @NonNull ap5 ap5Var);
 }

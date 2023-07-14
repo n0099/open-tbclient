@@ -1,128 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
-public class fo0 implements oo0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public go0 b;
-    public int c;
-    public long d;
-    public AtomicBoolean e;
+public interface fo0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "eventbus");
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    <T extends eo0> void a(@Nullable T t);
 
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final fo0 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    <T extends eo0> void b(@NonNull Object obj, @NonNull ho0<T> ho0Var);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-798096220, "Lcom/baidu/tieba/fo0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-798096220, "Lcom/baidu/tieba/fo0$b;");
-                    return;
-                }
-            }
-            a = new fo0(null);
-        }
-    }
+    <T extends eo0> void c(@NonNull Object obj, int i, @NonNull ho0<T> ho0Var);
 
-    public fo0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = -1;
-        this.d = 0L;
-        this.e = new AtomicBoolean(false);
-    }
-
-    public static fo0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (fo0) invokeV.objValue;
-    }
-
-    public void b() {
-        go0 go0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i = this.c + 1;
-            this.c = i;
-            if (i <= 2 && (go0Var = this.b) != null) {
-                go0Var.e();
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.set(false);
-        }
-    }
-
-    public /* synthetic */ fo0(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.oo0
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.e.get()) {
-            return;
-        }
-        go0 go0Var = this.b;
-        if (go0Var != null) {
-            go0Var.d();
-            this.b = null;
-            this.c = -1;
-        }
-        if (z) {
-            if (this.d == 0 || System.currentTimeMillis() - this.d <= 300000) {
-                return;
-            }
-            if (this.e.compareAndSet(false, true)) {
-                this.b = new go0(60, this.c + 1, true);
-            }
-        } else {
-            if (this.e.compareAndSet(false, true)) {
-                this.b = new go0(60, this.c + 1, false);
-            }
-            co0.d().f();
-        }
-        b();
-        this.d = System.currentTimeMillis();
-    }
+    void unregister(@NonNull Object obj);
 }

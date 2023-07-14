@@ -1,80 +1,121 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import android.util.Log;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-@Service
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class et4 implements xw1 {
+public final class et4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final SparseArray<Integer> b;
+    public static final SparseArray<String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public et4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947745860, "Lcom/baidu/tieba/et4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947745860, "Lcom/baidu/tieba/et4;");
+                return;
             }
         }
+        a = fs1.a;
+        SparseArray<Integer> sparseArray = new SparseArray<>(32);
+        b = sparseArray;
+        sparseArray.put(10015, 2001);
+        b.put(10013, 2002);
+        b.put(904, 2003);
+        b.put(10012, 2004);
+        b.put(10004, 2006);
+        b.put(701, 2007);
+        b.put(10005, 2008);
+        b.put(10006, 2009);
+        b.put(10007, -2301);
+        b.put(10008, 2101);
+        b.put(923, 2103);
+        b.put(10009, 2105);
+        b.put(10010, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL6));
+        b.put(10003, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL7));
+        b.put(10011, 2108);
+        b.put(10014, 3001);
+        b.put(3002, 3002);
+        b.put(3003, 3003);
+        b.put(3004, 3005);
+        SparseArray<String> sparseArray2 = new SparseArray<>();
+        c = sparseArray2;
+        sparseArray2.put(10007, "MEDIA_ERR_NETWORK");
+        c.put(10014, "MEDIA_ERR_NETWORK");
+        c.put(3002, "MEDIA_ERR_NETWORK");
+        c.put(3003, "MEDIA_ERR_NETWORK");
+        c.put(3004, "MEDIA_ERR_NETWORK");
+        c.put(-2022, "MEDIA_ERR_NETWORK");
+        c.put(-111, "MEDIA_ERR_NETWORK");
+        c.put(10008, "MEDIA_ERR_DECODE");
     }
 
-    @Override // com.baidu.tieba.xw1
-    public ns2 a(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, invoker, str)) == null) {
-            return new gt4();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return c.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
         }
-        return (ns2) invokeLL.objValue;
+        return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.xw1
-    public nu2 b(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    public static JSONObject c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, invoker, str)) == null) {
-            return new jt4(invoker, str);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            return d(StatConstants.KEY_EXT_ERR_MSG, a(i));
         }
-        return (nu2) invokeLL.objValue;
+        return (JSONObject) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.xw1
-    public nu2 c(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, invoker, str)) == null) {
-            return new it4(invoker, str);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (b.indexOfKey(i) < 0) {
+                if (a) {
+                    Log.e("LiveStatusCodeAdapter", "Please check sStatusCodeMap already putted correct K,V pair. what: " + i);
+                    return 100;
+                }
+                return 100;
+            }
+            return b.get(i).intValue();
         }
-        return (nu2) invokeLL.objValue;
+        return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.xw1
-    public ms2 d(ZeusPluginFactory.Invoker invoker, String str) {
+    public static JSONObject d(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, invoker, str)) == null) {
-            return new ft4();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (obj instanceof Integer) {
+                    jSONObject.put(str, ((Integer) obj).intValue());
+                } else if (obj instanceof String) {
+                    jSONObject.put(str, obj);
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
-        return (ms2) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xw1
-    public kq2 e(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, invoker, str)) == null) {
-            return new tt4(invoker, str);
-        }
-        return (kq2) invokeLL.objValue;
+        return (JSONObject) invokeLL.objValue;
     }
 }

@@ -7,7 +7,7 @@ import com.kwad.sdk.api.proxy.IActivityProxy;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.kwad.sdk.mvp.a {
     public List<com.kwad.components.core.g.kwai.a> EF = new ArrayList();
     public IActivityProxy EG;

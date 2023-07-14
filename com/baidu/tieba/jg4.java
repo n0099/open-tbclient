@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jg4 {
+public class jg4 extends hg4<hy2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,8 +28,51 @@ public class jg4 {
                 return;
             }
         }
-        SDKInitializer.initialize(AppRuntime.getAppContext());
-        SDKInitializer.setCoordType(CoordType.GCJ02);
-        SDKInitializer.setHttpsEnable(true);
+        boolean z = fs1.a;
+    }
+
+    public jg4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static jg4 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new jg4();
+        }
+        return (jg4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hg4
+    public boolean b(Context context, hy2 hy2Var, ey2 ey2Var, vb3 vb3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, hy2Var, ey2Var, vb3Var, jSONObject)) == null) {
+            return e(context, hy2Var, ey2Var, vb3Var);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final boolean e(Context context, hy2 hy2Var, ey2 ey2Var, vb3 vb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hy2Var, ey2Var, vb3Var)) == null) {
+            v82.i("map", "MapRemoveAction start");
+            boolean g = eg4.b().g(hy2Var);
+            v82.i("map", "MapRemoveAction end");
+            return g;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

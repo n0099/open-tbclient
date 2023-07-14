@@ -1,24 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xg2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class ah2 implements ig2 {
+public class ah2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FileStrategyImpl" : (String) invokeV.objValue;
-    }
+    public File a;
+    public boolean b;
+    public String c;
 
     public ah2() {
         Interceptable interceptable = $ic;
@@ -34,13 +28,15 @@ public class ah2 implements ig2 {
         }
     }
 
-    @Override // com.baidu.tieba.ig2
-    public boolean a(@NonNull xg2.a aVar) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            return aVar.d().startsWith("interceptfile://");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 }

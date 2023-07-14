@@ -1,156 +1,174 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n9b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunNativeView;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.qq.e.ads.nativ.NativeADEventListener;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.faceunity.encoder.AudioEncoderCore;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class r9b extends FunNativeAd2Bridger<dab, com.fun.module.gdt.t> {
+public class r9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n9b.c b;
-    public final /* synthetic */ y9b c;
-    public final /* synthetic */ n9b d;
+    public t9b a;
+    public MediaCodec b;
+    public MediaCodec.BufferInfo c;
+    public int d;
+    public boolean e;
+    public long f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r9b(n9b n9bVar, ReporterPidLoader reporterPidLoader, dab dabVar, String str, y9b y9bVar) {
-        super(reporterPidLoader);
+    public r9b(t9b t9bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {n9bVar, reporterPidLoader, dabVar, str, y9bVar};
+            Object[] objArr = {t9bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = n9bVar;
-        this.c = y9bVar;
-        this.b = new n9b.c(n9bVar, dabVar, str);
+        this.f = 0L;
+        this.c = new MediaCodec.BufferInfo();
+        MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE, 1);
+        createAudioFormat.setInteger("aac-profile", 2);
+        createAudioFormat.setInteger("channel-mask", 16);
+        createAudioFormat.setInteger("bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
+        createAudioFormat.setInteger("max-input-size", 163840);
+        try {
+            this.b = MediaCodec.createEncoderByType("audio/mp4a-latm");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.b.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
+        this.b.start();
+        this.d = -1;
+        this.e = false;
+        this.a = t9bVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public /* bridge */ /* synthetic */ void showExpress(Activity activity, ExpressInflater expressInflater, String str, dab dabVar, BaseNativeAd2<dab, com.fun.module.gdt.t> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        a(expressInflater, str, dabVar, funAdInteractionListener);
-    }
-
-    public static void b(com.fun.module.gdt.t tVar, dab dabVar) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, tVar, dabVar) == null) {
-            tVar.b((NativeUnifiedADData) dabVar.a);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/app/Activity;Lcom/fun/ad/sdk/ExpressInflater;Ljava/lang/String;Lcom/baidu/tieba/dab;Lcom/fun/ad/sdk/internal/api/BaseNativeAd2<Lcom/baidu/tieba/dab;Lcom/fun/module/gdt/t;>;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
-    public void a(ExpressInflater expressInflater, String str, final dab dabVar, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
+    public void b(ByteBuffer byteBuffer, int i, int i2, long j) throws Exception {
+        int dequeueInputBuffer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, expressInflater, str, dabVar, funAdInteractionListener) == null) {
-            final com.fun.module.gdt.t tVar = (com.fun.module.gdt.t) expressInflater.getExpressView();
-            n9b n9bVar = this.d;
-            FunNativeAdListenerHelper<dab, NativeADEventListener> funNativeAdListenerHelper = n9bVar.e;
-            pid = n9bVar.mPid;
-            funNativeAdListenerHelper.startShow(dabVar, str, pid, this.b, funAdInteractionListener);
-            this.b.d = new n9b.e() { // from class: com.baidu.tieba.w8b
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            ByteBuffer[] inputBuffers = this.b.getInputBuffers();
+            while (true) {
+                dequeueInputBuffer = this.b.dequeueInputBuffer(10000L);
+                if (dequeueInputBuffer >= 0) {
+                    break;
+                } else if (dequeueInputBuffer == -1) {
+                    fab.b("wait for MediaCodec encoder");
+                }
+            }
+            ByteBuffer byteBuffer2 = inputBuffers[dequeueInputBuffer];
+            byteBuffer2.clear();
+            if (byteBuffer != null) {
+                byteBuffer2.put(byteBuffer);
+            }
+            this.b.queueInputBuffer(dequeueInputBuffer, i, i2, j, i2 <= 0 ? 4 : 0);
+        }
+    }
 
-                @Override // com.baidu.tieba.n9b.e
-                public final void onADStatusChanged() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        r9b.b(com.fun.module.gdt.t.this, dabVar);
+    public void c() throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
+            return;
+        }
+        while (true) {
+            ByteBuffer[] outputBuffers = this.b.getOutputBuffers();
+            while (true) {
+                int dequeueOutputBuffer = this.b.dequeueOutputBuffer(this.c, 10000L);
+                if (dequeueOutputBuffer == -1) {
+                    return;
+                }
+                if (dequeueOutputBuffer == -3) {
+                    break;
+                } else if (dequeueOutputBuffer == -2) {
+                    if (this.e) {
+                        throw new RuntimeException("format changed twice");
+                    }
+                    MediaFormat outputFormat = this.b.getOutputFormat();
+                    fab.c(AudioEncoderCore.TAG, "encoder output format changed: " + outputFormat);
+                    this.d = this.a.a(outputFormat);
+                    if (!this.a.c()) {
+                        synchronized (this.a) {
+                            while (!this.a.e()) {
+                                try {
+                                    this.a.wait(100L);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                    this.e = true;
+                } else if (dequeueOutputBuffer < 0) {
+                    fab.l(AudioEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                } else {
+                    ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
+                    if (byteBuffer == null) {
+                        throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                    }
+                    MediaCodec.BufferInfo bufferInfo = this.c;
+                    if ((bufferInfo.flags & 2) != 0) {
+                        bufferInfo.size = 0;
+                    }
+                    MediaCodec.BufferInfo bufferInfo2 = this.c;
+                    if (bufferInfo2.size != 0) {
+                        if (!this.e) {
+                            throw new RuntimeException("muxer hasn't started");
+                        }
+                        long j = this.f;
+                        if (j != 0 && j > bufferInfo2.presentationTimeUs) {
+                            bufferInfo2.presentationTimeUs = j + 20000;
+                        }
+                        byteBuffer.position(this.c.offset);
+                        MediaCodec.BufferInfo bufferInfo3 = this.c;
+                        byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
+                        this.a.b(this.d, byteBuffer, this.c);
+                        this.f = this.c.presentationTimeUs;
+                    }
+                    this.b.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    if ((this.c.flags & 4) != 0) {
+                        return;
                     }
                 }
-            };
-            this.d.n(tVar, dabVar, this.b);
-            expressInflater.inflate();
+            }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [android.view.View, com.fun.module.gdt.t] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public com.fun.module.gdt.t createExpressView(dab dabVar) {
-        InterceptResult invokeL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dabVar)) == null) {
-            return this.d.g(FunAdSdk.getAppContext(), (NativeUnifiedADData) dabVar.a);
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, dab dabVar, BaseNativeAd2<dab, com.fun.module.gdt.t> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        NativeAdContainer nativeAdContainer;
-        NativeAdContainer nativeAdContainer2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, customInflater, str, dabVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            dab dabVar2 = dabVar;
-            ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener = this.c.c.getGdtADStatusChangeListener();
-            if (gdtADStatusChangeListener != null) {
-                this.b.d = new q9b(this, gdtADStatusChangeListener);
-            } else {
-                this.b.d = null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                if (this.b != null) {
+                    this.b.stop();
+                    this.b.release();
+                    this.b = null;
+                }
+                if (this.a != null) {
+                    this.a.d();
+                    this.a = null;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            ViewGroup inflate = customInflater.inflate();
-            if (inflate instanceof FunNativeView) {
-                FunNativeView funNativeView = (FunNativeView) inflate;
-                Iterator<WeakReference<NativeAdContainer>> it = y8b.b.a.iterator();
-                while (it.hasNext()) {
-                    NativeAdContainer nativeAdContainer3 = it.next().get();
-                    if (nativeAdContainer3 == null) {
-                        it.remove();
-                    } else if (nativeAdContainer3 == funNativeView.getRoot()) {
-                        it.remove();
-                        nativeAdContainer2 = nativeAdContainer3;
-                        break;
-                    }
-                }
-                if (funNativeView.getRoot() instanceof NativeAdContainer) {
-                    nativeAdContainer = (NativeAdContainer) funNativeView.getRoot();
-                    nativeAdContainer2 = nativeAdContainer;
-                }
-                nativeAdContainer2 = null;
-            } else {
-                if (inflate instanceof NativeAdContainer) {
-                    nativeAdContainer = (NativeAdContainer) inflate;
-                    nativeAdContainer2 = nativeAdContainer;
-                }
-                nativeAdContainer2 = null;
-            }
-            this.d.q(dabVar2, str, nativeAdContainer2, this.c.d, customInflater.getClickViews(), this.b, funAdInteractionListener);
         }
     }
 }

@@ -1,129 +1,169 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.ChatFloatEntranceFragment;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.Glide;
 /* loaded from: classes7.dex */
 public class rk8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "2";
-    public static final String b = "1";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ChatFloatEntranceFragment.u a;
+    @NonNull
+    public ok8 b;
+    public String c;
+    public int d;
+    @Nullable
+    public CollapseState e;
 
-    public static void a(String str, String str2, String str3, int i, boolean z) {
-        String str4;
+    public rk8(@NonNull ChatFloatEntranceFragment.u uVar, @NonNull ok8 ok8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14740");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_id", str);
-            statisticItem.addParam("obj_name", str2);
-            if (z) {
-                str4 = a;
-            } else {
-                str4 = b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uVar, ok8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            statisticItem.addParam("obj_type", str4);
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str3);
-            TiebaStatic.log(statisticItem);
         }
+        this.d = 0;
+        this.a = uVar;
+        this.b = ok8Var;
     }
 
-    public static void e(String str, String str2, String str3, int i, boolean z) {
-        String str4;
+    public void a(CollapseState collapseState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14739");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_id", str);
-            statisticItem.addParam("obj_name", str2);
-            if (z) {
-                str4 = a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, collapseState) != null) || collapseState == null) {
+            return;
+        }
+        if (collapseState.b == CollapseState.State.EXPAND) {
+            this.a.q.setVisibility(8);
+            this.a.s.setVisibility(8);
+            return;
+        }
+        e(collapseState);
+    }
+
+    public void b(int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.d = i;
+            da5 p = da5.p();
+            if (i == 0) {
+                str = "frs_loop_hot_chat_day_resource";
             } else {
-                str4 = b;
+                str = "frs_loop_hot_chat_night_resource";
             }
-            statisticItem.addParam("obj_type", str4);
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str3);
-            TiebaStatic.log(statisticItem);
+            this.c = p.w(str, "");
+            SkinManager.setImageResource(this.a.m, R.drawable.icon_chat_group_collapse);
+            this.a.o.setRadius(R.dimen.tbds134);
+            this.a.o.setSkinType(i);
+            if (i == 0) {
+                this.a.k.setElevation(UtilHelper.getDimenPixelSize(R.dimen.tbds16));
+            }
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0207));
+            gradientDrawable.setShape(1);
+            gradientDrawable.setUseLevel(false);
+            this.a.k.setBackground(gradientDrawable);
+            SkinManager.setImageResource(this.a.p, R.drawable.chat_collapse_at_me);
+            SkinManager.setImageResource(this.a.r, R.drawable.chat_collapse_three_exp);
+            d();
         }
     }
 
-    public static StatisticItem g(String str, String str2, String str3, int i, boolean z) {
-        InterceptResult invokeCommon;
-        String str4;
+    public void c(CollapseState collapseState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_id", str2);
-            statisticItem.addParam("obj_name", str3);
-            if (z) {
-                str4 = a;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collapseState) != null) || collapseState == null) {
+            return;
+        }
+        if (collapseState.a == CollapseState.Icon.DEFAULT) {
+            Glide.with(this.a.o).load(Integer.valueOf((int) R.drawable.bg_chat_group_collapse_gradual)).into(this.a.o);
+            this.a.m.setVisibility(0);
+            this.a.n.setVisibility(8);
+            return;
+        }
+        Glide.with(this.a.o).load(collapseState.e).into(this.a.o);
+        this.a.m.setVisibility(8);
+        this.a.n.setVisibility(0);
+    }
+
+    public final void d() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.e != null && this.b.getViewContext() != null && this.e.c == CollapseState.Tip.AT_ME) {
+                Glide.with(this.b.getViewContext()).load(this.c).into(this.a.n);
+                return;
+            }
+            ImageView imageView = this.a.n;
+            if (this.d == 0) {
+                i = R.drawable.obfuscated_res_0x7f080750;
             } else {
-                str4 = b;
+                i = R.drawable.obfuscated_res_0x7f080751;
             }
-            statisticItem.addParam("obj_type", str4);
-            statisticItem.addParam("obj_locate", i);
-            return statisticItem;
+            SkinManager.setImageResource(imageView, i);
         }
-        return (StatisticItem) invokeCommon.objValue;
     }
 
-    public static void h(String str, String str2, String str3, int i, boolean z) {
-        String str4;
+    public void e(CollapseState collapseState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14738");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_id", str);
-            statisticItem.addParam("obj_name", str2);
-            if (z) {
-                str4 = a;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, collapseState) != null) || collapseState == null) {
+            return;
+        }
+        CollapseState.Tip tip = collapseState.c;
+        if (tip != CollapseState.Tip.DEFAULT && collapseState.b != CollapseState.State.EXPAND) {
+            if (tip == CollapseState.Tip.AT_ME) {
+                this.a.q.setVisibility(0);
+                this.a.s.setVisibility(8);
             } else {
-                str4 = b;
+                this.a.q.setVisibility(8);
+                this.a.s.setVisibility(0);
             }
-            statisticItem.addParam("obj_type", str4);
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str3);
-            TiebaStatic.log(statisticItem);
+        } else {
+            this.a.q.setVisibility(8);
+            this.a.s.setVisibility(8);
         }
+        d();
     }
 
-    public static void b(String str, String str2, int i, boolean z) {
+    public void update(CollapseState collapseState, CollapseState collapseState2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            TiebaStatic.log(g("c14742", str, str2, i, z));
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, collapseState, collapseState2) != null) || collapseState2 == null) {
+            return;
         }
-    }
-
-    public static void d(String str, String str2, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            TiebaStatic.log(g("c14744", str, str2, i, z));
+        this.e = collapseState2;
+        if (collapseState.c != collapseState2.c) {
+            e(collapseState2);
         }
-    }
-
-    public static void c(String str, String str2, int i, boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            StatisticItem g = g("c14743", str, str2, i, z);
-            g.addParam("obj_source", i2);
-            TiebaStatic.log(g);
+        if (collapseState.a != collapseState2.a) {
+            c(collapseState2);
         }
-    }
-
-    public static void f(String str, String str2, int i, boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            StatisticItem g = g("c14741", str, str2, i, z);
-            g.addParam("obj_source", i2);
-            TiebaStatic.log(g);
+        if (collapseState.d != collapseState2.d) {
+            c(collapseState2);
+        }
+        if ((TextUtils.isEmpty(collapseState.e) && !TextUtils.isEmpty(collapseState2.e)) || (!TextUtils.isEmpty(collapseState.e) && !collapseState.e.equals(collapseState2.e))) {
+            c(collapseState2);
+        }
+        if (collapseState.b != collapseState2.b) {
+            a(collapseState2);
         }
     }
 }

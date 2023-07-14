@@ -1,137 +1,121 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.xg2;
+import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import com.baidubce.http.Headers;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class zg2 extends qg2 implements lg2 {
+public class zg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ig2 b;
+    public final RecordType a;
+    public final String b;
+    public final boolean c;
+    public final Object d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zg2(@NonNull Context context, fg2 fg2Var) {
-        super(context, fg2Var);
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public RecordType a;
+        public String b;
+        public boolean c;
+        public Object d;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public zg2 e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new zg2(this, null);
+            }
+            return (zg2) invokeV.objValue;
+        }
+
+        public b f(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b g(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.c = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b h(RecordType recordType) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, recordType)) == null) {
+                this.a = recordType;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+    }
+
+    public zg2(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, fg2Var};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (fg2) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ah2();
+        this.a = bVar.a;
+        this.b = bVar.b;
+        this.c = bVar.c;
+        this.d = bVar.d;
     }
 
-    public final WebResourceResponse b(String str, InputStream inputStream) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, inputStream)) == null) {
-            HashMap hashMap = new HashMap(1);
-            hashMap.put(Headers.CACHE_CONTROL, "max-age=86400");
-            return new WebResourceResponse(true, str, "UTF-8", 200, DnsModel.MSG_OK, hashMap, new BufferedInputStream(inputStream));
-        }
-        return (WebResourceResponse) invokeLL.objValue;
+    public /* synthetic */ zg2(b bVar, a aVar) {
+        this(bVar);
     }
 
-    @Override // com.baidu.tieba.xg2
-    @SuppressLint({"BDThrowableCheck"})
-    public WebResourceResponse a(@NonNull xg2.a aVar) {
-        InterceptResult invokeL;
-        String str;
+    public static b a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            String d = aVar.d();
-            if (!d(aVar)) {
-                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
-            }
-            if (lg2.a) {
-                Log.d("HybridIntercept", "intercept file = " + d);
-            }
-            String c = c(d);
-            if (TextUtils.isEmpty(c)) {
-                if (!lg2.a) {
-                    return null;
-                }
-                throw new IllegalArgumentException("file path can't be null, src = " + d);
-            }
-            File file = new File(c);
-            if (file.exists() && file.isFile()) {
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    if (c.endsWith(FileHelper.FILE_CACHE_CSS)) {
-                        str = "text/css";
-                    } else if (c.endsWith(".js")) {
-                        str = "application/javascript";
-                    } else {
-                        str = "text/plan";
-                    }
-                    return b(str, fileInputStream);
-                } catch (Throwable th) {
-                    if (lg2.a) {
-                        Log.e("HybridIntercept", Log.getStackTraceString(th));
-                    }
-                }
-            }
-            c92.c("HybridIntercept", "file intercept error, src = " + d);
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new b();
         }
-        return (WebResourceResponse) invokeL.objValue;
-    }
-
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            if (str.startsWith("interceptfile://") && str.length() > 16) {
-                str = str.substring(16);
-            }
-            if (lg2.a) {
-                Log.d("HybridIntercept", "file request url = " + str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean d(@NonNull xg2.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
-            if (!aVar.c()) {
-                return true;
-            }
-            return this.b.a(aVar);
-        }
-        return invokeL.booleanValue;
+        return (b) invokeV.objValue;
     }
 }

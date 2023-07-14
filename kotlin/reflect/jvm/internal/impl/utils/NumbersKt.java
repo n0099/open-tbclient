@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.utils;
 
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class NumbersKt {
     public static final NumberWithRadix extractRadix(String str) {
         if (!StringsKt__StringsJVMKt.startsWith$default(str, "0x", false, 2, null) && !StringsKt__StringsJVMKt.startsWith$default(str, "0X", false, 2, null)) {

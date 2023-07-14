@@ -70,7 +70,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Integer) || (num = (Integer) customResponsedMessage.getData()) == null) {
                 return;
             }
-            this.a.c(num.intValue());
+            this.a.d(num.intValue());
         }
     }
 
@@ -101,10 +101,10 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         @Override // android.view.View.OnLayoutChangeListener
         public void onLayoutChange(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) != null) || !this.a.e(view2)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) != null) || !this.a.f(view2)) {
                 return;
             }
-            this.a.c(Integer.MAX_VALUE);
+            this.a.d(Integer.MAX_VALUE);
         }
     }
 
@@ -124,7 +124,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         i = BdUniqueId.gen();
     }
 
-    public final void d() {
+    public final void e() {
         View view2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (view2 = this.b) == null) {
@@ -156,16 +156,16 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         this.b = view2;
         this.a = viewGroup;
         NoDataViewFactory.d b2 = NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, 0);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907a1);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907a2);
         NoDataView a2 = NoDataViewFactory.a(view2.getContext(), this.c, b2, null, null);
         this.d = a2;
         a2.setVisibility(0);
         this.h.setTag(i);
         MessageManager.getInstance().registerListener(this.h);
-        d();
+        e();
     }
 
-    public final void c(int i2) {
+    public final void d(int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048576, this, i2) != null) || this.b == null || this.a == null) {
             return;
@@ -209,7 +209,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public final boolean e(View view2) {
+    public final boolean f(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {

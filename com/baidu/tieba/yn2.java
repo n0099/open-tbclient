@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class yn2 extends c83 {
+public class yn2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, zn2> a;
 
     public yn2() {
         Interceptable interceptable = $ic;
@@ -23,17 +25,62 @@ public class yn2 extends c83 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public void a(zn2 zn2Var, String... strArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, zn2Var, strArr) == null) && strArr != null && strArr.length != 0) {
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str)) {
+                    this.a.put(str, zn2Var);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.c83
-    public void b(@NonNull Bundle bundle) {
-        cc3 b0;
+    public ArrayList<zn2> c(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, bundle) != null) || (b0 = cc3.b0()) == null || TextUtils.equals(b0.O(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            ArrayList<zn2> arrayList = null;
+            if (strArr != null && strArr.length != 0) {
+                for (String str : strArr) {
+                    if (!TextUtils.isEmpty(str)) {
+                        for (String str2 : this.a.keySet()) {
+                            if (str2.startsWith(str) || str.startsWith(str2)) {
+                                if (arrayList == null) {
+                                    arrayList = new ArrayList<>();
+                                }
+                                arrayList.add(this.a.get(str2));
+                            }
+                        }
+                    }
+                }
+            }
+            return arrayList;
         }
-        SwanFavorDataManager.h().m(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public void d(zn2 zn2Var, String... strArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, zn2Var, strArr) == null) && strArr != null && strArr.length != 0) {
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str) && this.a.get(str) == zn2Var) {
+                    this.a.remove(str);
+                }
+            }
+        }
     }
 }

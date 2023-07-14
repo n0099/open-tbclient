@@ -1,48 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lc4 extends jc4 {
+public class lc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public wc4 b;
+    public int c;
+    public long d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lc4(zc3 zc3Var) {
-        super(zc3Var, "/swanAPI/showShareMenu", "showShareMenu");
+    public lc4(int i, wc4 wc4Var) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zc3Var};
+            Object[] objArr = {Integer.valueOf(i), wc4Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((zc3) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = i;
+        this.b = wc4Var;
+        if (sc4.d()) {
+            i2 = 20;
+        } else {
+            i2 = 10;
+        }
+        this.c = i2;
+        this.d = System.currentTimeMillis();
     }
 
-    @Override // com.baidu.tieba.jc4
-    public boolean k(@NonNull mc4 mc4Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLL;
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, mc4Var, unitedSchemeEntity, callbackHandler)) == null) {
-            mc4Var.d();
-            j(unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", this.a);
+                jSONObject.put("stage", this.c);
+                jSONObject.put("ts", this.d);
+                if (this.b != null) {
+                    jSONObject.put("msg", this.b.a());
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
-        return invokeLLL.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

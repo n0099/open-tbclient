@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.telephony.TelephonyManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ConectivityUtils implements INoProGuard {
     public static final String APN_3GNET = "3gnet";
     public static final String APN_3GWAP = "3gwap";

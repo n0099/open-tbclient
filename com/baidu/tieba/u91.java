@@ -1,45 +1,47 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 /* loaded from: classes8.dex */
-public class u91 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+public interface u91 {
+    void a();
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a();
-    }
+    ViewGroup.LayoutParams b();
 
-    public u91(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = aVar;
-    }
+    void c(View.OnLayoutChangeListener onLayoutChangeListener);
 
-    @JavascriptInterface
-    public void onGoBack() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.a) != null) {
-            aVar.a();
-        }
-    }
+    void d();
+
+    void e(int i);
+
+    boolean f();
+
+    void g(FrameLayout.LayoutParams layoutParams);
+
+    boolean h();
+
+    void i(int i);
+
+    void j(y91 y91Var);
+
+    void k(boolean z);
+
+    boolean m();
+
+    void n(ViewGroup viewGroup);
+
+    void o(r91 r91Var);
+
+    void onDestroy();
+
+    void q(String str);
+
+    void r(View.OnLayoutChangeListener onLayoutChangeListener);
+
+    void s(int i, boolean z);
+
+    void t(w91 w91Var);
+
+    void u();
 }

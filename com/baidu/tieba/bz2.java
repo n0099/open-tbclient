@@ -1,20 +1,26 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class bz2 {
+public class bz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<az2> a;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public CallbackHandler a;
+    public JSONObject b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,143 +35,71 @@ public final class bz2 {
                 return;
             }
         }
-        a = new ArrayList<>();
+        c = fs1.a;
     }
 
-    public static void b() {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a.clear();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return UnitedSchemeUtility.isInvokedFromSwanGame(this.a);
         }
+        return invokeV.booleanValue;
     }
 
-    public static void c() {
+    public bz2(CallbackHandler callbackHandler, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                az2 az2Var = a.get(size);
-                if (az2Var != null) {
-                    az2Var.onDestroy();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {callbackHandler, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = callbackHandler;
+        this.b = jSONObject;
     }
 
-    public static void a(az2 az2Var) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, az2Var) == null) && az2Var != null && !a.contains(az2Var)) {
-            a.add(az2Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            b(str, null);
         }
     }
 
-    public static void h(boolean z) {
+    public void b(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                az2 az2Var = a.get(size);
-                if (az2Var != null) {
-                    az2Var.j(z);
-                }
-            }
-        }
-    }
-
-    public static void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                az2 az2Var = a.get(size);
-                if (az2Var != null) {
-                    az2Var.k(z);
-                }
-            }
-        }
-    }
-
-    public static void k(az2 az2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65547, null, az2Var) != null) || az2Var == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) != null) || this.b == null) {
             return;
         }
-        a.remove(az2Var);
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            az2 az2Var = a.get(size);
-            if (az2Var != null && TextUtils.equals(str, az2Var.b())) {
-                az2Var.onDestroy();
-            }
+        JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
+        this.a.handleSchemeDispatchCallback(this.b.optString(str), wrapCallbackParamsWithEncode.toString());
+        if (c) {
+            Log.d("AudioStatusCallback", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
         }
     }
 
-    public static az2 e(String str) {
-        InterceptResult invokeL;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                az2 az2Var = a.get(size);
-                if (az2Var != null && TextUtils.equals(str, az2Var.c())) {
-                    return az2Var;
+                if (c) {
+                    Log.d("AudioStatusCallback", "Audio Callback is Null");
+                    return;
                 }
+                return;
             }
-            return null;
-        }
-        return (az2) invokeL.objValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                az2 az2Var = a.get(size);
-                if (az2Var != null && TextUtils.equals(str, az2Var.b()) && az2Var.onBackPressed()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static az2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                az2 az2Var = a.get(size);
-                if (az2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, az2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, az2Var.f())) || TextUtils.equals(str3, az2Var.c())))) {
-                    return az2Var;
-                }
-            }
-            return null;
-        }
-        return (az2) invokeLLL.objValue;
-    }
-
-    public static void i(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65545, null, str, z) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            az2 az2Var = a.get(size);
-            if (az2Var != null && TextUtils.equals(str, az2Var.b())) {
-                az2Var.k(z);
+            try {
+                this.b = new JSONObject(str);
+            } catch (JSONException e) {
+                bj3.b("audio", 2009, "update json exception", -1, "");
+                yy2.c("AudioStatusCallback", "#setCallbacks error", e);
             }
         }
     }

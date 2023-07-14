@@ -16,7 +16,7 @@ import com.kwad.sdk.widget.KSFrameLayout;
 /* loaded from: classes10.dex */
 public abstract class b<T extends AdTemplate> extends KSFrameLayout implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener, com.kwad.sdk.core.h.b {
     public com.kwad.components.core.widget.kwai.b aM;
-    public InterfaceC0665b lp;
+    public InterfaceC0670b lp;
     public AdInfo mAdInfo;
     @NonNull
     public T mAdTemplate;
@@ -24,31 +24,31 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
     public Context mContext;
 
     /* loaded from: classes10.dex */
-    public static class a implements InterfaceC0665b {
-        @Override // com.kwad.components.core.widget.b.InterfaceC0665b
+    public static class a implements InterfaceC0670b {
+        @Override // com.kwad.components.core.widget.b.InterfaceC0670b
         public void onAdClicked() {
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0665b
+        @Override // com.kwad.components.core.widget.b.InterfaceC0670b
         public void onAdShow() {
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0665b
+        @Override // com.kwad.components.core.widget.b.InterfaceC0670b
         public final void onDislikeClicked() {
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0665b
+        @Override // com.kwad.components.core.widget.b.InterfaceC0670b
         public final void onDownloadTipsDialogDismiss() {
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0665b
+        @Override // com.kwad.components.core.widget.b.InterfaceC0670b
         public final void onDownloadTipsDialogShow() {
         }
     }
 
     /* renamed from: com.kwad.components.core.widget.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0665b {
+    public interface InterfaceC0670b {
         void onAdClicked();
 
         void onAdShow();
@@ -79,8 +79,8 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
             c(viewGroup);
             com.kwad.components.core.widget.a aVar = new com.kwad.components.core.widget.a(viewGroup.getContext(), viewGroup);
             viewGroup.addView(aVar);
-            aVar.setViewCallback(new a.InterfaceC0664a() { // from class: com.kwad.components.core.widget.b.1
-                @Override // com.kwad.components.core.widget.a.InterfaceC0664a
+            aVar.setViewCallback(new a.InterfaceC0669a() { // from class: com.kwad.components.core.widget.b.1
+                @Override // com.kwad.components.core.widget.a.InterfaceC0669a
                 public final void em() {
                     b.this.br();
                 }
@@ -153,9 +153,9 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
 
     public final void aq(int i) {
         com.kwad.sdk.core.report.a.a(this.mAdTemplate, i, getTouchCoords());
-        InterfaceC0665b interfaceC0665b = this.lp;
-        if (interfaceC0665b != null) {
-            interfaceC0665b.onAdClicked();
+        InterfaceC0670b interfaceC0670b = this.lp;
+        if (interfaceC0670b != null) {
+            interfaceC0670b.onAdClicked();
         }
     }
 
@@ -165,9 +165,9 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
     }
 
     public void br() {
-        InterfaceC0665b interfaceC0665b;
-        if (!this.mAdTemplate.mPvReported && (interfaceC0665b = this.lp) != null) {
-            interfaceC0665b.onAdShow();
+        InterfaceC0670b interfaceC0670b;
+        if (!this.mAdTemplate.mPvReported && (interfaceC0670b = this.lp) != null) {
+            interfaceC0670b.onAdShow();
         }
         com.kwad.components.core.m.c.ox().a(this.mAdTemplate, null, null);
     }
@@ -178,9 +178,9 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
     }
 
     public final void dx() {
-        InterfaceC0665b interfaceC0665b = this.lp;
-        if (interfaceC0665b != null) {
-            interfaceC0665b.onAdClicked();
+        InterfaceC0670b interfaceC0670b = this.lp;
+        if (interfaceC0670b != null) {
+            interfaceC0670b.onAdClicked();
         }
     }
 
@@ -192,30 +192,30 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        InterfaceC0665b interfaceC0665b = this.lp;
-        if (interfaceC0665b != null) {
-            interfaceC0665b.onDownloadTipsDialogDismiss();
+        InterfaceC0670b interfaceC0670b = this.lp;
+        if (interfaceC0670b != null) {
+            interfaceC0670b.onDownloadTipsDialogDismiss();
         }
     }
 
     @Override // android.content.DialogInterface.OnShowListener
     public void onShow(DialogInterface dialogInterface) {
-        InterfaceC0665b interfaceC0665b = this.lp;
-        if (interfaceC0665b != null) {
-            interfaceC0665b.onDownloadTipsDialogShow();
+        InterfaceC0670b interfaceC0670b = this.lp;
+        if (interfaceC0670b != null) {
+            interfaceC0670b.onDownloadTipsDialogShow();
         }
     }
 
     public final void pX() {
         com.kwad.sdk.core.report.a.ap(this.mAdTemplate);
-        InterfaceC0665b interfaceC0665b = this.lp;
-        if (interfaceC0665b != null) {
-            interfaceC0665b.onDislikeClicked();
+        InterfaceC0670b interfaceC0670b = this.lp;
+        if (interfaceC0670b != null) {
+            interfaceC0670b.onDislikeClicked();
         }
     }
 
-    public void setInnerAdInteractionListener(InterfaceC0665b interfaceC0665b) {
-        this.lp = interfaceC0665b;
+    public void setInnerAdInteractionListener(InterfaceC0670b interfaceC0670b) {
+        this.lp = interfaceC0670b;
     }
 
     public void setMargin(int i) {

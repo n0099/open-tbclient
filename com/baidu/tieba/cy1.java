@@ -1,27 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import java.util.Map;
-import org.json.JSONObject;
+import android.view.View;
+import android.webkit.ValueCallback;
 /* loaded from: classes5.dex */
-public interface cy1 {
-    void a(@NonNull Object obj, String str, String str2);
+public interface cy1 extends ta2 {
+    boolean canGoBack();
 
-    void b(@NonNull Object obj);
+    View covertToView();
 
-    Object beginFlow(String str);
+    void destroy();
 
-    void c(@NonNull Object obj);
+    @Override // com.baidu.tieba.ta2
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
 
-    void d(String str, Map<String, String> map);
+    int getContentHeight();
 
-    boolean e();
+    View getCurrentWebView();
 
-    void f(String str, JSONObject jSONObject);
+    float getScale();
 
-    void g(@NonNull Object obj, String str, String str2, long j);
+    int getWebViewScrollX();
 
-    void h(@NonNull Object obj, String str);
+    int getWebViewScrollY();
 
-    void i(String str, String str2);
+    void goBack();
+
+    void setDefaultViewSize(int i, int i2, String str);
+
+    void webViewScrollTo(int i, int i2);
 }

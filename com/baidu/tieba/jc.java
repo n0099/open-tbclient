@@ -246,7 +246,7 @@ public class jc extends DiskFileOperate {
     public void endLog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            og.k(isSuccess(), System.currentTimeMillis() - this.e);
+            pg.k(isSuccess(), System.currentTimeMillis() - this.e);
         }
     }
 
@@ -295,7 +295,7 @@ public class jc extends DiskFileOperate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bArr) == null) {
             super.setData(bArr);
-            if (!isGif() && xi.D(bArr)) {
+            if (!isGif() && yi.E(bArr)) {
                 setGif(true);
             }
         }

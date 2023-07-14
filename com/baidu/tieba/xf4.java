@@ -1,96 +1,156 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.StateListDrawable;
-import android.util.StateSet;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
-public class xf4 extends StateListDrawable {
+public class xf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static Object a;
+    public static Method b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public View b;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(View view2);
-
-        void b(View view2);
-    }
-
-    public xf4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948298435, "Lcom/baidu/tieba/xf4;")) == null) {
+            return;
         }
-        this.b = null;
-        addState(new int[]{16842919}, new ColorDrawable(0));
-        addState(new int[0], new ColorDrawable(0));
-    }
-
-    public xf4(Drawable drawable) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = null;
-        addState(new int[]{16842919}, drawable);
-        addState(new int[0], drawable);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948298435, "Lcom/baidu/tieba/xf4;");
+        }
     }
 
-    @Override // android.graphics.drawable.StateListDrawable, android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public boolean onStateChange(int[] iArr) {
+    public static boolean a(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr)) == null) {
-            if (this.b != null && this.a != null) {
-                if (StateSet.stateSetMatches(new int[]{16842919}, iArr)) {
-                    this.a.b(this.b);
-                } else {
-                    this.a.a(this.b);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
+            if (!c) {
+                e();
             }
-            return super.onStateChange(iArr);
+            Method method = b;
+            if (method == null) {
+                return false;
+            }
+            try {
+                method.invoke(a, strArr);
+                return true;
+            } catch (Throwable unused) {
+                return false;
+            }
         }
         return invokeL.booleanValue;
     }
 
-    public void a(a aVar) {
+    public static boolean c(Class<?> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            if (!f()) {
+                return true;
+            }
+            if (cls == null) {
+                return false;
+            }
+            return a(b(cls.getName()));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
+            if (!f()) {
+                return true;
+            }
+            if (strArr != null && strArr.length > 0) {
+                return a(strArr);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String replaceAll = str.replaceAll("\\.", "/");
+            if (!replaceAll.startsWith(PreferencesUtil.LEFT_MOUNT)) {
+                return "L" + replaceAll + ParamableElem.DIVIDE_PARAM;
+            }
+            return replaceAll;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (xf4.class) {
+                if (c) {
+                    return;
+                }
+                try {
+                    c = true;
+                    Class<?> cls = Class.forName("dalvik.system.VMRuntime");
+                    Method b2 = yf4.b(cls, "getRuntime", new Class[0]);
+                    if (b2 != null) {
+                        b2.setAccessible(true);
+                        Object invoke = b2.invoke(null, new Object[0]);
+                        a = invoke;
+                        if (invoke != null) {
+                            Method b3 = yf4.b(cls, "setHiddenApiExemptions", String[].class);
+                            b = b3;
+                            if (b3 != null) {
+                                b3.setAccessible(true);
+                            }
+                        }
+                    }
+                } catch (Throwable unused) {
+                }
+            }
         }
     }
 
-    public void b(View view2) {
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.b = view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (Build.VERSION.SDK_INT > 29) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

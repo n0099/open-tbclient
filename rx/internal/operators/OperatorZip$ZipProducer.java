@@ -1,10 +1,10 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.ttb;
-import com.baidu.tieba.zsb;
+import com.baidu.tieba.q2c;
+import com.baidu.tieba.w1c;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class OperatorZip$ZipProducer<R> extends AtomicLong implements zsb {
+public final class OperatorZip$ZipProducer<R> extends AtomicLong implements w1c {
     public static final long serialVersionUID = -1216676403723546796L;
     public final OperatorZip$Zip<R> zipper;
 
@@ -12,9 +12,9 @@ public final class OperatorZip$ZipProducer<R> extends AtomicLong implements zsb 
         this.zipper = operatorZip$Zip;
     }
 
-    @Override // com.baidu.tieba.zsb
+    @Override // com.baidu.tieba.w1c
     public void request(long j) {
-        ttb.b(this, j);
+        q2c.b(this, j);
         this.zipper.tick();
     }
 }

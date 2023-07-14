@@ -1,110 +1,26 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.app.Dialog;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class rf5 {
     public static /* synthetic */ Interceptable $ic;
+    public static rf5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(ShareItem shareItem);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends BdAsyncTask<ShareItem, Integer, ShareItem> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ rf5 b;
-
-        public a(rf5 rf5Var, ShareItem shareItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rf5Var, shareItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = rf5Var;
-            this.a = shareItem;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ShareItem doInBackground(ShareItem... shareItemArr) {
-            InterceptResult invokeL;
-            ShareItem shareItem;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareItemArr)) == null) {
-                String str = null;
-                if (shareItemArr == null || shareItemArr.length < 1 || (shareItem = shareItemArr[0]) == null) {
-                    return null;
-                }
-                String str2 = shareItem.O;
-                NetWork netWork = new NetWork();
-                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
-                if (shareItem.C == 4) {
-                    netWork.addPostData("forum_id", this.a.N);
-                    netWork.addPostData("type", "2");
-                } else {
-                    netWork.addPostData("thread_id", str2);
-                    netWork.addPostData("type", "3");
-                }
-                String postNetData = netWork.postNetData();
-                if (wi.isEmpty(postNetData)) {
-                    return shareItem;
-                }
-                try {
-                    str = new JSONObject(postNetData).optString(BigdayActivityConfig.IMG_URL);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                if (shareItem.C != 4) {
-                    shareItem.t0 = str;
-                    shareItem.z = Uri.parse(str);
-                }
-                return shareItem;
-            }
-            return (ShareItem) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ShareItem shareItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem) == null) {
-                super.onPostExecute(shareItem);
-                if (this.b.a != null) {
-                    this.b.a.a(shareItem);
-                }
-            }
-        }
-    }
+    public mf5 a;
+    public String b;
 
     public rf5() {
         Interceptable interceptable = $ic;
@@ -116,21 +32,151 @@ public class rf5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = b();
     }
 
-    public void b(ShareItem shareItem) {
+    public static rf5 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-            new a(this, shareItem).execute(shareItem);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (rf5.class) {
+                    if (c == null) {
+                        c = new rf5();
+                    }
+                }
+            }
+            return c;
+        }
+        return (rf5) invokeV.objValue;
+    }
+
+    public final mf5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, mf5.class);
+            if (runTask != null) {
+                return (mf5) runTask.getData();
+            }
+            return null;
+        }
+        return (mf5) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            mf5 mf5Var = this.a;
+            if (mf5Var != null) {
+                return mf5Var.g();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            mf5 mf5Var = this.a;
+            if (mf5Var != null) {
+                return mf5Var.b();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            mf5 mf5Var = this.a;
+            if (mf5Var != null) {
+                return mf5Var.a();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l() {
+        mf5 mf5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (mf5Var = this.a) != null) {
+            mf5Var.c();
         }
     }
 
-    public void c(b bVar) {
+    public void a(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z) {
+        mf5 mf5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.a = bVar;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), tbPageContext, viewGroup, Boolean.valueOf(z)}) == null) && (mf5Var = this.a) != null) {
+            mf5Var.f(i, tbPageContext, viewGroup, z);
         }
+    }
+
+    public void h(boolean z, int i, int i2) {
+        mf5 mf5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) && (mf5Var = this.a) != null) {
+            mf5Var.i(z, i, i2);
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public NavigationBarCoverTip j(Activity activity, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewGroup)) == null) {
+            mf5 mf5Var = this.a;
+            if (mf5Var != null) {
+                return mf5Var.e(activity, viewGroup);
+            }
+            return null;
+        }
+        return (NavigationBarCoverTip) invokeLL.objValue;
+    }
+
+    public void m(boolean z, long j) {
+        mf5 mf5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) && (mf5Var = this.a) != null) {
+            mf5Var.h(z, j);
+        }
+    }
+
+    public Dialog k(int i, TbPageContext tbPageContext, x36 x36Var, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), tbPageContext, x36Var, Boolean.valueOf(z)})) == null) {
+            mf5 mf5Var = this.a;
+            if (mf5Var != null) {
+                return mf5Var.d(i, tbPageContext, x36Var, z);
+            }
+            return null;
+        }
+        return (Dialog) invokeCommon.objValue;
     }
 }

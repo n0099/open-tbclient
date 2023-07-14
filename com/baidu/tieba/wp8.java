@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class wp8 {
+public class wp8 implements up8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
+    public final HashMap<String, Integer> a;
 
     public wp8() {
         Interceptable interceptable = $ic;
@@ -27,39 +32,45 @@ public class wp8 {
                 return;
             }
         }
-        this.b = "";
+        HashMap<String, Integer> hashMap = new HashMap<>(3);
+        this.a = hashMap;
+        hashMap.put("#(滑稽)", Integer.valueOf(ImEmojiUtil.a));
+        this.a.put("#(香槟)", Integer.valueOf(ImEmojiUtil.b));
+        this.a.put("#(炸药)", Integer.valueOf(ImEmojiUtil.c));
     }
 
-    public final long a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.up8
+    public boolean a(ChatMessage... chatMessageArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
+            return this.a.containsKey(c(chatMessageArr));
         }
-        return invokeV.longValue;
+        return invokeL.booleanValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public final String c(ChatMessage... chatMessageArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
+            if (chatMessageArr != null && chatMessageArr.length > 0 && chatMessageArr[0] != null) {
+                return chatMessageArr[0].getContent();
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void c(long j) {
+    @Override // com.baidu.tieba.up8
+    public void b(ListView listView, ChatMessage... chatMessageArr) {
+        View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.a = j;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null || (childAt = listView.getChildAt(listView.getLastVisiblePosition() - listView.getFirstVisiblePosition())) == null) {
+            return;
         }
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.b = str;
+        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.tex_msgitem_text);
+        if (chatMessageArr != null && chatMessageArr.length > 1) {
+            ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, null);
         }
     }
 }

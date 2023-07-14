@@ -118,7 +118,7 @@ public class DBOperationFactory {
                 synchronized (sDbOperatioContainer) {
                     LogUtils.e(TAG, "dbname : " + str);
                     if (!sDbOperatioContainer.containsKey(str)) {
-                        DBOperation dBOperation = new DBOperation(context, new DBConnection(context, str, 79));
+                        DBOperation dBOperation = new DBOperation(context, new DBConnection(context, str, 80));
                         DBGroupTableManager dBGroupTableManager = new DBGroupTableManager();
                         dBGroupTableManager.init(dBOperation);
                         dBOperation.setTag(DBGroupTableManager.KEY, dBGroupTableManager);

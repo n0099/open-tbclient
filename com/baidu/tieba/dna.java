@@ -1,655 +1,329 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
+import android.provider.MediaStore;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.afx.TbAlphaVideo;
-import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tbadk.data.SelectForumData;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.lz4;
-import com.baidu.tieba.y3a;
+import com.baidu.down.statistic.ConfigSpeedStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dna extends bna<eoa> implements vna {
+public class dna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public SpanGroupEditText t;
-    @Nullable
-    public TextView u;
-    @Nullable
-    public TextView v;
-    public lz4.c w;
 
-    @Override // com.baidu.tieba.zna
-    public int f() {
-        InterceptResult invokeV;
+    /* loaded from: classes5.dex */
+    public static final class a implements Comparator<cna> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(cna cnaVar, cna cnaVar2) {
+            InterceptResult invokeLL;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cnaVar, cnaVar2)) == null) {
+                if (cnaVar.b() < cnaVar2.b()) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                if (cnaVar.b() > cnaVar2.b()) {
+                    return -1;
+                }
+                return i;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00d3, code lost:
+        if (r2 != null) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00d5, code lost:
+        r2.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00ec, code lost:
+        if (r2 != null) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ef, code lost:
+        r15.moveToNext();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00f6, code lost:
+        if (r8.d() == null) goto L47;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0100, code lost:
+        if (r8.a() == 0) goto L46;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x010a, code lost:
+        if (c(r8.c()) == false) goto L45;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x0114, code lost:
+        if (r8.a() < 1000) goto L44;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0116, code lost:
+        r0 = r8.d();
+        r2 = r0.substring(r9, r0.lastIndexOf("/"));
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x012a, code lost:
+        if (r0.contains("/DCIM/") != false) goto L43;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x012c, code lost:
+        if (r2 == null) goto L38;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0132, code lost:
+        if (r2.equals("/sdcard") == false) goto L38;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x013e, code lost:
+        if (new java.io.File(r0).exists() == false) goto L42;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0140, code lost:
+        r1.add(r8);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x0143, code lost:
+        r5 = r21 + 1;
+        r7 = r17;
+        r9 = r18;
+        r8 = r22;
+        r6 = 0;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0173  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static List<cna> a(Context context) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Cursor cursor2;
+        int i;
+        ContentResolver contentResolver;
+        String str;
+        int i2;
+        cna cnaVar;
+        Cursor cursor3;
+        ContentResolver contentResolver2;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dna a;
-
-        public a(dna dnaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dnaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dnaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.t.setPadding(this.a.t.getPaddingLeft(), this.a.t.getPaddingTop(), this.a.t.getPaddingRight(), this.a.t.getPaddingBottom() + this.a.u.getHeight());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements lz4.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dna a;
-
-        @Override // com.baidu.tieba.lz4.c
-        public String getKey() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setPostContent" : (String) invokeV.objValue;
-        }
-
-        public b(dna dnaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dnaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dnaVar;
-        }
-
-        @Override // com.baidu.tieba.lz4.c
-        public void a(@NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                ew8 defaultLog = DefaultLog.getInstance();
-                defaultLog.c("write", "收到H5通知，更新发帖内容：" + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            ArrayList arrayList = new ArrayList();
+            ContentResolver contentResolver3 = context.getContentResolver();
+            String str2 = "_id";
+            try {
+                Cursor query = contentResolver3.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_data", "duration", "mime_type", "date_modified"}, null, null, "title");
                 try {
-                    str = new JSONObject(str).optString("data", str);
-                } catch (Exception e) {
-                    ew8 defaultLog2 = DefaultLog.getInstance();
-                    defaultLog2.c("write", "更新发帖内容失败" + e);
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    this.a.t.setText(TbFaceManager.i().r(this.a.a.getPageActivity(), str));
-                    if (this.a.t.getText() != null) {
-                        this.a.t.setSelection(this.a.t.getText().length());
+                    String[] strArr = {"video_id", "_data"};
+                    query.moveToFirst();
+                    int count = query.getCount();
+                    int i3 = 0;
+                    int i4 = 0;
+                    while (i4 < count) {
+                        cna cnaVar2 = new cna();
+                        String string2 = query.getString(query.getColumnIndex(str2));
+                        cnaVar2.i(string2);
+                        String string3 = query.getString(query.getColumnIndex("_data"));
+                        if (string3 != null) {
+                            cnaVar2.j(string3.replace("/storage/emulated/0", "/sdcard"));
+                        }
+                        int i5 = count;
+                        cnaVar2.e(wg.e(query.getString(query.getColumnIndex("duration")), i3));
+                        cnaVar2.g(query.getString(query.getColumnIndex("mime_type")));
+                        cnaVar2.f(Long.parseLong(query.getString(query.getColumnIndex("date_modified"))));
+                        try {
+                            try {
+                                contentResolver2 = contentResolver3;
+                                i = i4;
+                                contentResolver = contentResolver3;
+                                str = str2;
+                                i2 = 0;
+                                cnaVar = cnaVar2;
+                            } catch (Exception e) {
+                                e = e;
+                                i = i4;
+                                contentResolver = contentResolver3;
+                                str = str2;
+                                i2 = 0;
+                                cnaVar = cnaVar2;
+                            }
+                            try {
+                                cursor3 = contentResolver2.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, strArr, "video_id=" + string2, null, null);
+                                if (cursor3 != null) {
+                                    try {
+                                        try {
+                                            if (cursor3.moveToFirst() && (string = cursor3.getString(cursor3.getColumnIndex("_data"))) != null) {
+                                                cnaVar.h(string.replace("/storage/emulated/0", "/sdcard"));
+                                            }
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            cursor2 = cursor3;
+                                            if (cursor2 != null) {
+                                                cursor2.close();
+                                            }
+                                            throw th;
+                                        }
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } catch (Exception e3) {
+                                e = e3;
+                                cursor3 = null;
+                                e.printStackTrace();
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            cursor2 = null;
+                        }
                     }
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dna(TbPageContext<?> tbPageContext, @NonNull nma nmaVar, @NonNull fpa fpaVar) {
-        super(tbPageContext, eoa.class, nmaVar, fpaVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, nmaVar, fpaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1], (nma) objArr2[2], (fpa) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.w = new b(this);
-    }
-
-    @Override // com.baidu.tieba.bna, com.baidu.tieba.tna, com.baidu.tieba.yna
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Editable text;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048600, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            if (i2 != -1 || i != 25049 || intent == null || this.t == null) {
-                return;
-            }
-            String str = intent.getStringExtra(AddLinkActivityConfig.NEW_LINK_CONTENT) + " ";
-            int selectionStart = this.t.getSelectionStart();
-            int selectionEnd = this.t.getSelectionEnd();
-            if (selectionStart < 0 || (text = this.t.getText()) == null) {
-                return;
-            }
-            if (selectionEnd > selectionStart) {
-                text.replace(selectionStart, selectionEnd, str);
-            } else {
-                text.insert(selectionStart, str);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bna
-    public void K(ArrayList<AtSelectData> arrayList) {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) && (spanGroupEditText = this.t) != null && spanGroupEditText.getVisibility() == 0) {
-            this.t.b(arrayList);
-        }
-    }
-
-    @Override // com.baidu.tieba.bna
-    public void L(ArrayList<AtSelectData> arrayList) {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) && (spanGroupEditText = this.t) != null && spanGroupEditText.getVisibility() == 0) {
-            this.t.e(arrayList);
-        }
-    }
-
-    public void U(una unaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, unaVar) == null) {
-            this.k = unaVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.zna
-    public void b(boolean z) {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && !z && (spanGroupEditText = this.t) != null) {
-            if (spanGroupEditText.getTag(R.id.obfuscated_res_0x7f09121f) != null) {
-                this.t.setTag(R.id.obfuscated_res_0x7f09121f, null);
-            } else {
-                this.t.clearFocus();
-            }
-        }
-    }
-
-    public void b0(y3a.f fVar) {
-        cpa cpaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, fVar) == null) && (cpaVar = this.l) != null) {
-            cpaVar.p(fVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.yna
-    public void e(@NonNull WriteData writeData) {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, writeData) == null) && (spanGroupEditText = this.t) != null && spanGroupEditText.getText() != null) {
-            writeData.setContent(this.t.getText().toString());
-        }
-    }
-
-    @Override // com.baidu.tieba.bna, com.baidu.tieba.tna, com.baidu.tieba.yna
-    public void j(@NonNull aoa aoaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, aoaVar) == null) {
-            super.j(aoaVar);
-            una unaVar = this.k;
-            if (unaVar != null) {
-                unaVar.l(this);
-            }
-            lz4.a().c(this.w);
-        }
-    }
-
-    @Override // com.baidu.tieba.bna, com.baidu.tieba.tna, com.baidu.tieba.yna
-    public void r(ci5 ci5Var) {
-        WriteData writeData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, ci5Var) == null) {
-            super.r(ci5Var);
-            if (ci5Var.a == 77 && (writeData = this.e) != null) {
-                writeData.onPostDataParse(x().a());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bna
-    public void H(Editable editable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            super.H(editable);
-            WriteData writeData = this.e;
-            if (writeData != null && editable != null) {
-                if (12 == writeData.getType()) {
-                    V(editable);
-                    aoa aoaVar = this.b;
-                    if (aoaVar != null) {
-                        aoaVar.i();
+                    if (query != null) {
+                        query.close();
                     }
-                } else if (14 == this.e.getType()) {
-                    a0(editable);
-                }
-            }
-        }
-    }
-
-    public final void V(Editable editable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, editable) != null) || this.v == null) {
-            return;
-        }
-        if (editable.length() > 500) {
-            this.v.setText((500 - editable.length()) + "/500");
-            this.v.setVisibility(0);
-            return;
-        }
-        this.v.setVisibility(8);
-    }
-
-    @Override // com.baidu.tieba.yna
-    public void c(WriteData writeData) {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, writeData) == null) && (spanGroupEditText = this.t) != null && spanGroupEditText.getText() != null) {
-            writeData.setContent(this.t.getText().toString().replaceAll("\u0000\n", "").replaceAll("\u0000", ""));
-        }
-    }
-
-    @Override // com.baidu.tieba.bna, com.baidu.tieba.yna
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            super.onChangeSkinType(i);
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null) {
-                spanGroupEditText.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0105);
-            }
-            TextView textView = this.u;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0110);
-                a0(this.u.getEditableText());
-            }
-            SkinManager.setViewTextColor(this.v, (int) R.color.CAM_X0301);
-            Z();
-        }
-    }
-
-    @Override // com.baidu.tieba.bna
-    @Nullable
-    public ArrayList<AtSelectData> N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null && spanGroupEditText.getVisibility() == 0) {
-                return this.t.getAtDataInText();
-            }
-            return null;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bna
-    @Nullable
-    public EditText O() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null && spanGroupEditText.getVisibility() == 0) {
-                return this.t;
-            }
-            return null;
-        }
-        return (EditText) invokeV.objValue;
-    }
-
-    public int W() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null && spanGroupEditText.getVisibility() == 0 && this.t.getSpanGroupManager() != null) {
-                return this.t.getSpanGroupManager().z();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean Y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null && spanGroupEditText.h()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            super.d();
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null) {
-                spanGroupEditText.i();
-                this.t.removeTextChangedListener(this.r);
-            }
-            lz4.a().d(this.w);
-        }
-    }
-
-    @Override // com.baidu.tieba.zna
-    public void l() {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (spanGroupEditText = this.t) != null) {
-            spanGroupEditText.requestFocus();
-        }
-    }
-
-    @Override // com.baidu.tieba.zna
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.n.f(this.t, false);
-            this.n.a(this.t);
-        }
-    }
-
-    @Override // com.baidu.tieba.zna
-    public EditText p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return this.t;
-        }
-        return (EditText) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null && spanGroupEditText.getText() != null && this.t.getText().length() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public LinkedList<jb5> X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null && spanGroupEditText.getVisibility() == 0 && this.t.getSpanGroupManager() != null) {
-                return this.t.getSpanGroupManager().F();
-            }
-            return null;
-        }
-        return (LinkedList) invokeV.objValue;
-    }
-
-    public final void Z() {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (spanGroupEditText = this.t) != null && spanGroupEditText.getSpanGroupManager() != null) {
-            List<nb5> x = this.t.getSpanGroupManager().x();
-            if (ListUtils.isEmpty(x)) {
-                return;
-            }
-            for (nb5 nb5Var : x) {
-                nb5Var.t();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.yna
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, writeData) != null) || TextUtils.isEmpty(writeData.getContent()) || this.t == null) {
-            return;
-        }
-        WriteData writeData2 = this.e;
-        if (writeData2 != null) {
-            writeData2.setContent(writeData.getContent());
-        }
-        SpannableString u = TbFaceManager.i().u(this.a.getPageActivity(), writeData.getContent());
-        InputFilter[] filters = this.t.getFilters();
-        this.t.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50000)});
-        this.t.setText(u);
-        if (this.t.getSpanGroupManager() != null) {
-            this.t.i();
-            this.t.getSpanGroupManager().t();
-            this.t.c();
-            aoa aoaVar = this.b;
-            if (aoaVar != null) {
-                aoaVar.d(-1, true);
-            }
-        }
-        this.t.setFilters(filters);
-        if (this.t.getText() != null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            spanGroupEditText.setSelection(spanGroupEditText.getText().length());
-        }
-    }
-
-    public final void a0(Editable editable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, editable) == null) && this.u != null && this.a.getPageActivity() != null) {
-            if (!TextUtils.isEmpty(editable)) {
-                SpannableString spannableString = new SpannableString(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0a83, new Object[]{Integer.valueOf(editable.length()), 500}));
-                if (editable.length() > 500) {
-                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), 0, String.valueOf(editable.length()).length(), 17);
-                }
-                this.u.setText(spannableString);
-                return;
-            }
-            this.u.setText(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0a83, new Object[]{0, 500}));
-        }
-    }
-
-    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
-    public void h(@Nullable String str, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048595, this, str, writeData) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        try {
-            writeData.setContent(new JSONObject(str).optString("c"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
-    public boolean o() {
-        InterceptResult invokeV;
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (this.e == null || (spanGroupEditText = this.t) == null || spanGroupEditText.getText() == null) {
-                return true;
-            }
-            if (14 == this.e.getType() && this.t.getText().toString().length() > 500) {
-                aoa aoaVar = this.b;
-                if (aoaVar != null) {
-                    aoaVar.c(this.a.getString(R.string.obfuscated_res_0x7f0f1199));
-                }
-                return false;
-            } else if (this.t.getText().toString().length() > 2000) {
-                TbPageContext<?> tbPageContext = this.a;
-                tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f10f3));
-                return false;
-            } else if (!this.t.getText().toString().contains("ܷ") && !this.t.getText().toString().contains("ܶ")) {
-                return true;
-            } else {
-                TbPageContext<?> tbPageContext2 = this.a;
-                tbPageContext2.showToast(tbPageContext2.getString(R.string.post_char_no_support));
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vna
-    public void onUpdate(Object obj) {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, obj) == null) {
-            if (obj instanceof SelectForumData) {
-                SpanGroupEditText spanGroupEditText2 = this.t;
-                if (spanGroupEditText2 != null) {
-                    spanGroupEditText2.setForumId(vg.g(((SelectForumData) obj).forumId, 0L));
-                }
-            } else if (!(obj instanceof doa) || (spanGroupEditText = this.t) == null) {
-            } else {
-                doa doaVar = (doa) obj;
-                int i = doaVar.a;
-                if (i == 1) {
-                    if (!ListUtils.isEmpty(doaVar.b) && !ListUtils.isEmpty(doaVar.c)) {
-                        this.t.g(doaVar.b, doaVar.c);
+                } catch (Exception e4) {
+                    e = e4;
+                    cursor = query;
+                    try {
+                        e.printStackTrace();
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return arrayList;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        throw th;
                     }
-                } else if (i == 2) {
-                    spanGroupEditText.f(doaVar.d);
+                } catch (Throwable th4) {
+                    th = th4;
+                    cursor = query;
+                    if (cursor != null) {
+                    }
+                    throw th;
                 }
+            } catch (Exception e5) {
+                e = e5;
+                cursor = null;
+            } catch (Throwable th5) {
+                th = th5;
+                cursor = null;
             }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.yna
-    public View s(@NonNull ViewGroup viewGroup) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    public static cna b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0501, viewGroup, false);
-            this.c = inflate;
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091cbd);
-            this.h = (TbAlphaVideo) this.c.findViewById(R.id.obfuscated_res_0x7f09015b);
-            this.t = (SpanGroupEditText) this.c.findViewById(R.id.obfuscated_res_0x7f091cbc);
-            this.u = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091db7);
-            this.v = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091cbf);
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null) {
-                spanGroupEditText.setOnClickListener(this.o);
-                this.t.setOnSpanGroupChangedListener(this.p);
-                this.t.addTextChangedListener(this.r);
-                this.t.setOnFocusChangeListener(this.s);
-                this.t.setType(SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_COMMODITY);
-                this.t.setFilters(new InputFilter[]{new InputFilter.LengthFilter(5000)});
-                WriteData writeData = this.e;
-                if (writeData != null) {
-                    this.t.setForumId(vg.g(writeData.getForumId(), 0L));
-                    ((eoa) this.d).b(this.t.getSpanGroupManager());
-                    if (!TextUtils.isEmpty(this.e.getContent())) {
-                        this.t.setText(TbFaceManager.i().r(this.a.getPageActivity(), this.e.getContent()));
-                        if (this.t.getText() != null) {
-                            SpanGroupEditText spanGroupEditText2 = this.t;
-                            spanGroupEditText2.setSelection(spanGroupEditText2.getText().length());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists() && file.isFile()) {
+                cna cnaVar = new cna();
+                cnaVar.j(str);
+                cnaVar.f(file.lastModified());
+                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                try {
+                    try {
+                        try {
+                            mediaMetadataRetriever.setDataSource(str);
+                            String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
+                            if (extractMetadata != null) {
+                                cnaVar.e(Integer.parseInt(extractMetadata));
+                            }
+                            cnaVar.g(mediaMetadataRetriever.extractMetadata(12));
+                            mediaMetadataRetriever.release();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            mediaMetadataRetriever.release();
                         }
+                    } catch (Throwable th) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                        throw th;
                     }
-                    if (!TextUtils.isEmpty(this.e.getHintText())) {
-                        this.t.setHint(this.e.getHintText());
-                    } else if (12 == this.e.getType()) {
-                        SpannableString spannableString = new SpannableString(" " + this.a.getString(R.string.write_evalute_hint));
-                        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080bb2, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL);
-                        if (pureDrawable != null && this.a.getPageActivity() != null) {
-                            pureDrawable.setBounds(0, 0, pureDrawable.getIntrinsicWidth(), pureDrawable.getIntrinsicHeight());
-                            spannableString.setSpan(new y17(pureDrawable, 1, xi.g(this.a.getPageActivity(), R.dimen.tbds4)), 0, 1, 17);
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+                return cnaVar;
+            }
+            return null;
+        }
+        return (cna) invokeL.objValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!"video/mp4".equals(str) && !"video/ext-mp4".equals(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(List<cna> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
+            Collections.sort(list, new a());
+        }
+    }
+
+    public static void d(String str, List<cna> list, boolean z) {
+        File[] listFiles;
+        cna b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65539, null, str, list, z) == null) && list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
+            for (File file : listFiles) {
+                if (file != null && !StringUtils.isNull(file.getPath())) {
+                    String path = file.getPath();
+                    if (file.isFile()) {
+                        if (path.contains("_tiebaconverting.mp4")) {
+                            if (file.exists()) {
+                                file.delete();
+                            }
+                        } else if (path.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION) && DefaultHlsExtractorFactory.MP4_FILE_EXTENSION.equals(path.substring(path.lastIndexOf(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION))) && (b = b(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && b.a() >= 1000 && c(b.c())) {
+                            list.add(b);
                         }
-                        this.t.setHint(spannableString);
-                    } else if (14 == this.e.getType()) {
-                        this.t.setHint(this.a.getString(R.string.obfuscated_res_0x7f0f1198));
-                        TextView textView = this.u;
-                        if (textView != null) {
-                            textView.setVisibility(0);
-                            this.u.post(new a(this));
-                        }
-                    } else {
-                        this.t.setHint(R.string.main_body);
-                    }
-                    if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.e.getFrom())) {
-                        String str = this.e.getMoreForumTitle() + " " + this.e.getMoreForumUrl();
-                        if (!StringUtils.isNull(str)) {
-                            this.t.setText(str);
-                        }
+                    } else if (file.isDirectory() && !path.contains(com.kuaishou.weapon.p0.i1.j) && z) {
+                        d(path, list, z);
                     }
                 }
             }
-            return this.c;
         }
-        return (View) invokeL.objValue;
     }
 }

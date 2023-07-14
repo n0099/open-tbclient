@@ -1,32 +1,96 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.widget.TextView;
+import com.baidu.tieba.e71;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.load.engine.GlideException;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class re1 {
+public final class re1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(boolean z, long j);
-
-    public abstract void b(@NonNull as0 as0Var);
-
-    public abstract void c();
-
-    public re1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948118635, "Lcom/baidu/tieba/re1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948118635, "Lcom/baidu/tieba/re1;");
+                return;
             }
         }
+        char[] cArr = {21704};
+        a = cArr;
+        b = new String(cArr);
+    }
+
+    public static final String a(String str, String subTag, float f, TextPaint textPaint, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, subTag, Float.valueOf(f), textPaint, Float.valueOf(f2)})) == null) {
+            Intrinsics.checkNotNullParameter(subTag, "subTag");
+            if (TextUtils.isEmpty(subTag)) {
+                subTag = "";
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - (textPaint.measureText(GlideException.IndentedAppendable.INDENT) + f2), TextUtils.TruncateAt.END);
+            if (ellipsize != null) {
+                return ellipsize + GlideException.IndentedAppendable.INDENT + subTag;
+            }
+            return subTag;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static final SpannableStringBuilder b(String str, int i, TextView textView, Context context, Drawable drawable, int i2, float f) {
+        InterceptResult invokeCommon;
+        float e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), textView, context, drawable, Integer.valueOf(i2), Float.valueOf(f)})) == null) {
+            if (!TextUtils.isEmpty(str) && textView != null && context != null && drawable != null && i > 0) {
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                if (textView.getMeasuredWidth() > 0) {
+                    e = (textView.getMeasuredWidth() * i) - drawable.getIntrinsicWidth();
+                } else {
+                    e = ((e71.c.e(context) - i2) * i) - drawable.getIntrinsicWidth();
+                }
+                float f2 = e - ((i - 1) * 10);
+                Intrinsics.checkNotNull(str);
+                int length = str.length() + 1;
+                spannableStringBuilder.append((CharSequence) " ").append((CharSequence) b);
+                if (f2 < textView.getPaint().measureText(spannableStringBuilder.toString())) {
+                    String a2 = a(spannableStringBuilder.toString(), b, f2, textView.getPaint(), drawable.getIntrinsicWidth());
+                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(a2);
+                    drawable.setBounds(0, 0, (int) (drawable.getIntrinsicWidth() * f), (int) (drawable.getIntrinsicHeight() * f));
+                    spannableStringBuilder2.setSpan(new qe1(drawable), a2.length() - b.length(), a2.length(), 17);
+                    return spannableStringBuilder2;
+                }
+                drawable.setBounds(0, 0, (int) (drawable.getIntrinsicWidth() * f), (int) (drawable.getIntrinsicHeight() * f));
+                spannableStringBuilder.setSpan(new qe1(drawable), length, spannableStringBuilder.length(), 17);
+                return spannableStringBuilder;
+            }
+            return new SpannableStringBuilder("");
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 }

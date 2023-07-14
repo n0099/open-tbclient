@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.livecard.holder;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.lf6;
+import com.baidu.tieba.pg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FrsPageAlaStageViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lf6 a;
+    public pg6 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsPageAlaStageViewHolder(lf6 lf6Var) {
-        super(lf6Var.h());
+    public FrsPageAlaStageViewHolder(pg6 pg6Var) {
+        super(pg6Var.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lf6Var};
+            Object[] objArr = {pg6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class FrsPageAlaStageViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = lf6Var;
+        this.a = pg6Var;
     }
 }

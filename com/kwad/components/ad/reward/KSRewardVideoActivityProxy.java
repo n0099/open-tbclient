@@ -36,8 +36,8 @@ import com.kwad.sdk.utils.bd;
 import java.util.HashMap;
 @KsAdSdkDynamicImpl(KsRewardVideoActivity.class)
 @Keep
-/* loaded from: classes9.dex */
-public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> implements com.kwad.components.ad.reward.g.c, a.InterfaceC0619a, p.a, d.b, c.a {
+/* loaded from: classes10.dex */
+public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> implements com.kwad.components.ad.reward.g.c, a.InterfaceC0624a, p.a, d.b, c.a {
     public static final String KEY_REWARD_TYPE = "key_template_reward_type";
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_TEMPLATE_PLAY_AGAIN = "key_template_json_play_again";
@@ -139,7 +139,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static final HashMap<String, a> lU = new HashMap<>();
         public com.kwad.components.ad.reward.c.c kJ;
@@ -239,9 +239,9 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
     }
 
     private void initView() {
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913b7);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913cb);
         this.mRootContainer = adBaseFrameLayout;
-        this.mDetailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f09140d);
+        this.mDetailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091421);
         boolean z = !ag.cB(this.mContext);
         if ((this.mModel.gL() || this.mModel.gM()) && z) {
             this.mDetailVideoView.setForce(true);
@@ -395,7 +395,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
         return "KSRewardLandScapeVideoActivityProxy";
     }
 
-    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0619a
+    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0624a
     public boolean handledOnResume() {
         if (((k) this.mCallerContext).mx || isRefluxVisible()) {
             return true;
@@ -446,7 +446,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
         com.kwad.components.core.m.d.oy().a(this);
         this.mContext = Wrapper.wrapContextIfNeed(getActivity());
         initWithModel(this.mModel);
-        setContentView(R.layout.obfuscated_res_0x7f0d046f);
+        setContentView(R.layout.obfuscated_res_0x7f0d047a);
         initView();
         onActivityCreated(this.mRootContainer);
         c.eZ().a(this.mRewardVerifyListener);
@@ -503,7 +503,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
         }
         kVar.mz = true;
         if (com.kwad.sdk.core.response.a.a.aY(by)) {
-            kVar.mk = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091318));
+            kVar.mk = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09132c));
         }
         kVar.mO = 0L;
         if (this.mModel.by() != null) {

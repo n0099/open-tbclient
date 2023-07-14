@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.forumMember.bawu.BawuTeamInfoReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.bawu.BawuTeamReadCacheResponseMessage;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.ClickableSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
-public class eb7 implements CustomMessageTask.CustomRunnable<Object> {
+public final class eb7 implements za7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,23 +30,29 @@ public class eb7 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.za7
+    public SpannableString b(Context context, r97 richTextData, ClickableSpan clickableSpan) {
+        InterceptResult invokeLLL;
+        k87 b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof BawuTeamInfoReadCacheRequestMessage)) {
-                byte[] a = new cb7().a(((BawuTeamInfoReadCacheRequestMessage) customMessage).getCacheKey());
-                BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = new BawuTeamReadCacheResponseMessage();
-                try {
-                    bawuTeamReadCacheResponseMessage.decodeInBackGround(2003005, a);
-                } catch (Exception e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
+            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
+            w97 f = richTextData.f();
+            SpannableString spannableString = new SpannableString(f.c());
+            if (!TextUtils.isEmpty(richTextData.d()) && f.b() != null) {
+                if ((clickableSpan instanceof ab7) && (b = f.b()) != null) {
+                    ((ab7) clickableSpan).a(yd7.a.a(b));
                 }
-                return bawuTeamReadCacheResponseMessage;
+                int length = f.c().length();
+                if (StringsKt__StringsJVMKt.endsWith$default(f.c(), " ", false, 2, null)) {
+                    length = f.c().length() - 1;
+                }
+                spannableString.setSpan(clickableSpan, 0, length, 33);
             }
-            return null;
+            return spannableString;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (SpannableString) invokeLLL.objValue;
     }
 }

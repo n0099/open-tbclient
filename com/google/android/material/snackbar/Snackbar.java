@@ -26,8 +26,8 @@ import com.baidu.tieba.R;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 /* loaded from: classes9.dex */
 public class Snackbar extends BaseTransientBottomBar<Snackbar> {
-    public static final int[] SNACKBAR_BUTTON_STYLE_ATTR = {R.attr.obfuscated_res_0x7f04069a};
-    public static final int[] SNACKBAR_CONTENT_STYLE_ATTRS = {R.attr.obfuscated_res_0x7f04069a, R.attr.obfuscated_res_0x7f04069c};
+    public static final int[] SNACKBAR_BUTTON_STYLE_ATTR = {R.attr.obfuscated_res_0x7f04069b};
+    public static final int[] SNACKBAR_CONTENT_STYLE_ATTRS = {R.attr.obfuscated_res_0x7f04069b, R.attr.obfuscated_res_0x7f04069d};
     @Nullable
     public final AccessibilityManager accessibilityManager;
     @Nullable
@@ -259,9 +259,9 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         if (findSuitableParent != null) {
             LayoutInflater from = LayoutInflater.from(findSuitableParent.getContext());
             if (hasSnackbarContentStyleAttrs(findSuitableParent.getContext())) {
-                i2 = R.layout.obfuscated_res_0x7f0d0644;
+                i2 = R.layout.obfuscated_res_0x7f0d0650;
             } else {
-                i2 = R.layout.obfuscated_res_0x7f0d0249;
+                i2 = R.layout.obfuscated_res_0x7f0d024b;
             }
             SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) from.inflate(i2, findSuitableParent, false);
             Snackbar snackbar = new Snackbar(findSuitableParent, snackbarContentLayout, snackbarContentLayout);

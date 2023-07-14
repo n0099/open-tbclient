@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailor;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,41 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qy1 implements py1 {
+public class qy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ny1 a;
-
-    /* loaded from: classes7.dex */
-    public class a implements ny1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(qy1 qy1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qy1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ny1
-        public void onActivityResult(Activity activity, int i, int i2, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
-                BdSailor.getInstance().onActivityResult(activity, i, i2, intent);
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
+    public boolean g;
 
     static {
         InterceptResult invokeClinit;
@@ -60,42 +35,70 @@ public class qy1 implements py1 {
                 return;
             }
         }
-        boolean z = ms1.a;
+        boolean z = fs1.a;
     }
 
-    public qy1() {
+    public qy1(String str, String str2, String str3, int i, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new a(this);
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.d = i;
+        this.e = i2;
+        this.f = i3;
+        this.g = z;
     }
 
-    @Override // com.baidu.tieba.py1
-    public oy1 a() {
+    public p03 a() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return db2.k();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("showMuteBtn", true);
+                jSONObject.put("showCenterPlayBtn", true);
+                p03 p03Var = new p03();
+                p03Var.j = "SwanAdPlayer";
+                p03Var.b = "SwanAdPlayer";
+                p03Var.o = true;
+                p03Var.k = false;
+                if (!this.g) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                p03Var.x = z;
+                p03Var.I = false;
+                p03Var.l = this.a;
+                p03Var.y = this.b;
+                p03Var.c = this.c;
+                b23 b23Var = new b23(0, 0, this.d, this.e);
+                p03Var.h = b23Var;
+                b23Var.i(true);
+                p03Var.m = this.f;
+                if (this.g) {
+                    p03Var.q = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
+                }
+                return p03.h(jSONObject, p03Var);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        return (oy1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.py1
-    public ny1 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ny1) invokeV.objValue;
+        return (p03) invokeV.objValue;
     }
 }

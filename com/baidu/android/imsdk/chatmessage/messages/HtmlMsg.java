@@ -97,7 +97,7 @@ public class HtmlMsg extends NormalMsg implements IReplyMsg {
                 return;
             }
         }
-        this.mDesc = IMConstants.IM_GROUP_MSG_DEFAULT_RECOMMEND_DESC;
+        this.mDesc = "[新消息]";
         setMsgType(18);
     }
 
@@ -171,7 +171,7 @@ public class HtmlMsg extends NormalMsg implements IReplyMsg {
                 return;
             }
         }
-        this.mDesc = IMConstants.IM_GROUP_MSG_DEFAULT_RECOMMEND_DESC;
+        this.mDesc = "[新消息]";
         this.mHtml = parcel.readString();
         this.mDesc = parcel.readString();
         this.replyMsgData = (MsgRepliedData) parcel.readParcelable(MsgRepliedData.class.getClassLoader());
@@ -203,7 +203,7 @@ public class HtmlMsg extends NormalMsg implements IReplyMsg {
                 return;
             }
         }
-        this.mDesc = IMConstants.IM_GROUP_MSG_DEFAULT_RECOMMEND_DESC;
+        this.mDesc = "[新消息]";
         setMsgType(18);
         this.mHtml = str;
         setText(str);
@@ -215,7 +215,7 @@ public class HtmlMsg extends NormalMsg implements IReplyMsg {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("html", str);
+                jSONObject.put(IMConstants.IM_RECEIVE_SERVER_COMMON_TYPE_HTML, str);
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "getTextJson", e);
             }
@@ -247,7 +247,7 @@ public class HtmlMsg extends NormalMsg implements IReplyMsg {
             if (!TextUtils.isEmpty(jsonContent)) {
                 try {
                     JSONObject jSONObject = new JSONObject(jsonContent);
-                    this.mHtml = jSONObject.optString("html");
+                    this.mHtml = jSONObject.optString(IMConstants.IM_RECEIVE_SERVER_COMMON_TYPE_HTML);
                     MsgRepliedData msgRepliedData = new MsgRepliedData(jSONObject);
                     this.replyMsgData = msgRepliedData;
                     return msgRepliedData.parseCorrect();

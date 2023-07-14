@@ -22,11 +22,11 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -43,15 +43,16 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b66;
-import com.baidu.tieba.du8;
-import com.baidu.tieba.pa5;
-import com.baidu.tieba.r31;
+import com.baidu.tieba.f76;
+import com.baidu.tieba.g09;
+import com.baidu.tieba.hb5;
+import com.baidu.tieba.n41;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.rd9;
 import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.tieba.recapp.lego.view.AdCloseReasonCheckBox;
-import com.baidu.tieba.v56;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.z66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,7 +81,7 @@ public class AdCloseView extends FrameLayout {
     public PopupWindow c;
     public LinearLayout d;
     public TBSpecificationBtn e;
-    public pa5 f;
+    public hb5 f;
     public TextView g;
     public RelativeLayout h;
     public EMTextView i;
@@ -162,7 +163,7 @@ public class AdCloseView extends FrameLayout {
                         this.a.y = currentTimeMillis;
                     }
                     if (this.a.n != null) {
-                        r31.b(new ClogBuilder().z(String.valueOf(105)).v(this.a.n.j).j("dislike").p(this.a.n.g));
+                        n41.e(new ClogBuilder().z(String.valueOf(105)).v(this.a.n.j).j("dislike").p(this.a.n.g));
                     }
                 }
             }
@@ -201,7 +202,7 @@ public class AdCloseView extends FrameLayout {
                 int s = this.a.s();
                 if (s > 0) {
                     AdCloseView adCloseView = this.a;
-                    adCloseView.e.setText(adCloseView.a.getResources().getString(R.string.obfuscated_res_0x7f0f04be));
+                    adCloseView.e.setText(adCloseView.a.getResources().getString(R.string.obfuscated_res_0x7f0f04c1));
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) this.a.a.getString(R.string.obfuscated_res_0x7f0f00d3));
                     int color = SkinManager.getColor(R.color.CAM_X0105);
@@ -445,7 +446,7 @@ public class AdCloseView extends FrameLayout {
                         this.a.y = currentTimeMillis;
                     }
                     if (this.a.n != null) {
-                        r31.b(new ClogBuilder().z(String.valueOf(105)).v(this.a.n.j).j("dislike").p(this.a.n.g));
+                        n41.e(new ClogBuilder().z(String.valueOf(105)).v(this.a.n.j).j("dislike").p(this.a.n.g));
                     }
                 }
             }
@@ -484,7 +485,7 @@ public class AdCloseView extends FrameLayout {
                 int s = this.a.s();
                 if (s > 0) {
                     AdCloseView adCloseView = this.a;
-                    adCloseView.e.setText(adCloseView.a.getResources().getString(R.string.obfuscated_res_0x7f0f04be));
+                    adCloseView.e.setText(adCloseView.a.getResources().getString(R.string.obfuscated_res_0x7f0f04c1));
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) this.a.a.getString(R.string.obfuscated_res_0x7f0f00d3));
                     int color = SkinManager.getColor(R.color.CAM_X0105);
@@ -676,8 +677,8 @@ public class AdCloseView extends FrameLayout {
             adCloseReasonCheckBox.setTag("vipFreeGuideTag");
             adCloseReasonCheckBox.b(R.string.J_X07, UtilHelper.getDimenPixelSize(R.dimen.L_X01), R.color.CAM_X0311, R.color.CAM_X0311, false);
             SkinManager.setViewTextColor(adCloseReasonCheckBox, (int) R.color.CAM_X0311);
-            String c = v56.e().c();
-            String b = v56.e().b();
+            String c = z66.e().c();
+            String b = z66.e().b();
             if (StringUtils.isNull(c) || StringUtils.isNull(b) || (indexOf = c.indexOf(b)) == -1) {
                 return;
             }
@@ -748,7 +749,7 @@ public class AdCloseView extends FrameLayout {
                         this.a.y = currentTimeMillis;
                     }
                     if (this.a.n != null) {
-                        r31.b(new ClogBuilder().z(String.valueOf(105)).v(this.a.n.j).j("dislike").p(this.a.n.g));
+                        n41.e(new ClogBuilder().z(String.valueOf(105)).v(this.a.n.j).j("dislike").p(this.a.n.g));
                     }
                 }
             }
@@ -787,7 +788,7 @@ public class AdCloseView extends FrameLayout {
                 int s = this.a.s();
                 if (s > 0) {
                     AdCloseView adCloseView = this.a;
-                    adCloseView.e.setText(adCloseView.a.getResources().getString(R.string.obfuscated_res_0x7f0f04be));
+                    adCloseView.e.setText(adCloseView.a.getResources().getString(R.string.obfuscated_res_0x7f0f04c1));
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) this.a.a.getString(R.string.obfuscated_res_0x7f0f00d3));
                     int color = SkinManager.getColor(R.color.CAM_X0105);
@@ -985,7 +986,7 @@ public class AdCloseView extends FrameLayout {
             if (context == null) {
                 return null;
             }
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d006b, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d006a, (ViewGroup) null);
             this.g = (TextView) inflate.findViewById(R.id.head_text);
             this.h = (RelativeLayout) inflate.findViewById(R.id.top_area);
             View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090101);
@@ -994,10 +995,10 @@ public class AdCloseView extends FrameLayout {
             if (!TextUtils.isEmpty(this.q)) {
                 this.g.setText(this.q);
             }
-            this.e = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090b89);
-            pa5 pa5Var = new pa5();
-            this.f = pa5Var;
-            pa5Var.t(R.color.CAM_X0304);
+            this.e = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090b95);
+            hb5 hb5Var = new hb5();
+            this.f = hb5Var;
+            hb5Var.u(R.color.CAM_X0304);
             this.e.setConfig(this.f);
             if (!TextUtils.isEmpty(this.r)) {
                 this.e.setText(this.r);
@@ -1013,7 +1014,7 @@ public class AdCloseView extends FrameLayout {
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0107, 1);
             this.j.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_ad_dislike_arrow20_right_n));
-            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ded);
+            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e09);
             this.m = new ArrayList();
             return inflate;
         }
@@ -1033,7 +1034,7 @@ public class AdCloseView extends FrameLayout {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0207));
-        gradientDrawable.setCornerRadius(xi.g(this.a, R.dimen.tbds31));
+        gradientDrawable.setCornerRadius(yi.g(this.a, R.dimen.tbds31));
         this.u.setBackgroundDrawable(gradientDrawable);
         PopupWindow popupWindow = new PopupWindow(contentView, this.t, this.s);
         this.b = popupWindow;
@@ -1063,9 +1064,9 @@ public class AdCloseView extends FrameLayout {
         }
         this.b.setBackgroundDrawable(new ColorDrawable(0));
         if (p) {
-            this.b.setAnimationStyle(R.style.obfuscated_res_0x7f10040e);
-        } else {
             this.b.setAnimationStyle(R.style.obfuscated_res_0x7f10040f);
+        } else {
+            this.b.setAnimationStyle(R.style.obfuscated_res_0x7f100410);
         }
         this.b.showAtLocation(getRootView(), 0, iArr[0] - this.w, iArr[1]);
         if (!StringUtils.isNull(this.B)) {
@@ -1073,52 +1074,29 @@ public class AdCloseView extends FrameLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String getSelectedResultJsonObj() {
+    private int getSceneId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            if (this.n == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            if (!du8.e(this.m)) {
-                for (int i = 0; i < du8.i(this.m); i++) {
-                    CheckBox checkBox = (CheckBox) du8.d(this.m, i);
-                    if (checkBox != null && checkBox.isChecked() && du8.i(this.p) > i) {
-                        if (sb.length() != 0) {
-                            sb.append(",");
-                        }
-                        sb.append((String) du8.d(this.p, i));
+            int i = this.D;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return 0;
                     }
+                    return IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER;
                 }
+                return 2018;
             }
-            return sb.toString();
+            return 2017;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.k = new ImageView(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.tbds72), getContext().getResources().getDimensionPixelSize(R.dimen.tbds72));
-            layoutParams.gravity = 21;
-            addView(this.k, layoutParams);
-            this.w = xi.g(this.a, R.dimen.M_W_X004);
-            this.x = xi.g(this.a, R.dimen.obfuscated_res_0x7f070353);
-            this.s = xi.g(this.a, R.dimen.obfuscated_res_0x7f0703a9);
-            this.t = xi.l(this.a) - (this.w * 2);
-            this.v = xi.g(this.a, R.dimen.obfuscated_res_0x7f07035e);
-            setOnClickListener(this.E);
-            this.k.setImageDrawable(WebPManager.getPureDrawable(this.l, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS));
-        }
+        return invokeV.intValue;
     }
 
     private int getWindowMeasuredHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
             View view2 = this.u;
             if (view2 == null) {
                 return 0;
@@ -1173,24 +1151,66 @@ public class AdCloseView extends FrameLayout {
     public final void u() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && q()) {
-            b66.l().c(getContext(), new String[]{this.o.url}, null);
+            f76.l().c(getContext(), new String[]{this.o.url}, null);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String getSelectedResultJsonObj() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            if (this.n == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            if (!g09.e(this.m)) {
+                for (int i = 0; i < g09.i(this.m); i++) {
+                    CheckBox checkBox = (CheckBox) g09.d(this.m, i);
+                    if (checkBox != null && checkBox.isChecked() && g09.i(this.p) > i) {
+                        if (sb.length() != 0) {
+                            sb.append(",");
+                        }
+                        sb.append((String) g09.d(this.p, i));
+                    }
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.k = new ImageView(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.tbds72), getContext().getResources().getDimensionPixelSize(R.dimen.tbds72));
+            layoutParams.gravity = 21;
+            addView(this.k, layoutParams);
+            this.w = yi.g(this.a, R.dimen.M_W_X004);
+            this.x = yi.g(this.a, R.dimen.obfuscated_res_0x7f070359);
+            this.s = yi.g(this.a, R.dimen.obfuscated_res_0x7f0703af);
+            this.t = yi.l(this.a) - (this.w * 2);
+            this.v = yi.g(this.a, R.dimen.obfuscated_res_0x7f070364);
+            setOnClickListener(this.E);
+            this.k.setImageDrawable(WebPManager.getPureDrawable(this.l, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !du8.e(this.p)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !g09.e(this.p)) {
             o();
-            int i = du8.i(this.p);
+            int i = g09.i(this.p);
             this.d.setVisibility(0);
             int i2 = 0;
             for (int i3 = 0; i3 < Math.ceil(i / 2.0d); i3++) {
-                LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d006c, (ViewGroup) null);
+                LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d006b, (ViewGroup) null);
                 linearLayout.setOrientation(0);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
                 layoutParams.gravity = 1;
                 if (i3 != 0) {
-                    layoutParams.topMargin = xi.g(this.a, R.dimen.M_H_X003);
+                    layoutParams.topMargin = yi.g(this.a, R.dimen.M_H_X003);
                 }
                 linearLayout.setLayoutParams(layoutParams);
                 this.d.addView(linearLayout);
@@ -1198,12 +1218,12 @@ public class AdCloseView extends FrameLayout {
                     CheckBox checkBox = (CheckBox) linearLayout.getChildAt(i4);
                     checkBox.setOnClickListener(this.F);
                     checkBox.setVisibility(0);
-                    du8.a(this.m, checkBox);
+                    g09.a(this.m, checkBox);
                 }
             }
-            for (int i5 = 0; i5 < du8.i(this.p); i5++) {
-                String str = (String) du8.d(this.p, i5);
-                CheckBox checkBox2 = (CheckBox) du8.d(this.m, i5);
+            for (int i5 = 0; i5 < g09.i(this.p); i5++) {
+                String str = (String) g09.d(this.p, i5);
+                CheckBox checkBox2 = (CheckBox) g09.d(this.m, i5);
                 if (checkBox2 != null) {
                     checkBox2.setText(str);
                     w(checkBox2, str);
@@ -1215,11 +1235,11 @@ public class AdCloseView extends FrameLayout {
     public final void o() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && TbadkCoreApplication.isLogin()) {
-            this.B = v56.e().c();
+            this.B = z66.e().c();
             List<String> list = this.p;
-            String str = (String) du8.d(list, du8.i(list) - 1);
+            String str = (String) g09.d(list, g09.i(list) - 1);
             if (!StringUtils.isNull(this.B) && !this.B.equals(str)) {
-                du8.a(this.p, this.B);
+                g09.a(this.p, this.B);
             }
         }
     }
@@ -1247,12 +1267,12 @@ public class AdCloseView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (du8.e(this.m)) {
+            if (g09.e(this.m)) {
                 return 0;
             }
             int i = 0;
-            for (int i2 = 0; i2 < du8.i(this.m); i2++) {
-                CheckBox checkBox = (CheckBox) du8.d(this.m, i2);
+            for (int i2 = 0; i2 < g09.i(this.m); i2++) {
+                CheckBox checkBox = (CheckBox) g09.d(this.m, i2);
                 if (checkBox != null && checkBox.isChecked()) {
                     i++;
                 }
@@ -1273,8 +1293,8 @@ public class AdCloseView extends FrameLayout {
             int[] iArr2 = new int[2];
             view2.getLocationOnScreen(iArr2);
             int height = view2.getHeight();
-            int j = xi.j(context);
-            int l = xi.l(context);
+            int j = yi.j(context);
+            int l = yi.l(context);
             if (((j - iArr2[1]) - height) - i3 < i) {
                 z = true;
             } else {
@@ -1295,10 +1315,7 @@ public class AdCloseView extends FrameLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && "vipFreeGuideTag".equals(view2.getTag())) {
             t();
-            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getContext(), TbadkCoreApplication.getCurrentMemberType(), "", 27, !StringUtils.isNull(v56.e().h()));
-            memberPayActivityConfig.setFromScence(MemberPayActivityConfig.SCENE_FROM_FEEDBACK);
-            memberPayActivityConfig.setReferPageClickZone(MemberPayActivityConfig.AUTOPAY_FROM_LOW_INCOME_FEEDBACK, MemberPayActivityConfig.AUTOPAY_FROM_LOW_INCOME_FEEDBACK);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
+            rd9.e(TbadkCoreApplication.getInst().getCurrentPageContext(this.a), getSceneId(), MemberPayActivityConfig.AUTOPAY_FROM_LOW_INCOME_FEEDBACK, MemberPayActivityConfig.AUTOPAY_FROM_LOW_INCOME_FEEDBACK, String.valueOf((int) MemberPayActivityConfig.SCENE_FROM_FEEDBACK));
         }
     }
 
@@ -1308,13 +1325,13 @@ public class AdCloseView extends FrameLayout {
             return;
         }
         this.n = advertAppInfo;
-        this.C = advertAppInfo.t;
-        this.D = advertAppInfo.u;
-        du8.c(this.p);
+        this.C = advertAppInfo.u;
+        this.D = advertAppInfo.v;
+        g09.c(this.p);
         if (adCloseInfo != null) {
             this.o = adCloseInfo.action_control;
             for (String str : adCloseInfo.reasons) {
-                du8.a(this.p, str);
+                g09.a(this.p, str);
             }
             String str2 = adCloseInfo.title;
             this.q = str2;

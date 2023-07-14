@@ -13,9 +13,9 @@ import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.mn5;
-import com.baidu.tieba.xx7;
-import com.baidu.tieba.ye7;
+import com.baidu.tieba.ej7;
+import com.baidu.tieba.lo5;
+import com.baidu.tieba.q28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,26 +24,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class GameVideoFragment extends BaseFragment implements ye7 {
+public class GameVideoFragment extends BaseFragment implements ej7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xx7 a;
+    public q28 a;
 
-    @Override // com.baidu.tieba.ye7
-    public void H() {
+    @Override // com.baidu.tieba.ej7
+    public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ye7
+    @Override // com.baidu.tieba.ej7
     public void f0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.cs5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.gt5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,17 +64,17 @@ public class GameVideoFragment extends BaseFragment implements ye7 {
         }
     }
 
-    @Override // com.baidu.tieba.ye7
+    @Override // com.baidu.tieba.ej7
     public void B() {
-        xx7 xx7Var;
+        q28 q28Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (xx7Var = this.a) != null) {
-            xx7Var.y();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (q28Var = this.a) != null) {
+            q28Var.y();
         }
     }
 
-    @Override // com.baidu.tieba.ye7
-    public void i0() {
+    @Override // com.baidu.tieba.ej7
+    public void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -83,10 +83,10 @@ public class GameVideoFragment extends BaseFragment implements ye7 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void notifyColourHeaderData() {
-        xx7 xx7Var;
+        q28 q28Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (xx7Var = this.a) != null) {
-            xx7Var.v();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (q28Var = this.a) != null) {
+            q28Var.v();
         }
     }
 
@@ -95,11 +95,11 @@ public class GameVideoFragment extends BaseFragment implements ye7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            xx7 xx7Var = this.a;
-            if (xx7Var != null) {
-                xx7Var.w();
+            q28 q28Var = this.a;
+            if (q28Var != null) {
+                q28Var.w();
             }
-            mn5.e().b();
+            lo5.e().b();
         }
     }
 
@@ -108,9 +108,9 @@ public class GameVideoFragment extends BaseFragment implements ye7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onLazyLoad();
-            xx7 xx7Var = this.a;
-            if (xx7Var != null) {
-                xx7Var.t();
+            q28 q28Var = this.a;
+            if (q28Var != null) {
+                q28Var.t();
             }
         }
     }
@@ -120,14 +120,14 @@ public class GameVideoFragment extends BaseFragment implements ye7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPause();
-            xx7 xx7Var = this.a;
-            if (xx7Var != null) {
-                xx7Var.x();
+            q28 q28Var = this.a;
+            if (q28Var != null) {
+                q28Var.x();
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.cs5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.gt5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -154,9 +154,9 @@ public class GameVideoFragment extends BaseFragment implements ye7 {
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            xx7 xx7Var = this.a;
-            if (xx7Var != null) {
-                xx7Var.z(isPrimary());
+            q28 q28Var = this.a;
+            if (q28Var != null) {
+                q28Var.z(isPrimary());
             }
         }
     }
@@ -166,9 +166,9 @@ public class GameVideoFragment extends BaseFragment implements ye7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            xx7 xx7Var = this.a;
-            if (xx7Var != null) {
-                xx7Var.n();
+            q28 q28Var = this.a;
+            if (q28Var != null) {
+                q28Var.n();
             }
         }
     }
@@ -180,7 +180,7 @@ public class GameVideoFragment extends BaseFragment implements ye7 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5042);
             super.onCreate(bundle);
             if (this.a == null) {
-                this.a = new xx7(this, getPageContext(), getUniqueId());
+                this.a = new q28(this, getPageContext(), getUniqueId());
             }
             this.a.s();
             SpeedStatsManager.getInstance().addStatsTimeStamp(5043);
@@ -195,8 +195,8 @@ public class GameVideoFragment extends BaseFragment implements ye7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5044);
-            xx7 xx7Var = this.a;
-            if (xx7Var != null && xx7Var.r() != null) {
+            q28 q28Var = this.a;
+            if (q28Var != null && q28Var.r() != null) {
                 if (this.a.r().getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.a.r().getParent()).removeView(this.a.r());
                 }

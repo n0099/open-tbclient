@@ -1,22 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodInfo;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ar4 implements Comparable<ar4> {
+public class ar4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ar4 m;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public String d;
-    public long e;
-    public MethodInfo f;
+    public Context a;
+    public final HashSet<String> b;
+    public final HashSet<String> c;
+    public final HashSet<String> d;
+    public final HashSet<String> e;
+    public final HashMap<String, String> f;
+    public final HashMap<String, String> g;
+    public final HashMap<String, er4> h;
+    public final HashSet<String> i;
+    public int j;
+    public int k;
+    public int l;
 
     public ar4() {
         Interceptable interceptable = $ic;
@@ -28,68 +40,241 @@ public class ar4 implements Comparable<ar4> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new HashSet<>();
+        this.c = new HashSet<>();
+        this.d = new HashSet<>();
+        this.e = new HashSet<>();
+        this.f = new HashMap<>();
+        this.g = new HashMap<>();
+        this.h = new HashMap<>();
+        this.i = new HashSet<>();
     }
 
-    public long b() {
+    public static ar4 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.c - this.b;
-            if (j < 0) {
-                return 0L;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (m == null) {
+                synchronized (ar4.class) {
+                    if (m == null) {
+                        m = new ar4();
+                    }
+                }
             }
-            return j;
+            return m;
         }
-        return invokeV.longValue;
+        return (ar4) invokeV.objValue;
     }
 
-    public MethodInfo c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (MethodInfo) invokeV.objValue;
-    }
-
-    public int d() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+            return this.k;
         }
         return invokeV.intValue;
     }
 
-    public long e() {
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
+            return this.l;
         }
-        return invokeV.longValue;
+        return invokeV.intValue;
     }
 
-    public String f() {
+    public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
+            return this.j;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(ar4 ar4Var) {
+    public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ar4Var)) == null) {
-            return (int) (this.e - ar4Var.e());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return this.d.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (br4.g().r()) {
+                return true;
+            }
+            return this.c.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.g.containsKey(str)) {
+                return this.g.get(str);
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && this.i.contains(str)) {
+                return "1";
+            }
+            return "0";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            er4 er4Var = this.h.get(str);
+            if (er4Var != null && er4Var.b()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            er4 er4Var = this.h.get(str);
+            if (er4Var != null && er4Var.c()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || i < this.k) {
+            return;
+        }
+        this.k = i;
+        qr4.e().putInt("ubc_data_expire_time", i);
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048589, this, i) != null) || i < this.l) {
+            return;
+        }
+        this.l = i;
+        qr4.e().putInt("ubc_database_limit", i);
+    }
+
+    public void p(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048590, this, i) != null) || (i2 = i * 60000) < this.j) {
+            return;
+        }
+        this.j = i2;
+    }
+
+    public boolean c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            if (this.b.contains(str)) {
+                return false;
+            }
+            if ((i & 16) == 0 && (i & 32) == 0) {
+                return true;
+            }
+            return this.e.contains(str);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public int i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (br4.g().q() || TextUtils.isEmpty(str) || !this.f.containsKey(str)) {
+                return 0;
+            }
+            return Integer.parseInt(this.f.get(str));
         }
         return invokeL.intValue;
+    }
+
+    public void k(zq4 zq4Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, zq4Var, context) == null) {
+            this.a = context;
+            this.j = 360000;
+            qr4 e = qr4.e();
+            this.k = e.getInt("ubc_data_expire_time", 259200000);
+            this.l = e.getInt("ubc_database_limit", 4000);
+            zq4Var.e().w(this.b, this.e, this.c, this.d, this.f, this.g, this.h, this.i);
+        }
+    }
+
+    public void q(List<dr4> list) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
+            for (dr4 dr4Var : list) {
+                if ("0".equals(dr4Var.b)) {
+                    this.b.add(dr4Var.a);
+                } else {
+                    this.b.remove(dr4Var.a);
+                }
+                if ("1".equals(dr4Var.c)) {
+                    this.c.add(dr4Var.a);
+                } else {
+                    this.c.remove(dr4Var.a);
+                }
+                if ("1".equals(dr4Var.f)) {
+                    this.d.add(dr4Var.a);
+                } else {
+                    this.d.remove(dr4Var.a);
+                }
+                int i2 = dr4Var.g;
+                if (i2 >= 1 && i2 <= 100) {
+                    this.f.put(dr4Var.a, String.valueOf(i2));
+                } else {
+                    this.f.remove(dr4Var.a);
+                }
+                if (!TextUtils.isEmpty(dr4Var.h)) {
+                    this.g.put(dr4Var.a, dr4Var.h);
+                } else {
+                    this.g.remove(dr4Var.a);
+                }
+                int i3 = dr4Var.j;
+                if (i3 != 0 && (i = dr4Var.i) != 0) {
+                    er4 er4Var = new er4(dr4Var.a, i3, i);
+                    this.h.put(er4Var.a(), er4Var);
+                }
+                if (TextUtils.equals(dr4Var.k, "1")) {
+                    this.i.add(dr4Var.a);
+                } else {
+                    this.i.remove(dr4Var.a);
+                }
+            }
+        }
     }
 }

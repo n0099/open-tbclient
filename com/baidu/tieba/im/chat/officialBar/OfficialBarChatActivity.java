@@ -30,8 +30,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gc8;
-import com.baidu.tieba.h78;
+import com.baidu.tieba.ay5;
+import com.baidu.tieba.az5;
+import com.baidu.tieba.cc8;
+import com.baidu.tieba.ch8;
+import com.baidu.tieba.hg8;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.chat.CommonPersonalChatActivity;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarMsglistView;
@@ -44,16 +47,13 @@ import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.im.model.OfficialBarMsglistModel;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
 import com.baidu.tieba.im.view.OfficialSecondMenuPopupWindow;
-import com.baidu.tieba.lb8;
+import com.baidu.tieba.lf8;
 import com.baidu.tieba.mb;
-import com.baidu.tieba.pa8;
-import com.baidu.tieba.qe5;
-import com.baidu.tieba.s88;
-import com.baidu.tieba.sx5;
-import com.baidu.tieba.t88;
-import com.baidu.tieba.ww5;
-import com.baidu.tieba.wx5;
-import com.baidu.tieba.xa8;
+import com.baidu.tieba.nd8;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.od8;
+import com.baidu.tieba.tf8;
+import com.baidu.tieba.wy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,10 +71,10 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
     public final mb y;
     public final mb z;
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.e26
-    public void j0(Context context, String str) {
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.i36
+    public void i0(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str) == null) {
         }
     }
 
@@ -119,7 +119,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
     }
 
     /* loaded from: classes6.dex */
-    public class b extends sx5<Void> {
+    public class b extends wy5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserData a;
@@ -145,13 +145,13 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sx5
+        @Override // com.baidu.tieba.wy5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                xa8.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), this.a);
+                tf8.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -159,7 +159,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
     }
 
     /* loaded from: classes6.dex */
-    public class c extends sx5<Boolean> {
+    public class c extends wy5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserData a;
@@ -186,19 +186,19 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.sx5
+        @Override // com.baidu.tieba.wy5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Boolean.valueOf(xa8.j().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getUserId())));
+                return Boolean.valueOf(tf8.j().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getUserId())));
             }
             return (Boolean) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements ww5<Boolean> {
+    public class d implements ay5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialBarChatActivity a;
@@ -222,7 +222,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ww5
+        @Override // com.baidu.tieba.ay5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -271,42 +271,42 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
             String errorString;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) {
-                this.a.v.M(false);
+                this.a.v.N(false);
                 if (!(socketResponsedMessage instanceof ResponseOfficialBarMenuMessage)) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
                     return;
                 }
                 ResponseOfficialBarMenuMessage responseOfficialBarMenuMessage = (ResponseOfficialBarMenuMessage) socketResponsedMessage;
                 if (responseOfficialBarMenuMessage.hasError()) {
                     if (responseOfficialBarMenuMessage.getError() > 0 && !TextUtils.isEmpty(responseOfficialBarMenuMessage.getErrorString())) {
                         if (StringUtils.isNull(responseOfficialBarMenuMessage.getErrorString())) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e0f);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e1f);
                         } else {
                             errorString = responseOfficialBarMenuMessage.getErrorString();
                         }
                         this.a.showToast(errorString);
                     } else {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
                     }
-                    t88 officialBarMenuDatas = this.a.w.getOfficialBarMenuDatas();
+                    od8 officialBarMenuDatas = this.a.w.getOfficialBarMenuDatas();
                     if (officialBarMenuDatas == null || officialBarMenuDatas.a() == null || officialBarMenuDatas.a().size() == 0) {
-                        this.a.v.J(true, true);
+                        this.a.v.L(true, true);
                         return;
                     }
                     return;
                 }
-                t88 officialBarMenuDatas2 = responseOfficialBarMenuMessage.getOfficialBarMenuDatas();
+                od8 officialBarMenuDatas2 = responseOfficialBarMenuMessage.getOfficialBarMenuDatas();
                 if (officialBarMenuDatas2 != null) {
                     if (officialBarMenuDatas2.c()) {
-                        this.a.v.J(false, false);
+                        this.a.v.L(false, false);
                         if (officialBarMenuDatas2.a() != null && officialBarMenuDatas2.a().size() > 0) {
                             this.a.w.setOfficialBarMenuDatas(officialBarMenuDatas2);
-                            this.a.v.K(officialBarMenuDatas2.a());
+                            this.a.v.M(officialBarMenuDatas2.a());
                             return;
                         }
                         return;
                     }
-                    this.a.v.J(true, true);
+                    this.a.v.L(true, true);
                 }
             }
         }
@@ -346,23 +346,23 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
             String errorString;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) {
-                this.a.v.M(false);
+                this.a.v.N(false);
                 if (!(socketResponsedMessage instanceof ResponseSendOfficialBarMenuMessage)) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
                     return;
                 }
                 ResponseSendOfficialBarMenuMessage responseSendOfficialBarMenuMessage = (ResponseSendOfficialBarMenuMessage) socketResponsedMessage;
                 if (responseSendOfficialBarMenuMessage.hasError()) {
                     if (responseSendOfficialBarMenuMessage.getError() > 0 && !TextUtils.isEmpty(responseSendOfficialBarMenuMessage.getErrorString())) {
                         if (StringUtils.isNull(responseSendOfficialBarMenuMessage.getErrorString())) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e0f);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e1f);
                         } else {
                             errorString = responseSendOfficialBarMenuMessage.getErrorString();
                         }
                         this.a.showToast(errorString);
                         return;
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
                 }
             }
         }
@@ -401,19 +401,19 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseOfficialBarMenuLocalMessage)) {
-                    t88 officialBarMenuDatas = ((ResponseOfficialBarMenuLocalMessage) customResponsedMessage).getOfficialBarMenuDatas();
+                    od8 officialBarMenuDatas = ((ResponseOfficialBarMenuLocalMessage) customResponsedMessage).getOfficialBarMenuDatas();
                     if (officialBarMenuDatas != null) {
-                        this.a.v.J(false, false);
+                        this.a.v.L(false, false);
                         this.a.w.setOfficialBarMenuDatas(officialBarMenuDatas);
                         this.a.w.sendGetMenuNetMessage(this.a.w.getForumId(), officialBarMenuDatas.b());
-                        this.a.v.K(officialBarMenuDatas.a());
+                        this.a.v.M(officialBarMenuDatas.a());
                         return;
                     }
-                    this.a.v.J(true, false);
+                    this.a.v.L(true, false);
                     this.a.w.sendGetMenuNetMessage(this.a.w.getForumId(), 0L);
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
             }
         }
     }
@@ -448,7 +448,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         if (!(msglistModel instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) msglistModel).getUser()) == null) {
             return;
         }
-        wx5.c(new c(this, user), new d(this));
+        az5.c(new c(this, user), new d(this));
     }
 
     public final void p2() {
@@ -470,11 +470,11 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean U1(h78 h78Var) {
+    public boolean U1(cc8 cc8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h78Var)) == null) {
-            this.c.loadFirst(h78Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cc8Var)) == null) {
+            this.c.loadFirst(cc8Var);
             return true;
         }
         return invokeL.booleanValue;
@@ -503,7 +503,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
     public void h2(UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, userData) == null) {
-            wx5.c(new b(this, userData), null);
+            az5.c(new b(this, userData), null);
         }
     }
 
@@ -513,24 +513,24 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onCreate(bundle);
             if (this.x == 1) {
-                this.v.M(true);
+                this.v.N(true);
                 OfficialBarMsglistModel officialBarMsglistModel = this.w;
                 officialBarMsglistModel.sendGetMenuLocalMessage(officialBarMsglistModel.getForumId());
             }
-            lb8.c().b();
+            hg8.c().b();
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.pf
-    public void D(View view2, int i, int i2, long j) {
+    @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.qf
+    public void B(View view2, int i, int i2, long j) {
         ChatMessage msg;
         ChatMessage msg2;
         String k;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            super.D(view2, i, i2, j);
+            super.B(view2, i, i2, j);
             if (i != 2) {
-                if (i != 4 || !I1() || (msg2 = this.c.getMsg(i2)) == null || !gc8.B(msg2) || (k = gc8.k(msg2.getContent(), true)) == null) {
+                if (i != 4 || !I1() || (msg2 = this.c.getMsg(i2)) == null || !ch8.B(msg2) || (k = ch8.k(msg2.getContent(), true)) == null) {
                     return;
                 }
                 MsglistModel msglistModel = this.c;
@@ -578,14 +578,14 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         return invokeL.booleanValue;
     }
 
-    public final void o2(s88 s88Var) {
+    public final void o2(nd8 nd8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, s88Var) == null) {
-            if (s88Var.a() == 2) {
-                this.v.M(true);
-                this.w.sendClickMenuMessage(s88Var.c(), TbadkCoreApplication.getCurrentAccount(), this.w.getForumId());
-            } else if (s88Var.a() == 1) {
-                UtilHelper.commenDealUrl(getPageContext().getPageActivity(), s88Var.b(), s88Var.d());
+        if (interceptable == null || interceptable.invokeL(1048587, this, nd8Var) == null) {
+            if (nd8Var.a() == 2) {
+                this.v.N(true);
+                this.w.sendClickMenuMessage(nd8Var.c(), TbadkCoreApplication.getCurrentAccount(), this.w.getForumId());
+            } else if (nd8Var.a() == 1) {
+                UtilHelper.commenDealUrl(getPageContext().getPageActivity(), nd8Var.b(), nd8Var.d());
             }
         }
     }
@@ -598,14 +598,14 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
             int rawX = (int) motionEvent.getRawX();
             int rawY = (int) motionEvent.getRawY();
             if (n2(this.v.getListMain()).contains(rawX, rawY)) {
-                OfficialSecondMenuPopupWindow G = this.v.G();
-                if (G.isShown() && !n2(G).contains(rawX, rawY)) {
+                OfficialSecondMenuPopupWindow H = this.v.H();
+                if (H.isShown() && !n2(H).contains(rawX, rawY)) {
                     for (int i = 0; i < 3; i++) {
-                        OfficialBarMsglistView.d dVar = this.v.F()[i];
+                        OfficialBarMsglistView.d dVar = this.v.G()[i];
                         if (dVar.a) {
-                            this.v.G().g();
+                            this.v.H().g();
                             dVar.a = false;
-                            this.v.O(i, false);
+                            this.v.P(i, false);
                         }
                     }
                     return false;
@@ -621,22 +621,22 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         UserData user;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             OfficialBarMsglistView officialBarMsglistView = new OfficialBarMsglistView(this, this.c.getIsAcceptNotify());
             this.b = officialBarMsglistView;
             OfficialBarMsglistView officialBarMsglistView2 = officialBarMsglistView;
             this.v = officialBarMsglistView2;
             if (this.x == 4) {
-                officialBarMsglistView2.I(R.string.obfuscated_res_0x7f0f0c86);
+                officialBarMsglistView2.J(R.string.obfuscated_res_0x7f0f0c91);
                 this.v.closeNotNotify();
                 this.v.closeReceiver();
-                this.v.H();
+                this.v.I();
             }
             if (this.x == 3) {
-                this.v.H();
+                this.v.I();
             }
             this.b.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
-            long longValue = pa8.j.longValue();
+            long longValue = lf8.j.longValue();
             MsglistModel msglistModel = this.c;
             if (!(msglistModel instanceof OfficialBarMsglistModel) || (user = ((OfficialBarMsglistModel) msglistModel).getUser()) == null) {
                 return;
@@ -650,7 +650,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
                 this.b.refreshHeaderFooter(str, false);
             } else {
                 AbsMsglistView absMsglistView = this.b;
-                absMsglistView.refreshHeaderFooter(str + getPageContext().getString(R.string.obfuscated_res_0x7f0f076a), false);
+                absMsglistView.refreshHeaderFooter(str + getPageContext().getString(R.string.obfuscated_res_0x7f0f0773), false);
             }
             this.b.bindDataAndRefresh(this.c.getData(), longValue);
             this.b.setRecordCallback(new a(this));
@@ -670,8 +670,8 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        List<s88> a2;
-        s88 s88Var;
+        List<nd8> a2;
+        nd8 nd8Var;
         UserData user;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
@@ -686,34 +686,34 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(getPageContext().getPageActivity(), user.getUserIdLong() + "", ForumDetailActivityConfig.FromType.BAR)));
-            } else if (view2 == this.v.F()[0].b || view2 == this.v.F()[1].b || view2 == this.v.F()[2].b) {
+            } else if (view2 == this.v.G()[0].b || view2 == this.v.G()[1].b || view2 == this.v.G()[2].b) {
                 TiebaStatic.log("service_bt_ck");
-                int E = this.v.E(view2);
+                int F = this.v.F(view2);
                 for (int i = 0; i < 3; i++) {
-                    OfficialBarMsglistView.d dVar = this.v.F()[i];
-                    if (dVar.a && i != E) {
-                        this.v.G().h();
+                    OfficialBarMsglistView.d dVar = this.v.G()[i];
+                    if (dVar.a && i != F) {
+                        this.v.H().h();
                         dVar.a = false;
-                        this.v.O(i, false);
+                        this.v.P(i, false);
                     }
                 }
-                t88 officialBarMenuDatas = this.w.getOfficialBarMenuDatas();
-                if (officialBarMenuDatas != null && (a2 = officialBarMenuDatas.a()) != null && E < a2.size() && (s88Var = a2.get(E)) != null) {
-                    if (s88Var.a() == 0) {
-                        OfficialBarMsglistView.d dVar2 = this.v.F()[E];
-                        OfficialSecondMenuPopupWindow G = this.v.G();
+                od8 officialBarMenuDatas = this.w.getOfficialBarMenuDatas();
+                if (officialBarMenuDatas != null && (a2 = officialBarMenuDatas.a()) != null && F < a2.size() && (nd8Var = a2.get(F)) != null) {
+                    if (nd8Var.a() == 0) {
+                        OfficialBarMsglistView.d dVar2 = this.v.G()[F];
+                        OfficialSecondMenuPopupWindow H = this.v.H();
                         if (dVar2.a) {
-                            G.g();
+                            H.g();
                         } else {
-                            G.setData(3, E, s88Var.e());
-                            G.i(view2);
+                            H.setData(3, F, nd8Var.e());
+                            H.i(view2);
                         }
                         boolean z = !dVar2.a;
                         dVar2.a = z;
-                        this.v.O(E, z);
+                        this.v.P(F, z);
                         return;
                     }
-                    o2(s88Var);
+                    o2(nd8Var);
                 }
             }
         }
@@ -725,8 +725,8 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDestroy();
             ChatStatusManager.getInst().setCurId(1, "");
-            lb8.c().g();
-            lb8.c().b();
+            hg8.c().g();
+            hg8.c().b();
         }
     }
 
@@ -748,10 +748,10 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
             ChatStatusManager.getInst().setIsOpen(1, true);
             String curId = ChatStatusManager.getInst().getCurId(1);
             if (!TextUtils.isEmpty(curId)) {
-                qe5.p0().q(19);
+                nf5.p0().q(19);
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 4)));
             }
-            OfficialSettingItemData a2 = xa8.j().a(TbadkCoreApplication.getCurrentAccount(), curId);
+            OfficialSettingItemData a2 = tf8.j().a(TbadkCoreApplication.getCurrentAccount(), curId);
             MsglistModel msglistModel = this.c;
             if (msglistModel != null) {
                 if (a2 != null && !a2.isAcceptNotify()) {
@@ -773,14 +773,14 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
     }
 
     @Override // com.baidu.tieba.im.view.OfficialSecondMenuPopupWindow.c
-    public void t0(int i, s88 s88Var) {
+    public void s0(int i, nd8 nd8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048594, this, i, s88Var) != null) || s88Var == null) {
+        if ((interceptable != null && interceptable.invokeIL(1048594, this, i, nd8Var) != null) || nd8Var == null) {
             return;
         }
-        o2(s88Var);
-        this.v.G().g();
-        this.v.F()[i].a = false;
-        this.v.O(i, false);
+        o2(nd8Var);
+        this.v.H().g();
+        this.v.G()[i].a = false;
+        this.v.P(i, false);
     }
 }

@@ -1,157 +1,118 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.payment.PayVcodeActivity;
+import com.baidu.tbadk.core.data.SmallTailThemeData;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ResourceAsColor"})
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetTails.ColorInfo;
+import tbclient.GetTails.ResData;
+import tbclient.GetTails.TailInfo;
 /* loaded from: classes7.dex */
-public class n79 extends j9<PayVcodeActivity> {
+public class n79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PayVcodeActivity a;
-    public ViewGroup b;
-    public View c;
-    public ViewGroup d;
-    public TextView e;
-    public BaseWebView f;
-    public TextView g;
-    public ProgressBar h;
+    public List<TailData> a;
+    public List<String> b;
+    public SmallTailThemeData c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n79(PayVcodeActivity payVcodeActivity) {
-        super(payVcodeActivity.getPageContext());
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    public n79() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {payVcodeActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = payVcodeActivity;
-        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d0762);
-        C(payVcodeActivity);
+        this.a = new ArrayList();
+        this.b = new ArrayList();
     }
 
-    public ViewGroup A() {
+    public List<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            return this.b;
         }
-        return (ViewGroup) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public BaseWebView B() {
+    public SmallTailThemeData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (BaseWebView) invokeV.objValue;
-    }
-
-    public View x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.c;
         }
-        return (View) invokeV.objValue;
+        return (SmallTailThemeData) invokeV.objValue;
     }
 
-    public TextView y() {
+    public List<TailData> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return (TextView) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public TextView z() {
-        InterceptResult invokeV;
+    public void d(ResData resData) {
+        List<TailInfo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, resData) != null) || resData == null || (list = resData.tailList) == null) {
+            return;
         }
-        return (TextView) invokeV.objValue;
-    }
-
-    public final void C(PayVcodeActivity payVcodeActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, payVcodeActivity) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091a40);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091a3a);
-            this.e = textView;
-            SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
-            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092823);
-            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09299b);
-            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091a3e);
-            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091a3f);
-            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091a41);
-            this.f.setHorizontalScrollBarEnabled(false);
-            this.f.setHorizontalScrollbarOverlay(false);
-            this.f.setScrollBarStyle(33554432);
-            this.f.getSettings().setJavaScriptEnabled(true);
-        }
-    }
-
-    public void D(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            TextView textView = this.g;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
+        for (TailInfo tailInfo : list) {
+            if (f(tailInfo)) {
+                TailData tailData = new TailData();
+                tailData.setContent(tailInfo.tailContent);
+                tailData.setFontColor(tailInfo.fontColor);
+                tailData.setFontType(tailInfo.fontKeyName);
+                tailData.setId(tailInfo.tailId.intValue());
+                boolean z = true;
+                if (tailInfo.is_selected.intValue() != 1) {
+                    z = false;
+                }
+                tailData.setSelected(z);
+                c().add(tailData);
             }
-            textView.setVisibility(i);
+        }
+        e(resData.default_color);
+        for (ColorInfo colorInfo : resData.colorList) {
+            a().add(colorInfo.fontColor);
+        }
+        if (resData.tail_style != null) {
+            this.c = new SmallTailThemeData(resData.tail_style);
+        } else {
+            this.c = SmallTailThemeData.DEFAULT;
         }
     }
 
-    public void E(boolean z) {
-        int i;
+    public final boolean f(TailInfo tailInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            ProgressBar progressBar = this.h;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tailInfo)) == null) {
+            Integer num = tailInfo.tailId;
+            if (num == null || num.intValue() == 0 || tailInfo.fontColor == null) {
+                return false;
             }
-            progressBar.setVisibility(i);
+            return true;
         }
-    }
-
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            qt5.a(this.a.getPageContext(), this.b);
-            SkinManager.setBgColor(this.g, i);
-            SkinManager.setBackgroundResource(this.e, R.drawable.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
-        }
+        return invokeL.booleanValue;
     }
 }

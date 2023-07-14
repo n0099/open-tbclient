@@ -1,100 +1,67 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
-import java.util.TimeZone;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class f61 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Set<Integer> a;
-    public static final Set<Integer> b;
-    public static final Set<Integer> c;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f61 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "toast");
+    public static final f61 b = new a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715976, "Lcom/baidu/tieba/f61;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    void a(@NonNull Context context, @StringRes int i);
+
+    void b(@NonNull Context context, @StringRes int i, int i2);
+
+    void showToast(@NonNull Context context, String str);
+
+    /* loaded from: classes5.dex */
+    public class a implements f61 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947715976, "Lcom/baidu/tieba/f61;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        a = new HashSet();
-        b = new HashSet();
-        c = new HashSet();
-        a.add(2);
-        a.add(3);
-        a.add(4);
-        a.add(5);
-        a.add(6);
-        b.add(7);
-        b.add(1);
-        c.addAll(a);
-        c.addAll(b);
-    }
 
-    public static int a(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return (int) ((j2 - (j - ((TimeZone.getDefault().getRawOffset() + j) % 86400000))) / 86400000);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static String b(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (i < 0) {
-                return "";
+        @Override // com.baidu.tieba.f61
+        public void a(@NonNull Context context, @StringRes int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+                Toast.makeText(context, i, 0).show();
             }
-            int i2 = i / 3600;
-            int i3 = (i % 3600) / 60;
-            int i4 = i % 60;
-            if (i2 == 0 && !z) {
-                return String.format(Locale.US, "%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i4));
-            }
-            return String.format(Locale.US, "%02d:%02d:%02d", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4));
         }
-        return (String) invokeCommon.objValue;
-    }
 
-    public static long c(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return Math.abs((j2 - j) / 86400000);
-        }
-        return invokeCommon.longValue;
-    }
-
-    public static boolean d(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j);
-            Calendar calendar2 = Calendar.getInstance();
-            calendar2.setTimeInMillis(j2);
-            if (calendar.get(1) == calendar2.get(1) && calendar.get(6) == calendar2.get(6)) {
-                return true;
+        @Override // com.baidu.tieba.f61
+        public void showToast(@NonNull Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
+                Toast.makeText(context, str, 0).show();
             }
-            return false;
         }
-        return invokeCommon.booleanValue;
+
+        @Override // com.baidu.tieba.f61
+        public void b(@NonNull Context context, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, i2) == null) {
+                Toast.makeText(context, i, i2).show();
+            }
+        }
     }
 }

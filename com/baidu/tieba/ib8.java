@@ -1,147 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TopicList.MediaTopic;
+import tbclient.VideoInfo;
 /* loaded from: classes6.dex */
-public class ib8 extends kb8<GroupInfoData> {
+public class ib8 implements yn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout m;
-    public BarImageView n;
-    public TextView o;
-    public TextView p;
-    public TextView q;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ib8(@NonNull Context context) {
-        super(context);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947847850, "Lcom/baidu/tieba/ib8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947847850, "Lcom/baidu/tieba/ib8;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
+
+    public ib8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.db8
-    public void a(String str) {
-        boolean z;
+    @Override // com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            GroupInfoData groupInfoData = (GroupInfoData) this.j;
-            long userIdLong = this.k.getUserIdLong();
-            String userName = this.k.getUserName();
-            String name_show = this.k.getName_show();
-            String portrait = this.k.getPortrait();
-            if (this.k.getIsMyFriend() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            kc8.b(groupInfoData, str, userIdLong, userName, name_show, portrait, z);
-            if (GroupInfoData.isValidGroup((GroupInfoData) this.j)) {
-                yb8.c((GroupInfoData) this.j, this.k, 1);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void a(MediaTopic mediaTopic) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, mediaTopic) != null) || mediaTopic == null) {
+            return;
+        }
+        mediaTopic.topic_id.longValue();
+        String str = mediaTopic.topic_name;
+        String str2 = mediaTopic.pic_url;
+        VideoInfo videoInfo = mediaTopic.video_info;
+        if (videoInfo != null && videoInfo.video_duration.intValue() > 0) {
+            b(mediaTopic.video_info);
         }
     }
 
-    @Override // com.baidu.tieba.db8
-    public void b(String str) {
+    public void b(VideoInfo videoInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            kc8.i(str, this.k.groupData, (GroupInfoData) this.j);
-        }
-    }
-
-    @Override // com.baidu.tieba.kb8
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.g();
-            s75 d = s75.d(this.m);
-            d.o(R.string.J_X05);
-            d.f(R.color.CAM_X0207);
-            s75 d2 = s75.d(this.o);
-            d2.x(R.color.CAM_X0105);
-            d2.D(R.string.F_X02);
-            s75.d(this.p).x(R.color.CAM_X0109);
-            s75.d(this.q).x(R.color.CAM_X0109);
-            this.n.setStrokeColorResId(R.color.CAM_X0401);
-        }
-    }
-
-    @Override // com.baidu.tieba.kb8
-    public void m(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            super.m(context);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog_group, i());
-            this.m = (LinearLayout) inflate.findViewById(R.id.im_share_group_info_container);
-            BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.im_share_group_info_head);
-            this.n = barImageView;
-            barImageView.setPlaceHolder(1);
-            this.n.setAutoChangeStyle(true);
-            this.n.setShowInnerBorder(true);
-            this.n.setStrokeWith(xi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01));
-            this.n.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.n.setRadiusById(R.string.J_X04);
-            this.o = (TextView) inflate.findViewById(R.id.im_share_group_info_name);
-            this.p = (TextView) inflate.findViewById(R.id.im_share_group_info_forum_name);
-            this.q = (TextView) inflate.findViewById(R.id.im_share_group_info_member_count);
-            g();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kb8
-    /* renamed from: q */
-    public void o(GroupInfoData groupInfoData, MetaData metaData) {
-        String forumName;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, groupInfoData, metaData) == null) {
-            super.o(groupInfoData, metaData);
-            if (groupInfoData == null) {
-                return;
-            }
-            this.n.N(groupInfoData.getPortrait(), 10, false);
-            this.o.setText(groupInfoData.getName());
-            TextView textView = this.p;
-            if (!TextUtils.isEmpty(groupInfoData.getForumShowName())) {
-                forumName = groupInfoData.getForumShowName();
-            } else {
-                forumName = groupInfoData.getForumName();
-            }
-            textView.setText(forumName);
-            if (groupInfoData.getMemberNum() > 0) {
-                this.q.setText(String.format(j().getResources().getString(R.string.group_member_share_slogan), StringHelper.numFormatOverWan(groupInfoData.getMemberNum())));
-            } else {
-                this.q.setText(j().getResources().getString(R.string.group_share_slogan_default));
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) {
+            String str = videoInfo.video_md5;
+            String str2 = videoInfo.video_url;
+            videoInfo.video_duration.intValue();
+            videoInfo.video_width.intValue();
+            videoInfo.video_height.intValue();
+            String str3 = videoInfo.thumbnail_url;
+            videoInfo.thumbnail_width.intValue();
+            videoInfo.thumbnail_height.intValue();
+            videoInfo.video_length.intValue();
+            videoInfo.play_count.intValue();
         }
     }
 }

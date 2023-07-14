@@ -1,12 +1,15 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsCodeCacheCallback;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
-import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
-import com.baidu.tieba.rj2;
+import com.baidu.tieba.kj2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,13 +20,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ud2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public kj2 a;
-    public uj2 b;
+    public dj2 a;
+    public b42 b;
+    public nj2 c;
 
     /* loaded from: classes8.dex */
-    public class a extends gk2 {
+    public class a extends zj2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -48,12 +52,12 @@ public class ud2 {
             this.c = ud2Var;
             this.a = str;
             this.b = str2;
-            if (ud2.c) {
-                Log.d("SwanAppV8Daemon", "basePath: " + str + ", jsFile: " + str2);
+            if (ud2.d) {
+                Log.d("SwanAppV8Master", "basePath: " + str + ", jsFile: " + str2);
             }
         }
 
-        @Override // com.baidu.tieba.hk2
+        @Override // com.baidu.tieba.ak2
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -63,18 +67,7 @@ public class ud2 {
             return (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.gk2, com.baidu.tieba.hk2
-        @Nullable
-        public V8EngineConfiguration.CodeCacheSetting b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return super.b();
-            }
-            return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.hk2
+        @Override // com.baidu.tieba.ak2
         public String getInitBasePath() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -84,22 +77,36 @@ public class ud2 {
             return (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.gk2, com.baidu.tieba.hk2
-        public void c(kj2 kj2Var) {
+        @Override // com.baidu.tieba.zj2, com.baidu.tieba.ak2
+        @Nullable
+        public V8EngineConfiguration.CodeCacheSetting b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kj2Var) == null) {
-                if (this.c.b != null) {
-                    this.c.b.a(kj2Var);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (ud2.d) {
+                    Log.d("SwanAppV8Master", "pathList item: " + this.a);
                 }
-                kj2Var.x0();
+                return na2.a("appframe", this.a);
+            }
+            return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.zj2, com.baidu.tieba.ak2
+        public void c(dj2 dj2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dj2Var) == null) {
+                if (this.c.c != null) {
+                    this.c.c.a(dj2Var);
+                }
+                dj2Var.x0();
             }
         }
 
-        @Override // com.baidu.tieba.gk2, com.baidu.tieba.hk2
-        public void d(kj2 kj2Var) {
+        @Override // com.baidu.tieba.zj2, com.baidu.tieba.ak2
+        public void d(dj2 dj2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, kj2Var) == null) {
-                super.d(kj2Var);
+            if (interceptable == null || interceptable.invokeL(1048579, this, dj2Var) == null) {
+                this.c.b.b(dj2Var, cv2.c());
             }
         }
     }
@@ -117,43 +124,49 @@ public class ud2 {
                 return;
             }
         }
-        c = ms1.a;
+        d = fs1.a;
     }
 
-    public final rj2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            rj2.b bVar = new rj2.b();
-            bVar.c(3);
-            bVar.b(sd2.b());
-            return bVar.a();
-        }
-        return (rj2) invokeV.objValue;
-    }
-
-    public kj2 d() {
+    public kj2 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            kj2.b bVar = new kj2.b();
+            bVar.c(1);
+            bVar.b(be2.b());
+            return bVar.a();
         }
         return (kj2) invokeV.objValue;
     }
 
-    public void e() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            kj2 kj2Var = this.a;
-            if (kj2Var != null) {
-                kj2Var.j0();
-                this.a = null;
-            }
-            this.b = null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.j0();
         }
     }
 
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public dj2 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (dj2) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ud2(@NonNull String str, @NonNull String str2) {
+        this(str, str2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,19 +176,81 @@ public class ud2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = qj2.b(c(), new a(this, str, str2), null);
-        this.a.addJavascriptInterface(new td2(this.a), SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
     }
 
-    public void f(uj2 uj2Var) {
+    public ud2(@NonNull String str, @NonNull String str2, @Nullable String str3) {
+        wd2 wd2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, uj2Var) == null) {
-            this.b = uj2Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
+        this.b = new b42();
+        if (d) {
+            Log.d("SwanAppV8Master", "createV8Master: " + str + str2);
+        }
+        if (w53.l()) {
+            wd2Var = new wd2();
+        } else {
+            wd2Var = null;
+        }
+        kj2 e = e();
+        if (!TextUtils.isEmpty(str3)) {
+            e.b = str3;
+        }
+        this.a = jj2.b(e, f(str, str2), wd2Var);
+    }
+
+    public void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            this.b.a(activity);
+        }
+    }
+
+    public void j(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, codeCacheSetting) == null) {
+            this.a.A0(codeCacheSetting);
+        }
+    }
+
+    public void k(JsCodeCacheCallback jsCodeCacheCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jsCodeCacheCallback) == null) {
+            this.a.E0(jsCodeCacheCallback);
+        }
+    }
+
+    public void l(nj2 nj2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nj2Var) == null) {
+            this.c = nj2Var;
+        }
+    }
+
+    public zj2 f(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            return new a(this, str, str2);
+        }
+        return (zj2) invokeLL.objValue;
     }
 }

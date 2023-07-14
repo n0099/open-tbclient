@@ -1,46 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
 /* loaded from: classes7.dex */
-public class py5 {
+public final class py5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @SerializedName("priority")
-    public int a;
 
-    public py5() {
+    public static void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable != null && interceptable.invokeZ(65536, null, z) != null) || z) {
+            return;
+        }
+        throw new IllegalArgumentException();
+    }
+
+    @NonNull
+    public static <T> T b(@Nullable T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) {
+            if (t != null) {
+                return t;
             }
+            throw null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public static void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+            e(z, null);
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @NonNull
+    public static <T> T c(@Nullable T t, @NonNull Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, t, obj)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw new NullPointerException(String.valueOf(obj));
         }
-        return invokeV.intValue;
+        return (T) invokeLL.objValue;
     }
 
-    public void b(int i) {
+    public static void e(boolean z, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
+        if ((interceptable != null && interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, str) != null) || z) {
+            return;
         }
+        throw new IllegalStateException(str);
     }
 }

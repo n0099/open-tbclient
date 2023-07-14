@@ -9,10 +9,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pd7;
-import com.baidu.tieba.w75;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.z75;
+import com.baidu.tieba.h85;
+import com.baidu.tieba.k85;
+import com.baidu.tieba.vh7;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,15 +28,15 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
     public TextView d;
     public TextView e;
     public LocalBannerLayout f;
-    public z75 g;
+    public k85 g;
 
     /* loaded from: classes5.dex */
-    public class a implements z75 {
+    public class a implements k85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPublishFineGoodsDialogView a;
 
-        @Override // com.baidu.tieba.z75
+        @Override // com.baidu.tieba.k85
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -61,10 +61,10 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.a = frsPublishFineGoodsDialogView;
         }
 
-        @Override // com.baidu.tieba.z75
-        public void a(int i, w75 w75Var) {
+        @Override // com.baidu.tieba.k85
+        public void a(int i, h85 h85Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, w75Var) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, h85Var) == null) {
                 this.a.c(i);
             }
         }
@@ -106,15 +106,15 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.e = textView;
             textView.setText(R.string.forum_broadcast_major_history_known);
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new pd7(String.valueOf((int) R.drawable.pic_good_guide1)));
-            arrayList.add(new pd7(String.valueOf((int) R.drawable.pic_good_guide2)));
-            arrayList.add(new pd7(String.valueOf((int) R.drawable.pic_good_guide3)));
+            arrayList.add(new vh7(String.valueOf((int) R.drawable.pic_good_guide1)));
+            arrayList.add(new vh7(String.valueOf((int) R.drawable.pic_good_guide2)));
+            arrayList.add(new vh7(String.valueOf((int) R.drawable.pic_good_guide3)));
             this.f.setData(arrayList);
             this.f.setOnCoverViewCallback(this.g);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0302);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(xi.g(this.b, R.dimen.tbds30)).brRadius(xi.g(this.b, R.dimen.tbds30)).tlRadius(xi.g(this.b, R.dimen.tbds32)).trRadius(xi.g(this.b, R.dimen.tbds32)).into(this.a);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(yi.g(this.b, R.dimen.tbds30)).brRadius(yi.g(this.b, R.dimen.tbds30)).tlRadius(yi.g(this.b, R.dimen.tbds32)).trRadius(yi.g(this.b, R.dimen.tbds32)).into(this.a);
         }
     }
 

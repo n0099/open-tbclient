@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class RecordTabLayout extends LinearLayout {
 
     /* loaded from: classes8.dex */
     public interface c {
-        void y(int i, boolean z);
+        void u(int i, boolean z);
     }
 
     /* loaded from: classes8.dex */
@@ -71,7 +71,7 @@ public class RecordTabLayout extends LinearLayout {
             }
             this.b.setCurrentTab(i2, true);
             if (this.b.e != null) {
-                this.b.e.y(this.a, true);
+                this.b.e.u(this.a, true);
             }
         }
     }
@@ -210,14 +210,14 @@ public class RecordTabLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
             TextView textView = new TextView(getContext());
-            textView.setTextSize(0, xi.g(getContext(), R.dimen.obfuscated_res_0x7f0702b5));
+            textView.setTextSize(0, yi.g(getContext(), R.dimen.obfuscated_res_0x7f0702b5));
             textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
             textView.setText(str);
             textView.setTag(Integer.valueOf(i));
             textView.setOnClickListener(new a(this, i));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             if (this.a.getChildCount() != 0) {
-                layoutParams.leftMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f0703d7);
+                layoutParams.leftMargin = yi.g(getContext(), R.dimen.obfuscated_res_0x7f0703dd);
             }
             this.a.addView(textView, layoutParams);
         }
@@ -260,8 +260,8 @@ public class RecordTabLayout extends LinearLayout {
             View view2 = new View(getContext());
             this.b = view2;
             view2.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(xi.g(getContext(), R.dimen.obfuscated_res_0x7f0703d7), xi.g(getContext(), R.dimen.obfuscated_res_0x7f070224));
-            layoutParams.topMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f07037f);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(yi.g(getContext(), R.dimen.obfuscated_res_0x7f0703dd), yi.g(getContext(), R.dimen.obfuscated_res_0x7f070224));
+            layoutParams.topMargin = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070385);
             addView(this.b, layoutParams);
         }
     }

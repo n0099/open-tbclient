@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.metadata.deserialization;
 
 import java.util.List;
 import kotlin.reflect.jvm.internal.impl.protobuf.GeneratedMessageLite;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ProtoBufUtilKt {
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.reflect.jvm.internal.impl.protobuf.GeneratedMessageLite$GeneratedExtension<M extends kotlin.reflect.jvm.internal.impl.protobuf.GeneratedMessageLite$ExtendableMessage<M>, T> */
     /* JADX WARN: Multi-variable type inference failed */

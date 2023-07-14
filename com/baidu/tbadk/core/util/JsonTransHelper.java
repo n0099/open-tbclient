@@ -308,59 +308,6 @@ public class JsonTransHelper {
         return (GoodsInfo) invokeL.objValue;
     }
 
-    public static JSONObject toAppJson(App app) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, app)) == null) {
-            if (app == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", app.type);
-                jSONObject.put("pos", app.pos);
-                jSONObject.put("icon_url", app.icon_url);
-                jSONObject.put("icon_link", app.icon_link);
-                jSONObject.put("app_name", app.app_name);
-                jSONObject.put("app_desc", app.app_desc);
-                jSONObject.put("p_name", app.p_name);
-                jSONObject.put("p_url", app.p_url);
-                jSONObject.put(BigdayActivityConfig.IMG_URL, app.img_url);
-                jSONObject.put("app_time", app.app_time);
-                jSONObject.put("web_url", app.web_url);
-                jSONObject.put(LegoListActivityConfig.AD_ID, app.ad_id);
-                jSONObject.put("id", app.id);
-                jSONObject.put("name", app.name);
-                jSONObject.put("url_type", app.url_type);
-                jSONObject.put("url", app.url);
-                jSONObject.put("ios_url", app.ios_url);
-                jSONObject.put("apk_url", app.apk_url);
-                jSONObject.put("apk_name", app.apk_name);
-                jSONObject.put("pos_name", app.pos_name);
-                jSONObject.put("first_name", app.first_name);
-                jSONObject.put("second_name", app.second_name);
-                jSONObject.put("cpid", app.cpid);
-                jSONObject.put("abtest", app.abtest);
-                jSONObject.put("plan_id", app.plan_id);
-                jSONObject.put("user_id", app.user_id);
-                jSONObject.put("price", app.price);
-                jSONObject.put(SmsLoginView.f.j, app.verify);
-                jSONObject.put(MigrateStatisticUtils.EXT_INFO, app.ext_info);
-                JSONArray jSONArray = new JSONArray();
-                for (GoodsInfo goodsInfo : app.goods_info) {
-                    jSONArray.put(toGoodsInfoJson(goodsInfo));
-                }
-                jSONObject.put("goods_info", jSONArray);
-                jSONObject.put("loc_code", app.loc_code);
-                jSONObject.put("deep_url", app.deep_url);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
     public static ThreadPicList parseThreadPicListFromJson(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -432,6 +379,59 @@ public class JsonTransHelper {
             return builder.build(false);
         }
         return (VideoInfo) invokeL.objValue;
+    }
+
+    public static JSONObject toAppJson(App app) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, app)) == null) {
+            if (app == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", app.type);
+                jSONObject.put("pos", app.pos);
+                jSONObject.put("icon_url", app.icon_url);
+                jSONObject.put("icon_link", app.icon_link);
+                jSONObject.put("app_name", app.app_name);
+                jSONObject.put("app_desc", app.app_desc);
+                jSONObject.put("p_name", app.p_name);
+                jSONObject.put("p_url", app.p_url);
+                jSONObject.put(BigdayActivityConfig.IMG_URL, app.img_url);
+                jSONObject.put("app_time", app.app_time);
+                jSONObject.put("web_url", app.web_url);
+                jSONObject.put(LegoListActivityConfig.AD_ID, app.ad_id);
+                jSONObject.put("id", app.id);
+                jSONObject.put("name", app.name);
+                jSONObject.put("url_type", app.url_type);
+                jSONObject.put("url", app.url);
+                jSONObject.put("ios_url", app.ios_url);
+                jSONObject.put("apk_url", app.apk_url);
+                jSONObject.put("apk_name", app.apk_name);
+                jSONObject.put("pos_name", app.pos_name);
+                jSONObject.put("first_name", app.first_name);
+                jSONObject.put("second_name", app.second_name);
+                jSONObject.put("cpid", app.cpid);
+                jSONObject.put("abtest", app.abtest);
+                jSONObject.put("plan_id", app.plan_id);
+                jSONObject.put("user_id", app.user_id);
+                jSONObject.put("price", app.price);
+                jSONObject.put(SmsLoginView.f.j, app.verify);
+                jSONObject.put(MigrateStatisticUtils.EXT_INFO, app.ext_info);
+                JSONArray jSONArray = new JSONArray();
+                for (GoodsInfo goodsInfo : app.goods_info) {
+                    jSONArray.put(toGoodsInfoJson(goodsInfo));
+                }
+                jSONObject.put("goods_info", jSONArray);
+                jSONObject.put("loc_code", app.loc_code);
+                jSONObject.put("deep_url", app.deep_url);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 
     public static JSONObject toGoodsInfoJson(GoodsInfo goodsInfo) {

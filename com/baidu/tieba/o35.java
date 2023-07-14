@@ -1,28 +1,32 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Page;
 /* loaded from: classes7.dex */
 public class o35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
+    public UserData a;
+    public AntiData b;
+    public ArrayList<String> c;
+    public String d;
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
 
     public o35() {
         Interceptable interceptable = $ic;
@@ -37,168 +41,68 @@ public class o35 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0;
-        this.c = 0;
-        this.d = 0;
+        this.c = null;
+        this.a = new UserData();
+        this.b = new AntiData();
+        this.c = new ArrayList<>();
+        f(0);
     }
 
-    public int a() {
+    public AntiData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            return this.b;
         }
-        return invokeV.intValue;
+        return (AntiData) invokeV.objValue;
     }
 
-    public int b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+            return this.d;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public int c() {
+    public UserData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (UserData) invokeV.objValue;
     }
 
-    public void i(JSONObject jSONObject) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("total_page", 0);
-            this.b = jSONObject.optInt("total_num", 0);
-            this.c = jSONObject.optInt("total_count", 0);
-            this.e = jSONObject.optInt("current_page", 0);
-            this.f = jSONObject.optInt(SuggestAddrField.KEY_PAGE_SIZE, 0);
-            this.g = jSONObject.optInt("has_more", 0);
-            this.h = jSONObject.optInt("has_prev", 0);
-            this.d = jSONObject.optInt("lz_total_floor", 0);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            try {
+                e(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 
-    public void j(Page page) {
+    public void e(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, page) != null) || page == null) {
-            return;
-        }
-        this.a = page.total_page.intValue();
-        this.b = page.total_num.intValue();
-        this.c = page.total_count.intValue();
-        this.e = page.current_page.intValue();
-        this.f = page.page_size.intValue();
-        this.g = page.has_more.intValue();
-        this.h = page.has_prev.intValue();
-        this.d = page.lz_total_floor.intValue();
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            try {
+                this.a.parserJson(jSONObject.optJSONObject("user"));
+                this.b.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
+                JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        this.c.add(optJSONArray.optString(i, null));
+                    }
+                }
+                f(jSONObject.optInt("retrytime"));
+                this.d = jSONObject.optString("growth_switch");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 }

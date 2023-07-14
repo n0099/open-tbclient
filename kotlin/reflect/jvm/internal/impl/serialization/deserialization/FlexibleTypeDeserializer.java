@@ -3,11 +3,11 @@ package kotlin.reflect.jvm.internal.impl.serialization.deserialization;
 import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface FlexibleTypeDeserializer {
     KotlinType create(ProtoBuf.Type type, String str, SimpleType simpleType, SimpleType simpleType2);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class ThrowException implements FlexibleTypeDeserializer {
         public static final ThrowException INSTANCE = new ThrowException();
 

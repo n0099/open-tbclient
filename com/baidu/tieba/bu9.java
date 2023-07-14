@@ -1,284 +1,98 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.network.grs.GrsBaseInfo;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bu9 {
+public class bu9 extends wo6<us9> {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public View i;
+    public TbImageView j;
+    public TextView k;
+    public ImageView l;
+    public us9 m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947657603, "Lcom/baidu/tieba/bu9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947657603, "Lcom/baidu/tieba/bu9;");
-        }
-    }
-
-    public static void a(ClogBuilder clogBuilder, int i) {
-        boolean z;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, clogBuilder, i) == null) {
-            clogBuilder.y(ClogBuilder.LogType.DEEP_LINK);
-            if (i == 1000) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                str = GrsBaseInfo.CountryCodeSource.APP;
-            } else {
-                str = "URL";
-            }
-            clogBuilder.j(str);
-            if (!z) {
-                clogBuilder.l(String.valueOf(i));
-            }
-            clogBuilder.v("DEEPLINK");
-        }
-    }
-
-    public static String b(HashMap hashMap) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            if (hashMap != null) {
-                str = String.valueOf(hashMap.get("da_area"));
-            } else {
-                str = null;
-            }
-            if (TextUtils.isEmpty(str)) {
-                return "hotarea";
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void l(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, advertAppInfo) == null) {
-            m(advertAppInfo, 0, "");
-        }
-    }
-
-    public static String c() {
+    @Override // com.baidu.tieba.wo6
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                int myPid = Process.myPid();
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) TbadkCoreApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses()) {
-                    if (runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo.processName;
-                    }
-                }
-                return "GET_PROCESS_NAME_FAIL";
-            } catch (Exception unused) {
-                return "GET_PROCESS_NAME_FAIL";
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07e5 : invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bu9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeV.objValue;
+        View h = h();
+        this.i = h;
+        this.j = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f091cbe);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091cbd);
+        this.l = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091cbf);
+        this.i.setOnClickListener(this);
     }
 
-    public static void d(String str, @NonNull String str2, int i, int i2, String str3, String str4, String str5, String str6, String str7, String str8) {
+    @Override // com.baidu.tieba.wo6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, str4, str5, str6, str7, str8}) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.z(String.valueOf(i2)).q(String.valueOf(i)).v(str).j(str3).k(str4).l(str5).m(str6).n(str7).o(str8).p(str2);
-            r31.b(clogBuilder);
-        }
-    }
-
-    public static void e(AdvertAppInfo advertAppInfo, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, null, advertAppInfo, i) == null) {
-            f(advertAppInfo, 0, "", i);
-        }
-    }
-
-    public static void j(m4a m4aVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, m4aVar, i) == null) {
-            k(m4aVar, i, -999, -999);
-        }
-    }
-
-    public static void f(AdvertAppInfo advertAppInfo, int i, String str, int i2) {
-        int i3;
-        rj0 rj0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, Integer.valueOf(i2)}) != null) || advertAppInfo == null) {
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
             return;
         }
-        if (TextUtils.isEmpty(str)) {
-            str = "hotarea";
-        }
-        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        ClogBuilder y = clogBuilder.y(ClogBuilder.LogType.CLICK);
-        if (equals) {
-            i3 = -1;
-        } else {
-            i3 = advertAppInfo.position + 1;
-        }
-        ClogBuilder q = y.q(String.valueOf(i3));
-        if (equals) {
-            i = -1;
-        }
-        q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
-        if (advertAppInfo != null && (rj0Var = advertAppInfo.r) != null) {
-            clogBuilder.m(rj0Var.a());
-        }
-        r31.b(clogBuilder);
-        a(clogBuilder, i2);
-        r31.b(clogBuilder);
+        this.a = i;
+        SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+        SkinManager.setImageResource(this.l, R.drawable.icon_play_video, i);
     }
 
-    public static void g(AdvertAppInfo advertAppInfo, int i, HashMap hashMap, int i2) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{advertAppInfo, Integer.valueOf(i), hashMap, Integer.valueOf(i2)}) == null) {
-            f(advertAppInfo, i, b(hashMap), i2);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.i == view2) {
+            MessageManager messageManager = MessageManager.getInstance();
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.c);
+            us9 us9Var = this.m;
+            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(us9Var.c, us9Var.d, "person_page")));
         }
     }
 
-    public static void h(AdvertAppInfo advertAppInfo, int i, int i2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wo6
+    /* renamed from: r */
+    public void i(us9 us9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65544, null, advertAppInfo, i, i2) == null) {
-            i(advertAppInfo, i, i2, -999, -999);
-        }
-    }
-
-    public static void i(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4) {
-        int i5;
-        int i6;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{advertAppInfo, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && advertAppInfo != null && (i5 = advertAppInfo.c) != 1001 && i5 != -1001) {
-            boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-            ClogBuilder clogBuilder = new ClogBuilder();
-            ClogBuilder k = clogBuilder.y(ClogBuilder.LogType.DISCARD).k(String.valueOf(i2));
-            if (equals) {
-                i6 = -1;
-            } else {
-                i6 = advertAppInfo.position + 1;
-            }
-            ClogBuilder q = k.q(String.valueOf(i6));
-            if (equals) {
-                i = -1;
-            }
-            q.w(String.valueOf(i)).v(advertAppInfo.j).p(advertAppInfo.g);
-            if (i3 != -999) {
-                clogBuilder.l(String.valueOf(i3));
-            }
-            if (i4 != -999) {
-                clogBuilder.m(String.valueOf(i4));
-            }
-            if (i2 == 31) {
-                if (TextUtils.isEmpty(a)) {
-                    a = c();
-                }
-                clogBuilder.o(a);
-            }
-            r31.b(clogBuilder);
-        }
-    }
-
-    public static void k(m4a m4aVar, int i, int i2, int i3) {
-        int i4;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIII(65547, null, m4aVar, i, i2, i3) == null) && m4aVar != null && m4aVar.getAdvertAppInfo() != null && m4aVar.getAdvertAppInfo().c != 1001 && m4aVar.getAdvertAppInfo().c != -1001) {
-            AdvertAppInfo advertAppInfo = m4aVar.getAdvertAppInfo();
-            ClogBuilder clogBuilder = new ClogBuilder();
-            ClogBuilder k = clogBuilder.y(ClogBuilder.LogType.DISCARD).k(String.valueOf(i));
-            int i5 = -1;
-            if (m4aVar.h1) {
-                i4 = -1;
-            } else {
-                i4 = m4aVar.o1 + 1;
-            }
-            ClogBuilder q = k.q(String.valueOf(i4));
-            if (!m4aVar.h1) {
-                i5 = m4aVar.m1;
-            }
-            q.w(String.valueOf(i5)).v(m4aVar.B1()).r(m4aVar.j1).s(m4aVar.k1).t(m4aVar.i1).p(advertAppInfo.g);
-            if (i2 != -999) {
-                clogBuilder.l(String.valueOf(i2));
-            }
-            if (i3 != -999) {
-                clogBuilder.m(String.valueOf(i3));
-            }
-            r31.b(clogBuilder);
-        }
-    }
-
-    public static void m(AdvertAppInfo advertAppInfo, int i, String str) {
-        int i2;
-        rj0 rj0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(65549, null, advertAppInfo, i, str) != null) || advertAppInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, us9Var) != null) || us9Var == null) {
             return;
         }
-        if (TextUtils.isEmpty(str)) {
-            str = "hotarea";
-        }
-        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        ClogBuilder y = clogBuilder.y(ClogBuilder.LogType.CLICK);
-        if (equals) {
-            i2 = -1;
-        } else {
-            i2 = advertAppInfo.position + 1;
-        }
-        ClogBuilder q = y.q(String.valueOf(i2));
-        if (equals) {
-            i = -1;
-        }
-        q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
-        if (advertAppInfo != null && (rj0Var = advertAppInfo.r) != null) {
-            clogBuilder.m(rj0Var.a());
-        }
-        r31.b(clogBuilder);
-    }
-
-    public static void n(AdvertAppInfo advertAppInfo, int i, String str, String str2, HashMap hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, str2, hashMap}) == null) {
-            m(advertAppInfo, i, b(hashMap));
-        }
-    }
-
-    public static void o(AdvertAppInfo advertAppInfo) {
-        q15 q15Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65551, null, advertAppInfo) == null) && advertAppInfo != null && (q15Var = advertAppInfo.i) != null && !q15Var.h) {
-            q15Var.h = true;
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(-1)).v(advertAppInfo.j).p(advertAppInfo.g);
-            r31.b(clogBuilder);
-            yt8.b(yt8.a(advertAppInfo));
-        }
+        this.m = us9Var;
+        this.j.N(us9Var.a, 10, false);
+        this.k.setText(us9Var.b);
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 }

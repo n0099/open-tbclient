@@ -1,235 +1,149 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatNameViewHolder;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class xe8 {
     public static /* synthetic */ Interceptable $ic;
-    public static int g;
+    public static Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public jf8 a;
-    @NonNull
-    public ve8 b;
-    public View c;
-    public ChatNameViewHolder d;
-    public String e;
-    public final View.OnClickListener f;
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xe8 a;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public int g;
+        public long h;
+        public String i;
+        public int j;
+        public long k;
+        public long l;
+        public long m;
+        public String n;
+        public int o;
 
-        public a(xe8 xe8Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xe8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.a = xe8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            jf8 jf8Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (jf8Var = this.a.a) != null) {
-                if (jf8Var.d()) {
-                    if (this.a.e.equals("msgTabFragment")) {
-                        WebPManager.setPureDrawable(this.a.b.d(), R.drawable.obfuscated_res_0x7f080a89, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-                    } else {
-                        this.a.b.d().setImageResource(R.drawable.obfuscated_res_0x7f080917);
-                    }
-                    xe8 xe8Var = this.a;
-                    ge8.d(xe8Var.d, xe8Var.b.c());
-                    int unused = xe8.g = 1;
-                } else {
-                    if (this.a.e.equals("msgTabFragment")) {
-                        WebPManager.setPureDrawable(this.a.b.d(), R.drawable.icon_close, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-                    } else {
-                        this.a.b.d().setImageResource(R.drawable.obfuscated_res_0x7f080914);
-                    }
-                    xe8 xe8Var2 = this.a;
-                    ge8.a(xe8Var2.d, xe8Var2.b.c());
-                    int unused2 = xe8.g = 2;
-                }
-                this.a.c();
-                jf8 jf8Var2 = this.a.a;
-                jf8Var2.g(true ^ jf8Var2.d());
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b extends LinearLayoutManager {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(xe8 xe8Var, Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948297598, "Lcom/baidu/tieba/xe8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xe8Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
-        public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, recycler, state) == null) {
-                try {
-                    super.onLayoutChildren(recycler, state);
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public xe8(@NonNull jf8 jf8Var, @NonNull ve8 ve8Var, View view2, ChatNameViewHolder chatNameViewHolder, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jf8Var, ve8Var, view2, chatNameViewHolder, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948297598, "Lcom/baidu/tieba/xe8;");
                 return;
             }
         }
-        this.f = new a(this);
-        this.a = jf8Var;
-        this.b = ve8Var;
-        this.c = view2;
-        this.d = chatNameViewHolder;
-        this.e = str;
+        a = Pattern.compile(UrlSchemaHelper.PB_URL);
     }
 
-    public void f(boolean z) {
+    public static List<a> a(String str, String str2, long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (z) {
-                WebPManager.setPureDrawable(this.b.d(), R.drawable.icon_close, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-            } else {
-                WebPManager.setPureDrawable(this.b.d(), R.drawable.obfuscated_res_0x7f080a89, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return b(str, str2, null, 0L, j, j2);
         }
+        return (List) invokeCommon.objValue;
     }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_CLICK);
-            fe8 fe8Var = this.a.getSubItems().get(0);
-            if (fe8Var instanceof kf8) {
-                kf8 kf8Var = (kf8) fe8Var;
-                if (kf8Var.a() != null) {
-                    statisticItem.param("fid", kf8Var.a().getForumId());
-                    statisticItem.param("fname", kf8Var.a().getForumName());
-                }
-            }
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_type", g);
-            statisticItem.param("obj_source", this.a.b());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public void d(@NonNull jf8 jf8Var) {
+    public static List<a> b(String str, String str2, UserData userData, long j, long j2, long j3) {
+        InterceptResult invokeCommon;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jf8Var) == null) {
-            this.b.c().setLayoutManager(new b(this, this.c.getContext()));
-            this.b.c().setFocusable(false);
-            this.b.a().setOnClickListener(this.f);
-            this.b.e().setText(jf8Var.b());
-            boolean equals = this.e.equals("msgTabFragment");
-            int i2 = R.drawable.obfuscated_res_0x7f080917;
-            if (equals) {
-                WebPManager.setPureDrawable(this.b.d(), R.drawable.obfuscated_res_0x7f080a89, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-            } else {
-                this.b.d().setImageResource(R.drawable.obfuscated_res_0x7f080917);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, userData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            if (this.b.c().getAdapter() != jf8Var.getAdapter()) {
-                if (this.b.c().getAdapter() != null) {
-                    this.b.c().swapAdapter(jf8Var.getAdapter(), true);
-                } else {
-                    this.b.c().setAdapter(jf8Var.getAdapter());
+            int i2 = -1;
+            if (userData != null) {
+                i = userData.getUserType();
+            } else {
+                i = -1;
+            }
+            LinkedList linkedList = new LinkedList();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                int length = jSONArray.length();
+                int i3 = 0;
+                while (i3 < length) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                    String optString = optJSONObject.optString("title");
+                    String optString2 = optJSONObject.optString("url");
+                    String optString3 = optJSONObject.optString("src");
+                    String optString4 = optJSONObject.optString("text");
+                    optJSONObject.optLong("picId");
+                    String optString5 = optJSONObject.optString("msg_src");
+                    a aVar = new a();
+                    if (!TextUtils.isEmpty(optString2)) {
+                        optString2 = optString2.trim();
+                        Matcher matcher = a.matcher(optString2);
+                        if (matcher.find()) {
+                            aVar.n = matcher.group(1);
+                        }
+                    }
+                    aVar.d = optString2;
+                    aVar.a = optString;
+                    aVar.b = optString4;
+                    aVar.c = optString3;
+                    aVar.e = str2;
+                    aVar.k = j2;
+                    aVar.l = j3;
+                    aVar.f = optString5;
+                    if (i > i2) {
+                        aVar.g = i;
+                    }
+                    if (userData != null) {
+                        aVar.h = j;
+                        aVar.i = userData.getUserId();
+                        aVar.j = userData.getUserType();
+                    }
+                    linkedList.add(aVar);
+                    i3++;
+                    i2 = -1;
                 }
-            } else {
-                jf8Var.f();
+                return linkedList;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
-            RecyclerView c = this.b.c();
-            if (jf8Var.d()) {
-                i = 8;
-            } else {
-                i = 0;
-            }
-            c.setVisibility(i);
-            if (this.e.equals("msgTabFragment")) {
-                f(jf8Var.d());
-            } else {
-                ImageView d = this.b.d();
-                if (jf8Var.d()) {
-                    i2 = R.drawable.obfuscated_res_0x7f080914;
-                }
-                d.setImageResource(i2);
-            }
-            if (this.a.e()) {
-                this.b.a().setVisibility(8);
-            } else {
-                this.b.a().setVisibility(0);
-            }
-            e();
         }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.b(TbadkCoreApplication.getInst().getSkinType(), this.a);
-        }
+        return (List) invokeCommon.objValue;
     }
 }

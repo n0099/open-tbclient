@@ -1,86 +1,251 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.w55;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
+import com.baidu.tbadk.core.flow.CoverFlowView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class t9a extends w55 {
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+/* loaded from: classes8.dex */
+public class t9a extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity c;
-    public final e7a d;
+    public HashSet<String> a;
+    public ArrayList<r9a> b;
+    public CoverFlowView<r9a> c;
+    public k85<r9a> d;
+    public TbPageContext<?> e;
 
-    @Override // com.baidu.tieba.w55
-    public void b() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements k85<r9a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t9a a;
+
+        public a(t9a t9aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t9aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t9aVar;
+        }
+
+        @Override // com.baidu.tieba.k85
+        public void b(int i, String str) {
+            String str2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
+                r9a r9aVar = (r9a) ListUtils.getItem(this.a.b, i);
+                if (r9aVar != null) {
+                    str2 = r9aVar.a();
+                } else {
+                    str2 = null;
+                }
+                if (UrlManager.getInstance().dealOneLink(this.a.e, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(str2)) {
+                    TiebaStatic.eventStat(this.a.e.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "CLICK", DownloadStatisticConstants.UBC_VALUE_TASK, "tbanner", "obj_id", String.valueOf(str2), "obj_name", String.valueOf(str2), "obj_cpid", 0, TiebaStatic.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", HttpConstants.OS_VERSION, aj.k(), "log_ver", "1.1");
+                }
+                TiebaStatic.eventStat(this.a.e.getPageActivity(), "square_banner_picture", "click", 1, "loc", (i - 1) + "");
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.k85
+        /* renamed from: c */
+        public void a(int i, r9a r9aVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, r9aVar) != null) || r9aVar == null) {
+                return;
+            }
+            String a = r9aVar.a();
+            if (i == 2 && !TextUtils.isEmpty(a) && this.a.a.add(a)) {
+                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "VIEW_TRUE", DownloadStatisticConstants.UBC_VALUE_TASK, "tbanner", "obj_id", String.valueOf(a), "obj_name", String.valueOf(a), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", HttpConstants.OS_VERSION, aj.k());
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t9a(@NonNull MainTabActivity mainTabActivity, @NonNull e7a e7aVar) {
-        super(mainTabActivity);
+    /* loaded from: classes8.dex */
+    public class b extends i85 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+
+        public b(t9a t9aVar, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t9aVar, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+        }
+
+        @Override // com.baidu.tieba.i85, com.baidu.tieba.g85
+        public j85 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                j85 a = super.a();
+                if (a != null) {
+                    a.d(85);
+                    a.e(R.dimen.obfuscated_res_0x7f0701d5);
+                    a.f(R.dimen.obfuscated_res_0x7f070201);
+                }
+                return a;
+            }
+            return (j85) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.i85, com.baidu.tieba.g85
+        public m85 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                m85 m85Var = new m85();
+                m85Var.a(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c0));
+                return m85Var;
+            }
+            return (m85) invokeV.objValue;
+        }
+    }
+
+    public t9a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, e7aVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = e7aVar;
-        this.c = mainTabActivity;
+        this.a = new HashSet<>();
+        this.b = new ArrayList<>();
+        this.c = null;
+        this.d = new a(this);
+        this.e = tbPageContext;
+        this.c = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.c.setCoverFlowFactory(new b(this, tbPageContext));
+        this.c.setCallback(this.d);
     }
 
-    @Override // com.baidu.tieba.w55
-    public void d(@NonNull w55.a aVar) {
-        boolean z;
+    public void e(int i) {
+        CoverFlowView<r9a> coverFlowView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            boolean z2 = false;
-            if (this.d.y() != null && this.d.y().getCurrentTabType() != 2) {
-                aVar.callback(false);
-                return;
-            }
-            boolean l = r95.p().l(r95.t("key_new_god_pop_is_show"), false);
-            if (TbSingleton.getInstance().getNewGodData() != null) {
-                z = true;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (coverFlowView = this.c) != null) {
+            coverFlowView.t();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return Integer.valueOf(i);
+        }
+        return invokeI.objValue;
+    }
+
+    public CoverFlowView<r9a> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (CoverFlowView) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList<r9a> arrayList = this.b;
+            if (arrayList != null) {
+                i = arrayList.size() + 0;
             } else {
-                z = false;
+                i = 0;
             }
-            if (l && z) {
-                z2 = true;
+            if (i <= 0) {
+                return 0;
             }
-            aVar.callback(z2);
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public void f(ArrayList<w45> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            ArrayList<r9a> arrayList2 = new ArrayList<>();
+            Iterator<w45> it = arrayList.iterator();
+            while (it.hasNext()) {
+                w45 next = it.next();
+                if (next != null) {
+                    arrayList2.add(new r9a(next));
+                }
+            }
+            this.b = arrayList2;
+            this.c.setData(arrayList2);
+            notifyDataSetChanged();
         }
     }
 
-    @Override // com.baidu.tieba.w55
-    public void e() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbWebViewActivityConfig h = ux4.h(this.c, "", "https://tieba.baidu.com/mo/q/hybrid/popups?page=god-invite", false, true, true);
-            h.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            h.setWebDialogName("newGod");
-            this.c.sendMessage(new CustomMessage(2002001, h));
-            r95.p().A(r95.t("key_new_god_pop_is_show"), false);
-            d65.m("newGod");
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            return this.c;
         }
+        return (View) invokeILL.objValue;
     }
 }

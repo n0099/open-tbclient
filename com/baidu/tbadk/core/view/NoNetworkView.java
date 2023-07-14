@@ -20,9 +20,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h05;
+import com.baidu.tieba.gfa;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.v6a;
+import com.baidu.tieba.q05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     /* loaded from: classes4.dex */
     public interface b {
-        void i(boolean z);
+        void j(boolean z);
     }
 
     public int getLayout() {
@@ -288,7 +288,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             this.c = (TextView) findViewById(R.id.check_detail_view);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v6a.noNetworkView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gfa.noNetworkView);
                 this.d = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }
@@ -312,7 +312,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeLI(1048579, this, l9Var, i) == null) {
             if (l9Var instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) l9Var;
-                h05 layoutMode = tbPageContext.getLayoutMode();
+                q05 layoutMode = tbPageContext.getLayoutMode();
                 if (i == 4) {
                     z = true;
                 } else {
@@ -340,7 +340,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 setVisibility(0);
                 startAnimation(alphaAnimation);
                 for (int i = 0; i < this.f.size(); i++) {
-                    this.f.get(i).i(false);
+                    this.f.get(i).j(false);
                 }
             } else if (this.d && !BdSocketLinkService.isAvailable()) {
                 if (2 == this.e) {
@@ -354,7 +354,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 setVisibility(0);
                 startAnimation(alphaAnimation2);
                 for (int i2 = 0; i2 < this.f.size(); i2++) {
-                    this.f.get(i2).i(false);
+                    this.f.get(i2).j(false);
                 }
             } else if (this.e != 0) {
                 this.e = 0;
@@ -365,7 +365,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     alphaAnimation3.setAnimationListener(new a(this));
                     startAnimation(alphaAnimation3);
                     for (int i3 = 0; i3 < this.f.size(); i3++) {
-                        this.f.get(i3).i(true);
+                        this.f.get(i3).j(true);
                     }
                 }
             }

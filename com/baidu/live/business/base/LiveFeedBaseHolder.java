@@ -10,21 +10,21 @@ public class LiveFeedBaseHolder extends RecyclerView.ViewHolder {
         this.a = liveBaseItemView;
     }
 
-    public void a() {
+    public void b() {
         LiveBaseItemView liveBaseItemView = this.a;
         if (liveBaseItemView != null) {
             liveBaseItemView.a();
         }
     }
 
-    public void b() {
+    public void c() {
         LiveBaseItemView liveBaseItemView = this.a;
         if (liveBaseItemView != null) {
             liveBaseItemView.b();
         }
     }
 
-    public void c() {
+    public void d() {
         LiveBaseItemView liveBaseItemView = this.a;
         if (liveBaseItemView != null) {
             liveBaseItemView.c();

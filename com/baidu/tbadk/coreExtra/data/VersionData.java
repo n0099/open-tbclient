@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -253,7 +253,7 @@ public class VersionData implements Serializable {
             this.newVer = jSONObject.optString("new_version", null);
             this.size = jSONObject.optString("size", null);
             String optString = jSONObject.optString("new_four_version", null);
-            if (!wi.isEmpty(optString)) {
+            if (!xi.isEmpty(optString)) {
                 this.newVer = optString;
             }
             this.url = jSONObject.optString("new_version_url");

@@ -43,7 +43,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaVerticalViewPagerNew extends ViewGroup {
     public static final int CLOSE_ENOUGH = 2;
     public static final boolean DEBUG = false;

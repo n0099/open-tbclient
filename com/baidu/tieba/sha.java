@@ -1,95 +1,70 @@
 package com.baidu.tieba;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.TextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sha implements View.OnTouchListener {
+public class sha extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Spannable a;
-    public b26 b;
+    public final MainTabActivity a;
+    public final pfa b;
 
-    public sha(Spannable spannable) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sha(MainTabActivity mainTabActivity, pfa pfaVar) {
+        super(2001304);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spannable};
+            Object[] objArr = {mainTabActivity, pfaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.a = spannable;
+        this.a = mainTabActivity;
+        this.b = pfaVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        b26 b26Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        pfa pfaVar;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (!(view2 instanceof TextView)) {
-                return false;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && (pfaVar = this.b) != null && pfaVar.y() != null) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
+            boolean z2 = false;
+            if (intValue != 2 && oldSkinType != 2) {
+                z = true;
+            } else {
+                z = false;
             }
-            TextView textView = (TextView) view2;
-            if (action == 3 && (b26Var = this.b) != null) {
-                b26Var.h(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                view2.invalidate();
-                this.b = null;
-                return false;
+            if (z) {
+                return;
             }
-            if (action == 1 || action == 0) {
-                int x = (int) motionEvent.getX();
-                int y = (int) motionEvent.getY();
-                Layout layout = textView.getLayout();
-                if (layout == null) {
-                    return false;
-                }
-                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
-                Spannable spannable = this.a;
-                if (spannable == null) {
-                    return false;
-                }
-                b26[] b26VarArr = (b26[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, b26.class);
-                if (b26VarArr != null && b26VarArr.length != 0 && b26VarArr[0] != null) {
-                    if (action == 1) {
-                        b26VarArr[0].h(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                        b26VarArr[0].onClick(textView);
-                        view2.invalidate();
-                    } else {
-                        this.b = b26VarArr[0];
-                        Spannable spannable2 = this.a;
-                        Selection.setSelection(spannable2, spannable2.getSpanStart(b26VarArr[0]), this.a.getSpanEnd(b26VarArr[0]));
-                        view2.invalidate();
-                    }
-                    return true;
-                }
-                b26 b26Var2 = this.b;
-                if (b26Var2 != null) {
-                    b26Var2.h(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                    view2.invalidate();
-                }
-                Selection.removeSelection(this.a);
+            if ((intValue == 3 || intValue == 0) && oldSkinType == 2) {
+                z2 = true;
             }
-            return false;
+            if (z2) {
+                this.b.y().e(1);
+            } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
+                this.b.y().e(2);
+            } else {
+                this.b.y().e(1);
+            }
         }
-        return invokeLL.booleanValue;
     }
 }

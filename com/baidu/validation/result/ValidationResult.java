@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ValidationResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_OK = 0;
@@ -23,7 +23,7 @@ public class ValidationResult {
     public int errno;
     public String msg;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Data {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

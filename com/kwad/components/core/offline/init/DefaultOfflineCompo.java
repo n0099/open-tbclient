@@ -6,7 +6,7 @@ import com.kwad.components.offline.api.IOfflineCompo;
 import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.components.d;
 import com.kwad.sdk.utils.am;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class DefaultOfflineCompo extends d implements IOfflineCompo {
     public final IOfflineCompo mOfflineComponents;
 

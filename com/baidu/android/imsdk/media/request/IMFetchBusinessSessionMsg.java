@@ -4,7 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.ChatObject;
+import com.baidu.android.imsdk.IMListener;
+import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManager;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
@@ -12,7 +13,6 @@ import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.IMMediaBuildSessionListener;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.chatmessage.request.RequestContants;
 import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
 import com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener;
 import com.baidu.android.imsdk.db.TableDefine;
@@ -22,8 +22,11 @@ import com.baidu.android.imsdk.group.GroupInfo;
 import com.baidu.android.imsdk.group.GroupMessageManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
+import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.media.MediaSessionManager;
+import com.baidu.android.imsdk.media.bean.GetSessionResult;
+import com.baidu.android.imsdk.media.listener.BIMValuesCallBack;
 import com.baidu.android.imsdk.pubaccount.IGetPaInfosListener;
 import com.baidu.android.imsdk.pubaccount.PaManager;
 import com.baidu.android.imsdk.request.Message;
@@ -62,11 +65,14 @@ public class IMFetchBusinessSessionMsg extends Message {
     public String mScreenKey;
     public ScreenUbc.MethodInfo mScreenMethodInfo;
     public int mSessionType;
+    public long mToContacterPaUid;
+    public long mToContacterUk;
+    public int mToContacterUserType;
 
     private int getAggBusinessType(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65556, this, i, i2)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65559, this, i, i2)) == null) {
             if (i == 1) {
                 return 2;
             }
@@ -291,10 +297,10 @@ public class IMFetchBusinessSessionMsg extends Message {
             this.mResponse = jSONObject;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:20:0x008e  */
-        /* JADX WARN: Removed duplicated region for block: B:31:0x00d5  */
-        /* JADX WARN: Removed duplicated region for block: B:36:0x00e5  */
-        /* JADX WARN: Removed duplicated region for block: B:50:0x0136 A[ADDED_TO_REGION] */
+        /* JADX WARN: Removed duplicated region for block: B:20:0x009f  */
+        /* JADX WARN: Removed duplicated region for block: B:31:0x00e7  */
+        /* JADX WARN: Removed duplicated region for block: B:36:0x00f7  */
+        /* JADX WARN: Removed duplicated region for block: B:50:0x0148 A[ADDED_TO_REGION] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -304,7 +310,7 @@ public class IMFetchBusinessSessionMsg extends Message {
             int i2;
             int i3;
             int i4;
-            int i5;
+            int optInt;
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -317,14 +323,17 @@ public class IMFetchBusinessSessionMsg extends Message {
                 if (jSONObject != null) {
                     try {
                         i3 = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE);
-                        if (i3 == 0) {
+                        if (i3 != 0) {
+                            i = 0;
+                            i2 = 0;
+                        } else {
                             list = this.this$0.parseBusinessSessions(this.mResponse.optJSONArray("sessions"));
-                            i = this.mResponse.getInt("has_more");
+                            i = this.mResponse.optInt("has_more");
                             try {
-                                i5 = this.mResponse.getInt("total_unread_num");
+                                optInt = this.mResponse.optInt("total_unread_num");
                                 this.mResponse.optInt("consult_unread_num");
-                                i2 = this.mResponse.getInt("top_has_more");
-                            } catch (JSONException unused) {
+                                i2 = this.mResponse.optInt("top_has_more");
+                            } catch (Exception unused) {
                                 i2 = 0;
                                 i3 = 1005;
                                 if (!TextUtils.isEmpty(this.this$0.mScreenKey)) {
@@ -340,12 +349,14 @@ public class IMFetchBusinessSessionMsg extends Message {
                                 this.this$0.completeSessionInfo(i4, z, i2, hashMap, hashMap2, hashMap3, arrayList);
                             }
                             try {
-                                int i6 = this.mResponse.getInt("stranger_unread_num");
+                                int optInt2 = this.mResponse.optInt("stranger_unread_num");
+                                int optInt3 = this.mResponse.optInt("do_not_disturb_unread_number");
                                 if (this.this$0.mMode != 2) {
-                                    MediaSessionManager.getInstance(this.mContext).setMediaTotalUnread(i5);
-                                    MediaSessionManager.getInstance(this.mContext).setStrangerUnread(i6);
+                                    MediaSessionManager.getInstance(this.mContext).setMediaTotalUnread(optInt);
+                                    MediaSessionManager.getInstance(this.mContext).setStrangerUnread(optInt2);
+                                    MediaSessionManager.getInstance(this.mContext).setPrivateChatNoDisturbNum(optInt3);
                                 }
-                            } catch (JSONException unused2) {
+                            } catch (Exception unused2) {
                                 i3 = 1005;
                                 if (!TextUtils.isEmpty(this.this$0.mScreenKey)) {
                                 }
@@ -357,11 +368,8 @@ public class IMFetchBusinessSessionMsg extends Message {
                                 z = true;
                                 this.this$0.completeSessionInfo(i4, z, i2, hashMap, hashMap2, hashMap3, arrayList);
                             }
-                        } else {
-                            i = 0;
-                            i2 = 0;
                         }
-                    } catch (JSONException unused3) {
+                    } catch (Exception unused3) {
                         i = 0;
                     }
                     if (!TextUtils.isEmpty(this.this$0.mScreenKey)) {
@@ -379,7 +387,7 @@ public class IMFetchBusinessSessionMsg extends Message {
                     }
                     i4 = i3;
                 } else {
-                    i4 = 0;
+                    i4 = -1003;
                     i = 0;
                     i2 = 0;
                 }
@@ -406,11 +414,83 @@ public class IMFetchBusinessSessionMsg extends Message {
         }
     }
 
+    /* loaded from: classes.dex */
+    public class SingleMediaSessionResultTask extends TaskManager.Task {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Context mContext;
+        public int mError;
+        public JSONObject mResponse;
+        public String mStrMsg;
+        public final /* synthetic */ IMFetchBusinessSessionMsg this$0;
+
+        public SingleMediaSessionResultTask(IMFetchBusinessSessionMsg iMFetchBusinessSessionMsg, Context context, int i, String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iMFetchBusinessSessionMsg, context, Integer.valueOf(i), str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = iMFetchBusinessSessionMsg;
+            this.mContext = context;
+            this.mError = i;
+            this.mStrMsg = str;
+            this.mResponse = jSONObject;
+        }
+
+        @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
+        public void run() {
+            JSONObject jSONObject;
+            List<ChatSession> list;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (jSONObject = this.mResponse) != null) {
+                int i = 0;
+                try {
+                    i = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE);
+                    if (i != 0) {
+                        list = null;
+                    } else {
+                        list = this.this$0.parseBusinessSessions(this.mResponse.optJSONArray("sessions"));
+                    }
+                    GetSessionResult getSessionResult = new GetSessionResult();
+                    getSessionResult.sessionList = list;
+                    IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mListenerKey);
+                    if (removeListener != null && (removeListener instanceof BIMValuesCallBack)) {
+                        ((BIMValuesCallBack) removeListener).onResult(i, this.mStrMsg, getSessionResult, null);
+                    }
+                } catch (Exception unused) {
+                    GetSessionResult getSessionResult2 = new GetSessionResult();
+                    getSessionResult2.sessionList = null;
+                    IMListener removeListener2 = ListenerManager.getInstance().removeListener(this.this$0.mListenerKey);
+                    if (removeListener2 != null && (removeListener2 instanceof BIMValuesCallBack)) {
+                        ((BIMValuesCallBack) removeListener2).onResult(1005, this.mStrMsg, getSessionResult2, null);
+                    }
+                } catch (Throwable th) {
+                    GetSessionResult getSessionResult3 = new GetSessionResult();
+                    getSessionResult3.sessionList = null;
+                    IMListener removeListener3 = ListenerManager.getInstance().removeListener(this.this$0.mListenerKey);
+                    if (removeListener3 != null && (removeListener3 instanceof BIMValuesCallBack)) {
+                        ((BIMValuesCallBack) removeListener3).onResult(i, this.mStrMsg, getSessionResult3, null);
+                    }
+                    throw th;
+                }
+            }
+        }
+    }
+
     public IMFetchBusinessSessionMsg(Context context, int i, long j, long j2, long j3, int i2, int i3, int i4, int i5, int i6, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
+            newInitContext.initArgs = r2;
             Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i7 = newInitContext.flag;
@@ -421,6 +501,7 @@ public class IMFetchBusinessSessionMsg extends Message {
                 return;
             }
         }
+        this.mToContacterUserType = -1;
         this.mContext = context;
         initCommonParameter(context);
         this.mBusinessType = i;
@@ -437,10 +518,37 @@ public class IMFetchBusinessSessionMsg extends Message {
         setType(206);
     }
 
+    public IMFetchBusinessSessionMsg(Context context, int i, long j, String str, int i2, long j2, long j3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mToContacterUserType = -1;
+        this.mContext = context;
+        initCommonParameter(context);
+        this.mBusinessType = i;
+        this.mContacterUk = j;
+        this.mToContacterUserType = i2;
+        this.mToContacterPaUid = j2;
+        this.mToContacterUk = j3;
+        setListenerKey(str);
+        setType(206);
+    }
+
     private int getCategory(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65557, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65560, this, i)) == null) {
             if (this.mBusinessType == 27) {
                 return 9;
             }
@@ -458,7 +566,7 @@ public class IMFetchBusinessSessionMsg extends Message {
     private String getLastMsgDesc(ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, chatMsg)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, this, chatMsg)) == null) {
             if (chatMsg != null) {
                 String recommendDescription = chatMsg.getRecommendDescription();
                 if (!TextUtils.isEmpty(chatMsg.getPreviewDesc())) {
@@ -474,7 +582,7 @@ public class IMFetchBusinessSessionMsg extends Message {
     private int getUserType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65559, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65562, this, i)) == null) {
             if (AccountManagerImpl.getInstance(this.mContext).getMediaRole()) {
                 if (i == 3 || i == 0) {
                     return 1;
@@ -489,7 +597,7 @@ public class IMFetchBusinessSessionMsg extends Message {
     private ChatSession addAdvisoryValue(JSONObject jSONObject, ChatSession chatSession) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, this, jSONObject, chatSession)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, this, jSONObject, chatSession)) == null) {
             if (jSONObject != null && chatSession != null && this.mBusinessType == 27) {
                 try {
                     int i = jSONObject.getInt("session_type");
@@ -523,23 +631,30 @@ public class IMFetchBusinessSessionMsg extends Message {
         return (ChatSession) invokeLL.objValue;
     }
 
-    public static IMFetchBusinessSessionMsg newInstance(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public void updateAggSessionFromServerWithCSession(ChatSession chatSession, int i) {
+        ChatSession chatSession2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, context, intent)) == null) {
-            if (intent.hasExtra("count") && intent.hasExtra(Constants.EXTRA_BUSINESS_TYPE)) {
-                int intExtra = intent.getIntExtra("count", -1);
-                return new IMFetchBusinessSessionMsg(context, intent.getIntExtra(Constants.EXTRA_BUSINESS_TYPE, -1), intent.getLongExtra("contacter", -1L), intent.getLongExtra(Constants.EXTRA_BEGIN_MSGID, -1L), intent.getLongExtra(Constants.EXTRA_END_MSGID, -1L), intExtra, intent.getIntExtra(Constants.EXTRA_FETCH_SESSION_MODE, 0), intent.getIntExtra(Constants.EXTRA_FETCH_SESSION_TOP, 1), intent.getIntExtra("session_type", -1), intent.getIntExtra(Constants.EXTRA_TRIGGER_REASON, -1), intent.getStringExtra(Constants.EXTRA_LISTENER_ID), intent.getStringExtra(Constants.EXTRA_SCREEN_KEY));
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, chatSession, i) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(Integer.valueOf(i));
+            ArrayList<ChatSession> chatRecordsByClass = ChatMessageDBManager.getInstance(this.mContext).getChatRecordsByClass(1L, arrayList);
+            if (chatRecordsByClass != null && chatRecordsByClass.size() > 0 && chatRecordsByClass.get(0) != null) {
+                chatSession2 = chatRecordsByClass.get(0);
+                chatSession.setLastMsg(chatSession2.getLastMsg());
+            } else {
+                if (i == 11) {
+                    chatSession.setLastMsg("暂无互动消息，快和朋友互动起来吧>");
+                }
+                chatSession2 = null;
             }
-            return null;
+            LogUtils.d(TAG, "聚合会话修正，session = " + chatSession + "localSession = " + chatSession2);
         }
-        return (IMFetchBusinessSessionMsg) invokeLL.objValue;
     }
 
     private String buildAdvisoryRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             String str = null;
             try {
@@ -570,10 +685,40 @@ public class IMFetchBusinessSessionMsg extends Message {
         return (String) invokeV.objValue;
     }
 
+    private String buildSingleMediaRequestParam() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            String str = null;
+            try {
+                jSONObject.put("method", 206);
+                jSONObject.put("appid", this.mAppid);
+                jSONObject.put("business_type", this.mBusinessType);
+                jSONObject.put("uk", AccountManager.getUK(this.mContext));
+                jSONObject.put("user_type", getUserType(this.mBusinessType));
+                if (this.mToContacterUserType >= 0) {
+                    jSONObject.put("contacter_user_type", this.mToContacterUserType);
+                }
+                jSONObject.put("contacter_pa_uid", this.mToContacterPaUid);
+                jSONObject.put("contacter_uk", this.mToContacterUk);
+                jSONObject.put(Constants.EXTRA_PAUID_TYPE, MediaSessionManager.getInstance(this.mContext).getMeidaPaid());
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
+                str = jSONObject.toString();
+                LogUtils.d(TAG, "request param = " + str);
+                return str;
+            } catch (JSONException unused) {
+                return str;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
     private String buildMediaRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             String str = null;
             try {
@@ -592,6 +737,9 @@ public class IMFetchBusinessSessionMsg extends Message {
                 }
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
+                if (BIMManager.weakIntervalTime > 0) {
+                    jSONObject.put("weak_reminder_msgid_begin", (System.currentTimeMillis() - (BIMManager.weakIntervalTime * 1000)) * 1000);
+                }
                 str = jSONObject.toString();
                 LogUtils.d(TAG, "request param = " + str);
                 return str;
@@ -610,8 +758,9 @@ public class IMFetchBusinessSessionMsg extends Message {
         IGetPaInfosListener iGetPaInfosListener;
         ArrayList arrayList3;
         BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), map, map2, map3, list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65558, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), map, map2, map3, list}) == null) {
             CompleteSessionInfoListener completeSessionInfoListener = new CompleteSessionInfoListener(this, i, z, i2, list);
             IMMediaBuildSessionListener iMMediaBuildSessionListener = new IMMediaBuildSessionListener(this.mContext, completeSessionInfoListener);
             if (i == 0) {
@@ -619,7 +768,18 @@ public class IMFetchBusinessSessionMsg extends Message {
                     for (ChatSession chatSession : list) {
                         if (chatSession != null && chatSession.getIsStranger() != 1 && chatSession.getClassType() != 12) {
                             if (chatSession.getBusinessType() == 27) {
-                                chatSession.setNewMsgSum(chatSession.getNewMsgSum() + ChatMsgManager.getTotalUnReadMsgCountByAdvisory(this.mContext, 0L));
+                                chatSession.setNewMsgSum(ChatMsgManager.getTotalUnReadMsgCountByAdvisory(this.mContext, 0L) + chatSession.getNewMsgSum());
+                                List<ChatSession> sessionByGfhPA = ChatSessionManagerImpl.getInstance(this.mContext).getSessionByGfhPA(27, 0L);
+                                if (sessionByGfhPA != null && !sessionByGfhPA.isEmpty()) {
+                                    chatSession.setLastMsg(sessionByGfhPA.get(0).getLastMsg());
+                                } else {
+                                    List<ChatSession> busiChatSessionsFromDb = ChatSessionManagerImpl.getInstance(this.mContext).getBusiChatSessionsFromDb(chatSession.getBusinessType(), -1, 0L, 0L, Long.MAX_VALUE, -1, 2);
+                                    if (busiChatSessionsFromDb != null && busiChatSessionsFromDb.size() > 0) {
+                                        chatSession.setLastMsg(ChatSessionManagerImpl.getInstance(this.mContext).getBusinessSessionLastMsg(busiChatSessionsFromDb.get(0)));
+                                    } else {
+                                        chatSession.setLastMsg("");
+                                    }
+                                }
                             } else {
                                 ArrayList arrayList4 = new ArrayList();
                                 arrayList4.add(Integer.valueOf(chatSession.getClassType()));
@@ -654,13 +814,16 @@ public class IMFetchBusinessSessionMsg extends Message {
                     bIMValueCallBack = null;
                 }
                 if (iGetUsersProfileBatchListener != null) {
+                    z2 = false;
                     ChatUserManagerImpl.getInstance(this.mContext).getUsersProfileBatchByBuid(arrayList, false, iGetUsersProfileBatchListener);
+                } else {
+                    z2 = false;
                 }
                 if (iGetPaInfosListener != null) {
-                    PaManager.getPaInfos(this.mContext, arrayList2, false, iGetPaInfosListener);
+                    PaManager.getPaInfos(this.mContext, arrayList2, z2, iGetPaInfosListener);
                 }
                 if (bIMValueCallBack != null) {
-                    BIMGroupManager.getFansGroupInfo(this.mContext, arrayList3, false, bIMValueCallBack);
+                    BIMGroupManager.getFansGroupInfo(this.mContext, arrayList3, z2, bIMValueCallBack);
                 }
                 if (arrayList == null && arrayList2 == null && arrayList3 == null) {
                     iMMediaBuildSessionListener.onResult(i, null, completeSessionInfoListener);
@@ -672,213 +835,374 @@ public class IMFetchBusinessSessionMsg extends Message {
         }
     }
 
+    public static IMFetchBusinessSessionMsg newInstance(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, context, intent)) == null) {
+            if (intent.hasExtra("contacter_user_type") && (intent.hasExtra("contacter_pa_uid") || intent.hasExtra("contacter_uk"))) {
+                return new IMFetchBusinessSessionMsg(context, intent.getIntExtra(Constants.EXTRA_BUSINESS_TYPE, -1), intent.getLongExtra("contacter", -1L), intent.getStringExtra(Constants.EXTRA_LISTENER_ID), intent.getIntExtra("contacter_user_type", -1), intent.getLongExtra("contacter_pa_uid", -1L), intent.getLongExtra("contacter_uk", -1L));
+            } else if (intent.hasExtra("count") && intent.hasExtra(Constants.EXTRA_BUSINESS_TYPE)) {
+                int intExtra = intent.getIntExtra("count", -1);
+                return new IMFetchBusinessSessionMsg(context, intent.getIntExtra(Constants.EXTRA_BUSINESS_TYPE, -1), intent.getLongExtra("contacter", -1L), intent.getLongExtra(Constants.EXTRA_BEGIN_MSGID, -1L), intent.getLongExtra(Constants.EXTRA_END_MSGID, -1L), intExtra, intent.getIntExtra(Constants.EXTRA_FETCH_SESSION_MODE, 0), intent.getIntExtra(Constants.EXTRA_FETCH_SESSION_TOP, 1), intent.getIntExtra("session_type", -1), intent.getIntExtra(Constants.EXTRA_TRIGGER_REASON, -1), intent.getStringExtra(Constants.EXTRA_LISTENER_ID), intent.getStringExtra(Constants.EXTRA_SCREEN_KEY));
+            } else {
+                return null;
+            }
+        }
+        return (IMFetchBusinessSessionMsg) invokeLL.objValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Can't wrap try/catch for region: R(32:(4:10|11|12|(7:13|14|15|16|17|(1:19)(1:126)|20))|(9:124|26|27|28|29|(1:31)|32|(20:39|(1:41)(1:120)|42|43|44|45|(1:47)|48|49|50|51|52|(11:54|55|56|58|59|(1:61)|62|(1:105)(4:66|67|68|(1:70))|71|72|(2:88|89))(1:111)|74|(1:78)|79|80|81|82|84)(2:36|37)|38)|25|26|27|28|29|(0)|32|(1:34)|39|(0)(0)|42|43|44|45|(0)|48|49|50|51|52|(0)(0)|74|(2:76|78)|79|80|81|82|84|38|8) */
+    /* JADX WARN: Can't wrap try/catch for region: R(35:10|11|12|(7:13|14|15|16|17|(1:19)(1:126)|20)|(9:124|26|27|28|29|(1:31)|32|(20:39|(1:41)(1:120)|42|43|44|45|(1:47)|48|49|50|51|52|(11:54|55|56|58|59|(1:61)|62|(1:105)(4:66|67|68|(1:70))|71|72|(2:88|89))(1:111)|74|(1:78)|79|80|81|82|84)(2:36|37)|38)|25|26|27|28|29|(0)|32|(1:34)|39|(0)(0)|42|43|44|45|(0)|48|49|50|51|52|(0)(0)|74|(2:76|78)|79|80|81|82|84|38|8) */
+    /* JADX WARN: Can't wrap try/catch for region: R(41:10|11|12|13|14|15|16|17|(1:19)(1:126)|20|(9:124|26|27|28|29|(1:31)|32|(20:39|(1:41)(1:120)|42|43|44|45|(1:47)|48|49|50|51|52|(11:54|55|56|58|59|(1:61)|62|(1:105)(4:66|67|68|(1:70))|71|72|(2:88|89))(1:111)|74|(1:78)|79|80|81|82|84)(2:36|37)|38)|25|26|27|28|29|(0)|32|(1:34)|39|(0)(0)|42|43|44|45|(0)|48|49|50|51|52|(0)(0)|74|(2:76|78)|79|80|81|82|84|38|8) */
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x0301, code lost:
+        r8 = r50;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:102:0x0308, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x0309, code lost:
+        r8 = r50;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:104:0x030c, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:105:0x030d, code lost:
+        r8 = r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:106:0x030e, code lost:
+        r2 = r26;
+        r3 = r41;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:95:0x02fa, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:99:0x0300, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:134:0x0256 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0135 A[Catch: Exception -> 0x030c, TryCatch #1 {Exception -> 0x030c, blocks: (B:30:0x0119, B:32:0x0135, B:35:0x013e, B:42:0x015d), top: B:124:0x0119 }] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0158  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x015b  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x01ae A[Catch: Exception -> 0x0308, TryCatch #10 {Exception -> 0x0308, blocks: (B:44:0x0185, B:46:0x01ae, B:47:0x01b3), top: B:142:0x0185 }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x01e2  */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x02d0  */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x02d8 A[Catch: Exception -> 0x02fc, TryCatch #6 {Exception -> 0x02fc, blocks: (B:77:0x0248, B:79:0x0256, B:86:0x02d4, B:88:0x02d8, B:90:0x02e0, B:91:0x02ee, B:76:0x0245), top: B:134:0x0256 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public List<ChatSession> parseBusinessSessions(JSONArray jSONArray) {
         InterceptResult invokeL;
         IMFetchBusinessSessionMsg iMFetchBusinessSessionMsg;
+        ArrayList arrayList;
         String str;
         int i;
-        String str2;
-        int i2;
-        int i3;
+        JSONObject jSONObject;
+        long optLong;
         long j;
-        int i4;
         long j2;
+        long optLong2;
+        long j3;
+        long optLong3;
+        int optInt;
+        String optString;
+        ArrayList arrayList2;
+        long optLong4;
+        int optInt2;
+        int optInt3;
+        String optString2;
+        String optString3;
+        int i2;
+        int optInt4;
+        long optLong5;
+        int optInt5;
+        int optInt6;
+        int i3;
+        int optInt7;
+        String optString4;
+        int i4;
+        long j4;
+        ChatSession chatSession;
+        ChatSession chatRecord;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, this, jSONArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, this, jSONArray)) == null) {
             IMFetchBusinessSessionMsg iMFetchBusinessSessionMsg2 = this;
             JSONArray jSONArray2 = jSONArray;
-            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList3 = new ArrayList();
             if (jSONArray2 != null && jSONArray.length() != 0) {
-                String str3 = TAG;
+                String str2 = TAG;
                 LogUtils.d(TAG, "parseBusinessSessions size = " + jSONArray.length());
                 int i5 = 0;
                 while (i5 < jSONArray.length()) {
                     try {
-                        JSONObject jSONObject = jSONArray2.getJSONObject(i5);
-                        LogUtils.d(str3, "parseBusinessSessions json = " + jSONObject.toString());
-                        long optLong = jSONObject.optLong("sort_update_time_us");
-                        long j3 = jSONObject.getLong("contacter_uk");
-                        long j4 = jSONObject.getLong("contacter_bduid");
-                        long optLong2 = jSONObject.optLong(RequestContants.EXTRA_CONTACTER_PA_UID, -1L);
-                        long j5 = jSONObject.getLong("unread_num");
+                        jSONObject = jSONArray2.getJSONObject(i5);
+                        LogUtils.d(str2, "parseBusinessSessions json = " + jSONObject.toString());
+                        optLong = jSONObject.optLong("sort_update_time_us");
+                        j = jSONObject.getLong("contacter_uk");
+                        j2 = jSONObject.getLong("contacter_bduid");
+                        optLong2 = jSONObject.optLong("contacter_pa_uid", -1L);
+                        j3 = jSONObject.getLong("unread_num");
                         i = i5;
                         try {
-                            long optLong3 = jSONObject.optLong(TableDefine.MediaSessionColumns.COLUMN_LAST_MSGID);
-                            int optInt = jSONObject.optInt("last_msgtype");
-                            String optString = jSONObject.optString("last_content");
-                            ArrayList arrayList2 = arrayList;
+                            optLong3 = jSONObject.optLong(TableDefine.MediaSessionColumns.COLUMN_LAST_MSGID);
+                            optInt = jSONObject.optInt("last_msgtype");
+                            optString = jSONObject.optString("last_content");
+                            arrayList2 = arrayList3;
                             try {
-                                long optLong4 = jSONObject.optLong("last_time");
-                                int optInt2 = jSONObject.optInt("pa_classtype");
-                                int optInt3 = jSONObject.optInt("pa_classshow");
-                                String optString2 = jSONObject.optString("pa_classavatar");
-                                String optString3 = jSONObject.optString("pa_classtitle");
-                                int optInt4 = jSONObject.optInt("is_top", 0);
-                                int optInt5 = jSONObject.optInt("is_block");
-                                long optLong5 = jSONObject.optLong("block_timestamp");
-                                int optInt6 = jSONObject.optInt("aggr_type");
-                                int optInt7 = jSONObject.optInt("stranger_type");
-                                str = str3;
-                                if (optInt6 != 12 && optInt7 != 1) {
-                                    i2 = optInt2;
-                                    i3 = 0;
+                                optLong4 = jSONObject.optLong("last_time");
+                                optInt2 = jSONObject.optInt("pa_classtype");
+                                optInt3 = jSONObject.optInt("pa_classshow");
+                                optString2 = jSONObject.optString("pa_classavatar");
+                                optString3 = jSONObject.optString("pa_classtitle");
+                                if (jSONObject.optLong("is_top", 0L) > 0) {
+                                    i2 = 1;
                                 } else {
-                                    i2 = optInt6;
-                                    i3 = 1;
+                                    i2 = 0;
                                 }
+                                optInt4 = jSONObject.optInt("is_block");
+                                optLong5 = jSONObject.optLong("block_timestamp");
+                                optInt5 = jSONObject.optInt("aggr_type");
+                                optInt6 = jSONObject.optInt("stranger_type");
+                            } catch (Exception e) {
+                                e = e;
+                                iMFetchBusinessSessionMsg = iMFetchBusinessSessionMsg2;
+                                str = str2;
+                                arrayList = arrayList2;
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            iMFetchBusinessSessionMsg = iMFetchBusinessSessionMsg2;
+                            arrayList = arrayList3;
+                            str = str2;
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        iMFetchBusinessSessionMsg = iMFetchBusinessSessionMsg2;
+                        arrayList = arrayList3;
+                        str = str2;
+                        i = i5;
+                    }
+                    if (optInt5 != 12 && optInt6 != 1) {
+                        optInt5 = optInt2;
+                        i3 = 0;
+                        int optInt8 = jSONObject.optInt("do_not_disturb");
+                        int i6 = i3;
+                        optInt7 = jSONObject.optInt("chat_type");
+                        long optLong6 = jSONObject.optLong("last_msg_bduid");
+                        jSONObject.optLong("last_msg_uk");
+                        optString4 = jSONObject.optString("desc");
+                        int category = iMFetchBusinessSessionMsg2.getCategory(optInt7);
+                        String str3 = str2;
+                        int aggBusinessType = iMFetchBusinessSessionMsg2.getAggBusinessType(category, optInt5);
+                        ChatMsg parseChatMsg = MessageParser.parseChatMsg(iMFetchBusinessSessionMsg2.mContext, category, optInt, aggBusinessType, 0, optString);
+                        if (TextUtils.isEmpty(optString4)) {
+                            optString4 = iMFetchBusinessSessionMsg2.getLastMsgDesc(parseChatMsg);
+                        }
+                        String str4 = optString4;
+                        if (optInt7 != 57 && !GroupMessageManagerImpl.getInstance(iMFetchBusinessSessionMsg2.mContext).isValidGroup(parseChatMsg)) {
+                            iMFetchBusinessSessionMsg = iMFetchBusinessSessionMsg2;
+                            arrayList = arrayList2;
+                            str = str3;
+                        } else {
+                            i4 = (optLong2 > 0L ? 1 : (optLong2 == 0L ? 0 : -1));
+                            if (i4 <= 0) {
+                                j4 = optLong2;
+                            } else {
+                                j4 = j;
+                            }
+                            chatSession = new ChatSession(category, j4, j2, "");
+                            chatSession.setChatType(optInt7);
+                            chatSession.setLastMsg(str4);
+                            chatSession.setNewMsgSum(j3);
+                            chatSession.setLastMsgId(optLong3);
+                            chatSession.setLastMsgTime(optLong4);
+                            chatSession.setClassShow(optInt3);
+                            chatSession.setClassType(optInt5);
+                            chatSession.setClassAvatar(optString2);
+                            chatSession.setClassTitle(optString3);
+                            chatSession.setBusinessType(aggBusinessType);
+                            if (i4 > 0) {
+                                chatSession.setPaid(optLong2);
+                            }
+                            chatSession.setMarkTop(i2);
+                            chatSession.setShield(optInt4);
+                            chatSession.setShieldTime(optLong5);
+                            chatSession.setSortTime(optLong);
+                            chatSession.setIsStranger(i6);
+                            chatSession.setState(0);
+                            chatSession.setIsClicked(1);
+                            chatSession.setDisturb(optInt8);
+                            chatSession.setContacterImuk(j);
+                            if (optInt7 != 57) {
                                 try {
-                                    int optInt8 = jSONObject.optInt("do_not_disturb");
-                                    int optInt9 = jSONObject.optInt("chat_type");
-                                    int i6 = i3;
-                                    long optLong6 = jSONObject.optLong("last_msg_bduid");
-                                    jSONObject.optLong("last_msg_uk");
-                                    String optString4 = jSONObject.optString("desc");
-                                    int category = iMFetchBusinessSessionMsg2.getCategory(optInt9);
-                                    int aggBusinessType = iMFetchBusinessSessionMsg2.getAggBusinessType(category, i2);
-                                    ChatMsg parseChatMsg = MessageParser.parseChatMsg(iMFetchBusinessSessionMsg2.mContext, category, optInt, aggBusinessType, 0, optString);
-                                    if (TextUtils.isEmpty(optString4)) {
-                                        optString4 = iMFetchBusinessSessionMsg2.getLastMsgDesc(parseChatMsg);
-                                    }
-                                    if (optInt9 == 57 && !GroupMessageManagerImpl.getInstance(iMFetchBusinessSessionMsg2.mContext).isValidGroup(parseChatMsg)) {
-                                        iMFetchBusinessSessionMsg = iMFetchBusinessSessionMsg2;
-                                        arrayList = arrayList2;
-                                        str2 = str;
-                                    } else {
-                                        int i7 = (optLong2 > 0L ? 1 : (optLong2 == 0L ? 0 : -1));
-                                        if (i7 > 0) {
-                                            j = optLong2;
-                                        } else {
-                                            j = j3;
+                                    chatSession.setLastMsgUid(optLong6);
+                                    try {
+                                        JSONObject optJSONObject = new JSONObject(optString).optJSONObject("ext");
+                                        String str5 = null;
+                                        if (optJSONObject != null) {
+                                            str5 = optJSONObject.optString("group_member_name");
                                         }
-                                        if (optInt9 == 57) {
-                                            i4 = optInt9;
-                                            ChatSession chatRecord = ChatMessageDBManager.getInstance(iMFetchBusinessSessionMsg2.mContext).getChatRecord(new ChatObject(iMFetchBusinessSessionMsg2.mContext, 1, j3));
-                                            if (chatRecord == null) {
-                                                j2 = 0;
-                                            } else {
-                                                j2 = chatRecord.getNewMsgSum();
-                                            }
-                                        } else {
-                                            i4 = optInt9;
-                                            j2 = j5;
-                                        }
-                                        int i8 = i4;
-                                        String str4 = optString4;
-                                        try {
-                                            ChatSession chatSession = new ChatSession(category, j, j4, "");
-                                            chatSession.setChatType(i8);
-                                            chatSession.setLastMsg(str4);
-                                            chatSession.setNewMsgSum(j2);
-                                            chatSession.setLastMsgId(optLong3);
-                                            chatSession.setLastMsgTime(optLong4);
-                                            chatSession.setClassShow(optInt3);
-                                            chatSession.setClassType(i2);
-                                            chatSession.setClassAvatar(optString2);
-                                            chatSession.setClassTitle(optString3);
-                                            chatSession.setBusinessType(aggBusinessType);
-                                            if (i7 > 0) {
-                                                chatSession.setPaid(optLong2);
-                                            }
-                                            chatSession.setMarkTop(optInt4);
-                                            chatSession.setShield(optInt5);
-                                            chatSession.setShieldTime(optLong5);
-                                            chatSession.setSortTime(optLong);
-                                            chatSession.setIsStranger(i6);
+                                        if (!TextUtils.isEmpty(chatSession.getLastMsg()) && optLong6 > 0) {
+                                            iMFetchBusinessSessionMsg = this;
                                             try {
-                                                chatSession.setState(0);
-                                                chatSession.setIsClicked(1);
-                                                chatSession.setDisturb(optInt8);
-                                                chatSession.setContacterImuk(j3);
-                                                if (i8 == 57) {
-                                                    chatSession.setLastMsgUid(optLong6);
-                                                    iMFetchBusinessSessionMsg = this;
-                                                    try {
-                                                        ChatSession chatRecord2 = ChatSessionManagerImpl.getInstance(iMFetchBusinessSessionMsg.mContext).getChatRecord(1, j);
-                                                        if (chatRecord2 != null) {
-                                                            chatSession.setRemindType(chatRecord2.getRemindType());
-                                                            chatSession.setRemindMsgId(chatRecord2.getRemindMsgid());
-                                                            chatSession.setRemindUid(chatRecord2.getRemindUid());
-                                                            chatSession.setRemindRoleDisplayName(chatRecord2.getRemindRoleDisplayName());
-                                                            chatSession.setHighlightPriority(chatRecord2.getHighlightPriority());
-                                                            chatSession.setHighlightDesc(chatRecord2.getHighlightDesc());
-                                                            chatSession.setLastMsgidFromMe(chatRecord2.getLastMsgidFromMe());
-                                                            chatSession.setExt(chatRecord2.getExt());
-                                                        }
-                                                    } catch (Exception e) {
-                                                        e = e;
-                                                        arrayList = arrayList2;
-                                                        str2 = str;
-                                                        LogUtils.e(str2, "parseBusinessSessions exception ", e);
-                                                        i5 = i + 1;
-                                                        iMFetchBusinessSessionMsg2 = iMFetchBusinessSessionMsg;
-                                                        str3 = str2;
-                                                        jSONArray2 = jSONArray;
-                                                    }
-                                                } else {
-                                                    iMFetchBusinessSessionMsg = this;
+                                                if (optLong6 != Utility.getLongByString(AccountManager.getUid(iMFetchBusinessSessionMsg.mContext), 0L)) {
+                                                    chatSession.setLastMsgName(str5);
                                                 }
-                                                if (BIMManager.hudongTop && chatSession.getClassType() == 11) {
-                                                    chatSession.setMarkTopTime(9223372036854765807L);
-                                                    chatSession.setMarkTop(1);
-                                                }
-                                                arrayList = arrayList2;
+                                            } catch (JSONException e4) {
+                                                e = e4;
                                                 try {
+                                                    str = str3;
+                                                    LogUtils.e(str, "JSON PARSER ERROR: " + e.getMessage());
+                                                    chatRecord = ChatMessageDBManager.getInstance(iMFetchBusinessSessionMsg.mContext).getChatRecord(1, j4);
+                                                    if (chatRecord != null) {
+                                                    }
+                                                    if (BIMManager.hudongTop) {
+                                                    }
+                                                    arrayList = arrayList2;
                                                     arrayList.add(iMFetchBusinessSessionMsg.addAdvisoryValue(jSONObject, chatSession));
-                                                    str2 = str;
-                                                } catch (Exception e2) {
-                                                    e = e2;
-                                                    str2 = str;
-                                                    LogUtils.e(str2, "parseBusinessSessions exception ", e);
+                                                } catch (Exception e5) {
+                                                    e = e5;
+                                                    str = str3;
+                                                    arrayList = arrayList2;
+                                                    LogUtils.e(str, "parseBusinessSessions exception ", e);
                                                     i5 = i + 1;
+                                                    str2 = str;
                                                     iMFetchBusinessSessionMsg2 = iMFetchBusinessSessionMsg;
-                                                    str3 = str2;
+                                                    arrayList3 = arrayList;
                                                     jSONArray2 = jSONArray;
                                                 }
-                                            } catch (Exception e3) {
-                                                e = e3;
-                                                iMFetchBusinessSessionMsg = this;
+                                                i5 = i + 1;
+                                                str2 = str;
+                                                iMFetchBusinessSessionMsg2 = iMFetchBusinessSessionMsg;
+                                                arrayList3 = arrayList;
+                                                jSONArray2 = jSONArray;
+                                            } catch (Exception e6) {
+                                                e = e6;
+                                                arrayList = arrayList2;
+                                                str = str3;
+                                                LogUtils.e(str, "parseBusinessSessions exception ", e);
+                                                i5 = i + 1;
+                                                str2 = str;
+                                                iMFetchBusinessSessionMsg2 = iMFetchBusinessSessionMsg;
+                                                arrayList3 = arrayList;
+                                                jSONArray2 = jSONArray;
                                             }
-                                        } catch (Exception e4) {
-                                            e = e4;
+                                        } else {
                                             iMFetchBusinessSessionMsg = this;
+                                        }
+                                        str = str3;
+                                    } catch (JSONException e7) {
+                                        e = e7;
+                                        iMFetchBusinessSessionMsg = this;
+                                    }
+                                    chatRecord = ChatMessageDBManager.getInstance(iMFetchBusinessSessionMsg.mContext).getChatRecord(1, j4);
+                                    if (chatRecord != null) {
+                                        try {
+                                            chatSession.setNewMsgSum(chatRecord.getNewMsgSum());
+                                            chatSession.setLastMsg(chatRecord.getLastMsg());
+                                            LogUtils.d(str, "修正从server拉取的群会话 session = " + chatSession + "\n chatSession = " + chatRecord);
+                                            chatSession.setLastMsgName(chatRecord.getLastMsgName());
+                                            chatSession.setRemindType(chatRecord.getRemindType());
+                                            chatSession.setRemindMsgId(chatRecord.getRemindMsgid());
+                                            chatSession.setRemindUid(chatRecord.getRemindUid());
+                                            chatSession.setRemindRoleDisplayName(chatRecord.getRemindRoleDisplayName());
+                                            chatSession.setHighlightPriority(chatRecord.getHighlightPriority());
+                                            chatSession.setHighlightDesc(chatRecord.getHighlightDesc());
+                                            chatSession.setLastMsgidFromMe(chatRecord.getLastMsgidFromMe());
+                                            chatSession.setExt(chatRecord.getExt());
+                                            chatSession.setDisturb(chatRecord.getDisturb());
+                                        } catch (Exception e8) {
+                                            e = e8;
                                             arrayList = arrayList2;
-                                            str2 = str;
-                                            LogUtils.e(str2, "parseBusinessSessions exception ", e);
+                                            LogUtils.e(str, "parseBusinessSessions exception ", e);
                                             i5 = i + 1;
+                                            str2 = str;
                                             iMFetchBusinessSessionMsg2 = iMFetchBusinessSessionMsg;
-                                            str3 = str2;
+                                            arrayList3 = arrayList;
                                             jSONArray2 = jSONArray;
                                         }
                                     }
-                                } catch (Exception e5) {
-                                    e = e5;
-                                    iMFetchBusinessSessionMsg = iMFetchBusinessSessionMsg2;
+                                } catch (Exception e9) {
+                                    e = e9;
+                                    iMFetchBusinessSessionMsg = this;
                                 }
-                            } catch (Exception e6) {
-                                e = e6;
-                                iMFetchBusinessSessionMsg = iMFetchBusinessSessionMsg2;
+                            } else {
+                                iMFetchBusinessSessionMsg = this;
                                 str = str3;
                             }
-                        } catch (Exception e7) {
-                            e = e7;
-                            iMFetchBusinessSessionMsg = iMFetchBusinessSessionMsg2;
-                            str = str3;
+                            if (BIMManager.hudongTop && chatSession.getClassType() == 11) {
+                                chatSession.setMarkTopTime(9223372036854765807L);
+                                chatSession.setMarkTop(1);
+                                iMFetchBusinessSessionMsg.updateAggSessionFromServerWithCSession(chatSession, optInt5);
+                            }
+                            arrayList = arrayList2;
+                            arrayList.add(iMFetchBusinessSessionMsg.addAdvisoryValue(jSONObject, chatSession));
                         }
-                    } catch (Exception e8) {
-                        e = e8;
-                        iMFetchBusinessSessionMsg = iMFetchBusinessSessionMsg2;
-                        str = str3;
-                        i = i5;
+                        i5 = i + 1;
+                        str2 = str;
+                        iMFetchBusinessSessionMsg2 = iMFetchBusinessSessionMsg;
+                        arrayList3 = arrayList;
+                        jSONArray2 = jSONArray;
                     }
+                    i3 = 1;
+                    int optInt82 = jSONObject.optInt("do_not_disturb");
+                    int i62 = i3;
+                    optInt7 = jSONObject.optInt("chat_type");
+                    long optLong62 = jSONObject.optLong("last_msg_bduid");
+                    jSONObject.optLong("last_msg_uk");
+                    optString4 = jSONObject.optString("desc");
+                    int category2 = iMFetchBusinessSessionMsg2.getCategory(optInt7);
+                    String str32 = str2;
+                    int aggBusinessType2 = iMFetchBusinessSessionMsg2.getAggBusinessType(category2, optInt5);
+                    ChatMsg parseChatMsg2 = MessageParser.parseChatMsg(iMFetchBusinessSessionMsg2.mContext, category2, optInt, aggBusinessType2, 0, optString);
+                    if (TextUtils.isEmpty(optString4)) {
+                    }
+                    String str42 = optString4;
+                    if (optInt7 != 57) {
+                    }
+                    i4 = (optLong2 > 0L ? 1 : (optLong2 == 0L ? 0 : -1));
+                    if (i4 <= 0) {
+                    }
+                    chatSession = new ChatSession(category2, j4, j2, "");
+                    chatSession.setChatType(optInt7);
+                    chatSession.setLastMsg(str42);
+                    chatSession.setNewMsgSum(j3);
+                    chatSession.setLastMsgId(optLong3);
+                    chatSession.setLastMsgTime(optLong4);
+                    chatSession.setClassShow(optInt3);
+                    chatSession.setClassType(optInt5);
+                    chatSession.setClassAvatar(optString2);
+                    chatSession.setClassTitle(optString3);
+                    chatSession.setBusinessType(aggBusinessType2);
+                    if (i4 > 0) {
+                    }
+                    chatSession.setMarkTop(i2);
+                    chatSession.setShield(optInt4);
+                    chatSession.setShieldTime(optLong5);
+                    chatSession.setSortTime(optLong);
+                    chatSession.setIsStranger(i62);
+                    chatSession.setState(0);
+                    chatSession.setIsClicked(1);
+                    chatSession.setDisturb(optInt82);
+                    chatSession.setContacterImuk(j);
+                    if (optInt7 != 57) {
+                    }
+                    if (BIMManager.hudongTop) {
+                        chatSession.setMarkTopTime(9223372036854765807L);
+                        chatSession.setMarkTop(1);
+                        iMFetchBusinessSessionMsg.updateAggSessionFromServerWithCSession(chatSession, optInt5);
+                    }
+                    arrayList = arrayList2;
+                    arrayList.add(iMFetchBusinessSessionMsg.addAdvisoryValue(jSONObject, chatSession));
                     i5 = i + 1;
+                    str2 = str;
                     iMFetchBusinessSessionMsg2 = iMFetchBusinessSessionMsg;
-                    str3 = str2;
+                    arrayList3 = arrayList;
                     jSONArray2 = jSONArray;
                 }
-                return arrayList;
+                return arrayList3;
             }
-            return arrayList;
+            return arrayList3;
         }
         return (List) invokeL.objValue;
     }
@@ -889,6 +1213,8 @@ public class IMFetchBusinessSessionMsg extends Message {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.mBusinessType == 27) {
                 this.mBody = buildAdvisoryRequestParam();
+            } else if (this.mToContacterUserType >= 0) {
+                this.mBody = buildSingleMediaRequestParam();
             } else {
                 this.mBody = buildMediaRequestParam();
             }
@@ -903,6 +1229,8 @@ public class IMFetchBusinessSessionMsg extends Message {
             super.handleMessageResult(context, jSONObject, i, str);
             if (this.mBusinessType == 27) {
                 TaskManager.getInstance(this.mContext).submitForNetWork(new AdvisorySessionResultTask(this, context, i, str, jSONObject));
+            } else if (this.mToContacterUserType >= 0) {
+                TaskManager.getInstance(this.mContext).submitForNetWork(new SingleMediaSessionResultTask(this, context, i, str, jSONObject));
             } else {
                 TaskManager.getInstance(this.mContext).submitForNetWork(new MediaSessionResultTask(this, context, i, str, jSONObject));
             }

@@ -1,64 +1,44 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
 /* loaded from: classes8.dex */
 public class wd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(BdTypeRecyclerView bdTypeRecyclerView) {
-        InterceptResult invokeL;
-        List<xn> data;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bdTypeRecyclerView)) == null) {
-            if (bdTypeRecyclerView != null && (data = bdTypeRecyclerView.getData()) != null && data.size() > 0) {
-                for (int i = 0; i < data.size(); i++) {
-                    xn xnVar = data.get(i);
-                    if ((xnVar instanceof n4a) && xnVar.getType() == n4a.X0) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int b(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+    public static String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bdTypeRecyclerView, str)) == null) {
-            if (bdTypeRecyclerView != null && !TextUtils.isEmpty(str)) {
-                List<xn> data = bdTypeRecyclerView.getData();
-                int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
-                if (data != null && data.size() > 0) {
-                    int size = data.size();
-                    for (int i = 0; i < size; i++) {
-                        xn xnVar = data.get(i);
-                        if ((xnVar instanceof n4a) && xnVar.getType() == n4a.X0 && str.equals(((n4a) xnVar).S())) {
-                            return i + headerViewsCount;
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            try {
+                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(qi.d(b(str2))));
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(1, generatePublic);
+                return qi.j(cipher.doFinal(str.getBytes("GBK")));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
             }
-            return -1;
         }
-        return invokeLL.intValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static void c(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65538, null, bdTypeRecyclerView, str) != null) || bdTypeRecyclerView == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
+            }
+            return str.replace("-----BEGIN PUBLIC KEY-----", "").replace("-----END PUBLIC KEY-----", "");
         }
-        int b = b(bdTypeRecyclerView, str);
-        if (bdTypeRecyclerView.getLayoutManager() != null) {
-            bdTypeRecyclerView.getLayoutManager().scrollToPosition(b);
-        }
+        return (String) invokeL.objValue;
     }
 }

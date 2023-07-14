@@ -12,20 +12,20 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b57;
+import com.baidu.tieba.c67;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.fc7;
 import com.baidu.tieba.feed.component.RecommendPersonAttentionCardView;
 import com.baidu.tieba.feed.widget.HeadImageView;
 import com.baidu.tieba.feed.widget.PersonAttentionView;
-import com.baidu.tieba.l57;
-import com.baidu.tieba.m67;
-import com.baidu.tieba.m87;
-import com.baidu.tieba.n67;
-import com.baidu.tieba.n87;
-import com.baidu.tieba.p57;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.t37;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.z97;
+import com.baidu.tieba.g87;
+import com.baidu.tieba.gc7;
+import com.baidu.tieba.k87;
+import com.baidu.tieba.u97;
+import com.baidu.tieba.v77;
+import com.baidu.tieba.w97;
+import com.baidu.tieba.yd7;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +39,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\u0012\u001a\u00020\u0013H\u0016J\u000e\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u0016J\u0010\u0010\u0017\u001a\u00020\u00132\u0006\u0010\u0018\u001a\u00020\u0019H\u0002J\u0012\u0010\u001a\u001a\u00020\u00132\b\u0010\u001b\u001a\u0004\u0018\u00010\u001cH\u0002J\u0012\u0010\u001d\u001a\u00020\u00132\b\u0010\u001e\u001a\u0004\u0018\u00010\u001cH\u0002R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001f"}, d2 = {"Lcom/baidu/tieba/feed/component/RecommendPersonAttentionCardView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "itemView", "Landroid/view/View;", "mContainer", "mLikeButton", "Lcom/baidu/tieba/feed/widget/PersonAttentionView;", "mUserDesc", "Landroid/widget/TextView;", "mUserImage", "Lcom/baidu/tieba/feed/widget/HeadImageView;", "mUserName", "onChangeSkin", "", StickerDataChangeType.UPDATE, "state", "Lcom/baidu/tieba/feed/component/uistate/RecommendPersonAttentionCardUiState;", "updateAvatar", "imageData", "Lcom/baidu/tieba/feed/data/CardHeadImageData;", "updateDesc", "desc", "Lcom/baidu/tieba/feed/data/TextData;", "updateName", "name", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class RecommendPersonAttentionCardView extends LinearLayout implements m87 {
+public final class RecommendPersonAttentionCardView extends LinearLayout implements fc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final View a;
@@ -93,7 +93,7 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0221, (ViewGroup) null);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0223, (ViewGroup) null);
         Intrinsics.checkNotNullExpressionValue(inflate, "from(getContext())\n     …m_person_attention, null)");
         this.a = inflate;
         View findViewById = inflate.findViewById(R.id.concern_user_image);
@@ -111,16 +111,16 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
         View findViewById5 = this.a.findViewById(R.id.user_recommend_like_btn);
         Intrinsics.checkNotNullExpressionValue(findViewById5, "itemView.findViewById(R.….user_recommend_like_btn)");
         this.f = (PersonAttentionView) findViewById5;
-        this.b.setImageViewSize(xi.g(getContext(), R.dimen.tbds156));
+        this.b.setImageViewSize(yi.g(getContext(), R.dimen.tbds156));
         this.b.setImageScaleType(ImageView.ScaleType.CENTER_CROP);
         this.b.setImageDefaultResource(17170445);
         this.b.setImagePlaceHolder(1);
-        t37.c cVar = new t37.c();
-        cVar.a = R.string.J_X05;
-        cVar.b = 15;
-        cVar.c = xi.g(getContext(), R.dimen.tbds1);
-        cVar.d = SkinManager.getColor(R.color.CAM_X0401);
-        this.b.m(cVar);
+        c67.d dVar = new c67.d();
+        dVar.a = R.string.J_X05;
+        dVar.b = 15;
+        dVar.c = yi.g(getContext(), R.dimen.tbds1);
+        dVar.d = SkinManager.getColor(R.color.CAM_X0401);
+        this.b.o(dVar);
         addView(this.a);
         b();
     }
@@ -129,49 +129,49 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void a(b57 state, View it) {
+    public static final void a(v77 state, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, state, it) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
-            String h = state.h();
-            if (h != null) {
-                Function2<View, String, Unit> e = state.e();
-                Intrinsics.checkNotNullExpressionValue(it, "it");
-                e.invoke(it, h);
-            }
-            m67 i = state.i();
+            String i = state.i();
             if (i != null) {
-                state.f().invoke(i);
+                Function2<View, String, Unit> f = state.f();
+                Intrinsics.checkNotNullExpressionValue(it, "it");
+                f.invoke(it, i);
+            }
+            u97 j = state.j();
+            if (j != null) {
+                state.g().invoke(j);
             }
         }
     }
 
-    public static final void c(b57 state, View it) {
+    public static final void c(v77 state, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, state, it) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
-            String h = state.h();
-            if (h != null) {
-                Function2<View, String, Unit> e = state.e();
-                Intrinsics.checkNotNullExpressionValue(it, "it");
-                e.invoke(it, h);
-            }
-            m67 i = state.i();
+            String i = state.i();
             if (i != null) {
-                state.f().invoke(i);
+                Function2<View, String, Unit> f = state.f();
+                Intrinsics.checkNotNullExpressionValue(it, "it");
+                f.invoke(it, i);
+            }
+            u97 j = state.j();
+            if (j != null) {
+                state.g().invoke(j);
             }
         }
     }
 
-    public static final void d(b57 state, View it) {
+    public static final void d(v77 state, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, state, it) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
-            String h = state.h();
-            if (h != null) {
-                Function2<View, String, Unit> e = state.e();
+            String i = state.i();
+            if (i != null) {
+                Function2<View, String, Unit> f = state.f();
                 Intrinsics.checkNotNullExpressionValue(it, "it");
-                e.invoke(it, h);
+                f.invoke(it, i);
             }
         }
     }
@@ -182,7 +182,7 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0080, code lost:
         if (r0 == null) goto L22;
      */
-    @Override // com.baidu.tieba.m87
+    @Override // com.baidu.tieba.fc7
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -190,102 +190,102 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
         Object obj;
         Object obj2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || n87.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || gc7.a(this)) {
             return;
         }
-        s75 d = s75.d(this.c);
+        d85 d = d85.d(this.c);
         d.o(R.string.J_X05);
         d.f(R.color.CAM_X0206);
         this.b.b();
-        Object tag = this.d.getTag(R.id.obfuscated_res_0x7f0928e5);
+        Object tag = this.d.getTag(R.id.obfuscated_res_0x7f09291b);
         if (tag != null) {
-            if (tag instanceof p57) {
-                this.d.setTextColor(z97.a.a((p57) tag));
+            if (tag instanceof k87) {
+                this.d.setTextColor(yd7.a.a((k87) tag));
                 obj2 = Unit.INSTANCE;
             } else {
-                s75 d2 = s75.d(this.d);
+                d85 d2 = d85.d(this.d);
                 d2.x(R.color.CAM_X0105);
                 obj2 = d2;
             }
         }
-        s75.d(this.d).x(R.color.CAM_X0105);
-        Object tag2 = this.e.getTag(R.id.obfuscated_res_0x7f0928e5);
+        d85.d(this.d).x(R.color.CAM_X0105);
+        Object tag2 = this.e.getTag(R.id.obfuscated_res_0x7f09291b);
         if (tag2 != null) {
-            if (tag2 instanceof p57) {
-                this.e.setTextColor(z97.a.a((p57) tag2));
+            if (tag2 instanceof k87) {
+                this.e.setTextColor(yd7.a.a((k87) tag2));
                 obj = Unit.INSTANCE;
             } else {
-                s75 d3 = s75.d(this.e);
+                d85 d3 = d85.d(this.e);
                 d3.x(R.color.CAM_X0109);
                 obj = d3;
             }
         }
-        s75.d(this.e).x(R.color.CAM_X0109);
-        this.f.q();
+        d85.d(this.e).x(R.color.CAM_X0109);
+        this.f.r();
     }
 
-    public final void e(l57 l57Var) {
+    public final void e(g87 g87Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l57Var) == null) {
-            this.b.i(l57Var.c());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g87Var) == null) {
+            this.b.j(g87Var.c());
             HeadImageView headImageView = this.b;
-            if (l57Var.b() == 2) {
+            if (g87Var.b() == 2) {
                 z = true;
             } else {
                 z = false;
             }
-            headImageView.k(z);
-            this.b.h(l57Var.a());
-            this.b.l(l57Var.d());
-            this.b.j(l57Var.f());
+            headImageView.m(z);
+            this.b.i(g87Var.a());
+            this.b.n(g87Var.e());
+            this.b.l(g87Var.g());
         }
     }
 
-    public final void f(n67 n67Var) {
+    public final void f(w97 w97Var) {
         Unit unit;
-        p57 b;
+        k87 b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n67Var) == null) {
-            this.e.setText((n67Var == null || (r1 = n67Var.c()) == null) ? "" : "");
-            if (n67Var != null && (b = n67Var.b()) != null) {
-                this.e.setTag(R.id.obfuscated_res_0x7f0928e5, b);
-                this.e.setTextColor(z97.a.a(b));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w97Var) == null) {
+            this.e.setText((w97Var == null || (r1 = w97Var.c()) == null) ? "" : "");
+            if (w97Var != null && (b = w97Var.b()) != null) {
+                this.e.setTag(R.id.obfuscated_res_0x7f09291b, b);
+                this.e.setTextColor(yd7.a.a(b));
                 unit = Unit.INSTANCE;
             } else {
                 unit = null;
             }
             if (unit == null) {
-                this.e.setTag(R.id.obfuscated_res_0x7f0928e5, null);
+                this.e.setTag(R.id.obfuscated_res_0x7f09291b, null);
             }
         }
     }
 
-    public final void g(n67 n67Var) {
+    public final void g(w97 w97Var) {
         Unit unit;
-        p57 b;
+        k87 b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, n67Var) == null) {
-            this.d.setText((n67Var == null || (r1 = n67Var.c()) == null) ? "" : "");
-            if (n67Var != null && (b = n67Var.b()) != null) {
-                this.d.setTag(R.id.obfuscated_res_0x7f0928e5, b);
-                this.d.setTextColor(z97.a.a(b));
+        if (interceptable == null || interceptable.invokeL(1048579, this, w97Var) == null) {
+            this.d.setText((w97Var == null || (r1 = w97Var.c()) == null) ? "" : "");
+            if (w97Var != null && (b = w97Var.b()) != null) {
+                this.d.setTag(R.id.obfuscated_res_0x7f09291b, b);
+                this.d.setTextColor(yd7.a.a(b));
                 unit = Unit.INSTANCE;
             } else {
                 unit = null;
             }
             if (unit == null) {
-                this.d.setTag(R.id.obfuscated_res_0x7f0928e5, null);
+                this.d.setTag(R.id.obfuscated_res_0x7f09291b, null);
             }
         }
     }
 
-    public final void update(final b57 state) {
+    public final void update(final v77 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            e(state.d());
-            this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.h47
+            e(state.e());
+            this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.s67
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -293,12 +293,12 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        RecommendPersonAttentionCardView.a(b57.this, view2);
+                        RecommendPersonAttentionCardView.a(v77.this, view2);
                     }
                 }
             });
-            g(state.k());
-            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.b47
+            g(state.l());
+            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.j67
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -306,12 +306,12 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        RecommendPersonAttentionCardView.c(b57.this, view2);
+                        RecommendPersonAttentionCardView.c(v77.this, view2);
                     }
                 }
             });
-            f(state.j());
-            this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y37
+            f(state.k());
+            this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.h67
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -319,11 +319,11 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        RecommendPersonAttentionCardView.d(b57.this, view2);
+                        RecommendPersonAttentionCardView.d(v77.this, view2);
                     }
                 }
             });
-            PersonAttentionView.r(this.f, state.g(), false, 2, null);
+            PersonAttentionView.s(this.f, state.h(), false, 2, null);
             b();
         }
     }

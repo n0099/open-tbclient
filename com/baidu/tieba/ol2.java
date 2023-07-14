@@ -1,63 +1,104 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.pl2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ol2 extends jl2 {
+public class ol2 implements pl2.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public JSONObject b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ol2(@NonNull il2 il2Var) {
-        super(il2Var);
+    public ol2(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {il2Var};
+            Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((il2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.jl2
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d();
-            h();
-            g();
+        JSONObject jSONObject = new JSONObject();
+        this.b = jSONObject;
+        this.a = str;
+        try {
+            jSONObject.put(IntentConfig.PKG_ID, str);
+            if (z) {
+                update();
+            }
+        } catch (JSONException e) {
+            if (pl2.n0) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public final void g() {
+    public static ol2 query(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            lm2.f(0).f().c();
-            lm2.f(0).e().f();
-            tn2.i(0, true);
-            gs4.M(mn2.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new ol2(str, true);
+        }
+        return (ol2) invokeL.objValue;
+    }
+
+    private void update() throws JSONException {
+        PMSAppInfo u;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = sj4.i().u(this.a)) != null) {
+            this.b.put("app_name", u.appName);
+            this.b.put("pkg_vername", u.versionName);
+            this.b.put("pkg_vercode", u.versionCode);
+            this.b.put("create_time", u.createTime);
+            this.b.put("last_launch_time", u.getLastLaunchTime());
+            this.b.put("launch_count", u.getLaunchCount());
+            this.b.put("install_src", u.getInstallSrc());
         }
     }
 
-    public final void h() {
+    @Override // com.baidu.tieba.pl2.a
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ml3.b(0);
-            kl3.b(0);
-            kl3.v(true, 0);
-            gs4.L(hl3.d(0));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pl2.a
+    public JSONObject b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pl2.a
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
+        }
+        return invokeV.booleanValue;
     }
 }

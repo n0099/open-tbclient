@@ -2,7 +2,7 @@ package com.kwad.components.ad.splashscreen.b;
 
 import com.baidu.tieba.R;
 import com.kwad.components.core.widget.ComplianceTextView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class f extends e {
     public ComplianceTextView bc;
 
@@ -16,6 +16,6 @@ public final class f extends e {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09126b);
+        this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09127f);
     }
 }

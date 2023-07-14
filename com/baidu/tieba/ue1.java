@@ -1,21 +1,47 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.pm.SubBundleInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
+import java.util.List;
 /* loaded from: classes8.dex */
-public interface ue1<View> {
-    void a();
+public class ue1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    View getRealView();
+    public static void a(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-    void setBtnIconNightModeEnable(boolean z);
-
-    void setBtnPlaceholder(View view2);
-
-    void setData(@NonNull qr0 qr0Var);
-
-    void setEnhanceBtnListener(@NonNull se1 se1Var);
-
-    void setVisible(int i);
-
-    void update(int i);
+    public static boolean b(BundleInfo bundleInfo, BundleInfo bundleInfo2) {
+        InterceptResult invokeLL;
+        List<SubBundleInfo> subBundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bundleInfo, bundleInfo2)) == null) {
+            if (bundleInfo == null || bundleInfo2 == null || (subBundle = bundleInfo.getSubBundle()) == null) {
+                return false;
+            }
+            for (SubBundleInfo subBundleInfo : subBundle) {
+                if (TextUtils.equals(subBundleInfo.getPackageName(), bundleInfo2.getPackageName())) {
+                    if (subBundleInfo.getMaxVersion() < bundleInfo2.getVersionCode() || subBundleInfo.getMinVersion() > bundleInfo2.getVersionCode()) {
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
 }

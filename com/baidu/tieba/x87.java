@@ -1,83 +1,99 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.b67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class x87 {
+public final class x87 implements a97 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final Map<String, JSONObject> c;
+    public final b67.g d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948254322, "Lcom/baidu/tieba/x87;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948254322, "Lcom/baidu/tieba/x87;");
+    public x87(String spaceName, String uid) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spaceName, uid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        Intrinsics.checkNotNullParameter(spaceName, "spaceName");
+        Intrinsics.checkNotNullParameter(uid, "uid");
+        this.a = spaceName;
+        this.b = uid;
+        this.c = new LinkedHashMap();
+        b67.g d = b67.a().d();
+        this.d = d;
+        Map<String, JSONObject> b = d.b(this.a, this.b);
+        Intrinsics.checkNotNullExpressionValue(b, "cacheResolver.getCache(spaceName, uid)");
+        this.c.putAll(b);
     }
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    @Override // com.baidu.tieba.a97
+    public void a(String key, Map<String, String> valueMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, key, valueMap) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(valueMap, "valueMap");
+            if (this.c.get(key) == null) {
+                this.c.put(key, new JSONObject());
             }
-        }
-
-        public final void a(m67 m67Var) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, m67Var) == null) && m67Var != null) {
-                String b = m67Var.b();
-                if (b != null && b.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
+            try {
+                for (String str : valueMap.keySet()) {
+                    JSONObject jSONObject = this.c.get(key);
+                    if (jSONObject != null) {
+                        jSONObject.put(str, valueMap.get(str));
+                    }
                 }
-                if (z) {
-                    return;
-                }
-                StatisticItem statisticItem = new StatisticItem(m67Var.b());
-                for (Map.Entry<String, String> entry : m67Var.a().entrySet()) {
-                    statisticItem.param(entry.getKey(), entry.getValue());
-                }
-                for (Map.Entry<String, String> entry2 : m67Var.c().entrySet()) {
-                    statisticItem.param(entry2.getKey(), entry2.getValue());
-                }
-                TiebaStatic.log(statisticItem);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            JSONObject jSONObject2 = this.c.get(key);
+            if (jSONObject2 == null) {
+                jSONObject2 = new JSONObject();
+            }
+            b(key, jSONObject2);
         }
+    }
+
+    public final void b(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            this.d.a(this.a, this.b, str, jSONObject);
+        }
+    }
+
+    @Override // com.baidu.tieba.a97
+    public String getValue(String key, String subKey) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, key, subKey)) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(subKey, "subKey");
+            JSONObject jSONObject = this.c.get(key);
+            if (jSONObject != null) {
+                return jSONObject.optString(subKey);
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetUserInfo.DataRes;
 /* loaded from: classes8.dex */
 public class zk5 {
     public static /* synthetic */ Interceptable $ic;
+    public static zk5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
+    public int a;
 
     public zk5() {
         Interceptable interceptable = $ic;
@@ -24,26 +23,41 @@ public class zk5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
     }
 
-    public UserData a() {
+    public static zk5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (zk5.class) {
+                    if (b == null) {
+                        b = new zk5();
+                    }
+                }
+            }
+            return b;
+        }
+        return (zk5) invokeV.objValue;
+    }
+
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (UserData) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void b(DataRes dataRes) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
         }
-        UserData userData = new UserData();
-        this.a = userData;
-        userData.parserProtobuf(dataRes.user);
     }
 }

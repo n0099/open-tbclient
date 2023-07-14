@@ -1,144 +1,60 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rmb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.ConcurrentLinkedQueueX;
-import com.yy.transvod.player.log.TLog;
-import java.nio.ByteBuffer;
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.entity.PushTokenResult;
+import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
 /* loaded from: classes6.dex */
-public abstract class job extends dob implements rmb.a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String n = "job";
+public class job extends mob<PushTokenResult> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rmb l;
-    public ConcurrentLinkedQueueX<ByteBuffer> m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947891436, "Lcom/baidu/tieba/job;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947891436, "Lcom/baidu/tieba/job;");
-        }
-    }
-
-    @Override // com.baidu.tieba.rmb.a
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public abstract void y();
-
-    public job() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.m = new ConcurrentLinkedQueueX<>();
-        this.l = new anb(n);
-    }
-
-    public job(boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public job(String str, IMessageEntity iMessageEntity) {
+        super(str, iMessageEntity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
+            Object[] objArr = {str, iMessageEntity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (IMessageEntity) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = new ConcurrentLinkedQueueX<>();
-        if (z) {
-            this.l = new zmb(n);
-        } else {
-            this.l = new anb(n);
-        }
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.mob
+    public void a(ApiException apiException, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TLog.g(this, "ThreadFilter.setup enter.");
-            this.l.b(this);
-            this.l.start();
-            TLog.g(this, "ThreadFilter.setup leave.");
-        }
-    }
-
-    @Override // com.baidu.tieba.rmb.a
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TLog.g(this, "ThreadFilter.onResume enter.");
-            if (!this.f.isEmpty()) {
-                this.l.f(2102);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, apiException, obj) == null) {
+            if (apiException == null) {
+                apiException = HonorPushErrorEnum.ERROR_UNKNOWN.toApiException();
             }
-            TLog.g(this, "ThreadFilter.onResume leave.");
-        }
-    }
-
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TLog.l(this, "ThreadFilter.onStop mFreeQueue.size() = " + this.m.getElementCount());
-        }
-    }
-
-    @Override // com.baidu.tieba.dob
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TLog.g(this, "ThreadFilter.release enter.");
-            this.l.c();
-            TLog.g(this, "ThreadFilter.release leave.");
-        }
-    }
-
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && message.what == 2102) {
-            if (this.e.g() == 6) {
-                y();
-                return;
+            if (apiException.getErrorCode() == HonorPushErrorEnum.SUCCESS.getErrorCode()) {
+                if (obj instanceof PushTokenResult) {
+                    PushTokenResult pushTokenResult = (PushTokenResult) obj;
+                    try {
+                        onb.b.b(qnb.e.a(), pushTokenResult.getPushToken());
+                    } catch (Exception unused) {
+                    }
+                    this.e.b(pushTokenResult);
+                    return;
+                }
+                apiException = HonorPushErrorEnum.ERROR_INTERNAL_ERROR.toApiException();
             }
-            this.l.g(2102);
-            TLog.l(this, String.format("player is not running. mCurrentState:%s", ymb.a[this.e.g()]));
+            String str = "task execute failed. error:" + apiException.getErrorCode();
+            this.e.a(apiException);
         }
     }
 }

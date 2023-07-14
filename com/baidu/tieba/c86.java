@@ -1,128 +1,139 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Proxy;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.advert.sdk.data.WirelessNetworkType;
+import android.os.CountDownTimer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class c86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public CountDownTimer b;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            String imei = TbadkCoreApplication.getInst().getImei();
-            if (imei == null || Config.NULL_DEVICE_ID.equals(imei)) {
-                return "-";
-            }
-            return imei;
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(long j, long j2);
+
+        void b();
     }
 
-    public static Integer e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return Integer.valueOf(context.getResources().getDisplayMetrics().heightPixels);
-        }
-        return (Integer) invokeL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a extends CountDownTimer {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ c86 b;
 
-    public static Integer f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return Integer.valueOf(context.getResources().getDisplayMetrics().widthPixels);
-        }
-        return (Integer) invokeL.objValue;
-    }
-
-    public static Integer b(Context context) {
-        InterceptResult invokeL;
-        int value;
-        WirelessNetworkType wirelessNetworkType;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                String typeName = activeNetworkInfo.getTypeName();
-                if (typeName.equalsIgnoreCase("WIFI")) {
-                    return Integer.valueOf(WirelessNetworkType.WIFI.getValue());
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(c86 c86Var, long j, long j2, long j3) {
+            super(j, j2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c86Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (typeName.equalsIgnoreCase("MOBILE")) {
-                    if (TextUtils.isEmpty(Proxy.getDefaultHost())) {
-                        if (g(context)) {
-                            wirelessNetworkType = WirelessNetworkType.MOBILE_3G;
-                        } else {
-                            wirelessNetworkType = WirelessNetworkType.MOBILE_2G;
-                        }
-                        value = wirelessNetworkType.getValue();
-                    } else {
-                        value = WirelessNetworkType.NETWORKTYPE_WAP.getValue();
-                    }
-                    return Integer.valueOf(value);
+            }
+            this.b = c86Var;
+            this.a = j3;
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
+                this.b.a.b();
+            }
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && this.b.a != null) {
+                this.b.a.a(this.a, j);
+            }
+        }
+    }
+
+    public c86() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void b() {
+        CountDownTimer countDownTimer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (countDownTimer = this.b) != null) {
+            countDownTimer.cancel();
+        }
+    }
+
+    public void d(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.a = bVar;
+        }
+    }
+
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            long j2 = j / 1000;
+            long j3 = j2 / 3600;
+            StringBuilder sb = new StringBuilder();
+            if (j3 > 0) {
+                if (j3 < 10) {
+                    sb.append("0");
                 }
-                return valueOf;
+                sb.append(j3);
+                sb.append(":");
             }
-            return Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
-        }
-        return (Integer) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return zi.g();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return zi.k();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                    return true;
-                case 4:
-                case 7:
-                case 11:
-                default:
-                    return false;
+            Long.signum(j3);
+            long j4 = j2 - (j3 * 3600);
+            long j5 = j4 / 60;
+            if (j5 < 10) {
+                sb.append("0");
             }
+            sb.append(j5);
+            sb.append(":");
+            long j6 = j4 - (j5 * 60);
+            if (j6 < 10) {
+                sb.append("0");
+            }
+            sb.append(j6);
+            return sb.toString();
         }
-        return invokeL.booleanValue;
+        return (String) invokeJ.objValue;
+    }
+
+    public void e(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            b();
+            this.b = new a(this, j2, 1000L, j).start();
+        }
     }
 }

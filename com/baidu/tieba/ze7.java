@@ -1,11 +1,19 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes8.dex */
 public interface ze7 {
-    void M(int i, int i2, jf7 jf7Var);
+    void a(af7 af7Var);
 
-    void R(df7 df7Var);
+    boolean b(DownloadData downloadData, af7 af7Var);
 
-    void init();
+    void c(DownloadData downloadData);
 
-    void s();
+    int d(DownloadData downloadData);
+
+    void e(DownloadData downloadData);
+
+    int f(DownloadData downloadData);
+
+    void g(af7 af7Var);
 }

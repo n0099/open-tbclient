@@ -17,9 +17,9 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mi;
-import com.baidu.tieba.vg;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.ni;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1058,7 +1058,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(xi.l(context) * xi.j(context));
+        int sqrt = (int) Math.sqrt(yi.l(context) * yi.j(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1303,7 +1303,7 @@ public class TbConfig {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i)) == null) {
-            return xi.g(TbadkCoreApplication.getInst().getContext(), i);
+            return yi.g(TbadkCoreApplication.getInst().getContext(), i);
         }
         return invokeI.intValue;
     }
@@ -1312,7 +1312,7 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
-            int d = xi.d(context, 427.0f);
+            int d = yi.d(context, 427.0f);
             if (d > 640) {
                 d = 640;
             }
@@ -1360,7 +1360,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                TbImageMemoryCache.u().J(i);
+                TbImageMemoryCache.v().K(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }
@@ -1400,11 +1400,11 @@ public class TbConfig {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65573, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            float d = vg.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
+            float d = wg.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
             if (d >= f3 && d <= f4) {
                 f2 = d;
             }
-            if (!mi.a()) {
+            if (!ni.a()) {
                 return f2 * 0.5f;
             }
             return f2;

@@ -1,9 +1,14 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import android.util.ArrayMap;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostFormRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,29 +16,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ck2 {
+public abstract class ck2 implements ek2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpManager a;
-    public String b;
-    public String c;
-    public ak2 d;
 
     /* loaded from: classes5.dex */
-    public class a implements Callback {
+    public class a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ck2 a;
 
         public a(ck2 ck2Var) {
             Interceptable interceptable = $ic;
@@ -47,152 +45,46 @@ public class ck2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ck2Var;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (ck2.e) {
-                    Log.e("ImageDownloader", this.a.b + " load failed");
-                    iOException.printStackTrace();
-                }
-                if (this.a.d != null) {
-                    this.a.d.fail(-1, this.a.b);
                 }
             }
         }
 
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) {
-            FileOutputStream fileOutputStream;
-            File file;
-            InputStream byteStream;
-            String c;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                if (TextUtils.isEmpty(this.a.c)) {
-                    if (ms1.a) {
-                        Log.e("SwanGameRuntime", "非手百环境依赖注入接口未实现，直接返回");
-                        return;
-                    }
-                    return;
-                }
-                byte[] bArr = new byte[2048];
-                InputStream inputStream = null;
-                try {
-                    byteStream = response.body().byteStream();
-                    try {
-                        try {
-                            c = kv2.f().c(this.a.b);
-                        } catch (Throwable th) {
-                            th = th;
-                            fileOutputStream = null;
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        file = null;
-                        fileOutputStream = null;
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    file = null;
-                    fileOutputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream = null;
-                }
-                if (TextUtils.isEmpty(c)) {
-                    if (ms1.a) {
-                        Log.e("SwanGameRuntime", "非手百环境依赖注入接口convertSrc()未实现，直接返回");
-                    }
-                    gs4.d(byteStream);
-                    gs4.d(null);
-                    gs4.d(response);
-                    return;
-                }
-                String str = this.a.c + c.substring(0, c.lastIndexOf("/"));
-                File file2 = new File(str);
-                if (!file2.exists() || !file2.isDirectory()) {
-                    file2.mkdirs();
-                }
-                String substring = c.substring(c.lastIndexOf("/") + 1);
-                file = new File(str, substring + ".bddownload");
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                    while (true) {
-                        try {
-                            int read = byteStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            fileOutputStream.write(bArr, 0, read);
-                        } catch (Exception e3) {
-                            e = e3;
-                            inputStream = byteStream;
-                            try {
-                                if (ck2.e) {
-                                    Log.e("ImageDownloader", this.a.b + " load failed", e);
-                                }
-                                if (file != null) {
-                                    file.delete();
-                                }
-                                if (this.a.d != null) {
-                                    this.a.d.fail(-1, this.a.b);
-                                }
-                                gs4.d(inputStream);
-                                gs4.d(fileOutputStream);
-                                gs4.d(response);
-                            } catch (Throwable th3) {
-                                th = th3;
-                                gs4.d(inputStream);
-                                gs4.d(fileOutputStream);
-                                gs4.d(response);
-                                throw th;
-                            }
-                        } catch (Throwable th4) {
-                            th = th4;
-                            inputStream = byteStream;
-                            gs4.d(inputStream);
-                            gs4.d(fileOutputStream);
-                            gs4.d(response);
-                            throw th;
-                        }
-                    }
-                    fileOutputStream.flush();
-                    File file3 = new File(str, substring);
-                    if (file3.exists() && !file3.isDirectory()) {
-                        file3.delete();
-                    }
-                    String absolutePath = file3.getAbsolutePath();
-                    if (file.renameTo(file3)) {
-                        if (ck2.e) {
-                            Log.e("ImageDownloader", this.a.b + " load rename success path = " + absolutePath);
-                        }
-                        if (this.a.d != null) {
-                            this.a.d.a(this.a.b, absolutePath);
-                        }
-                    } else {
-                        if (ck2.e) {
-                            Log.e("ImageDownloader", this.a.b + " load rename error path = " + absolutePath);
-                        }
-                        file.delete();
-                        if (this.a.d != null) {
-                            this.a.d.fail(-1, absolutePath);
-                        }
-                    }
-                    gs4.d(byteStream);
-                } catch (Exception e4) {
-                    e = e4;
-                    fileOutputStream = null;
-                }
-                gs4.d(fileOutputStream);
-                gs4.d(response);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && ck2.a) {
+                Log.e("AbsDefaultPurger", "onFail: " + exc);
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) && ck2.a) {
+                Log.e("AbsDefaultPurger", "onSuccess: ");
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (ck2.a) {
+                    Log.d("AbsDefaultPurger", "parseResponse");
+                }
+                if (response == null || response.body() == null) {
+                    return null;
+                }
+                String string = response.body().string();
+                if (TextUtils.isEmpty(string)) {
+                    return null;
+                }
+                return new JSONObject(string);
+            }
+            return (JSONObject) invokeLI.objValue;
         }
     }
 
@@ -209,36 +101,117 @@ public class ck2 {
                 return;
             }
         }
-        e = ms1.a;
+        a = fs1.a;
     }
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            kv2.l().call(this.a, new Request.Builder().url(this.b).build(), new a(this));
-        }
-    }
-
-    public ck2(HttpManager httpManager, String str, String str2, ak2 ak2Var) {
+    public ck2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {httpManager, str, str2, ak2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = "";
-        this.c = "";
-        this.a = httpManager;
-        this.c = str;
-        this.b = str2;
-        this.d = ak2Var;
+    }
+
+    @NonNull
+    public final ResponseCallback<JSONObject> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (ResponseCallback) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            sj4.i().c(str);
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            sj4.i().h(str);
+            sj4.i().e(uk4.class, str);
+        }
+    }
+
+    public void e(List<String> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && !list.isEmpty()) {
+            if (a) {
+                Log.d("AbsDefaultPurger", "clearData");
+            }
+            Set<String> d = gk2.d(list);
+            HashSet<String> hashSet = new HashSet(list);
+            if (d != null) {
+                hashSet.removeAll(d);
+            }
+            nk3.j().g("aiapp_setting_", hashSet, false);
+            nk3.j().g("aiapp_", hashSet, false);
+            for (String str : hashSet) {
+                if (a) {
+                    Log.d("AbsDefaultPurger", "clear storage files: " + str);
+                }
+                String v = dj3.v(str);
+                if (!TextUtils.isEmpty(v)) {
+                    zr4.M(v);
+                }
+                String x = dj3.x(str);
+                if (!TextUtils.isEmpty(x)) {
+                    zr4.M(x);
+                }
+            }
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void g(@Nullable List<String> list) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && list != null && !list.isEmpty()) {
+            if (a) {
+                Log.d("AbsDefaultPurger", "resetAccredit");
+            }
+            ArrayMap arrayMap = new ArrayMap();
+            arrayMap.put("ma_ids", list);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                xg3 a2 = cv2.q().a();
+                jSONObject.put("accredit", new JSONObject(arrayMap));
+                String v = cv2.o().v();
+                mi4 b = ni4.b();
+                if (b == null) {
+                    if (!a) {
+                        v82.c("AbsDefaultPurger", "get network obj failed on resetAccredit");
+                    } else {
+                        throw new RuntimeException("SwanNetworkRuntime.getSwanNetwork return null , check inject");
+                    }
+                }
+                zi4 g = zi4.g();
+                if (!g.c()) {
+                    b = null;
+                }
+                PostFormRequest.PostFormRequestBuilder addParam = ((PostFormRequest.PostFormRequestBuilder) g.postFormRequest().url(v)).addParam("data", jSONObject.toString());
+                if (b != null) {
+                    str = b.getUserAgent();
+                } else {
+                    str = "";
+                }
+                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) addParam.userAgent(str)).cookieManager(a2)).build().executeAsyncOnUIBack(c());
+            } catch (JSONException e) {
+                e.printStackTrace();
+                if (a) {
+                    Log.d("AbsDefaultPurger", "resetAccredit with JSONException: ", e);
+                }
+            }
+        }
     }
 }

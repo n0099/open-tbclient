@@ -1,189 +1,175 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Animatable;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.ImageInfo;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class h82 extends k72<SimpleDraweeView, i82> {
+public final class h82 extends c72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g82 i;
-    public SwanAppComponentContainerView j;
-    public SimpleDraweeView k;
+    public String L;
+    public int M;
+    public String N;
+    public String O;
+    public boolean P;
+    public boolean Q;
+    public boolean R;
+    public boolean S;
 
-    /* loaded from: classes6.dex */
-    public class a extends BaseControllerListener<ImageInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ SimpleDraweeView b;
-        public final /* synthetic */ h82 c;
-
-        public a(h82 h82Var, boolean z, SimpleDraweeView simpleDraweeView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h82Var, Boolean.valueOf(z), simpleDraweeView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = h82Var;
-            this.a = z;
-            this.b = simpleDraweeView;
-        }
-
-        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
-        public void onFailure(String str, Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, th) == null) {
-                super.onFailure(str, th);
-                if (this.a && this.c.i != null) {
-                    this.c.i.a(0, this.b, null);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
-        public void onFinalImageSet(String str, ImageInfo imageInfo, Animatable animatable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageInfo, animatable) == null) {
-                super.onFinalImageSet(str, (String) imageInfo, animatable);
-                if (this.a && this.c.i != null) {
-                    this.c.i.a(1, this.b, null);
-                }
-            }
-        }
-    }
+    /* renamed from: T  reason: collision with root package name */
+    public boolean f1107T;
+    public int U;
+    public int V;
+    public boolean W;
+    public boolean X;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h82(@NonNull Context context, @NonNull i82 i82Var) {
-        super(context, i82Var);
+    public h82() {
+        super("textArea", "componentId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, i82Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (l72) objArr2[1]);
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g(4);
-        this.j = new SwanAppComponentContainerView(context);
-        this.k = new SimpleDraweeView(context);
+        this.L = "";
+        this.N = "";
+        this.O = "";
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r72
-    @NonNull
-    /* renamed from: a0 */
-    public SimpleDraweeView v(@NonNull Context context) {
-        InterceptResult invokeL;
+    private void i() {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
-            return this.k;
-        }
-        return (SimpleDraweeView) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r72
-    /* renamed from: b0 */
-    public void A(@NonNull SimpleDraweeView simpleDraweeView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, simpleDraweeView) == null) {
-            super.A(simpleDraweeView);
-            simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
-        }
-    }
-
-    public void e0(g82 g82Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, g82Var) == null) {
-            this.i = g82Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.r72
-    @NonNull
-    public SwanAppComponentContainerView u(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
-            return this.j;
-        }
-        return (SwanAppComponentContainerView) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k72
-    /* renamed from: c0 */
-    public void T(@NonNull SimpleDraweeView simpleDraweeView, @NonNull i82 i82Var, @NonNull u82 u82Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, simpleDraweeView, i82Var, u82Var) == null) {
-            super.O(simpleDraweeView, i82Var, u82Var);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k72, com.baidu.tieba.p72, com.baidu.tieba.r72
-    @NonNull
-    /* renamed from: Y */
-    public u82 k(@NonNull i82 i82Var, @NonNull i82 i82Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, i82Var, i82Var2)) == null) {
-            u82 k = super.k(i82Var, i82Var2);
-            if (i82Var.u != i82Var2.u) {
-                k.b(9);
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
+            int g = mp3.g(c(jSONObject, "minHeight", 0.0f));
+            if (g < 0) {
+                g = 0;
             }
-            return k;
+            this.U = g;
+            int g2 = mp3.g(c(this.j, "maxHeight", 2.1474836E9f));
+            if (g2 < 0) {
+                g2 = Integer.MAX_VALUE;
+            }
+            this.V = g2;
         }
-        return (u82) invokeLL.objValue;
     }
 
-    public final BaseControllerListener<ImageInfo> Z(@NonNull SimpleDraweeView simpleDraweeView, @NonNull i82 i82Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.c72, com.baidu.tieba.h72, com.baidu.tieba.j72, com.baidu.tieba.l72, com.baidu.tieba.u13
+    public void a(JSONObject jSONObject) throws JSONException {
+        b23 b23Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, simpleDraweeView, i82Var)) == null) {
-            return new a(this, i82Var.u, simpleDraweeView);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (BaseControllerListener) invokeLL.objValue;
+        super.a(jSONObject);
+        this.t = jSONObject.optString("value");
+        this.L = jSONObject.optString("placeholder");
+        o(jSONObject);
+        boolean z = false;
+        this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
+        boolean optBoolean = jSONObject.optBoolean("autoHeight", false);
+        this.Q = optBoolean;
+        if (optBoolean && (b23Var = this.h) != null) {
+            b23Var.j(-2);
+            this.h.k(true);
+        }
+        boolean optBoolean2 = jSONObject.optBoolean("fixed");
+        this.R = optBoolean2;
+        b23 b23Var2 = this.h;
+        if (b23Var2 != null) {
+            b23Var2.i(optBoolean2);
+        }
+        this.S = jSONObject.optBoolean("showConfirmBar", true);
+        this.f1107T = jSONObject.optBoolean("adjustPosition", true);
+        this.W = jSONObject.optBoolean("disabled", false);
+        if (jSONObject.optInt("confirmHold") == 1) {
+            z = true;
+        }
+        this.X = z;
+        i();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k72
-    /* renamed from: d0 */
-    public void U(@NonNull SimpleDraweeView simpleDraweeView, @NonNull i82 i82Var) {
+    @Override // com.baidu.tieba.c72, com.baidu.tieba.h72, com.baidu.tieba.j72, com.baidu.tieba.l72
+    public void g(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, simpleDraweeView, i82Var) == null) {
-            super.V(simpleDraweeView, i82Var, Z(simpleDraweeView, i82Var));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.g(jSONObject);
+            this.W = jSONObject.optBoolean("disabled", this.W);
+            this.L = jSONObject.optString("placeholder", this.L);
+            this.t = jSONObject.optString("value", this.t);
+            this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.P);
+            this.S = jSONObject.optBoolean("showConfirmBar", this.S);
+            this.f1107T = jSONObject.optBoolean("adjustPosition", this.f1107T);
+            n(jSONObject);
+            p(jSONObject);
+            o(jSONObject);
+            i();
+        }
+    }
+
+    public final void n(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            boolean optBoolean = jSONObject.optBoolean("autoHeight", this.Q);
+            this.Q = optBoolean;
+            b23 b23Var = this.h;
+            if (b23Var != null) {
+                if (optBoolean) {
+                    b23Var.j(-2);
+                    this.h.k(true);
+                    return;
+                }
+                int c = b23Var.c();
+                int i = this.K;
+                if (i > 0) {
+                    c = i;
+                }
+                this.h.j(c);
+                this.h.k(false);
+            }
+        }
+    }
+
+    public final void o(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("placeholderStyle")) != null) {
+            this.M = optJSONObject.optInt(TtmlNode.ATTR_TTS_FONT_SIZE);
+            this.N = optJSONObject.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
+            this.O = optJSONObject.optString("color");
+        }
+    }
+
+    public final void p(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            boolean optBoolean = jSONObject.optBoolean("fixed", this.R);
+            this.R = optBoolean;
+            b23 b23Var = this.h;
+            if (b23Var != null) {
+                b23Var.i(optBoolean);
+            }
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.P = z;
         }
     }
 }

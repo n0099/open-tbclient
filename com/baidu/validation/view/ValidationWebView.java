@@ -14,15 +14,15 @@ import android.util.AttributeSet;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d3b;
-import com.baidu.tieba.rg1;
+import com.baidu.tieba.bcb;
+import com.baidu.tieba.kg1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.validation.utils.ValidationLog;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ValidationWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +145,7 @@ public class ValidationWebView extends WebView {
             this.j = paint2;
             paint2.setXfermode(null);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, rg1.ValidationWebView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, kg1.ValidationWebView);
                 this.a = obtainStyledAttributes.getDimension(2, 0.0f);
                 this.b = obtainStyledAttributes.getDimension(3, 0.0f);
                 this.c = obtainStyledAttributes.getDimension(0, 0.0f);
@@ -162,7 +162,7 @@ public class ValidationWebView extends WebView {
             settings.setAllowFileAccess(false);
             settings.setDomStorageEnabled(true);
             settings.setAllowContentAccess(false);
-            settings.setUserAgentString(d3b.c(context, settings.getUserAgentString()));
+            settings.setUserAgentString(bcb.c(context, settings.getUserAgentString()));
             if (Build.VERSION.SDK_INT >= 29) {
                 settings.setForceDark(0);
             }

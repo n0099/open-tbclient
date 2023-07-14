@@ -8,7 +8,7 @@ import kotlin.reflect.jvm.internal.impl.types.model.SimpleTypeMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeParameterMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeSystemContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface TypeSystemCommonBackendContext extends TypeSystemContext {
     FqNameUnsafe getClassFqNameUnsafe(TypeConstructorMarker typeConstructorMarker);
 
@@ -32,7 +32,7 @@ public interface TypeSystemCommonBackendContext extends TypeSystemContext {
 
     KotlinTypeMarker makeNullable(KotlinTypeMarker kotlinTypeMarker);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class DefaultImpls {
         public static boolean isMarkedNullable(TypeSystemCommonBackendContext typeSystemCommonBackendContext, KotlinTypeMarker kotlinTypeMarker) {
             if ((kotlinTypeMarker instanceof SimpleTypeMarker) && typeSystemCommonBackendContext.isMarkedNullable((SimpleTypeMarker) kotlinTypeMarker)) {

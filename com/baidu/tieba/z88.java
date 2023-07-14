@@ -1,56 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.db.pojo.ChatSysNotifyPojo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class z88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int[] a;
-
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final z88 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-276068527, "Lcom/baidu/tieba/z88$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-276068527, "Lcom/baidu/tieba/z88$b;");
-                    return;
-                }
-            }
-            a = new z88(null);
-        }
-    }
+    public x88 a;
+    public ArrayList<y88> b;
 
     public z88() {
         Interceptable interceptable = $ic;
@@ -62,156 +26,36 @@ public class z88 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new int[]{1, 2, 3, 4};
-        a();
-    }
-
-    public final void c() {
-        int[] iArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i : this.a) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("scene", Integer.valueOf(i));
-                f98.d().insert("tb_chat_sys_notify", null, contentValues);
             }
         }
     }
 
-    public /* synthetic */ z88(a aVar) {
-        this();
-    }
-
-    public static z88 b() {
-        InterceptResult invokeV;
+    public static z88 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (z88) invokeV.objValue;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !d() && f98.d().c("CREATE TABLE IF NOT EXISTS tb_chat_sys_notify(scene INTEGER, content TEXT DEFAULT '没有最新消息', unread_num INTEGER DEFAULT 0);")) {
-            c();
-        }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            new LinkedList();
-            Cursor cursor = null;
-            boolean z = false;
-            try {
-                try {
-                    cursor = f98.d().e("select * from sqlite_master where type='table'", null);
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ChatSysNotifyDao.isExistsTable", new Object[0]);
-                    e.printStackTrace();
-                }
-                if (cursor == null) {
-                    return false;
-                }
-                cursor.moveToFirst();
-                while (true) {
-                    if (!cursor.moveToNext()) {
-                        break;
-                    } else if ("tb_chat_sys_notify".equals(cursor.getString(cursor.getColumnIndex("name")))) {
-                        z = true;
-                        break;
-                    }
-                }
-                return z;
-            } finally {
-                yi.a(null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<ChatSysNotifyPojo> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = f98.d().e("select * from tb_chat_sys_notify", null);
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            ChatSysNotifyPojo chatSysNotifyPojo = new ChatSysNotifyPojo();
-                            chatSysNotifyPojo.setType(cursor.getInt(cursor.getColumnIndex("scene")));
-                            chatSysNotifyPojo.setUnread(cursor.getInt(cursor.getColumnIndex("unread_num")));
-                            chatSysNotifyPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                            arrayList.add(chatSysNotifyPojo);
+            z88 z88Var = new z88();
+            JSONObject optJSONObject = jSONObject.optJSONObject("guide_content");
+            JSONArray optJSONArray = jSONObject.optJSONArray("hot_topic");
+            z88Var.a = x88.a(optJSONObject);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                z88Var.b = new ArrayList<>();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    try {
+                        y88 a = y88.a(optJSONArray.getJSONObject(i));
+                        if (a != null) {
+                            z88Var.b.add(a);
                         }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ChatSysNotifyDao.queryAll", new Object[0]);
-                    e.printStackTrace();
                 }
-                return arrayList;
-            } finally {
-                yi.a(cursor);
             }
+            return z88Var;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public ChatSysNotifyPojo f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            ChatSysNotifyPojo chatSysNotifyPojo = new ChatSysNotifyPojo();
-            chatSysNotifyPojo.setType(i);
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = f98.d().e("select * from tb_chat_sys_notify where scene=?", new String[]{String.valueOf(i)});
-                    if (cursor != null) {
-                        cursor.moveToFirst();
-                        chatSysNotifyPojo.setUnread(cursor.getInt(cursor.getColumnIndex("unread_num")));
-                        chatSysNotifyPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                    }
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ChatSysNotifyDao.queryByScene", new Object[0]);
-                    e.printStackTrace();
-                }
-                return chatSysNotifyPojo;
-            } finally {
-                yi.a(cursor);
-            }
-        }
-        return (ChatSysNotifyPojo) invokeI.objValue;
-    }
-
-    public void g(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            h(i, "", i2);
-        }
-    }
-
-    public synchronized void h(int i, @Nullable String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            synchronized (this) {
-                ContentValues contentValues = new ContentValues();
-                if (!StringUtils.isNull(str)) {
-                    contentValues.put("content", str);
-                }
-                if (i2 >= 0) {
-                    contentValues.put("unread_num", Integer.valueOf(i2));
-                }
-                f98.d().update("tb_chat_sys_notify", contentValues, "scene=?", new String[]{String.valueOf(i)});
-            }
-        }
+        return (z88) invokeL.objValue;
     }
 }

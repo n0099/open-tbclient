@@ -1,46 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.impersonal.template.PersonalImageMsgTemplate;
-import com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public final class hp8 implements k87 {
+public class hp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public hp8() {
+    public static void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable != null && interceptable.invokeL(65536, null, activity) != null) || activity == null) {
+            return;
         }
+        View findViewById = activity.findViewById(16908290);
+        if (!(findViewById instanceof ViewGroup)) {
+            return;
+        }
+        BdTopToast bdTopToast = new BdTopToast(activity, 3000);
+        bdTopToast.h(true);
+        bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.chat_msg_gone_top_excellent_tips));
+        bdTopToast.i((ViewGroup) findViewById);
     }
 
-    @Override // com.baidu.tieba.k87
-    public List<s87<?, ?>> a() {
-        InterceptResult invokeV;
+    public static void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PersonalTextMsgTemplate("text_left"));
-            arrayList.add(new PersonalTextMsgTemplate("text_right"));
-            arrayList.add(new tr8("loading_left"));
-            arrayList.add(new ur8("voice_left"));
-            arrayList.add(new PersonalImageMsgTemplate("image_left"));
-            return arrayList;
+        if ((interceptable != null && interceptable.invokeL(65537, null, activity) != null) || activity == null) {
+            return;
         }
-        return (List) invokeV.objValue;
+        View findViewById = activity.findViewById(16908290);
+        if (!(findViewById instanceof ViewGroup)) {
+            return;
+        }
+        BdTopToast bdTopToast = new BdTopToast(activity, 3000);
+        bdTopToast.h(true);
+        bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.add_group_success_toast));
+        bdTopToast.i((ViewGroup) findViewById);
+    }
+
+    public static void c(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
+            return;
+        }
+        View findViewById = activity.findViewById(16908290);
+        if (!(findViewById instanceof ViewGroup)) {
+            return;
+        }
+        BdTopToast bdTopToast = new BdTopToast(activity, 3000);
+        bdTopToast.h(true);
+        bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.delete_group_success_toast));
+        bdTopToast.i((ViewGroup) findViewById);
     }
 }

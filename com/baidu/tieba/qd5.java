@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class qd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int b;
-    public int c;
+    public rd5 b;
 
     public qd5() {
         Interceptable interceptable = $ic;
@@ -32,51 +32,33 @@ public class qd5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.a;
         }
         return invokeV.intValue;
     }
 
-    public int b() {
+    public rd5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return invokeV.intValue;
+        return (rd5) invokeV.objValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = this.a;
-            if (i == 0) {
-                return Integer.MAX_VALUE;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("common");
+            if (optJSONObject != null) {
+                this.a = optJSONObject.optInt("version");
             }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = vg.e(str, 0);
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c = vg.e(str, 0);
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a = vg.e(str, 0);
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
+            if (optJSONObject2 != null) {
+                rd5 rd5Var = new rd5();
+                this.b = rd5Var;
+                rd5Var.f(optJSONObject2);
+            }
         }
     }
 }

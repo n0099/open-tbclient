@@ -1,226 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.Download;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class v14 {
-    public static /* synthetic */ Interceptable $ic;
-    public static DisplayMetrics a;
+public class v14 implements d94 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "hasDownloadApk";
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
-            return (int) (f * d(AppRuntime.getAppContext()));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948187920, "Lcom/baidu/tieba/v14;")) == null) {
+            return;
         }
-        return invokeF.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948187920, "Lcom/baidu/tieba/v14;");
+        }
     }
 
-    public static float d(Context context) {
-        InterceptResult invokeL;
+    public v14() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            n(AppRuntime.getAppContext());
-            DisplayMetrics displayMetrics = a;
-            if (displayMetrics != null) {
-                return displayMetrics.density;
-            }
-            return 0.0f;
-        }
-        return invokeL.floatValue;
-    }
-
-    public static int h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            n(AppRuntime.getAppContext());
-            DisplayMetrics displayMetrics = a;
-            if (displayMetrics != null) {
-                return displayMetrics.heightPixels;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int i(@Nullable Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            n(AppRuntime.getAppContext());
-            DisplayMetrics displayMetrics = a;
-            if (displayMetrics != null) {
-                return displayMetrics.widthPixels;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void n(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && a == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (appContext != null) {
-                context = appContext;
-            }
-            if (context == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            a = context.getResources().getDisplayMetrics();
         }
+        this.a = "com.baidu.gamenow";
     }
 
-    public static int p(float f) {
-        InterceptResult invokeF;
+    @Override // com.baidu.tieba.d94
+    public boolean a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65551, null, f)) == null) {
-            return (int) (f / d(AppRuntime.getAppContext()));
-        }
-        return invokeF.intValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String substring = new o14().a(String.valueOf(System.currentTimeMillis())).substring(4, 14);
-            String e = u04.b().e();
-            return PayUVEventType.PAY_FULL_SPLIT_ORDER_CLOSE_BTN_CLICK + substring + e.substring(0, 4);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                String[] split = str.split(ParamableElem.DIVIDE_PARAM);
-                int length = split.length;
-                for (int i = 0; i != length; i++) {
-                    String trim = split[i].trim();
-                    String[] split2 = trim.split("=");
-                    if (split2.length >= 2 && TextUtils.equals(str2, split2[0])) {
-                        if (split2.length == 2) {
-                            return split2[1];
-                        }
-                        return trim.substring(split2[0].length() + 1);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof Download)) {
+                return false;
             }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String str = Build.MODEL;
-            if (TextUtils.isEmpty(str)) {
-                return "NUL";
-            }
-            return str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str)) {
-                return "0.0";
-            }
-            return str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String str = Build.MANUFACTURER;
-            if (TextUtils.isEmpty(str)) {
-                return "NUL";
-            }
-            return str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return AppRuntime.getAppContext().getPackageName();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            try {
-                Context appContext = AppRuntime.getAppContext();
-                return appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
+            Download download = (Download) obj;
+            if (TextUtils.equals(z14.a, download.getKeyByUser())) {
                 return true;
             }
-            return false;
+            return TextUtils.isEmpty(vo3.d(download.getFromParam()).optString("apk_id"));
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static boolean o() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.d94
+    public void b(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return TextUtils.equals(BaiduIdentityManager.VALUE_OSNAME, u04.b().a());
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) != null) || !(obj instanceof Download)) {
+            return;
         }
-        return invokeV.booleanValue;
+        d24 d24Var = new d24((Download) obj);
+        r24.n().f("reallyDownloaded", new q24(), d24Var.m(), d24Var.j(), d24Var.l());
+    }
+
+    @Override // com.baidu.tieba.d94
+    public void c(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || !(obj instanceof Download)) {
+            return;
+        }
+        Download download = (Download) obj;
+        d24 d24Var = new d24(download);
+        r24.n().f("statusInstalled", new q24(), download.getKeyByUser(), d24Var.j(), d24Var.l());
+        if (TextUtils.equals(d24Var.m(), this.a)) {
+            jk3.a().putBoolean(b, true);
+            r24.n().p(13, d24Var.m(), d24Var.h(), d24Var.l());
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.square;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.n0a;
+import com.baidu.tieba.x8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public ForumSquareDelegate a;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.cs5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.gt5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         }
     }
 
-    public ForumSquareDelegate x1() {
+    public ForumSquareDelegate u1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -58,9 +58,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            n0a n0aVar = this.a.mForumSquareView;
-            if (n0aVar != null) {
-                n0aVar.a(i);
+            x8a x8aVar = this.a.mForumSquareView;
+            if (x8aVar != null) {
+                x8aVar.a(i);
             }
         }
     }

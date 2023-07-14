@@ -11,7 +11,6 @@ import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.IMediaGetChatSessionListener;
 import com.baidu.android.imsdk.chatmessage.MediaChatMessageManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.chatmessage.request.RequestContants;
 import com.baidu.android.imsdk.chatmessage.request.Type;
 import com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam;
 import com.baidu.android.imsdk.chatmessage.sync.Generator;
@@ -22,7 +21,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.ubc.CaseUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.tieba.k80;
+import com.baidu.tieba.l80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -170,8 +169,8 @@ public abstract class NotifyMessageHandler {
     public static void handleClueMsgNotify(Context context, int i, int i2, long j, int i3, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), jSONObject}) == null) && jSONObject != null && i3 == 0 && i == 238) {
-            long optLong = jSONObject.optLong(RequestContants.EXTRA_CONTACTER_PA_UID, -1L);
-            int optInt = jSONObject.optInt(RequestContants.EXTRA_CONTACTER_USER_TYPE, 0);
+            long optLong = jSONObject.optLong("contacter_pa_uid", -1L);
+            int optInt = jSONObject.optInt("contacter_user_type", 0);
             String optString = jSONObject.optString(Constants.EXTRA_BUSINESS_MSG_EXT);
             if (TextUtils.isEmpty(optString)) {
                 return;
@@ -376,7 +375,7 @@ public abstract class NotifyMessageHandler {
                     handleRtcReport("notify", "exception :" + th.getMessage());
                     debugInfo.extInfo = "ClassNotFoundException BIMRtcManager";
                 }
-                k80.d().f(CaseUbc.generateUBCData(context, "-1", "", debugInfo), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                l80.d().f(CaseUbc.generateUBCData(context, "-1", "", debugInfo), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 return;
             }
             LogUtils.i(TAG, "handleRtcNotifyMessage context == null || msgobj == null ");
@@ -449,6 +448,7 @@ public abstract class NotifyMessageHandler {
                     generate = Generator.generate(context, 5);
                     if (generate != null) {
                         generate.setCategory(i);
+                        generate.resetFetchState();
                         if (j != -1) {
                             generate.start(2, j, j2, str);
                             return;

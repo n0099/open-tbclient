@@ -8,7 +8,7 @@ import com.kwad.components.ad.reward.k;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.kwad.components.ad.reward.presenter.a implements View.OnClickListener, com.kwad.components.core.webview.b.d.b {
     public TextView eA;
     public long eC;
@@ -71,7 +71,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.eA = (TextView) findViewById(R.id.obfuscated_res_0x7f091277);
+        this.eA = (TextView) findViewById(R.id.obfuscated_res_0x7f09128b);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

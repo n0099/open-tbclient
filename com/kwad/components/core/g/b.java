@@ -4,7 +4,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.kwad.components.core.g.a;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class b<T extends a> extends com.kwad.components.core.i.a {
     public T mCallerContext;
     public Presenter mPresenter;

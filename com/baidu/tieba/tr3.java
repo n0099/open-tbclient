@@ -1,62 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Map;
+@Service
 /* loaded from: classes8.dex */
-public class tr3 extends zd3 {
+public class tr3 implements mx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tr3(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher) {
-        super(unitedSchemeBaseDispatcher, "/swanAPI/debug/setWebDegradeDebugHost");
+    public tr3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {unitedSchemeBaseDispatcher};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.zd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.nx3
+    public void a(sc3 sc3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
-            JSONObject a = zd3.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                c92.c("Api-SetWebDegradeDebugHostAction", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            String optString = a.optString("host");
-            if (TextUtils.isEmpty(optString)) {
-                qk3.a().edit().remove("web_mode_host_key").apply();
-                return true;
-            }
-            qk3.a().edit().putString("web_mode_host_key", optString).apply();
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sc3Var) == null) {
+            sc3Var.b(new lt3(sc3Var));
+            sc3Var.b(new pt3(sc3Var));
+            sc3Var.b(new ju3(sc3Var));
+            sc3Var.b(new iu3(sc3Var));
+            sc3Var.b(new yt3(sc3Var));
+            sc3Var.b(new qt3(sc3Var));
+            sc3Var.b(new nt3(sc3Var));
+            sc3Var.b(new wt3(sc3Var));
+            sc3Var.b(new mt3(sc3Var));
+            sc3Var.b(new kt3(sc3Var));
+            sc3Var.b(new jt3(sc3Var));
+            sc3Var.b(new ot3(sc3Var));
+            sc3Var.b(new nu3(sc3Var));
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nx3
+    @Nullable
+    public Map<String, Object> b(@NonNull wz1 wz1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wz1Var)) == null) {
+            return SwanApi$$ModulesProvider.getV8ApiModules(wz1Var);
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.nx3
+    @Nullable
+    public Map<String, Object> c(@NonNull wz1 wz1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wz1Var)) == null) {
+            return SwanApi$$ModulesProvider.getWebviewApiModules(wz1Var);
+        }
+        return (Map) invokeL.objValue;
     }
 }

@@ -1,19 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class nb6 {
+public class nb6 extends sy3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<SdkLiveInfoData> b;
+
+    @Override // com.baidu.tieba.qy3.b
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     public nb6() {
         Interceptable interceptable = $ic;
@@ -25,32 +34,6 @@ public class nb6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-    }
-
-    public void a(JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, jSONObject, str) != null) || jSONObject == null) {
-            return;
-        }
-        boolean z = true;
-        if (jSONObject.optInt("has_more") != 1) {
-            z = false;
-        }
-        this.a = z;
-        JSONArray optJSONArray = jSONObject.optJSONArray("live_list");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.b = new ArrayList<>(optJSONArray.length());
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
-                    sdkLiveInfoData.fromJson(optJSONObject, str);
-                    this.b.add(sdkLiveInfoData);
-                }
             }
         }
     }

@@ -1,77 +1,82 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes8.dex */
 public final class xw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final boolean b;
 
-    public xw6() {
+    public static final <T extends vv6> T a(wv6 wv6Var, Class<T> type, h0 entity, ov6 item) {
+        InterceptResult invokeLLLL;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, wv6Var, type, entity, item)) == null) {
+            Intrinsics.checkNotNullParameter(wv6Var, "<this>");
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            Intrinsics.checkNotNullParameter(item, "item");
+            g0 f = wv6Var.f();
+            if (f != null && (t = (T) f.h(type)) != null) {
+                entity.a(t);
+                t.b(item);
+                return t;
             }
+            return null;
         }
-        this.b = UbsABTestHelper.isAddExtraDuration();
+        return (T) invokeLLLL.objValue;
     }
 
-    public final void a(Activity activity) {
+    public static final long b(wv6 wv6Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (!this.b) {
-                return;
-            }
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                if (!(activity instanceof BaseActivity) && !(activity instanceof BaseFragmentActivity)) {
-                    String localClassName = activity.getLocalClassName();
-                    Intrinsics.checkNotNullExpressionValue(localClassName, "activity.localClassName");
-                    if (StringsKt__StringsKt.contains$default((CharSequence) localClassName, (CharSequence) "FlutterPageActivity", false, 2, (Object) null)) {
-                        return;
-                    }
-                } else {
-                    return;
-                }
-            }
-            long currentTimeMillis = (System.currentTimeMillis() - this.a) / 1000;
-            if (PermissionUtil.isAgreePrivacyPolicy() && currentTimeMillis > 0) {
-                PvThread pvThread = new PvThread("use", String.valueOf(currentTimeMillis));
-                pvThread.setPageName(activity.getLocalClassName());
-                pvThread.start();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wv6Var)) == null) {
+            Intrinsics.checkNotNullParameter(wv6Var, "<this>");
+            return d(wv6Var).a();
         }
+        return invokeL.longValue;
     }
 
-    public final void b(Activity activity) {
+    public static final ox6 c(wv6 wv6Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (!this.b) {
-                return;
-            }
-            this.a = System.currentTimeMillis();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, wv6Var)) == null) {
+            Intrinsics.checkNotNullParameter(wv6Var, "<this>");
+            return wv6Var.i().d();
         }
+        return (ox6) invokeL.objValue;
+    }
+
+    public static final rx6 d(wv6 wv6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, wv6Var)) == null) {
+            Intrinsics.checkNotNullParameter(wv6Var, "<this>");
+            return wv6Var.i().f();
+        }
+        return (rx6) invokeL.objValue;
+    }
+
+    public static final boolean e(wv6 wv6Var) {
+        InterceptResult invokeL;
+        uv6 uv6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, wv6Var)) == null) {
+            Intrinsics.checkNotNullParameter(wv6Var, "<this>");
+            g0 f = wv6Var.f();
+            if (f instanceof uv6) {
+                uv6Var = (uv6) f;
+            } else {
+                uv6Var = null;
+            }
+            if (uv6Var != null) {
+                return uv6Var.x();
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

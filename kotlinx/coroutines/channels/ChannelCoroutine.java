@@ -56,8 +56,8 @@ public class ChannelCoroutine<E> extends AbstractCoroutine<Unit> implements Chan
     @Override // kotlinx.coroutines.channels.SendChannel
     @ExperimentalCoroutinesApi
     /* renamed from: invokeOnClose */
-    public void mo2352invokeOnClose(Function1<? super Throwable, Unit> function1) {
-        this._channel.mo2352invokeOnClose(function1);
+    public void mo2354invokeOnClose(Function1<? super Throwable, Unit> function1) {
+        this._channel.mo2354invokeOnClose(function1);
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
@@ -99,10 +99,10 @@ public class ChannelCoroutine<E> extends AbstractCoroutine<Unit> implements Chan
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
     /* renamed from: receiveCatching-JP2dKIU */
-    public Object mo2291receiveCatchingJP2dKIU(Continuation<? super ChannelResult<? extends E>> continuation) {
-        Object mo2291receiveCatchingJP2dKIU = this._channel.mo2291receiveCatchingJP2dKIU(continuation);
+    public Object mo2293receiveCatchingJP2dKIU(Continuation<? super ChannelResult<? extends E>> continuation) {
+        Object mo2293receiveCatchingJP2dKIU = this._channel.mo2293receiveCatchingJP2dKIU(continuation);
         IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        return mo2291receiveCatchingJP2dKIU;
+        return mo2293receiveCatchingJP2dKIU;
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
@@ -119,14 +119,14 @@ public class ChannelCoroutine<E> extends AbstractCoroutine<Unit> implements Chan
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
     /* renamed from: tryReceive-PtdJZtk */
-    public Object mo2292tryReceivePtdJZtk() {
-        return this._channel.mo2292tryReceivePtdJZtk();
+    public Object mo2294tryReceivePtdJZtk() {
+        return this._channel.mo2294tryReceivePtdJZtk();
     }
 
     @Override // kotlinx.coroutines.channels.SendChannel
     /* renamed from: trySend-JP2dKIU */
-    public Object mo2293trySendJP2dKIU(E e) {
-        return this._channel.mo2293trySendJP2dKIU(e);
+    public Object mo2295trySendJP2dKIU(E e) {
+        return this._channel.mo2295trySendJP2dKIU(e);
     }
 
     public ChannelCoroutine(CoroutineContext coroutineContext, Channel<E> channel, boolean z, boolean z2) {

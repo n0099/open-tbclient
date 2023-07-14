@@ -13,7 +13,7 @@ import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends com.kwad.components.ad.reward.presenter.a implements View.OnClickListener, com.kwad.components.core.webview.b.d.b {
     public static final String[] rZ = {"%ss后获得奖励1", "已获得奖励1/2", "已获得全部奖励"};
     public TextView ey;
@@ -158,7 +158,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
         if (view2 == this.rW || view2 == this.rX) {
-            com.kwad.components.core.c.a.a.a(new a.C0641a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2).l(this.nM.eF.getPlayDuration()).a(new a.b() { // from class: com.kwad.components.ad.reward.presenter.platdetail.kwai.a.5
+            com.kwad.components.core.c.a.a.a(new a.C0646a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2).l(this.nM.eF.getPlayDuration()).a(new a.b() { // from class: com.kwad.components.ad.reward.presenter.platdetail.kwai.a.5
                 @Override // com.kwad.components.core.c.a.a.b
                 public final void onAdClicked() {
                     a.this.notifyAdClick();
@@ -170,10 +170,10 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.ey = (TextView) findViewById(R.id.obfuscated_res_0x7f091400);
-        this.rW = (ImageView) findViewById(R.id.obfuscated_res_0x7f09127b);
-        this.rV = (TextView) findViewById(R.id.obfuscated_res_0x7f091348);
-        this.rX = findViewById(R.id.obfuscated_res_0x7f091279);
+        this.ey = (TextView) findViewById(R.id.obfuscated_res_0x7f091414);
+        this.rW = (ImageView) findViewById(R.id.obfuscated_res_0x7f09128f);
+        this.rV = (TextView) findViewById(R.id.obfuscated_res_0x7f09135c);
+        this.rX = findViewById(R.id.obfuscated_res_0x7f09128d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.metadata.jvm.deserialization;
 
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class JvmMemberSignature {
     public abstract String asString();
 
@@ -10,7 +10,7 @@ public abstract class JvmMemberSignature {
 
     public abstract String getName();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Field extends JvmMemberSignature {
         public final String desc;
         public final String name;
@@ -63,7 +63,7 @@ public abstract class JvmMemberSignature {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Method extends JvmMemberSignature {
         public final String desc;
         public final String name;

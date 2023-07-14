@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cv1 implements px1 {
+public class cv1 implements sx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.px1
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
 
     public cv1() {
         Interceptable interceptable = $ic;
@@ -28,5 +23,41 @@ public class cv1 implements px1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.sx1
+    public void a(Context context, oq3<Boolean> oq3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, oq3Var) != null) || oq3Var == null) {
+            return;
+        }
+        oq3Var.a(null);
+    }
+
+    @Override // com.baidu.tieba.sx1
+    public void b(boolean z, oq3<String> oq3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, oq3Var) != null) || oq3Var == null) {
+            return;
+        }
+        oq3Var.a(null);
+    }
+
+    @Override // com.baidu.tieba.sx1
+    public void c(Context context, oq3<String> oq3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, oq3Var) != null) || oq3Var == null) {
+            return;
+        }
+        oq3Var.a(null);
+    }
+
+    @Override // com.baidu.tieba.sx1
+    public void d(oq3<Integer> oq3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, oq3Var) != null) || oq3Var == null) {
+            return;
+        }
+        oq3Var.a(null);
     }
 }

@@ -1,33 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.listener.RequestListener;
+@Service
 /* loaded from: classes7.dex */
-public class rx3 {
+public class rx3 implements hg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static sx3 a() {
-        InterceptResult invokeV;
+    public rx3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return z96.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (sx3) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static tx3 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hg2
+    public RequestListener a(ig2 ig2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new as3();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ig2Var)) == null) {
+            return new qx3(ig2Var);
         }
-        return (tx3) invokeV.objValue;
+        return (RequestListener) invokeL.objValue;
     }
 }

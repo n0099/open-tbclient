@@ -3,7 +3,7 @@ package com.kwad.components.ad.splashscreen.b;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import com.kwad.sdk.utils.t;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class l extends e {
     public com.kwad.sdk.core.download.kwai.a zn;
 

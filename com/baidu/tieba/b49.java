@@ -1,18 +1,40 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import tbclient.RecomTopicList;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.AbConfigService;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface b49 {
-    void O(@NonNull RecomTopicList recomTopicList);
+public class b49 extends pl1<AbConfigService> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void V0(f68 f68Var);
+    public b49() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void d1(int i);
-
-    void p(int i, e68 e68Var);
-
-    void p0(int i, f68 f68Var);
-
-    void p1(int i, long j, long j2, int i2);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pl1
+    /* renamed from: a */
+    public AbConfigService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new c49();
+        }
+        return (AbConfigService) invokeV.objValue;
+    }
 }

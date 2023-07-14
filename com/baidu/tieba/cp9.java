@@ -1,133 +1,102 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.personCenter.data.PersonVipCardData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cp9 extends bp9 {
+public class cp9 extends ln<PersonVipCardData, CardViewHolder<mq9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int S0;
-    public int T0;
+    public TbPageContext a;
+    public mq9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cp9(Context context, View view2) {
-        super(context, view2);
+    public cp9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        s0(false);
-        this.S0 = xi.l(this.R) / 10;
+        this.a = tbPageContext;
     }
 
-    public void E0(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.X = str2;
-            T();
-            U();
-            v0(this.b);
-            this.F.setPlayer(this.t.getControl());
-            this.B.setVisibility(8);
-            this.u.setPlaceHolder(3);
-            this.u.N(str, 10, false);
-            this.H.setShareData(null);
-        }
-    }
-
-    @Override // com.baidu.tieba.bp9
-    public void Z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            Context context = this.R;
-            if (context instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) context).setSwipeBackEnabled(this.b0);
-            } else if (context instanceof BaseActivity) {
-                ((BaseActivity) context).setSwipeBackEnabled(this.b0);
-            }
-            super.Z(z);
-            if (this.b0) {
-                this.f1091T.getLayoutParams().height = -1;
-                return;
-            }
-            this.f1091T.getLayoutParams().height = this.T0;
-        }
-    }
-
-    @Override // com.baidu.tieba.bp9
-    public void h0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.t.getControl().setVolume(1.0f, 1.0f);
-        }
-    }
-
-    @Override // com.baidu.tieba.bp9
-    public boolean i0(MotionEvent motionEvent) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: s */
+    public CardViewHolder<mq9> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (!this.b0 && motionEvent.getX() <= this.S0) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            this.b = new mq9(this.a);
+            return new CardViewHolder<>(this.b);
         }
-        return invokeL.booleanValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bp9
-    public void v0(int i) {
+    public void u(boolean z) {
+        mq9 mq9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            super.v0(i);
-            this.J.setVisibility(8);
-            this.D.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (mq9Var = this.b) != null) {
+            mq9Var.x(z);
         }
     }
 
-    @Override // com.baidu.tieba.bp9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
-    public void onPrepared() {
-        boolean z;
+    public void onDestroy() {
+        mq9 mq9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPrepared();
-            if (this.t.getControl().getPlayerWidth() == 0) {
-                return;
-            }
-            if (this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.W = z;
-            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * xi.l(this.R));
-            this.T0 = playerHeight;
-            if (playerHeight > xi.j(this.R)) {
-                this.T0 = xi.j(this.R);
-            }
-            this.f1091T.getLayoutParams().height = this.T0;
-            this.f1091T.requestLayout();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (mq9Var = this.b) != null) {
+            mq9Var.t();
         }
+    }
+
+    public void onPause() {
+        mq9 mq9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (mq9Var = this.b) != null) {
+            mq9Var.u();
+        }
+    }
+
+    public void onResume() {
+        mq9 mq9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (mq9Var = this.b) != null) {
+            mq9Var.y();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PersonVipCardData personVipCardData, CardViewHolder<mq9> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, personVipCardData, cardViewHolder})) == null) {
+            cardViewHolder.b().i(personVipCardData);
+            return cardViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

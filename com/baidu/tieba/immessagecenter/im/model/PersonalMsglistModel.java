@@ -13,9 +13,13 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.ChatStatusManager;
-import com.baidu.tieba.fc8;
-import com.baidu.tieba.gc8;
-import com.baidu.tieba.h78;
+import com.baidu.tieba.ay5;
+import com.baidu.tieba.az5;
+import com.baidu.tieba.bh8;
+import com.baidu.tieba.cc8;
+import com.baidu.tieba.ch8;
+import com.baidu.tieba.fe8;
+import com.baidu.tieba.gd8;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.data.MsgPageData;
@@ -33,14 +37,10 @@ import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.immessagecenter.LoadPersonalDraftMessage;
 import com.baidu.tieba.immessagecenter.LoadPersonalHistoryMessage;
 import com.baidu.tieba.immessagecenter.PersonalSaveDraftMessage;
-import com.baidu.tieba.k98;
-import com.baidu.tieba.l88;
-import com.baidu.tieba.pa8;
-import com.baidu.tieba.r88;
-import com.baidu.tieba.sx5;
-import com.baidu.tieba.ww5;
-import com.baidu.tieba.wx5;
-import com.baidu.tieba.x98;
+import com.baidu.tieba.lf8;
+import com.baidu.tieba.md8;
+import com.baidu.tieba.te8;
+import com.baidu.tieba.wy5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,14 +66,14 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     public CustomMessageListener j;
 
     /* loaded from: classes6.dex */
-    public class e implements ww5<CommonMsgPojo> {
+    public class e implements ay5<CommonMsgPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
         public final /* synthetic */ PersonalMsglistModel b;
 
         /* loaded from: classes6.dex */
-        public class a extends sx5<Boolean> {
+        public class a extends wy5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PersonalChatMessage a;
@@ -100,19 +100,19 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.sx5
+            @Override // com.baidu.tieba.wy5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return Boolean.valueOf(k98.w().n(gc8.q(this.a), this.b, false));
+                    return Boolean.valueOf(fe8.w().n(ch8.q(this.a), this.b, false));
                 }
                 return (Boolean) invokeV.objValue;
             }
         }
 
         /* loaded from: classes6.dex */
-        public class b implements ww5<Boolean> {
+        public class b implements ay5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ChatMessage a;
@@ -138,7 +138,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ww5
+            @Override // com.baidu.tieba.ay5
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 Interceptable interceptable = $ic;
@@ -170,7 +170,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ww5
+        @Override // com.baidu.tieba.ay5
         /* renamed from: a */
         public void onReturnDataInUI(CommonMsgPojo commonMsgPojo) {
             Interceptable interceptable = $ic;
@@ -182,7 +182,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
             CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(createMessage);
             commonMsgPojo2.setRead_flag(0);
             linkedList.add(commonMsgPojo2);
-            wx5.c(new a(this, (PersonalChatMessage) createMessage, linkedList), new b(this, createMessage));
+            az5.c(new a(this, (PersonalChatMessage) createMessage, linkedList), new b(this, createMessage));
         }
     }
 
@@ -257,7 +257,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends sx5<Boolean> {
+    public class a extends wy5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMessage a;
@@ -284,19 +284,19 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.sx5
+        @Override // com.baidu.tieba.wy5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Boolean.valueOf(k98.w().c(String.valueOf(this.b.mUser.getUserId()), String.valueOf(this.a.getMsgId())));
+                return Boolean.valueOf(fe8.w().c(String.valueOf(this.b.mUser.getUserId()), String.valueOf(this.a.getMsgId())));
             }
             return (Boolean) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends sx5<Boolean> {
+    public class b extends wy5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMessage a;
@@ -323,12 +323,12 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.sx5
+        @Override // com.baidu.tieba.wy5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Boolean.valueOf(k98.w().o(String.valueOf(this.b.mUser.getUserId()), String.valueOf(this.a.getMsgId())));
+                return Boolean.valueOf(fe8.w().o(String.valueOf(this.b.mUser.getUserId()), String.valueOf(this.a.getMsgId())));
             }
             return (Boolean) invokeV.objValue;
         }
@@ -364,7 +364,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            h78 callback;
+            cc8 callback;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
@@ -386,7 +386,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     }
 
     /* loaded from: classes6.dex */
-    public class d extends sx5<CommonMsgPojo> {
+    public class d extends wy5<CommonMsgPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalMsglistModel a;
@@ -410,13 +410,13 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sx5
+        @Override // com.baidu.tieba.wy5
         /* renamed from: a */
         public CommonMsgPojo doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return k98.w().x(this.a.getUser().getUserId(), 23);
+                return fe8.w().x(this.a.getUser().getUserId(), 23);
             }
             return (CommonMsgPojo) invokeV.objValue;
         }
@@ -438,16 +438,16 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         this.j = new c(this, 0);
     }
 
-    public CardStatus d0() {
+    public CardStatus e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.f;
         }
         return (CardStatus) invokeV.objValue;
     }
 
-    public boolean f0() {
+    public boolean g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -460,7 +460,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     public MsglistModel.CacheInfo getCacheInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.mUser == null) {
                 return null;
             }
@@ -475,7 +475,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     public int getIsFriend() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
@@ -485,13 +485,13 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     public long getMaxMid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return x98.n().o(String.valueOf(pa8.j), -1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return te8.n().o(String.valueOf(lf8.j), -1);
         }
         return invokeV.longValue;
     }
 
-    public String h0() {
+    public String i0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -500,7 +500,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<ReportPrivateMsgData> i0() {
+    public ArrayList<ReportPrivateMsgData> j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -513,7 +513,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     public boolean loadDraft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             if (this.mUser == null) {
                 return false;
             }
@@ -525,10 +525,10 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return invokeV.booleanValue;
     }
 
-    public void m0() {
+    public void n0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.h) {
-            l0();
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && this.h) {
+            m0();
             this.h = false;
         }
     }
@@ -536,7 +536,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     @Override // com.baidu.tieba.im.model.CommonPersonalMsglistModel, com.baidu.tieba.im.model.MsglistModel
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onDestroy();
             unRegisterListener();
         }
@@ -582,20 +582,20 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         this.customGroupType = 2;
     }
 
-    public CardStatus e0(r88 r88Var) {
+    public CardStatus f0(md8 md8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r88Var)) == null) {
-            if (r88Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, md8Var)) == null) {
+            if (md8Var == null) {
                 return CardStatus.APPLY;
             }
-            if (r88Var.f() == 0) {
+            if (md8Var.f() == 0) {
                 return CardStatus.APPLY;
             }
-            if (r88Var.f() == 3) {
+            if (md8Var.f() == 3) {
                 return CardStatus.WAIT;
             }
-            if (r88Var.f() == 1) {
+            if (md8Var.f() == 1) {
                 return CardStatus.AGREE;
             }
             return CardStatus.APPLY;
@@ -624,43 +624,43 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public void deleteMsg(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatMessage) == null) && this.mUser != null && chatMessage != null) {
-            wx5.c(new a(this, chatMessage), null);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) && this.mUser != null && chatMessage != null) {
+            az5.c(new a(this, chatMessage), null);
         }
     }
 
-    public void j0(String str) {
+    public void k0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            wx5.c(new d(this), new e(this, str));
+            az5.c(new d(this), new e(this, str));
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public void markDeleteMsg(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, chatMessage) == null) && this.mUser != null && chatMessage != null) {
-            wx5.c(new b(this, chatMessage), null);
+        if ((interceptable == null || interceptable.invokeL(1048593, this, chatMessage) == null) && this.mUser != null && chatMessage != null) {
+            az5.c(new b(this, chatMessage), null);
         }
     }
 
-    public void n0(CardStatus cardStatus) {
+    public void o0(CardStatus cardStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, cardStatus) == null) {
             this.f = cardStatus;
         }
     }
 
-    public void o0(String str) {
+    public void p0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             this.e = str;
         }
     }
 
-    public void p0(boolean z) {
+    public void q0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             this.c = z;
         }
     }
@@ -672,7 +672,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
             super.sendTextMessage(str);
             UserData userData = this.mUser;
             if (userData != null) {
-                q0(this.i, 3, 0, userData.getUserId());
+                r0(this.i, 3, 0, userData.getUserId());
             }
         }
     }
@@ -712,7 +712,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
             super.sendMsgVoice(str, i);
             UserData userData = this.mUser;
             if (userData != null) {
-                q0(this.i, 1, 0, userData.getUserId());
+                r0(this.i, 1, 0, userData.getUserId());
             }
         }
     }
@@ -724,34 +724,16 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
             super.sendPicMessage(str, bitmap);
             UserData userData = this.mUser;
             if (userData != null) {
-                q0(this.i, 2, 0, userData.getUserId());
+                r0(this.i, 2, 0, userData.getUserId());
             }
         }
-    }
-
-    public final long g0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MsgPageData msgPageData = this.mDatas;
-            if (msgPageData != null && msgPageData.getChatMessages() != null && this.mDatas.size() != 0) {
-                for (int size = this.mDatas.size() - 1; size >= 0; size--) {
-                    ChatMessage chatMessage = this.mDatas.getChatMessages().get(size);
-                    if (chatMessage.getUserId() != 0 && !String.valueOf(chatMessage.getUserId()).equals(TbadkCoreApplication.getCurrentAccount())) {
-                        return chatMessage.getMsgId();
-                    }
-                }
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public ChatMessage genChatMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.mUser == null) {
                 return null;
             }
@@ -771,32 +753,12 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return (ChatMessage) invokeV.objValue;
     }
 
-    public final void l0() {
-        ImMessageCenterPojo h;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || getUser() == null) {
-            return;
-        }
-        long userIdLong = getUser().getUserIdLong();
-        if (userIdLong == 0 || (h = x98.n().h(getUser().getUserId(), 2)) == null) {
-            return;
-        }
-        long g0 = g0();
-        if (g0 > h.getSent_msgId()) {
-            RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(fc8.c(g0), userIdLong);
-            if (MessageManager.getInstance().getSocketClient().n(requestPersonalMsgReadMessage)) {
-                return;
-            }
-            MessageManager.getInstance().sendMessage(requestPersonalMsgReadMessage);
-        }
-    }
-
     @Override // com.baidu.tieba.im.model.MsglistModel
     public boolean loadPrepage() {
         InterceptResult invokeV;
         long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             if (this.mUser == null) {
                 return false;
             }
@@ -819,7 +781,45 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return invokeV.booleanValue;
     }
 
-    public final void k0(long j) {
+    public final void m0() {
+        ImMessageCenterPojo h;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048592, this) != null) || getUser() == null) {
+            return;
+        }
+        long userIdLong = getUser().getUserIdLong();
+        if (userIdLong == 0 || (h = te8.n().h(getUser().getUserId(), 2)) == null) {
+            return;
+        }
+        long h0 = h0();
+        if (h0 > h.getSent_msgId()) {
+            RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(bh8.c(h0), userIdLong);
+            if (MessageManager.getInstance().getSocketClient().n(requestPersonalMsgReadMessage)) {
+                return;
+            }
+            MessageManager.getInstance().sendMessage(requestPersonalMsgReadMessage);
+        }
+    }
+
+    public final long h0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            MsgPageData msgPageData = this.mDatas;
+            if (msgPageData != null && msgPageData.getChatMessages() != null && this.mDatas.size() != 0) {
+                for (int size = this.mDatas.size() - 1; size >= 0; size--) {
+                    ChatMessage chatMessage = this.mDatas.getChatMessages().get(size);
+                    if (chatMessage.getUserId() != 0 && !String.valueOf(chatMessage.getUserId()).equals(TbadkCoreApplication.getCurrentAccount())) {
+                        return chatMessage.getMsgId();
+                    }
+                }
+            }
+            return -1L;
+        }
+        return invokeV.longValue;
+    }
+
+    public final void l0(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeJ(1048588, this, j) != null) || j <= 0) {
             return;
@@ -836,10 +836,10 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(h78 h78Var) {
+    public boolean loadFirst(cc8 cc8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, h78Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, cc8Var)) == null) {
             if (this.mUser == null) {
                 return false;
             }
@@ -849,7 +849,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
             aVar.b = null;
             aVar.d = this.mUser.getUserIdLong() + "";
             LoadPersonalHistoryMessage loadPersonalHistoryMessage = new LoadPersonalHistoryMessage(aVar);
-            loadPersonalHistoryMessage.setCallback(h78Var);
+            loadPersonalHistoryMessage.setCallback(cc8Var);
             super.sendMessage(loadPersonalHistoryMessage);
             return true;
         }
@@ -861,12 +861,12 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         InterceptResult invokeV;
         ImMessageCenterPojo h;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (getUser() == null || (h = x98.n().h(getUser().getUserId(), 2)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (getUser() == null || (h = te8.n().h(getUser().getUserId(), 2)) == null) {
                 return false;
             }
-            k0(h.getRead_msgId());
-            l0();
+            l0(h.getRead_msgId());
+            m0();
             return true;
         }
         return invokeV.booleanValue;
@@ -877,11 +877,11 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         InterceptResult invokeV;
         MsgPageData msgPageData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            if (this.g == null || (msgPageData = this.mDatas) == null || msgPageData.getChatMessages() == null || this.mDatas.size() == 0 || gc8.y(this.g)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            if (this.g == null || (msgPageData = this.mDatas) == null || msgPageData.getChatMessages() == null || this.mDatas.size() == 0 || ch8.y(this.g)) {
                 return false;
             }
-            k0(l88.a(this.g));
+            l0(gd8.a(this.g));
             return true;
         }
         return invokeV.booleanValue;
@@ -889,7 +889,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
 
     public void processServerMsg(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048601, this, customResponsedMessage) == null) && (customResponsedMessage instanceof GroupMsgData)) {
+        if ((interceptable == null || interceptable.invokeL(1048600, this, customResponsedMessage) == null) && (customResponsedMessage instanceof GroupMsgData)) {
             GroupMsgData groupMsgData = (GroupMsgData) customResponsedMessage;
             if (getUser() != null) {
                 LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
@@ -914,13 +914,13 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                 }
                 processMsgFromServerCommon(linkedList);
                 if (ChatStatusManager.getInst().getIsOpen(0)) {
-                    m0();
+                    n0();
                 }
             }
         }
     }
 
-    public void q0(int i, int i2, int i3, String str) {
+    public void r0(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SEND_MSG).addParam("obj_source", i).addParam("obj_type", i2).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.FRIEND_UID, str));

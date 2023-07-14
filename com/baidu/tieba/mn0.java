@@ -1,160 +1,193 @@
 package com.baidu.tieba;
 
-import android.os.CountDownTimer;
+import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.on0;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
-public class mn0<VIEW extends on0> {
+import com.huawei.hms.framework.network.grs.GrsBaseInfo;
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public class mn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CountDownTimer a;
-    public long b;
-    public long c;
-    public WeakReference<VIEW> d;
 
-    /* loaded from: classes6.dex */
-    public static class a extends CountDownTimer {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<mn0> a;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(@NonNull mn0 mn0Var, long j, long j2) {
-            super(j, j2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mn0Var, Long.valueOf(j), Long.valueOf(j2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public interface b {
+        void onResult(boolean z);
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final mn0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-598615653, "Lcom/baidu/tieba/mn0$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-598615653, "Lcom/baidu/tieba/mn0$c;");
                     return;
                 }
             }
-            this.a = new WeakReference<>(mn0Var);
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onFinish() {
-            mn0 mn0Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (mn0Var = this.a.get()) != null) {
-                mn0Var.f(mn0Var.j());
-            }
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onTick(long j) {
-            mn0 mn0Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && (mn0Var = this.a.get()) != null) {
-                mn0Var.c = mn0Var.b - j;
-                mn0Var.g(mn0Var.e(), mn0Var.j());
-            }
+            a = new mn0(null);
         }
     }
 
-    public mn0(@NonNull VIEW view2) {
+    public mn0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = new WeakReference<>(view2);
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            i();
-            this.b = j;
-            this.c = 0L;
-            a aVar = new a(this, this.b, 1000L);
-            this.a = aVar;
-            aVar.start();
-            VIEW k = k();
-            if (k != null) {
-                long j2 = this.b;
-                k.b(j2, j2);
             }
         }
     }
 
-    public final void g(long j, long j2) {
-        VIEW k;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (k = k()) != null) {
-            k.onProgress(j, j2);
-        }
-    }
-
-    public final void f(long j) {
-        VIEW k;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && (k = k()) != null) {
-            k.a(j);
-        }
-    }
-
-    public long e() {
+    public static mn0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c.a;
         }
-        return invokeV.longValue;
+        return (mn0) invokeV.objValue;
     }
 
-    public void i() {
-        CountDownTimer countDownTimer;
+    public /* synthetic */ mn0(a aVar) {
+        this();
+    }
+
+    public final String a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (countDownTimer = this.a) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return String.valueOf(j) + String.valueOf(((int) (Math.random() * 1.0E8d)) << 1);
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public boolean c(Context context, HashMap<String, String> hashMap, @Nullable b bVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hashMap, bVar)) == null) {
+            return d(context, hashMap, bVar);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final void e(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) && !TextUtils.isEmpty(str2)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.u(ClogBuilder.Page.SCHEDULED_DOWNLOAD);
+            clogBuilder.z(str);
+            clogBuilder.p(str2);
+            clogBuilder.j(str3);
+            n41.e(clogBuilder);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00b7, code lost:
+        r14.onResult(false);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean d(Context context, HashMap<String, String> hashMap, @Nullable b bVar) {
+        InterceptResult invokeLLL;
+        String str;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, hashMap, bVar)) == null) {
+            String str4 = "";
+            try {
+                str = (String) z31.b(hashMap, "pkgName");
+                str2 = (String) z31.b(hashMap, "channelId");
+                str3 = (String) z31.b(hashMap, "extraParams");
+            } catch (Exception unused) {
+            }
+            try {
+                String str5 = (String) z31.b(hashMap, "scheduledTime");
+                String str6 = (String) z31.b(hashMap, "requestUrl");
+                String str7 = (String) z31.b(hashMap, "business");
+                String str8 = (String) z31.b(hashMap, "source");
+                String str9 = (String) z31.b(hashMap, "convertUrl");
+                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str6) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
+                    nn0 nn0Var = new nn0(str, str2, Long.valueOf(Long.parseLong(str5)), str3, str6);
+                    if (!TextUtils.isEmpty(str7)) {
+                        nn0Var.g = str7;
+                    }
+                    if (!TextUtils.isEmpty(str8)) {
+                        nn0Var.h = str8;
+                    }
+                    ln0.b().a(nn0Var);
+                    e(ClogBuilder.LogType.SCHEDULED_DOWNLOAD_SUCCESS.type, str3, GrsBaseInfo.CountryCodeSource.APP);
+                    if (!TextUtils.isEmpty(str9)) {
+                        f(str9);
+                    }
+                    kn0.d().e(nn0Var.b, nn0Var.c, context);
+                    if (bVar != null) {
+                        bVar.onResult(true);
+                    }
+                    return true;
+                }
+                if (!TextUtils.isEmpty(str3)) {
+                    e(ClogBuilder.LogType.SCHEDULED_DOWNLOAD_SUCCESS.type, str3, "PARAMS_ERROR");
+                }
+                return false;
+            } catch (Exception unused2) {
+                str4 = str3;
+                if (bVar != null) {
+                    bVar.onResult(false);
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    e(ClogBuilder.LogType.SCHEDULED_DOWNLOAD_SUCCESS.type, str4, "FORMAT_ERROR");
+                }
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final void f(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        countDownTimer.cancel();
-        VIEW k = k();
-        if (k != null) {
-            k.c(this.c, this.b);
-        }
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public final VIEW k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d.get();
-        }
-        return (VIEW) invokeV.objValue;
+        long currentTimeMillis = System.currentTimeMillis();
+        String replace = str.replace("__PVID__", a(currentTimeMillis)).replace("__MICRO_TIME__", String.valueOf(currentTimeMillis)).replace("__TIME_STAMP__", String.valueOf(currentTimeMillis / 1000));
+        ku0 ku0Var = new ku0();
+        ku0Var.l(replace);
+        ku0Var.a("Content-Type", "application/json");
+        ku0Var.a("Origin", "feedScheduledDownload");
+        ku0Var.j(10000);
+        ku0Var.g(10000);
+        ku0Var.c();
+        rt0.b().a().a(ku0Var, null);
     }
 }

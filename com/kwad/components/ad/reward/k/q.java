@@ -14,7 +14,7 @@ import com.kwad.components.core.widget.KsConvertButton;
 import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class q extends p {
     @IdRes
     public int we;
@@ -25,7 +25,7 @@ public final class q extends p {
 
     public q(@IdRes int i) {
         this.we = i;
-        this.wc = R.layout.obfuscated_res_0x7f0d04bd;
+        this.wc = R.layout.obfuscated_res_0x7f0d04c8;
         this.wd = false;
     }
 
@@ -57,9 +57,9 @@ public final class q extends p {
             ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
             int i = 18;
             if (layoutParams != null) {
-                int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704dd);
+                int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e5);
                 if (!z) {
-                    dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e0);
+                    dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e7);
                     i = 14;
                 }
                 layoutParams.width = dimensionPixelSize;
@@ -71,9 +71,9 @@ public final class q extends p {
         TextView textView = this.nH;
         if (textView != null && (textView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) && this.wg != null) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.nH.getLayoutParams();
-            int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e7);
+            int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ed);
             if (!this.wg.gC() && z) {
-                dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e6);
+                dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ec);
             }
             marginLayoutParams.topMargin = dimensionPixelSize2;
             this.nH.setLayoutParams(marginLayoutParams);
@@ -83,9 +83,9 @@ public final class q extends p {
             return;
         }
         ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.wh.getLayoutParams();
-        int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e4);
+        int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ea);
         if (z) {
-            dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e3);
+            dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e9);
         }
         marginLayoutParams2.topMargin = dimensionPixelSize3;
         this.wh.setLayoutParams(marginLayoutParams2);
@@ -96,16 +96,16 @@ public final class q extends p {
         if (viewGroup == null) {
             return;
         }
-        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09130e);
-        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09130c);
-        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09130d);
-        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091315);
-        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09130b);
-        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091310);
-        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091307);
-        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f09130f);
-        this.wf = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091306);
-        this.wh = viewGroup.findViewById(R.id.obfuscated_res_0x7f091308);
+        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091322);
+        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091320);
+        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091321);
+        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091329);
+        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09131f);
+        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091324);
+        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09131b);
+        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f091323);
+        this.wf = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09131a);
+        this.wh = viewGroup.findViewById(R.id.obfuscated_res_0x7f09131c);
     }
 
     @Override // com.kwad.components.ad.reward.k.p
@@ -115,6 +115,6 @@ public final class q extends p {
 
     @Override // com.kwad.components.ad.reward.k.p
     public final int jc() {
-        return R.id.obfuscated_res_0x7f091309;
+        return R.id.obfuscated_res_0x7f09131d;
     }
 }

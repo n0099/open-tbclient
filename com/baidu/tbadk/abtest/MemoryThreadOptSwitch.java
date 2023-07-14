@@ -33,7 +33,7 @@ public final class MemoryThreadOptSwitch extends BaseNormalSwitch {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Companion.isSwitchOn() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ef
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ff
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public final class MemoryThreadOptSwitch extends BaseNormalSwitch {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ef
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ff
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

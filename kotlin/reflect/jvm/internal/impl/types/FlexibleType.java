@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.renderer.DescriptorRenderer;
 import kotlin.reflect.jvm.internal.impl.renderer.DescriptorRendererOptions;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.model.FlexibleTypeMarker;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class FlexibleType extends UnwrappedType implements SubtypingRepresentatives, FlexibleTypeMarker {
     public final SimpleType lowerBound;
     public final SimpleType upperBound;

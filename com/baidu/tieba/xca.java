@@ -1,215 +1,172 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.App;
 /* loaded from: classes8.dex */
-public class xca {
+public class xca extends yca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AdvertAppInfo g1;
+    public boolean h1;
+    public String i1;
+    public String j1;
+    public String k1;
+    public long l1;
+    public int m1;
+    public boolean n1;
+    public int o1;
+    public int p1;
 
-    /* loaded from: classes8.dex */
-    public static class a implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ int e;
-
-        public a(View view2, int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = i;
-            this.c = i2;
-            this.d = i3;
-            this.e = i4;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                int i = this.b;
-                layoutParams.width = i - ((int) ((i - this.c) * animatedFraction));
-                int i2 = this.d;
-                layoutParams.height = i2 - ((int) ((i2 - this.e) * animatedFraction));
-                this.a.requestLayout();
+    public xca() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.h1 = false;
     }
 
-    /* loaded from: classes8.dex */
-    public static class b implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ int e;
-
-        public b(View view2, int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public String A1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.g1;
+            if (advertAppInfo == null) {
+                return "";
             }
-            this.a = view2;
-            this.b = i;
-            this.c = i2;
-            this.d = i3;
-            this.e = i4;
+            return advertAppInfo.a;
         }
+        return (String) invokeV.objValue;
+    }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                int i = this.b;
-                layoutParams.width = i - ((int) ((i - this.c) * animatedFraction));
-                int i2 = this.d;
-                layoutParams.height = i2 - ((int) ((i2 - this.e) * animatedFraction));
-                this.a.requestLayout();
+    public String B1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.h1) {
+                return "PB_BANNER";
             }
+            if (this.n1) {
+                return "VIDEO_PB";
+            }
+            return "PB";
         }
+        return (String) invokeV.objValue;
     }
 
-    public static Bundle a(View view2) {
-        InterceptResult invokeL;
+    public AdvertAppInfo.ILegoAdvert C1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            Bundle bundle = new Bundle();
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            bundle.putInt("enter_anim_values_top", iArr[1]);
-            bundle.putInt("enter_anim_values_width", view2.getWidth());
-            bundle.putInt("enter_anim_values_height", view2.getHeight());
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public static float b(Bundle bundle, Bundle bundle2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bundle, bundle2)) == null) {
-            return e(bundle) - e(bundle2);
-        }
-        return invokeLL.floatValue;
-    }
-
-    public static void c(Intent intent, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, intent, view2) == null) {
-            Bundle d = d(intent);
-            Bundle a2 = a(view2);
-            int g = g(d);
-            int g2 = g(a2);
-            int e = e(d);
-            int e2 = e(a2);
-            view2.setTranslationY(b(d, a2) - UtilHelper.getStatusBarHeight());
-            view2.animate().setDuration(300L).translationY(f(a2)).setUpdateListener(new b(view2, g, g2, e, e2)).start();
-        }
-    }
-
-    public static void h(Intent intent, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, intent, view2) == null) {
-            view2.setVisibility(4);
-            Bundle d = d(intent);
-            Bundle a2 = a(view2);
-            int g = g(d);
-            int g2 = g(a2);
-            int e = e(d);
-            int e2 = e(a2);
-            view2.setTranslationY(b(d, a2) - UtilHelper.getStatusBarHeight());
-            view2.setVisibility(0);
-            view2.animate().setDuration(350L).translationY(f(a2)).setUpdateListener(new a(view2, g, g2, e, e2)).start();
-        }
-    }
-
-    public static Bundle d(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, intent)) == null) {
-            if (intent == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.g1;
+            if (advertAppInfo == null) {
                 return null;
             }
-            return intent.getBundleExtra("enter_anim_values");
+            return advertAppInfo.h;
         }
-        return (Bundle) invokeL.objValue;
+        return (AdvertAppInfo.ILegoAdvert) invokeV.objValue;
     }
 
-    public static int e(Bundle bundle) {
-        InterceptResult invokeL;
+    public boolean D1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
-            if (bundle == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.g1;
+            if (advertAppInfo != null && advertAppInfo.h() == 0) {
+                return true;
             }
-            return bundle.getInt("enter_anim_values_height");
+            return false;
         }
-        return invokeL.intValue;
+        return invokeV.booleanValue;
     }
 
-    public static int f(Bundle bundle) {
-        InterceptResult invokeL;
+    public AdvertAppInfo getAdvertAppInfo() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
-            if (bundle == null) {
-                return 0;
-            }
-            return bundle.getInt("enter_anim_values_top");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g1;
         }
-        return invokeL.intValue;
+        return (AdvertAppInfo) invokeV.objValue;
     }
 
-    public static int g(Bundle bundle) {
-        InterceptResult invokeL;
+    public int getPosition() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bundle)) == null) {
-            if (bundle == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.g1;
+            if (advertAppInfo == null) {
                 return 0;
             }
-            return bundle.getInt("enter_anim_values_width");
+            return wg.e(advertAppInfo.f, 0);
         }
-        return invokeL.intValue;
+        return invokeV.intValue;
+    }
+
+    public String z1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.g1;
+            if (advertAppInfo == null) {
+                return "";
+            }
+            return advertAppInfo.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void E1(App app) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, app) == null) {
+            AdvertAppInfo advertAppInfo = new AdvertAppInfo();
+            this.g1 = advertAppInfo;
+            advertAppInfo.k(app);
+            this.g1.j = B1();
+        }
+    }
+
+    @Override // com.baidu.tieba.yca, com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        AdvertAppInfo advertAppInfo;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!a15.c().g() && (advertAppInfo = this.g1) != null && (iLegoAdvert = advertAppInfo.h) != null && !iLegoAdvert.isNoPicAd()) {
+                return AdvertAppInfo.y;
+            }
+            if (UbsABTestHelper.isPbPageBannerFunAdSdkTest() && this.h1) {
+                return AdvertAppInfo.y;
+            }
+            AdvertAppInfo advertAppInfo2 = this.g1;
+            if (advertAppInfo2 != null && advertAppInfo2.h != null) {
+                int i = advertAppInfo2.c;
+                if (i != 1001 && i != -1001) {
+                    if (C1() != null) {
+                        return AdvertAppInfo.A;
+                    }
+                    return null;
+                }
+                return AdvertAppInfo.y;
+            }
+            return AdvertAppInfo.y;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

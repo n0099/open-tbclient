@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.aba;
-import com.baidu.tieba.daa;
-import com.baidu.tieba.iba;
+import com.baidu.tieba.gca;
 import com.baidu.tieba.kb;
-import com.baidu.tieba.v3a;
+import com.baidu.tieba.rja;
+import com.baidu.tieba.uia;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,33 +18,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iba a;
-    public List<aba> b;
+    public zja a;
+    public List<rja> b;
     public int c;
     public boolean d;
     public b e;
     public kb f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
-        void a(int i, String str, iba ibaVar, List<aba> list, boolean z);
+        void a(int i, String str, zja zjaVar, List<rja> list, boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends kb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
                 return;
             }
             if (responsedMessage.getError() != 0) {
-                PersonalCardCategoryModel.U(this.a);
+                PersonalCardCategoryModel.V(this.a);
                 if (this.a.e != null) {
                     this.a.e.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a, this.a.b, this.a.d);
                     return;
@@ -135,27 +135,27 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         this.c = 1;
         this.d = true;
         this.f = new a(this, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, 309331);
-        v3a.h(309331, PersonalCardCategorySocktResponse.class, false, false);
-        v3a.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
+        gca.h(309331, PersonalCardCategorySocktResponse.class, false, false);
+        gca.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 
-    public static /* synthetic */ int U(PersonalCardCategoryModel personalCardCategoryModel) {
+    public static /* synthetic */ int V(PersonalCardCategoryModel personalCardCategoryModel) {
         int i = personalCardCategoryModel.c;
         personalCardCategoryModel.c = i - 1;
         return i;
     }
 
-    public void f0(b bVar) {
+    public void g0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             this.e = bVar;
         }
     }
 
-    public void c0() {
+    public void d0() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.d) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.d) {
             return;
         }
         this.c++;
@@ -185,10 +185,10 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         }
     }
 
-    public void d0(long j, int i) {
+    public void e0(long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            e0(j, i);
+            f0(j, i);
             b bVar = this.e;
             if (bVar != null) {
                 bVar.a(0, null, this.a, this.b, this.d);
@@ -196,24 +196,24 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         }
     }
 
-    public void e0(long j, int i) {
-        List<aba> list;
+    public void f0(long j, int i) {
+        List<rja> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && (list = this.b) != null && list.size() > 0) {
-            for (aba abaVar : list) {
-                if (abaVar != null && abaVar.a() != null && abaVar.a().size() > 0) {
-                    for (daa daaVar : abaVar.a()) {
-                        if (daaVar != null) {
-                            if (daaVar.a() == j) {
+            for (rja rjaVar : list) {
+                if (rjaVar != null && rjaVar.a() != null && rjaVar.a().size() > 0) {
+                    for (uia uiaVar : rjaVar.a()) {
+                        if (uiaVar != null) {
+                            if (uiaVar.a() == j) {
                                 if (i == 1) {
-                                    daaVar.s(1);
+                                    uiaVar.s(1);
                                 } else {
-                                    daaVar.s(0);
+                                    uiaVar.s(0);
                                 }
                             } else if (i == 1) {
-                                daaVar.s(0);
-                            } else if (daaVar.a() == daa.k) {
-                                daaVar.s(1);
+                                uiaVar.s(0);
+                            } else if (uiaVar.a() == uia.k) {
+                                uiaVar.s(1);
                             }
                         }
                     }

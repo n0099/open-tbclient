@@ -34,12 +34,12 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.switchs.NickNameActivitySwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ae9;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.lw4;
+import com.baidu.tieba.nx4;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.sw4;
-import com.baidu.tieba.ux4;
-import com.baidu.tieba.v79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -141,7 +141,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
                 if (view2.getTag(R.id.tag_nick_name_activity) != null && (view2.getTag(R.id.tag_nick_name_activity) instanceof String)) {
                     String str = (String) view2.getTag(R.id.tag_nick_name_activity);
                     if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
-                        ux4.v(view2.getContext(), null, str, true);
+                        nx4.v(view2.getContext(), null, str, true);
                         return;
                     }
                 }
@@ -196,7 +196,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.p != null && this.a.p.getAuthor() != null) {
-                ux4.x(this.a.q.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.p.getAuthor().getUserId() + "&opacity=0", true, true, true);
+                nx4.x(this.a.q.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.p.getAuthor().getUserId() + "&opacity=0", true, true, true);
                 if (this.a.s == 1) {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
                 }
@@ -238,10 +238,10 @@ public class ThreadUserInfoLayout extends LinearLayout {
         if (threadData != null && threadData.getAuthor() != null && threadData.getAuthor().getAlaUserData() != null) {
             AlaUserInfoData alaUserData = threadData.getAuthor().getAlaUserData();
             if (this.k != null) {
-                rw4 rw4Var = new rw4();
-                rw4Var.a = alaUserData;
-                rw4Var.b = 1;
-                this.k.setTag(rw4Var);
+                kw4 kw4Var = new kw4();
+                kw4Var.a = alaUserData;
+                kw4Var.b = 1;
+                this.k.setTag(kw4Var);
                 if (alaUserData.anchor_live == 0) {
                     this.k.setVisibility(8);
                     return;
@@ -412,13 +412,13 @@ public class ThreadUserInfoLayout extends LinearLayout {
             this.e = (UserIconBox) inflate.findViewById(R.id.card_home_page_normal_thread_user_icon);
             this.f = (TextView) inflate.findViewById(R.id.thread_info_reply_time);
             this.g = (TextView) inflate.findViewById(R.id.thread_info_address);
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0908e5);
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0908e6);
             this.n = findViewById(R.id.divider_forum_name);
             this.o = (TextView) findViewById(R.id.thread_info_forum_name);
             this.i = (TextView) inflate.findViewById(R.id.card_home_page_normal_thread_share_intro);
             this.j = (TextView) inflate.findViewById(R.id.thread_user_info_has_concern_lable);
             this.l = (FrameLayout) inflate.findViewById(R.id.ala_live_info_content_layout);
-            View a2 = sw4.b().a(this.q, 1);
+            View a2 = lw4.b().a(this.q, 1);
             this.k = a2;
             if (a2 != null) {
                 a2.setVisibility(8);
@@ -631,9 +631,9 @@ public class ThreadUserInfoLayout extends LinearLayout {
                 String name_show = this.p.getAuthor().getName_show();
                 String userName = this.p.getAuthor().getUserName();
                 if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
-                    this.c.setText(v79.b(this.q, this.c.getText().toString()));
+                    this.c.setText(ae9.b(this.q, this.c.getText().toString()));
                     this.c.setGravity(16);
-                    this.c.setTag(R.id.tag_nick_name_activity, v79.a());
+                    this.c.setTag(R.id.tag_nick_name_activity, ae9.a());
                     SkinManager.setViewTextColor(this.c, R.color.CAM_X0312, 1);
                 }
             }
@@ -718,7 +718,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (threadData2.middle_page_num > 0 && threadData2.middle_page_pass_flag == 0) {
                 str = getContext().getString(R.string.select_video_list);
             } else {
-                str = StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, "...") + getResources().getString(R.string.obfuscated_res_0x7f0f076a);
+                str = StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, "...") + getResources().getString(R.string.obfuscated_res_0x7f0f0773);
             }
             this.o.setText(str);
             this.o.setVisibility(0);
@@ -732,7 +732,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             ArrayList<IconData> tShowInfoNew = threadData.getAuthor().getTShowInfoNew();
             if (ListUtils.getCount(tShowInfoNew) != 0) {
                 this.b.setVisibility(0);
-                this.b.h(tShowInfoNew, 2, this.q.getResources().getDimensionPixelSize(R.dimen.tbds48), this.q.getResources().getDimensionPixelSize(R.dimen.tbds48), this.q.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070416), true);
+                this.b.h(tShowInfoNew, 2, this.q.getResources().getDimensionPixelSize(R.dimen.tbds48), this.q.getResources().getDimensionPixelSize(R.dimen.tbds48), this.q.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041c), true);
                 return;
             }
             this.b.setVisibility(8);
@@ -751,7 +751,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             ArrayList<IconData> iconInfo = threadData.getAuthor().getIconInfo();
             if (ListUtils.getCount(iconInfo) != 0) {
                 this.e.setVisibility(0);
-                this.e.h(iconInfo, 4, this.q.getResources().getDimensionPixelSize(R.dimen.tbds40), this.q.getResources().getDimensionPixelSize(R.dimen.tbds40), this.q.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070416), true);
+                this.e.h(iconInfo, 4, this.q.getResources().getDimensionPixelSize(R.dimen.tbds40), this.q.getResources().getDimensionPixelSize(R.dimen.tbds40), this.q.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041c), true);
                 return;
             }
             this.e.setVisibility(8);

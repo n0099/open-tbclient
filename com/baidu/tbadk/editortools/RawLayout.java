@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v6a;
+import com.baidu.tieba.gfa;
 import com.baidu.tieba.video.LiveConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -153,7 +153,7 @@ public class RawLayout extends ViewGroup {
                 }
             }
             this.a = 0;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v6a.RawLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gfa.RawLayout);
             this.a = obtainStyledAttributes.getInt(0, 0);
             obtainStyledAttributes.recycle();
             if (((LinearLayout.LayoutParams) this).gravity == -1) {
@@ -525,7 +525,7 @@ public class RawLayout extends ViewGroup {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v6a.RawLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gfa.RawLayout);
             String string = obtainStyledAttributes.getString(1);
             if (string == null) {
                 string = LiveConfig.CUT_LIST_HORIZONTAL_KEY;

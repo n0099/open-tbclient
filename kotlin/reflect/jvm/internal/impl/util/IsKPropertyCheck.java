@@ -8,7 +8,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
 import kotlin.reflect.jvm.internal.impl.util.Check;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class IsKPropertyCheck implements Check {
     public static final IsKPropertyCheck INSTANCE = new IsKPropertyCheck();
     public static final String description = description;

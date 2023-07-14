@@ -787,11 +787,11 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     public AppCompatSpinner(@NonNull Context context, int i) {
-        this(context, null, R.attr.obfuscated_res_0x7f0406ab, i);
+        this(context, null, R.attr.obfuscated_res_0x7f0406ac, i);
     }
 
     public AppCompatSpinner(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406ab);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406ac);
     }
 
     public AppCompatSpinner(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
@@ -887,7 +887,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
             CharSequence[] textArray = obtainStyledAttributes.getTextArray(0);
             if (textArray != null) {
                 ArrayAdapter arrayAdapter = new ArrayAdapter(context, 17367048, textArray);
-                arrayAdapter.setDropDownViewResource(R.layout.obfuscated_res_0x7f0d08e1);
+                arrayAdapter.setDropDownViewResource(R.layout.obfuscated_res_0x7f0d08fb);
                 setAdapter((SpinnerAdapter) arrayAdapter);
             }
             obtainStyledAttributes.recycle();

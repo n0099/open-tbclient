@@ -10,12 +10,12 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class e {
     public static int lF = 12;
     public static int lG = 4;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void C(String str);
 
@@ -33,11 +33,11 @@ public final class e {
     }
 
     public static void a(int i, int i2, @NonNull SceneImpl sceneImpl, final int i3, final a aVar) {
-        SceneImpl m170clone = sceneImpl.m170clone();
+        SceneImpl m172clone = sceneImpl.m172clone();
         final long elapsedRealtime = SystemClock.elapsedRealtime();
-        m170clone.setAdStyle(i);
-        m170clone.setAdNum(i2);
-        a(new com.kwad.components.core.k.kwai.b(m170clone), null, false, true, new com.kwad.components.core.k.f() { // from class: com.kwad.components.ad.reward.e.1
+        m172clone.setAdStyle(i);
+        m172clone.setAdNum(i2);
+        a(new com.kwad.components.core.k.kwai.b(m172clone), null, false, true, new com.kwad.components.core.k.f() { // from class: com.kwad.components.ad.reward.e.1
             @Override // com.kwad.components.core.k.g
             public final void a(@NonNull final AdResultData adResultData) {
                 bd.runOnUiThread(new Runnable() { // from class: com.kwad.components.ad.reward.e.1.2

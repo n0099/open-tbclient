@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -107,8 +107,8 @@ public class BottomShadowLinearLayout extends LinearLayout {
             this.f.setAntiAlias(true);
             this.f.setStyle(Paint.Style.FILL);
             this.f.setDither(true);
-            this.c = xi.g(context, R.dimen.obfuscated_res_0x7f0701d5);
-            this.d = xi.g(context, R.dimen.obfuscated_res_0x7f07039f);
+            this.c = yi.g(context, R.dimen.obfuscated_res_0x7f0701d5);
+            this.d = yi.g(context, R.dimen.obfuscated_res_0x7f0703a5);
             setLayerType(1, this.e);
             b();
         }

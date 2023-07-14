@@ -1,115 +1,110 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class kl4 {
+public class kl4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<T> a;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public kl4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String a = ls4.a(ls4.a(ls4.a(ls4.a(ls4.a(ls4.a(ls4.a(ls4.a(ls4.a(ls4.a(ls4.a(str, "cuid", nj4.b().g()), "uuid", nj4.b().e()), "ut", nj4.b().I()), "ua", ls4.b(nj4.b().h())), "host_app", nj4.b().c()), "host_app_ver", nj4.b().h()), "host_os", ds4.f()), "host_os_ver", ds4.g()), "network", ds4.e()), "sdk_ver", nj4.b().b()), "ut_score", String.valueOf(nj4.b().a()));
-            String q = nj4.b().q();
-            if (!TextUtils.isEmpty(q)) {
-                return ls4.a(a, "sid", q);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return a;
         }
-        return (String) invokeL.objValue;
+        this.a = new ArrayList();
     }
 
-    public static String b(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public synchronized T c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (map != null) {
-                for (String str2 : map.keySet()) {
-                    if (!TextUtils.isEmpty(map.get(str2))) {
-                        str = ls4.a(str, str2, map.get(str2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
+                }
+                T t = this.a.get(0);
+                this.a.remove(0);
+                return t;
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public synchronized T d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
+                }
+                return this.a.get(0);
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @NonNull
+    public Iterator<T> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.iterator();
+        }
+        return (Iterator) invokeV.objValue;
+    }
+
+    public T e(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t != null) {
+                for (int size = this.a.size() - 1; size >= 0; size--) {
+                    if (t.equals(this.a.get(size))) {
+                        return this.a.get(size);
                     }
                 }
+                return null;
             }
-            return str;
+            return null;
         }
-        return (String) invokeLL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public static String c() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return h() + "/getopenbundleid";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(",Queue Size:" + this.a.size());
+            synchronized (this) {
+                int i = 0;
+                for (T t : this.a) {
+                    sb.append(":[" + i + PreferencesUtil.RIGHT_MOUNT + t);
+                    i++;
+                }
+            }
+            return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return h() + "/fetchpkglist";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return h() + "/getpkg";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return h() + "/getplugin";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return h() + "/updatecore";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return nj4.b().E();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return a(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, map)) == null) {
-            return b(a(str), map);
-        }
-        return (String) invokeLL.objValue;
     }
 }

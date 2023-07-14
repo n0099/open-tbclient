@@ -1,78 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class hx4 {
+public class hx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ViewGroup a;
+    public ex4 b;
+    public fx4 c;
+    public final boolean d;
+    public final long e;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(boolean z, boolean z2, String str);
-    }
-
-    public abstract void a();
-
-    public abstract void d();
-
-    public abstract boolean e();
-
-    public abstract MarkData f();
-
-    public abstract String g();
-
-    public abstract void h(boolean z);
-
-    public abstract void i(MarkData markData);
-
-    public abstract void j(a aVar);
-
-    public hx4() {
+    public hx4(boolean z, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = z;
+        this.e = j;
+    }
+
+    public ex4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (ex4) invokeV.objValue;
+    }
+
+    public ViewGroup b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ViewGroup) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(ex4 ex4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ex4Var) == null) {
+            this.b = ex4Var;
         }
     }
 
-    public static hx4 b(BaseActivity baseActivity) {
-        InterceptResult invokeL;
+    public void f(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, hx4.class, baseActivity);
-            if (runTask != null && runTask.getData() != null) {
-                return (hx4) runTask.getData();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048581, this, viewGroup) == null) {
+            this.a = viewGroup;
         }
-        return (hx4) invokeL.objValue;
-    }
-
-    public static hx4 c(BaseFragmentActivity baseFragmentActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, hx4.class, baseFragmentActivity);
-            if (runTask != null && runTask.getData() != null) {
-                return (hx4) runTask.getData();
-            }
-            return null;
-        }
-        return (hx4) invokeL.objValue;
     }
 }

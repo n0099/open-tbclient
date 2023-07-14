@@ -23,10 +23,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.da5;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.yf5;
+import com.baidu.tieba.vg5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -119,7 +119,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0350a g;
+        public static final C0351a g;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
         public RelativeLayout b;
@@ -141,20 +141,20 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                     return;
                 }
             }
-            g = new C0350a(null);
+            g = new C0351a(null);
         }
 
         /* renamed from: com.baidu.tieba.immessagecenter.mention.base.NotificationView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0350a {
+        public static final class C0351a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public /* synthetic */ C0350a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C0351a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
-            public C0350a() {
+            public C0351a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -175,16 +175,16 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                     Intrinsics.checkNotNullParameter(root, "root");
                     a aVar = new a();
                     aVar.j(root);
-                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f0919a9);
+                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f0919c0);
                     Intrinsics.checkNotNullExpressionValue(findViewById, "root.findViewById(R.id.open_notify_background)");
                     aVar.h((RelativeLayout) findViewById);
-                    View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f0910b0);
+                    View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f0910c1);
                     Intrinsics.checkNotNullExpressionValue(findViewById2, "root.findViewById(R.id.img_focus)");
                     aVar.g((ImageView) findViewById2);
-                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f0919a6);
+                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f0919bd);
                     Intrinsics.checkNotNullExpressionValue(findViewById3, "root.findViewById(R.id.open_desc)");
                     aVar.i((TextView) findViewById3);
-                    View findViewById4 = root.findViewById(R.id.obfuscated_res_0x7f0904cc);
+                    View findViewById4 = root.findViewById(R.id.obfuscated_res_0x7f0904cd);
                     Intrinsics.checkNotNullExpressionValue(findViewById4, "root.findViewById(R.id.btn_open)");
                     aVar.e((TextView) findViewById4);
                     View findViewById5 = root.findViewById(R.id.img_close);
@@ -382,10 +382,10 @@ public final class NotificationView extends LinearLayout implements View.OnClick
         this.b = TbadkApplication.getInst().getCurrentPageContext(getContext());
         this.c = 3;
         this.e = new c(this);
-        View rootView = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0733, (ViewGroup) this, true);
-        a.C0350a c0350a = a.g;
+        View rootView = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d074b, (ViewGroup) this, true);
+        a.C0351a c0351a = a.g;
         Intrinsics.checkNotNullExpressionValue(rootView, "rootView");
-        a a3 = c0350a.a(rootView);
+        a a3 = c0351a.a(rootView);
         this.a = a3;
         if (a3 != null && (a2 = a3.a()) != null) {
             a2.setOnClickListener(this);
@@ -429,7 +429,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
         } else {
             textView = null;
         }
-        s75 d = s75.d(textView);
+        d85 d = d85.d(textView);
         d.C(R.dimen.tbds36);
         d.x(R.color.CAM_X0107);
         d.D(R.string.F_X01);
@@ -437,11 +437,11 @@ public final class NotificationView extends LinearLayout implements View.OnClick
         if (aVar4 != null) {
             textView2 = aVar4.a();
         }
-        s75 d2 = s75.d(textView2);
+        d85 d2 = d85.d(textView2);
         d2.C(R.dimen.tbds36);
         d2.D(R.string.F_X01);
         d2.x(R.color.CAM_X0341);
-        s75.d(this).f(R.color.CAM_X0201);
+        d85.d(this).f(R.color.CAM_X0201);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -485,7 +485,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                 num2 = null;
             }
             if (Intrinsics.areEqual(num, num2)) {
-                yf5.e(this.b);
+                vg5.e(this.b);
                 TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
                 return;
             }
@@ -499,7 +499,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                 num4 = Integer.valueOf(b2.getId());
             }
             if (Intrinsics.areEqual(num3, num4)) {
-                r95.p().H("key_im_open_notification_close_time", System.currentTimeMillis());
+                da5.p().H("key_im_open_notification_close_time", System.currentTimeMillis());
                 b bVar = this.d;
                 if (bVar != null && bVar != null) {
                     bVar.onClose();

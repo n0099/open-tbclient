@@ -1,123 +1,116 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.adp.lib.util.BdLog;
+import android.widget.ImageView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class z06 implements ImageAssetDelegate {
+public class z06 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public LocalFileImageLoaderProc b;
-    public boolean c;
+    public ImageView a;
+    public ImageView b;
+    public d16 c;
+    public b d;
+    public final rg<jn> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948306185, "Lcom/baidu/tieba/z06;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948306185, "Lcom/baidu/tieba/z06;");
-                return;
-            }
-        }
-        d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a();
     }
 
-    public z06() {
+    /* loaded from: classes8.dex */
+    public class a extends rg<jn> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z06 a;
+
+        public a(z06 z06Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z06Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z06Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rg
+        public void onLoaded(jn jnVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, jnVar, str, i) == null) {
+                super.onLoaded((a) jnVar, str, i);
+                if (!StringUtils.isNull(str) && this.a.c != null && this.a.c.isValid()) {
+                    if (str.equals(this.a.c.a())) {
+                        this.a.b.setImageDrawable(jnVar.j());
+                    }
+                    if (str.equals(this.a.c.d())) {
+                        this.a.a.setImageDrawable(jnVar.j());
+                    }
+                    this.a.c.b(str);
+                    if (this.a.c.e() && this.a.d != null) {
+                        this.a.d.a();
+                    }
+                }
+            }
+        }
+    }
+
+    public z06(ImageView imageView, ImageView imageView2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {imageView, imageView2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
+        this.e = new a(this);
+        this.a = imageView;
+        this.b = imageView2;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void f(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d + "/" + TbConfig.getTempDirName() + "/animation/";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 
-    public void d(String str) {
+    public void e() {
+        d16 d16Var;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = a() + str + "/";
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (d16Var = this.c) == null || !d16Var.isValid() || !this.c.e() || (bVar = this.d) == null) {
+            return;
         }
+        bVar.a();
     }
 
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
-        InterceptResult invokeL;
+    public void g(d16 d16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lottieImageAsset)) == null) {
-            if (wi.isEmpty(this.a)) {
-                return null;
-            }
-            String str = this.a + lottieImageAsset.getDirName().replace("/", "") + "/" + lottieImageAsset.getFileName();
-            in inVar = (in) rg.h().n(str, 36, new Object[0]);
-            if (inVar == null && b()) {
-                if (this.b == null) {
-                    this.b = new LocalFileImageLoaderProc();
-                }
-                inVar = this.b.getBitmapFromFile(str, 0, 0);
-            }
-            if (inVar != null && inVar.p() != null) {
-                Bitmap p = inVar.p();
-                try {
-                    if (p.getConfig() != null) {
-                        return p.copy(p.getConfig(), false);
-                    }
-                } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    BdLog.e(e);
-                }
-            }
-            rg.h().m(str, 36, null, null);
-            return null;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d16Var) == null) && d16Var != null && d16Var.isValid()) {
+            this.c = d16Var;
+            sg.h().m(this.c.a(), 10, this.e, null);
+            sg.h().m(this.c.d(), 10, this.e, null);
         }
-        return (Bitmap) invokeL.objValue;
     }
 }

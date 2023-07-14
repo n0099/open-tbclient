@@ -1,95 +1,132 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.os.HandlerThread;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public class sm5 extends pm5 {
-    public static /* synthetic */ Interceptable $ic;
+public class sm5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 4;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public final ArrayList<HandlerThread> a;
+    public final AtomicInteger b;
 
-    @Override // com.baidu.tieba.pm5
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rotate" : (String) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948156238, "Lcom/baidu/tieba/sm5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948156238, "Lcom/baidu/tieba/sm5;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final sm5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-427615344, "Lcom/baidu/tieba/sm5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-427615344, "Lcom/baidu/tieba/sm5$b;");
+                    return;
+                }
+            }
+            a = new sm5(null);
+        }
     }
 
     public sm5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
+        this.a = new ArrayList<>();
+        this.b = new AtomicInteger(0);
     }
 
-    public static ImageOperation e(int i) {
+    public static sm5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (sm5) invokeV.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b.getAndIncrement();
+        }
+        return invokeV.intValue;
+    }
+
+    public /* synthetic */ sm5(a aVar) {
+        this();
+    }
+
+    public Looper c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            ImageOperation imageOperation = new ImageOperation();
-            imageOperation.actionName = "rotate";
-            imageOperation.actionParam = String.valueOf(i);
-            return imageOperation;
-        }
-        return (ImageOperation) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.pm5
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || str == null) {
-            return;
-        }
-        this.a = Integer.parseInt(str);
-    }
-
-    @Override // com.baidu.tieba.pm5
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            TbImageMemoryCache.u().s(BitmapHelper.getBitmapSize(bitmap) * 2);
-            int i = this.a;
-            if (i != 0 && i != 1) {
-                if (i != 2 && i != 3) {
-                    return bitmap;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int i2 = i % c;
+            if (i2 >= this.a.size()) {
+                HandlerThread handlerThread = new HandlerThread("FrameDecoderExecutor-" + i2);
+                handlerThread.start();
+                this.a.add(handlerThread);
+                Looper looper = handlerThread.getLooper();
+                if (looper == null) {
+                    return Looper.getMainLooper();
                 }
-                return BitmapHelper.reversalBitmap(bitmap, this.a);
+                return looper;
+            } else if (this.a.get(i2) != null) {
+                Looper looper2 = this.a.get(i2).getLooper();
+                if (looper2 == null) {
+                    return Looper.getMainLooper();
+                }
+                return looper2;
+            } else {
+                return Looper.getMainLooper();
             }
-            return BitmapHelper.rotateBitmap(bitmap, this.a);
         }
-        return (Bitmap) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.pm5
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int max = Math.max(xi.l(TbadkCoreApplication.getInst().getApp()), xi.j(TbadkCoreApplication.getInst().getApp()));
-            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
-        }
-        return (Bitmap) invokeL.objValue;
+        return (Looper) invokeI.objValue;
     }
 }

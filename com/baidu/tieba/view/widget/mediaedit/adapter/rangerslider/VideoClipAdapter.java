@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lja;
-import com.baidu.tieba.nja;
+import com.baidu.tieba.jsa;
+import com.baidu.tieba.lsa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
 /* loaded from: classes8.dex */
-public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements nja {
+public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements lsa {
     public static /* synthetic */ Interceptable $ic = null;
     public static int k = 1;
     public static int l = 2;
@@ -99,7 +99,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.nja
+    @Override // com.baidu.tieba.lsa
     public void a(int i, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeIL(1048576, this, i, bitmap) != null) || this.j) {
@@ -140,7 +140,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    public void k(MultiMediaData multiMediaData, int i) {
+    public void l(MultiMediaData multiMediaData, int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, multiMediaData, i) == null) {
@@ -150,12 +150,12 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 i3 = (int) (((multiMediaData.width * 1.0f) / i2) * i4);
             }
             this.g = i;
-            lja.c(multiMediaData, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
+            jsa.c(multiMediaData, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
             notifyDataSetChanged();
         }
     }
 
-    public void l(VlogEditManager vlogEditManager, int i) {
+    public void m(VlogEditManager vlogEditManager, int i) {
         MultiMediaData multiMediaData;
         int i2;
         Interceptable interceptable = $ic;
@@ -171,12 +171,12 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 i3 = (int) (((multiMediaData.width * 1.0f) / i2) * i4);
             }
             this.g = i;
-            lja.b(vlogEditManager, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
+            jsa.b(vlogEditManager, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
             notifyDataSetChanged();
         }
     }
 
-    public void m(int i, double d, double d2, double d3, double d4, int i2) {
+    public void n(int i, double d, double d2, double d3, double d4, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Integer.valueOf(i2)}) == null) {
             this.e = i;
@@ -206,7 +206,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     bitmap = sparseArray.get(i - 1);
                 }
                 if (bitmap != null && !bitmap.isRecycled()) {
-                    commonRangerSliderHolder.a(bitmap);
+                    commonRangerSliderHolder.b(bitmap);
                     if (getItemViewType(i) == l) {
                         commonRangerSliderHolder.getView().setLayoutParams(new ViewGroup.LayoutParams((int) this.d, this.f));
                         i2 = (int) this.d;
@@ -233,11 +233,11 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
             if (i != m && i != n) {
                 if (i == k) {
-                    View inflate = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d0992, viewGroup, false);
+                    View inflate = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d09ac, viewGroup, false);
                     inflate.setLayoutParams(new ViewGroup.LayoutParams(this.b, this.f));
                     return new CommonRangerSliderHolder(inflate);
                 } else if (i == l) {
-                    View inflate2 = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d0992, viewGroup, false);
+                    View inflate2 = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d09ac, viewGroup, false);
                     inflate2.setLayoutParams(new ViewGroup.LayoutParams((int) this.d, this.f));
                     return new CommonRangerSliderHolder(inflate2);
                 } else {

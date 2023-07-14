@@ -1,233 +1,74 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class t34 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Download a;
-    public JSONObject b;
-    public d c;
-    public v34 d;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-        }
-
-        public /* synthetic */ b(String str, String str2, a aVar) {
-            this(str, str2);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b34.n().t(this.b);
-                b34.n().l(this.a);
-                b34.n().k();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Download a;
-        public JSONObject b;
-        public u34 c;
-
-        public c(@NonNull Download download, JSONObject jSONObject, @NonNull u34 u34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {download, jSONObject, u34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = download;
-            this.b = jSONObject;
-            this.c = u34Var;
-        }
-
-        public /* synthetic */ c(Download download, JSONObject jSONObject, u34 u34Var, a aVar) {
-            this(download, jSONObject, u34Var);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b34.n().G(this.b);
-                d44.a(this.a.getKeyByUser(), "installApp", null, null, new b44(this.b));
-                b34.n().r(AppRuntime.getAppContext(), this.a.getUrl(), this.a.getKeyByUser(), this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements u34 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public final /* synthetic */ t34 c;
-
-        public d(t34 t34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = t34Var;
-        }
-
-        @Override // com.baidu.tieba.u34
-        public void setFilePath(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.b = str;
-            }
-        }
-
-        @Override // com.baidu.tieba.u34
-        public void setPackageName(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.a = str;
-            }
-        }
-
-        @Override // com.baidu.tieba.v34
-        public void a(x34 x34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, x34Var) == null) {
-                if (t34.e) {
-                    Log.d("InstallAppLocal", "onResult mPackageName:" + this.a);
-                }
-                this.c.setResult(x34Var);
-                e34.d.execute(new b(this.b, this.a, null));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948130260, "Lcom/baidu/tieba/t34;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948130260, "Lcom/baidu/tieba/t34;");
-                return;
-            }
-        }
-        e = ms1.a;
-    }
-
-    public t34(Download download, JSONObject jSONObject) {
+    public static void a(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = download;
-        this.b = jSONObject;
-        this.c = new d(this);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setResult(x34 x34Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, x34Var) == null) {
-            v34 v34Var = this.d;
-            if (v34Var != null) {
-                v34Var.a(x34Var);
-            }
-            if (x34Var != null && !x34Var.d()) {
-                d44.a(this.a.getKeyByUser(), "installApp", "fail", String.valueOf(x34Var.c()), new b44(this.b));
-            }
-            if (this.c != null) {
-                b34.n().B(this.a.getKeyByUser(), this.c);
-                this.c = null;
-            }
+        if (interceptable == null || interceptable.invokeLI(65536, null, context, i) == null) {
+            ((NotificationManager) context.getSystemService("notification")).cancel(i);
         }
     }
 
-    public void c(v34 v34Var) {
+    public static final Bitmap b(Drawable drawable) {
+        InterceptResult invokeL;
+        Bitmap.Config config;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, v34Var) == null) {
-            this.d = v34Var;
-            e34.d.execute(new c(this.a, this.b, this.c, null));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
+            int intrinsicWidth = drawable.getIntrinsicWidth();
+            int intrinsicHeight = drawable.getIntrinsicHeight();
+            if (drawable.getOpacity() != -1) {
+                config = Bitmap.Config.ARGB_8888;
+            } else {
+                config = Bitmap.Config.RGB_565;
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, config);
+            Canvas canvas = new Canvas(createBitmap);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            drawable.draw(canvas);
+            return createBitmap;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static void c(Context context, int i, String str, String str2, Bitmap bitmap, long j, PendingIntent pendingIntent, String str3, String str4) {
+        NotificationCompat.Builder builder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, str2, bitmap, Long.valueOf(j), pendingIntent, str3, str4}) == null) {
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+            if (Build.VERSION.SDK_INT >= 26) {
+                notificationManager.createNotificationChannel(new NotificationChannel(String.valueOf(i), "swan_game_center", 4));
+                builder = new NotificationCompat.Builder(context, String.valueOf(i));
+            } else {
+                builder = new NotificationCompat.Builder(context);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                w34.c("notifyShow", str3, str4);
+            }
+            if (pendingIntent != null) {
+                builder.setContentIntent(pendingIntent);
+            }
+            NotificationCompat.Builder smallIcon = builder.setContentTitle(str).setContentText(str2).setWhen(j).setSmallIcon(R.drawable.obfuscated_res_0x7f080183);
+            if (bitmap == null) {
+                bitmap = b(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080183));
+            }
+            notificationManager.notify(i, smallIcon.setLargeIcon(bitmap).setAutoCancel(true).build());
         }
     }
 }

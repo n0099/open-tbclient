@@ -1,17 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import android.text.TextUtils;
+import androidx.collection.ArraySet;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes8.dex */
-public class vk2 extends qk2 {
+public class vk2 implements uk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String[] a;
 
     public vk2() {
         Interceptable interceptable = $ic;
@@ -23,17 +23,27 @@ public class vk2 extends qk2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new String[]{cv2.c().getDatabasePath("ai_apps.db").getAbsolutePath(), cv2.c().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
     }
 
-    @Override // com.baidu.tieba.by2
-    public LifecycleProcessType b() {
+    @Override // com.baidu.tieba.uk2
+    public ArraySet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return LifecycleProcessType.SWAN;
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = zr4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
+            }
+            v82.k("SwanDatabaseCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
         }
-        return (LifecycleProcessType) invokeV.objValue;
+        return (ArraySet) invokeV.objValue;
     }
 }

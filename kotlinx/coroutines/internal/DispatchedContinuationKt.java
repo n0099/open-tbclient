@@ -140,7 +140,7 @@ public final class DispatchedContinuationKt {
             if (dispatchedContinuation.dispatcher.isDispatchNeeded(dispatchedContinuation.getContext())) {
                 dispatchedContinuation._state = state;
                 dispatchedContinuation.resumeMode = 1;
-                dispatchedContinuation.dispatcher.mo2339dispatch(dispatchedContinuation.getContext(), dispatchedContinuation);
+                dispatchedContinuation.dispatcher.mo2341dispatch(dispatchedContinuation.getContext(), dispatchedContinuation);
                 return;
             }
             DebugKt.getASSERTIONS_ENABLED();
@@ -158,7 +158,7 @@ public final class DispatchedContinuationKt {
                     CancellationException cancellationException = job.getCancellationException();
                     dispatchedContinuation.cancelCompletedResult$kotlinx_coroutines_core(state, cancellationException);
                     Result.Companion companion = Result.Companion;
-                    dispatchedContinuation.resumeWith(Result.m844constructorimpl(ResultKt.createFailure(cancellationException)));
+                    dispatchedContinuation.resumeWith(Result.m846constructorimpl(ResultKt.createFailure(cancellationException)));
                     z = true;
                 } else {
                     z = false;

@@ -1,176 +1,66 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.style.ClickableSpan;
+import android.text.style.ReplacementSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.forumMember.bawu.BawuTeamHttpResponseMessage;
-import com.baidu.tieba.forumMember.bawu.BawuTeamInfoReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.bawu.BawuTeamReadCacheResponseMessage;
-import com.baidu.tieba.forumMember.bawu.BawuTeamRequestMessage;
-import com.baidu.tieba.forumMember.bawu.BawuTeamSocketResponseMessage;
+import com.baidu.android.util.media.WebpUtils;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tieba.feed.data.richtext.DrawableSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.BawuRoleDes;
-import tbclient.BawuRoleInfoPub;
-import tbclient.BawuTeam;
-import tbclient.GetBawuInfo.ManagerApplyInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class db7 {
+public final class db7 implements za7, gb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BawuTeam a;
-    public boolean b;
-    public ManagerApplyInfo c;
-    public c d;
-    public kb e;
-    public CustomMessageListener f;
+    public final String a;
+    public jb7 b;
 
     /* loaded from: classes5.dex */
-    public interface c {
-        void a(ArrayList<hb7> arrayList, xb7 xb7Var, boolean z, int i, String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends kb {
+    public static final class a extends rg<jn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ db7 a;
+        public final /* synthetic */ DrawableSpan a;
+        public final /* synthetic */ db7 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(db7 db7Var, int i, int i2) {
-            super(i, i2);
+        public a(DrawableSpan drawableSpan, db7 db7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {db7Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {drawableSpan, db7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = db7Var;
-        }
-
-        @Override // com.baidu.tieba.kb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof BawuTeamHttpResponseMessage;
-            if (!z && !(responsedMessage instanceof BawuTeamSocketResponseMessage)) {
-                return;
-            }
-            boolean z2 = true;
-            if (z) {
-                BawuTeamHttpResponseMessage bawuTeamHttpResponseMessage = (BawuTeamHttpResponseMessage) responsedMessage;
-                this.a.a = bawuTeamHttpResponseMessage.getBawuTeamInfo();
-                db7 db7Var = this.a;
-                if (bawuTeamHttpResponseMessage.isPrivateForum() == 0) {
-                    z2 = false;
-                }
-                db7Var.b = z2;
-                this.a.c = bawuTeamHttpResponseMessage.getManagerApplyInfo();
-            } else if (responsedMessage instanceof BawuTeamSocketResponseMessage) {
-                BawuTeamSocketResponseMessage bawuTeamSocketResponseMessage = (BawuTeamSocketResponseMessage) responsedMessage;
-                this.a.a = bawuTeamSocketResponseMessage.getBawuTeamInfo();
-                db7 db7Var2 = this.a;
-                if (bawuTeamSocketResponseMessage.isPrivateForum() == 0) {
-                    z2 = false;
-                }
-                db7Var2.b = z2;
-                this.a.c = bawuTeamSocketResponseMessage.getManagerApplyInfo();
-            }
-            xb7 xb7Var = new xb7();
-            if (this.a.c != null) {
-                xb7Var.i(this.a.c.manager_left_num.intValue());
-                xb7Var.h(this.a.c.manager_apply_url);
-                db7 db7Var3 = this.a;
-                xb7Var.e(db7Var3.i(db7Var3.c, this.a.a));
-                xb7Var.d(this.a.c.assist_apply_url);
-            }
-            if (this.a.d != null) {
-                c cVar = this.a.d;
-                db7 db7Var4 = this.a;
-                cVar.a(db7Var4.m(db7Var4.a), xb7Var, true, responsedMessage.getError(), responsedMessage.getErrorString());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ db7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(db7 db7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {db7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = db7Var;
+            this.a = drawableSpan;
+            this.b = db7Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean z;
+        @Override // com.baidu.tieba.rg
+        public void onLoaded(jn jnVar, String key, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BawuTeamReadCacheResponseMessage)) {
-                BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = (BawuTeamReadCacheResponseMessage) customResponsedMessage;
-                this.a.a = bawuTeamReadCacheResponseMessage.getBawuTeamInfo();
-                db7 db7Var = this.a;
-                if (bawuTeamReadCacheResponseMessage.isPrivateForum() != 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                db7Var.b = z;
-                this.a.c = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
-                xb7 xb7Var = new xb7();
-                if (this.a.c != null) {
-                    xb7Var.i(this.a.c.manager_left_num.intValue());
-                    xb7Var.h(this.a.c.manager_apply_url);
-                    db7 db7Var2 = this.a;
-                    xb7Var.e(db7Var2.i(db7Var2.c, this.a.a));
-                    xb7Var.d(this.a.c.assist_apply_url);
-                }
-                if (this.a.d != null) {
-                    c cVar = this.a.d;
-                    db7 db7Var3 = this.a;
-                    cVar.a(db7Var3.m(db7Var3.a), xb7Var, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, jnVar, key, i) == null) {
+                Intrinsics.checkNotNullParameter(key, "key");
+                if (jnVar != null) {
+                    TbImageMemoryCache.v().o(key, new jn(jnVar.p()));
+                    this.a.d(new BitmapDrawable(jnVar.p()));
+                    jb7 jb7Var = this.b.b;
+                    if (jb7Var != null) {
+                        jb7Var.onUpdate();
+                    }
                 }
             }
         }
@@ -189,123 +79,61 @@ public class db7 {
                 return;
             }
         }
-        this.d = null;
-        this.e = new a(this, CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007);
-        this.f = new b(this, 2003005);
-        MessageManager.getInstance().registerListener(this.f);
-        MessageManager.getInstance().registerListener(this.e);
+        this.a = "m";
     }
 
-    public final int j(@NonNull BawuRoleDes bawuRoleDes) {
+    @Override // com.baidu.tieba.gb7
+    public void a(jb7 jb7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jb7Var) == null) {
+            this.b = jb7Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.za7
+    public SpannableString b(Context context, r97 richTextData, ClickableSpan clickableSpan) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, richTextData, clickableSpan)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
+            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
+            SpannableString spannableString = new SpannableString(this.a);
+            spannableString.setSpan(d(richTextData), 0, this.a.length(), 33);
+            spannableString.setSpan(clickableSpan, 0, this.a.length(), 33);
+            return spannableString;
+        }
+        return (SpannableString) invokeLLL.objValue;
+    }
+
+    public final ReplacementSpan d(r97 r97Var) {
         InterceptResult invokeL;
+        DrawableSpan.IconType iconType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bawuRoleDes)) == null) {
-            return bawuRoleDes.role_info.size();
-        }
-        return invokeL.intValue;
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            BawuTeamInfoReadCacheRequestMessage bawuTeamInfoReadCacheRequestMessage = new BawuTeamInfoReadCacheRequestMessage();
-            bawuTeamInfoReadCacheRequestMessage.setCacheKey("" + j);
-            MessageManager.getInstance().sendMessage(bawuTeamInfoReadCacheRequestMessage);
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            BawuTeamRequestMessage bawuTeamRequestMessage = new BawuTeamRequestMessage();
-            bawuTeamRequestMessage.setForumId(j);
-            MessageManager.getInstance().sendMessage(bawuTeamRequestMessage);
-        }
-    }
-
-    public void n(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.d = cVar;
-        }
-    }
-
-    @NonNull
-    public final ArrayList<BawuRoleDes> o(@NonNull BawuTeam bawuTeam) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bawuTeam)) == null) {
-            return new ArrayList<>(bawuTeam.bawu_team_list);
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final int i(@NonNull ManagerApplyInfo managerApplyInfo, @Nullable BawuTeam bawuTeam) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, managerApplyInfo, bawuTeam)) == null) {
-            return managerApplyInfo.assist_left_num.intValue();
-        }
-        return invokeLL.intValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.e);
-            MessageManager.getInstance().unRegisterListener(this.f);
-        }
-    }
-
-    public ArrayList<hb7> m(BawuTeam bawuTeam) {
-        InterceptResult invokeL;
-        List<BawuRoleInfoPub> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bawuTeam)) == null) {
-            ArrayList<hb7> arrayList = new ArrayList<>();
-            if (bawuTeam != null && bawuTeam.bawu_team_list != null) {
-                ArrayList<BawuRoleDes> o = o(bawuTeam);
-                int size = o.size();
-                for (int i = 0; i < size; i++) {
-                    BawuRoleDes bawuRoleDes = o.get(i);
-                    if (bawuRoleDes != null && !StringUtils.isNull(bawuRoleDes.role_name) && (list = bawuRoleDes.role_info) != null && list.size() > 0) {
-                        bb7 bb7Var = new bb7();
-                        bb7Var.c(bawuRoleDes.role_name + "(" + j(bawuRoleDes) + SmallTailInfo.EMOTION_SUFFIX);
-                        arrayList.add(bb7Var);
-                        int size2 = bawuRoleDes.role_info.size();
-                        int i2 = 0;
-                        while (i2 < size2) {
-                            ab7 ab7Var = new ab7();
-                            ab7Var.i(bawuRoleDes.role_name);
-                            ArrayList<BawuRoleInfoPub> arrayList2 = new ArrayList<>();
-                            arrayList2.add(bawuRoleDes.role_info.get(i2));
-                            int i3 = i2 + 1;
-                            if (i3 < size2) {
-                                arrayList2.add(bawuRoleDes.role_info.get(i3));
-                            }
-                            i2 += 2;
-                            if (i2 >= size2) {
-                                if (this.b) {
-                                    ab7Var.f(false);
-                                } else {
-                                    ab7Var.f(true);
-                                }
-                                ab7Var.g(true);
-                            } else {
-                                ab7Var.g(false);
-                            }
-                            ab7Var.h(arrayList2);
-                            arrayList.add(ab7Var);
-                        }
-                        if (i <= size - 2) {
-                            arrayList.add(new za7());
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r97Var)) == null) {
+            String b = ae7.a.b(r97Var.c());
+            j97 a2 = ae7.a.a(b);
+            if (a2 != null) {
+                String type = a2.getType();
+                if (Intrinsics.areEqual(type, WebpUtils.TYPE_IMG_WEBP)) {
+                    iconType = DrawableSpan.IconType.WEBP;
+                } else if (Intrinsics.areEqual(type, "svg")) {
+                    iconType = DrawableSpan.IconType.SVG;
+                } else {
+                    iconType = DrawableSpan.IconType.PIC;
                 }
-                return arrayList;
+                DrawableSpan drawableSpan = new DrawableSpan(a2.b(), iconType, a2.a());
+                drawableSpan.c(a2.c());
+                return drawableSpan;
             }
-            return null;
+            jn E = TbImageMemoryCache.v().E(b);
+            if (E != null) {
+                return new DrawableSpan(new BitmapDrawable(E.p()));
+            }
+            DrawableSpan drawableSpan2 = new DrawableSpan(null);
+            sg.h().m(b, 10, new a(drawableSpan2, this), null);
+            return drawableSpan2;
         }
-        return (ArrayList) invokeL.objValue;
+        return (ReplacementSpan) invokeL.objValue;
     }
 }

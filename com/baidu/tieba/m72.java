@@ -1,79 +1,46 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.text.style.LineHeightSpan;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m72 implements LineHeightSpan {
+public class m72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
+    public int a;
+    public String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947925505, "Lcom/baidu/tieba/m72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947925505, "Lcom/baidu/tieba/m72;");
-                return;
-            }
-        }
-        b = ms1.a;
-    }
-
-    public m72(int i) {
+    public m72(int i, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = i;
+        this.b = str;
     }
 
-    @Override // android.text.style.LineHeightSpan
-    public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
-        int i5;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
-            if (b) {
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: in fm=" + fontMetricsInt);
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: in height=" + this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == 0) {
+                return true;
             }
-            if (this.a >= 0 && (i5 = fontMetricsInt.descent - fontMetricsInt.ascent) >= 0) {
-                if (b) {
-                    Log.i("AdjustLineHeightSpan", "chooseHeight :: in originHeight=" + i5);
-                }
-                int i6 = (this.a - i5) / 2;
-                if (b) {
-                    Log.i("AdjustLineHeightSpan", "chooseHeight :: in hafDiff=" + i6);
-                }
-                fontMetricsInt.descent += i6;
-                fontMetricsInt.ascent -= i6;
-                if (b) {
-                    Log.i("AdjustLineHeightSpan", "chooseHeight :: out fm=" + fontMetricsInt);
-                }
-            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

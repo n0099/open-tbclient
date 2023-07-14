@@ -1,17 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
+import android.view.View;
+import android.webkit.JsPromptResult;
+import android.webkit.ValueCallback;
+import android.webkit.WebView;
+import androidx.core.util.Pair;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes5.dex */
+import java.util.HashMap;
+import java.util.List;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public interface gn6 {
-    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IWebViewFactoryService");
+    public static final ServiceReference a = new ServiceReference("Frames", "JsPromptBridge");
 
-    void a();
+    void a(List<Pair<String, String>> list);
 
-    @NonNull
-    android.webkit.WebView b(Context context, String str);
+    void b(String str, HashMap<String, Object> hashMap);
 
-    void c(String str, android.webkit.WebView webView);
+    boolean c(WebView webView, String str, JsPromptResult jsPromptResult);
+
+    void d(View view2, String str, HashMap<String, Object> hashMap);
+
+    void e(View view2, String str, ValueCallback<String> valueCallback);
+
+    void f(in6 in6Var, Object obj);
+
+    void g(String str, JSONObject jSONObject, WebView webView);
+
+    void h(String str, JSONObject jSONObject);
+
+    void i(View view2, String str, JSONObject jSONObject);
 }

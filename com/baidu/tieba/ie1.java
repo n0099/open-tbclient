@@ -1,89 +1,173 @@
 package com.baidu.tieba;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.text.method.Touch;
-import android.text.style.ClickableSpan;
-import android.view.MotionEvent;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.tieba.ps0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ie1 extends LinkMovementMethod {
+public class ie1 extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    @NonNull
+    public final b a;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void onLinkTouch(TextView textView, MotionEvent motionEvent);
-
-        void onNoLinkTouch(TextView textView, MotionEvent motionEvent);
+    public interface b {
+        void a(boolean z);
     }
 
-    public ie1() {
+    /* loaded from: classes6.dex */
+    public class a implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ie1 a;
+
+        public a(ie1 ie1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ie1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ie1Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.a.a(false);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ie1(Context context, @NonNull AdBaseModel adBaseModel, @NonNull b bVar) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adBaseModel, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        c(adBaseModel);
+        this.a = bVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (view2.getId() == R.id.nad_reward_stay_continue) {
+                this.a.a(false);
+            } else if (view2.getId() == R.id.nad_reward_stay_cancel) {
+                this.a.a(true);
             }
         }
     }
 
-    public void a(a aVar) {
+    public final void b(AdBaseModel adBaseModel) {
+        ps0.b bVar;
+        String string;
+        String string2;
+        String string3;
+        ps0 ps0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
+            if (adBaseModel != null && (ps0Var = adBaseModel.p) != null) {
+                bVar = ps0Var.f;
+            } else {
+                bVar = null;
+            }
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_reward_stay_view, (ViewGroup) null);
+            if (bVar != null && !TextUtils.isEmpty(bVar.a)) {
+                string = bVar.a;
+            } else {
+                string = getContext().getResources().getString(R.string.nad_reward_stay_title);
+            }
+            if (bVar != null && !TextUtils.isEmpty(bVar.b)) {
+                string2 = bVar.b;
+            } else {
+                string2 = getContext().getResources().getString(R.string.nad_reward_stay_confirm);
+            }
+            if (bVar != null && !TextUtils.isEmpty(bVar.c)) {
+                string3 = bVar.c;
+            } else {
+                string3 = getContext().getResources().getString(R.string.nad_reward_stay_cancel);
+            }
+            ((TextView) inflate.findViewById(R.id.nad_reward_stay_content)).setText(string);
+            TextView textView = (TextView) inflate.findViewById(R.id.nad_reward_stay_continue);
+            textView.setText(string2);
+            textView.setOnClickListener(this);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.nad_reward_stay_cancel);
+            textView2.setText(string3);
+            textView2.setOnClickListener(this);
+            setContentView(inflate);
+            setOnDismissListener(new a(this));
         }
     }
 
-    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
-    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
+    public final void c(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, spannable, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action != 1 && action != 0) {
-                return Touch.onTouchEvent(textView, spannable, motionEvent);
-            }
-            int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
-            int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
-            int scrollX = x + textView.getScrollX();
-            int scrollY = y + textView.getScrollY();
-            Layout layout = textView.getLayout();
-            int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-            Object[] objArr = (ClickableSpan[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
-            if (objArr.length != 0) {
-                if (action == 1) {
-                    objArr[0].onClick(textView);
-                } else if (action == 0) {
-                    Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
-                }
-                a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onLinkTouch(textView, motionEvent);
-                }
-                return true;
-            }
-            a aVar2 = this.a;
-            if (aVar2 != null) {
-                aVar2.onNoLinkTouch(textView, motionEvent);
-            }
-            Selection.removeSelection(spannable);
-            super.onTouchEvent(textView, spannable, motionEvent);
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) {
+            Window window = getWindow();
+            window.requestFeature(1);
+            b(adBaseModel);
+            window.getDecorView().setPadding(0, 0, 0, 0);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.width = -1;
+            attributes.height = -2;
+            attributes.windowAnimations = R.style.obfuscated_res_0x7f1003df;
+            attributes.gravity = 17;
+            window.setAttributes(attributes);
+            window.setBackgroundDrawableResource(17170445);
         }
-        return invokeLLL.booleanValue;
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Window window = getWindow();
+            if (window == null) {
+                super.show();
+                return;
+            }
+            window.setFlags(8, 8);
+            super.show();
+            w71.a(window);
+            window.clearFlags(8);
+        }
     }
 }

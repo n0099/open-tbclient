@@ -1,31 +1,13 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import tbclient.ThemeElement;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface mo7 {
-    @Nullable
-    <T> T a(@NonNull LogicField logicField);
+    void a(View view2);
 
-    void b(@NonNull ThemeElement themeElement);
+    boolean b();
 
-    void c(float f);
+    int getArrowIndex();
 
-    void d(int i, boolean z);
-
-    @NonNull
-    NavigationBar e();
-
-    void f(boolean z);
-
-    int g();
-
-    void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener);
-
-    void onChangeSkinType(int i);
+    View getArrowView();
 }

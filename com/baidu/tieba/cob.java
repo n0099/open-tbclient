@@ -1,249 +1,132 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.core.TransVodProxy;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
+/* JADX WARN: Incorrect class signature, class is equals to this class: <TResult:Ljava/lang/Object;>Lcom/baidu/tieba/cob<TTResult;>; */
 /* loaded from: classes5.dex */
-public class cob {
+public final class cob<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nnb a;
-    public mnb b;
-    public List<dob> c;
-    public List<dob> d;
-    public AtomicInteger e;
-    public WeakReference<TransVodProxy> f;
-    public AtomicBoolean g;
-    public AtomicBoolean h;
-    public long i;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947682899, "Lcom/baidu/tieba/cob;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947682899, "Lcom/baidu/tieba/cob;");
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-        }
-    }
+    public final Object a;
+    public boolean b;
+    public TResult c;
+    public Exception d;
+    public List<qob<TResult>> e;
 
     public cob() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = new mnb();
-        this.c = new LinkedList();
-        this.d = new LinkedList();
-        this.e = new AtomicInteger(4);
-        this.f = null;
-        this.g = new AtomicBoolean(false);
-        this.h = new AtomicBoolean(false);
-        this.i = 0L;
+        this.a = new Object();
+        this.e = new ArrayList();
     }
 
-    public void c() {
-        dob dobVar;
+    public final Exception c() {
+        InterceptResult invokeV;
+        Exception exc;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Iterator<dob> it = this.c.iterator();
-            dob dobVar2 = null;
-            if (it.hasNext()) {
-                dobVar = it.next();
-            } else {
-                dobVar = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.a) {
+                exc = this.d;
             }
-            while (it.hasNext()) {
-                dob next = it.next();
-                dobVar.k(next);
-                dobVar = next;
-            }
-            Iterator<dob> it2 = this.d.iterator();
-            if (it2.hasNext()) {
-                dobVar2 = it2.next();
-            }
-            while (it2.hasNext()) {
-                dob next2 = it2.next();
-                dobVar2.k(next2);
-                dobVar2 = next2;
-            }
+            return exc;
         }
+        return (Exception) invokeV.objValue;
     }
 
-    public void m() {
+    public final TResult d() {
+        InterceptResult invokeV;
+        TResult tresult;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.e.set(6);
-            for (dob dobVar : this.c) {
-                dobVar.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.a) {
+                if (this.d == null) {
+                    tresult = this.c;
+                } else {
+                    throw new RuntimeException(this.d);
+                }
             }
-            for (dob dobVar2 : this.d) {
-                dobVar2.a();
-            }
-            this.g.set(true);
-            this.h.set(true);
+            return tresult;
         }
+        return (TResult) invokeV.objValue;
     }
 
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.e.set(1);
-            for (dob dobVar : this.c) {
-                dobVar.x();
-            }
-            for (dob dobVar2 : this.d) {
-                dobVar2.x();
-            }
-            this.g.set(false);
-            this.h.set(false);
-            nnb nnbVar = this.a;
-            if (nnbVar != null) {
-                nnbVar.f();
-            }
-            mnb mnbVar = this.b;
-            if (mnbVar != null) {
-                mnbVar.h();
-            }
-        }
-    }
-
-    public cob a(int i, dob dobVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, dobVar)) == null) {
-            dobVar.t(i);
-            dobVar.q(this);
-            if (i == 0) {
-                this.c.add(dobVar);
-            } else if (i == 1) {
-                this.d.add(dobVar);
-            }
-            return this;
-        }
-        return (cob) invokeIL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.clear();
-            this.d.clear();
-        }
-    }
-
-    public long e() {
+    public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
+            synchronized (this.a) {
+            }
+            return false;
         }
-        return invokeV.longValue;
+        return invokeV.booleanValue;
     }
 
-    public final nnb f() {
+    public final boolean f() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (nnb) invokeV.objValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e.get();
-        }
-        return invokeV.intValue;
-    }
-
-    public final mnb h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (mnb) invokeV.objValue;
-    }
-
-    public final TransVodProxy i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f.get();
-        }
-        return (TransVodProxy) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (dob dobVar : this.c) {
-                dobVar.l();
-            }
-            for (dob dobVar2 : this.d) {
-                dobVar2.l();
-            }
-        }
-    }
-
-    public void k(Handler handler, TransVodProxy transVodProxy, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, handler, transVodProxy, context) == null) {
-            if (handler != null) {
-                if (transVodProxy != null) {
-                    this.f = new WeakReference<>(transVodProxy);
-                    this.a = new nnb(this.f.get(), context);
-                    this.b.b(this.f.get());
-                    return;
+            synchronized (this.a) {
+                if (this.b) {
+                    e();
+                    if (this.d == null) {
+                        z = true;
+                    }
                 }
-                throw new RuntimeException("proxy MUST not be null.");
+                z = false;
             }
-            throw new RuntimeException("handler MUST not be null.");
+            return z;
         }
+        return invokeV.booleanValue;
     }
 
-    public void l(long j) {
+    public final cob<TResult> a(qob<TResult> qobVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.i = j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qobVar)) == null) {
+            synchronized (this.a) {
+                if (!this.b) {
+                    this.e.add(qobVar);
+                } else {
+                    qobVar.a(this);
+                }
+            }
+            return this;
+        }
+        return (cob) invokeL.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                for (qob<TResult> qobVar : this.e) {
+                    try {
+                        qobVar.a(this);
+                    } catch (RuntimeException e) {
+                        throw e;
+                    } catch (Exception e2) {
+                        throw new RuntimeException(e2);
+                    }
+                }
+                this.e = null;
+            }
         }
     }
 }

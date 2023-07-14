@@ -1,203 +1,42 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.ah3;
+import com.baidu.tieba.ru2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pm2 {
+public class pm2 extends sd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile pm2 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements vq3<Exception> {
+    public class a implements oq3<yg3<ah3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vq3 a;
-        public final /* synthetic */ int b;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ pm2 d;
 
-        /* renamed from: com.baidu.tieba.pm2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0453a implements vq3<Exception> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0453a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.vq3
-            /* renamed from: b */
-            public void a(Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                    c92.l("SwanAppCoresManager", "ensureSwanCore: update swan-js finish. ", exc);
-                    vq3 vq3Var = this.a.a;
-                    if (vq3Var != null) {
-                        vq3Var.a(exc);
-                    }
-                }
-            }
-        }
-
-        public a(pm2 pm2Var, vq3 vq3Var, int i) {
+        public a(pm2 pm2Var, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pm2Var, vq3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vq3Var;
-            this.b = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vq3
-        /* renamed from: b */
-        public void a(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (exc == null) {
-                    c92.k("SwanAppCoresManager", "ensureSwanCore: done by update preset ");
-                    vq3 vq3Var = this.a;
-                    if (vq3Var != null) {
-                        vq3Var.a(null);
-                        return;
-                    }
-                    return;
-                }
-                c92.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                hl3.o(this.b, new C0453a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements vq3<Exception> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vq3 a;
-        public final /* synthetic */ int b;
-
-        /* loaded from: classes7.dex */
-        public class a implements vq3<Exception> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.vq3
-            /* renamed from: b */
-            public void a(Exception exc) {
-                vq3 vq3Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && (vq3Var = this.a.a) != null) {
-                    vq3Var.a(exc);
-                }
-            }
-        }
-
-        public b(pm2 pm2Var, vq3 vq3Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pm2Var, vq3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vq3Var;
-            this.b = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vq3
-        /* renamed from: b */
-        public void a(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (exc != null) {
-                    vq3 vq3Var = this.a;
-                    if (vq3Var != null) {
-                        vq3Var.a(exc);
-                        return;
-                    }
-                    return;
-                }
-                lm2.h(this.b, new a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pm2 a;
-
-        public c(pm2 pm2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pm2Var};
+                Object[] objArr = {pm2Var, callbackHandler, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -207,104 +46,170 @@ public class pm2 {
                     return;
                 }
             }
-            this.a = pm2Var;
+            this.d = pm2Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = str2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oq3
+        /* renamed from: b */
+        public void a(yg3<ah3.e> yg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yg3Var) == null) {
+                if (tg3.h(yg3Var)) {
+                    this.d.k(this.c, this.b, this.a);
+                } else {
+                    tg3.q(yg3Var, this.a, this.b);
+                }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948066772, "Lcom/baidu/tieba/pm2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class b implements ru2.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ String c;
+
+        @Override // com.baidu.tieba.ru2.c
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        public b(pm2 pm2Var, CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pm2Var, callbackHandler, jSONObject, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948066772, "Lcom/baidu/tieba/pm2;");
-                return;
+            this.a = callbackHandler;
+            this.b = jSONObject;
+            this.c = str;
+        }
+
+        @Override // com.baidu.tieba.ru2.c
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (this.a == null) {
+                    v82.o("ExtCore-DebugDownload", "handler is null");
+                    return;
+                }
+                try {
+                    v82.c("ExtCore-DebugDownload", "download failed");
+                    nb3.f(cv2.c(), R.string.obfuscated_res_0x7f0f0158).G();
+                    this.b.put("status", -1);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 1001).toString());
             }
         }
-        a = ms1.a;
+
+        @Override // com.baidu.tieba.ru2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.a == null) {
+                    v82.o("ExtCore-DebugDownload", "handler is null");
+                    return;
+                }
+                try {
+                    File c = mm2.c();
+                    File b = mm2.b();
+                    if (c.exists() && zr4.U(c.getPath(), b.getPath())) {
+                        v82.c("ExtCore-DebugDownload", "download success");
+                        nb3.f(cv2.c(), R.string.obfuscated_res_0x7f0f0159).G();
+                        this.b.put("status", 0);
+                        this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 0).toString());
+                    } else {
+                        v82.c("ExtCore-DebugDownload", "download failed");
+                        nb3.f(cv2.c(), R.string.obfuscated_res_0x7f0f0158).G();
+                        this.b.put("status", -1);
+                        this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 1001).toString());
+                    }
+                } catch (JSONException e) {
+                    v82.d("ExtCore-DebugDownload", "build result with exception", e);
+                    e.printStackTrace();
+                    this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 1001).toString());
+                }
+            }
+        }
     }
 
-    public pm2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pm2(sc3 sc3Var) {
+        super(sc3Var, "/swanAPI/debug/downloadExtension");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static pm2 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (pm2.class) {
-                    if (b == null) {
-                        b = new pm2();
-                    }
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
+            JSONObject a2 = sd3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                v82.c("ExtCore-DebugDownload", "params is null");
+                nb3.f(context, R.string.obfuscated_res_0x7f0f0175).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             }
-            return b;
-        }
-        return (pm2) invokeV.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ll3.b().e(null, 0);
-            ll3.b().e(null, 1);
-            lm2.h(0, null);
-            lm2.h(1, null);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ExecutorUtilsExt.postOnElastic(new c(this), "tryUpdateAllPresetCoresAsync", 2);
-        }
-    }
-
-    public void c(@Nullable vq3<Exception> vq3Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vq3Var, i) == null) {
-            c92.k("SwanAppCoresManager", "ensureSwanCore: invoke frameType = " + i);
-            g(new a(this, vq3Var, i), i);
-        }
-    }
-
-    public final void g(@Nullable vq3<Exception> vq3Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, vq3Var, i) == null) {
-            ll3.b().e(new b(this, vq3Var, i), i);
-        }
-    }
-
-    public void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            if (a) {
-                Log.d("SwanAppCoresManager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+            String optString = a2.optString("url");
+            if (TextUtils.isEmpty(optString)) {
+                v82.c("ExtCore-DebugDownload", "url is null");
+                nb3.f(context, R.string.obfuscated_res_0x7f0f014a).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             }
-            hl3.l(i, i2);
-            lm2.g(i, i2);
+            String optString2 = a2.optString("cb");
+            if (TextUtils.isEmpty(optString2)) {
+                v82.c("ExtCore-DebugDownload", "cb is null");
+                nb3.f(context, R.string.obfuscated_res_0x7f0f0157).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal cb");
+                return false;
+            }
+            vb3Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, optString));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void k(String str, String str2, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, callbackHandler) == null) {
+            ru2.I(str, new b(this, callbackHandler, new JSONObject(), str2));
         }
     }
 }

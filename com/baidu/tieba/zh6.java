@@ -1,143 +1,118 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.personcenter.privilege.AlaTDouBuyPrivilegeResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 /* loaded from: classes8.dex */
-public class zh6 extends BdAsyncTask<Void, String, String> {
+public class zh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public vh6 b;
-    public String c;
+    public TbPageContext a;
+    public b b;
+    public HttpMessageListener c;
 
-    public zh6(String str, int i, vh6 vh6Var) {
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(boolean z, String str);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zh6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zh6 zh6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zh6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zh6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof AlaTDouBuyPrivilegeResponsedMessage)) {
+                return;
+            }
+            AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
+            if (alaTDouBuyPrivilegeResponsedMessage.getError() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
+            if (this.a.b != null) {
+                this.a.b.a(z, errorString);
+            }
+        }
+    }
+
+    public zh6(TbPageContext tbPageContext, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), vh6Var};
+            Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = vh6Var;
-        this.c = str;
+        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+        this.c = aVar;
+        this.a = tbPageContext;
+        this.b = bVar;
+        tbPageContext.registerListener(aVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
+    public void b(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            String str = this.c;
-            if (str == null) {
-                return null;
-            }
-            return c(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0028 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0036 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0009 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r0v11 */
-    /* JADX WARN: Type inference failed for: r0v12 */
-    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    /* JADX WARN: Type inference failed for: r0v6 */
-    /* JADX WARN: Type inference failed for: r0v7 */
-    /* JADX WARN: Type inference failed for: r0v8, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r0v9 */
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ?? isEmpty = TextUtils.isEmpty(str);
-            String str2 = null;
-            str2 = null;
-            str2 = null;
-            InputStream inputStream = null;
-            try {
-                try {
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (isEmpty != 0) {
-                    return null;
-                }
-                try {
-                    isEmpty = new FileInputStream(str);
-                    try {
-                        byte[] bArr = new byte[isEmpty.available()];
-                        isEmpty.read(bArr);
-                        str2 = Base64.encodeToString(bArr, 0);
-                        isEmpty.close();
-                        isEmpty = isEmpty;
-                    } catch (Exception e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        if (isEmpty != 0) {
-                            isEmpty.close();
-                            isEmpty = isEmpty;
-                        }
-                        return str2;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    isEmpty = 0;
-                } catch (Throwable th) {
-                    th = th;
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-                return str2;
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = isEmpty;
-            }
-        } else {
-            return (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+            httpMessage.addParam("props_id", i);
+            httpMessage.addParam("effect_id", str);
+            httpMessage.addParam("buy_action", 0);
+            this.a.sendMessage(httpMessage);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
+    public void c(int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            super.onPostExecute((zh6) str);
-            vh6 vh6Var = this.b;
-            if (vh6Var != null && str != null) {
-                vh6Var.a("", this.a, str);
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+            httpMessage.addParam("props_id", i2);
+            httpMessage.addParam("mark_id", i);
+            httpMessage.addParam("buy_action", z ? 1 : 0);
+            this.a.sendMessage(httpMessage);
         }
     }
 }

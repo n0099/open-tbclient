@@ -1,25 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.content.FileProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class is2 extends wp2<ns2> {
+public class is2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.wp2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setVideoHeight" : (String) invokeV.objValue;
-    }
+    public long a;
+    public String b;
+    public int c;
 
     public is2() {
         Interceptable interceptable = $ic;
@@ -35,18 +30,20 @@ public class is2 extends wp2<ns2> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wp2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ns2 ns2Var) {
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ns2Var) == null) {
-            String str = command.what;
-            d(ns2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Integer) {
-                ns2Var.D(((Integer) obj).intValue());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("userId", this.a);
+                jSONObject.put(FileProvider.DISPLAYNAME_FIELD, this.b);
+                jSONObject.put("volumeLevel", this.c);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
             }
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

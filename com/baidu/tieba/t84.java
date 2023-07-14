@@ -1,114 +1,42 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
-/* loaded from: classes7.dex */
-public class t84 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class t84 implements k94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static j94 a() {
-        InterceptResult invokeV;
+    public t84() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return l96.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (j94) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static o94 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.k94
+    public void a(jc4 jc4Var, ic4 ic4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new x84();
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jc4Var, ic4Var) == null) && ic4Var != null) {
+            ic4Var.a(jc4Var, "Method 'shareVideo' is not implemented.");
         }
-        return (o94) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static n94 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.k94
+    public void b(ac4 ac4Var, zb4 zb4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new w84();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ac4Var, zb4Var) == null) && zb4Var != null) {
+            zb4Var.a(ac4Var, "Method 'clipVideo' is not implemented.");
         }
-        return (n94) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static k94 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return d24.a();
-        }
-        return (k94) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static m94 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return i24.a();
-        }
-        return (m94) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static l94 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return f24.a();
-        }
-        return (l94) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static p94 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return new y84();
-        }
-        return (p94) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static q94 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new z84();
-        }
-        return (q94) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static r94 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return new a94();
-        }
-        return (r94) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static s94 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return new b94();
-        }
-        return (s94) invokeV.objValue;
     }
 }

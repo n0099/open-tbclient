@@ -1,94 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes6.dex */
-public class hr1 implements ThreadFactory {
+public abstract class hr1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicInteger d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicInteger a;
-    public String b;
-    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833218, "Lcom/baidu/tieba/hr1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947833218, "Lcom/baidu/tieba/hr1;");
-                return;
-            }
-        }
-        d = new AtomicInteger(1);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public hr1() {
-        this(5);
+    public static void a(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, inputStream, outputStream) == null) {
+            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+            byte[] bArr = new byte[2048];
+            while (true) {
+                int read = inputStream.read(bArr, 0, 2048);
+                if (read != -1) {
+                    gZIPOutputStream.write(bArr, 0, read);
+                } else {
+                    gZIPOutputStream.flush();
+                    gZIPOutputStream.finish();
+                    gZIPOutputStream.close();
+                    return;
+                }
             }
         }
     }
 
-    public hr1(int i) {
+    public static void c(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65538, null, inputStream, outputStream) == null) {
+            GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
+            byte[] bArr = new byte[2048];
+            while (true) {
+                int read = gZIPInputStream.read(bArr, 0, 2048);
+                if (read != -1) {
+                    outputStream.write(bArr, 0, read);
+                } else {
+                    gZIPInputStream.close();
+                    return;
+                }
             }
         }
-        this.a = new AtomicInteger(1);
-        this.b = "sso-" + d.getAndIncrement() + "-thread-";
-        this.c = i;
     }
 
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
+    public static byte[] b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
-            if (thread.isDaemon()) {
-                thread.setDaemon(false);
-            }
-            int i = this.c;
-            if (i != 5) {
-                thread.setPriority(i);
-            } else {
-                thread.setPriority(5);
-            }
-            return thread;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            a(byteArrayInputStream, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.flush();
+            byteArrayOutputStream.close();
+            byteArrayInputStream.close();
+            return byteArray;
         }
-        return (Thread) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            c(byteArrayInputStream, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.flush();
+            byteArrayOutputStream.close();
+            byteArrayInputStream.close();
+            return byteArray;
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

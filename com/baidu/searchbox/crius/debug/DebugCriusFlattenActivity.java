@@ -10,6 +10,6 @@ public class DebugCriusFlattenActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         CriusLoader.init(this);
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d0034);
+        setContentView(R.layout.obfuscated_res_0x7f0d0033);
     }
 }

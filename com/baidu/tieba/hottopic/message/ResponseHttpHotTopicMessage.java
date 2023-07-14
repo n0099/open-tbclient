@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.f68;
+import com.baidu.tieba.ab8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.Hottopic.HottopicResIdl;
 public class ResponseHttpHotTopicMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f68 topicData;
+    public ab8 topicData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpHotTopicMessage() {
@@ -61,21 +61,21 @@ public class ResponseHttpHotTopicMessage extends TbHttpResponsedMessage {
             if (extra instanceof Integer) {
                 num = (Integer) extra;
             }
-            f68 f68Var = new f68();
-            this.topicData = f68Var;
+            ab8 ab8Var = new ab8();
+            this.topicData = ab8Var;
             if (num != null) {
-                f68Var.p = num.intValue();
+                ab8Var.p = num.intValue();
             }
             this.topicData.h(hottopicResIdl.data);
         }
     }
 
-    public f68 getHotTopicData() {
+    public ab8 getHotTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.topicData;
         }
-        return (f68) invokeV.objValue;
+        return (ab8) invokeV.objValue;
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.proxy.IAdDownloader;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
 /* loaded from: classes8.dex */
 public interface ym0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "downloadCreator");
+    void a(@NonNull AdDownloadAction adDownloadAction, @NonNull gm0 gm0Var);
 
-    IAdDownloader a();
+    gm0 getData();
 }

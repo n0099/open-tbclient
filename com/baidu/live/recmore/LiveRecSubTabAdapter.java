@@ -27,14 +27,14 @@ public final class LiveRecSubTabAdapter implements ILiveRecSubTabAdapter {
     public void addNew(List<LiveRoomEntity> list) {
         LiveSubTabAdapter liveSubTabAdapter = this.adapter;
         if (liveSubTabAdapter != null) {
-            LiveSubTabAdapter.m(liveSubTabAdapter, list, null, 2, null);
+            LiveSubTabAdapter.n(liveSubTabAdapter, list, null, 2, null);
         }
     }
 
     @Override // com.baidu.live.recmore.ILiveRecSubTabAdapter
     public RecyclerView.Adapter<RecyclerView.ViewHolder> createAdapter(Context context) {
         LiveSubTabAdapter liveSubTabAdapter = new LiveSubTabAdapter(context, "recommend", "", "");
-        liveSubTabAdapter.t(new LiveSubTabAdapter.a() { // from class: com.baidu.live.recmore.LiveRecSubTabAdapter$createAdapter$$inlined$apply$lambda$1
+        liveSubTabAdapter.u(new LiveSubTabAdapter.a() { // from class: com.baidu.live.recmore.LiveRecSubTabAdapter$createAdapter$$inlined$apply$lambda$1
             @Override // com.baidu.live.business.adapter.LiveSubTabAdapter.a
             public void onBannerItemClick(LiveBannerEntity liveBannerEntity) {
             }

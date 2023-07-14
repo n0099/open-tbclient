@@ -1,202 +1,70 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.GradientDrawable;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.ie7;
+import com.baidu.tieba.forumMember.member.FrsEmpertyItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 /* loaded from: classes8.dex */
-public class xf7 implements ie7.d {
+public class xf7 extends yh7<bi7, FrsEmpertyItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public yf7 f;
-    public ie7 g;
-    public View h;
-    public ImageView i;
-    public ImageView j;
-    public ImageView k;
-    public TextView l;
-    public View m;
-    public View.OnClickListener n;
 
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xf7 a;
-
-        public a(xf7 xf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xf7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == this.a.j.getId()) {
-                this.a.a.getPageActivity().finish();
-            }
-        }
-    }
-
-    public xf7(TbPageContext tbPageContext, View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xf7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.n = new a(this);
-        this.a = tbPageContext;
-        this.b = view2;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09256b);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907b1);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09211a);
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f09217e);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d35);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.close_button);
-        this.j = imageView;
-        imageView.setOnClickListener(this.n);
-        ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910e3);
-        this.k = imageView2;
-        ViewGroup.LayoutParams layoutParams = imageView2.getLayoutParams();
-        int l = xi.l(tbPageContext.getPageActivity()) - (xi.g(tbPageContext.getPageActivity(), R.dimen.tbds49) * 2);
-        layoutParams.width = l;
-        layoutParams.height = (int) (((l * 364) * 1.0f) / 980.0f);
-        this.k.setLayoutParams(layoutParams);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dae);
-        View findViewById = view2.findViewById(R.id.layout_content);
-        this.m = findViewById;
-        findViewById.setBackground(f());
-        this.h.setBackground(f());
-        yf7 yf7Var = new yf7(tbPageContext);
-        this.f = yf7Var;
-        yf7Var.k();
-        i();
-        ie7 ie7Var = new ie7(tbPageContext);
-        this.g = ie7Var;
-        ie7Var.o(view2, this.h, this);
-        ie7 ie7Var2 = this.g;
-        yf7 yf7Var2 = this.f;
-        ie7Var2.q(yf7Var2.b, yf7Var2.f);
-        this.g.r(5);
     }
 
-    public void g(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: G */
+    public FrsEmpertyItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            SkinManager.setImageResource(this.j, R.drawable.icon_popup_shut_n);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new FrsEmpertyItemViewHolder(new View(this.mContext));
         }
+        return (FrsEmpertyItemViewHolder) invokeL.objValue;
     }
 
-    public void h(boolean z) {
-        int i;
+    public View H(int i, View view2, ViewGroup viewGroup, bi7 bi7Var, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            View view2 = this.b;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            view2.setVisibility(i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bi7Var, frsEmpertyItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) bi7Var, (bi7) frsEmpertyItemViewHolder);
+            frsEmpertyItemViewHolder.c(bi7Var.b());
+            frsEmpertyItemViewHolder.b(bi7Var.a());
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.ie7.d
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h.setBackground(new ColorDrawable(SkinManager.getColor(R.color.CAM_X0201)));
-            this.k.setImageResource(R.drawable.obfuscated_res_0x7f08121b);
-        }
-    }
-
-    @Override // com.baidu.tieba.ie7.d
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.h.setBackground(f());
-            this.k.setImageResource(R.drawable.obfuscated_res_0x7f08121a);
-        }
-    }
-
-    public final void e(String str) {
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && str != null && str.length() != 0 && (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) != null && runTask.getData() != null) {
-            this.i.setImageBitmap((Bitmap) runTask.getData());
-        }
-    }
-
-    public final GradientDrawable f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{SkinManager.getColor(R.color.CAM_X0201), SkinManager.getColor(R.color.CAM_X0201)});
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(xi.g(this.a.getPageActivity(), R.dimen.tbds31));
-            return gradientDrawable;
-        }
-        return (GradientDrawable) invokeV.objValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c.setText("你好，朋友！");
-            this.d.setText(this.f.h());
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
-            Date date = new Date(System.currentTimeMillis());
-            TextView textView = this.e;
-            textView.setText(this.f.d + "\n" + simpleDateFormat.format(date));
-            e(this.f.c);
-        }
+    @Override // com.baidu.tieba.yh7, com.baidu.tieba.ln
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        H(i, view2, viewGroup, (bi7) obj, (FrsEmpertyItemViewHolder) viewHolder);
+        return view2;
     }
 }

@@ -3,26 +3,20 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> int a(T[] tArr, T t) {
-        InterceptResult invokeLL;
+    public static double a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tArr, t)) == null) {
-            if (tArr == null) {
-                return -1;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j2 == 0) {
+                return 0.0d;
             }
-            int length = tArr.length;
-            for (int i = 0; i < length; i++) {
-                if (tArr[i] == t) {
-                    return i;
-                }
-            }
-            return -1;
+            return j / j2;
         }
-        return invokeLL.intValue;
+        return invokeCommon.doubleValue;
     }
 }

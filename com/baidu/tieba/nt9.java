@@ -1,47 +1,257 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.viewpager.widget.PagerAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.viewpager.ListViewPager;
+import com.baidu.tieba.personPolymeric.view.PersonCommonForumCardView;
+import com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class nt9 {
+public class nt9 extends wo6<ls9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public TbPageContext<?> i;
+    public int j;
+    public ls9 k;
+    public b l;
+    public ng<PersonCommonForumItemView> m;
+    public TextView n;
+    public ListViewPager o;
 
-    public nt9() {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // com.baidu.tieba.wo6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d07d4 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends PagerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nt9 a;
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public boolean isViewFromObject(View view2, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+        }
+
+        public b(nt9 nt9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nt9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nt9Var;
+        }
+
+        public /* synthetic */ b(nt9 nt9Var, a aVar) {
+            this(nt9Var);
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) && (obj instanceof PersonCommonForumCardView)) {
+                PersonCommonForumCardView personCommonForumCardView = (PersonCommonForumCardView) obj;
+                personCommonForumCardView.k();
+                viewGroup.removeView(personCommonForumCardView);
+            }
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.a.k != null && !ListUtils.isEmpty(this.a.k.a)) {
+                    if (this.a.k.a.size() % 4 == 0) {
+                        return this.a.k.a.size() / 4;
+                    }
+                    return (this.a.k.a.size() / 4) + 1;
+                }
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public Object instantiateItem(ViewGroup viewGroup, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
+                List<os9> x = this.a.x(i);
+                if (!ListUtils.isEmpty(x)) {
+                    PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.a.i.getPageActivity());
+                    personCommonForumCardView.setForumItemViewBdObjectPool(this.a.m);
+                    personCommonForumCardView.setData(x);
+                    personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                    viewGroup.addView(personCommonForumCardView);
+                    return personCommonForumCardView;
+                }
+                return null;
+            }
+            return invokeLI.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nt9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.j = 3;
+        this.l = new b(this, null);
+        this.i = tbPageContext;
+        View h = h();
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09076e);
+        this.o = (ListViewPager) h.findViewById(R.id.obfuscated_res_0x7f09076f);
+        if ("NX40X".equals(aj.g())) {
+            h.setLayerType(2, null);
+            if (h instanceof ViewGroup) {
+                ((ViewGroup) h).setClipChildren(true);
+            }
+        }
+        this.o.setOffscreenPageLimit(1);
+    }
+
+    public final boolean y(ls9 ls9Var) {
+        InterceptResult invokeL;
+        ls9 ls9Var2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ls9Var)) == null) {
+            if (ls9Var == null || ListUtils.isEmpty(ls9Var.a) || ls9Var == (ls9Var2 = this.k)) {
+                return false;
+            }
+            if (ls9Var2 == null || ListUtils.isEmpty(ls9Var2.a)) {
+                return true;
+            }
+            if (!ListUtils.isEmpty(ls9Var.a)) {
+                if (ls9Var.a.size() != this.k.a.size()) {
+                    return true;
+                }
+                for (int i = 0; i < ls9Var.a.size(); i++) {
+                    if (this.k.a.get(i) == null || ls9Var.a.get(i).a != this.k.a.get(i).a) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void A(ng<PersonCommonForumItemView> ngVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ngVar) == null) {
+            this.m = ngVar;
         }
     }
 
-    @Nullable
-    public static nt9 a(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.wo6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            if (this.j != i) {
+                SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
+                SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
+                int childCount = this.o.getChildCount();
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    View childAt = this.o.getChildAt(i2);
+                    if (childAt instanceof PersonCommonForumCardView) {
+                        ((PersonCommonForumCardView) childAt).j();
+                    }
+                }
             }
-            nt9 nt9Var = new nt9();
-            nt9Var.a = jSONObject.optString("text");
-            nt9Var.b = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-            return nt9Var;
+            this.j = i;
         }
-        return (nt9) invokeL.objValue;
+    }
+
+    public final List<os9> x(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            ls9 ls9Var = this.k;
+            if (ls9Var != null && !ListUtils.isEmpty(ls9Var.a)) {
+                ArrayList arrayList = new ArrayList();
+                int i2 = i * 4;
+                for (int i3 = i2; i3 < i2 + 4; i3++) {
+                    os9 os9Var = (os9) ListUtils.getItem(this.k.a, i3);
+                    if (os9Var != null) {
+                        arrayList.add(os9Var);
+                    }
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeI.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wo6
+    /* renamed from: z */
+    public void i(ls9 ls9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ls9Var) == null) {
+            if (y(ls9Var)) {
+                this.k = ls9Var;
+                if (ListUtils.getCount(ls9Var.a) <= 2) {
+                    this.o.getLayoutParams().height = yi.g(this.i.getPageActivity(), R.dimen.obfuscated_res_0x7f07036f);
+                }
+                this.o.setAdapter(this.l);
+            }
+            j(this.i, TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 }

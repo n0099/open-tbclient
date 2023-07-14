@@ -15,10 +15,10 @@ import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
 import com.baidu.swan.facade.picture.widget.PictureCropView;
 import com.baidu.swan.facade.picture.widget.PictureView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tp3;
-import com.baidu.tieba.ub3;
-import com.baidu.tieba.wo3;
-import com.baidu.tieba.wp3;
+import com.baidu.tieba.mp3;
+import com.baidu.tieba.nb3;
+import com.baidu.tieba.po3;
+import com.baidu.tieba.pp3;
 import java.io.IOException;
 /* loaded from: classes4.dex */
 public class PictureWallpaperActivity extends SwanAppBaseActivity implements View.OnClickListener {
@@ -94,19 +94,19 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         public void run() {
             PictureWallpaperActivity.this.n.setVisibility(8);
             if (this.a) {
-                ub3.f(PictureWallpaperActivity.this.getApplicationContext(), R.string.obfuscated_res_0x7f0f14a2).v();
+                nb3.f(PictureWallpaperActivity.this.getApplicationContext(), R.string.obfuscated_res_0x7f0f14b8).v();
             } else {
-                ub3.f(PictureWallpaperActivity.this.getApplicationContext(), R.string.obfuscated_res_0x7f0f14a1).v();
+                nb3.f(PictureWallpaperActivity.this.getApplicationContext(), R.string.obfuscated_res_0x7f0f14b7).v();
             }
             PictureWallpaperActivity.this.finish();
         }
     }
 
-    public final void K() {
+    public final void L() {
         PictureCropView pictureCropView = this.m;
         if (pictureCropView != null && pictureCropView.f()) {
             this.n.setVisibility(0);
-            wo3.k(new b(pictureCropView), "set-wallpaper");
+            po3.k(new b(pictureCropView), "set-wallpaper");
         }
     }
 
@@ -123,32 +123,32 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
     public void J(boolean z) {
         PictureCropView pictureCropView = this.m;
         if (pictureCropView != null && z) {
-            findViewById(R.id.obfuscated_res_0x7f091c4f).setEnabled(pictureCropView.f());
+            findViewById(R.id.obfuscated_res_0x7f091c66).setEnabled(pictureCropView.f());
         }
     }
 
     @AnyThread
     public final void M(boolean z) {
-        wp3.e0(new c(z));
+        pp3.e0(new c(z));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f091c4e) {
+        if (id == R.id.obfuscated_res_0x7f091c65) {
             onBackPressed();
-        } else if (id == R.id.obfuscated_res_0x7f091c4f) {
-            K();
+        } else if (id == R.id.obfuscated_res_0x7f091c66) {
+            L();
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.sp4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.lp4, android.app.Activity
     public void onCreate(Bundle bundle) {
-        int c0 = wp3.c0(this);
+        int c0 = pp3.c0(this);
         super.onCreate(bundle);
-        wp3.g(this, c0);
-        setContentView(R.layout.obfuscated_res_0x7f0d08ef);
-        tp3.a(this);
+        pp3.g(this, c0);
+        setContentView(R.layout.obfuscated_res_0x7f0d0909);
+        mp3.a(this);
         G(getIntent());
         H();
     }
@@ -168,12 +168,12 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
     }
 
     public final void H() {
-        this.m = (PictureCropView) findViewById(R.id.obfuscated_res_0x7f091c4d);
-        LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091c4b);
+        this.m = (PictureCropView) findViewById(R.id.obfuscated_res_0x7f091c64);
+        LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091c62);
         this.n = loadingView;
-        loadingView.setMsg(R.string.obfuscated_res_0x7f0f149f);
-        findViewById(R.id.obfuscated_res_0x7f091c4e).setOnClickListener(this);
-        findViewById(R.id.obfuscated_res_0x7f091c4f).setOnClickListener(this);
+        loadingView.setMsg(R.string.obfuscated_res_0x7f0f14b5);
+        findViewById(R.id.obfuscated_res_0x7f091c65).setOnClickListener(this);
+        findViewById(R.id.obfuscated_res_0x7f091c66).setOnClickListener(this);
         this.m.post(new a());
     }
 }

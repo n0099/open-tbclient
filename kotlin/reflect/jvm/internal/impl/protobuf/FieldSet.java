@@ -10,14 +10,14 @@ import kotlin.reflect.jvm.internal.impl.protobuf.Internal;
 import kotlin.reflect.jvm.internal.impl.protobuf.LazyField;
 import kotlin.reflect.jvm.internal.impl.protobuf.MessageLite;
 import kotlin.reflect.jvm.internal.impl.protobuf.WireFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<FieldDescriptorType>> {
     public static final FieldSet DEFAULT_INSTANCE = new FieldSet(true);
     public boolean isImmutable;
     public boolean hasLazyField = false;
     public final SmallSortedMap<FieldDescriptorType, Object> fields = SmallSortedMap.newFieldMap(16);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface FieldDescriptorLite<T extends FieldDescriptorLite<T>> extends Comparable<T> {
         WireFormat.JavaType getLiteJavaType();
 
@@ -33,7 +33,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     }
 
     /* renamed from: kotlin.reflect.jvm.internal.impl.protobuf.FieldSet$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$FieldType;
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$JavaType;

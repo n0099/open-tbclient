@@ -1,27 +1,183 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 @Service
 /* loaded from: classes5.dex */
-public class fi0 extends yj0 {
+public class fi0 extends bk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yj0
+    @Override // com.baidu.tieba.bk0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "onDownloadBtnClick" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? NotificationCompat.CATEGORY_CALL : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends du0<Map<String, String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sc1 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ jk0 e;
+        public final /* synthetic */ fk0 f;
+        public final /* synthetic */ HashMap g;
+        public final /* synthetic */ String h;
+        public final /* synthetic */ fi0 i;
+
+        public a(fi0 fi0Var, sc1 sc1Var, String str, Context context, String str2, jk0 jk0Var, fk0 fk0Var, HashMap hashMap, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fi0Var, sc1Var, str, context, str2, jk0Var, fk0Var, hashMap, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = fi0Var;
+            this.a = sc1Var;
+            this.b = str;
+            this.c = context;
+            this.d = str2;
+            this.e = jk0Var;
+            this.f = fk0Var;
+            this.g = hashMap;
+            this.h = str3;
+        }
+
+        @Override // com.baidu.tieba.bu0
+        public void a(Exception exc, int i) {
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                this.a.dismiss();
+                this.i.n("4", this.b);
+                boolean l = this.i.l(this.c, this.d, this.b);
+                fi0 fi0Var = this.i;
+                jk0 jk0Var = this.e;
+                fk0 fk0Var = this.f;
+                if (l) {
+                    i2 = 0;
+                } else {
+                    i2 = 1001;
+                }
+                fi0Var.c(jk0Var, fk0Var, i2, l);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cu0
+        @Nullable
+        /* renamed from: f */
+        public Map<String, String> d(Headers headers, String str, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) {
+                return fi0.m(str);
+            }
+            return (Map) invokeLLI.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cu0
+        /* renamed from: e */
+        public void b(Headers headers, @Nullable Map<String, String> map, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, map, i) == null) {
+                this.a.dismiss();
+                int i2 = 0;
+                if (map == null) {
+                    this.i.n("8", this.b);
+                    boolean l = this.i.l(this.c, this.d, this.b);
+                    fi0 fi0Var = this.i;
+                    jk0 jk0Var = this.e;
+                    fk0 fk0Var = this.f;
+                    if (!l) {
+                        i2 = 1001;
+                    }
+                    fi0Var.c(jk0Var, fk0Var, i2, l);
+                    return;
+                }
+                String str = (String) z31.b(map, "virtualPhone");
+                if (TextUtils.isEmpty(str)) {
+                    this.i.n("5", this.b);
+                    boolean l2 = this.i.l(this.c, this.d, this.b);
+                    fi0 fi0Var2 = this.i;
+                    jk0 jk0Var2 = this.e;
+                    fk0 fk0Var2 = this.f;
+                    if (!l2) {
+                        i2 = 1001;
+                    }
+                    fi0Var2.c(jk0Var2, fk0Var2, i2, l2);
+                    return;
+                }
+                String str2 = (String) z31.b(map, "solutionId");
+                if (TextUtils.isEmpty(str2)) {
+                    this.i.n("6", this.b);
+                    boolean l3 = this.i.l(this.c, this.d, this.b);
+                    fi0 fi0Var3 = this.i;
+                    jk0 jk0Var3 = this.e;
+                    fk0 fk0Var3 = this.f;
+                    if (!l3) {
+                        i2 = 1001;
+                    }
+                    fi0Var3.c(jk0Var3, fk0Var3, i2, l3);
+                    return;
+                }
+                String str3 = (String) z31.b(this.g, "log_url");
+                if (str3 == null) {
+                    str3 = "";
+                }
+                if (TextUtils.isEmpty(str3)) {
+                    this.i.n("3", this.b);
+                } else {
+                    this.i.n("7", this.b);
+                    String replaceAll = str3.replaceAll("\\__TIMESTAMP__", this.h).replaceAll("\\__VIRTUALPHONE__", str).replaceAll("\\__SOLUTIONID__", str2);
+                    ku0 ku0Var = new ku0();
+                    ku0Var.l(replaceAll);
+                    ku0Var.g(3000);
+                    ku0Var.c();
+                    rt0.b().a().a(ku0Var, null);
+                }
+                boolean l4 = this.i.l(this.c, str, this.b);
+                fi0 fi0Var4 = this.i;
+                jk0 jk0Var4 = this.e;
+                fk0 fk0Var4 = this.f;
+                if (!l4) {
+                    i2 = 1001;
+                }
+                fi0Var4.c(jk0Var4, fk0Var4, i2, l4);
+            }
+        }
     }
 
     public fi0() {
@@ -38,21 +194,111 @@ public class fi0 extends yj0 {
         }
     }
 
-    @Override // com.baidu.tieba.yj0
-    public boolean b(@NonNull Context context, @NonNull ck0 ck0Var, @Nullable Map<String, Object> map, @Nullable gk0 gk0Var) {
-        InterceptResult invokeLLLL;
-        int i;
+    @Nullable
+    public static Map<String, String> m(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ck0Var, map, gk0Var)) == null) {
-            boolean b = super.b(context, ck0Var, map, gk0Var);
-            if (b) {
-                i = 0;
-            } else {
-                i = 1001;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            c(gk0Var, ck0Var, i, b);
+            HashMap hashMap = new HashMap();
+            JSONArray optJSONArray = y31.c(str).optJSONArray("data");
+            if (optJSONArray == null || optJSONArray.length() <= 0 || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
+                return null;
+            }
+            hashMap.put("virtualPhone", optJSONObject.optString("virtualPhone"));
+            hashMap.put("solutionId", optJSONObject.optString("solutionId"));
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bk0
+    public boolean b(@NonNull Context context, @NonNull fk0 fk0Var, @Nullable Map<String, Object> map, @Nullable jk0 jk0Var) {
+        InterceptResult invokeLLLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fk0Var, map, jk0Var)) == null) {
+            super.b(context, fk0Var, map, jk0Var);
+            HashMap<String, String> d = fk0Var.d();
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String str2 = (String) z31.b(d, MigrateStatisticUtils.EXT_INFO);
+            String str3 = (String) z31.b(d, "phone");
+            int i = 0;
+            if (TextUtils.isEmpty(str3)) {
+                n("1", str2);
+                c(jk0Var, fk0Var, 202, false);
+                return true;
+            }
+            if (d.containsKey("type")) {
+                str = (String) z31.b(d, "type");
+            } else {
+                str = "0";
+            }
+            if (TextUtils.equals(str, "1")) {
+                String str4 = (String) z31.b(d, "number_url");
+                if (str4 == null) {
+                    str4 = "";
+                }
+                String str5 = str4;
+                if (TextUtils.isEmpty(str5)) {
+                    n("2", str2);
+                    boolean l = l(context, str3, str2);
+                    if (!l) {
+                        i = 1001;
+                    }
+                    c(jk0Var, fk0Var, i, l);
+                    return true;
+                }
+                sc1 sc1Var = new sc1(context);
+                sc1Var.e(context.getString(R.string.nad_ocpc_phone_call_toast_text));
+                sc1Var.c(false);
+                sc1Var.d(false);
+                w61.b(sc1Var);
+                a aVar = new a(this, sc1Var, str2, context, str3, jk0Var, fk0Var, d, valueOf);
+                String replaceAll = str5.replaceAll("\\__TIMESTAMP__", valueOf);
+                ku0 ku0Var = new ku0();
+                ku0Var.l(replaceAll);
+                ku0Var.g(3000);
+                ku0Var.c();
+                rt0.b().a().a(ku0Var, aVar);
+            } else {
+                boolean l2 = l(context, str3, str2);
+                if (!l2) {
+                    i = 1001;
+                }
+                c(jk0Var, fk0Var, i, l2);
+            }
             return true;
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public final boolean l(@NonNull Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (w61.d(context, new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)))) {
+                n("11", str2);
+                new oe1().p(context, str2, "makePhoneCall");
+                return true;
+            }
+            n("9", str2);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final void n(@NonNull String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, str2) != null) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        n41.e(new ClogBuilder().u(ClogBuilder.Page.AD_CALL).i(ClogBuilder.Area.AD_CALL).y(ClogBuilder.LogType.AD_CALL).k(str).p(str2));
     }
 }

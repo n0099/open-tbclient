@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,67 +13,150 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class fda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
-    public float f;
+    public eh a;
+    public String b;
+    public boolean c;
 
-    public fda() {
+    public fda(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.c = false;
+        e(str, false);
+    }
+
+    public void a() {
+        ida c;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
+            long e = this.a.e();
+            if (e > 3000) {
+                hda hdaVar = c.f;
+                hdaVar.a += e;
+                hdaVar.b++;
+                gda.b(c, 10);
             }
         }
     }
 
-    public static fda a(int i, float f, float f2, float f3, float f4, float f5) {
-        InterceptResult invokeCommon;
+    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
+        ida c;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            fda fdaVar = new fda();
-            fdaVar.a = i;
-            fdaVar.b = f;
-            fdaVar.c = f2;
-            fdaVar.d = f3;
-            fdaVar.e = f4;
-            fdaVar.f = f5;
-            return fdaVar;
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
+            return;
         }
-        return (fda) invokeCommon.objValue;
-    }
-
-    public static fda b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return null;
-                                }
-                                return a(i, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
-                            }
-                            return a(i, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
-                        }
-                        return a(i, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
-                    }
-                    return a(i, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
+        if (z) {
+            hda hdaVar = c.d;
+            if (hdaVar == null) {
+                return;
+            }
+            hdaVar.b++;
+            if (z2) {
+                hdaVar.a += j2;
+                hdaVar.d += j;
+            } else {
+                hdaVar.c++;
+            }
+        } else {
+            hda hdaVar2 = c.e;
+            if (hdaVar2 == null) {
+                return;
+            }
+            hdaVar2.b++;
+            if (z2) {
+                hdaVar2.a += j3;
+                hdaVar2.d += j;
+            } else {
+                hdaVar2.c++;
+            }
+            j2 = j3;
+        }
+        this.a = null;
+        if (z2) {
+            gda.b(c, 10);
+        }
+        if (this.b == "frsStat") {
+            if (!z2 || j2 > 3000) {
+                eh ehVar = new eh("dbg");
+                ehVar.b("act", "frs");
+                String str3 = "0";
+                if (z2) {
+                    str2 = "0";
+                } else {
+                    str2 = "1";
                 }
-                return a(i, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
+                ehVar.b("result", str2);
+                if (z) {
+                    str3 = "1";
+                }
+                ehVar.b("isHttp", str3);
+                ehVar.b("timeCost", String.valueOf(j2));
+                ehVar.b(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
+                ehVar.b(StatConstants.KEY_EXT_ERR_MSG, str);
+                ehVar.b("down", String.valueOf(j));
+                BdStatisticsManager.getInstance().debug("frs", ehVar);
             }
-            return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
         }
-        return (fda) invokeI.objValue;
+    }
+
+    public final ida c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return gda.e(this.b, d(), this.c);
+        }
+        return (ida) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int netType = BdNetTypeUtil.netType();
+            if (netType == 0) {
+                return "N";
+            }
+            if (netType == 1) {
+                return "WIFI";
+            }
+            if (netType == 3) {
+                return "3G";
+            }
+            if (netType != 2) {
+                return "N";
+            }
+            return "2G";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.g();
+        }
+    }
+
+    public void e(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
+            this.b = str;
+            this.c = z;
+            this.a = new eh("dbg");
+            gda.c(str, d(), z);
+        }
     }
 }

@@ -1,173 +1,172 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Process;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.tieba.aa2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.internal.http2.Http2Codec;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public class ba2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947638166, "Lcom/baidu/tieba/ba2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public static class a extends aa2.b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final boolean b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.aa2.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "101 Switching Protocols" : (String) invokeV.objValue;
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-925482567, "Lcom/baidu/tieba/ba2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-925482567, "Lcom/baidu/tieba/ba2$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947638166, "Lcom/baidu/tieba/ba2;");
-                return;
+            b = fs1.a;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(aa2.a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((aa2.a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
             }
         }
-        a = ms1.a;
+
+        @Override // com.baidu.tieba.aa2.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Upgrade", "websocket");
+                hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
+                try {
+                    hashMap.put("Sec-WebSocket-Accept", ca2.g(this.a.a.get("sec-websocket-key")));
+                } catch (NoSuchAlgorithmException e) {
+                    if (b) {
+                        Log.e("HandShakeResponse", "make accept key fail for error invalid algorithm", e);
+                    }
+                }
+                return hashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
     }
 
-    public static synchronized String a() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        Throwable th;
-        IOException e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (ba2.class) {
-                if (a) {
-                    Log.d("SwanCpuProperty", "start cpu monitor thread");
-                }
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1 | grep " + Process.myPid()}).getInputStream()));
-                    try {
-                        try {
-                            String c = c(bufferedReader);
-                            if (a) {
-                                Log.d("SwanCpuProperty", "stop cpu monitor thread , cpu rate is : " + c);
-                            }
-                            gs4.d(bufferedReader);
-                            return c;
-                        } catch (IOException e2) {
-                            e = e2;
-                            if (a) {
-                                Log.e("SwanCpuProperty", "error in cpu monitor", e);
-                            }
-                            gs4.d(bufferedReader);
-                            return "";
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        gs4.d(bufferedReader);
-                        throw th;
-                    }
-                } catch (IOException e3) {
-                    bufferedReader = null;
-                    e = e3;
-                } catch (Throwable th3) {
-                    bufferedReader = null;
-                    th = th3;
-                    gs4.d(bufferedReader);
-                    throw th;
+    /* loaded from: classes5.dex */
+    public static class b extends aa2.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+
+        @Override // com.baidu.tieba.aa2.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "200 OK" : (String) invokeV.objValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(aa2.a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((aa2.a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        } else {
+        }
+
+        @Override // com.baidu.tieba.aa2.b
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.b == null) {
+                    this.b = new x92().toString();
+                }
+                return this.b;
+            }
             return (String) invokeV.objValue;
         }
-    }
 
-    public static float b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String a2 = a();
-            try {
-                if (a2.contains("%")) {
-                    return Float.parseFloat(a2.replace("%", "").trim());
-                }
-                return Float.parseFloat(a2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.d("SwanCpuProperty", "解析cpu使用率错误", e);
-                    return 0.0f;
-                }
-                return 0.0f;
+        @Override // com.baidu.tieba.aa2.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Content-Type", "application/json; charset=UTF-8");
+                hashMap.put(Util.ACCEPT_RANGES, "bytes");
+                hashMap.put(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
+                return hashMap;
             }
+            return (Map) invokeV.objValue;
         }
-        return invokeV.floatValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(10:6|(1:9)|10|(6:12|(1:15)|16|17|18|19)|(1:27)(1:32)|(1:31)|16|17|18|19) */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
-        r11 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
-        if (com.baidu.tieba.ba2.a != false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
-        android.util.Log.e("SwanCpuProperty", "get CPU Fail : " + r11.getMessage());
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String c(BufferedReader bufferedReader) throws IOException {
+    public static aa2.b a(aa2.a aVar) {
         InterceptResult invokeL;
-        char read;
-        boolean z;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bufferedReader)) == null) {
-            char[] cArr = new char[4];
-            int i = 0;
-            if (Build.VERSION.SDK_INT >= 26) {
-                boolean z2 = true;
-                int i2 = 0;
-                int i3 = 0;
-                while (true) {
-                    char read2 = (char) bufferedReader.read();
-                    if (z2 && read2 != ' ') {
-                        i2++;
-                    }
-                    if (i2 == 9) {
-                        if (read2 != '.' && read2 != ' ') {
-                            cArr[i3] = read2;
-                            i3++;
-                        }
-                        i = Integer.parseInt(String.valueOf(cArr, 0, i3)) / Runtime.getRuntime().availableProcessors();
-                        return i + "%";
-                    }
-                    if (read2 == ' ') {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (i2 <= 9 && read2 != 65535 && i3 < 4) {
-                        z2 = z;
-                    }
-                    i = Integer.parseInt(String.valueOf(cArr, 0, i3)) / Runtime.getRuntime().availableProcessors();
-                    return i + "%";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
+            if (aVar != null && (map = aVar.a) != null && map.size() >= 1) {
+                if (ca2.f(aVar.a)) {
+                    aVar.e = true;
+                    return new a(aVar);
                 }
+                aVar.e = false;
+                return new b(aVar);
             }
-            int i4 = 0;
-            do {
-                read = (char) bufferedReader.read();
-                if (read != ' ' && i4 != 4) {
-                    cArr[i4] = read;
-                    i4++;
-                } else {
-                    i4 = 0;
-                }
-                if (read == '%') {
-                    break;
-                }
-            } while (read != 65535);
-            return String.valueOf(cArr, 0, i4);
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (aa2.b) invokeL.objValue;
     }
 }

@@ -385,13 +385,13 @@ public final class SimpleExoPlayerView extends FrameLayout {
     }
 
     public static void configureEditModeLogo(Resources resources, ImageView imageView) {
-        imageView.setImageDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080620));
+        imageView.setImageDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080621));
         imageView.setBackgroundColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060743));
     }
 
     @TargetApi(23)
     public static void configureEditModeLogoV23(Resources resources, ImageView imageView) {
-        imageView.setImageDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080620, null));
+        imageView.setImageDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080621, null));
         imageView.setBackgroundColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060743, null));
     }
 
@@ -431,14 +431,14 @@ public final class SimpleExoPlayerView extends FrameLayout {
             addView(imageView);
             return;
         }
-        int i6 = com.baidu.tieba.R.layout.obfuscated_res_0x7f0d02b7;
+        int i6 = com.baidu.tieba.R.layout.obfuscated_res_0x7f0d02c0;
         int i7 = 5000;
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SimpleExoPlayerView, 0, 0);
             try {
                 z3 = obtainStyledAttributes.hasValue(9);
                 i3 = obtainStyledAttributes.getColor(9, 0);
-                i6 = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d02b7);
+                i6 = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d02c0);
                 z4 = obtainStyledAttributes.getBoolean(11, true);
                 i4 = obtainStyledAttributes.getResourceId(2, 0);
                 z5 = obtainStyledAttributes.getBoolean(12, true);
@@ -467,12 +467,12 @@ public final class SimpleExoPlayerView extends FrameLayout {
         LayoutInflater.from(context).inflate(i6, this);
         this.componentListener = new ComponentListener();
         setDescendantFocusability(262144);
-        AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a74);
+        AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a7e);
         this.contentFrame = aspectRatioFrameLayout;
         if (aspectRatioFrameLayout != null) {
             setResizeModeRaw(aspectRatioFrameLayout, i2);
         }
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a83);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a8d);
         this.shutterView = findViewById;
         if (findViewById != null && z3) {
             findViewById.setBackgroundColor(i3);
@@ -490,8 +490,8 @@ public final class SimpleExoPlayerView extends FrameLayout {
         } else {
             this.surfaceView = null;
         }
-        this.overlayFrameLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a7a);
-        ImageView imageView2 = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a73);
+        this.overlayFrameLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a84);
+        ImageView imageView2 = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a7d);
         this.artworkView = imageView2;
         if (z4 && imageView2 != null) {
             z6 = true;
@@ -502,14 +502,14 @@ public final class SimpleExoPlayerView extends FrameLayout {
         if (i4 != 0) {
             this.defaultArtwork = BitmapFactory.decodeResource(context.getResources(), i4);
         }
-        SubtitleView subtitleView = (SubtitleView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a84);
+        SubtitleView subtitleView = (SubtitleView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a8e);
         this.subtitleView = subtitleView;
         if (subtitleView != null) {
             subtitleView.setUserDefaultStyle();
             this.subtitleView.setUserDefaultTextSize();
         }
-        PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a75);
-        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a76);
+        PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a7f);
+        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a80);
         if (playbackControlView != null) {
             this.controller = playbackControlView;
         } else if (findViewById2 != null) {

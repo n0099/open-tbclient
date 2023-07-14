@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ic2 {
+public class ic2 extends fc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gc2 a;
+    public Bitmap d;
 
     public ic2() {
         Interceptable interceptable = $ic;
@@ -22,44 +22,34 @@ public final class ic2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new gc2();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static ic2 a(String str, Bitmap bitmap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.c();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
+            ic2 ic2Var = new ic2();
+            ic2Var.a = 1;
+            ic2Var.b = str;
+            ic2Var.c = 0L;
+            ic2Var.d = bitmap;
+            return ic2Var;
         }
-        return invokeV.booleanValue;
+        return (ic2) invokeLL.objValue;
     }
 
-    public jc2 c() {
-        InterceptResult invokeV;
+    public static ic2 b(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            jc2 jc2Var = new jc2();
-            jc2Var.c(this.a.d());
-            jc2Var.d(this.a.c());
-            return jc2Var;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            ic2 ic2Var = new ic2();
+            ic2Var.a = 1;
+            ic2Var.b = str;
+            ic2Var.c = j;
+            return ic2Var;
         }
-        return (jc2) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.b();
-        }
-    }
-
-    public void b(fc2 fc2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fc2Var) == null) {
-            this.a.a(fc2Var);
-        }
+        return (ic2) invokeLJ.objValue;
     }
 }

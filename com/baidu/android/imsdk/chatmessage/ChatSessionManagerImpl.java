@@ -56,8 +56,9 @@ import com.baidu.android.imsdk.ubc.CaseUbc;
 import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.TimeUtil;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.w80;
+import com.baidu.tieba.x80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -274,7 +275,7 @@ public class ChatSessionManagerImpl {
     public void syncDialog() {
         ISyncDialogListener iSyncDialogListener;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048626, this) != null) || (iSyncDialogListener = this.syncDialogListener) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048627, this) != null) || (iSyncDialogListener = this.syncDialogListener) == null) {
             return;
         }
         String addListener = ListenerManager.getInstance().addListener(iSyncDialogListener);
@@ -289,7 +290,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                w80.e(mContext).d(mContext, creatMethodIntent);
+                x80.e(mContext).d(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);
@@ -309,7 +310,7 @@ public class ChatSessionManagerImpl {
     public List<Integer> getUnreadChatTypesByAllClassType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             return ChatMessageDBManager.getInstance(mContext).getUnreadChatTypesByAllClassType();
         }
         return (List) invokeV.objValue;
@@ -318,7 +319,7 @@ public class ChatSessionManagerImpl {
     public int readServerUnreadNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
             return this.mMediaTotalUnread;
         }
         return invokeV.intValue;
@@ -328,7 +329,7 @@ public class ChatSessionManagerImpl {
     public long getBusiSessionCredibleMsgid(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
             return Utility.readLongData(mContext, getBusiSessionCredibleMsgidKey(i), Long.MAX_VALUE);
         }
         return invokeI.longValue;
@@ -337,7 +338,7 @@ public class ChatSessionManagerImpl {
     private String getBusiSessionCredibleMsgidKey(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) {
             return AccountManager.getUK(mContext) + KEY_BUSINESS_CREDIBLE_MSGID + i;
         }
         return (String) invokeI.objValue;
@@ -346,7 +347,7 @@ public class ChatSessionManagerImpl {
     private String getBusiSessionTotalUnreadKey(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65550, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i)) == null) {
             return AccountManager.getUK(mContext) + KEY_BUSINESS_TOTAL_UNREAD + i;
         }
         return (String) invokeI.objValue;
@@ -355,7 +356,7 @@ public class ChatSessionManagerImpl {
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyBusinessUnread(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65554, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(65552, this, i) == null) {
             TaskManager.getInstance(mContext).submitForLocalOperation(new Runnable(this, i) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -418,7 +419,7 @@ public class ChatSessionManagerImpl {
 
     public void setAllBusinessSessionRead(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
             setBusiSessionTotalUnread(i, 0);
             BusinessMessageDBManager.getInstance(mContext).setAllBusinessSessionRead(i);
         }
@@ -427,7 +428,7 @@ public class ChatSessionManagerImpl {
     public void deleteSession(@NonNull SessionParam sessionParam, BIMValueCallBack<Object> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, sessionParam, bIMValueCallBack) == null) {
-            TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, sessionParam, bIMValueCallBack) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.13
+            TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, sessionParam, bIMValueCallBack) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.12
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ChatSessionManagerImpl this$0;
@@ -502,14 +503,14 @@ public class ChatSessionManagerImpl {
 
     public void registerDialogSyncListener(Context context, IDialogSyncListener iDialogSyncListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048619, this, context, iDialogSyncListener) == null) && iDialogSyncListener != null && !this.mDialogSyncListeners.contains(iDialogSyncListener)) {
+        if ((interceptable == null || interceptable.invokeLL(1048620, this, context, iDialogSyncListener) == null) && iDialogSyncListener != null && !this.mDialogSyncListeners.contains(iDialogSyncListener)) {
             this.mDialogSyncListeners.add(iDialogSyncListener);
         }
     }
 
     public void setBusiSessionTotalUnread(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048621, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048622, this, i, i2) == null) {
             this.mBusinessTotalUnread = i2;
             Utility.writeIntData(mContext, getBusiSessionTotalUnreadKey(i), i2);
         }
@@ -517,8 +518,8 @@ public class ChatSessionManagerImpl {
 
     public void setSessionRead(@NonNull SessionParam sessionParam, BIMValueCallBack<Object> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048624, this, sessionParam, bIMValueCallBack) == null) {
-            TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, sessionParam, bIMValueCallBack) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.15
+        if (interceptable == null || interceptable.invokeLL(1048625, this, sessionParam, bIMValueCallBack) == null) {
+            TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, sessionParam, bIMValueCallBack) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.14
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ChatSessionManagerImpl this$0;
@@ -553,10 +554,10 @@ public class ChatSessionManagerImpl {
                         if (sessionParam2.classType > 0 || sessionParam2.isStranger != 0 || sessionParam2.type != 1) {
                             SessionParam sessionParam3 = this.val$param;
                             if (sessionParam3.businessType == 27) {
-                                MediaSessionManager.getInstance(ChatSessionManagerImpl.mContext).setSessionRead(this.val$param, new BIMValueCallBack<Object>(this) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.15.1
+                                MediaSessionManager.getInstance(ChatSessionManagerImpl.mContext).setSessionRead(this.val$param, new BIMValueCallBack<Object>(this) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.14.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ AnonymousClass15 this$1;
+                                    public final /* synthetic */ AnonymousClass14 this$1;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -600,24 +601,24 @@ public class ChatSessionManagerImpl {
 
     public void unregisterDialogSyncListener(Context context, IDialogSyncListener iDialogSyncListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048627, this, context, iDialogSyncListener) == null) && iDialogSyncListener != null && this.mDialogSyncListeners.contains(iDialogSyncListener)) {
+        if ((interceptable == null || interceptable.invokeLL(1048628, this, context, iDialogSyncListener) == null) && iDialogSyncListener != null && this.mDialogSyncListeners.contains(iDialogSyncListener)) {
             this.mDialogSyncListeners.remove(iDialogSyncListener);
         }
     }
 
     public void updateUserSessionExtAndNotify(int i, long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str}) == null) {
             ChatMessageDBManager.getInstance(mContext).updateChatRecordExtAndNotify(i, j, str);
         }
     }
 
     private void fetchSessionListByClass(int i, BIMValuesCallBack<GetSessionResult, SessionParam> bIMValuesCallBack, ScreenUbc.MethodInfo methodInfo, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i), bIMValuesCallBack, methodInfo, str}) != null) || i <= 0) {
+        if ((interceptable != null && interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i), bIMValuesCallBack, methodInfo, str}) != null) || i <= 0) {
             return;
         }
-        TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, i, methodInfo, bIMValuesCallBack, str) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.16
+        TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, i, methodInfo, bIMValuesCallBack, str) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.15
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ChatSessionManagerImpl this$0;
@@ -688,7 +689,7 @@ public class ChatSessionManagerImpl {
     public static ChatSessionManagerImpl getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             if (mInstance == null) {
                 synchronized (ChatSessionManagerImpl.class) {
                     if (mInstance == null) {
@@ -707,7 +708,7 @@ public class ChatSessionManagerImpl {
     private long getMaxMsgid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
             Context context = mContext;
             return Math.max(Utility.readLongData(context, "sync_max_msgid_" + Utility.getUK(mContext), 0L), DialogRecordDBManager.getInstance(mContext).getMaxMsgid());
         }
@@ -715,40 +716,10 @@ public class ChatSessionManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<ChatSession> getSessionByGfhPA(int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
-                List<PaInfo> queryPaInfoByExt = PaInfoDBManager.getInstance(mContext).queryPaInfoByExt(String.valueOf(i));
-                if (queryPaInfoByExt != null && !queryPaInfoByExt.isEmpty()) {
-                    for (PaInfo paInfo : queryPaInfoByExt) {
-                        if (paInfo != null) {
-                            if (paInfo.getPaId() > 0) {
-                                ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(new ChatObject(mContext, 0, paInfo.getPaId(), j));
-                                if (chatRecord != null) {
-                                    chatRecord.setBusinessType(i);
-                                    updatePADesc(chatRecord, chatRecord.getLastMsg());
-                                    arrayList.add(chatRecord);
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    return arrayList;
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeCommon.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void onMediaGetSessionResult(@NonNull IMediaGetChatSessionListener iMediaGetChatSessionListener, int i, int i2, int i3, boolean z, List<ChatSession> list, long j) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{iMediaGetChatSessionListener, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), list, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{iMediaGetChatSessionListener, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), list, Long.valueOf(j)}) == null) {
             iMediaGetChatSessionListener.onMediaGetChatSessionResult(i, i2, i3, z, list);
             CaseUbc.DebugInfo debugInfo = new CaseUbc.DebugInfo();
             debugInfo.curClassName = "onMediaGetSessionResult";
@@ -783,7 +754,7 @@ public class ChatSessionManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, j3);
                 try {
-                    w80.e(mContext).d(mContext, creatMethodIntent);
+                    x80.e(mContext).d(mContext, creatMethodIntent);
                     return true;
                 } catch (Exception e) {
                     LogUtils.e(TAG, "sendCustomNotifyMsg Exception ", e);
@@ -821,7 +792,7 @@ public class ChatSessionManagerImpl {
 
     public void setChatSessionReadByBusiness(int i, int i2, int i3, long j, long j2, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), iMediaSetSessionReadListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), iMediaSetSessionReadListener}) == null) {
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 LogUtils.e(TAG, "setChatSessionReadByBusiness start");
                 MediaSessionManager.getInstance(mContext).setSessionRead(SessionParam.getAdvisoryReadOrDelParam(j, j2, j3, i2, 0), new BIMValueCallBack<Object>(this, i, i2, i3, j, j2, ListenerManager.getInstance().addListener(iMediaSetSessionReadListener)) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.9
@@ -876,7 +847,7 @@ public class ChatSessionManagerImpl {
     /* JADX INFO: Access modifiers changed from: private */
     public void setBusiSessionCredibleMsgid(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             LogUtils.d(TAG, "setBusiSessionCredibleMsgid busiType = " + i + " msgid = " + j);
             Utility.writeLongData(mContext, getBusiSessionCredibleMsgidKey(i), j);
         }
@@ -884,7 +855,7 @@ public class ChatSessionManagerImpl {
 
     public void mediaGetContactorPauid(long j, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048608, this, j, iMediaGetContactorPauidListener) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048609, this, j, iMediaGetContactorPauidListener) == null) {
             LogUtils.d(TAG, "BC> contactor=" + j + ", listener=" + iMediaGetContactorPauidListener);
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 IMMediaGetContactorPauidRequest iMMediaGetContactorPauidRequest = new IMMediaGetContactorPauidRequest(mContext, j, ListenerManager.getInstance().addListener(iMediaGetContactorPauidListener));
@@ -898,9 +869,9 @@ public class ChatSessionManagerImpl {
     /* JADX INFO: Access modifiers changed from: private */
     public void setUserAllSessionRead(@NonNull SessionParam sessionParam, BIMValueCallBack<Object> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65557, this, sessionParam, bIMValueCallBack) == null) {
+        if (interceptable == null || interceptable.invokeLL(65555, this, sessionParam, bIMValueCallBack) == null) {
             ChatMsgManager.setMsgReadByChatTpyes(mContext, sessionParam.allChatTypes, 0L);
-            MediaSessionManager.getInstance(mContext).setSessionRead(SessionParam.getAdvisoryReadOrDelParam(0L, 0L, 0L, 0, 1), new BIMValueCallBack<Object>(this, bIMValueCallBack) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.14
+            MediaSessionManager.getInstance(mContext).setSessionRead(SessionParam.getAdvisoryReadOrDelParam(0L, 0L, 0L, 0, 1), new BIMValueCallBack<Object>(this, bIMValueCallBack) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.13
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ChatSessionManagerImpl this$0;
@@ -941,7 +912,7 @@ public class ChatSessionManagerImpl {
     public ChatSession updateChatSessionByChatUser(ChatSession chatSession, ChatUser chatUser) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, this, chatSession, chatUser)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, this, chatSession, chatUser)) == null) {
             if (chatSession != null && chatUser != null) {
                 chatSession.setName(chatUser.getUserName());
                 chatSession.setChatType(58);
@@ -971,7 +942,7 @@ public class ChatSessionManagerImpl {
 
     public void getUnReadChatSession(SessionParam sessionParam, BIMValuesCallBack<GetSessionResult, SessionParam> bIMValuesCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, sessionParam, bIMValuesCallBack) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048600, this, sessionParam, bIMValuesCallBack) == null) {
             if (sessionParam == null) {
                 if (bIMValuesCallBack != null) {
                     bIMValuesCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, GetSessionResult.getFailResult(), null);
@@ -983,7 +954,7 @@ public class ChatSessionManagerImpl {
             if (sessionParam.count <= 0) {
                 sessionParam.count = 3;
             }
-            TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, sessionParam, bIMValuesCallBack) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.17
+            TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, sessionParam, bIMValuesCallBack) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.16
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ChatSessionManagerImpl this$0;
@@ -1032,7 +1003,7 @@ public class ChatSessionManagerImpl {
 
     public void writeServerUnreadnum(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (!z) {
                 this.mMediaTotalUnread = i;
             } else {
@@ -1045,7 +1016,7 @@ public class ChatSessionManagerImpl {
     public void setUserSessionRead(@NonNull SessionParam sessionParam, BIMValueCallBack<Object> bIMValueCallBack) {
         List<ChatSession> strangerSessionList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65558, this, sessionParam, bIMValueCallBack) == null) {
+        if (interceptable == null || interceptable.invokeLL(65556, this, sessionParam, bIMValueCallBack) == null) {
             if (sessionParam.type == 1 && (sessionParam.classType > 0 || sessionParam.isStranger == 1)) {
                 if (sessionParam.classType > 0) {
                     ArrayList arrayList = new ArrayList();
@@ -1071,7 +1042,7 @@ public class ChatSessionManagerImpl {
     private void updateUnsupportDesc(ChatSession chatSession, String str) {
         ChatMsg latestMsg;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65562, this, chatSession, str) == null) && IMConstants.IS_UPDATE_VERSION && !TextUtils.isEmpty(str) && str.equals(UnSupportedMsg.unSupportedMsgDesc) && (latestMsg = ChatMessageDBManager.getInstance(mContext).getLatestMsg(chatSession.getCategory(), chatSession.getContacter())) != null && BIMManager.isSupportMsgType(latestMsg.getMsgType())) {
+        if ((interceptable == null || interceptable.invokeLL(65560, this, chatSession, str) == null) && IMConstants.IS_UPDATE_VERSION && !TextUtils.isEmpty(str) && str.equals(UnSupportedMsg.unSupportedMsgDesc) && (latestMsg = ChatMessageDBManager.getInstance(mContext).getLatestMsg(chatSession.getCategory(), chatSession.getContacter())) != null && BIMManager.isSupportMsgType(latestMsg.getMsgType())) {
             String recommendDescription = latestMsg.getRecommendDescription();
             if (latestMsg instanceof HtmlMsg) {
                 recommendDescription = ((HtmlMsg) latestMsg).getLocalUrl();
@@ -1104,7 +1075,7 @@ public class ChatSessionManagerImpl {
 
     private void updateGroupChatSession(ChatSession chatSession) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65560, this, chatSession) == null) {
+        if (interceptable == null || interceptable.invokeL(65558, this, chatSession) == null) {
             if (chatSession.getChatType() == 3 || chatSession.getChatType() == 4 || chatSession.getChatType() == 57) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(String.valueOf(chatSession.getContacter()));
@@ -1166,7 +1137,7 @@ public class ChatSessionManagerImpl {
 
     private void updatePADesc(ChatSession chatSession, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65561, this, chatSession, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65559, this, chatSession, str) == null) {
             int chatType = chatSession.getChatType();
             if (chatType == 7 || chatType == 16 || chatType == 17 || chatType == 27 || chatType == 23 || chatType == 25 || chatType == 26 || chatType == 5 || chatType == 32) {
                 try {
@@ -1367,7 +1338,7 @@ public class ChatSessionManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra("session_type", i2);
                 try {
-                    w80.e(mContext).d(mContext, creatMethodIntent);
+                    x80.e(mContext).d(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "getBusiSessionFromServer Exception ", e);
                     ListenerManager.getInstance().removeListener(addListener);
@@ -1390,7 +1361,35 @@ public class ChatSessionManagerImpl {
         return (ArrayList) invokeCommon.objValue;
     }
 
+    public int setSessionSubscribeStatusByBusiness(int i, long j, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+            if (AccountManager.isCuidLogin(mContext)) {
+                return 0;
+            }
+            return BusinessMessageDBManager.getInstance(mContext).setSessionSubscribeStatusByBusiness(i, j, i2);
+        }
+        return invokeCommon.intValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0172  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0175  */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x01d6  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void getChatSession(SessionParam sessionParam, BIMValuesCallBack<GetSessionResult, SessionParam> bIMValuesCallBack, ScreenUbc.MethodInfo methodInfo) {
+        int i;
+        long j;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int newMsgCountWithStrangerAndNoDisturb;
+        List<ChatSession> strangerSessionList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048593, this, sessionParam, bIMValuesCallBack, methodInfo) == null) {
             if (sessionParam == null) {
@@ -1400,206 +1399,122 @@ public class ChatSessionManagerImpl {
                 }
                 return;
             }
-            int i = sessionParam.classType;
-            if (i > 0) {
-                fetchSessionListByClass(i, bIMValuesCallBack, methodInfo, sessionParam.screenKey);
+            int i8 = sessionParam.classType;
+            if (i8 > 0) {
+                fetchSessionListByClass(i8, bIMValuesCallBack, methodInfo, sessionParam.screenKey);
+                return;
+            }
+            int i9 = sessionParam.count;
+            if (i9 >= 0) {
+                i = i9 + 1;
             } else {
-                TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, sessionParam, methodInfo, bIMValuesCallBack) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.12
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ChatSessionManagerImpl this$0;
-                    public final /* synthetic */ BIMValuesCallBack val$callBack;
-                    public final /* synthetic */ ScreenUbc.MethodInfo val$info;
-                    public final /* synthetic */ SessionParam val$param;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, sessionParam, methodInfo, bIMValuesCallBack};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$param = sessionParam;
-                        this.val$info = methodInfo;
-                        this.val$callBack = bIMValuesCallBack;
+                i = i9 - 1;
+            }
+            List<ChatSession> sessionList = ChatMessageDBManager.getInstance(mContext).getSessionList(sessionParam.sortUpdateTimeBegin, sessionParam.sortUpdateTimeEnd, i, sessionParam.mode, sessionParam.needTop, sessionParam.allChatTypes, sessionParam);
+            Utility.addEventList(methodInfo.eventList, "getSessionList");
+            GetSessionResult getSessionResult = new GetSessionResult();
+            getSessionResult.hasMore = false;
+            if (sessionList != null && sessionList.size() > Math.abs(sessionParam.count)) {
+                sessionList = sessionList.subList(0, Math.abs(sessionParam.count));
+                getSessionResult.hasMore = true;
+            }
+            getSessionResult.sessionList = completeSessionInfo(sessionList);
+            Utility.addEventList(methodInfo.eventList, "completeSessionInfo_end");
+            if (sessionList != null && sessionList.size() > 0) {
+                j = sessionList.get(sessionList.size() - 1).getLastMsgTime();
+                for (int size = sessionList.size() - 1; size >= 0; size--) {
+                    ChatSession chatSession = sessionList.get(size);
+                    if (chatSession.getClassType() <= 1 && chatSession.getIsStranger() == 0) {
+                        i2 = chatSession.getMarkTop();
+                        break;
                     }
-
-                    /* JADX WARN: Removed duplicated region for block: B:39:0x014f  */
-                    /* JADX WARN: Removed duplicated region for block: B:40:0x0152  */
-                    /* JADX WARN: Removed duplicated region for block: B:60:0x01c5  */
-                    /* JADX WARN: Removed duplicated region for block: B:63:0x020a  */
-                    /* JADX WARN: Removed duplicated region for block: B:73:? A[RETURN, SYNTHETIC] */
-                    @Override // java.lang.Runnable
-                    /*
-                        Code decompiled incorrectly, please refer to instructions dump.
-                    */
-                    public void run() {
-                        int i2;
-                        int i3;
-                        int i4;
-                        int i5;
-                        int i6;
-                        long j;
-                        BIMValuesCallBack bIMValuesCallBack2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            int i7 = this.val$param.count;
-                            if (i7 >= 0) {
-                                i2 = i7 + 1;
+                }
+            } else {
+                j = 0;
+            }
+            i2 = 0;
+            Utility.addEventList(methodInfo.eventList, "markTop_end");
+            if (TextUtils.isEmpty(sessionParam.screenKey)) {
+                int busiSessionTotalUnread = getInstance(mContext).getBusiSessionTotalUnread(27);
+                int totalUnReadMsgCountByAdvisory = ChatMsgManager.getTotalUnReadMsgCountByAdvisory(mContext, 0L);
+                if (busiSessionTotalUnread > 0 || totalUnReadMsgCountByAdvisory > 0) {
+                    List<ChatSession> sessionByGfhPA = getInstance(mContext).getSessionByGfhPA(27, sessionParam.timeInterval);
+                    if (sessionByGfhPA != null && !sessionByGfhPA.isEmpty()) {
+                        if (busiSessionTotalUnread > 0) {
+                            i4 = busiSessionTotalUnread;
+                        } else {
+                            i4 = -1;
+                        }
+                        getSessionResult.weakConsultUnread = i4;
+                        i5 = 0;
+                        for (ChatSession chatSession2 : sessionByGfhPA) {
+                            i5 = (int) (i5 + chatSession2.getNewMsgSum());
+                        }
+                        LogUtils.d(TAG, "时间区间 : " + sessionParam.timeInterval + " 秒 , 咨询订单未读 : " + busiSessionTotalUnread + ", 问一问官方号未读（未弱化） : " + totalUnReadMsgCountByAdvisory + ", 问一问官方号未读（弱化后） : " + i5);
+                        if (busiSessionTotalUnread <= 0) {
+                            getSessionResult.consultUnread = busiSessionTotalUnread;
+                        } else {
+                            if (totalUnReadMsgCountByAdvisory > 0) {
+                                i6 = -1;
                             } else {
-                                i2 = i7 - 1;
+                                i6 = 0;
                             }
-                            ChatMessageDBManager chatMessageDBManager = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext);
-                            SessionParam sessionParam2 = this.val$param;
-                            List<ChatSession> sessionList = chatMessageDBManager.getSessionList(sessionParam2.sortUpdateTimeBegin, sessionParam2.sortUpdateTimeEnd, i2, sessionParam2.mode, sessionParam2.needTop, sessionParam2.allChatTypes, sessionParam2);
-                            Utility.addEventList(this.val$info.eventList, "getSessionList");
-                            GetSessionResult getSessionResult = new GetSessionResult();
-                            getSessionResult.hasMore = false;
-                            if (sessionList != null && sessionList.size() > Math.abs(this.val$param.count)) {
-                                sessionList = sessionList.subList(0, Math.abs(this.val$param.count));
-                                getSessionResult.hasMore = true;
+                            getSessionResult.consultUnread = i6;
+                        }
+                        int strangerUnReadCount = ChatMessageDBManager.getInstance(mContext).getStrangerUnReadCount(0L);
+                        getSessionResult.dotUnread = strangerUnReadCount;
+                        if (sessionParam.timeInterval <= 0 && strangerUnReadCount > 0 && ((strangerSessionList = ChatMessageDBManager.getInstance(mContext).getStrangerSessionList(TimeUtil.getTimeSecondByInterval(sessionParam.timeInterval), Long.MAX_VALUE, 1)) == null || strangerSessionList.size() == 0)) {
+                            i7 = 0;
+                            getSessionResult.dotUnread = 0;
+                        } else {
+                            i7 = 0;
+                        }
+                        int newMsgCountWithStranger = ChatMessageDBManager.getInstance(mContext).getNewMsgCountWithStranger(sessionParam.userNumChatTypes, i7, sessionParam.timeInterval);
+                        newMsgCountWithStrangerAndNoDisturb = ChatMessageDBManager.getInstance(mContext).getNewMsgCountWithStrangerAndNoDisturb(sessionParam.userNumChatTypes, i7, sessionParam.timeInterval);
+                        getSessionResult.privateChatNoDisturbNumber = newMsgCountWithStrangerAndNoDisturb;
+                        if (newMsgCountWithStrangerAndNoDisturb < 0) {
+                            getSessionResult.privateChatNoDisturbNumber = i7;
+                        }
+                        getSessionResult.totalUnread = (newMsgCountWithStranger - Math.max(i5, i7)) - getSessionResult.privateChatNoDisturbNumber;
+                        LogUtils.d(TAG, "最终返回结果 ===> 陌生人未读 : " + getSessionResult.dotUnread + " 咨询的总未读数: " + getSessionResult.consultUnread + " 包含官方号的总未读 : " + newMsgCountWithStranger + " 去除官方号的总未读: " + getSessionResult.totalUnread + " 私信免打扰未读数：" + getSessionResult.privateChatNoDisturbNumber);
+                    } else {
+                        List<ChatSession> businessChatSessions = BusinessMessageDBManager.getInstance(mContext).getBusinessChatSessions(27, 1, sessionParam.timeInterval, System.currentTimeMillis() / 1000, false, false);
+                        if (businessChatSessions != null && !businessChatSessions.isEmpty()) {
+                            if (busiSessionTotalUnread > 0) {
+                                i3 = busiSessionTotalUnread;
+                            } else {
+                                i3 = -1;
                             }
-                            getSessionResult.sessionList = this.this$0.completeSessionInfo(sessionList);
-                            Utility.addEventList(this.val$info.eventList, "completeSessionInfo_end");
-                            int busiSessionTotalUnread = ChatSessionManagerImpl.getInstance(ChatSessionManagerImpl.mContext).getBusiSessionTotalUnread(27);
-                            int totalUnReadMsgCountByAdvisory = ChatMsgManager.getTotalUnReadMsgCountByAdvisory(ChatSessionManagerImpl.mContext, 0L);
-                            int i8 = -1;
-                            if (busiSessionTotalUnread > 0 || totalUnReadMsgCountByAdvisory > 0) {
-                                List<ChatSession> businessChatSessions = BusinessMessageDBManager.getInstance(ChatSessionManagerImpl.mContext).getBusinessChatSessions(27, 1, this.val$param.timeInterval, System.currentTimeMillis() / 1000, false);
-                                if (businessChatSessions != null && !businessChatSessions.isEmpty()) {
-                                    if (busiSessionTotalUnread > 0) {
-                                        i5 = busiSessionTotalUnread;
-                                    } else {
-                                        i5 = -1;
-                                    }
-                                    getSessionResult.weakConsultUnread = i5;
-                                } else {
-                                    List<ChatSession> sessionByGfhPA = ChatSessionManagerImpl.getInstance(ChatSessionManagerImpl.mContext).getSessionByGfhPA(27, this.val$param.timeInterval);
-                                    if (sessionByGfhPA != null && !sessionByGfhPA.isEmpty()) {
-                                        if (busiSessionTotalUnread > 0) {
-                                            i3 = busiSessionTotalUnread;
-                                        } else {
-                                            i3 = -1;
-                                        }
-                                        getSessionResult.weakConsultUnread = i3;
-                                        i4 = 0;
-                                        for (ChatSession chatSession : sessionByGfhPA) {
-                                            i4 = (int) (i4 + chatSession.getNewMsgSum());
-                                        }
-                                        LogUtils.d(ChatSessionManagerImpl.TAG, "时间区间 : " + this.val$param.timeInterval + " 秒 ");
-                                        StringBuilder sb = new StringBuilder();
-                                        sb.append("咨询订单未读 : ");
-                                        sb.append(busiSessionTotalUnread);
-                                        LogUtils.d(ChatSessionManagerImpl.TAG, sb.toString());
-                                        LogUtils.d(ChatSessionManagerImpl.TAG, "问一问官方号未读（未弱化） : " + totalUnReadMsgCountByAdvisory);
-                                        LogUtils.d(ChatSessionManagerImpl.TAG, "问一问官方号未读（弱化后） : " + i4);
-                                        if (busiSessionTotalUnread <= 0) {
-                                            getSessionResult.consultUnread = busiSessionTotalUnread;
-                                        } else {
-                                            if (totalUnReadMsgCountByAdvisory <= 0) {
-                                                i8 = 0;
-                                            }
-                                            getSessionResult.consultUnread = i8;
-                                        }
-                                        if (sessionList == null && sessionList.size() > 0) {
-                                            j = sessionList.get(sessionList.size() - 1).getLastMsgTime();
-                                            int size = sessionList.size() - 1;
-                                            while (true) {
-                                                if (size >= 0) {
-                                                    ChatSession chatSession2 = sessionList.get(size);
-                                                    if (chatSession2.getClassType() <= 1 && chatSession2.getIsStranger() == 0) {
-                                                        i6 = chatSession2.getMarkTop();
-                                                        break;
-                                                    }
-                                                    size--;
-                                                } else {
-                                                    i6 = 0;
-                                                    break;
-                                                }
-                                            }
-                                        } else {
-                                            i6 = 0;
-                                            j = 0;
-                                        }
-                                        Utility.addEventList(this.val$info.eventList, "markTop_end");
-                                        getSessionResult.dotUnread = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext).getStrangerUnReadCount(this.val$param.timeInterval);
-                                        ChatMessageDBManager chatMessageDBManager2 = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext);
-                                        SessionParam sessionParam3 = this.val$param;
-                                        int newMsgCountWithStranger = chatMessageDBManager2.getNewMsgCountWithStranger(sessionParam3.userNumChatTypes, 0, sessionParam3.timeInterval);
-                                        if (i4 <= 0) {
-                                            i4 = 0;
-                                        }
-                                        getSessionResult.totalUnread = newMsgCountWithStranger - i4;
-                                        LogUtils.d(ChatSessionManagerImpl.TAG, "最终返回结果 ===> 陌生人未读 : " + getSessionResult.dotUnread + " 咨询的总未读数: " + getSessionResult.consultUnread + " 包含官方号的总未读 : " + newMsgCountWithStranger + " 去除官方号的总未读: " + getSessionResult.totalUnread);
-                                        Utility.addEventList(this.val$info.eventList, "session_onResult");
-                                        bIMValuesCallBack2 = this.val$callBack;
-                                        if (bIMValuesCallBack2 == null) {
-                                            SessionParam sessionParam4 = this.val$param;
-                                            bIMValuesCallBack2.onResult(0, Constants.ERROR_MSG_SUCCESS, getSessionResult, SessionParam.getListNextParam(sessionParam4.businessType, sessionParam4.mode, j, i6));
-                                            ScreenUbc.MethodInfo methodInfo2 = this.val$info;
-                                            methodInfo2.errCode = 0;
-                                            methodInfo2.errMsg = "getChatSession_Sucess!";
-                                            methodInfo2.endTime = System.currentTimeMillis();
-                                            ScreenUbc.onEvent(ChatSessionManagerImpl.mContext, this.val$param.screenKey, this.val$info);
-                                            return;
-                                        }
-                                        return;
-                                    }
-                                }
-                            }
-                            i4 = 0;
-                            LogUtils.d(ChatSessionManagerImpl.TAG, "时间区间 : " + this.val$param.timeInterval + " 秒 ");
-                            StringBuilder sb2 = new StringBuilder();
-                            sb2.append("咨询订单未读 : ");
-                            sb2.append(busiSessionTotalUnread);
-                            LogUtils.d(ChatSessionManagerImpl.TAG, sb2.toString());
-                            LogUtils.d(ChatSessionManagerImpl.TAG, "问一问官方号未读（未弱化） : " + totalUnReadMsgCountByAdvisory);
-                            LogUtils.d(ChatSessionManagerImpl.TAG, "问一问官方号未读（弱化后） : " + i4);
-                            if (busiSessionTotalUnread <= 0) {
-                            }
-                            if (sessionList == null) {
-                            }
-                            i6 = 0;
-                            j = 0;
-                            Utility.addEventList(this.val$info.eventList, "markTop_end");
-                            getSessionResult.dotUnread = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext).getStrangerUnReadCount(this.val$param.timeInterval);
-                            ChatMessageDBManager chatMessageDBManager22 = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext);
-                            SessionParam sessionParam32 = this.val$param;
-                            int newMsgCountWithStranger2 = chatMessageDBManager22.getNewMsgCountWithStranger(sessionParam32.userNumChatTypes, 0, sessionParam32.timeInterval);
-                            if (i4 <= 0) {
-                            }
-                            getSessionResult.totalUnread = newMsgCountWithStranger2 - i4;
-                            LogUtils.d(ChatSessionManagerImpl.TAG, "最终返回结果 ===> 陌生人未读 : " + getSessionResult.dotUnread + " 咨询的总未读数: " + getSessionResult.consultUnread + " 包含官方号的总未读 : " + newMsgCountWithStranger2 + " 去除官方号的总未读: " + getSessionResult.totalUnread);
-                            Utility.addEventList(this.val$info.eventList, "session_onResult");
-                            bIMValuesCallBack2 = this.val$callBack;
-                            if (bIMValuesCallBack2 == null) {
-                            }
+                            getSessionResult.weakConsultUnread = i3;
                         }
                     }
-                });
+                }
+                i5 = 0;
+                LogUtils.d(TAG, "时间区间 : " + sessionParam.timeInterval + " 秒 , 咨询订单未读 : " + busiSessionTotalUnread + ", 问一问官方号未读（未弱化） : " + totalUnReadMsgCountByAdvisory + ", 问一问官方号未读（弱化后） : " + i5);
+                if (busiSessionTotalUnread <= 0) {
+                }
+                int strangerUnReadCount2 = ChatMessageDBManager.getInstance(mContext).getStrangerUnReadCount(0L);
+                getSessionResult.dotUnread = strangerUnReadCount2;
+                if (sessionParam.timeInterval <= 0) {
+                }
+                i7 = 0;
+                int newMsgCountWithStranger2 = ChatMessageDBManager.getInstance(mContext).getNewMsgCountWithStranger(sessionParam.userNumChatTypes, i7, sessionParam.timeInterval);
+                newMsgCountWithStrangerAndNoDisturb = ChatMessageDBManager.getInstance(mContext).getNewMsgCountWithStrangerAndNoDisturb(sessionParam.userNumChatTypes, i7, sessionParam.timeInterval);
+                getSessionResult.privateChatNoDisturbNumber = newMsgCountWithStrangerAndNoDisturb;
+                if (newMsgCountWithStrangerAndNoDisturb < 0) {
+                }
+                getSessionResult.totalUnread = (newMsgCountWithStranger2 - Math.max(i5, i7)) - getSessionResult.privateChatNoDisturbNumber;
+                LogUtils.d(TAG, "最终返回结果 ===> 陌生人未读 : " + getSessionResult.dotUnread + " 咨询的总未读数: " + getSessionResult.consultUnread + " 包含官方号的总未读 : " + newMsgCountWithStranger2 + " 去除官方号的总未读: " + getSessionResult.totalUnread + " 私信免打扰未读数：" + getSessionResult.privateChatNoDisturbNumber);
+            }
+            Utility.addEventList(methodInfo.eventList, "session_onResult");
+            if (bIMValuesCallBack != null) {
+                bIMValuesCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, getSessionResult, SessionParam.getListNextParam(sessionParam.businessType, sessionParam.mode, j, i2));
+                methodInfo.errCode = 0;
+                methodInfo.errMsg = "getChatSession_Sucess!";
+                methodInfo.endTime = System.currentTimeMillis();
+                ScreenUbc.onEvent(mContext, sessionParam.screenKey, methodInfo);
             }
         }
-    }
-
-    public int setSessionSubscribeStatusByBusiness(int i, long j, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2)})) == null) {
-            if (AccountManager.isCuidLogin(mContext)) {
-                return 0;
-            }
-            return BusinessMessageDBManager.getInstance(mContext).setSessionSubscribeStatusByBusiness(i, j, i2);
-        }
-        return invokeCommon.intValue;
     }
 
     public void getChatSessionsByBusiness(int i, int i2, long j, long j2, long j3, int i3, int i4, int i5, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
@@ -1704,7 +1619,7 @@ public class ChatSessionManagerImpl {
     public void updateBusiSessionAndGet(int i, int i2, long j, long j2, long j3, int i3, int i4, int i5, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
         long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iMediaGetChatSessionListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iMediaGetChatSessionListener}) == null) {
             if (i4 == 3 && j == 0) {
                 j4 = Math.min(j3, getBusiSessionCredibleMsgid(i) - 1);
             } else {
@@ -1832,7 +1747,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_BUSINESS_FILTER_INFO, jSONObject.toString());
             try {
-                w80.e(mContext).d(mContext, creatMethodIntent);
+                x80.e(mContext).d(mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "getFilterSessionsByBusiness Exception ", e);
                 ListenerManager.getInstance().removeListener(addListener);
@@ -1845,7 +1760,7 @@ public class ChatSessionManagerImpl {
 
     public void mediaDeleteChatSession(long j, int i, long j2, String str, long j3, int i2, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3), Integer.valueOf(i2), iMediaDeleteChatSessionListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3), Integer.valueOf(i2), iMediaDeleteChatSessionListener}) == null) {
             LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", lastTime=" + j3 + ", listener=" + iMediaDeleteChatSessionListener);
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 if (AccountManager.getMediaRole(mContext)) {
@@ -1863,7 +1778,7 @@ public class ChatSessionManagerImpl {
     public void onDelBusinessSessionResult(int i, String str, int i2, int i3, int i4, long j, String str2) {
         long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), str2}) == null) {
             if (i == 0) {
                 List<ChatSession> busiChatSessions = BusinessMessageDBManager.getInstance(mContext).getBusiChatSessions(i2, i3, j, 0L, Long.MAX_VALUE, -1, 1);
                 int i5 = 0;
@@ -1949,7 +1864,7 @@ public class ChatSessionManagerImpl {
 
     public void mediaGetChatSessions(long j, int i, long j2, String str, long j3, int i2, int i3, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), iMediaGetChatSessionListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), iMediaGetChatSessionListener}) == null) {
             LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", startSessionTime=" + j3 + ", count=" + i2 + ", needTop=" + i3 + ", listener=" + iMediaGetChatSessionListener);
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 if (AccountManager.getMediaRole(mContext)) {
@@ -1967,7 +1882,7 @@ public class ChatSessionManagerImpl {
     public void onMarkBusinessSessionReadResult(int i, String str, int i2, int i3, int i4, long j, long j2, String str2) {
         long j3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Long.valueOf(j2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Long.valueOf(j2), str2}) == null) {
             if (i == 0) {
                 BusinessMessageDBManager.getInstance(mContext).setBusinessChatMsgRead(i2, i3, j, j2);
                 List<ChatSession> busiChatSessions = BusinessMessageDBManager.getInstance(mContext).getBusiChatSessions(i2, i3, j, 0L, Long.MAX_VALUE, -1, 1);
@@ -2034,9 +1949,38 @@ public class ChatSessionManagerImpl {
         }
     }
 
+    public List<ChatSession> getSessionByGfhPA(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
+                List<PaInfo> queryPaInfoByExt = PaInfoDBManager.getInstance(mContext).queryPaInfoByExt(String.valueOf(i));
+                if (queryPaInfoByExt != null && !queryPaInfoByExt.isEmpty()) {
+                    for (PaInfo paInfo : queryPaInfoByExt) {
+                        if (paInfo != null) {
+                            if (paInfo.getPaId() > 0) {
+                                ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(new ChatObject(mContext, 0, paInfo.getPaId(), j));
+                                if (chatRecord != null) {
+                                    chatRecord.setBusinessType(i);
+                                    updatePADesc(chatRecord, chatRecord.getLastMsg());
+                                    arrayList.add(chatRecord);
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    return arrayList;
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
     public void getSessionByGfhPA(IMediaGetChatSessionListener iMediaGetChatSessionListener, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048598, this, iMediaGetChatSessionListener, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048599, this, iMediaGetChatSessionListener, i) == null) {
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 List<PaInfo> queryPaInfoByExt = PaInfoDBManager.getInstance(mContext).queryPaInfoByExt(String.valueOf(i));
                 if (queryPaInfoByExt != null && !queryPaInfoByExt.isEmpty()) {
@@ -2065,7 +2009,7 @@ public class ChatSessionManagerImpl {
 
     public void mediaContactorSetting(long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Integer.valueOf(i2), iMediaContactorSettingListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Integer.valueOf(i2), iMediaContactorSettingListener}) == null) {
             LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", operation" + i2 + ", listener=" + iMediaContactorSettingListener);
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 if (AccountManager.getMediaRole(mContext)) {
@@ -2082,7 +2026,7 @@ public class ChatSessionManagerImpl {
 
     public void mediaGetContactorSetting(long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Integer.valueOf(i2), iMediaContactorSettingListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Integer.valueOf(i2), iMediaContactorSettingListener}) == null) {
             LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", setting=" + i2 + ", listener=" + iMediaContactorSettingListener);
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 if (AccountManager.getMediaRole(mContext)) {
@@ -2099,7 +2043,7 @@ public class ChatSessionManagerImpl {
 
     public void mediaSetSessionRead(long j, int i, long j2, String str, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3), iMediaSetSessionReadListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3), iMediaSetSessionReadListener}) == null) {
             LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", lastTime=" + j3 + ", listener=" + iMediaSetSessionReadListener);
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 if (!AccountManager.getMediaRole(mContext) && i != -1) {
@@ -2119,7 +2063,7 @@ public class ChatSessionManagerImpl {
 
     public void mediaContactorSetting(long j, int i, IMediaContactorSettingListener iMediaContactorSettingListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), iMediaContactorSettingListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), iMediaContactorSettingListener}) == null) {
             LogUtils.d(TAG, "BC> contactor=" + j + ", operation" + i + ", listener=" + iMediaContactorSettingListener);
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 if (AccountManager.getMediaRole(mContext)) {
@@ -2136,7 +2080,7 @@ public class ChatSessionManagerImpl {
 
     public void mediaDeleteChatSession(long j, long j2, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), iMediaDeleteChatSessionListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), iMediaDeleteChatSessionListener}) == null) {
             LogUtils.d(TAG, "BC> contactor=" + j + ", lastTime=" + j2 + ", listener=" + iMediaDeleteChatSessionListener);
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 if (AccountManager.getMediaRole(mContext)) {
@@ -2153,7 +2097,7 @@ public class ChatSessionManagerImpl {
 
     public void mediaGetContactorSetting(long j, int i, IMediaContactorSettingListener iMediaContactorSettingListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), iMediaContactorSettingListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), iMediaContactorSettingListener}) == null) {
             LogUtils.d(TAG, "BC> contactor=" + j + ", setting=" + i + ", listener=" + iMediaContactorSettingListener);
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 IMMediaGetContactorSettingRequest iMMediaGetContactorSettingRequest = new IMMediaGetContactorSettingRequest(mContext, j, i, ListenerManager.getInstance().addListener(iMediaContactorSettingListener));
@@ -2166,7 +2110,7 @@ public class ChatSessionManagerImpl {
 
     public void mediaSetSessionRead(long j, long j2, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), iMediaSetSessionReadListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), iMediaSetSessionReadListener}) == null) {
             LogUtils.d(TAG, "BC> contactor=" + j + ", lastTime" + j2 + ", listener=" + iMediaSetSessionReadListener);
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 if (AccountManager.getMediaRole(mContext)) {
@@ -2183,7 +2127,7 @@ public class ChatSessionManagerImpl {
 
     public void mediaGetChatSessions(long j, long j2, int i, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), iMediaGetChatSessionListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), iMediaGetChatSessionListener}) == null) {
             LogUtils.d(TAG, "BC> contactor=" + j + ", startSessionTime=" + j2 + ", count=" + i + ", listener=" + iMediaGetChatSessionListener);
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 if (AccountManager.getMediaRole(mContext)) {
@@ -2200,7 +2144,7 @@ public class ChatSessionManagerImpl {
 
     public void mediaGetContactorPauid(long j, int i, long j2, String str, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, iMediaGetContactorPauidListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, iMediaGetContactorPauidListener}) == null) {
             LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", listener=" + iMediaGetContactorPauidListener);
             if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
                 IMMediaGetContactorPauidRequest iMMediaGetContactorPauidRequest = new IMMediaGetContactorPauidRequest(mContext, j, i, j2, str, ListenerManager.getInstance().addListener(iMediaGetContactorPauidListener));
@@ -2213,7 +2157,7 @@ public class ChatSessionManagerImpl {
 
     public void onFetchBusiChatSessionResult(int i, boolean z, int i2, List<ChatSession> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), list, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), list, str}) == null) {
             IMediaGetChatSessionListener iMediaGetChatSessionListener = (IMediaGetChatSessionListener) ListenerManager.getInstance().removeListener(str);
             if (i == 0) {
                 if (list != null && list.size() > 0) {
@@ -2317,7 +2261,7 @@ public class ChatSessionManagerImpl {
         BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack;
         ArrayList arrayList3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), map, map2, map3, str}) != null) || (removeListener = ListenerManager.getInstance().removeListener(str)) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), map, map2, map3, str}) != null) || (removeListener = ListenerManager.getInstance().removeListener(str)) == null) {
             return;
         }
         IMMediaBuildSessionListener iMMediaBuildSessionListener = new IMMediaBuildSessionListener(mContext, i2, i3, i4, z, removeListener);
@@ -2363,7 +2307,7 @@ public class ChatSessionManagerImpl {
 
     public void onSyncDialogResult(int i, String str, String str2, long j, List<DialogRecord> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), list}) == null) {
             IMListener removeListener = ListenerManager.getInstance().removeListener(str2);
             if (removeListener instanceof ISyncDialogListener) {
                 ((ISyncDialogListener) removeListener).onSyncDialogResult(i, str, j, list);
@@ -2373,7 +2317,7 @@ public class ChatSessionManagerImpl {
 
     public void setSessionCollectStatusByBusiness(int i, long j, int i2, int i3, BIMValueCallBack<Void> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), bIMValueCallBack}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), bIMValueCallBack}) == null) {
             if (AccountManager.isCuidLogin(mContext)) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);

@@ -1,7 +1,13 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes7.dex */
 public interface o26 {
-    void a(View view2);
+    boolean a(String str);
+
+    void b(int i);
+
+    boolean c(k26 k26Var);
+
+    void dismiss();
+
+    void show();
 }

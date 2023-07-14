@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes5.dex */
-public abstract class a74 {
+public class a74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @NonNull
-    public abstract File a();
-
-    public abstract void b(@NonNull String str, long j);
+    @V8JavascriptField
+    public String packageName;
+    @V8JavascriptField
+    public int statusCode;
 
     public a74() {
         Interceptable interceptable = $ic;
@@ -28,5 +27,14 @@ public abstract class a74 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "DownloadResponseData{statusCode=" + this.statusCode + ", packageName='" + this.packageName + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

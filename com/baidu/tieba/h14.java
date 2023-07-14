@@ -1,66 +1,92 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import org.apache.commons.codec.net.QCodec;
 /* loaded from: classes6.dex */
-public class h14 extends f14 {
+public class h14 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] a;
+    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
 
-    @Override // com.baidu.tieba.f14
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h14(Context context, d14 d14Var) {
-        super(context, d14Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, d14Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (d14) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947770846, "Lcom/baidu/tieba/h14;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947770846, "Lcom/baidu/tieba/h14;");
                 return;
             }
         }
-        this.q = "rvideo";
-        this.r = "10";
-        this.s = "MSSP,ANTI,VIDEO,NMON";
-        this.t = "LP,DL";
+        a = new byte[]{48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, 117, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, QCodec.UNDERSCORE, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
+        b = new byte[128];
+        int i = 0;
+        while (true) {
+            byte[] bArr = a;
+            if (i < bArr.length) {
+                b[bArr[i]] = (byte) i;
+                i++;
+            } else {
+                return;
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.f14
-    public HashMap<String, String> a() {
-        InterceptResult invokeV;
+    public h14() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("act", this.t);
-            hashMap.put("prod", this.q);
-            hashMap.put("at", this.r);
-            hashMap.put("fet", this.s);
-            return hashMap;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (HashMap) invokeV.objValue;
+    }
+
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            for (int length = str.getBytes().length % 3; length > 0 && length < 3; length++) {
+                str = str + "$";
+            }
+            byte[] bytes = str.getBytes();
+            byte[] bArr = new byte[(bytes.length / 3) * 4];
+            int i = 0;
+            int i2 = 0;
+            while (i < bytes.length) {
+                byte[] bArr2 = a;
+                bArr[i2] = bArr2[(bytes[i] & Cea608Decoder.CC_IMPLICIT_DATA_HEADER) >> 2];
+                int i3 = i + 1;
+                bArr[i2 + 1] = bArr2[((bytes[i] & 3) << 4) + ((bytes[i3] & 240) >> 4)];
+                int i4 = i + 2;
+                bArr[i2 + 2] = bArr2[((bytes[i3] & 15) << 2) + ((bytes[i4] & ExifInterface.MARKER_SOF0) >> 6)];
+                bArr[i2 + 3] = bArr2[bytes[i4] & 63];
+                i += 3;
+                i2 += 4;
+            }
+            return new String(bArr);
+        }
+        return (String) invokeL.objValue;
     }
 }

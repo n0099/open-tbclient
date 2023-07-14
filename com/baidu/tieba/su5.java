@@ -1,38 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class su5 {
+public class su5 extends bb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163926, "Lcom/baidu/tieba/su5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948163926, "Lcom/baidu/tieba/su5;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public su5(int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new ArrayList();
     }
 
-    public static void a(ru5 ru5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fb
+    /* renamed from: c */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, ru5Var) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001453, ru5Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001536) {
+                return httpResponsedMessage;
+            }
+            if (httpResponsedMessage instanceof JsonHttpResponsedMessage) {
+                HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
+                ReloginManager g = ReloginManager.g();
+                if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
+                    if (httpMessage.removeParam("reloin_key") == null) {
+                        httpMessage.addParam("reloin_key", "reloin_value");
+                        g.l((HttpMessage) httpResponsedMessage.getOrginalMessage());
+                    } else {
+                        g.f(null);
+                    }
+                    return null;
+                }
+            }
+            return httpResponsedMessage;
         }
+        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

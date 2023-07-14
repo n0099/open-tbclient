@@ -11,11 +11,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
-import com.baidu.tieba.bp3;
-import com.baidu.tieba.fy3;
+import com.baidu.tieba.ca6;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.h9;
-import com.baidu.tieba.y86;
+import com.baidu.tieba.uo3;
+import com.baidu.tieba.yx3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -109,8 +109,8 @@ public class SwanEntryActivity extends Activity {
             logoActivityConfig.getIntent().putExtra(LogoActivityConfig.IS_DEAL_INTENT, true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, logoActivityConfig));
         } else {
-            y86.a();
-            fy3.a(uri);
+            ca6.a();
+            yx3.a(uri);
         }
     }
 
@@ -120,7 +120,7 @@ public class SwanEntryActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             g9.b(this);
             super.onCreate(bundle);
-            if (bp3.a(this)) {
+            if (uo3.a(this)) {
                 return;
             }
             a();

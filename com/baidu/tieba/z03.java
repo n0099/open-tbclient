@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -15,9 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class z03 extends e13 {
+public class z03 extends x03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,7 +30,7 @@ public class z03 extends e13 {
                 return;
             }
         }
-        boolean z = ms1.a;
+        boolean z = fs1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,43 +53,22 @@ public class z03 extends e13 {
         }
     }
 
-    @Override // com.baidu.tieba.e13
-    public boolean a(u03 u03Var, w03 w03Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
+    @Override // com.baidu.tieba.x03
+    public boolean a(n03 n03Var, p03 p03Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{u03Var, w03Var, context, unitedSchemeEntity, callbackHandler, cc3Var})) == null) {
-            c92.i("video", "open, video id:" + w03Var.j + " slave id: " + w03Var.c);
-            u03Var.l();
-            d(u03Var, w03Var, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{n03Var, p03Var, context, unitedSchemeEntity, callbackHandler, vb3Var})) == null) {
+            v82.i("video", "seek, video id:" + p03Var.j + " slave id: " + p03Var.c);
+            d(n03Var, p03Var.r, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.e13
-    public u03 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public final void d(n03 n03Var, int i, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            az2 f = bz2.f(str, str2, str3);
-            if (f == null) {
-                return new u03(context, w03.h(jSONObject, new w03()));
-            }
-            if (!(f.i() instanceof u03)) {
-                return null;
-            }
-            return (u03) f.i();
-        }
-        return (u03) invokeLLLLL.objValue;
-    }
-
-    public final void d(u03 u03Var, w03 w03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, u03Var, w03Var, unitedSchemeEntity, callbackHandler) == null) {
-            u03Var.o(w03Var);
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n03Var, i, unitedSchemeEntity, callbackHandler) == null) {
+            n03Var.t(i * 1000);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }

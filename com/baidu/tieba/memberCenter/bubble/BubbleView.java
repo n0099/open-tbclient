@@ -14,14 +14,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h05;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
+import com.baidu.tieba.q05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BubbleView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public class BubbleView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            h05 layoutMode = tbPageContext.getLayoutMode();
+            q05 layoutMode = tbPageContext.getLayoutMode();
             if (skinType == 4) {
                 z = true;
             } else {
@@ -143,20 +143,20 @@ public class BubbleView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(getXmlLayoutResId(), this);
-            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090503);
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090500);
-            this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0904ff);
-            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fdb);
-            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09085a);
-            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090505);
-            this.h = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090509);
-            this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090508);
-            this.j = inflate.findViewById(R.id.obfuscated_res_0x7f0904fa);
-            this.k = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0904f8);
-            this.l = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090ec6);
-            this.m = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fd7);
-            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090504);
-            this.o = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09192e);
+            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090504);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090501);
+            this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090500);
+            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090feb);
+            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09085b);
+            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090506);
+            this.h = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09050a);
+            this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090509);
+            this.j = inflate.findViewById(R.id.obfuscated_res_0x7f0904fb);
+            this.k = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0904f9);
+            this.l = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090ed5);
+            this.m = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fe7);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090505);
+            this.o = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091944);
         }
     }
 
@@ -179,7 +179,7 @@ public class BubbleView extends RelativeLayout {
             this.i.setVisibility(8);
             this.l.setVisibility(8);
             this.o.setVisibility(0);
-            this.o.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03ab));
+            this.o.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03ad));
         }
     }
 

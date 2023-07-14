@@ -1,46 +1,29 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.net.http.SslError;
-import android.os.Message;
-import android.view.KeyEvent;
-import android.webkit.SslErrorHandler;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface bb1 extends ha1 {
-    void F(AbsNadBrowserView absNadBrowserView, float f, float f2);
+public class bb1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void F0(AbsNadBrowserView absNadBrowserView, String str, boolean z);
+    public static <T> void a(@NonNull lb1 lb1Var, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, lb1Var, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (!str.startsWith("javascript:")) {
+            str = "javascript:" + str;
+        }
+        lb1Var.loadUrl(str, null);
+    }
 
-    void G0(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
-
-    void L0(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    boolean O(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    boolean O0(AbsNadBrowserView absNadBrowserView, String str);
-
-    void V(AbsNadBrowserView absNadBrowserView, String str);
-
-    void V0(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
-
-    void W0(AbsNadBrowserView absNadBrowserView, cb1 cb1Var, String str, String str2);
-
-    void b(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
-
-    void b1();
-
-    void i(AbsNadBrowserView absNadBrowserView, String str);
-
-    void j(AbsNadBrowserView absNadBrowserView);
-
-    void n0();
-
-    eb1 q0(AbsNadBrowserView absNadBrowserView, String str);
-
-    void q1(AbsNadBrowserView absNadBrowserView, int i);
-
-    void u0(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
-
-    void y(AbsNadBrowserView absNadBrowserView, String str);
+    public static void b(@NonNull lb1 lb1Var, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{lb1Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            a(lb1Var, "NadJsControl.visibleRectChange(".concat(String.valueOf(i)).concat(",").concat(String.valueOf(i2)).concat(",").concat(String.valueOf(i3)).concat(",").concat(String.valueOf(i4)).concat(");"));
+        }
+    }
 }

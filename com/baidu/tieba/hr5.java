@@ -1,56 +1,45 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class hr5<T> extends ir5<T> {
+public class hr5 implements qq5<HotEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
-    public Class<T> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hr5(int i, String str, Class<T> cls) {
-        super(i);
+    public hr5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = str;
-        this.c = cls;
     }
 
-    public T a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qq5
+    /* renamed from: a */
+    public boolean onEvent(HotEvent hotEvent) {
+        InterceptResult invokeL;
+        HotEventData hotEventData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return this.c.newInstance();
-            } catch (ExceptionInInitializerError e) {
-                e.printStackTrace();
-                return null;
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-                return null;
-            } catch (InstantiationException e3) {
-                e3.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hotEvent)) == null) {
+            if (hotEvent != null && (hotEventData = hotEvent.hotEventData) != null) {
+                wg5.u(hotEventData);
+                return true;
             }
+            return false;
         }
-        return (T) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

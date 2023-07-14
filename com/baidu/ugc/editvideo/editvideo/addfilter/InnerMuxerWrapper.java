@@ -5,11 +5,11 @@ import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.text.TextUtils;
-import com.baidu.tieba.h1b;
+import com.baidu.tieba.fab;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(18)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class InnerMuxerWrapper {
     public static final String TAG = "InnerMuxerWrapper";
     public static final boolean VERBOSE = false;
@@ -41,7 +41,7 @@ public class InnerMuxerWrapper {
 
     public static void log(String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
-            h1b.i(str2);
+            fab.i(str2);
         }
     }
 

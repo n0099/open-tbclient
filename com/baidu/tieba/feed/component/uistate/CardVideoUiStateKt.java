@@ -2,7 +2,7 @@ package com.baidu.tieba.feed.component.uistate;
 
 import android.content.Context;
 import android.graphics.Rect;
-import com.baidu.tieba.p67;
+import com.baidu.tieba.y97;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import kotlin.jvm.functions.Function3;
 /* loaded from: classes5.dex */
 public final class CardVideoUiStateKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function3<Context, Rect, p67, Unit> a;
+    public static final Function3<Context, Rect, y97, Unit> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class CardVideoUiStateKt {
         a = CardVideoUiStateKt$OnVideoClick$1.INSTANCE;
     }
 
-    public static final Function3<Context, Rect, p67, Unit> a() {
+    public static final Function3<Context, Rect, y97, Unit> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {

@@ -1,58 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
+import rx.internal.operators.OnSubscribeAmb$Selection;
 /* loaded from: classes7.dex */
-public final class s2c {
+public final class s2c<T> extends a2c<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final s2c a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final a2c<? super T> e;
+    public final OnSubscribeAmb$Selection<T> f;
+    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948100965, "Lcom/baidu/tieba/s2c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.g) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948100965, "Lcom/baidu/tieba/s2c;");
-                return;
+            if (this.f.get() == this) {
+                this.g = true;
+                return true;
+            } else if (this.f.compareAndSet(null, this)) {
+                this.f.unsubscribeOthers(this);
+                this.g = true;
+                return true;
+            } else {
+                this.f.unsubscribeLosers();
+                return false;
             }
         }
-        a = new s2c();
+        return invokeV.booleanValue;
     }
 
-    public s2c() {
+    @Override // com.baidu.tieba.v1c
+    public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g()) {
+            this.e.onCompleted();
         }
     }
 
-    public final int a(Collection<?> collection) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.v1c
+    public void onError(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) {
-            if (collection != null) {
-                return collection.size();
-            }
-            return 0;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && g()) {
+            this.e.onError(th);
         }
-        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.v1c
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && g()) {
+            this.e.onNext(t);
+        }
     }
 }

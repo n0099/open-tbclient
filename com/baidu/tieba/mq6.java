@@ -1,75 +1,141 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tieba.s37;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class mq6 implements s37.h {
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
+import tbclient.VoiceRoom;
+/* loaded from: classes7.dex */
+public class mq6 extends kq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String S0;
+    public List<String> T0;
+    public String U0;
+    public String V0;
+    public long W0;
 
-    public mq6() {
+    public mq6(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        if (threadData == null) {
+            return;
+        }
+        this.a = threadData;
+        String str = threadData.tid;
+        threadData.getTitle();
+        VoiceRoom voiceRoomData = threadData.getVoiceRoomData();
+        if (voiceRoomData != null) {
+            this.S0 = voiceRoomData.room_name;
+            this.T0 = g0(voiceRoomData);
+            this.U0 = String.valueOf(voiceRoomData.talker_num);
+            this.V0 = String.valueOf(voiceRoomData.joined_num);
+            this.W0 = voiceRoomData.room_id.longValue();
         }
     }
 
-    @Override // com.baidu.tieba.s37.l
-    public void a(ViewGroup view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            if (view2 instanceof PlayVoiceBntNew) {
-                ((PlayVoiceBntNew) view2).e();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s37.h
-    public ViewGroup create(Context context) {
+    public static boolean X(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            return new PlayVoiceBntNew(context, PlayVoiceBntNew.PLAY_TYPE.NORMAL);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
+            if (threadData != null && threadData.getVoiceRoomData() != null && threadData.getVoiceRoomData().room_id.longValue() > 0 && !StringUtils.isNull(threadData.getVoiceRoomData().room_name)) {
+                return true;
+            }
+            return false;
         }
-        return (ViewGroup) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.s37.h
-    public void update(ViewGroup view2, Object data) {
+    public final List<String> g0(VoiceRoom voiceRoom) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, data) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if ((view2 instanceof PlayVoiceBntNew) && (data instanceof VoiceData.VoiceModel)) {
-                PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) view2;
-                VoiceData.VoiceModel voiceModel = (VoiceData.VoiceModel) data;
-                playVoiceBntNew.setVoiceModel(voiceModel);
-                playVoiceBntNew.setTag(data);
-                playVoiceBntNew.e();
-                Integer num = voiceModel.voice_status;
-                Intrinsics.checkNotNullExpressionValue(num, "data.voice_status");
-                playVoiceBntNew.m(num.intValue());
-                playVoiceBntNew.o();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, voiceRoom)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (User user : voiceRoom.talker) {
+                if (user != null) {
+                    arrayList.add(user.portrait);
+                }
             }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
+    }
+
+    public String b0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.V0;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<String> c0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.T0;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public long d0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.W0;
+        }
+        return invokeV.longValue;
+    }
+
+    public String e0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.S0;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.U0;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kq6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!this.B) {
+                return kq6.K0;
+            }
+            return ThreadData.TYPE_CONTENT_VOICE_ROOM;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.util;
 import java.util.List;
 import kotlin.reflect.jvm.internal.impl.descriptors.FunctionDescriptor;
 import kotlin.reflect.jvm.internal.impl.util.CheckResult;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractModifierChecks {
     public abstract List<Checks> getChecks$descriptors();
 

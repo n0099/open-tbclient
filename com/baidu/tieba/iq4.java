@@ -1,193 +1,219 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iq4<D> {
+public class iq4<E> implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public b<D> b;
-    public a<D> c;
-    public Context d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+    public boolean a;
+    public int[] b;
+    public Object[] c;
+    public int d;
 
-    /* loaded from: classes6.dex */
-    public interface a<D> {
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b<D> {
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public String a(D d) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d)) == null) {
-            StringBuilder sb = new StringBuilder(64);
-            lq4.a(d, sb);
-            sb.append("}");
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void g(a<D> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            if (this.c == null) {
-                this.c = aVar;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862141, "Lcom/baidu/tieba/iq4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947862141, "Lcom/baidu/tieba/iq4;");
                 return;
             }
-            throw new IllegalStateException("There is already a listener registered");
         }
+        e = new Object();
     }
 
-    public void k(b<D> bVar) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public iq4() {
+        this(10);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            b<D> bVar2 = this.b;
-            if (bVar2 != null) {
-                if (bVar2 == bVar) {
-                    this.b = null;
-                    return;
-                }
-                throw new IllegalArgumentException("Attempting to unregister the wrong listener");
-            }
-            throw new IllegalStateException("No listener register");
-        }
-    }
-
-    public void l(a<D> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            a<D> aVar2 = this.c;
-            if (aVar2 != null) {
-                if (aVar2 == aVar) {
-                    this.c = null;
-                    return;
-                }
-                throw new IllegalArgumentException("Attempting to unregister the wrong listener");
-            }
-            throw new IllegalStateException("No listener register");
-        }
-    }
-
-    public void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fileDescriptor, printWriter, strArr) == null) {
-            printWriter.print(str);
-            printWriter.print("mId=");
-            printWriter.print(this.a);
-            printWriter.print(" mListener=");
-            printWriter.println(this.b);
-            if (this.e || this.h || this.i) {
-                printWriter.print(str);
-                printWriter.print("mStarted=");
-                printWriter.print(this.e);
-                printWriter.print(" mContentChanged=");
-                printWriter.print(this.h);
-                printWriter.print(" mProcessingChange=");
-                printWriter.println(this.i);
-            }
-            if (this.f || this.g) {
-                printWriter.print(str);
-                printWriter.print("mAbandoned=");
-                printWriter.print(this.f);
-                printWriter.print(" mReset=");
-                printWriter.println(this.g);
-            }
-        }
-    }
-
-    public void f(int i, b<D> bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bVar) == null) {
-            if (this.b == null) {
-                this.b = bVar;
-                this.a = i;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            throw new IllegalStateException("There is already a listener registered");
         }
     }
 
-    public Context getContext() {
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int i = this.d;
+            Object[] objArr = this.c;
+            for (int i2 = 0; i2 < i; i2++) {
+                objArr[i2] = null;
+            }
+            this.d = 0;
+            this.a = false;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: b */
+    public iq4<E> clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            iq4<E> iq4Var = null;
+            try {
+                iq4<E> iq4Var2 = (iq4) super.clone();
+                try {
+                    iq4Var2.b = (int[]) this.b.clone();
+                    iq4Var2.c = (Object[]) this.c.clone();
+                    return iq4Var2;
+                } catch (CloneNotSupportedException unused) {
+                    iq4Var = iq4Var2;
+                    return iq4Var;
+                }
+            } catch (CloneNotSupportedException unused2) {
+            }
+        } else {
+            return (iq4) invokeV.objValue;
+        }
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.a) {
+                c();
+            }
             return this.d;
         }
-        return (Context) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void h() {
+    public iq4(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            c();
-            this.g = true;
-            this.e = false;
-            this.f = false;
-            this.h = false;
-            this.i = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        if (i == 0) {
+            this.b = dq4.a;
+            this.c = dq4.b;
+        } else {
+            int d = dq4.d(i);
+            this.b = new int[d];
+            this.c = new Object[d];
+        }
+        this.d = 0;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int i = this.d;
+            int[] iArr = this.b;
+            Object[] objArr = this.c;
+            int i2 = 0;
+            for (int i3 = 0; i3 < i; i3++) {
+                Object obj = objArr[i3];
+                if (obj != e) {
+                    if (i3 != i2) {
+                        iArr[i2] = iArr[i3];
+                        objArr[i2] = obj;
+                        objArr[i3] = null;
+                    }
+                    i2++;
+                }
+            }
+            this.a = false;
+            this.d = i2;
         }
     }
 
-    public final void i() {
+    public int d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.e = true;
-            this.g = false;
-            this.f = false;
-            d();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (this.a) {
+                c();
+            }
+            return this.b[i];
+        }
+        return invokeI.intValue;
+    }
+
+    public void delete(int i) {
+        int a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (a = dq4.a(this.b, this.d, i)) >= 0) {
+            Object[] objArr = this.c;
+            Object obj = objArr[a];
+            Object obj2 = e;
+            if (obj != obj2) {
+                objArr[a] = obj2;
+                this.a = true;
+            }
         }
     }
 
-    public void j() {
+    public E f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.e = false;
-            e();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (this.a) {
+                c();
+            }
+            return (E) this.c[i];
         }
+        return (E) invokeI.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            StringBuilder sb = new StringBuilder(64);
-            lq4.a(this, sb);
-            sb.append(" id=");
-            sb.append(this.a);
-            sb.append("}");
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (e() <= 0) {
+                return "{}";
+            }
+            StringBuilder sb = new StringBuilder(this.d * 28);
+            sb.append('{');
+            for (int i = 0; i < this.d; i++) {
+                if (i > 0) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                }
+                sb.append(d(i));
+                sb.append('=');
+                E f = f(i);
+                if (f != this) {
+                    sb.append(f);
+                } else {
+                    sb.append("(this Map)");
+                }
+            }
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;

@@ -1,86 +1,77 @@
 package com.baidu.tieba;
 
+import android.util.Base64InputStream;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class k4b {
+public class k4b extends Base64InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public boolean a;
     public boolean b;
-    public float c;
-    public float d;
 
-    public k4b(String str, boolean z, float f, float f2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k4b(InputStream inputStream, int i) {
+        super(inputStream, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)};
+            Object[] objArr = {inputStream, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = z;
-        this.c = f;
-        this.d = f2;
+        this.a = false;
+        this.b = false;
     }
 
-    public float a() {
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.floatValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public boolean e(boolean z, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            if (z && Math.abs(this.c - f) < 0.001f && Math.abs(this.d - f2) < 0.001f) {
-                return true;
+            int read = super.read();
+            if (!this.a && read == 117) {
+                this.a = true;
+                return 31;
+            } else if (!this.b && read == 123) {
+                this.b = true;
+                return Cea708Decoder.COMMAND_TGW;
+            } else {
+                return read;
             }
-            return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeV.intValue;
+    }
+
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
+            int read = super.read(bArr, i, i2);
+            if (!this.a && read >= 2) {
+                bArr[i] = 31;
+                bArr[i + 1] = -117;
+                this.a = true;
+            }
+            return read;
+        }
+        return invokeLII.intValue;
     }
 }

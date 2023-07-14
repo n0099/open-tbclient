@@ -1,151 +1,125 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.video.LiveConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.switchs.DuTokenNewSwitch;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
 /* loaded from: classes8.dex */
-public final class uga {
+public class uga extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final aga b;
 
-    public static final String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            String t = r95.t(str);
-            return t + str2;
-        }
-        return (String) invokeLL.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean b(String str, int i) {
-        InterceptResult invokeLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            String spCancelValue = r95.p().w(r95.t(str), "");
-            Intrinsics.checkNotNullExpressionValue(spCancelValue, "spCancelValue");
-            List<String> e = e(spCancelValue);
-            if (e != null && !e.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                long g = vg.g(e.get(0), 0L);
-                int e2 = vg.e(e.get(1), 0);
-                if (TimeHelper.isSameDay(g, System.currentTimeMillis()) && e2 > i) {
-                    return false;
+        public a(uga ugaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ugaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return true;
         }
-        return invokeLI.booleanValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && DuTokenNewSwitch.isOn() && PermissionUtil.isAgreePrivacyPolicy()) {
+                WordCommandManager.setOnInitialUIReadyState(true);
+                WordCommandManager.getInstance().handleClipboardData();
+            }
+        }
     }
 
-    public static final boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        boolean z;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uga(MainTabActivity mainTabActivity) {
+        super(2001011);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (str2 != null && str2.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return true;
-            }
-            return !TimeHelper.isSameDay(r95.p().r(a(str, str2), 0L), System.currentTimeMillis());
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final void g(String spKey, String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, spKey, str) == null) {
-            Intrinsics.checkNotNullParameter(spKey, "spKey");
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            r95.p().H(a(spKey, str), System.currentTimeMillis());
         }
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
-    public static final boolean d(LiveConfig config) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, config)) == null) {
-            Intrinsics.checkNotNullParameter(config, "config");
-            if (TbadkCoreApplication.isLogin() && c("sp_live_cancel_id_", config.getCurrentId()) && c("sp_live_into_id_", config.getCurrentId()) && b("sp_live_click_cancel_key", config.getCloseMax()) && b("sp_live_day_show_auto_in_key", config.getShowMax()) && TbSingleton.getInstance().autoInLiveRoomTimes < config.getSingleMax()) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean z = false;
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                ol.f();
+                ol.i();
+                this.a.V = UtilHelper.getCurrentDay();
+                da5.p().H("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
+                MainTabActivity mainTabActivity = this.a;
+                if (!mainTabActivity.C) {
+                    aga agaVar = this.b;
+                    if (agaVar != null && agaVar.j() != null) {
+                        this.b.j().b();
+                        return;
+                    }
+                    return;
+                }
+                mainTabActivity.C = false;
+                return;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final List<String> e(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str.length() > 0) {
-                z = true;
-            } else {
-                z = false;
+            bc.b().a("WORDCOMMAND", new a(this));
+            String currentDay = UtilHelper.getCurrentDay();
+            if (!StringUtils.isNull(currentDay) && !currentDay.equals(this.a.V)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
             }
-            if (z) {
-                return StringsKt__StringsKt.split$default((CharSequence) str, new String[]{","}, false, 0, 6, (Object) null);
+            MainTabActivity mainTabActivity2 = this.a;
+            if (mainTabActivity2.x == null) {
+                mainTabActivity2.x = new jka();
             }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v3 long), (',' char), (r4v2 int)] */
-    public static final void f(String spKey) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, spKey) == null) {
-            Intrinsics.checkNotNullParameter(spKey, "spKey");
-            long currentTimeMillis = System.currentTimeMillis();
-            String spCancelValue = r95.p().w(r95.t(spKey), "");
-            Intrinsics.checkNotNullExpressionValue(spCancelValue, "spCancelValue");
-            List<String> e = e(spCancelValue);
-            int i = 1;
-            if (e != null && !e.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                long g = vg.g(e.get(0), 0L);
-                int e2 = vg.e(e.get(1), 0);
-                if (TimeHelper.isSameDay(g, System.currentTimeMillis())) {
-                    i = 1 + e2;
+            jka jkaVar = this.a.x;
+            jkaVar.c(jkaVar.c);
+            this.a.x.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
+            if (r46.a()) {
+                int i = Calendar.getInstance().get(11);
+                r46.a = (i >= 23 || i < 7) ? true : true;
+                aga agaVar2 = this.b;
+                if (agaVar2 != null && agaVar2.j() != null) {
+                    this.b.j().b();
+                    this.b.j().a();
                 }
             }
-            r95 p = r95.p();
-            StringBuilder sb = new StringBuilder();
-            sb.append(currentTimeMillis);
-            sb.append(',');
-            sb.append(i);
-            p.J(spKey, sb.toString());
         }
     }
 }

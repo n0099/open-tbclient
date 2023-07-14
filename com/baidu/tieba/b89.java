@@ -1,154 +1,360 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.pb.account.forbid.ForbidResultData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.tieba.memberCenter.tail.data.TailDataList;
+import com.baidu.tieba.memberCenter.tail.message.DeleteTailHttpResponseMessage;
+import com.baidu.tieba.memberCenter.tail.message.DeleteTailNetMessage;
+import com.baidu.tieba.memberCenter.tail.message.DeleteTailSocketResponseMessage;
+import com.baidu.tieba.memberCenter.tail.message.GetTailsHttpResponseMessage;
+import com.baidu.tieba.memberCenter.tail.message.GetTailsNetMessage;
+import com.baidu.tieba.memberCenter.tail.message.GetTailsSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class b89 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public boolean b;
+    public List<TailData> c;
+    public m89<Void> d;
+    public m89<Integer> e;
+    public kb f;
+    public kb g;
+    public CustomMessageListener h;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(ForbidResultData forbidResultData);
-
-        void b(ForbidResultData forbidResultData);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a extends BdAsyncTask<String, Object, ForbidResultData> {
+    public class a extends kb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public String h;
-        public String i;
-        public WeakReference<b> j;
+        public final /* synthetic */ b89 a;
 
-        public a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(b89 b89Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, str4, str5, str6, str7, str8, str9, bVar};
+                Object[] objArr = {b89Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = str4;
-            this.g = str6;
-            this.e = str8;
-            this.f = str9;
-            this.h = str7;
-            this.i = str5;
-            this.j = new WeakReference<>(bVar);
-            setPriority(3);
+            this.a = b89Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ForbidResultData doInBackground(String... strArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.kb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            n79 n79Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                NetWork netWork = new NetWork(b89.a);
-                netWork.addPostData("day", this.g);
-                netWork.addPostData("un", this.d);
-                netWork.addPostData("fid", this.a);
-                netWork.addPostData(DownloadStatisticConstants.UBC_VALUE_WORD, this.b);
-                netWork.addPostData("z", this.c);
-                netWork.addPostData("reason", this.h);
-                netWork.addPostData("ntn", "banid");
-                netWork.addPostData("post_id", this.i);
-                netWork.addPostData("nick_name", this.e);
-                netWork.addPostData("portrait", this.f);
-                netWork.getNetContext().getRequest().mIsNeedTbs = true;
-                String postNetData = netWork.postNetData();
-                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                    try {
-                        return (ForbidResultData) OrmObject.objectWithJsonStr(postNetData, ForbidResultData.class);
-                    } catch (Exception e) {
-                        BdLog.detailException(e);
-                        ForbidResultData forbidResultData = new ForbidResultData();
-                        forbidResultData.error_code = -1000;
-                        return forbidResultData;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.a.d != null) {
+                if (responsedMessage instanceof GetTailsHttpResponseMessage) {
+                    n79Var = ((GetTailsHttpResponseMessage) responsedMessage).getResultData();
+                } else if (responsedMessage instanceof GetTailsSocketResponseMessage) {
+                    n79Var = ((GetTailsSocketResponseMessage) responsedMessage).getResultData();
+                } else {
+                    n79Var = null;
+                }
+                if (n79Var != null) {
+                    this.a.c = n79Var.c();
+                }
+                this.a.d.a(responsedMessage.hasError(), responsedMessage.getErrorString(), null);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends kb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b89 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(b89 b89Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b89Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b89Var;
+        }
+
+        @Override // com.baidu.tieba.kb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            m79 m79Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.a.e != null) {
+                Integer num = null;
+                if (responsedMessage instanceof DeleteTailHttpResponseMessage) {
+                    m79Var = ((DeleteTailHttpResponseMessage) responsedMessage).getResultData();
+                } else if (responsedMessage instanceof DeleteTailSocketResponseMessage) {
+                    m79Var = ((DeleteTailSocketResponseMessage) responsedMessage).getResultData();
+                } else {
+                    m79Var = null;
+                }
+                if (m79Var != null) {
+                    num = Integer.valueOf(m79Var.a());
+                }
+                this.a.e.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b89 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(b89 b89Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b89Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b89Var;
+        }
+
+        public final void a(o79 o79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, o79Var) == null) {
+                boolean z = false;
+                int i = 0;
+                while (true) {
+                    if (i >= this.a.c.size()) {
+                        break;
+                    } else if (((TailData) this.a.c.get(i)).getId() == o79Var.b.getId()) {
+                        z = true;
+                        break;
+                    } else {
+                        i++;
                     }
                 }
-                ForbidResultData forbidResultData2 = new ForbidResultData();
-                forbidResultData2.error_code = netWork.getServerErrorCode();
-                forbidResultData2.error_msg = netWork.getErrorString();
-                return forbidResultData2;
+                if (!z) {
+                    this.a.c.add(o79Var.b);
+                }
             }
-            return (ForbidResultData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ForbidResultData forbidResultData) {
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidResultData) == null) {
-                super.onPostExecute(forbidResultData);
-                b bVar = this.j.get();
-                if (bVar != null) {
-                    if (forbidResultData.error_code == 0 && wi.isEmpty(forbidResultData.error_msg)) {
-                        bVar.a(forbidResultData);
-                    } else {
-                        bVar.b(forbidResultData);
+            if ((interceptable == null || interceptable.invokeL(1048579, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof o79) && this.a.d != null) {
+                o79 o79Var = (o79) customResponsedMessage.getData();
+                if (o79Var.b != null && this.a.c != null) {
+                    int i = o79Var.a;
+                    if (i == 1) {
+                        a(o79Var);
+                    } else if (i == 3) {
+                        b(o79Var);
+                    } else if (i == 2) {
+                        c(o79Var);
+                    }
+                    this.a.d.a(customResponsedMessage.hasError(), customResponsedMessage.getErrorString(), null);
+                }
+            }
+        }
+
+        public final void b(o79 o79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o79Var) == null) {
+                boolean z = false;
+                for (int i = 0; i < this.a.c.size(); i++) {
+                    if (((TailData) this.a.c.get(i)).getId() == o79Var.b.getId()) {
+                        this.a.c.remove(i);
+                        if (this.a.c.size() != 0) {
+                            Iterator it = this.a.c.iterator();
+                            while (true) {
+                                if (it.hasNext()) {
+                                    if (((TailData) it.next()).isSelected()) {
+                                        z = true;
+                                        break;
+                                    }
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001344, Boolean.valueOf(z)));
+                        return;
+                    }
+                }
+            }
+        }
+
+        public final void c(o79 o79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o79Var) == null) {
+                for (int i = 0; i < this.a.c.size(); i++) {
+                    if (((TailData) this.a.c.get(i)).getId() == o79Var.b.getId()) {
+                        ((TailData) this.a.c.get(i)).setContent(o79Var.b.getContent());
+                        ((TailData) this.a.c.get(i)).setFontColor(o79Var.b.getFontColor());
+                        ((TailData) this.a.c.get(i)).setSelected(o79Var.b.isSelected());
+                        return;
                     }
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947598982, "Lcom/baidu/tieba/b89;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947598982, "Lcom/baidu/tieba/b89;");
+    public b89(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+        this.b = false;
+        this.f = new a(this, CmdConfigHttp.CMD_TAIL_GET, 305001);
+        this.g = new b(this, CmdConfigHttp.CMD_TAIL_DELETE, 305103);
+        this.h = new c(this, 2001340);
+        this.a = tbPageContext;
+        this.c = new ArrayList();
+        this.a.registerListener(this.f);
+        this.a.registerListener(this.g);
+        this.a.registerListener(this.h);
     }
 
-    public static void b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, bVar}) == null) {
-            new a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.sendMessage(new DeleteTailNetMessage(i));
+        }
+    }
+
+    public boolean i(Serializable serializable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, serializable)) == null) {
+            if (serializable != null && (serializable instanceof TailDataList)) {
+                this.c = ((TailDataList) serializable).getTails();
+                return true;
+            }
+            j();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void k(m89<Integer> m89Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, m89Var) == null) {
+            this.e = m89Var;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void m(m89<Void> m89Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m89Var) == null) {
+            this.d = m89Var;
+        }
+    }
+
+    public void n(List<TailData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            if (list == null) {
+                this.c.clear();
+            } else {
+                this.c = list;
+            }
+        }
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 3 - this.c.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public List<TailData> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.sendMessage(new GetTailsNetMessage("stat"));
         }
     }
 }

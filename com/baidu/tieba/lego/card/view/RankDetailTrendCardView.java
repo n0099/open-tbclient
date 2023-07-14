@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
-import com.baidu.tieba.lt8;
-import com.baidu.tieba.qt5;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.oz8;
+import com.baidu.tieba.uu5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +71,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
                 return;
             }
-            lt8 a = lt8.a();
+            oz8 a = oz8.a();
             RankDetailTrendCard rankDetailTrendCard = this.a;
             a.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
         }
@@ -107,7 +107,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.m(this.a);
+                this.b.n(this.a);
             }
         }
     }
@@ -130,24 +130,24 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                 return;
             }
         }
-        this.u = xi.l(tbPageContext.getPageActivity());
+        this.u = yi.l(tbPageContext.getPageActivity());
         this.v = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8) * 2;
     }
 
     private void setTrendTextColor(RankDetailTrendCard rankDetailTrendCard) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, this, rankDetailTrendCard) == null) && rankDetailTrendCard != null && !TextUtils.isEmpty(rankDetailTrendCard.getTrendText())) {
-            y(this.r, rankDetailTrendCard.getTrendColor(), rankDetailTrendCard.getTrendColorNight(), R.color.CAM_X0308);
+            z(this.r, rankDetailTrendCard.getTrendColor(), rankDetailTrendCard.getTrendColorNight(), R.color.CAM_X0308);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: C */
-    public void t(RankDetailTrendCard rankDetailTrendCard, int i) {
+    /* renamed from: D */
+    public void u(RankDetailTrendCard rankDetailTrendCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, rankDetailTrendCard, i) == null) {
-            qt5.a(this.i, getRootView());
+            uu5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0108);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);
@@ -157,8 +157,8 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: D */
-    public void u(RankDetailTrendCard rankDetailTrendCard) {
+    /* renamed from: E */
+    public void v(RankDetailTrendCard rankDetailTrendCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rankDetailTrendCard) == null) {
             if (rankDetailTrendCard.getRank() == 1) {
@@ -212,7 +212,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
             }
             if (!TextUtils.isEmpty(rankDetailTrendCard.getPostUrl()) && !TextUtils.isEmpty(rankDetailTrendCard.getBtnText()) && !TextUtils.isEmpty(rankDetailTrendCard.getBtnDone())) {
                 this.s.setVisibility(0);
-                A(this.s, rankDetailTrendCard.isDone(), rankDetailTrendCard.getBtnText(), rankDetailTrendCard.getBtnDone());
+                B(this.s, rankDetailTrendCard.isDone(), rankDetailTrendCard.getBtnText(), rankDetailTrendCard.getBtnDone());
                 this.s.setTag(rankDetailTrendCard.getPostUrl());
                 this.s.setOnClickListener(new a(this, rankDetailTrendCard));
                 this.q.setVisibility(8);
@@ -265,19 +265,19 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View q() {
+    public View r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d6, (ViewGroup) null);
             this.m = linearLayout;
-            this.n = (TbImageView) l(linearLayout, R.id.obfuscated_res_0x7f0914a5);
-            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091168);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092641);
-            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f09263f);
-            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f092640);
-            this.s = (TextView) l(this.m, R.id.obfuscated_res_0x7f0904d8);
-            HeadImageView headImageView = (HeadImageView) l(this.m, R.id.obfuscated_res_0x7f090ec9);
+            this.n = (TbImageView) m(linearLayout, R.id.obfuscated_res_0x7f0914b9);
+            this.o = (TextView) m(this.m, R.id.obfuscated_res_0x7f09117a);
+            this.p = (TextView) m(this.m, R.id.obfuscated_res_0x7f092675);
+            this.q = (TbImageView) m(this.m, R.id.obfuscated_res_0x7f092673);
+            this.r = (TextView) m(this.m, R.id.obfuscated_res_0x7f092674);
+            this.s = (TextView) m(this.m, R.id.obfuscated_res_0x7f0904d9);
+            HeadImageView headImageView = (HeadImageView) m(this.m, R.id.obfuscated_res_0x7f090ed8);
             this.t = headImageView;
             headImageView.setIsRound(true);
             return this.m;

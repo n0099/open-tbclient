@@ -1,5 +1,14 @@
 package com.baidu.tieba;
+
+import android.view.ViewGroup;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 /* loaded from: classes7.dex */
-public interface ng9 {
-    int getType();
+public interface ng9<D extends IBaseDialogData> {
+    int a();
+
+    void b();
+
+    void c(D d);
+
+    ViewGroup getViewGroup();
 }

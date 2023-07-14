@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.types;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class TypeProjectionBase implements TypeProjection {
     public int hashCode() {
         int hashCode;

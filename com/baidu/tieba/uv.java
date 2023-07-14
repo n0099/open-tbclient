@@ -1,82 +1,211 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.ctrl.SubTaskState;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.bdtask.service.ubc.model.UBCActionTaskInfo;
+import com.baidu.bdtask.service.ubc.model.UBCRecoveryTaskQueue;
+import com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo;
+import com.baidu.bdtask.service.ubc.model.UBCTaskStatusInfo;
+import com.baidu.bdtask.service.ubc.model.UBCUnRegisterTaskInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class uv {
     public static /* synthetic */ Interceptable $ic;
+    public static vv a;
+    public static boolean b;
+    public static final uv c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.b;
-            return hashCode + (str2 != null ? str2.hashCode() : 0);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448319276, "Lcom/baidu/tieba/uv;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448319276, "Lcom/baidu/tieba/uv;");
+                return;
+            }
         }
-        return invokeV.intValue;
+        c = new uv();
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "TaskUBCStatus(taskSingleKey=" + this.a + ", taskUBCStatus=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public uv(String str, String str2) {
+    public uv() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = str;
-        this.b = str2;
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    public final void a() {
+        cv v;
+        lv f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_info_sync", new JSONObject());
         }
-        return (String) invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public final void b(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (!(obj instanceof uv)) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subTaskState) == null) {
+            TaskStatus taskStatus = subTaskState.getTaskStatus();
+            TaskInfo taskInfo = subTaskState.getTaskInfo();
+            if (taskStatus.isRegistered()) {
+                f(UBCRegisterTaskInfo.Companion.a(taskInfo, taskStatus));
+            } else if (taskStatus.isRunning()) {
+                g(new UBCTaskStatusInfo(taskInfo, taskStatus, 0, null, 12, null));
+            } else if (taskStatus.isFinished()) {
+                j(new UBCTaskStatusInfo(taskInfo, taskStatus, 0, null, 12, null));
             }
-            uv uvVar = (uv) obj;
-            if ((!Intrinsics.areEqual(uvVar.a, this.a)) || (!Intrinsics.areEqual(uvVar.b, this.b))) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void c(TaskInfo taskInfo, TaskStatus taskStatus) {
+        lv f;
+        cv v;
+        lv f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, taskInfo, taskStatus) == null) {
+            vv vvVar = new vv(taskInfo.getSingleKey(), mv.a.d(taskStatus));
+            if (!Intrinsics.areEqual(vvVar, a)) {
+                a = vvVar;
+                if (Intrinsics.areEqual(vvVar.a(), "y_task_local_done") && !b && (v = BDPTask.m.v()) != null && (f2 = v.f()) != null) {
+                    f2.a("y_task_start", "c_pv", mv.b(mv.a, taskInfo.getId(), taskInfo.getActTaskId(), null, 4, null));
+                }
+                if (Intrinsics.areEqual(vvVar.a(), "y_task_start") || Intrinsics.areEqual(vvVar.a(), "y_task_local_done")) {
+                    b = true;
+                }
+                if (Intrinsics.areEqual(vvVar.a(), "y_task_active") || Intrinsics.areEqual(vvVar.a(), "y_task_done")) {
+                    b = false;
+                }
+                cv v2 = BDPTask.m.v();
+                if (v2 != null && (f = v2.f()) != null) {
+                    f.a(vvVar.a(), "c_pv", mv.b(mv.a, taskInfo.getId(), taskInfo.getActTaskId(), null, 4, null));
+                }
+            }
+        }
+    }
+
+    public final void d(UBCActionTaskInfo uBCActionTaskInfo) {
+        cv v;
+        lv f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, uBCActionTaskInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_action", uBCActionTaskInfo.toJson());
+        }
+    }
+
+    public final void e(UBCRecoveryTaskQueue uBCRecoveryTaskQueue) {
+        cv v;
+        lv f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, uBCRecoveryTaskQueue) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_sdk_init", uBCRecoveryTaskQueue.toJson());
+        }
+    }
+
+    public final void f(UBCRegisterTaskInfo uBCRegisterTaskInfo) {
+        cv v;
+        lv f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, uBCRegisterTaskInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_register", uBCRegisterTaskInfo.toJson());
+        }
+    }
+
+    public final void g(UBCTaskStatusInfo uBCTaskStatusInfo) {
+        cv v;
+        lv f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, uBCTaskStatusInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_running", uBCTaskStatusInfo.toJson());
+        }
+    }
+
+    public final void h(UBCUnRegisterTaskInfo uBCUnRegisterTaskInfo) {
+        cv v;
+        lv f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, uBCUnRegisterTaskInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_unregistered", uBCUnRegisterTaskInfo.toJson());
+        }
+    }
+
+    public void i(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, subTaskState) == null) {
+            c(subTaskState.getTaskInfo(), subTaskState.getTaskStatus());
+            f(UBCRegisterTaskInfo.Companion.a(subTaskState.getTaskInfo(), subTaskState.getTaskStatus()));
+        }
+    }
+
+    public final void j(UBCTaskStatusInfo uBCTaskStatusInfo) {
+        cv v;
+        lv f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, uBCTaskStatusInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_done_req", uBCTaskStatusInfo.toJson());
+        }
+    }
+
+    public void k(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, subTaskState) == null) {
+            c(subTaskState.getTaskInfo(), subTaskState.getTaskStatus());
+            g(new UBCTaskStatusInfo(subTaskState.getTaskInfo(), subTaskState.getTaskStatus(), 0, null, 12, null));
+        }
+    }
+
+    public final void l(UBCTaskStatusInfo uBCTaskStatusInfo) {
+        cv v;
+        lv f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, uBCTaskStatusInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_passive_interrupted", uBCTaskStatusInfo.toJson());
+        }
+    }
+
+    public void m(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, subTaskState) == null) {
+            c(subTaskState.getTaskInfo(), subTaskState.getTaskStatus());
+            j(new UBCTaskStatusInfo(subTaskState.getTaskInfo(), subTaskState.getTaskStatus(), 0, null, 12, null));
+        }
+    }
+
+    public void n(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, subTaskState) == null) {
+            l(new UBCTaskStatusInfo(subTaskState.getTaskInfo(), subTaskState.getTaskStatus(), 0, null, 12, null));
+        }
+    }
+
+    public void o(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, subTaskState) == null) {
+            h(new UBCUnRegisterTaskInfo(subTaskState.getTaskInfo(), subTaskState.getTaskStatus()));
+        }
     }
 }

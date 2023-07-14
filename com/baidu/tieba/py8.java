@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes7.dex */
-public class py8 extends wl1<ExtLiveLogService> {
+public class py8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public boolean c;
 
     public py8() {
         Interceptable interceptable = $ic;
@@ -26,15 +27,17 @@ public class py8 extends wl1<ExtLiveLogService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wl1
-    /* renamed from: a */
-    public ExtLiveLogService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(ResponseTagInfo responseTagInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new qy8();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, responseTagInfo) != null) || responseTagInfo == null) {
+            return;
         }
-        return (ExtLiveLogService) invokeV.objValue;
+        this.a = responseTagInfo.tag_id.intValue();
+        this.b = responseTagInfo.tag_name;
+        boolean z = true;
+        if (responseTagInfo.is_followed.intValue() != 1) {
+            z = false;
+        }
+        this.c = z;
     }
 }

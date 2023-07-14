@@ -1,34 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.app.Activity;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(long j, long j2, String str) {
+    public static void a(final String str, final boolean z, int i, final int i2, final boolean z2) {
+        final boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_ICON_CLICK);
-            statisticItem.param("uid", j);
-            statisticItem.param("obj_locate", j2);
-            statisticItem.param("obj_type", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
+            final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (i == 3) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            zg.a().post(new Runnable() { // from class: com.baidu.tieba.sg8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        fh8.b(currentActivity, z, z2, z3, str, i2);
+                    }
+                }
+            });
         }
     }
 
-    public static void b(long j, long j2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_ICON_EXPLORE);
-            statisticItem.param("uid", j);
-            statisticItem.param("obj_locate", j2);
-            statisticItem.param("obj_type", str);
-            TiebaStatic.log(statisticItem);
+    public static /* synthetic */ void b(Activity activity, boolean z, boolean z2, boolean z3, String str, int i) {
+        if (activity != null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            if (z) {
+                if (z2 && !z3 && eu4.d().b("share_thread")) {
+                    return;
+                }
+                spannableStringBuilder.append((CharSequence) str);
+            } else {
+                spannableStringBuilder.append((CharSequence) c(str, i));
+            }
+            BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).q();
         }
+    }
+
+    @NonNull
+    public static String c(@Nullable String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str2 = TbadkCoreApplication.getInst().getResources().getString(R.string.share_failed);
+            } else {
+                str2 = str;
+            }
+            if (i == 2) {
+                return str2;
+            }
+            try {
+                JSONObject optJSONObject = new JSONArray(str).optJSONObject(0);
+                if (optJSONObject != null) {
+                    String optString = optJSONObject.optString("text");
+                    if (!TextUtils.isEmpty(optString)) {
+                        return optString;
+                    }
+                    return str2;
+                }
+                return str2;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return str2;
+            }
+        }
+        return (String) invokeLI.objValue;
     }
 }

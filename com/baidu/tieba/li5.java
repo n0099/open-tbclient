@@ -1,104 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.DLauncher;
-import com.baidu.tbadk.editortools.view.CommonTabContentView;
-import com.baidu.tieba.rk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.UserGrowth;
+import tbclient.UserTaskInfo;
 /* loaded from: classes6.dex */
-public class li5 extends rk5 {
+public class li5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<ki5> m;
-
-    @Override // com.baidu.tieba.di5
-    public void C(ci5 ci5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ci5Var) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements rk5.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ li5 a;
-
-        public a(li5 li5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {li5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = li5Var;
-        }
-
-        @Override // com.baidu.tieba.rk5.a
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) != null) {
-                return (View) invokeILL.objValue;
-            }
-            DLauncher D = this.a.D(i);
-            if (D.getLayoutParams() == null) {
-                D.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-            }
-            return D;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements CommonTabContentView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ li5 a;
-
-        public b(li5 li5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {li5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = li5Var;
-        }
-
-        @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
-        public void a(View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && view2.isEnabled() && (view2 instanceof DLauncher) && this.a.j != null) {
-                this.a.j.z(view2);
-            }
-        }
-    }
+    public int a;
+    public long b;
+    public long c;
+    public double d;
+    public List<ni5> e;
 
     public li5() {
         Interceptable interceptable = $ic;
@@ -110,67 +34,99 @@ public class li5 extends rk5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.rk5
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinkedList<ki5> linkedList = this.m;
-            if (linkedList != null) {
-                linkedList.clear();
-            }
-            this.m = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.rk5
-    public int c() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinkedList<ki5> linkedList = this.m;
-            if (linkedList != null) {
-                return linkedList.size();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
         return invokeV.intValue;
     }
 
-    public void B(LinkedList<ki5> linkedList) {
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, linkedList) == null) {
-            this.m = linkedList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return invokeV.longValue;
     }
 
-    public final DLauncher D(int i) {
-        InterceptResult invokeI;
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i >= 0 && i < c()) {
-                return (DLauncher) this.m.get(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public List<ni5> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public double e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("level_id");
+        this.b = jSONObject.optLong("score");
+        this.c = jSONObject.optLong("target_score");
+        this.d = jSONObject.optDouble("tmoney");
+        this.e.clear();
+        JSONArray optJSONArray = jSONObject.optJSONArray("task_info");
+        if (optJSONArray == null) {
+            return;
+        }
+        int length = optJSONArray.length();
+        for (int i = 0; i < length; i++) {
+            JSONObject jSONObject2 = null;
+            try {
+                jSONObject2 = optJSONArray.getJSONObject(i);
+            } catch (JSONException e) {
+                BdLog.e(e);
             }
-            return null;
+            ni5 ni5Var = new ni5();
+            ni5Var.h(jSONObject2);
+            this.e.add(ni5Var);
         }
-        return (DLauncher) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.rk5
-    public void n(Context context) {
+    public void g(UserGrowth userGrowth) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
-            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            o(4);
-            v(2);
-            x(new a(this));
-            h().b(this);
-            s(new b(this));
+        if ((interceptable != null && interceptable.invokeL(1048582, this, userGrowth) != null) || userGrowth == null) {
+            return;
+        }
+        this.a = userGrowth.level_id.intValue();
+        this.b = userGrowth.score.longValue();
+        this.c = userGrowth.target_score.longValue();
+        this.d = userGrowth.tmoney.doubleValue();
+        this.e.clear();
+        for (UserTaskInfo userTaskInfo : userGrowth.task_info) {
+            ni5 ni5Var = new ni5();
+            ni5Var.i(userTaskInfo);
+            this.e.add(ni5Var);
         }
     }
 }

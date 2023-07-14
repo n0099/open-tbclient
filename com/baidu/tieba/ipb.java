@@ -1,255 +1,156 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cpb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import javax.net.ssl.HttpsURLConnection;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ipb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 1;
-    public static final char[] d;
-    public static ipb e;
+public class ipb implements apb {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HandlerThread a;
-    public final Handler b;
+    public final String a;
+    public final Context b;
+    public final String c;
+    public final xob d;
+    public final kpb e;
+    public final lpb f;
+    public final Map<String, String> g;
+    public final List<spb> h;
+    public final Map<String, String> i;
 
-    /* loaded from: classes6.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String[] a;
-        public final /* synthetic */ ipb b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ipb ipbVar, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ipbVar, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ipbVar;
-            this.a = new String[]{"tinyvideoplayer", "lpfplayerfirstaccess", "lpfplayerdownload"};
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                Log.i("playStats", "handle msg " + message.what);
-                int i = message.what;
-                if (i < this.a.length && i >= 0) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    for (int i2 = 0; !this.b.h(this.a[message.what], (String) message.obj, currentTimeMillis, ipb.c) && i2 < 5; i2++) {
-                    }
-                    ipb.b();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862606, "Lcom/baidu/tieba/ipb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947862606, "Lcom/baidu/tieba/ipb;");
-                return;
-            }
-        }
-        d = "0123456789abcdef".toCharArray();
-        e = null;
-    }
-
-    public static /* synthetic */ int b() {
-        int i = c;
-        c = i + 1;
-        return i;
-    }
-
-    public static ipb f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            ipb ipbVar = e;
-            if (ipbVar != null) {
-                return ipbVar;
-            }
-            synchronized (ipb.class) {
-                if (e == null) {
-                    e = new ipb();
-                }
-            }
-            return e;
-        }
-        return (ipb) invokeV.objValue;
-    }
-
-    public ipb() {
+    public ipb(Context context, String str, xob xobVar, InputStream inputStream, Map<String, String> map, List<spb> list, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, xobVar, inputStream, map, list, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread("yy-vod-stats-report");
-        this.a = handlerThread;
-        handlerThread.start();
-        this.b = new a(this, this.a.getLooper());
+        this.i = new HashMap();
+        context = context.getApplicationContext() != null ? context.getApplicationContext() : context;
+        this.b = context;
+        str = str == null ? context.getPackageName() : str;
+        this.c = str;
+        if (inputStream != null) {
+            this.e = new opb(inputStream, str);
+            gpb.a(inputStream);
+        } else {
+            this.e = new rpb(this.b, str);
+        }
+        this.f = new lpb(this.e);
+        if (xobVar != xob.b && "1.0".equals(this.e.a("/configuration_version", null))) {
+            throw new RuntimeException("The file version does not match,please download the latest agconnect-services.json from the AGC website.");
+        }
+        this.d = (xobVar == null || xobVar == xob.b) ? gpb.f(this.e.a("/region", null), this.e.a("/agcgw/url", null)) : xobVar;
+        this.g = gpb.d(map);
+        this.h = list;
+        this.a = str2 == null ? e() : str2;
     }
 
-    public static String d(byte[] bArr) {
+    @Override // com.baidu.tieba.apb
+    public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            char[] cArr = new char[bArr.length * 2];
-            for (int i = 0; i < bArr.length; i++) {
-                int i2 = bArr[i] & 255;
-                int i3 = i * 2;
-                char[] cArr2 = d;
-                cArr[i3] = cArr2[i2 >>> 4];
-                cArr[i3 + 1] = cArr2[i2 & 15];
-            }
-            return new String(cArr);
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f(str, null) : (String) invokeL.objValue;
     }
 
-    public static String g(String str) {
-        MessageDigest messageDigest;
+    @Override // com.baidu.tieba.apb
+    public xob b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            xob xobVar = this.d;
+            return xobVar == null ? xob.b : xobVar;
+        }
+        return (xob) invokeV.objValue;
+    }
+
+    public final String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            try {
-                messageDigest = MessageDigest.getInstance("MD5");
-            } catch (NoSuchAlgorithmException e2) {
-                e2.printStackTrace();
-                messageDigest = null;
-            }
-            if (messageDigest == null) {
-                return "";
-            }
-            messageDigest.update(str.getBytes());
-            return d(messageDigest.digest());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(String str, long j) {
-        InterceptResult invokeLJ;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            return ("&time=" + ("" + (j / 1000))) + "&key=" + g(str + str2 + "HiidoYYSystem");
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public static void i(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65545, null, i, i2, str) == null) {
-            Log.i("playStats", "tid:" + i + "type:" + i2 + ", stats:" + str);
-            try {
-                f().b.obtainMessage(i2, str).sendToTarget();
-            } catch (NullPointerException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public final boolean h(String str, String str2, long j, int i) {
-        InterceptResult invokeCommon;
-        URL url;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            boolean z = false;
-            if (str2 == null) {
-                return false;
-            }
-            String str3 = "https://mlog.bigda.com/c.gif?act=" + str + e(str, j) + str2 + "&seq=" + i;
-            HttpURLConnection httpURLConnection = null;
-            try {
-                url = new URL(str3);
-            } catch (MalformedURLException e2) {
-                e2.printStackTrace();
-                url = null;
-            }
-            if (url == null) {
-                Log.e("playStats", "report url failed!");
-                return false;
-            }
-            try {
-                HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
-                try {
-                    if (Build.VERSION.SDK_INT < 21 && (httpURLConnection2 instanceof HttpsURLConnection)) {
-                        ((HttpsURLConnection) httpURLConnection2).setSSLSocketFactory(new jpb());
-                    }
-                    httpURLConnection2.setConnectTimeout(10000);
-                    httpURLConnection2.setReadTimeout(6000);
-                    httpURLConnection2.connect();
-                    int responseCode = httpURLConnection2.getResponseCode();
-                    Log.i("playStats", "url : " + str3);
-                    Log.i("playStats", "code : " + responseCode);
-                    if (responseCode == 200) {
-                        z = true;
-                    }
-                    if (httpURLConnection2 != null) {
-                        httpURLConnection2.disconnect();
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    httpURLConnection = httpURLConnection2;
-                    try {
-                        th.printStackTrace();
-                        Log.e("playStats", "open connection except!");
-                        return z;
-                    } finally {
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            Map<String, cpb.a> a = cpb.a();
+            if (a.containsKey(str)) {
+                if (this.i.containsKey(str)) {
+                    return this.i.get(str);
                 }
-            } catch (Throwable th2) {
-                th = th2;
+                cpb.a aVar = a.get(str);
+                if (aVar == null) {
+                    return null;
+                }
+                String a2 = aVar.a(this);
+                this.i.put(str, a2);
+                return a2;
             }
-            return z;
+            return null;
         }
-        return invokeCommon.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public List<spb> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (List) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return String.valueOf(("{packageName='" + this.c + "', routePolicy=" + this.d + ", reader=" + this.e.toString().hashCode() + ", customConfigMap=" + new JSONObject(this.g).toString().hashCode() + '}').hashCode());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (str == null) {
+                return str2;
+            }
+            String e = gpb.e(str);
+            String str3 = this.g.get(e);
+            if (str3 != null) {
+                return str3;
+            }
+            String c = c(e);
+            if (c != null) {
+                return c;
+            }
+            String a = this.e.a(e, str2);
+            return lpb.c(a) ? this.f.a(a, str2) : a;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.apb
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.apb
+    public String getIdentifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

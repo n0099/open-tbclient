@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.android.util.io.FileUtils;
@@ -323,7 +324,7 @@ public final class FileClassifyHelper {
         add("text/comma-separated-values", "csv", 5);
         add("text/css", "css", 5);
         add(SapiWebView.DATA_MIME_TYPE, "htm", 11);
-        add(SapiWebView.DATA_MIME_TYPE, "html", 11);
+        add(SapiWebView.DATA_MIME_TYPE, IMConstants.IM_RECEIVE_SERVER_COMMON_TYPE_HTML, 11);
         add("text/h323", "323", 5);
         add("text/iuls", "uls", 5);
         add("text/mathml", "mml", 5);

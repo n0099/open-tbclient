@@ -1,15 +1,10 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
 import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.w23;
+import com.baidu.tieba.dc2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,26 +13,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class qc2 extends lc2<pc2> {
+public class qc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final w23 a;
-    public final x23 b;
+    public long a;
+    public boolean b;
+    public final dc2 c;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements dc2.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pc2 a;
-        public final /* synthetic */ qc2 b;
+        public final /* synthetic */ qc2 a;
 
-        public a(qc2 qc2Var, pc2 pc2Var) {
+        public a(qc2 qc2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qc2Var, pc2Var};
+                Object[] objArr = {qc2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,16 +42,51 @@ public final class qc2 extends lc2<pc2> {
                     return;
                 }
             }
-            this.b = qc2Var;
-            this.a = pc2Var;
+            this.a = qc2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Bitmap p;
+        @Override // com.baidu.tieba.dc2.b
+        public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (p = tp3.p()) != null) {
-                Message.obtain(this.b, 2, pc2.a(this.a.b, p)).sendToTarget();
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                xb2.g(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
+                wb2.c(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getType(), networkStatus.getStatus());
+                this.a.e(networkStatus);
+                if (qc2.d) {
+                    Log.d("SceneDownloadPkgTips", ">> " + SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-494198229, "Lcom/baidu/tieba/qc2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-494198229, "Lcom/baidu/tieba/qc2$b;");
+                    return;
+                }
+            }
+            int[] iArr = new int[NetworkStatus.values().length];
+            a = iArr;
+            try {
+                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
         }
     }
@@ -74,121 +104,86 @@ public final class qc2 extends lc2<pc2> {
                 return;
             }
         }
-        c = ms1.a;
+        d = fs1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qc2(Looper looper) {
-        super(looper);
+    public qc2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {looper};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = w23.a.a("simple_parser");
-        this.b = (x23) w23.a.a("hsv_parser");
+        this.c = new dc2();
     }
 
-    public final boolean e(String str) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return TextUtils.equals(wp3.B(), str);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.a(new a(this));
         }
-        return invokeL.booleanValue;
     }
 
-    public final void f(pc2 pc2Var) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, pc2Var) != null) || pc2Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            boolean z = true;
+            if (ub3.K().k() == 1) {
+                z = false;
+            }
+            this.b = z;
+            this.a = 0L;
         }
-        if (c) {
-            Log.d("WhitePageHandler", ">> start to get capture.");
-        }
-        wp3.e0(new a(this, pc2Var));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lc2
-    /* renamed from: c */
-    public void a(pc2 pc2Var) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pc2Var) != null) || pc2Var == null) {
-            return;
-        }
-        if (!e(pc2Var.b)) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> stop to capture, page is not top, webViewId =" + pc2Var.b);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> stop collecting network status.");
             }
-            return;
         }
-        f(pc2Var);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lc2
-    /* renamed from: d */
-    public void b(pc2 pc2Var) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, pc2Var) != null) || pc2Var == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.b) {
             return;
         }
-        if (!e(pc2Var.b)) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> stop to parse capture, page is not top, webViewId = " + pc2Var.b);
-                return;
+        if (this.a == 0) {
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> start to check download progress.");
             }
+            this.a = System.currentTimeMillis();
             return;
         }
-        Bitmap bitmap = pc2Var.d;
-        kb2 f = l23.f();
-        View B = px2.T().B(pc2Var.b);
-        if (bitmap != null && f != null && B != null) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> start parsing capture");
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.a > 2000) {
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> download progress over 2s.");
             }
-            Rect b = l23.b(bitmap, f, B);
-            this.a.c(l23.d(f));
-            if (!l23.h() && this.a.a(bitmap, b)) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is full white screen.");
-                }
-                cd2 cd2Var = new cd2();
-                cd2Var.e(SceneType.SCENE_WHITE_SCREEN_L1);
-                cd2Var.d(pc2Var.b);
-                return;
-            }
-            double d = this.b.d(bitmap, b);
-            cd2 cd2Var2 = new cd2();
-            if (l23.g() && d >= 0.5d) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
-                }
-                cd2Var2.e(SceneType.SCENE_WHITE_SCREEN_L3);
-                cd2Var2.d(pc2Var.b);
-            } else if (d >= 0.7d) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
-                }
-                cd2Var2.e(SceneType.SCENE_WHITE_SCREEN_L2);
-                cd2Var2.d(pc2Var.b);
+            c();
+            g();
+        }
+        this.a = currentTimeMillis;
+    }
+
+    public final void e(NetworkStatus networkStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatus) == null) {
+            int i = b.a[networkStatus.ordinal()];
+            if (i != 1 && i != 2) {
+                vb2.f(R.string.obfuscated_res_0x7f0f1577);
             } else {
-                rc2.b().a();
+                vb2.f(R.string.obfuscated_res_0x7f0f156d);
             }
-        } else if (c) {
-            Log.d("WhitePageHandler", ">> stop to parse capture, capture or fragment or webView is null.");
         }
     }
 }

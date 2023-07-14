@@ -17,6 +17,12 @@ public class IdleTaskRegister {
         });
     }
 
+    public void removeRunnable(String str) {
+        if (this.mTaskMap.containsKey(str)) {
+            this.mTaskMap.remove(str);
+        }
+    }
+
     public void scheduleIdleTask(boolean z) {
         for (Map.Entry<String, IdleLaunchTask> entry : this.mTaskMap.entrySet()) {
             entry.getKey();

@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,75 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
 /* loaded from: classes6.dex */
-public class hc2 {
+public final class hc2 extends HandlerThread implements gc2<fc2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ic2 a;
-    public boolean b;
-    public Timer c;
-
-    /* loaded from: classes6.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hc2 a;
-
-        public a(hc2 hc2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hc2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hc2Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (hc2.d) {
-                    Log.d("JsErrorMonitor", ">> finish collecting jsError info.");
-                }
-                this.a.b = false;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final hc2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-751860588, "Lcom/baidu/tieba/hc2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-751860588, "Lcom/baidu/tieba/hc2$b;");
-                    return;
-                }
-            }
-            a = new hc2(null);
-        }
-    }
+    public Handler a;
 
     static {
         InterceptResult invokeClinit;
@@ -94,10 +32,12 @@ public class hc2 {
                 return;
             }
         }
-        d = ms1.a;
+        boolean z = fs1.a;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public hc2() {
+        super("EventDispatcherImpl");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,106 +45,46 @@ public class hc2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = true;
-        this.a = new ic2();
+        c();
     }
 
-    public static hc2 d() {
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            start();
+        }
+    }
+
+    @Override // android.os.HandlerThread, com.baidu.tieba.gc2
+    public Looper getLooper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return super.getLooper();
         }
-        return (hc2) invokeV.objValue;
+        return (Looper) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gc2
+    public void a(@NonNull Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.a();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            h();
-            this.a.d();
+        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
+            this.a = handler;
         }
     }
 
-    public final synchronized void h() {
+    @Override // com.baidu.tieba.gc2
+    public void b(fc2 fc2Var) {
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.c != null) {
-                    this.c.cancel();
-                    this.c = null;
-                }
-            }
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = false;
-            h();
-            if (d) {
-                Log.d("JsErrorMonitor", ">> stop to collect jsError info.");
-            }
-        }
-    }
-
-    public /* synthetic */ hc2(a aVar) {
-        this();
-    }
-
-    public void e(fc2 fc2Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fc2Var) == null) && (z = this.b) && fc2Var != null && z) {
-            if (d) {
-                Log.d("JsErrorMonitor", ">> add jsError " + fc2Var.toString());
-            }
-            this.a.b(fc2Var);
-        }
-    }
-
-    @NonNull
-    public jc2 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            jc2 c = this.a.c();
-            if (d) {
-                Log.d("JsErrorMonitor", ">> jsError info: " + c.a());
-            }
-            return c;
-        }
-        return (jc2) invokeV.objValue;
-    }
-
-    public synchronized void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (d) {
-                    Log.d("JsErrorMonitor", ">> start to collect jsError info. ");
-                }
-                h();
-                Timer timer = new Timer();
-                this.c = timer;
-                timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fc2Var) == null) && fc2Var != null && (handler = this.a) != null) {
+            this.a.sendMessageDelayed(Message.obtain(handler, fc2Var.a, fc2Var), fc2Var.c);
         }
     }
 }

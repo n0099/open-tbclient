@@ -1,220 +1,46 @@
 package com.baidu.tieba;
 
-import android.location.Address;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tbadk.img.ImageUploader;
-import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
+import com.baidu.ugc.editvideo.data.TextWordsEntity;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class pla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public BdUniqueId b;
-    public ola c;
+    public Context a;
+    public VlogEditManager b;
+    public int c;
+    public int d;
+    public TextWordsEntity.TextStyleEntity e;
+    public TextWordsEntity.TextFontEntity f;
+    public int g;
+    public String h;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<mla, Integer, nla> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pla a;
-
-        public b(pla plaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {plaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = plaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
-        public void onPostExecute(nla nlaVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nlaVar) == null) && this.a.c != null) {
-                this.a.c.a(nlaVar);
-            }
-        }
-
-        public /* synthetic */ b(pla plaVar, a aVar) {
-            this(plaVar);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public nla doInBackground(mla... mlaVarArr) {
-            InterceptResult invokeL;
-            mla mlaVar;
-            int netErrorCode;
-            ImageUploadResult.picInfo picinfo;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mlaVarArr)) == null) {
-                String str = null;
-                if (mlaVarArr.length == 0 || (mlaVar = mlaVarArr[0]) == null) {
-                    return null;
-                }
-                jc jcVar = new jc("images", TbMd5.getNameMd5FromUrl(mlaVar.i + 42), DiskFileOperate.Action.READ);
-                jcVar.setSubFolder(true);
-                jcVar.setIsFormatData(false);
-                ImageUploadResult uploadInBackground = new ImageUploader(null).uploadInBackground(c(jcVar.buildPath(), jcVar.getName()), true, false);
-                if (uploadInBackground != null && (picinfo = uploadInBackground.picInfo) != null) {
-                    ImageUploadResult.PicDetailedInfo picDetailedInfo = picinfo.originPic;
-                    if (picDetailedInfo != null && !StringUtils.isNull(picDetailedInfo.picUrl)) {
-                        str = uploadInBackground.picInfo.originPic.picUrl;
-                    } else {
-                        ImageUploadResult.PicDetailedInfo picDetailedInfo2 = uploadInBackground.picInfo.bigPic;
-                        if (picDetailedInfo2 != null && !StringUtils.isNull(picDetailedInfo2.picUrl)) {
-                            str = uploadInBackground.picInfo.bigPic.picUrl;
-                        } else {
-                            ImageUploadResult.PicDetailedInfo picDetailedInfo3 = uploadInBackground.picInfo.smallPic;
-                            if (picDetailedInfo3 != null && !StringUtils.isNull(picDetailedInfo3.picUrl)) {
-                                str = uploadInBackground.picInfo.smallPic.picUrl;
-                            }
-                        }
-                    }
-                }
-                if (StringUtils.isNull(str)) {
-                    str = mlaVar.j;
-                }
-                NetWork netWork = new NetWork();
-                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
-                netWork.getNetContext().getRequest().mIsNeedTbs = true;
-                netWork.addPostData("anonymous", "1");
-                netWork.addPostData("can_no_forum", "0");
-                netWork.addPostData("is_feedback", "0");
-                if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
-                    netWork.addPostData("vcode_tag", "12");
-                }
-                netWork.addPostData("new_vcode", "1");
-                netWork.addPostData("content", mlaVar.m);
-                netWork.addPostData("fid", mlaVar.e);
-                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, mlaVar.f);
-                netWork.addPostData("is_hide", "0");
-                netWork.addPostData(IntentConfig.CALL_FROM, "2");
-                netWork.addPostData("title", mlaVar.m);
-                netWork.addPostData("is_ntitle", "1");
-                netWork.addPostData("st_type", "notitle");
-                netWork.addPostData("is_location", "2");
-                Address j = rf.n().j(false);
-                if (j != null && TbadkCoreApplication.getInst().getIsLocationOn()) {
-                    netWork.addPostData("lbs", String.valueOf(j.getLatitude()) + "," + String.valueOf(j.getLongitude()));
-                    netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
-                    netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
-                }
-                LocationData b = l5a.a().b();
-                if (b != null) {
-                    netWork.addPostData("name", b.getFormatted_address());
-                    netWork.addPostData(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, b.getSn());
-                }
-                netWork.addPostData("is_link_thread", "0");
-                if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-                    netWork.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
-                }
-                netWork.addPostData("tbopen_app_key", mlaVar.a);
-                netWork.addPostData("tbopen_app_icon", mlaVar.d);
-                netWork.addPostData("tbopen_app_name", mlaVar.c);
-                netWork.addPostData("share_abstract", mlaVar.h);
-                netWork.addPostData("share_image", str);
-                netWork.addPostData("share_h5_url", mlaVar.k);
-                netWork.addPostData("share_naws_app_key", mlaVar.b);
-                netWork.addPostData("share_naws_path", mlaVar.l);
-                String postNetData = netWork.postNetData();
-                nla nlaVar = new nla();
-                try {
-                    JSONObject jSONObject = new JSONObject(postNetData);
-                    jSONObject.optString("msg");
-                    jSONObject.optString("pre_msg");
-                    nlaVar.b = mlaVar.e;
-                    nlaVar.c = jSONObject.optString("tid");
-                    jSONObject.optString("pid");
-                    jSONObject.optString("video_id");
-                } catch (Exception unused) {
-                }
-                ErrorData errorData = new ErrorData();
-                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                    errorData.parserJson(postNetData);
-                } else {
-                    if (netWork.isNetSuccess()) {
-                        netErrorCode = netWork.getServerErrorCode();
-                    } else {
-                        netErrorCode = netWork.getNetErrorCode();
-                    }
-                    errorData.setError_code(netErrorCode);
-                    errorData.setError_msg(netWork.getErrorString());
-                }
-                if (errorData.error_code != 0 && !BdNetTypeUtil.isNetWorkAvailable()) {
-                    errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0e0f));
-                }
-                nlaVar.a = errorData;
-                try {
-                    new AntiData().parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
-                } catch (Exception unused2) {
-                }
-                return nlaVar;
-            }
-            return (nla) invokeL.objValue;
-        }
-
-        public String c(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                String str3 = this.a.a + str2;
-                if (str != null) {
-                    return this.a.a + str + "/" + str2;
-                }
-                return str3;
-            }
-            return (String) invokeLL.objValue;
-        }
-    }
-
-    public pla(BdUniqueId bdUniqueId) {
+    public pla(Context context, VlogEditManager vlogEditManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {context, vlogEditManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -224,23 +50,175 @@ public class pla {
                 return;
             }
         }
-        this.a = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
-        this.b = bdUniqueId;
+        this.g = -1;
+        this.h = "";
+        this.a = context;
+        this.b = vlogEditManager;
     }
 
-    public void c(ola olaVar) {
+    public void a(int i, String str, MultiMediaData multiMediaData, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
+        TextWordsEntity.TextStyleEntity textStyleEntity2;
+        TextWordsEntity.TextFontEntity textFontEntity2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, olaVar) == null) {
-            this.c = olaVar;
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, multiMediaData, textStyleEntity, textFontEntity}) != null) || multiMediaData == null) {
+            return;
+        }
+        if (108 == i && TextUtils.isEmpty(str)) {
+            multiMediaData.setExt("text", wab.l(R.string.obfuscated_res_0x7f0f1760));
+        }
+        if (this.g != -1 && !TextUtils.isEmpty(str)) {
+            multiMediaData.setExt("text", str);
+        }
+        if (textStyleEntity != null) {
+            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE, TextWordsEntity.TextStyleEntity.toJson(textStyleEntity).toString());
+        } else {
+            try {
+                String ext = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE);
+                if (!TextUtils.isEmpty(ext)) {
+                    textStyleEntity2 = TextWordsEntity.TextStyleEntity.parse(new JSONObject(ext));
+                } else {
+                    textStyleEntity2 = this.e;
+                }
+                textStyleEntity = textStyleEntity2;
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+        }
+        if (textFontEntity != null) {
+            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT, TextWordsEntity.TextFontEntity.toJson(textFontEntity).toString());
+        } else {
+            try {
+                String ext2 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT);
+                if (!TextUtils.isEmpty(ext2)) {
+                    textFontEntity2 = TextWordsEntity.TextFontEntity.parse(new JSONObject(ext2));
+                } else {
+                    textFontEntity2 = this.f;
+                }
+                textFontEntity = textFontEntity2;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+        }
+        String ext3 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_TEMP_PATH);
+        String videoTmpDir = FileHelper.getVideoTmpDir();
+        String str2 = System.currentTimeMillis() + ".jpg";
+        Bitmap h = lla.d().h(this.a, multiMediaData.getExt("text"), textStyleEntity, textFontEntity);
+        if (!TextUtils.isEmpty(multiMediaData.path) && !multiMediaData.path.equals(ext3)) {
+            FileUtils.delete(new File(multiMediaData.path));
+        }
+        FileUtils.saveBitmap2PNG(videoTmpDir, str2, h, 100);
+        multiMediaData.path = videoTmpDir + File.separator + str2;
+        int i2 = multiMediaData.width;
+        int i3 = multiMediaData.height;
+        multiMediaData.width = h.getWidth();
+        int height = h.getHeight();
+        multiMediaData.height = height;
+        if (this.g == -1) {
+            multiMediaData.scaleType = "adaptive";
+            multiMediaData.type = 0;
+            multiMediaData.start = this.b.getCurrentPlayTime();
+            multiMediaData.end = this.b.getCurrentPlayTime() + 3000;
+            multiMediaData.x = (this.c - multiMediaData.width) / 2.0f;
+            multiMediaData.y = (this.d - multiMediaData.height) / 2.0f;
+            if (TextUtils.equals(this.h, "cover_sticker")) {
+                this.b.addCoverStickerData(multiMediaData);
+            } else {
+                this.b.addStickerData(multiMediaData, this.h);
+            }
+        } else {
+            float f = multiMediaData.x + (i2 / 2.0f);
+            float f2 = multiMediaData.y + (i3 / 2.0f);
+            multiMediaData.x = f - (multiMediaData.width / 2.0f);
+            multiMediaData.y = f2 - (height / 2.0f);
+            if (TextUtils.equals(this.h, "cover_sticker")) {
+                this.b.replaceCoverStickerData(multiMediaData);
+            } else {
+                this.b.replaceStickerData(this.g, multiMediaData, this.h);
+            }
+        }
+        h.recycle();
+    }
+
+    public void b(MultiMediaData multiMediaData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiMediaData) == null) && multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
+            FileUtils.delete(new File(multiMediaData.path));
         }
     }
 
-    public void d(mla mlaVar) {
+    public boolean d(MultiMediaData multiMediaData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mlaVar) == null) {
-            b bVar = new b(this, null);
-            bVar.setTag(this.b);
-            bVar.execute(mlaVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, multiMediaData)) == null) {
+            if (multiMediaData == null) {
+                return false;
+            }
+            String ext = multiMediaData.getExt("text");
+            if (TextUtils.isEmpty(ext)) {
+                return false;
+            }
+            return ext.equals(wab.l(R.string.obfuscated_res_0x7f0f1760));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void g(TextWordsEntity.TextFontEntity textFontEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, textFontEntity) == null) {
+            this.f = textFontEntity;
+        }
+    }
+
+    public void h(TextWordsEntity.TextStyleEntity textStyleEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, textStyleEntity) == null) {
+            this.e = textStyleEntity;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public void c(@NonNull List<MultiMediaData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b.setUpEditLayer("cover_sticker");
+            this.b.addCoverStickerDataList(list);
+            for (MultiMediaData multiMediaData : list) {
+                f(0);
+                a(116, null, multiMediaData, null, null);
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Context context = lla.d().getContext();
+            Context context2 = this.a;
+            if (context == context2 && context2 != null) {
+                lla.d().i(null);
+                this.a = null;
+            }
+        }
+    }
+
+    public void j(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            this.c = i;
+            this.d = i2;
         }
     }
 }

@@ -16,7 +16,7 @@ public class yq1 extends HandlerThread {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public yq1() {
-        super("BackgroundThread", 10);
+        super("SSOHandlerThread", 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

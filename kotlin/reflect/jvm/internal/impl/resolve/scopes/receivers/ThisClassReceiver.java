@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers;
 
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ThisClassReceiver extends ReceiverValue {
     ClassDescriptor getClassDescriptor();
 }

@@ -1,33 +1,8 @@
 package com.baidu.tieba;
 
+import android.util.LruCache;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.behavior.record.BehaviorServiceFetcher;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.abtest.ioc.AbTestServiceFetcher;
-import com.baidu.searchbox.devicescore.DeviceScoreCollectFetcher;
-import com.baidu.searchbox.devicescore.DeviceScoreConfigFetcher;
-import com.baidu.searchbox.devicescore.DeviceScoreFetcher;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePlayUrlServiceFetcher;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceFetcher;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceFetcher;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceFetcher;
-import com.baidu.searchbox.live.service.Media2YYServiceFetcher;
-import com.baidu.searchbox.live.service.PluginInvokeServiceFetcher;
-import com.baidu.searchbox.live.service.YY2MediaServiceFetcher;
-import com.baidu.searchbox.live.service.YYPluginProgressInvokeServiceFetcher;
-import com.baidu.searchbox.live.video.VideoInsertLiveServiceFetcher;
-import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerServiceFetcher;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.searchbox.retrieve.core.task.FetchTaskFetcher;
-import com.baidu.searchbox.retrieve.core.task.UploadTaskFetcher;
-import com.baidu.searchbox.retrieve.inter.IFetchTask;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.retrieve.stats.service.StatServiceFetcher;
-import com.baidu.tbadk.abtest.helper.HttpsExperimentFetcher;
-import com.baidu.tbadk.abtest.helper.NetExperimentFetcher;
-import com.baidu.tbadk.abtest.helper.ThreadExperimentFetcher;
-import com.baidu.tbadk.switchs.UniKVTestFetcher;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,14 +10,236 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBC;
-import com.baidu.webkit.sdk.WebView;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.PriorityQueue;
 /* loaded from: classes8.dex */
-public class yl1 {
+public class yl1 extends LruCache<String, xl1<File>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<ServiceReference, xl1<?>> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<e> a;
+    public final String b;
+    public HashMap<xl1<File>, byte[]> c;
+    public long d;
+    public volatile boolean e;
+    public int f;
+    public long g;
+
+    /* loaded from: classes8.dex */
+    public interface e {
+        void a(String str, xl1<File> xl1Var);
+
+        void b(String str, xl1<File> xl1Var);
+
+        void c(String str, xl1<File> xl1Var);
+    }
+
+    public final void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends ym1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ yl1 d;
+
+        public a(String str, yl1 yl1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, yl1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = str;
+            this.d = yl1Var;
+        }
+
+        @Override // com.baidu.tieba.ym1
+        public Object b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    File file = new File(this.c);
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
+                    this.d.r(file.listFiles(), currentTimeMillis);
+                    return null;
+                } catch (Exception unused) {
+                    this.d.e = true;
+                    return null;
+                }
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends ym1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ byte[] c;
+        public final /* synthetic */ xl1 d;
+        public final /* synthetic */ yl1 e;
+
+        public b(yl1 yl1Var, byte[] bArr, xl1 xl1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yl1Var, bArr, xl1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = yl1Var;
+            this.c = bArr;
+            this.d = xl1Var;
+        }
+
+        @Override // com.baidu.tieba.ym1
+        public Object b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    i71.i(this.c, (File) this.d.a());
+                    this.e.put(((File) this.d.a()).getName(), this.d);
+                    yl1.b(this.e);
+                    if (!this.e.a.isEmpty()) {
+                        for (e eVar : this.e.a) {
+                            eVar.c(((File) this.d.a()).getName(), this.d);
+                        }
+                    }
+                    long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                    yl1 yl1Var = this.e;
+                    yl1Var.m("File saved using " + currentTimeMillis2 + "ms: " + ((File) this.d.a()).getName() + "\nStatus:" + this.e.t());
+                    this.e.g();
+                    return null;
+                } catch (Throwable unused) {
+                    if (!this.e.a.isEmpty()) {
+                        for (e eVar2 : this.e.a) {
+                            eVar2.b(((File) this.d.a()).getName(), this.d);
+                        }
+                        return null;
+                    }
+                    return null;
+                }
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c extends ym1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xl1 c;
+        public final /* synthetic */ yl1 d;
+
+        public c(yl1 yl1Var, xl1 xl1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yl1Var, xl1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = yl1Var;
+            this.c = xl1Var;
+        }
+
+        @Override // com.baidu.tieba.ym1
+        public Object b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    if (this.c != null) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        String name = ((File) this.c.a()).getName();
+                        yl1.c(this.d);
+                        this.c.e();
+                        long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                        yl1 yl1Var = this.d;
+                        yl1Var.m("File deleted using " + currentTimeMillis2 + "ms: " + name);
+                    }
+                    this.d.g();
+                    return null;
+                } catch (Throwable unused) {
+                    return null;
+                }
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements Comparator<File> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(yl1 yl1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yl1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(File file, File file2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
+                return Long.valueOf(file.lastModified()).compareTo(Long.valueOf(file2.lastModified()));
+            }
+            return invokeLL.intValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -54,169 +251,278 @@ public class yl1 {
             }
             if ((invokeClinit.flags & 1) != 0) {
                 classClinitInterceptable.invokePostClinit(1948333899, "Lcom/baidu/tieba/yl1;");
-                return;
             }
         }
-        a = new ConcurrentHashMap<>();
-        d();
     }
 
-    public yl1() {
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return super.maxSize();
+        }
+        return invokeV.longValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yl1(int i, String str) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = new ArrayList();
+        this.e = false;
+        this.f = 0;
+        this.g = 2592000000L;
+        this.b = str;
+        this.c = new HashMap<>();
+    }
+
+    public static /* synthetic */ int b(yl1 yl1Var) {
+        int i = yl1Var.f;
+        yl1Var.f = i + 1;
+        return i;
+    }
+
+    public static /* synthetic */ int c(yl1 yl1Var) {
+        int i = yl1Var.f;
+        yl1Var.f = i - 1;
+        return i;
+    }
+
+    public void delete(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && super.get(str) != null) {
+            h((xl1) super.remove(str));
         }
     }
 
-    public static <T> T a(ServiceReference serviceReference) {
+    public void f(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
+            this.a.add(eVar);
+        }
+    }
+
+    public final void h(xl1<File> xl1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xl1Var) == null) {
+            zm1.a().c(new c(this, xl1Var));
+        }
+    }
+
+    public void q(e eVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, eVar) == null) && this.a.contains(eVar)) {
+            this.a.remove(eVar);
+        }
+    }
+
+    public boolean query(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, serviceReference)) == null) {
-            xl1<?> xl1Var = a.get(serviceReference);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if (j(str) != null && j(str).a().exists()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.util.LruCache
+    public synchronized void trimToSize(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            synchronized (this) {
+                super.trimToSize(i);
+            }
+        }
+    }
+
+    public static yl1 o(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
+            yl1 yl1Var = new yl1(i, str);
+            yl1Var.e = false;
+            zm1.a().c(new a(str, yl1Var));
+            return yl1Var;
+        }
+        return (yl1) invokeLI.objValue;
+    }
+
+    public final void p(String str, File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048587, this, str, file) == null) && file.exists()) {
+            super.put(str, new xl1(file));
+            this.f++;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.util.LruCache
+    /* renamed from: s */
+    public int sizeOf(String str, xl1<File> xl1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, xl1Var)) == null) {
+            if (xl1Var == null) {
+                return super.sizeOf(null, null);
+            }
+            return xl1Var.f();
+        }
+        return invokeLL.intValue;
+    }
+
+    public void u(byte[] bArr, xl1<File> xl1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048595, this, bArr, xl1Var) == null) && xl1Var != null) {
+            if (this.e) {
+                v(xl1Var, bArr);
+            } else {
+                this.c.put(xl1Var, bArr);
+            }
+        }
+    }
+
+    public final void v(xl1<File> xl1Var, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048596, this, xl1Var, bArr) == null) {
+            zm1.a().c(new b(this, bArr, xl1Var));
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (System.currentTimeMillis() - this.d < this.g) {
+                    return;
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                Map snapshot = super.snapshot();
+                this.d = System.currentTimeMillis();
+                for (String str : snapshot.keySet()) {
+                    xl1 xl1Var = (xl1) snapshot.get(str);
+                    if (xl1Var.d(this.g)) {
+                        ((File) ((xl1) super.remove(str)).a()).delete();
+                        this.f--;
+                    } else if (((File) xl1Var.a()).lastModified() < this.d) {
+                        this.d = ((File) xl1Var.a()).lastModified();
+                    }
+                }
+                m("Clear cache using " + (System.currentTimeMillis() - currentTimeMillis) + "ms: ");
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.util.LruCache
+    /* renamed from: i */
+    public void entryRemoved(boolean z, String str, xl1<File> xl1Var, xl1<File> xl1Var2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), str, xl1Var, xl1Var2}) == null) {
+            super.entryRemoved(z, str, xl1Var, xl1Var2);
+            if (z && xl1Var != null) {
+                h(xl1Var);
+            }
+            if (z && !this.a.isEmpty()) {
+                for (e eVar : this.a) {
+                    eVar.a(str, xl1Var);
+                }
+            }
+        }
+    }
+
+    public xl1<File> j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            xl1<File> xl1Var = (xl1) super.get(str);
             if (xl1Var != null) {
-                return (T) xl1Var.getService();
+                try {
+                    xl1Var.a().setLastModified(System.currentTimeMillis());
+                    m("Fetch resource for " + str + ",\nStatus:" + t());
+                } catch (Throwable unused) {
+                }
             }
-            return null;
+            return xl1Var;
         }
-        return (T) invokeL.objValue;
+        return (xl1) invokeL.objValue;
     }
 
-    public static <T> void b(ServiceReference serviceReference, xl1<T> xl1Var) {
+    public final synchronized void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, serviceReference, xl1Var) == null) {
-            a.put(serviceReference, xl1Var);
-        }
-    }
-
-    public static <T> void c(String str, String str2, Class<? extends xl1<T>> cls) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, cls) == null) {
-            try {
-                b(new ServiceReference(str, str2), cls.newInstance());
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            synchronized (this) {
+                this.e = true;
+                if (this.c != null) {
+                    for (xl1<File> xl1Var : this.c.keySet()) {
+                        v(xl1Var, this.c.get(xl1Var));
+                    }
+                    this.c.clear();
+                    this.c = null;
+                }
             }
         }
     }
 
-    public static void d() {
+    public final void r(File[] fileArr, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            c("AlaLiveSdk", "IMSdkService", iv8.class);
-            c("AlaLiveSdk", "IMSdkServicePerson", jv8.class);
-            c("AlaSquare", "SecondFloorService", sc6.class);
-            c(IFetchTask.NAME_SPACE, "report", FetchTaskFetcher.class);
-            c("Frames", "ISafetyConfig", ek6.class);
-            c("Frames", "JsPromptBridge", yj6.class);
-            c("Frs", "FrsService", he7.class);
-            c("HotTopic", "HotTopicRequest", t36.class);
-            c("IM", "IMessageCenterService", xo8.class);
-            c("ImMessageCenter", "ChatBoxDialogService", zd8.class);
-            c("ImMessageCenter", "ChatFloatEntranceService", of8.class);
-            c("ImMessageCenter", "GroupChatService", wd8.class);
-            c("UniKVTest", "UniKVTest", UniKVTestFetcher.class);
-            c(WebView.LOGTAG, "EMManagerProvider", wj6.class);
-            c(WebView.LOGTAG, "IPrefetchManager", uj6.class);
-            c(WebView.LOGTAG, "IPrerenderManager", vj6.class);
-            c(WebView.LOGTAG, "IWebViewDebug", xj6.class);
-            c(WebView.LOGTAG, "IWebViewFactoryService", pj6.class);
-            c("abtest", "service", AbTestServiceFetcher.class);
-            c("behavior-api", "behavior-api", BehaviorServiceFetcher.class);
-            c("device_score", "DEVICE_SCORE", DeviceScoreFetcher.class);
-            c("device_score", "DEVICE_SCORE_COLLECT", DeviceScoreCollectFetcher.class);
-            c("device_score", "DEVICE_SCORE_CONFIG", DeviceScoreConfigFetcher.class);
-            c("download", "DOWNLOAD", dw6.class);
-            c("download", "DOWNLOAD", x20.class);
-            c("download", "db", t20.class);
-            c("feed", "component.resolver", gq6.class);
-            c("feed", "widget.resolver", hq6.class);
-            c("live", DI.AB_NAME, yx8.class);
-            c("live", DI.ACCOUNT, mx8.class);
-            c("live", DI.APP_INFO_NAME, ox8.class);
-            c("live", DI.EXT.EXT_LIVE_JUMP_PAGE, iy8.class);
-            c("live", DI.EXT.EXT_LIVE_LOG, py8.class);
-            c("live", DI.FOLLOW_STATUS, ey8.class);
-            c("live", DI.LIGHTBROWSER_VIEW, tx8.class);
-            c("live", DI.LIVE_CUSTOM_SETTINGS, jz8.class);
-            c("live", DI.LIVE_EVENT_DISPATCHER, cy8.class);
-            c("live", DI.LIVE_INSERT_VIDEO, VideoInsertLiveServiceFetcher.class);
-            c("live", DI.LIVE_LIKE, ky8.class);
-            c("live", DI.LIVE_LOCATION, ny8.class);
-            c("live", DI.LIVE_PLAY_URL, LivePlayUrlServiceFetcher.class);
-            c("live", DI.LIVE_REAL_AUTH, qx8.class);
-            c("live", DI.LIVE_SHOW_VIDEO_PLAYER, xy8.class);
-            c("live", DI.LIVE_USER_SECURITY_BEHAVIOR, ay8.class);
-            c("live", DI.LIVE_USER_SECURITY_DEVICE_INFO, by8.class);
-            c("live", DI.MINI_SHELL.MEDIA_2_YY, Media2YYServiceFetcher.class);
-            c("live", "multi_plugin", MultiPluginManagerServiceFetcher.class);
-            c("live", "net", ry8.class);
-            c("live", DI.PAY_CHANNEL, wx8.class);
-            c("live", DI.LIVE_PLAYER, ez8.class);
-            c("live", DI.MINI_SHELL.PLUGIN_MANAGER, PluginInvokeServiceFetcher.class);
-            c("live", DI.LIVE_PRE_START_PLAYER, LivePreStartPlayServiceFetcher.class);
-            c("live", DI.ROUTER_NAME, hz8.class);
-            c("live", "share", nz8.class);
-            c("live", DI.TB.SHARE_CHANNEL, lz8.class);
-            c("live", DI.THIRD_PART_ACCOUNT, pz8.class);
-            c("live", DI.YY.THIRD_PART_ALI_RECHARGE, qz8.class);
-            c("live", DI.YY.THIRD_PART_WX_RECHARGE, sz8.class);
-            c("live", "toast", uz8.class);
-            c("live", DI.MINI_SHELL.YY_2_MEDIA, YY2MediaServiceFetcher.class);
-            c("live", DI.YY.YY_GAMEASSIST_DXM_RECHARGE, yt7.class);
-            c("live", DI.YY.YY_GAMEASSIST_HOST_INFO, wt7.class);
-            c("live", DI.YY.YY_GAMEASSIST_MODIFY_PWD, au7.class);
-            c("live", DI.YY.YY_GAMEASSIST_PERSMISSION, cu7.class);
-            c("live", DI.YY.YY_MULTI_PLUGIN_PROGRESS, YYPluginProgressInvokeServiceFetcher.class);
-            c("live", DI.YYPAY.YY_PAY, uy8.class);
-            c("live", DI.YY.YY_PLUGIN, YYPluginManageServiceFetcher.class);
-            c(com.baidu.searchbox.live.game.interfaces.DI.MODULE_NAME, "common", gy8.class);
-            c("logsystem", "exceptionhandler", ExceptionHandlerServiceFetcher.class);
-            c("module_home", "SpriteResourceService", e0a.class);
-            c("nad.business", "rewardVideoLpTaskCenter", np0.class);
-            c("nad.core", "adRequester", z21.class);
-            c("nad.core", "browserDownload", bm0.class);
-            c("nad.core", "cmd", e86.class);
-            c("nad.core", "config", f86.class);
-            c("nad.core", "crius", nl0.class);
-            c("nad.core", "cyber", c76.class);
-            c("nad.core", "deviceInfo.bag", d.class);
-            c("nad.core", "deviceInfoInner", ti0.class);
-            c("nad.core", "downloadCreator", s86.class);
-            c("nad.core", "eventbus", sn0.class);
-            c("nad.core", "exp", ho0.class);
-            c("nad.core", "ipdx", wi0.class);
-            c("nad.core", "loadImage", ci0.class);
-            c("nad.core", "loadVideo", vy0.class);
-            c("nad.core", "maxUI", h86.class);
-            c("nad.core", "nativeCookieMgr", z91.class);
-            c("nad.core", "navBarTool", j86.class);
-            c("nad.core", "splash.config", k86.class);
-            c("nad.core", "splash.host", l86.class);
-            c("nad.core", "thirdService", i86.class);
-            c("nad.core", "uad", m86.class);
-            c(StatConstants.VALUE_FROM_RETRIEVE, "stat", StatServiceFetcher.class);
-            c(StatConstants.VALUE_FROM_RETRIEVE, "upload", UploadTaskFetcher.class);
-            c("speed", "runtime", SpeedRuntimeProvider.class);
-            c("tbBaseEmotion", "EmotionService", tx6.class);
-            c("tbadkcore", "IHttpsExperiment", HttpsExperimentFetcher.class);
-            c("tbadkcore", "INetExperiment", NetExperimentFetcher.class);
-            c("tbadkcore", "ISoProcess", oq5.class);
-            c("tbadkcore", "IThreadExperiment", ThreadExperimentFetcher.class);
-            c("tbadkcore", "tbadkcore", h56.class);
-            c("tieba.core", "eventbus", us8.class);
-            c("tieba.core", "eventbus.autorelease", ts8.class);
-            c("ubc", UBC.TAG, tua.class);
-            c("voyager", "upload", p3b.class);
-            c("yaLog", "yaLogConfig", o4b.class);
+        if (interceptable == null || interceptable.invokeLJ(1048590, this, fileArr, j) == null) {
+            if (fileArr != null && fileArr.length > 0) {
+                PriorityQueue priorityQueue = new PriorityQueue(11, new d(this));
+                if (priorityQueue.size() > 0) {
+                    this.d = ((File) priorityQueue.peek()).lastModified();
+                } else {
+                    this.d = System.currentTimeMillis();
+                }
+                priorityQueue.addAll(Arrays.asList(fileArr));
+                while (!priorityQueue.isEmpty()) {
+                    File file = (File) priorityQueue.poll();
+                    p(file.getName(), file);
+                }
+            }
+            m("Complete restore cache using " + (System.currentTimeMillis() - j) + "ms: ");
+            n();
         }
+    }
+
+    public String t() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            int hitCount = hitCount() + missCount();
+            if (hitCount != 0) {
+                i = (hitCount() * 100) / hitCount;
+            } else {
+                i = 0;
+            }
+            return String.format(Locale.CHINA, "LruDiskCache[count=%d,size=%d/%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.f), Integer.valueOf(size()), Integer.valueOf(maxSize()), Integer.valueOf(hitCount()), Integer.valueOf(missCount()), Integer.valueOf(i));
+        }
+        return (String) invokeV.objValue;
     }
 }

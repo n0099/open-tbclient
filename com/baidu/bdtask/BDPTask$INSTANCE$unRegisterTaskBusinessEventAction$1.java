@@ -3,7 +3,7 @@ package com.baidu.bdtask;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.sr;
+import com.baidu.tieba.tr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,18 +17,18 @@ import kotlin.jvm.internal.Lambda;
 /* loaded from: classes3.dex */
 public final class BDPTask$INSTANCE$unRegisterTaskBusinessEventAction$1 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
-    public final /* synthetic */ sr $action;
+    public final /* synthetic */ tr $action;
     public final /* synthetic */ String $actionId;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$unRegisterTaskBusinessEventAction$1(String str, sr srVar) {
+    public BDPTask$INSTANCE$unRegisterTaskBusinessEventAction$1(String str, tr trVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, srVar};
+            Object[] objArr = {str, trVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,7 +40,7 @@ public final class BDPTask$INSTANCE$unRegisterTaskBusinessEventAction$1 extends 
             }
         }
         this.$actionId = str;
-        this.$action = srVar;
+        this.$action = trVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

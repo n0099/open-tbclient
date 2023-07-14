@@ -1,68 +1,90 @@
 package com.baidu.tieba;
 
-import android.widget.ListView;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.model.MsglistModel;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.impl.ResponsesPanelControllerImpl;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class fk8 {
+public final class fk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<ek8> a;
+    public final ResponsesPanelControllerImpl a;
+    public List<Reaction> b;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static final class a implements jp5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ListView a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ ek8 c;
-        public final /* synthetic */ ChatMessage d;
-        public final /* synthetic */ ChatMessage e;
+        public final /* synthetic */ fk8 a;
+        public final /* synthetic */ int b;
 
-        public a(fk8 fk8Var, ListView listView, List list, ek8 ek8Var, ChatMessage chatMessage, ChatMessage chatMessage2) {
+        public a(fk8 fk8Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fk8Var, listView, list, ek8Var, chatMessage, chatMessage2};
+                Object[] objArr = {fk8Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = listView;
-            this.b = list;
-            this.c = ek8Var;
-            this.d = chatMessage;
-            this.e = chatMessage2;
+            this.a = fk8Var;
+            this.b = i;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.jp5
+        public void a(List<String> list) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.getLastVisiblePosition() != this.b.size() - 1) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (ListUtils.isEmpty(list)) {
+                    if (!ListUtils.isEmpty(this.a.a())) {
+                        List<Reaction> a = this.a.a();
+                        Intrinsics.checkNotNull(a);
+                        int size = a.size();
+                        if (size > this.b) {
+                            List<Reaction> a2 = this.a.a();
+                            Intrinsics.checkNotNull(a2);
+                            arrayList.addAll(a2.subList(0, this.b));
+                        } else {
+                            List<Reaction> a3 = this.a.a();
+                            Intrinsics.checkNotNull(a3);
+                            arrayList.addAll(a3.subList(0, size));
+                        }
+                        this.a.b().i(arrayList);
+                    }
+                } else {
+                    Intrinsics.checkNotNull(list);
+                    for (String str : list) {
+                        arrayList.add(new Reaction("", str));
+                    }
+                }
+                this.a.b().i(arrayList);
             }
-            this.c.b(this.a, this.d, this.e);
         }
     }
 
-    public fk8() {
+    public fk8(ResponsesPanelControllerImpl controller) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {controller};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,29 +94,51 @@ public class fk8 {
                 return;
             }
         }
-        ArrayList<ek8> arrayList = new ArrayList<>(2);
-        this.a = arrayList;
-        arrayList.add(new dk8());
-        this.a.add(new gk8());
+        Intrinsics.checkNotNullParameter(controller, "controller");
+        this.a = controller;
     }
 
-    public void a(MsglistModel msglistModel, ListView listView) {
+    public final List<Reaction> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, msglistModel, listView) == null) && msglistModel != null && msglistModel.getData() != null) {
-            List<ChatMessage> chatMessages = msglistModel.getData().getChatMessages();
-            if (ListUtils.isEmpty(chatMessages)) {
-                return;
-            }
-            ChatMessage chatMessage = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 1);
-            ChatMessage chatMessage2 = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 2);
-            Iterator<ek8> it = this.a.iterator();
-            while (it.hasNext()) {
-                ek8 next = it.next();
-                if (next.a(chatMessage, chatMessage2)) {
-                    listView.postDelayed(new a(this, listView, chatMessages, next, chatMessage, chatMessage2), 200L);
-                    return;
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final ResponsesPanelControllerImpl b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ResponsesPanelControllerImpl) invokeV.objValue;
+    }
+
+    public final void c(ml8 process, Reaction reaction, BaseMsg msg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, process, reaction, msg) == null) {
+            Intrinsics.checkNotNullParameter(process, "process");
+            Intrinsics.checkNotNullParameter(reaction, "reaction");
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            nm8.h(process, reaction, msg, 1);
+        }
+    }
+
+    public final void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            int abs = Math.abs(1 - nm8.a());
+            to5.b().e(context, true, -abs, new a(this, abs));
+        }
+    }
+
+    public final void e(List<Reaction> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.b = list;
         }
     }
 }

@@ -5,7 +5,7 @@ import kotlin.jvm.internal.FunctionReference;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KDeclarationContainer;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final /* synthetic */ class TypeIntersector$intersectTypesWithoutIntersectionType$filteredSuperAndEqualTypes$1 extends FunctionReference implements Function2<KotlinType, KotlinType, Boolean> {
     public TypeIntersector$intersectTypesWithoutIntersectionType$filteredSuperAndEqualTypes$1(NewKotlinTypeCheckerImpl newKotlinTypeCheckerImpl) {
         super(2, newKotlinTypeCheckerImpl);

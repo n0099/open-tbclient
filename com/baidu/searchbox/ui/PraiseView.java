@@ -60,9 +60,9 @@ public class PraiseView extends LinearLayout {
     public void setPraiseCount(int i) {
         this.mCount = i;
         if (i == 0) {
-            this.mCommentlistitemPraisenum.setText(getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0493));
+            this.mCommentlistitemPraisenum.setText(getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0496));
         } else {
-            this.mCommentlistitemPraisenum.setText(displayLikeCount(i, getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0494)));
+            this.mCommentlistitemPraisenum.setText(displayLikeCount(i, getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0497)));
         }
     }
 
@@ -140,7 +140,7 @@ public class PraiseView extends LinearLayout {
                         int i2 = PraiseView.this.mCount;
                         TextView textView = PraiseView.this.mCommentlistitemPraisenum;
                         PraiseView praiseView = PraiseView.this;
-                        textView.setText(praiseView.displayLikeCount(i, praiseView.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0494)));
+                        textView.setText(praiseView.displayLikeCount(i, praiseView.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0497)));
                         PraiseView.this.mCommentlistitemPraisenum.setTextColor(PraiseView.this.getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0604f4));
                         PraiseView.this.startPraiseAnim(i2 + "", i + "");
                         PraiseView.this.mCount = i;

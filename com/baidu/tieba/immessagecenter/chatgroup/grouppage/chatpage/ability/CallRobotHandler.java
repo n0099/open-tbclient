@@ -8,7 +8,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
-import com.baidu.tieba.og8;
+import com.baidu.tieba.ol8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\u0018\u0000 \u000f2\u00020\u0001:\u0002\u000f\u0010B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J$\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\b2\b\u0010\t\u001a\u0004\u0018\u00010\n2\b\u0010\u000b\u001a\u0004\u0018\u00010\fH\u0016J\b\u0010\r\u001a\u00020\u000eH\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0011"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/CallRobotHandler;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseAbilityHandler;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;)V", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AbilityItem;", "oriMsg", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseMsg;", "payload", "", "provideType", "", "Companion", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class CallRobotHandler extends og8 {
+public final class CallRobotHandler extends ol8 {
     public static /* synthetic */ Interceptable $ic;
     public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public final class CallRobotHandler extends og8 {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) ? c.a(str, i) : (AbilityItem) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.og8
+    @Override // com.baidu.tieba.ol8
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -340,7 +340,7 @@ public final class CallRobotHandler extends og8 {
         this.b = chatPage;
     }
 
-    @Override // com.baidu.tieba.og8
+    @Override // com.baidu.tieba.ol8
     public void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
         GroupInputViewController.SourceType sourceType;
         Interceptable interceptable = $ic;
@@ -355,7 +355,7 @@ public final class CallRobotHandler extends og8 {
             } else {
                 sourceType = GroupInputViewController.SourceType.TWO;
             }
-            chatPage.k1(botUk, skillId, sourceType, baseMsg, conf.isNeedReply(), conf.isNeedAt(), conf.isNeedShowSelectPanel(), conf.getKeyboardContent());
+            chatPage.o1(botUk, skillId, sourceType, baseMsg, conf.isNeedReply(), conf.isNeedAt(), conf.isNeedShowSelectPanel(), conf.getKeyboardContent());
         }
     }
 }

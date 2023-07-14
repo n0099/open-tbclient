@@ -12,7 +12,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.FinishMemberTask.DataRes;
 import tbclient.FinishMemberTask.FinishMemberTaskResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FinishMemberTaskSocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

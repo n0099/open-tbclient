@@ -1,23 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.tbadk.core.data.NewUserRedPackageData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.ActiveConfig.DataRes;
+import tbclient.FloatStrategy;
+import tbclient.MissionInfo;
 /* loaded from: classes5.dex */
 public class av4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public ArrayList<ev4> c;
-    public String d;
+    public DataRes a;
+    public boolean b;
+    public String c;
+    public final ArrayList<au4> d;
+    public final ArrayList<FloatStrategy> e;
+    public NewUserRedPackageData f;
+    public ActiveCenterData g;
 
     public av4() {
         Interceptable interceptable = $ic;
@@ -29,68 +35,74 @@ public class av4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.c = "";
+        this.d = new ArrayList<>();
+        this.e = new ArrayList<>();
     }
 
-    public long a() {
+    public ArrayList<FloatStrategy> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public ArrayList<ev4> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.e;
         }
         return (ArrayList) invokeV.objValue;
     }
 
-    public String d() {
+    public ArrayList<au4> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.d;
         }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public void e(String str) {
+    public void c(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || wi.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.a = jSONObject.optLong("start_date", 0L) * 1000;
-            this.b = jSONObject.optLong("end_date", 0L) * 1000;
-            this.d = jSONObject.optString("ahead_url", "");
-            this.c = new ArrayList<>();
-            JSONArray optJSONArray = jSONObject.optJSONArray("time");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
-                    ev4 ev4Var = new ev4();
-                    ev4Var.c(optJSONArray2);
-                    this.c.add(ev4Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) {
+            this.a = dataRes;
+            this.d.clear();
+            this.e.clear();
+            if (dataRes == null) {
+                return;
+            }
+            boolean z = true;
+            if (dataRes.is_new_user.intValue() != 1) {
+                z = false;
+            }
+            this.b = z;
+            this.c = dataRes.active_url;
+            this.e.addAll(dataRes.float_list);
+            for (MissionInfo missionInfo : this.a.mission_list) {
+                if (missionInfo != null) {
+                    au4 au4Var = new au4(missionInfo);
+                    if (missionInfo.tasktype.intValue() == 5) {
+                        ba5.e().g(missionInfo);
+                    } else if (missionInfo.tasktype.intValue() == 9) {
+                        ou4.c().f(au4Var);
+                    } else if (au4Var.L()) {
+                        this.d.add(au4Var);
+                    }
                 }
             }
-        } catch (Exception e) {
-            BdLog.e(e);
+            if (ListUtils.isNotEmpty(this.a.task_list)) {
+                eu4.d().h(this.a.task_list);
+            } else {
+                eu4.d().h(null);
+            }
+            NewUserRedPackageData newUserRedPackageData = new NewUserRedPackageData();
+            this.f = newUserRedPackageData;
+            newUserRedPackageData.parseProto(dataRes);
+            if (dataRes.active_center != null) {
+                ActiveCenterData activeCenterData = new ActiveCenterData();
+                this.g = activeCenterData;
+                activeCenterData.parseProto(dataRes);
+            }
         }
     }
 }

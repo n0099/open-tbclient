@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.impersonal.components.inputview.ImPersonInputView;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalInputBinding;
-import com.baidu.tieba.jr8;
-import com.baidu.tieba.pp8;
+import com.baidu.tieba.lx8;
+import com.baidu.tieba.qv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,11 +24,11 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ChatInputSlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final jr8 j;
+    public final lx8 j;
     public ImPersonInputView k;
     public SlicePersonalInputBinding l;
 
-    public ChatInputSlice(jr8 repo) {
+    public ChatInputSlice(lx8 repo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public final class ChatInputSlice extends Slice {
         this.j = repo;
     }
 
-    public final void W(int i) {
+    public final void X(int i) {
         ViewGroup.MarginLayoutParams marginLayoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -77,7 +77,7 @@ public final class ChatInputSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View M(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    public View N(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
@@ -92,10 +92,10 @@ public final class ChatInputSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void O(boolean z) {
+    public void P(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            super.O(z);
+            super.P(z);
             ImPersonInputView imPersonInputView = this.k;
             if (imPersonInputView != null) {
                 imPersonInputView.b(z);
@@ -116,10 +116,10 @@ public final class ChatInputSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void T(View view2, Bundle bundle) {
+    public void U(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
-            super.T(view2, bundle);
+            super.U(view2, bundle);
             SlicePersonalInputBinding slicePersonalInputBinding = this.l;
             if (slicePersonalInputBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -128,7 +128,7 @@ public final class ChatInputSlice extends Slice {
             ImPersonInputView imPersonInputView = slicePersonalInputBinding.b;
             this.k = imPersonInputView;
             if (imPersonInputView != null) {
-                new pp8(D().getPageContext(), imPersonInputView, this.j);
+                new qv8(E().getPageContext(), imPersonInputView, this.j);
             }
         }
     }

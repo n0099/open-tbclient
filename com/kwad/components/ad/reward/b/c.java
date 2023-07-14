@@ -2,7 +2,7 @@ package com.kwad.components.ad.reward.b;
 
 import com.kwad.sdk.api.KsRewardVideoAd;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public static void a(b bVar, KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
         if (rewardAdInteractionListener == null || bVar == null) {

@@ -1,52 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class x70 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface x70 extends Closeable {
+    void disconnect();
 
-    public x70() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int getCode() throws IOException;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                Method declaredMethod = Class.forName("com.baidu.browser.sailor.util.BdZeusUtil", true, x70.class.getClassLoader()).getDeclaredMethod("isWebkitLoaded", new Class[0]);
-                declaredMethod.setAccessible(true);
-                boolean booleanValue = ((Boolean) declaredMethod.invoke(null, new Object[0])).booleanValue();
-                Method declaredMethod2 = Class.forName("com.baidu.webkit.internal.blink.WebSettingsGlobalBlink", true, x70.class.getClassLoader()).getDeclaredMethod("getChromiunNetInit", new Class[0]);
-                declaredMethod2.setAccessible(true);
-                if (!booleanValue) {
-                    return false;
-                }
-                if (!((Boolean) declaredMethod2.invoke(null, new Object[0])).booleanValue()) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
+    Map<String, List<String>> getHeaders() throws IOException;
+
+    InputStream getInputStream() throws IOException;
+
+    String getMessage() throws IOException;
+
+    InputStream t() throws IOException;
+
+    void u(int i);
+
+    int v();
 }

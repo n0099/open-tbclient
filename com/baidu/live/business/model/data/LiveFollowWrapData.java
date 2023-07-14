@@ -1,7 +1,7 @@
 package com.baidu.live.business.model.data;
 
-import com.baidu.tieba.rd0;
-import com.baidu.tieba.ud0;
+import com.baidu.tieba.sd0;
+import com.baidu.tieba.vd0;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -43,9 +43,9 @@ public class LiveFollowWrapData {
                 }
             }
         }
-        if (!rd0.c(this.followList) && (optJSONObject = jSONObject.optJSONObject("more")) != null) {
+        if (!sd0.c(this.followList) && (optJSONObject = jSONObject.optJSONObject("more")) != null) {
             String optString = optJSONObject.optString("scheme");
-            if (!ud0.a(optString)) {
+            if (!vd0.a(optString)) {
                 this.followMore = new FollowMore(optString, optJSONObject.optString("txt"));
             }
         }

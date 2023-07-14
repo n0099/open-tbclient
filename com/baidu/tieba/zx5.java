@@ -1,263 +1,262 @@
 package com.baidu.tieba;
 
 import android.text.Editable;
-import android.text.TextUtils;
-import android.util.Pair;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.ImageSpan;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public class zx5 {
     public static /* synthetic */ Interceptable $ic;
-    public static TextView a;
+    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean g(char c) {
+    public static boolean c(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c)})) == null) {
-            if (c < 'a' || c > 'z') {
-                if (c < 'A' || c > 'Z') {
-                    return (c >= '0' && c <= '9') || c == ' ';
-                }
-                return true;
-            }
-            return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return false;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean h(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Character.valueOf(c)})) == null) ? c >= 55296 && c <= 56319 : invokeCommon.booleanValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948375346, "Lcom/baidu/tieba/zx5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948375346, "Lcom/baidu/tieba/zx5;");
+                return;
+            }
+        }
+        a = Pattern.compile("#([^#(]+)#", 2);
     }
 
-    public static int a(Editable editable) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, editable)) == null) {
-            if (editable == null) {
-                return 0;
-            }
-            return c(editable.toString());
-        }
-        return invokeL.intValue;
-    }
-
-    public static int b(EditText editText) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, editText)) == null) {
-            if (editText == null) {
-                return 0;
-            }
-            return a(editText.getText());
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                if (g(str.charAt(i2))) {
-                    i++;
-                } else {
-                    i += 2;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int codePointCount = str.codePointCount(0, str.length());
-            int i = 0;
-            for (int i2 = 1; i2 <= codePointCount; i2++) {
-                str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2)).length();
-                i++;
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                if (' ' == str.charAt(i2)) {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int codePointCount = str.codePointCount(0, str.length());
-            int i = 0;
-            for (int i2 = 1; i2 <= codePointCount; i2++) {
-                String substring = str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2));
-                if (substring.length() >= 2) {
-                    i += 2;
-                } else {
-                    i += c(substring);
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return "";
             }
-            if (c(str) > i) {
-                return k(str, 0, i - 2) + "...";
+            if (str.charAt(0) == '#' && str.charAt(str.length() - 1) == '#') {
+                return str;
             }
-            return str;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static String l(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i)) == null) {
-            int codePointCount = str.codePointCount(0, str.length());
-            int i2 = 1;
-            String str2 = str;
-            while (i2 <= codePointCount) {
-                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-                if (d(substring) > i) {
-                    break;
-                }
-                i2++;
-                str2 = substring;
-            }
-            return str2;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static String m(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, str, i)) == null) {
-            int codePointCount = str.codePointCount(0, str.length());
-            int i2 = 1;
-            String str2 = str;
-            while (i2 <= codePointCount) {
-                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-                if (e(substring) > i) {
-                    break;
-                }
-                i2++;
-                str2 = substring;
-            }
-            return str2;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static Pair<Integer, Integer> i(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, str, i, i2)) == null) {
-            try {
-                if (a == null) {
-                    a = new TextView(TbadkCoreApplication.getInst().getContext());
-                }
-                TextView textView = a;
-                if (textView.getLayoutParams() == null) {
-                    textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                }
-                textView.setText(str);
-                textView.setTextSize(0, i);
-                textView.measure(View.MeasureSpec.makeMeasureSpec(i2, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
-                return new Pair<>(Integer.valueOf(textView.getMeasuredHeight()), Integer.valueOf(textView.getLineCount()));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (Pair) invokeLII.objValue;
-    }
-
-    public static String k(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, str, i, i2)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(str) && i <= i2) {
-                if (i >= 0 && i2 >= 0) {
-                    int i3 = 0;
-                    for (int i4 = 0; i4 < str.length(); i4++) {
-                        char charAt = str.charAt(i4);
-                        if (i3 >= i2) {
-                            if (i3 == i2) {
-                                if (h(sb.charAt(sb.length() - 1))) {
-                                    sb.append(charAt);
-                                    return sb.toString();
-                                }
-                                return sb.toString();
-                            } else if (sb.length() > 2 && h(sb.charAt(sb.length() - 2))) {
-                                return sb.toString();
-                            } else {
-                                return sb.deleteCharAt(sb.length() - 1).toString();
-                            }
-                        }
-                        if (i3 >= i) {
-                            sb.append(charAt);
-                        }
-                        if (g(charAt)) {
-                            i3++;
-                        } else {
-                            i3 += 2;
-                        }
-                    }
-                }
-                return sb.toString();
-            }
+            StringBuilder sb = new StringBuilder(str.length() + 2);
+            sb.append("#");
+            sb.append(str);
+            sb.append("#");
             return sb.toString();
         }
-        return (String) invokeLII.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            StringBuffer stringBuffer = new StringBuffer(TbConfig.TIEBA_ADDRESS + "n/video/opersquare?tab=hot&topic_name=");
+            int length = str.length();
+            if (length > 2 && str.charAt(0) == '#') {
+                int i = length - 1;
+                if (str.charAt(i) == '#') {
+                    str2 = str.substring(1, i);
+                    stringBuffer.append(str2);
+                    return stringBuffer.toString();
+                }
+            }
+            str2 = null;
+            stringBuffer.append(str2);
+            return stringBuffer.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static SpannableString i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return new SpannableString("");
+            }
+            Matcher matcher = a.matcher(str);
+            SpannableString spannableString = new SpannableString(str);
+            while (matcher.find()) {
+                int start = matcher.start();
+                int end = matcher.end();
+                if (!e(str.substring(start, end))) {
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+                }
+            }
+            return spannableString;
+        }
+        return (SpannableString) invokeL.objValue;
+    }
+
+    public static void j(Spannable spannable) {
+        ImageSpan[] imageSpanArr;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65546, null, spannable) != null) || spannable == null) {
+            return;
+        }
+        String obj = spannable.toString();
+        if (StringUtils.isNull(obj)) {
+            return;
+        }
+        Matcher matcher = a.matcher(obj);
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            if (!e(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                spannable.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+            }
+        }
+    }
+
+    public static boolean b(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
+            return c(tbPageContext, true, true);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if ("#".equals(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (str != null && str.startsWith("#") && str.endsWith("#") && "".equals(str.substring(1, str.length() - 1).trim())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void h(ki5 ki5Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, ki5Var) == null) {
+            int i = ki5Var.b;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                str = "";
+                            } else {
+                                str = "1";
+                            }
+                        } else {
+                            str = TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM;
+                        }
+                    } else {
+                        str = "pb";
+                    }
+                } else {
+                    str = "frs";
+                }
+            } else {
+                str = "index";
+            }
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", str));
+        }
+    }
+
+    public static boolean g(Spannable spannable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, spannable, i)) == null) {
+            if (spannable != null && !StringUtils.isNull(spannable.toString())) {
+                Matcher matcher = a.matcher(spannable.toString());
+                while (matcher.find()) {
+                    int start = matcher.start();
+                    int end = matcher.end();
+                    if (i > start && end > i) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void k(SpanGroupEditText spanGroupEditText) {
+        int i;
+        int i2;
+        ImageSpan[] imageSpanArr;
+        Object[] spans;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, spanGroupEditText) == null) && spanGroupEditText != null && spanGroupEditText.getText() != null && spanGroupEditText.getSpanGroupManager() != null) {
+            SpanGroupManager spanGroupManager = spanGroupEditText.getSpanGroupManager();
+            if (spanGroupManager.I().size() > 0) {
+                gc5 gc5Var = spanGroupManager.I().get(0);
+                i2 = gc5Var.f();
+                i = gc5Var.c();
+            } else {
+                i = 0;
+                i2 = 0;
+            }
+            Editable text = spanGroupEditText.getText();
+            String obj = text.toString();
+            if (StringUtils.isNull(obj)) {
+                return;
+            }
+            Matcher matcher = a.matcher(obj);
+            while (matcher.find()) {
+                int start = matcher.start();
+                int end = matcher.end();
+                if (end > i2 && i > end) {
+                    for (Object obj2 : text.getSpans(i2, text.length(), Object.class)) {
+                        if ((obj2 instanceof EMRichTextAnyIconSpan) || (obj2 instanceof ForegroundColorSpan)) {
+                            text.removeSpan(obj2);
+                        }
+                    }
+                    spanGroupManager.delete(i2, i, true);
+                    i = -1;
+                    i2 = 0;
+                }
+                if (!e(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) text.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                    text.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+                }
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VideoMuxerData implements Serializable {
     public List<AudioPlayData> audioPlayDataList;
     public String cachePath;

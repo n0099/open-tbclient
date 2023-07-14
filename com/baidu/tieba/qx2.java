@@ -1,10 +1,5 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,39 +9,69 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qx2 implements Application.ActivityLifecycleCallbacks {
+public class qx2 implements mx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile qx2 d;
+    public static final oq3<ta2> a;
+    public static final oq3<ta2> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+    /* loaded from: classes7.dex */
+    public static class a implements oq3<ta2> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oq3
+        /* renamed from: b */
+        public void a(ta2 ta2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ta2Var) == null) {
+                ta2Var.suspendTimer();
+            }
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static class b implements oq3<ta2> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-    }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oq3
+        /* renamed from: b */
+        public void a(ta2 ta2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ta2Var) == null) {
+                ta2Var.continueTimer();
+            }
         }
     }
 
@@ -63,7 +88,8 @@ public class qx2 implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        c = ms1.a;
+        a = new a();
+        b = new b();
     }
 
     public qx2() {
@@ -76,109 +102,32 @@ public class qx2 implements Application.ActivityLifecycleCallbacks {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = false;
     }
 
-    public static qx2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (qx2.class) {
-                    if (d == null) {
-                        d = new qx2();
-                    }
-                }
-            }
-            return d;
-        }
-        return (qx2) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
+    @Override // com.baidu.tieba.mx2
+    public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (c) {
-                Log.d("SwanAppLifecycle", "registerSelf for lifecycle");
-            }
-            jv2.c().registerActivityLifecycleCallbacks(this);
+            a(a);
         }
     }
 
-    public void e() {
+    @Override // com.baidu.tieba.mx2
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c) {
-                Log.d("SwanAppLifecycle", "un registerSelf for lifecycle");
-            }
-            jv2.c().unregisterActivityLifecycleCallbacks(this);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a(b);
         }
     }
 
-    public void d(boolean z) {
-        boolean z2;
+    public void a(oq3<ta2> oq3Var) {
+        rd2 W;
+        ta2 d;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (z2 = this.a) != z) {
-            if (z2) {
-                this.a = false;
-                ey2.a().e(null);
-                return;
-            }
-            this.a = true;
-            ey2.a().d(null);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, activity) == null) && !this.a) {
-            this.a = true;
-            ey2.a().d(activity);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
-            int i = this.b + 1;
-            this.b = i;
-            if (i == 1 && !this.a) {
-                if (c) {
-                    Log.d("SwanAppLifecycle", "onBackgroundToForeground");
-                }
-                this.a = true;
-                ey2.a().d(activity);
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
-            int i = this.b - 1;
-            this.b = i;
-            if (i == 0 && this.a) {
-                if (c) {
-                    Log.d("SwanAppLifecycle", "onForegroundToBackground");
-                }
-                this.a = false;
-                ey2.a().e(activity);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, oq3Var) == null) && (W = pi2.U().W()) != null && (d = W.d()) != null && d.isWebView()) {
+            oq3Var.a(d);
         }
     }
 }

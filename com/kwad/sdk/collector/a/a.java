@@ -33,18 +33,18 @@ import org.json.JSONArray;
 public class a extends com.kwad.sdk.g.a {
     public static AtomicBoolean SW = new AtomicBoolean(false);
     public static volatile Message SX;
-    public HandlerC0669a SU = new HandlerC0669a((byte) 0);
+    public HandlerC0674a SU = new HandlerC0674a((byte) 0);
     public Messenger SV = new Messenger(this.SU);
 
     /* renamed from: com.kwad.sdk.collector.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class HandlerC0669a extends Handler {
+    public static class HandlerC0674a extends Handler {
         public WeakReference<Service> SZ;
 
-        public HandlerC0669a() {
+        public HandlerC0674a() {
         }
 
-        public /* synthetic */ HandlerC0669a(byte b) {
+        public /* synthetic */ HandlerC0674a(byte b) {
             this();
         }
 

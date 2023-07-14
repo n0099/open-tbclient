@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,26 +9,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.channel.GdtHelper;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.lang.ref.WeakReference;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public class whb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String b = "RootKeyUtil";
+public class whb implements GdtHelper.GdtNativeContainerCreator {
+    public static /* synthetic */ Interceptable $ic;
+    public static final whb b;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
+    public final Set<WeakReference<NativeAdContainer>> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948271992, "Lcom/baidu/tieba/whb;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948271992, "Lcom/baidu/tieba/whb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948271992, "Lcom/baidu/tieba/whb;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948271992, "Lcom/baidu/tieba/whb;");
-        }
+        b = new whb();
     }
 
     public whb() {
@@ -45,47 +50,18 @@ public class whb {
                 return;
             }
         }
-        this.a = null;
+        this.a = new HashSet();
     }
 
-    public byte[] c() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
+    public ViewGroup generateGdtNativeContainer(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (byte[]) this.a.clone();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
+            this.a.add(new WeakReference<>(nativeAdContainer));
+            return nativeAdContainer;
         }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static whb d(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, str2, str3, str4)) == null) {
-            whb whbVar = new whb();
-            whbVar.a(str, str2, str3, str4);
-            return whbVar;
-        }
-        return (whb) invokeLLLL.objValue;
-    }
-
-    public final void a(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
-            b(str, str2, str3, vhb.b(str4));
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public final void b(String str, String str2, String str3, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, bArr) == null) {
-            if (Build.VERSION.SDK_INT < 26) {
-                yhb.d(b, "initRootKey: sha1");
-                this.a = thb.h(str, str2, str3, bArr, false);
-                return;
-            }
-            yhb.d(b, "initRootKey: sha256");
-            this.a = thb.h(str, str2, str3, bArr, true);
-        }
+        return (ViewGroup) invokeL.objValue;
     }
 }

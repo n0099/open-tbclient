@@ -58,7 +58,7 @@ public class MiPushClient4Hybrid {
     }
 
     public static boolean isRegistered(Context context, String str) {
-        return b.m219a(context).a(str) != null;
+        return b.m221a(context).a(str) != null;
     }
 
     public static void onReceiveRegisterResult(Context context, ii iiVar) {
@@ -66,7 +66,7 @@ public class MiPushClient4Hybrid {
         String c = iiVar.c();
         if (iiVar.a() == 0 && (aVar = dataMap.get(c)) != null) {
             aVar.a(iiVar.f706e, iiVar.f707f);
-            b.m219a(context).a(c, aVar);
+            b.m221a(context).a(c, aVar);
         }
         ArrayList arrayList = null;
         if (!TextUtils.isEmpty(iiVar.f706e)) {
@@ -90,9 +90,9 @@ public class MiPushClient4Hybrid {
     }
 
     public static void registerPush(Context context, String str, String str2, String str3) {
-        if (b.m219a(context).m224a(str2, str3, str)) {
+        if (b.m221a(context).m226a(str2, str3, str)) {
             ArrayList arrayList = new ArrayList();
-            b.a a = b.m219a(context).a(str);
+            b.a a = b.m221a(context).a(str);
             if (a != null) {
                 arrayList.add(a.c);
                 MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ex.COMMAND_REGISTER.f336a, arrayList, 0L, null, null, null);
@@ -116,7 +116,7 @@ public class MiPushClient4Hybrid {
         }
         long currentTimeMillis = System.currentTimeMillis();
         if (Math.abs(currentTimeMillis - (sRegisterTimeMap.get(str) != null ? sRegisterTimeMap.get(str).longValue() : 0L)) < 5000) {
-            com.xiaomi.channel.commonutils.logger.b.m175a("MiPushClient4Hybrid  Could not send register message within 5s repeatedly.");
+            com.xiaomi.channel.commonutils.logger.b.m177a("MiPushClient4Hybrid  Could not send register message within 5s repeatedly.");
             return;
         }
         sRegisterTimeMap.put(str, Long.valueOf(currentTimeMillis));
@@ -130,12 +130,12 @@ public class MiPushClient4Hybrid {
         ihVar.e(str3);
         ihVar.d(str);
         ihVar.f(a2);
-        ihVar.c(com.xiaomi.push.g.m510a(context, context.getPackageName()));
+        ihVar.c(com.xiaomi.push.g.m512a(context, context.getPackageName()));
         ihVar.b(com.xiaomi.push.g.a(context, context.getPackageName()));
         ihVar.h(BuildConfig.VERSION_NAME);
         ihVar.a(50005);
         ihVar.a(hv.Init);
-        if (!com.xiaomi.push.j.m711d()) {
+        if (!com.xiaomi.push.j.m713d()) {
             String d = com.xiaomi.push.i.d(context);
             if (!TextUtils.isEmpty(d)) {
                 ihVar.i(bo.a(d));
@@ -147,7 +147,7 @@ public class MiPushClient4Hybrid {
         }
         ig igVar2 = new ig();
         igVar2.c(hr.HybridRegister.f508a);
-        igVar2.b(b.m219a(context).m220a());
+        igVar2.b(b.m221a(context).m222a());
         igVar2.d(context.getPackageName());
         igVar2.a(ir.a(ihVar));
         igVar2.a(bd.a());
@@ -165,12 +165,12 @@ public class MiPushClient4Hybrid {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     public static void reportMessageArrived(Context context, MiPushMessage miPushMessage, boolean z) {
         if (miPushMessage == null || miPushMessage.getExtra() == null) {
-            com.xiaomi.channel.commonutils.logger.b.m175a("do not ack message, message is null");
+            com.xiaomi.channel.commonutils.logger.b.m177a("do not ack message, message is null");
             return;
         }
         try {
             hx hxVar = new hx();
-            hxVar.b(b.m219a(context).m220a());
+            hxVar.b(b.m221a(context).m222a());
             hxVar.a(miPushMessage.getMessageId());
             hxVar.a(Long.valueOf(miPushMessage.getExtra().get(Constants.EXTRA_KEY_HYBRID_MESSAGE_TS)).longValue());
             hxVar.a(getDeviceStatus(miPushMessage, z));
@@ -204,7 +204,7 @@ public class MiPushClient4Hybrid {
 
     public static void unregisterPush(Context context, String str) {
         sRegisterTimeMap.remove(str);
-        b.a a = b.m219a(context).a(str);
+        b.a a = b.m221a(context).a(str);
         if (a == null) {
             return;
         }
@@ -216,12 +216,12 @@ public class MiPushClient4Hybrid {
         inVar.e(a.b);
         ig igVar = new ig();
         igVar.c(hr.HybridUnregister.f508a);
-        igVar.b(b.m219a(context).m220a());
+        igVar.b(b.m221a(context).m222a());
         igVar.d(context.getPackageName());
         igVar.a(ir.a(inVar));
         igVar.a(bd.a());
         ao.a(context).a((ao) igVar, hh.Notification, (hu) null);
-        b.m219a(context).b(str);
+        b.m221a(context).b(str);
     }
 
     public static void uploadClearMessageData(Context context, LinkedList<? extends Object> linkedList) {

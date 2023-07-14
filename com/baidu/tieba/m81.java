@@ -1,143 +1,135 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webpanel.PanelScrollView;
+import android.os.Build;
+import android.os.Process;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes6.dex */
 public final class m81 {
     public static /* synthetic */ Interceptable $ic;
+    public static a a;
+    public static String[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public s81 a;
-    public PanelScrollView b;
-    public final Activity c;
-    public final ViewGroup d;
 
-    public m81(Activity activity, ViewGroup rootView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, rootView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onEvent(String str, String str2);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926435, "Lcom/baidu/tieba/m81;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947926435, "Lcom/baidu/tieba/m81;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(rootView, "rootView");
-        this.c = activity;
-        this.d = rootView;
-        this.a = n81.a().a(this.c);
-        this.b = new PanelScrollView(this.c);
+        b = new String[]{"lib/arm64-v8a", "lib/armeabi", "lib/x86", "lib/mips"};
     }
 
-    public final void a(u81 listener) {
-        PanelScrollView panelScrollView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            s81 s81Var = this.a;
-            if (s81Var != null && (panelScrollView = this.b) != null) {
-                panelScrollView.k(s81Var, listener);
-            }
-            PanelScrollView panelScrollView2 = this.b;
-            if (panelScrollView2 != null) {
-                this.d.setClipChildren(false);
-                this.d.addView(panelScrollView2, new FrameLayout.LayoutParams(-1, -1));
-            }
-        }
-    }
-
-    public final PanelScrollView b() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (PanelScrollView) invokeV.objValue;
-    }
-
-    public final View.OnTouchListener c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (View.OnTouchListener) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            PanelScrollView panelScrollView = this.b;
-            if (panelScrollView != null) {
-                panelScrollView.r();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                return Process.is64Bit();
             }
-            s81 s81Var = this.a;
-            if (s81Var != null) {
-                s81Var.onDestroy();
+            if (i < 21) {
+                return false;
             }
-        }
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            s81 s81Var = this.a;
-            if (s81Var != null) {
-                return s81Var.h();
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr.length <= 0) {
+                return false;
             }
-            return false;
+            return Build.CPU_ABI.equals(strArr[0]);
         }
         return invokeV.booleanValue;
     }
 
-    public final Activity getActivity() {
-        InterceptResult invokeV;
+    public static long a(InputStream inputStream, OutputStream outputStream, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, inputStream, outputStream, i)) == null) {
+            if (inputStream != null && outputStream != null) {
+                try {
+                    byte[] bArr = new byte[i * 1024];
+                    long j = 0;
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            outputStream.write(bArr, 0, read);
+                            j += read;
+                        } else {
+                            outputStream.flush();
+                            return j;
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return 0L;
         }
-        return (Activity) invokeV.objValue;
+        return invokeLLI.longValue;
     }
 
-    public final void d(String javaScript) {
+    public static String b(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, javaScript) == null) {
-            Intrinsics.checkNotNullParameter(javaScript, "javaScript");
-            s81 s81Var = this.a;
-            if (s81Var != null) {
-                s81Var.r(javaScript);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!str.startsWith("lib")) {
+                str2 = "lib" + str;
+            } else {
+                str2 = str;
             }
+            if (!str.endsWith(".so")) {
+                return str2 + ".so";
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so") && (split = str.split("\\.")) != null && split.length == 2) {
+                return split[0].substring(3);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void e(String str, String str2) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && (aVar = a) != null) {
+            aVar.onEvent(str, str2);
         }
     }
 
-    public final void f(w81 nadWebPanelModel) {
+    public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nadWebPanelModel) == null) {
-            Intrinsics.checkNotNullParameter(nadWebPanelModel, "nadWebPanelModel");
-            s81 s81Var = this.a;
-            if (s81Var != null) {
-                s81Var.l(nadWebPanelModel);
-            }
-            PanelScrollView panelScrollView = this.b;
-            if (panelScrollView != null) {
-                panelScrollView.setPanelData(nadWebPanelModel);
-            }
+        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && !TextUtils.isEmpty(str)) {
+            e("24", str);
         }
     }
 }

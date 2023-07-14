@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendIdleView;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b06;
-import com.baidu.tieba.c06;
-import com.baidu.tieba.ux4;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.xz5;
+import com.baidu.tieba.b16;
+import com.baidu.tieba.f16;
+import com.baidu.tieba.g16;
+import com.baidu.tieba.nx4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FloatWebLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int j;
@@ -45,9 +45,9 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public b06 i;
+    public f16 i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class FloatWebLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class FloatWebLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public class FloatWebLayout extends FrameLayout {
                 return;
             }
         }
-        j = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        j = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     }
 
     public boolean b() {
@@ -182,9 +182,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            b06 b06Var = this.i;
-            if (b06Var != null) {
-                b06Var.onPause();
+            f16 f16Var = this.i;
+            if (f16Var != null) {
+                f16Var.onPause();
             }
             this.a.setOnClickListener(null);
         }
@@ -209,7 +209,7 @@ public class FloatWebLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return xi.g(getContext(), R.dimen.tbds153);
+            return yi.g(getContext(), R.dimen.tbds153);
         }
         return invokeV.intValue;
     }
@@ -247,9 +247,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            b06 b06Var = this.i;
-            if (b06Var != null) {
-                b06Var.onDestroy();
+            f16 f16Var = this.i;
+            if (f16Var != null) {
+                f16Var.onDestroy();
             }
         }
     }
@@ -333,9 +333,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            b06 b06Var = this.i;
-            if (b06Var != null) {
-                b06Var.m1(str, false);
+            f16 f16Var = this.i;
+            if (f16Var != null) {
+                f16Var.m1(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));
@@ -357,7 +357,7 @@ public class FloatWebLayout extends FrameLayout {
             this.b = (SuspendIdleView) findViewById(R.id.suspended_view);
             this.c = (LinearLayout) findViewById(R.id.navigation_bar_group);
             this.d = (NavigationBar) findViewById(R.id.suspended_navigation_bar);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907a1);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907a2);
             h(context);
             g(context);
             f(context, str);
@@ -370,10 +370,10 @@ public class FloatWebLayout extends FrameLayout {
     public final void f(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
-            if (ux4.b(str)) {
-                this.i = new c06(context, this.h, this);
+            if (nx4.b(str)) {
+                this.i = new g16(context, this.h, this);
             } else {
-                this.i = new xz5(context, this.h, this);
+                this.i = new b16(context, this.h, this);
             }
             this.b.setContentViewTop(this.i);
         }

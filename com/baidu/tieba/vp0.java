@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,24 +10,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public interface vp0 {
-    public static final ServiceReference a = new ServiceReference("nad.business", "rewardVideoLpHost");
+    public static final ServiceReference a = new ServiceReference("nad.business", "rewardLpBDTaskCenter");
     public static final vp0 b = new a();
 
-    boolean a();
+    @NonNull
+    String a();
+
+    @NonNull
+    String b();
 
     /* loaded from: classes8.dex */
-    public static class a implements vp0 {
+    public class a implements vp0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.vp0
-        public boolean a() {
+        @NonNull
+        public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vp0
+        @NonNull
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
         }
 
         public a() {

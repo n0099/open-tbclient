@@ -1,16 +1,43 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class al2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile al2 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<Integer, Integer> a;
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final al2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-943952987, "Lcom/baidu/tieba/al2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-943952987, "Lcom/baidu/tieba/al2$a;");
+                    return;
+                }
+            }
+            a = new al2();
+        }
+    }
 
     public al2() {
         Interceptable interceptable = $ic;
@@ -22,41 +49,42 @@ public class al2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ConcurrentHashMap();
     }
 
-    public static al2 a() {
+    public static al2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (al2.class) {
-                    if (a == null) {
-                        a = new al2();
-                    }
-                }
-            }
-            return a;
+            return a.a;
         }
         return (al2) invokeV.objValue;
     }
 
-    public void c() {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c92.k("SwanRecoveryManager", "RecoverPlatform");
-            il2 il2Var = new il2();
-            il2Var.a = 1;
-            yk2.c(il2Var);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.put(Integer.valueOf(i), Integer.valueOf(c(i) + 1));
+            v82.k("SwanRecoveryCounter", "addRecoveryCount level=" + i);
         }
     }
 
-    public int b(int i) {
+    public int c(int i) {
         InterceptResult invokeI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return gl2.c(i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Integer num = this.a.get(Integer.valueOf(i));
+            if (num != null) {
+                i2 = num.intValue();
+            } else {
+                i2 = 0;
+            }
+            v82.k("SwanRecoveryCounter", "getRecoveryCount level=" + i + ";count=" + i2);
+            return i2;
         }
         return invokeI.intValue;
     }

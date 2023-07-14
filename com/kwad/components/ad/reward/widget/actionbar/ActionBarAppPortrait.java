@@ -20,7 +20,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.c;
 import com.kwad.sdk.widget.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ActionBarAppPortrait extends LinearLayout implements c {
     public KsAppDownloadListener br;
     public ImageView cw;
@@ -35,7 +35,7 @@ public class ActionBarAppPortrait extends LinearLayout implements c {
     public View wJ;
     public a wM;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void R(boolean z);
     }
@@ -54,7 +54,7 @@ public class ActionBarAppPortrait extends LinearLayout implements c {
     }
 
     private void b(View view2, final boolean z) {
-        com.kwad.components.core.c.a.a.a(new a.C0641a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wI).ae(view2 == this.wJ ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortrait.2
+        com.kwad.components.core.c.a.a.a(new a.C0646a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wI).ae(view2 == this.wJ ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortrait.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 if (ActionBarAppPortrait.this.wM != null) {
@@ -108,17 +108,17 @@ public class ActionBarAppPortrait extends LinearLayout implements c {
     }
 
     private void initView() {
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04de, this);
-        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091246);
-        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f09124a);
-        this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f091242);
-        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091249);
-        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091245);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091244);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04e9, this);
+        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f09125a);
+        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f09125e);
+        this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f091256);
+        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09125d);
+        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091259);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091258);
         this.wI = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
         this.wI.setTextColor(-1);
-        this.wJ = findViewById(R.id.obfuscated_res_0x7f09127d);
+        this.wJ = findViewById(R.id.obfuscated_res_0x7f091291);
     }
 
     private void jg() {

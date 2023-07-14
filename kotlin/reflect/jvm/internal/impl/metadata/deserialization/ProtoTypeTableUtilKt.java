@@ -5,7 +5,7 @@ import java.util.List;
 import kotlin.collections.CollectionsKt__IterablesKt;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ProtoTypeTableUtilKt {
     public static final ProtoBuf.Type abbreviatedType(ProtoBuf.Type type, TypeTable typeTable) {
         if (type.hasAbbreviatedType()) {

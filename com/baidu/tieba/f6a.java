@@ -1,23 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface f6a {
-    void a(TbPageContext<?> tbPageContext);
+public class f6a {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile e6a a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str);
-
-    boolean c(nj njVar, int i);
-
-    void cancelRecord();
-
-    void d(int i);
-
-    void e(nj njVar);
-
-    boolean f();
-
-    void release();
-
-    void stopRecord();
+    public static synchronized e6a a() {
+        InterceptResult invokeV;
+        e6a e6aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (f6a.class) {
+                if (a == null) {
+                    a = new e6a();
+                }
+                e6aVar = a;
+            }
+            return e6aVar;
+        }
+        return (e6a) invokeV.objValue;
+    }
 }

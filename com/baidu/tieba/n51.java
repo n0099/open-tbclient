@@ -1,104 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public final class n51 {
+public class n51 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] a;
+    public static boolean b;
+    public static long c;
+    public static int d;
+    public static int e;
+    public static int f;
+    public static int g;
+    public static int h;
+    public static int i;
+    public static double j;
+    public static double k;
+    public static double l;
+    public static long m;
+    public static long n;
+    public static double o;
+    public static double p;
+    public static double q;
+    public static double r;
+    public static double[] s;
+    public static AtomicBoolean t;
+    public static final Object u;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public n51() {
-        this(null, null, null, 7, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], (String) objArr[1], (String) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947953343, "Lcom/baidu/tieba/n51;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947953343, "Lcom/baidu/tieba/n51;");
                 return;
             }
         }
+        a = new int[]{0, 1, 2, 3};
+        b = true;
+        c = 2000L;
+        d = 2;
+        e = 2;
+        f = 6;
+        g = 4;
+        h = 6;
+        i = 30;
+        j = 10.0d;
+        k = 30.0d;
+        l = 2.0d;
+        m = 500L;
+        n = 3000L;
+        o = 999.0d;
+        p = 8.0d;
+        q = 3.0d;
+        r = 1.0d;
+        s = new double[]{999.0d, 8.0d, 3.0d, 1.0d};
+        t = new AtomicBoolean(false);
+        u = new Object();
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof n51) {
-                    n51 n51Var = (n51) obj;
-                    return Intrinsics.areEqual(this.a, n51Var.a) && Intrinsics.areEqual(this.b, n51Var.b) && Intrinsics.areEqual(this.c, n51Var.c);
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.b;
-            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.c;
-            return hashCode2 + (str3 != null ? str3.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return t.get();
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public String toString() {
+    public static Object b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ConsoleLogItemData(key1=" + this.a + ", key2=" + this.b + ", content=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return u;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public n51(String key1, String key2, String content) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {key1, key2, content};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(key1, "key1");
-        Intrinsics.checkNotNullParameter(key2, "key2");
-        Intrinsics.checkNotNullParameter(content, "content");
-        this.a = key1;
-        this.b = key2;
-        this.c = content;
-    }
-
-    public /* synthetic */ n51(String str, String str2, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? "" : str2, (i & 4) != 0 ? "" : str3);
+        return invokeV.objValue;
     }
 }

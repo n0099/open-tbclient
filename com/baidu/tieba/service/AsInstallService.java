@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.j56;
+import com.baidu.tieba.n66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,7 +110,7 @@ public class AsInstallService extends BdBaseService {
             if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent.getAction().equals(PackageChangedReceiver.ACTION_INSTALL)) {
                 String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
                 if (!TextUtils.isEmpty(schemeSpecificPart) && "com.baidu.appsearch".equals(schemeSpecificPart) && this.this$0.mVersionData != null) {
-                    j56.b(context, this.this$0.mVersionData);
+                    n66.b(context, this.this$0.mVersionData);
                     TiebaStatic.log(TbadkCoreStatisticKey.INVOKE_AS);
                 }
             }

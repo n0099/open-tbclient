@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l15;
-import com.baidu.tieba.qy;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.ry;
+import com.baidu.tieba.t15;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class RichTextLayout extends LinearLayout implements qy<l15>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements ry<t15>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -125,7 +125,7 @@ public class RichTextLayout extends LinearLayout implements qy<l15>, View.OnClic
                 return;
             }
         }
-        this.a = xi.l(TbadkCoreApplication.getInst()) - ((xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.a = yi.l(TbadkCoreApplication.getInst()) - ((yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
         this.e = false;
         this.g = false;
         this.d = context;
@@ -176,23 +176,23 @@ public class RichTextLayout extends LinearLayout implements qy<l15>, View.OnClic
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qy
+    @Override // com.baidu.tieba.ry
     /* renamed from: d */
-    public void a(l15 l15Var) {
+    public void b(t15 t15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l15Var) == null) && l15Var != null && l15Var.getThreadData() != null) {
-            ThreadData threadData = l15Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t15Var) == null) && t15Var != null && t15Var.getThreadData() != null) {
+            ThreadData threadData = t15Var.getThreadData();
             OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
             if (originalThreadInfo != null && this.e) {
                 this.b.setVisibility(8);
-                s75 d = s75.d(this.c);
+                d85 d = d85.d(this.c);
                 d.D(R.string.F_X01);
                 d.C(R.dimen.T_X07);
-                if (!originalThreadInfo.m && !l15Var.getThreadData().shouldShowBlockedState()) {
+                if (!originalThreadInfo.m && !t15Var.getThreadData().shouldShowBlockedState()) {
                     SpannableString c = originalThreadInfo.c();
                     ThreadCardUtils.setAbstract(this.c, this.b, c, threadData, this.a, this.e, this.g);
                     if (c != null) {
-                        TiePlusEventController.r(originalThreadInfo.h());
+                        TiePlusEventController.s(originalThreadInfo.h());
                     }
                 } else {
                     ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.d.getString(R.string.origin_thread_deleted_title)), threadData, this.a, this.e, this.g);
@@ -203,7 +203,7 @@ public class RichTextLayout extends LinearLayout implements qy<l15>, View.OnClic
                 SpannableString abstractText = threadData.getAbstractText();
                 ThreadCardUtils.setAbstract(this.c, this.b, abstractText, threadData, this.a, this.e, this.g);
                 if (abstractText != null) {
-                    TiePlusEventController.r(threadData.getTiePlusLinkOriginData());
+                    TiePlusEventController.s(threadData.getTiePlusLinkOriginData());
                 }
             }
             if (!this.e) {

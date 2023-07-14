@@ -3,129 +3,70 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbDebugSingleton;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.mutiprocess.HybridNotify.HybridNotifyEvent;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.util.TriState;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qy4 implements em6 {
+public class qy4 implements in6 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.em6
+    @Override // com.baidu.tieba.in6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        dm6.a(this, webView, str, jSONObject);
+        hn6.a(this, webView, str, jSONObject);
     }
 
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.em6
+    @Override // com.baidu.tieba.in6
     public /* synthetic */ void onDestroy() {
-        dm6.b(this);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948108157, "Lcom/baidu/tieba/qy4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948108157, "Lcom/baidu/tieba/qy4;");
-                return;
-            }
-        }
-        a = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
+        hn6.b(this);
     }
 
     public qy4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.em6
+    @Override // com.baidu.tieba.in6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.FETCH_OFFLINE_USER_INFO.equals(str2)) {
-                jsPromptResult.confirm(d(webView).a());
-                return true;
-            } else if (CommonTbJsBridge.DELETE_OFFLINE_BUNDLE.equals(str2)) {
-                jsPromptResult.confirm(c(webView).a());
-                return true;
-            } else if (CommonTbJsBridge.UPDATE_OFFLINE_BUNDLE.equals(str2)) {
-                jsPromptResult.confirm(i(webView).a());
-                return true;
-            } else if (CommonTbJsBridge.SWITCH_OFFLINE_INTERFACE.equals(str2)) {
+            if (CommonTbJsBridge.GAME_PUSH.equals(str2)) {
                 try {
-                    jsPromptResult.confirm(g(webView, new JSONObject(str3).optString("host")).a());
-                    return true;
+                    JSONObject jSONObject = new JSONObject(str3);
+                    jsPromptResult.confirm(c(webView, jSONObject.optString("gameId"), jSONObject.optString("gameName"), jSONObject.optString("gameTime"), jSONObject.optString("gameType")).a());
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    return false;
                 }
-            } else if (CommonTbJsBridge.SWITCH_OFFLINE_BUNDLE_STATUS.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(f(webView, new JSONObject(str3).optInt("isOn")).a());
-                    return true;
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            } else if (CommonTbJsBridge.SWITCH_URL_HOST.equals(str2)) {
-                try {
-                    JSONArray optJSONArray = new JSONObject(str3).optJSONArray("hostArr");
-                    ArrayList<JSONObject> arrayList = new ArrayList<>();
-                    ListUtils.convertJSONArrayToList(arrayList, optJSONArray);
-                    jsPromptResult.confirm(h(webView, arrayList).a());
-                    return true;
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                    return false;
-                }
+                return true;
+            } else if (CommonTbJsBridge.GAME_PUSH_STATUS.equals(str2)) {
+                jsPromptResult.confirm(e(webView).a());
+                return true;
             } else {
                 return false;
             }
@@ -133,179 +74,132 @@ public class qy4 implements em6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public f5a c(WebView webView) {
-        InterceptResult invokeL;
+    public qda c(WebView webView, String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            f5a f5aVar = new f5a();
-            if (!e()) {
-                return f5aVar;
-            }
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, str4)) == null) {
+            qda qdaVar = new qda();
+            JSONObject jSONObject = new JSONObject();
             try {
-                rl6.a();
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", 1);
-                f5aVar.o(jSONObject.toString());
-                return f5aVar;
+                jSONObject.put("gameId", str);
+                jSONObject.put("gameName", str2);
+                jSONObject.put("gameTime", str3);
+                jSONObject.put("gameType", str4);
             } catch (JSONException e) {
                 e.printStackTrace();
-                return null;
             }
+            String jSONObject2 = jSONObject.toString();
+            if (!TextUtils.isEmpty(jSONObject2)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, jSONObject2));
+                return qdaVar;
+            }
+            qdaVar.p();
+            return qdaVar;
         }
-        return (f5a) invokeL.objValue;
+        return (qda) invokeLLLLL.objValue;
     }
 
-    public f5a i(WebView webView) {
+    @NonNull
+    public qda d(WebView webView, @NonNull String str, @Nullable String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
+            qda qdaVar = new qda();
+            qdaVar.y(0);
+            qdaVar.o(xz5.b().c(str, str2));
+            return qdaVar;
+        }
+        return (qda) invokeLLL.objValue;
+    }
+
+    public qda e(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView)) == null) {
-            f5a f5aVar = new f5a();
-            if (!e()) {
-                return f5aVar;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, webView)) == null) {
+            qda qdaVar = new qda();
+            String w = da5.p().w("key_match_id_list_football", "");
+            String w2 = da5.p().w("key_match_id_list_basketball", "");
             try {
-                rl6.c();
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", 1);
-                f5aVar.o(jSONObject.toString());
-                return f5aVar;
+                jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + w + PreferencesUtil.RIGHT_MOUNT);
+                jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + w2 + PreferencesUtil.RIGHT_MOUNT);
+                qdaVar.o(jSONObject.toString());
             } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+                BdLog.e(e);
             }
+            return qdaVar;
         }
-        return (f5a) invokeL.objValue;
+        return (qda) invokeL.objValue;
     }
 
-    public f5a d(WebView webView) {
-        InterceptResult invokeL;
-        int i;
+    public qda f(WebView webView, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
-            f5a f5aVar = new f5a();
-            if (!e()) {
-                return f5aVar;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("version", TbConfig.getVersion());
-                jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
-                jSONObject.put("uid", TbadkCoreApplication.getCurrentAccountId());
-                jSONObject.put("hybridVersion", rl6.d());
-                if (QuickWebViewSwitch.getInOn()) {
-                    i = 1;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, Boolean.valueOf(z)})) == null) {
+            qda qdaVar = new qda();
+            if (!str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_CREATE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_DISSLOVE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_MANAGE)) {
+                if (CommonTbJsBridge.KEY_GROUP_CHAT_CHANGE_NAME.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921779, str2));
+                } else if (CommonTbJsBridge.KEY_GROUP_CHAT_CHANGE_AVATAR.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921780, str2));
+                } else if (CommonTbJsBridge.KEY_SPRING_FESTIVAL_PICK_FORUM.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921725, Boolean.TRUE));
+                } else if ("showFunnySprite".equals(str)) {
+                    try {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921797, Integer.valueOf(new JSONObject(str2).optInt("spriteShowType"))));
+                    } catch (JSONException e) {
+                        h29 defaultLog = DefaultLog.getInstance();
+                        defaultLog.b("SpriteTip", "JSONException:" + e);
+                    }
+                } else if (CommonTbJsBridge.KEY_GROUP_CHAT_NOTIFY_REFTESH.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921795, str2));
                 } else {
-                    i = 0;
-                }
-                jSONObject.put("hybridOffline", i);
-                jSONObject.put("offlineApiHost", a);
-                if (TbDebugSingleton.getInstance().getUrlSwitchMap() != null && !TextUtils.isEmpty(TbDebugSingleton.getInstance().getUrlSwitchMap().b)) {
-                    jSONObject.put("hostArr", TbDebugSingleton.getInstance().getUrlSwitchMap().b);
-                }
-                jSONObject.put("resultCode", 1);
-                f5aVar.o(jSONObject.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return f5aVar;
-        }
-        return (f5a) invokeL.objValue;
-    }
-
-    public f5a f(WebView webView, int i) {
-        InterceptResult invokeLI;
-        boolean z;
-        TriState triState;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, webView, i)) == null) {
-            f5a f5aVar = new f5a();
-            if (!e()) {
-                return f5aVar;
-            }
-            if (i == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            try {
-                if (z) {
-                    triState = TriState.YES;
-                } else {
-                    triState = TriState.NO;
-                }
-                QuickWebViewSwitch.setState(triState);
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", 1);
-                f5aVar.o(jSONObject.toString());
-                return f5aVar;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (f5a) invokeLI.objValue;
-    }
-
-    public f5a g(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
-            f5a f5aVar = new f5a();
-            if (!e()) {
-                return f5aVar;
-            }
-            try {
-                if (StringUtils.isNull(str)) {
-                    str = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
-                }
-                a = str;
-                ng5.a().i(true);
-                TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, a + "?cmd=309485");
-                tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
-                MessageManager.getInstance().registerTask(tbHttpMessageTask);
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", 1);
-                f5aVar.o(jSONObject.toString());
-                return f5aVar;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (f5a) invokeLL.objValue;
-    }
-
-    public f5a h(WebView webView, ArrayList<JSONObject> arrayList) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, arrayList)) == null) {
-            f5a f5aVar = new f5a();
-            if (!e()) {
-                return f5aVar;
-            }
-            try {
-                by4 by4Var = new by4();
-                by4Var.a = new LinkedHashMap();
-                if (arrayList != null) {
-                    for (int i = 0; i < arrayList.size(); i++) {
-                        JSONObject jSONObject = arrayList.get(i);
-                        if (jSONObject != null) {
-                            by4Var.a.put(jSONObject.optString("path"), jSONObject.optString("host"));
+                    boolean z2 = false;
+                    if ("pbFirstFloorWebViewRefresh".equalsIgnoreCase(str)) {
+                        if (webView instanceof MonitorWebView) {
+                            try {
+                                JSONObject jSONObject = new JSONObject(str2);
+                                ((MonitorWebView) webView).q(jSONObject.optInt("success", 0), jSONObject.optDouble("height", 0.0d));
+                            } catch (Exception unused) {
+                                ((MonitorWebView) webView).q(0, webView.getContentHeight());
+                            }
                         }
-                    }
-                    if (by4Var.a.size() > 0) {
-                        by4Var.b = new JSONObject().put("hostArr", new JSONArray((Collection) arrayList)).toString();
-                        TbDebugSingleton.getInstance().setUrlSwitchMap(by4Var);
+                    } else if ("setGroupChatBubble".equals(str)) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921799, str2));
+                    } else if ("officialPushMsgStatus".equals(str)) {
+                        try {
+                            int optInt = new JSONObject(str2).optInt("status");
+                            if (optInt == 1) {
+                                z2 = true;
+                            }
+                            da5.p().A("official_push_switch", z2);
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921754, Integer.valueOf(optInt)));
+                        } catch (JSONException e2) {
+                            h29 defaultLog2 = DefaultLog.getInstance();
+                            defaultLog2.b("officialPushMsgStatus", "JSONException:" + e2);
+                        }
+                    } else if ("changeOftenForumList".equals(str)) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921811, str2));
                     }
                 }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("resultCode", 1);
-                f5aVar.o(jSONObject2.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
+            } else {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921778));
             }
-            return f5aVar;
+            uz4.a().b(str, str2);
+            HybridNotifyEvent hybridNotifyEvent = new HybridNotifyEvent();
+            hybridNotifyEvent.key = str;
+            hybridNotifyEvent.data = str2;
+            wq5.i(hybridNotifyEvent);
+            if (z) {
+                try {
+                    jn6.a().g(str, new JSONObject(str2), webView);
+                } catch (Exception e3) {
+                    h29 hybridLog = HybridLog.getInstance();
+                    hybridLog.b("NotifyDataChanged", "H5通知H5异常:" + e3);
+                }
+            }
+            return qdaVar;
         }
-        return (f5a) invokeLL.objValue;
+        return (qda) invokeCommon.objValue;
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.ugc.editvideo.record.transition;
 
 import android.text.TextUtils;
-import com.baidu.tieba.tya;
+import com.baidu.tieba.r7b;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VideoFollowData implements Serializable {
     public static final int AUDIO_TYPE_FOLLOW = 0;
     public static final int AUDIO_TYPE_MIX = 2;
@@ -98,7 +98,7 @@ public class VideoFollowData implements Serializable {
             return null;
         }
         try {
-            return (VideoFollowData) new tya().b(str, VideoFollowData.class);
+            return (VideoFollowData) new r7b().b(str, VideoFollowData.class);
         } catch (Exception unused) {
             return null;
         }
@@ -109,7 +109,7 @@ public class VideoFollowData implements Serializable {
             return null;
         }
         try {
-            return new tya().a(videoFollowData);
+            return new r7b().a(videoFollowData);
         } catch (Exception unused) {
             return null;
         }

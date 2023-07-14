@@ -47,7 +47,7 @@ import java.util.LinkedHashSet;
 public class MaterialButton extends AppCompatButton implements Checkable, Shapeable {
     public static final int[] CHECKABLE_STATE_SET = {16842911};
     public static final int[] CHECKED_STATE_SET = {16842912};
-    public static final int DEF_STYLE_RES = 2131755875;
+    public static final int DEF_STYLE_RES = 2131755876;
     public static final int ICON_GRAVITY_END = 3;
     public static final int ICON_GRAVITY_START = 1;
     public static final int ICON_GRAVITY_TEXT_END = 4;
@@ -598,7 +598,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404d6);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404d7);
     }
 
     @Override // android.widget.TextView, android.view.View

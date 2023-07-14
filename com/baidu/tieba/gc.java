@@ -18,7 +18,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.security.InvalidParameterException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class gc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,12 +26,12 @@ public class gc {
     public AtomicBoolean b;
     public DiskFileOperate c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         boolean a(gc gcVar, DiskFileOperate diskFileOperate, dc dcVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -253,7 +253,7 @@ public class gc {
                     } catch (Exception e) {
                         BdLog.e(e.getMessage());
                         if (!z) {
-                            ug.d(outputStream);
+                            vg.d(outputStream);
                         }
                         this.c.unLock();
                         return false;
@@ -263,7 +263,7 @@ public class gc {
                 byte[] data = this.c.getData();
                 if ((buildFormatData == null && data == null) || this.b.get()) {
                     if (!z) {
-                        ug.d(outputStream);
+                        vg.d(outputStream);
                     }
                     this.c.unLock();
                     return false;
@@ -278,7 +278,7 @@ public class gc {
                 this.c.setFileInfo(fileInfo);
                 this.c.setSuccess(true);
                 if (!z) {
-                    ug.d(outputStream);
+                    vg.d(outputStream);
                 } else {
                     this.c.setOutputStream(outputStream);
                 }
@@ -286,7 +286,7 @@ public class gc {
                 return true;
             } catch (Throwable th) {
                 if (!z) {
-                    ug.d(outputStream);
+                    vg.d(outputStream);
                 }
                 this.c.unLock();
                 throw th;
@@ -308,7 +308,7 @@ public class gc {
                             if (z) {
                                 c.delete();
                             } else {
-                                ug.d(null);
+                                vg.d(null);
                                 this.c.unLock();
                                 return true;
                             }
@@ -324,13 +324,13 @@ public class gc {
                                     e = e;
                                     fileOutputStream = fileOutputStream2;
                                     BdLog.e(e.getMessage());
-                                    ug.d(fileOutputStream);
+                                    vg.d(fileOutputStream);
                                     this.c.unLock();
                                     return false;
                                 } catch (Throwable th) {
                                     th = th;
                                     fileOutputStream = fileOutputStream2;
-                                    ug.d(fileOutputStream);
+                                    vg.d(fileOutputStream);
                                     this.c.unLock();
                                     throw th;
                                 }
@@ -339,14 +339,14 @@ public class gc {
                                 fileOutputStream2.write(data);
                             }
                             fileOutputStream2.flush();
-                            ug.d(fileOutputStream2);
+                            vg.d(fileOutputStream2);
                             this.c.setFileInfo(c);
                             this.c.setSuccess(true);
                             this.c.unLock();
                             return true;
                         }
                     }
-                    ug.d(null);
+                    vg.d(null);
                     this.c.unLock();
                     return false;
                 } catch (Throwable th2) {
@@ -489,24 +489,24 @@ public class gc {
                                     z = true;
                                 }
                             }
-                            ug.c(fileInputStream);
-                            ug.d(byteArrayOutputStream);
+                            vg.c(fileInputStream);
+                            vg.d(byteArrayOutputStream);
                             if (z) {
                                 this.c.setSuccess(true);
                             }
                         } catch (Exception e3) {
                             e = e3;
                             BdLog.e(e.getMessage());
-                            ug.c(fileInputStream);
-                            ug.d(byteArrayOutputStream);
+                            vg.c(fileInputStream);
+                            vg.d(byteArrayOutputStream);
                             this.c.unLock();
                             this.c.endLog();
                             return z;
                         }
                     } catch (Throwable th3) {
                         th = th3;
-                        ug.c(fileInputStream);
-                        ug.d(byteArrayOutputStream);
+                        vg.c(fileInputStream);
+                        vg.d(byteArrayOutputStream);
                         this.c.unLock();
                         throw th;
                     }
@@ -517,8 +517,8 @@ public class gc {
                     th = th4;
                     byteArrayOutputStream = null;
                     th = th;
-                    ug.c(fileInputStream);
-                    ug.d(byteArrayOutputStream);
+                    vg.c(fileInputStream);
+                    vg.d(byteArrayOutputStream);
                     this.c.unLock();
                     throw th;
                 }
@@ -526,8 +526,8 @@ public class gc {
                 this.c.endLog();
                 return z;
             }
-            ug.c(null);
-            ug.d(null);
+            vg.c(null);
+            vg.d(null);
             this.c.unLock();
             return false;
         }

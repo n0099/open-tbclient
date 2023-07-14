@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 
+import android.graphics.SurfaceTexture;
+import android.util.Log;
+import android.view.Surface;
+import android.view.SurfaceHolder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,13 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
 public class me0 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String d = "me0";
     public transient /* synthetic */ FieldHolder $fh;
     public oe0 a;
-    public se0 b;
-    public ze0 c;
+    public List<ne0> b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,12 +38,12 @@ public class me0 {
         }
     }
 
-    public me0(ze0 ze0Var) {
+    public me0(Object obj, List<af0> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ze0Var};
+            Object[] objArr = {obj, list};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,100 +53,117 @@ public class me0 {
                 return;
             }
         }
-        this.c = ze0Var;
-        this.a = new oe0(ze0Var.f(), 1);
-        d();
+        this.c = 0;
+        b(obj, list);
     }
 
-    public void b(long j) {
-        ze0 ze0Var;
+    public void a(long j) {
+        List<ne0> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && this.b != null && (ze0Var = this.c) != null) {
-            if (ze0Var.l()) {
-                d();
+        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && this.a != null && (list = this.b) != null && list.size() != 0) {
+            synchronized (this) {
+                for (ne0 ne0Var : this.b) {
+                    this.a.b(ne0Var.c());
+                    ne0Var.b(j);
+                }
+                notifyAll();
             }
-            if (j != 0) {
-                this.c.h().h(j);
-            }
-            this.b.a(this.c.e(), this.c.h());
+            this.a.d(j);
+            this.a.e();
         }
     }
 
-    public final void a(se0 se0Var) {
+    public final void b(Object obj, List<af0> list) {
+        ne0 ne0Var;
+        oe0 oe0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, se0Var) == null) {
-            if (se0Var == null) {
-                this.b = new re0();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, list) == null) && list != null && list.size() != 0) {
+            List<ne0> list2 = this.b;
+            if (list2 == null) {
+                this.b = new ArrayList();
             } else {
-                this.b = se0Var;
+                list2.clear();
             }
-            this.b.b(this.c.j(), this.c.i());
+            for (int i = 0; i < list.size(); i++) {
+                try {
+                    this.b.add(new ne0(list.get(i)));
+                    if (list.get(i).k()) {
+                        this.c = i;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            int size = this.b.size();
+            int i2 = this.c;
+            if (size > i2) {
+                if (obj != null) {
+                    if (obj instanceof Surface) {
+                        this.a = new oe0(this.b.get(this.c).c(), (Surface) obj, true);
+                    } else if (obj instanceof SurfaceTexture) {
+                        this.a = new oe0(this.b.get(this.c).c(), (SurfaceTexture) obj);
+                    } else if (obj instanceof SurfaceHolder) {
+                        this.a = new oe0(this.b.get(this.c).c(), (SurfaceHolder) obj);
+                    }
+                } else {
+                    List<ne0> list3 = this.b;
+                    if (list3 != null && list3 != null && (ne0Var = list3.get(i2)) != null && (oe0Var = this.a) != null) {
+                        oe0Var.f(ne0Var.c());
+                    }
+                }
+            }
+            for (ne0 ne0Var2 : this.b) {
+                oe0 oe0Var2 = this.a;
+                if (oe0Var2 != null) {
+                    oe0Var2.b(ne0Var2.c());
+                    ne0Var2.f();
+                }
+            }
         }
     }
 
-    public void g(se0 se0Var) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, se0Var) == null) {
-            ze0 ze0Var = this.c;
-            if (ze0Var != null) {
-                ze0Var.p(se0Var);
-            }
-            this.b.release();
-            a(se0Var);
-        }
-    }
-
-    public oe0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (oe0) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            se0 se0Var = this.b;
-            if (se0Var != null) {
-                se0Var.release();
-                this.b = null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             oe0 oe0Var = this.a;
             if (oe0Var != null) {
-                oe0Var.f();
+                oe0Var.g();
                 this.a = null;
             }
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            se0 g = this.c.g();
-            this.b = g;
-            a(g);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            float[] b = this.c.h().b();
-            bf0.b(b);
-            xe0 c = this.c.c();
-            bf0.e(b, c.g(), c.h());
-            bf0.a(b, c.d());
-            bf0.c(b, c.b());
-            if ((c.f() + 360) % 180 == 0) {
-                bf0.d(b, this.c.j(), this.c.i(), c.e(), c.c());
-                return;
+            List<ne0> list = this.b;
+            if (list != null) {
+                for (ne0 ne0Var : list) {
+                    ne0Var.e();
+                }
+                this.b.clear();
+                this.b = null;
             }
-            ve0 clone = this.c.i().clone();
-            clone.e(this.c.i().b());
-            clone.d(this.c.i().c());
-            bf0.d(b, this.c.j(), clone, c.e(), c.c());
+        }
+    }
+
+    public void d(te0 te0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, te0Var) == null) {
+            for (ne0 ne0Var : this.b) {
+                oe0 oe0Var = this.a;
+                if (oe0Var != null) {
+                    oe0Var.b(ne0Var.c());
+                    ne0Var.g(te0Var);
+                }
+            }
+        }
+    }
+
+    public void e(List<af0> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            Log.d(d, "updateSurfaceDrawer !!!");
+            this.a.c();
+            for (ne0 ne0Var : this.b) {
+                ne0Var.e();
+            }
+            this.b.clear();
+            b(null, list);
         }
     }
 }

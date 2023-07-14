@@ -1,44 +1,76 @@
 package com.baidu.tieba;
 
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: TabBarLogic.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class po7 {
+public class po7 extends io5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsGameRecommendFragment c;
 
-    @NonNull
-    public static ro7 a() {
+    @Override // com.baidu.tieba.io5
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new qo7();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
         }
-        return (ro7) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @ColorInt
-    public static int b() {
-        InterceptResult invokeV;
+    public po7(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return SkinManager.getColor(R.color.CAM_X0107);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
+        this.c = FrsGameRecommendFragment.L1(str, str2);
+        b().a = this.c;
     }
 
-    public static int c() {
+    @Override // com.baidu.tieba.io5
+    public jo5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return UtilHelper.getDimenPixelSize(R.dimen.tbds42);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            jo5 jo5Var = new jo5();
+            jo5Var.e = 11;
+            jo5Var.b = R.string.obfuscated_res_0x7f0f0817;
+            jo5Var.i = jo5.k;
+            return jo5Var;
         }
-        return invokeV.intValue;
+        return (jo5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.io5
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
+        }
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 }

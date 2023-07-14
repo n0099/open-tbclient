@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b26;
-import com.baidu.tieba.lx5;
+import com.baidu.tieba.f36;
+import com.baidu.tieba.py5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class RichTextMaker<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public abstract class RichTextMaker<T> {
     public abstract void c(@NonNull View view2, int i, @NonNull T t);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class IconPos {
         public static final /* synthetic */ IconPos[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -105,11 +105,11 @@ public abstract class RichTextMaker<T> {
                 } else {
                     z = false;
                 }
-                lx5.a(z);
+                py5.a(z);
                 if (this != START_OFFSET) {
                     z2 = false;
                 }
-                lx5.d(z2);
+                py5.d(z2);
                 this.offset = i;
                 return this;
             }
@@ -126,13 +126,13 @@ public abstract class RichTextMaker<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class a extends b26 {
+    /* loaded from: classes5.dex */
+    public class a extends f36 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int j;
-        public final /* synthetic */ Object k;
-        public final /* synthetic */ RichTextMaker l;
+        public final /* synthetic */ int l;
+        public final /* synthetic */ Object m;
+        public final /* synthetic */ RichTextMaker n;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(RichTextMaker richTextMaker, int i, String str, int i2, Object obj) {
@@ -153,28 +153,28 @@ public abstract class RichTextMaker<T> {
                     return;
                 }
             }
-            this.l = richTextMaker;
-            this.j = i2;
-            this.k = obj;
+            this.n = richTextMaker;
+            this.l = i2;
+            this.m = obj;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tbadk.widget.richText.RichTextMaker */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.b26, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.f36, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                b26.b bVar = this.i;
+                f36.b bVar = this.i;
                 if (bVar != null) {
                     bVar.a(this);
                 }
-                this.l.c(view2, this.j, this.k);
+                this.n.c(view2, this.l, this.m);
                 view2.setTag(R.id.tag_first, Boolean.TRUE);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -214,7 +214,7 @@ public abstract class RichTextMaker<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int g = 1;
@@ -444,8 +444,8 @@ public abstract class RichTextMaker<T> {
                 str = "";
             }
             a aVar = new a(this, i, str, i, t);
-            aVar.l(this.c);
-            aVar.n(this.d);
+            aVar.p(this.c);
+            aVar.r(this.d);
             cVar.a.setSpan(aVar, cVar.d, cVar.e, cVar.f);
         }
     }

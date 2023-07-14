@@ -2,63 +2,68 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 /* loaded from: classes7.dex */
-public class nl4 {
+public class nl4 implements rl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Response a;
 
-    public static void a(@NonNull wm4 wm4Var, @Nullable List<cl4> list, @Nullable List<dl4> list2, @NonNull xj4 xj4Var) {
+    public nl4(@NonNull Response response) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, wm4Var, list, list2, xj4Var) == null) {
-            hm4 b = pl4.b(wm4Var, xj4Var);
-            if (list != null && !list.isEmpty()) {
-                pl4.a(b, gm4.h(list, xj4Var));
-            }
-            if (list2 != null && !list2.isEmpty()) {
-                pl4.a(b, gm4.e(list2, xj4Var));
-            }
-            b.e();
-        }
-    }
-
-    public static void b(xm4 xm4Var, xj4 xj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, xm4Var, xj4Var) == null) {
-            pl4.c(xm4Var, xj4Var);
-        }
-    }
-
-    public static void c(ym4 ym4Var, xj4 xj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, ym4Var, xj4Var) == null) {
-            pl4.d(ym4Var, xj4Var);
-        }
-    }
-
-    public static void d(zm4 zm4Var, xj4 xj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, zm4Var, xj4Var) == null) {
-            pl4.e(zm4Var, xj4Var);
-        }
-    }
-
-    public static void e(uo4 uo4Var, xj4 xj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, uo4Var, xj4Var) == null) {
-            pl4.f(uo4Var, xj4Var);
-        }
-    }
-
-    public static synchronized void f(List<dl4> list, xj4 xj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, list, xj4Var) == null) {
-            synchronized (nl4.class) {
-                pl4.g(list, xj4Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {response};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = response;
+    }
+
+    @Override // com.baidu.tieba.rl4
+    @Nullable
+    public ql4 body() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ResponseBody body = this.a.body();
+            if (body == null) {
+                return null;
+            }
+            return new ol4(body);
+        }
+        return (ql4) invokeV.objValue;
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.close();
+        }
+    }
+
+    @Override // com.baidu.tieba.rl4
+    public int code() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.code();
+        }
+        return invokeV.intValue;
     }
 }

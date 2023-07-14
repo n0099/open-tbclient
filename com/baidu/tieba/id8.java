@@ -1,26 +1,57 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.arch.base.ReqState;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.dd8;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class id8<T> {
+public class id8 {
     public static /* synthetic */ Interceptable $ic;
+    public static id8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @SerializedName("errorCode")
-    public int a;
-    @SerializedName("errorMsg")
-    public String b;
-    @SerializedName("data")
-    public T c;
-    @SerializedName("state")
-    public ReqState d;
+
+    /* loaded from: classes6.dex */
+    public static class a implements dd8.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.dd8.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     public id8() {
         Interceptable interceptable = $ic;
@@ -32,63 +63,91 @@ public class id8<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
-        this.d = ReqState.Error;
     }
 
-    public final int a() {
+    public static synchronized id8 b() {
         InterceptResult invokeV;
+        id8 id8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (id8.class) {
+                if (a == null) {
+                    a = new id8();
+                }
+                id8Var = a;
+            }
+            return id8Var;
         }
-        return invokeV.intValue;
+        return (id8) invokeV.objValue;
     }
 
-    public final T b() {
-        InterceptResult invokeV;
+    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, dd8.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final ReqState d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (ReqState) invokeV.objValue;
-    }
-
-    public final void e(ReqState reqState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, reqState) == null) {
-            Intrinsics.checkNotNullParameter(reqState, "<set-?>");
-            this.d = reqState;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            dd8.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public long[] a(GroupMsgData groupMsgData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "BaseData(code=" + this.a + ", msg=" + this.b + ", data=" + this.c + ", state=" + this.d + ')';
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, groupMsgData)) == null) {
+            if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                long j = 0;
+                long groupId = groupMsgData.getGroupInfo().getGroupId();
+                Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
+                while (it.hasNext()) {
+                    ChatMessage next = it.next();
+                    if (next.getMsgId() > j) {
+                        j = next.getMsgId();
+                    }
+                }
+                return new long[]{groupId, j};
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (long[]) invokeL.objValue;
+    }
+
+    public long c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            TbadkSettings inst = TbadkSettings.getInst();
+            return inst.loadLong("tb_group_msg_" + j, -1L);
+        }
+        return invokeJ.longValue;
+    }
+
+    public void e(GroupMsgData groupMsgData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, groupMsgData) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+            Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
+            while (it.hasNext()) {
+                ChatMessage next = it.next();
+                if (!TextUtils.isEmpty(next.getStat())) {
+                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "push_noti:" + next.getStat(), "taskId:" + next.getTaskId() + ";link:" + next.getLink() + ";uid:" + TbadkCoreApplication.getCurrentAccount());
+                }
+                if (!TextUtils.isEmpty(next.getLink()) && !TextUtils.isEmpty(next.getStat())) {
+                    TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
+                }
+                CustomMessage customMessage = new CustomMessage(2012100);
+                customMessage.setData(new u35(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat(), next.getServiceId()));
+                MessageManager.getInstance().sendMessage(customMessage);
+            }
+            if (groupMsgData.getListMessage().size() > 0) {
+                TiebaStatic.saveAndUploadMsg();
+            }
+        }
+    }
+
+    public void f(String str, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) && !TextUtils.isEmpty(str) && j > 0) {
+            TbadkSettings inst = TbadkSettings.getInst();
+            inst.saveLong("tb_group_msg_" + str, j);
+        }
     }
 }

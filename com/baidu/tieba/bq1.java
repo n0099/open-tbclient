@@ -1,133 +1,157 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.tieba.np1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.lang.Thread;
+import java.util.ArrayList;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bq1 implements Thread.UncaughtExceptionHandler {
+public class bq1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final bq1 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Thread.UncaughtExceptionHandler a;
-    public boolean b;
-    public cq1 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947653511, "Lcom/baidu/tieba/bq1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i == 1) {
+                return 2010;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947653511, "Lcom/baidu/tieba/bq1;");
-                return;
+            if (i == 2) {
+                return IMConstants.IM_MSG_TYPE_SHIELD;
             }
+            if (i == 3) {
+                return 2012;
+            }
+            if (i == 4) {
+                return 2013;
+            }
+            if (i == 5) {
+                return 2014;
+            }
+            return i == 6 ? 2015 : 2009;
         }
-        d = new bq1();
+        return invokeI.intValue;
     }
 
-    public bq1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ np1.a a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ ArrayList d;
 
-    public static bq1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d;
-        }
-        return (bq1) invokeV.objValue;
-    }
+        /* renamed from: com.baidu.tieba.bq1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0249a extends zq1 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ np1.a b;
+            public final /* synthetic */ a c;
 
-    public final String a(Throwable th) {
-        PrintWriter printWriter;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, th)) == null) {
-            try {
-                StringWriter stringWriter = new StringWriter();
-                printWriter = new PrintWriter(stringWriter);
-                try {
-                    th.printStackTrace(printWriter);
-                    String obj = stringWriter.toString();
-                    printWriter.close();
-                    return obj;
-                } catch (Throwable unused) {
-                    if (printWriter != null) {
-                        printWriter.close();
-                        return "";
+            public C0249a(a aVar, np1.a aVar2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, aVar2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
-                    return "";
                 }
-            } catch (Throwable unused2) {
-                printWriter = null;
+                this.c = aVar;
+                this.b = aVar2;
             }
-        } else {
-            return (String) invokeL.objValue;
+
+            @Override // com.baidu.tieba.zq1
+            public void b() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.onFinish(this.c.b);
+                }
+            }
+        }
+
+        public a(np1.a aVar, String str, int i, ArrayList arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, str, Integer.valueOf(i), arrayList};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = str;
+            this.c = i;
+            this.d = arrayList;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                np1.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onFinish(this.b);
+                }
+                if (this.c == 1 && this.d != null) {
+                    for (int i = 0; i < this.d.size(); i++) {
+                        np1.a aVar2 = (np1.a) this.d.get(i);
+                        if (aVar2 != null) {
+                            br1.c().b(new C0249a(this, aVar2));
+                        }
+                    }
+                }
+            }
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
-    public synchronized void b(cq1 cq1Var) {
+    public static void b(np1.a aVar, yp1 yp1Var, int i, ArrayList<np1.a> arrayList, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cq1Var) == null) {
-            synchronized (this) {
-                try {
-                    this.c = cq1Var;
-                } finally {
-                }
-                if (cq1Var == null) {
-                    return;
-                }
-                if (!cq1Var.a()) {
-                    return;
-                }
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                this.a = Thread.getDefaultUncaughtExceptionHandler();
-                Thread.setDefaultUncaughtExceptionHandler(this);
-            }
-        }
-    }
-
-    @Override // java.lang.Thread.UncaughtExceptionHandler
-    public void uncaughtException(Thread thread, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, thread, th) == null) {
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{aVar, yp1Var, Integer.valueOf(i), arrayList, Boolean.valueOf(z)}) == null) && yp1Var != null) {
             try {
-                String a = a(th);
-                if (!TextUtils.isEmpty(a) && ((a.contains("com.baidu.sso") || a.contains("com.cmic.sso.sdk") || a.contains("com.sdk") || a.contains("cn.com.chinatelecom.gateway")) && this.c != null)) {
-                    this.c.a(a);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("0", yp1Var.a);
+                jSONObject.put("1", yp1Var.b);
+                jSONObject.put("2", String.valueOf(yp1Var.c));
+                jSONObject.put("3", yp1Var.d);
+                String jSONObject2 = jSONObject.toString();
+                if (i == 1) {
+                    if (z) {
+                        tp1.j().f(false);
+                    }
+                } else if (i == 2) {
+                    if (z) {
+                        tp1.j().c(false);
+                    }
+                } else if (i == 3) {
+                    if (z) {
+                        tp1.j().k(false);
+                    }
+                } else if (z) {
+                    tp1.j().n(false);
                 }
-            } catch (Throwable th2) {
-                lr1.d(th2);
-            }
-            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.a;
-            if (uncaughtExceptionHandler != null) {
-                uncaughtExceptionHandler.uncaughtException(thread, th);
+                new Thread(new a(aVar, jSONObject2, i, arrayList)).start();
+            } catch (Throwable th) {
+                er1.d(th);
             }
         }
     }

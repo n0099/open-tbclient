@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.t4a;
-import com.baidu.tieba.vg;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.eda;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class ThreadSkinView extends TbImageView {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext x0;
     public SkinInfo y0;
-    public t4a.b z0;
+    public eda.b z0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadSkinView(Context context) {
@@ -54,7 +54,7 @@ public class ThreadSkinView extends TbImageView {
         SkinInfo skinInfo;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (skinInfo = this.y0) != null && !StringUtils.isNull(skinInfo.url)) {
-            t4a.b bVar = this.z0;
+            eda.b bVar = this.z0;
             if (bVar != null) {
                 bVar.delete("action_type");
                 this.z0.d("action_type", "CLICK");
@@ -108,7 +108,7 @@ public class ThreadSkinView extends TbImageView {
         x();
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, t4a.b bVar) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, eda.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, skinInfo, bVar) == null) {
             if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {
@@ -123,14 +123,14 @@ public class ThreadSkinView extends TbImageView {
                     this.z0.e();
                 }
                 this.y0 = skinInfo;
-                int l = xi.l(tbPageContext.getPageActivity());
+                int l = yi.l(tbPageContext.getPageActivity());
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 layoutParams.width = l;
                 if (!StringUtils.isNull(skinInfo.skin_size)) {
                     String[] split = skinInfo.skin_size.split(",");
                     if (split.length > 1) {
-                        int e = vg.e(split[0].trim(), -1);
-                        int e2 = vg.e(split[1].trim(), -1);
+                        int e = wg.e(split[0].trim(), -1);
+                        int e2 = wg.e(split[1].trim(), -1);
                         if (e > 0 && e2 > 0) {
                             layoutParams.height = (int) (layoutParams.width * (e2 / e));
                         } else {

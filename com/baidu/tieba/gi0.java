@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @Service
-/* loaded from: classes5.dex */
-public class gi0 extends yj0 {
+/* loaded from: classes6.dex */
+public class gi0 extends bk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yj0
+    @Override // com.baidu.tieba.bk0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "download" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "onDownloadBtnClick" : (String) invokeV.objValue;
     }
 
     public gi0() {
@@ -38,13 +38,19 @@ public class gi0 extends yj0 {
         }
     }
 
-    @Override // com.baidu.tieba.yj0
-    public boolean b(@NonNull Context context, @NonNull ck0 ck0Var, @Nullable Map<String, Object> map, @Nullable gk0 gk0Var) {
+    @Override // com.baidu.tieba.bk0
+    public boolean b(@NonNull Context context, @NonNull fk0 fk0Var, @Nullable Map<String, Object> map, @Nullable jk0 jk0Var) {
         InterceptResult invokeLLLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ck0Var, map, gk0Var)) == null) {
-            super.b(context, ck0Var, map, gk0Var);
-            tl0.k().b(ck0Var, gk0Var);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fk0Var, map, jk0Var)) == null) {
+            boolean b = super.b(context, fk0Var, map, jk0Var);
+            if (b) {
+                i = 0;
+            } else {
+                i = 1001;
+            }
+            c(jk0Var, fk0Var, i, b);
             return true;
         }
         return invokeLLLL.booleanValue;

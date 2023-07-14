@@ -3,7 +3,7 @@ package com.baidu.searchbox.wordscommand.runtime;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.wu9;
+import com.baidu.tieba.x2a;
 @Autowired
 /* loaded from: classes4.dex */
 public class WordCommandRuntime {
@@ -11,6 +11,6 @@ public class WordCommandRuntime {
 
     @Inject(force = true)
     public static IWordCommandApp getWordCommandApp() {
-        return wu9.a();
+        return x2a.a();
     }
 }

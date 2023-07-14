@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d85;
 import com.baidu.tieba.immessagecenter.msgtab.ui.prenster.PopActionChatPresenter;
-import com.baidu.tieba.s75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,23 +57,23 @@ public final class PopActionChatAdapter extends RecyclerView.Adapter<ViewHolder>
                 }
             }
             Intrinsics.checkNotNullParameter(view2, "view");
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091cac);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091cc6);
             Intrinsics.checkNotNullExpressionValue(findViewById, "view.findViewById(R.id.pop_item_root)");
             this.a = (ViewGroup) findViewById;
-            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f091cab);
+            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f091cc5);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "view.findViewById(R.id.pop_item_image)");
             this.b = (ImageView) findViewById2;
-            View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f091caa);
+            View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f091cc4);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "view.findViewById(R.id.pop_item_content)");
             this.c = (TextView) findViewById3;
-            s75.d(this.a).f(R.color.CAM_X0208);
-            s75 d = s75.d(this.c);
+            d85.d(this.a).f(R.color.CAM_X0208);
+            d85 d = d85.d(this.c);
             d.x(R.color.CAM_X0107);
             d.C(R.dimen.T_X05);
             d.D(R.string.F_X01);
         }
 
-        public final void a(PopActionChatPresenter.ChatItemData data) {
+        public final void b(PopActionChatPresenter.ChatItemData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
@@ -99,26 +99,26 @@ public final class PopActionChatAdapter extends RecyclerView.Adapter<ViewHolder>
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: k */
+    /* renamed from: l */
     public void onBindViewHolder(ViewHolder holder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, holder, i) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
             Object item = ListUtils.getItem(this.a, i);
             Intrinsics.checkNotNullExpressionValue(item, "getItem(mItemDataList, position)");
-            holder.a((PopActionChatPresenter.ChatItemData) item);
+            holder.b((PopActionChatPresenter.ChatItemData) item);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: l */
+    /* renamed from: m */
     public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parent, i)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
-            View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.obfuscated_res_0x7f0d060f, parent, false);
+            View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.obfuscated_res_0x7f0d061b, parent, false);
             Intrinsics.checkNotNullExpressionValue(view2, "view");
             return new ViewHolder(this, view2);
         }

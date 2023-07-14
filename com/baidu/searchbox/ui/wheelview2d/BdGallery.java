@@ -488,7 +488,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnGesture
     }
 
     public BdGallery(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040306);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040307);
     }
 
     @Override // android.view.ViewGroup

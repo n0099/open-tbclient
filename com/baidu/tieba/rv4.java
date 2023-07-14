@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class rv4 {
+public class rv4 extends ov4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
+
+    @Override // com.baidu.tieba.nv4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "h" : (String) invokeV.objValue;
+    }
 
     public rv4() {
         Interceptable interceptable = $ic;
@@ -24,28 +29,22 @@ public class rv4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.put("@@ya", "_");
-        this.a.put("@@yb", "-");
-        this.a.put("@@yc", ".");
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.nv4
+    public String a(String[] strArr, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/home");
+                c(strArr, sb, map, 1);
+                return sb.toString();
             }
-            for (Map.Entry<String, String> entry : this.a.entrySet()) {
-                str = str.replaceAll(entry.getKey(), entry.getValue());
-            }
-            return str;
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 }

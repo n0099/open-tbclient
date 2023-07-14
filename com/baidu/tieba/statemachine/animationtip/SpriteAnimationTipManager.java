@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
+import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,15 +13,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.core.widget.TbAnimationTipView;
-import com.baidu.tieba.j2a;
-import com.baidu.tieba.m2a;
-import com.baidu.tieba.nn5;
-import com.baidu.tieba.os6;
+import com.baidu.tieba.iaa;
+import com.baidu.tieba.jaa;
+import com.baidu.tieba.mo5;
 import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
 import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
-import com.baidu.tieba.y1a;
-import com.baidu.tieba.yg;
-import com.baidu.tieba.z1a;
+import com.baidu.tieba.taa;
+import com.baidu.tieba.tu6;
+import com.baidu.tieba.xaa;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,18 +36,18 @@ import kotlin.Unit;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000z\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u0000 J2\u00020\u0001:\u0001JB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u00106\u001a\u00020\tH\u0002J\u0006\u00107\u001a\u00020\tJ\u0006\u00108\u001a\u00020\tJ\u000e\u00109\u001a\u00020\t2\u0006\u0010:\u001a\u00020;J\u0016\u0010<\u001a\u00020\t2\u0006\u0010=\u001a\u00020>2\u0006\u0010?\u001a\u00020>J,\u0010@\u001a\u00020\t2\n\b\u0002\u0010\u0018\u001a\u0004\u0018\u00010\u00192\n\b\u0002\u0010\u001a\u001a\u0004\u0018\u00010\u00192\n\b\u0002\u0010#\u001a\u0004\u0018\u00010\u0019H\u0007J\u0010\u0010A\u001a\u00020\t2\b\u0010B\u001a\u0004\u0018\u00010CJ&\u0010D\u001a\u00020\t2\u0006\u0010E\u001a\u00020>2\u0006\u0010F\u001a\u00020>2\u0006\u0010G\u001a\u00020>2\u0006\u0010H\u001a\u00020>J\u0006\u0010I\u001a\u00020\tR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\"\u0010\u0007\u001a\n\u0012\u0004\u0012\u00020\t\u0018\u00010\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rR\u001b\u0010\u000e\u001a\u00020\u000f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0010\u0010\u0011R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0018\u001a\u0004\u0018\u00010\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001a\u001a\u0004\u0018\u00010\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u001b\u001a\u0004\u0018\u00010\u001cX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001d\u0010\u001e\"\u0004\b\u001f\u0010 R\u000e\u0010!\u001a\u00020\"X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010$\u001a\u0004\u0018\u00010%X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b&\u0010'\"\u0004\b(\u0010)R\u001a\u0010*\u001a\u00020+X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b,\u0010-\"\u0004\b.\u0010/R\u001a\u00100\u001a\u000201X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b2\u00103\"\u0004\b4\u00105¨\u0006K"}, d2 = {"Lcom/baidu/tieba/statemachine/animationtip/SpriteAnimationTipManager;", "", "activity", "Landroid/app/Activity;", "(Landroid/app/Activity;)V", "getActivity", "()Landroid/app/Activity;", "animationFlowEndListener", "Lkotlin/Function0;", "", "getAnimationFlowEndListener", "()Lkotlin/jvm/functions/Function0;", "setAnimationFlowEndListener", "(Lkotlin/jvm/functions/Function0;)V", "animationTipStateMachine", "Lcom/baidu/tieba/statemachine/animationtip/AnimationTipStateMachine;", "getAnimationTipStateMachine", "()Lcom/baidu/tieba/statemachine/animationtip/AnimationTipStateMachine;", "animationTipStateMachine$delegate", "Lkotlin/Lazy;", "animationTipStateMap", "Lcom/baidu/tieba/statemachine/animationtip/AnimationTipStateMap;", "animationTipView", "Lcom/baidu/tieba/core/widget/TbAnimationTipView;", "appearStateData", "Lcom/baidu/tieba/core/image/dynamic/DynamicAnimData;", "bubbleStateData", "customAnimationTipViewLp", "Landroid/widget/FrameLayout$LayoutParams;", "getCustomAnimationTipViewLp", "()Landroid/widget/FrameLayout$LayoutParams;", "setCustomAnimationTipViewLp", "(Landroid/widget/FrameLayout$LayoutParams;)V", "exitRunnable", "Ljava/lang/Runnable;", "exitStateData", "tipView", "Landroid/view/View;", "getTipView", "()Landroid/view/View;", "setTipView", "(Landroid/view/View;)V", "tipViewShowDuration", "", "getTipViewShowDuration", "()J", "setTipViewShowDuration", "(J)V", "useFadeAlpha", "", "getUseFadeAlpha", "()Z", "setUseFadeAlpha", "(Z)V", "attachToActivity", "execExit", "hide", "onChangeSkin", "resFilePath", "", "setAnimationTipViewSize", "width", "", "height", "setData", "setDynamicViewCLickListener", "onClickListener", "Landroid/view/View$OnClickListener;", "setDynamicViewMargin", "left", "top", "right", "bottom", "show", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000z\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\n\u0018\u0000 L2\u00020\u0001:\u0001LB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u00106\u001a\u00020\tH\u0002J\u0006\u00107\u001a\u00020\tJ\u0006\u00108\u001a\u00020\tJ\u000e\u00109\u001a\u00020\t2\u0006\u0010:\u001a\u00020;J\u0016\u0010<\u001a\u00020\t2\u0006\u0010=\u001a\u00020>2\u0006\u0010?\u001a\u00020>J,\u0010@\u001a\u00020\t2\n\b\u0002\u0010\u0018\u001a\u0004\u0018\u00010\u00192\n\b\u0002\u0010\u001a\u001a\u0004\u0018\u00010\u00192\n\b\u0002\u0010#\u001a\u0004\u0018\u00010\u0019H\u0007J\u0010\u0010A\u001a\u00020\t2\b\u0010B\u001a\u0004\u0018\u00010CJ&\u0010D\u001a\u00020\t2\u0006\u0010E\u001a\u00020>2\u0006\u0010F\u001a\u00020>2\u0006\u0010G\u001a\u00020>2\u0006\u0010H\u001a\u00020>J\u000e\u0010I\u001a\u00020\t2\u0006\u0010J\u001a\u00020>J\u0006\u0010K\u001a\u00020\tR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\"\u0010\u0007\u001a\n\u0012\u0004\u0012\u00020\t\u0018\u00010\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rR\u001b\u0010\u000e\u001a\u00020\u000f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0010\u0010\u0011R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0018\u001a\u0004\u0018\u00010\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001a\u001a\u0004\u0018\u00010\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u001b\u001a\u0004\u0018\u00010\u001cX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001d\u0010\u001e\"\u0004\b\u001f\u0010 R\u000e\u0010!\u001a\u00020\"X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010$\u001a\u0004\u0018\u00010%X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b&\u0010'\"\u0004\b(\u0010)R\u001a\u0010*\u001a\u00020+X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b,\u0010-\"\u0004\b.\u0010/R\u001a\u00100\u001a\u000201X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b2\u00103\"\u0004\b4\u00105¨\u0006M"}, d2 = {"Lcom/baidu/tieba/statemachine/animationtip/SpriteAnimationTipManager;", "", "activity", "Landroid/app/Activity;", "(Landroid/app/Activity;)V", "getActivity", "()Landroid/app/Activity;", "animationFlowEndListener", "Lkotlin/Function0;", "", "getAnimationFlowEndListener", "()Lkotlin/jvm/functions/Function0;", "setAnimationFlowEndListener", "(Lkotlin/jvm/functions/Function0;)V", "animationTipStateMachine", "Lcom/baidu/tieba/statemachine/animationtip/AnimationTipStateMachine;", "getAnimationTipStateMachine", "()Lcom/baidu/tieba/statemachine/animationtip/AnimationTipStateMachine;", "animationTipStateMachine$delegate", "Lkotlin/Lazy;", "animationTipStateMap", "Lcom/baidu/tieba/statemachine/animationtip/AnimationTipStateMap;", "animationTipView", "Lcom/baidu/tieba/core/widget/TbAnimationTipView;", "appearStateData", "Lcom/baidu/tieba/core/image/dynamic/DynamicAnimData;", "bubbleStateData", "customAnimationTipViewLp", "Landroid/widget/FrameLayout$LayoutParams;", "getCustomAnimationTipViewLp", "()Landroid/widget/FrameLayout$LayoutParams;", "setCustomAnimationTipViewLp", "(Landroid/widget/FrameLayout$LayoutParams;)V", "exitRunnable", "Ljava/lang/Runnable;", "exitStateData", "tipView", "Landroid/view/View;", "getTipView", "()Landroid/view/View;", "setTipView", "(Landroid/view/View;)V", "tipViewShowDuration", "", "getTipViewShowDuration", "()J", "setTipViewShowDuration", "(J)V", "useFadeAlpha", "", "getUseFadeAlpha", "()Z", "setUseFadeAlpha", "(Z)V", "attachToActivity", "execExit", "hide", "onChangeSkin", "resFilePath", "", "setAnimationTipViewSize", "width", "", "height", "setData", "setDynamicViewCLickListener", "onClickListener", "Landroid/view/View$OnClickListener;", "setDynamicViewMargin", "left", "top", "right", "bottom", "setTipGravity", NotificationCompat.WearableExtender.KEY_GRAVITY, "show", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
 public final class SpriteAnimationTipManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Activity a;
     public final TbAnimationTipView b;
-    public final z1a c;
+    public final jaa c;
     public final Lazy d;
-    public os6 e;
-    public os6 f;
-    public os6 g;
+    public tu6 e;
+    public tu6 f;
+    public tu6 g;
     public View h;
     public FrameLayout.LayoutParams i;
     public long j;
@@ -72,7 +73,7 @@ public final class SpriteAnimationTipManager {
     @Metadata(d1 = {"\u0000\u0019\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\b\u0010\t\u001a\u00020\nH\u0016R\u001a\u0010\u0002\u001a\u00020\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0002\u0010\u0004\"\u0004\b\u0005\u0010\u0006R\u001a\u0010\u0007\u001a\u00020\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\u0004\"\u0004\b\b\u0010\u0006¨\u0006\u000b"}, d2 = {"com/baidu/tieba/statemachine/animationtip/SpriteAnimationTipManager$3", "Lcom/baidu/tieba/statemachine/base/Action;", "isSpriteAnimExecDone", "", "()Z", "setSpriteAnimExecDone", "(Z)V", "isTipAnimExecDone", "setTipAnimExecDone", "doAction", "", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* renamed from: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager$3  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static final class AnonymousClass3 implements j2a {
+    public static final class AnonymousClass3 implements taa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -111,11 +112,11 @@ public final class SpriteAnimationTipManager {
             }
         }
 
-        @Override // com.baidu.tieba.j2a
+        @Override // com.baidu.tieba.taa
         public void a() {
-            os6 os6Var;
+            tu6 tu6Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (os6Var = this.c.g) != null) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tu6Var = this.c.g) != null) {
                 final SpriteAnimationTipManager spriteAnimationTipManager = this.c;
                 spriteAnimationTipManager.b.setAnimationListener(new Function0<Unit>(this, spriteAnimationTipManager) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager$3$doAction$1$1
                     public static /* synthetic */ Interceptable $ic;
@@ -174,7 +175,7 @@ public final class SpriteAnimationTipManager {
                     }
                 });
                 spriteAnimationTipManager.b.setLastAnimationCurFrameToPlaceHolder();
-                spriteAnimationTipManager.b.f(os6Var);
+                spriteAnimationTipManager.b.f(tu6Var);
                 if (spriteAnimationTipManager.o()) {
                     spriteAnimationTipManager.b.a(500L, 1.0f, 0.0f, new Function0<Unit>(this, spriteAnimationTipManager) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager$3$doAction$1$2
                         public static /* synthetic */ Interceptable $ic;
@@ -260,7 +261,7 @@ public final class SpriteAnimationTipManager {
     }
 
     /* loaded from: classes7.dex */
-    public static final class a implements j2a {
+    public static final class a implements taa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpriteAnimationTipManager a;
@@ -283,15 +284,15 @@ public final class SpriteAnimationTipManager {
             this.a = spriteAnimationTipManager;
         }
 
-        @Override // com.baidu.tieba.j2a
+        @Override // com.baidu.tieba.taa
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                os6 os6Var = this.a.f;
+                tu6 tu6Var = this.a.f;
                 Unit unit = null;
-                if (os6Var != null) {
+                if (tu6Var != null) {
                     SpriteAnimationTipManager spriteAnimationTipManager = this.a;
-                    spriteAnimationTipManager.b.f(os6Var);
+                    spriteAnimationTipManager.b.f(tu6Var);
                     View m = spriteAnimationTipManager.m();
                     if (m != null) {
                         spriteAnimationTipManager.b.g(m);
@@ -300,18 +301,18 @@ public final class SpriteAnimationTipManager {
                         }
                         if (spriteAnimationTipManager.n() != -1) {
                             DefaultLog.getInstance().b("SpriteAnimationTipManager", "精灵动画提示控件：气泡非常驻");
-                            yg.a().postDelayed(spriteAnimationTipManager.m, spriteAnimationTipManager.n());
+                            zg.a().postDelayed(spriteAnimationTipManager.m, spriteAnimationTipManager.n());
                         }
                         unit = Unit.INSTANCE;
                     }
                     if (unit == null) {
-                        spriteAnimationTipManager.l().c(spriteAnimationTipManager.c.f());
+                        spriteAnimationTipManager.l().f(spriteAnimationTipManager.c.f());
                     }
                     unit = Unit.INSTANCE;
                 }
                 if (unit == null) {
                     SpriteAnimationTipManager spriteAnimationTipManager2 = this.a;
-                    spriteAnimationTipManager2.l().c(spriteAnimationTipManager2.c.f());
+                    spriteAnimationTipManager2.l().f(spriteAnimationTipManager2.c.f());
                 }
             }
         }
@@ -335,8 +336,8 @@ public final class SpriteAnimationTipManager {
         Intrinsics.checkNotNullParameter(activity, "activity");
         this.a = activity;
         this.b = new TbAnimationTipView(this.a, null, 0, 6, null);
-        this.c = new z1a();
-        this.d = LazyKt__LazyJVMKt.lazy(new Function0<y1a>(this) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager$animationTipStateMachine$2
+        this.c = new jaa();
+        this.d = LazyKt__LazyJVMKt.lazy(new Function0<iaa>(this) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager$animationTipStateMachine$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpriteAnimationTipManager this$0;
@@ -365,18 +366,18 @@ public final class SpriteAnimationTipManager {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final y1a invoke() {
+            public final iaa invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return new y1a(this.this$0.c);
+                    return new iaa(this.this$0.c);
                 }
-                return (y1a) invokeV.objValue;
+                return (iaa) invokeV.objValue;
             }
         });
         this.j = -1L;
         this.l = true;
-        this.m = new Runnable() { // from class: com.baidu.tieba.x1a
+        this.m = new Runnable() { // from class: com.baidu.tieba.haa
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -388,7 +389,7 @@ public final class SpriteAnimationTipManager {
                 }
             }
         };
-        this.c.c().a(new j2a(this) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager.1
+        this.c.c().a(new taa(this) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpriteAnimationTipManager a;
@@ -411,13 +412,13 @@ public final class SpriteAnimationTipManager {
                 this.a = this;
             }
 
-            @Override // com.baidu.tieba.j2a
+            @Override // com.baidu.tieba.taa
             public void a() {
                 Unit unit;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    os6 os6Var = this.a.e;
-                    if (os6Var != null) {
+                    tu6 tu6Var = this.a.e;
+                    if (tu6Var != null) {
                         final SpriteAnimationTipManager spriteAnimationTipManager = this.a;
                         spriteAnimationTipManager.b.setAnimationListener(new Function0<Unit>(spriteAnimationTipManager) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager$1$doAction$1$1
                             public static /* synthetic */ Interceptable $ic;
@@ -457,18 +458,18 @@ public final class SpriteAnimationTipManager {
                             public final void invoke2() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                    this.this$0.l().c(this.this$0.c.d());
+                                    this.this$0.l().f(this.this$0.c.d());
                                 }
                             }
                         });
-                        spriteAnimationTipManager.b.f(os6Var);
+                        spriteAnimationTipManager.b.f(tu6Var);
                         unit = Unit.INSTANCE;
                     } else {
                         unit = null;
                     }
                     if (unit == null) {
                         SpriteAnimationTipManager spriteAnimationTipManager2 = this.a;
-                        spriteAnimationTipManager2.l().c(spriteAnimationTipManager2.c.d());
+                        spriteAnimationTipManager2.l().f(spriteAnimationTipManager2.c.d());
                     }
                 }
             }
@@ -483,7 +484,7 @@ public final class SpriteAnimationTipManager {
         String str2;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, resFilePath) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, resFilePath) == null) {
             Intrinsics.checkNotNullParameter(resFilePath, "resFilePath");
             DefaultLog.getInstance().b("SpriteAnimationTipManager", "精灵动画提示控件：精灵动画切换皮肤模式");
             boolean z2 = false;
@@ -492,16 +493,16 @@ public final class SpriteAnimationTipManager {
             } else {
                 z = false;
             }
-            m2a a2 = l().a();
+            xaa c = l().c();
             String str4 = "";
-            if (Intrinsics.areEqual(a2, this.c.c())) {
+            if (Intrinsics.areEqual(c, this.c.c())) {
                 if (z) {
                     str3 = "funny_sprite_appear_day";
                 } else {
                     str3 = "funny_sprite_appear_dark";
                 }
                 str4 = FunnySpriteResDownloadUtil.i(str3, resFilePath, true);
-            } else if (Intrinsics.areEqual(a2, this.c.e())) {
+            } else if (Intrinsics.areEqual(c, this.c.e())) {
                 if (z) {
                     str2 = "funny_sprite_show_day";
                 } else {
@@ -509,7 +510,7 @@ public final class SpriteAnimationTipManager {
                 }
                 str4 = FunnySpriteResDownloadUtil.i(str2, resFilePath, true);
                 z2 = true;
-            } else if (Intrinsics.areEqual(a2, this.c.g())) {
+            } else if (Intrinsics.areEqual(c, this.c.g())) {
                 if (z) {
                     str = "funny_sprite_exit_day";
                 } else {
@@ -517,7 +518,7 @@ public final class SpriteAnimationTipManager {
                 }
                 FunnySpriteResDownloadUtil.i(str, resFilePath, true);
             }
-            this.b.f(nn5.a(str4, z2, 2));
+            this.b.f(mo5.a(str4, z2, 2));
         }
     }
 
@@ -526,49 +527,66 @@ public final class SpriteAnimationTipManager {
         if (interceptable == null || interceptable.invokeL(65545, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             DefaultLog.getInstance().b("SpriteAnimationTipManager", "精灵动画提示控件：精灵自动执行退场");
-            this$0.l().c(this$0.c.f());
+            this$0.l().f(this$0.c.f());
         }
     }
 
     public final void r(Function0<Unit> function0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, function0) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, function0) == null) {
             this.k = function0;
         }
     }
 
     public final void t(FrameLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, layoutParams) == null) {
             this.i = layoutParams;
         }
     }
 
     public final void v(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, onClickListener) == null) {
             this.b.setDynamicViewCLickListener(onClickListener);
         }
     }
 
-    public final void x(View view2) {
+    public final void x(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.b.setGravity(i);
+        }
+    }
+
+    public final void y(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, view2) == null) {
             this.h = view2;
         }
     }
 
-    public final void y(long j) {
+    public final void z(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
             this.j = j;
+        }
+    }
+
+    public final void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            DefaultLog.getInstance().b("SpriteAnimationTipManager", "精灵动画提示控件：开始展示");
+            h();
+            l().g();
+            l().f(this.c.b());
         }
     }
 
     public final Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
         return (Activity) invokeV.objValue;
@@ -576,35 +594,35 @@ public final class SpriteAnimationTipManager {
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             DefaultLog.getInstance().b("SpriteAnimationTipManager", "精灵动画提示控件：手动退场");
-            yg.a().removeCallbacks(this.m);
-            l().c(this.c.f());
+            zg.a().removeCallbacks(this.m);
+            l().f(this.c.f());
         }
     }
 
     public final Function0<Unit> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.k;
         }
         return (Function0) invokeV.objValue;
     }
 
-    public final y1a l() {
+    public final iaa l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return (y1a) this.d.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return (iaa) this.d.getValue();
         }
-        return (y1a) invokeV.objValue;
+        return (iaa) invokeV.objValue;
     }
 
     public final View m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.h;
         }
         return (View) invokeV.objValue;
@@ -613,7 +631,7 @@ public final class SpriteAnimationTipManager {
     public final long n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.j;
         }
         return invokeV.longValue;
@@ -622,7 +640,7 @@ public final class SpriteAnimationTipManager {
     public final boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.l;
         }
         return invokeV.booleanValue;
@@ -630,28 +648,18 @@ public final class SpriteAnimationTipManager {
 
     public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             DefaultLog.getInstance().b("SpriteAnimationTipManager", "精灵动画提示控件：整体隐藏");
-            yg.a().removeCallbacks(this.m);
+            zg.a().removeCallbacks(this.m);
             this.b.setVisibility(8);
-            l().b();
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            DefaultLog.getInstance().b("SpriteAnimationTipManager", "精灵动画提示控件：开始展示");
-            h();
             l().d();
-            l().c(this.c.b());
         }
     }
 
     public final void h() {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View findViewById = this.a.findViewById(16908290);
             Intrinsics.checkNotNullExpressionValue(findViewById, "activity.findViewById(android.R.id.content)");
             FrameLayout frameLayout = (FrameLayout) findViewById;
@@ -677,24 +685,24 @@ public final class SpriteAnimationTipManager {
 
     public final void s(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
             this.b.setDynamicViewSize(i, i2);
         }
     }
 
     @JvmOverloads
-    public final void u(os6 os6Var, os6 os6Var2, os6 os6Var3) {
+    public final void u(tu6 tu6Var, tu6 tu6Var2, tu6 tu6Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, os6Var, os6Var2, os6Var3) == null) {
-            this.e = os6Var;
-            this.f = os6Var2;
-            this.g = os6Var3;
+        if (interceptable == null || interceptable.invokeLLL(1048590, this, tu6Var, tu6Var2, tu6Var3) == null) {
+            this.e = tu6Var;
+            this.f = tu6Var2;
+            this.g = tu6Var3;
         }
     }
 
     public final void w(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048591, this, i, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048592, this, i, i2, i3, i4) == null) {
             this.b.setDynamicViewMargin(i, i2, i3, i4);
         }
     }

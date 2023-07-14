@@ -17,8 +17,7 @@ import com.baidu.tieba.immessagecenter.arch.base.BaseRepository;
 import com.baidu.tieba.immessagecenter.msgtab.data.CacheDataType;
 import com.baidu.tieba.immessagecenter.msgtab.data.ForumListData;
 import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
-import com.baidu.tieba.nd8;
-import com.baidu.tieba.od8;
+import com.baidu.tieba.ji8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,7 +98,7 @@ public final class MsgCenterRepository extends BaseRepository {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:10:0x0020, code lost:
-            if (r0 == null) goto L13;
+            if (r5 == null) goto L13;
          */
         @Override // com.baidu.tbadk.net.FastRequest.b
         /* renamed from: f */
@@ -128,10 +127,6 @@ public final class MsgCenterRepository extends BaseRepository {
                     Unit unit2 = Unit.INSTANCE;
                 }
                 this.b = null;
-                od8 od8Var = od8.a;
-                Exception a = nd8.a(i, errMsg, forumListData);
-                Intrinsics.checkNotNullExpressionValue(a, "netWorkException(errno, errMsg, result)");
-                od8Var.a("MsgCenterContainerModel", a);
             }
         }
     }
@@ -159,8 +154,8 @@ public final class MsgCenterRepository extends BaseRepository {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) {
             FastRequest fastRequest = new FastRequest(tbPageContext, CmdConfigHttp.CMD_REQUEST_FOLLOWED_FRS_LIST, TbConfig.REQUEST_FOLLOWED_FRS_LIST);
-            fastRequest.a0(HttpMessageTask.HTTP_METHOD.POST);
-            fastRequest.X(this.b);
+            fastRequest.b0(HttpMessageTask.HTTP_METHOD.POST);
+            fastRequest.Y(this.b);
             return fastRequest;
         }
         return (FastRequest) invokeL.objValue;
@@ -221,7 +216,7 @@ public final class MsgCenterRepository extends BaseRepository {
                 this.c.put(c, forumListData);
                 return forumListData;
             } catch (Exception e) {
-                od8.a.a("MsgCenterContainerPresenter->获取本地存储的推荐数据失败", e);
+                ji8.a.a("MsgCenterContainerPresenter->获取本地存储的推荐数据失败", e);
             }
         } else {
             return (ForumListData) invokeV.objValue;
@@ -247,7 +242,7 @@ public final class MsgCenterRepository extends BaseRepository {
                 this.c.put(c, forumListData);
                 return forumListData;
             } catch (Exception e) {
-                od8.a.a("MsgCenterContainerPresenter->获取本地存储的最后一次网络请求数据失败", e);
+                ji8.a.a("MsgCenterContainerPresenter->获取本地存储的最后一次网络请求数据失败", e);
             }
         } else {
             return (ForumListData) invokeV.objValue;
@@ -393,8 +388,8 @@ public final class MsgCenterRepository extends BaseRepository {
             }
             FastRequest fastRequest = this.a;
             if (fastRequest != null) {
-                fastRequest.V(TiebaStatic.Params.FORUM_ID_MERGE, f());
-                fastRequest.W();
+                fastRequest.W(TiebaStatic.Params.FORUM_ID_MERGE, f());
+                fastRequest.X();
             }
         }
     }

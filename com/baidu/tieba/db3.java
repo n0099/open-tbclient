@@ -1,207 +1,323 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.ui.BdMultiPicker;
-import com.baidu.tieba.hb3;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.ext.widget.LoadingViewHelper;
+import com.baidu.swan.apps.res.ui.BdShimmerView;
+import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
+import com.baidu.tieba.cb3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.WeakHashMap;
 /* loaded from: classes5.dex */
-public class db3 extends hb3 {
+public final class db3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final WeakHashMap<ViewGroup, eb3> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdMultiPicker c;
-    public JSONArray d;
-    public JSONArray e;
-    public BdMultiPicker.b f;
-    public boolean g;
 
     /* loaded from: classes5.dex */
-    public static class a extends hb3.a {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public JSONArray e;
-        public JSONArray f;
-        public boolean g;
-        public BdMultiPicker.b h;
+        public final /* synthetic */ cb3 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ boolean d;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context) {
-            super(context);
+        public a(cb3 cb3Var, Context context, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {cb3Var, context, str, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = cb3Var;
+            this.b = context;
+            this.c = str;
+            this.d = z;
         }
 
-        @Override // com.baidu.tieba.hb3.a
-        public hb3 a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
+            LoadingView loadingView;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                db3 db3Var = (db3) super.a();
-                db3Var.g(this.e);
-                db3Var.h(this.f);
-                db3Var.j(this.g);
-                db3Var.i(this.h);
-                return db3Var;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                View d = this.a.d();
+                if (d instanceof LoadingView) {
+                    loadingView = (LoadingView) d;
+                } else {
+                    loadingView = new LoadingView(this.b);
+                    FrameLayout frameLayout = new FrameLayout(this.b);
+                    frameLayout.setPadding(0, 0, 0, mp3.g(160.0f));
+                    frameLayout.addView(loadingView);
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+                    layoutParams.gravity = 17;
+                    this.a.o(frameLayout, layoutParams);
+                }
+                if (!TextUtils.isEmpty(this.c)) {
+                    loadingView.setMsg(this.c);
+                }
+                this.a.k(this.d);
             }
-            return (hb3) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.hb3.a
-        public hb3 b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return new db3(context);
-            }
-            return (hb3) invokeL.objValue;
-        }
-
-        public a l(JSONArray jSONArray) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-                this.e = jSONArray;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a m(JSONArray jSONArray) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-                this.f = jSONArray;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a n(BdMultiPicker.b bVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
-                this.h = bVar;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a o(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.g = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public db3(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1001bb);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bb2 a;
+
+        public b(bb2 bb2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bb2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bb2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            cb3 floatLayer;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (floatLayer = ((cb3.a) this.a).getFloatLayer()) != null && (floatLayer.d() instanceof FrameLayout) && (((FrameLayout) floatLayer.d()).getChildAt(0) instanceof LoadingView)) {
+                floatLayer.g();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947698740, "Lcom/baidu/tieba/db3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947698740, "Lcom/baidu/tieba/db3;");
                 return;
             }
         }
+        a = fs1.a & true;
+        b = new WeakHashMap<>();
     }
 
-    public final void e() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new BdMultiPicker(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 1;
-            this.c.setLayoutParams(layoutParams);
-            this.c.setMultiWheelData(this.d, this.e);
-            if (!this.g) {
-                this.c.setMultiSelectedListener(this.f);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            for (ViewGroup viewGroup : b.keySet()) {
+                eb3 eb3Var = b.get(viewGroup);
+                if (eb3Var != null && eb3Var.getLoadingView() != null) {
+                    viewGroup.removeView(eb3Var.getLoadingView());
+                }
             }
+            b.clear();
         }
     }
 
-    public JSONArray f() {
-        InterceptResult invokeV;
+    public static boolean b(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        eb3 eb3Var;
+        View loadingView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c.getCurrentIndex();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, viewGroup)) == null) {
+            if (viewGroup == null) {
+                return false;
+            }
+            eb3 eb3Var2 = b.get(viewGroup);
+            if (eb3Var2 != null && eb3Var2.getLoadingView() != null) {
+                eb3Var2.getLoadingView().setVisibility(8);
+                return true;
+            }
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                if ((viewGroup.getChildAt(i) instanceof eb3) && (loadingView = (eb3Var = (eb3) viewGroup.getChildAt(i)).getLoadingView()) != null) {
+                    loadingView.setVisibility(8);
+                    b.put(viewGroup, eb3Var);
+                    if (a) {
+                        Log.d(LoadingViewHelper.TAG, "The count of cached loading views is : " + b.size());
+                        Log.d(LoadingViewHelper.TAG, "The content of cached views is : " + b.toString());
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
-        return (JSONArray) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void g(JSONArray jSONArray) {
+    public static boolean e(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        eb3 eb3Var;
+        View loadingView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
-            this.d = jSONArray;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, viewGroup)) == null) {
+            if (viewGroup == null) {
+                return false;
+            }
+            eb3 eb3Var2 = b.get(viewGroup);
+            if (eb3Var2 != null && eb3Var2.getLoadingView() != null) {
+                eb3Var2.getLoadingView().setVisibility(0);
+                return true;
+            }
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                if ((viewGroup.getChildAt(i) instanceof eb3) && (loadingView = (eb3Var = (eb3) viewGroup.getChildAt(i)).getLoadingView()) != null) {
+                    loadingView.setVisibility(0);
+                    b.put(viewGroup, eb3Var);
+                    if (a) {
+                        Log.d(LoadingViewHelper.TAG, "The count of cached loading views is : " + b.size());
+                        Log.d(LoadingViewHelper.TAG, "The content of cached views is : " + b.toString());
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void c(@NonNull bb2 bb2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, bb2Var) != null) || !(bb2Var instanceof cb3.a)) {
+            return;
+        }
+        pp3.e0(new b(bb2Var));
+    }
+
+    public static boolean d(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        eb3 eb3Var;
+        View loadingView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup)) == null) {
+            if (viewGroup == null) {
+                return false;
+            }
+            eb3 eb3Var2 = b.get(viewGroup);
+            if (eb3Var2 != null) {
+                View loadingView2 = eb3Var2.getLoadingView();
+                if (loadingView2 != null) {
+                    if (loadingView2 instanceof BdShimmerView) {
+                        ((BdShimmerView) loadingView2).p();
+                    }
+                    loadingView2.setVisibility(8);
+                    viewGroup.removeView(loadingView2);
+                    b.remove(viewGroup);
+                    if (a) {
+                        Log.d(LoadingViewHelper.TAG, "The count of cached loading views is : " + b.size());
+                        Log.d(LoadingViewHelper.TAG, "The content of cached views is : " + b.toString());
+                    }
+                }
+                return true;
+            }
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                if ((viewGroup.getChildAt(i) instanceof eb3) && (loadingView = (eb3Var = (eb3) viewGroup.getChildAt(i)).getLoadingView()) != null) {
+                    loadingView.setVisibility(8);
+                    viewGroup.removeView((View) eb3Var);
+                    b.remove(viewGroup);
+                    if (a) {
+                        Log.d(LoadingViewHelper.TAG, "The count of cached loading views is : " + b.size());
+                        Log.d(LoadingViewHelper.TAG, "The content of cached views is : " + b.toString());
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void f(@NonNull cb3 cb3Var, @NonNull Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{cb3Var, context, str, Boolean.valueOf(z)}) == null) {
+            pp3.e0(new a(cb3Var, context, str, z));
         }
     }
 
-    public void h(JSONArray jSONArray) {
+    public static boolean g(Context context, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONArray) == null) {
-            this.e = jSONArray;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, viewGroup)) == null) {
+            return h(context, viewGroup, "");
         }
+        return invokeLL.booleanValue;
     }
 
-    public void i(BdMultiPicker.b bVar) {
+    public static boolean h(Context context, ViewGroup viewGroup, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f = bVar;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, viewGroup, str)) == null) {
+            if (context != null && viewGroup != null) {
+                if (e(viewGroup)) {
+                    return true;
+                }
+                LoadingView loadingView = new LoadingView(context);
+                LoadingView loadingView2 = loadingView.getLoadingView();
+                if (loadingView2 == null) {
+                    return false;
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    loadingView2.setMsg(str);
+                }
+                ViewGroup viewGroup2 = (ViewGroup) loadingView2.getParent();
+                if (viewGroup2 != null) {
+                    viewGroup2.removeView(loadingView2);
+                }
+                if (viewGroup instanceof RelativeLayout) {
+                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                    layoutParams.addRule(13);
+                    viewGroup.addView(loadingView2, layoutParams);
+                } else if (viewGroup instanceof LinearLayout) {
+                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+                    layoutParams2.gravity = 17;
+                    viewGroup.addView(loadingView2, layoutParams2);
+                } else if (viewGroup instanceof FrameLayout) {
+                    FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
+                    layoutParams3.gravity = 17;
+                    viewGroup.addView(loadingView2, layoutParams3);
+                }
+                b.put(viewGroup, loadingView);
+                loadingView2.setVisibility(0);
+                if (a) {
+                    Log.d(LoadingViewHelper.TAG, "The count of cached loading views is : " + b.size());
+                    Log.d(LoadingViewHelper.TAG, "The content of cached views is : " + b.toString());
+                }
+                return true;
+            }
+            return false;
         }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            e();
-            b().j(this.c);
-        }
-    }
-
-    public void k(int i, JSONArray jSONArray, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), jSONArray, Integer.valueOf(i2)}) == null) {
-            this.c.j(i, jSONArray, i2);
-        }
+        return invokeLLL.booleanValue;
     }
 }

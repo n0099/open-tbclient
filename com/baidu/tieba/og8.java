@@ -1,39 +1,26 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
+import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsJVMKt;
-import kotlin.collections.SetsKt__SetsKt;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class og8 {
+public class og8 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mg8 a;
-
-    public abstract void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj);
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
-    }
+    public int a;
+    public ee8 b;
 
     public og8() {
         Interceptable interceptable = $ic;
@@ -45,37 +32,55 @@ public abstract class og8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 2001154;
+        this.b = ee8.w();
     }
 
-    public Set<String> e() {
-        InterceptResult invokeV;
-        boolean z;
+    public final LoadHistoryResponsedMessage a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String d = d();
-            if (d.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return SetsKt__SetsKt.emptySet();
-            }
-            return SetsKt__SetsJVMKt.setOf(d);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
+            loadHistoryResponsedMessage.setError(-18);
+            return loadHistoryResponsedMessage;
         }
-        return (Set) invokeV.objValue;
+        return (LoadHistoryResponsedMessage) invokeI.objValue;
     }
 
-    public final void a(AbilityItem abilityItem, BaseMsg baseMsg) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            mg8 mg8Var = this.a;
-            if (mg8Var != null) {
-                mg8Var.b(abilityItem, baseMsg);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
+            if (this.b == null) {
+                return a(this.a);
             }
+            List<ie8> x = ee8.x();
+            if (x != null && x.size() > 0) {
+                HashMap hashMap = new HashMap(x.size());
+                for (ie8 ie8Var : x) {
+                    hashMap.put(ie8Var.b(), ie8Var);
+                }
+                LinkedList<ChatMessage> l = this.b.l(hashMap, 80);
+                if (l == null) {
+                    return a(this.a);
+                }
+                OfficialFeedHeadResponsedMessage.a aVar = new OfficialFeedHeadResponsedMessage.a();
+                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.a);
+                aVar.b = l;
+                aVar.a = x;
+                try {
+                    officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return officialFeedHeadResponsedMessage;
+            }
+            return a(this.a);
         }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

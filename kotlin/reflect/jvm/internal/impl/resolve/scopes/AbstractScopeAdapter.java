@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.PropertyDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.SimpleFunctionDescriptor;
 import kotlin.reflect.jvm.internal.impl.incremental.components.LookupLocation;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractScopeAdapter implements MemberScope {
     public abstract MemberScope getWorkerScope();
 
@@ -25,8 +25,8 @@ public abstract class AbstractScopeAdapter implements MemberScope {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2101getContributedClassifier(Name name, LookupLocation lookupLocation) {
-        return getWorkerScope().mo2101getContributedClassifier(name, lookupLocation);
+    public ClassifierDescriptor mo2103getContributedClassifier(Name name, LookupLocation lookupLocation) {
+        return getWorkerScope().mo2103getContributedClassifier(name, lookupLocation);
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope

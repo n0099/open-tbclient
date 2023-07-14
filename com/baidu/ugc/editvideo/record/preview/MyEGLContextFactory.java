@@ -5,7 +5,7 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MyEGLContextFactory implements GLSurfaceView.EGLContextFactory {
     public int EGL_CONTEXT_CLIENT_VERSION = 12440;
     public int mEGLContextClientVersion;

@@ -163,7 +163,7 @@ public final class PbContentCollectionController {
     public final void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && b().getVisibility() == 0) {
-            b().k();
+            b().l();
         }
     }
 
@@ -182,7 +182,7 @@ public final class PbContentCollectionController {
             b().setVisibility(0);
             b().setStyleForPb();
             b().setData(threadData);
-            b().setEventCallback(new TbLabelWidget.b() { // from class: com.baidu.tieba.ud9
+            b().setEventCallback(new TbLabelWidget.b() { // from class: com.baidu.tieba.zj9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

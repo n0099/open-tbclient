@@ -3,12 +3,12 @@ package com.baidu.tieba.themeCenter.dressCenter;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.eba;
-import com.baidu.tieba.fs5;
-import com.baidu.tieba.gba;
-import com.baidu.tieba.hba;
-import com.baidu.tieba.iba;
+import com.baidu.tieba.jt5;
 import com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel;
+import com.baidu.tieba.vja;
+import com.baidu.tieba.xja;
+import com.baidu.tieba.yja;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,11 +19,11 @@ import java.util.List;
 public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gba a;
+    public xja a;
     public DressupCenterModel b;
     public DressupCenterModel.b c;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.cs5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.gt5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.b
-        public void a(int i, String str, List<eba> list, iba ibaVar, List<hba> list2) {
+        public void a(int i, String str, List<vja> list, zja zjaVar, List<yja> list2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, list, ibaVar, list2}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, list, zjaVar, list2}) == null) {
                 DressupCenterActivity dressupCenterActivity = this.a;
                 dressupCenterActivity.hideLoadingView(dressupCenterActivity.a.e());
                 if (i != 0) {
@@ -65,7 +65,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
                     this.a.a.n();
                     return;
                 }
-                this.a.a.o(list, ibaVar, list2, this.a.b.b0());
+                this.a.a.o(list, zjaVar, list2, this.a.b.c0());
             }
         }
     }
@@ -87,17 +87,17 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public fs5 getPageStayDurationItem() {
+    public jt5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            fs5 pageStayDurationItem = super.getPageStayDurationItem();
+            jt5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (fs5) invokeV.objValue;
+        return (jt5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -114,10 +114,10 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        gba gbaVar;
+        xja xjaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (gbaVar = this.a) != null) {
-            hideNetRefreshView(gbaVar.e());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (xjaVar = this.a) != null) {
+            hideNetRefreshView(xjaVar.e());
             showLoadingView(this.a.e());
             this.b.loadData();
         }
@@ -128,9 +128,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            gba gbaVar = this.a;
-            if (gbaVar != null) {
-                gbaVar.g();
+            xja xjaVar = this.a;
+            if (xjaVar != null) {
+                xjaVar.g();
             }
         }
     }
@@ -140,9 +140,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            gba gbaVar = this.a;
-            if (gbaVar != null) {
-                gbaVar.h();
+            xja xjaVar = this.a;
+            if (xjaVar != null) {
+                xjaVar.h();
             }
         }
     }
@@ -152,9 +152,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            gba gbaVar = this.a;
-            if (gbaVar != null) {
-                gbaVar.f();
+            xja xjaVar = this.a;
+            if (xjaVar != null) {
+                xjaVar.f();
             }
         }
     }
@@ -166,10 +166,10 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
             super.onCreate(bundle);
             DressupCenterModel dressupCenterModel = new DressupCenterModel(this);
             this.b = dressupCenterModel;
-            dressupCenterModel.c0(this.c);
-            gba gbaVar = new gba(this);
-            this.a = gbaVar;
-            showLoadingView(gbaVar.e());
+            dressupCenterModel.d0(this.c);
+            xja xjaVar = new xja(this);
+            this.a = xjaVar;
+            showLoadingView(xjaVar.e());
             this.b.loadData();
         }
     }

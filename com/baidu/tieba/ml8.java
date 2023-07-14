@@ -1,109 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ml8 extends kn<ll8, CardViewHolder<ql8>> {
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class ml8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public qo6 b;
-    public String c;
+    public final Map<String, ol8> a;
+    public ol8 b;
+    public long c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ml8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    @JvmOverloads
+    public final void c(AbilityItem abilityItem, BaseMsg baseMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            e(this, abilityItem, baseMsg, null, 4, null);
+        }
+    }
+
+    public ml8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = new LinkedHashMap();
     }
 
-    @Override // com.baidu.tieba.kn
-    public ho getOnAdapterItemClickListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
+    public static /* synthetic */ void e(ml8 ml8Var, AbilityItem abilityItem, BaseMsg baseMsg, Object obj, int i, Object obj2) {
+        if ((i & 4) != 0) {
+            obj = null;
         }
-        return (ho) invokeV.objValue;
+        ml8Var.d(abilityItem, baseMsg, obj);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public CardViewHolder<ql8> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a(ol8 handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ql8 ql8Var = new ql8(this.a, viewGroup);
-            qo6 qo6Var = this.b;
-            if (qo6Var != null) {
-                ql8Var.k(qo6Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
+            Intrinsics.checkNotNullParameter(handler, "handler");
+            if (handler.c()) {
+                this.b = handler;
             }
-            return new CardViewHolder<>(ql8Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
+            for (String str : handler.e()) {
+                this.a.put(str, handler);
+            }
         }
     }
 
-    public void x(qo6 qo6Var) {
+    public final void b(AbilityItem abilityItem, BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, qo6Var) == null) {
-            this.b = qo6Var;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            ol8 ol8Var = this.b;
+            if (ol8Var != null) {
+                ol8Var.b(abilityItem, baseMsg, null);
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ll8 ll8Var, CardViewHolder<ql8> cardViewHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
+    @JvmOverloads
+    public final void d(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
+        Unit unit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ll8Var, cardViewHolder})) == null) {
-            if (ll8Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().z(this.c);
-                ql8 a = cardViewHolder.a();
-                if (i == 0) {
-                    z = true;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, abilityItem, baseMsg, obj) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            try {
+                ol8 ol8Var = this.a.get(abilityItem.getType());
+                if (ol8Var != null) {
+                    ol8Var.b(abilityItem, baseMsg, obj);
+                    unit = Unit.INSTANCE;
                 } else {
-                    z = false;
+                    unit = null;
                 }
-                a.A(z);
-                cardViewHolder.a().i(ll8Var);
-                return cardViewHolder.getView();
+                if (unit == null) {
+                    b(abilityItem, baseMsg);
+                }
+            } catch (Exception e) {
+                yk8.g("ability_handle_exception", this.c, e);
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.c = j;
+        }
     }
 }

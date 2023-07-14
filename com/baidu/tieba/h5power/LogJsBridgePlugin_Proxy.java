@@ -3,12 +3,12 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d5a;
-import com.baidu.tieba.e5a;
-import com.baidu.tieba.em6;
-import com.baidu.tieba.f5a;
-import com.baidu.tieba.h5a;
-import com.baidu.tieba.sy4;
+import com.baidu.tieba.in6;
+import com.baidu.tieba.ly4;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.pda;
+import com.baidu.tieba.qda;
+import com.baidu.tieba.sda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,18 +20,19 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class LogJsBridgePlugin_Proxy extends d5a {
+public class LogJsBridgePlugin_Proxy extends oda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sy4 mJsBridge;
+    public ly4 mJsBridge;
 
-    public LogJsBridgePlugin_Proxy(sy4 sy4Var) {
+    public LogJsBridgePlugin_Proxy(ly4 ly4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sy4Var};
+            Object[] objArr = {ly4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,68 +42,79 @@ public class LogJsBridgePlugin_Proxy extends d5a {
                 return;
             }
         }
-        this.mJsBridge = sy4Var;
+        this.mJsBridge = ly4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
         hashSet.add("getPageLeaveTime");
     }
 
-    @Override // com.baidu.tieba.d5a
-    public f5a dispatch(WebView webView, h5a h5aVar, f5a f5aVar) {
+    @Override // com.baidu.tieba.oda
+    public qda dispatch(WebView webView, sda sdaVar, qda qdaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, h5aVar, f5aVar)) == null) {
-            if (f5aVar == null) {
-                f5aVar = new f5a();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, sdaVar, qdaVar)) == null) {
+            if (qdaVar == null) {
+                qdaVar = new qda();
             }
-            h5aVar.b();
-            h5aVar.e();
-            return f5aVar;
+            String b = sdaVar.b();
+            JSONObject e = sdaVar.e();
+            if (b.equals("log/LocalYaLog")) {
+                qdaVar.s(true);
+                qda c = this.mJsBridge.c(webView, e.optString("tag"), e.optString("logInfo"));
+                if (c != null) {
+                    qdaVar.y(c.f());
+                    qdaVar.u(c.b());
+                    qdaVar.o(c.a());
+                    qdaVar.x(c.e());
+                }
+                qdaVar.z(0);
+            }
+            return qdaVar;
         }
-        return (f5a) invokeLLL.objValue;
+        return (qda) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.d5a
-    public em6 getJsBridge() {
+    @Override // com.baidu.tieba.oda
+    public in6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (em6) invokeV.objValue;
+        return (in6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d5a
-    public List<f5a> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.oda
+    public List<qda> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            f5a f5aVar = null;
+            qda qdaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("getPageLeaveTime")) {
-                f5aVar = this.mJsBridge.c(webView, hashMap);
+                qdaVar = this.mJsBridge.d(webView, hashMap);
             }
-            if (f5aVar != null) {
-                f5aVar.z(0);
+            if (qdaVar != null) {
+                qdaVar.z(0);
             }
-            List<e5a> list = this.mAsyncCallBackMethodList.get(str);
-            if (f5aVar != null && list != null) {
-                Iterator<e5a> it = list.iterator();
-                if (!TextUtils.isEmpty(f5aVar.e())) {
+            List<pda> list = this.mAsyncCallBackMethodList.get(str);
+            if (qdaVar != null && list != null) {
+                Iterator<pda> it = list.iterator();
+                if (!TextUtils.isEmpty(qdaVar.e())) {
                     while (it.hasNext()) {
-                        e5a next = it.next();
-                        if (next.b().equals(f5aVar.e())) {
-                            f5a f5aVar2 = new f5a();
-                            f5aVar2.w(next.a());
-                            f5aVar2.y(f5aVar.f());
-                            f5aVar2.u(f5aVar.b());
-                            f5aVar2.o(f5aVar.a());
-                            f5aVar2.A(f5aVar.l());
-                            arrayList.add(f5aVar2);
+                        pda next = it.next();
+                        if (next.b().equals(qdaVar.e())) {
+                            qda qdaVar2 = new qda();
+                            qdaVar2.w(next.a());
+                            qdaVar2.y(qdaVar.f());
+                            qdaVar2.u(qdaVar.b());
+                            qdaVar2.o(qdaVar.a());
+                            qdaVar2.A(qdaVar.l());
+                            arrayList.add(qdaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -110,14 +122,14 @@ public class LogJsBridgePlugin_Proxy extends d5a {
                     }
                 } else {
                     while (it.hasNext()) {
-                        e5a next2 = it.next();
-                        f5a f5aVar3 = new f5a();
-                        f5aVar3.w(next2.a());
-                        f5aVar3.y(f5aVar.f());
-                        f5aVar3.u(f5aVar.b());
-                        f5aVar3.o(f5aVar.a());
-                        f5aVar3.A(f5aVar.l());
-                        arrayList.add(f5aVar3);
+                        pda next2 = it.next();
+                        qda qdaVar3 = new qda();
+                        qdaVar3.w(next2.a());
+                        qdaVar3.y(qdaVar.f());
+                        qdaVar3.u(qdaVar.b());
+                        qdaVar3.o(qdaVar.a());
+                        qdaVar3.A(qdaVar.l());
+                        arrayList.add(qdaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

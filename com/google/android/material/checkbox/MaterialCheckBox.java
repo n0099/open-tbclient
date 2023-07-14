@@ -14,7 +14,7 @@ import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes9.dex */
 public class MaterialCheckBox extends AppCompatCheckBox {
-    public static final int DEF_STYLE_RES = 2131755894;
+    public static final int DEF_STYLE_RES = 2131755895;
     public static final int[][] ENABLED_CHECKED_STATES = {new int[]{16842910, 16842912}, new int[]{16842910, -16842912}, new int[]{-16842910, 16842912}, new int[]{-16842910, -16842912}};
     @Nullable
     public ColorStateList materialThemeColorsTintList;

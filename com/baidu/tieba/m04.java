@@ -1,8 +1,19 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.swan.game.ad.jsbridge.CommandType;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface m04 {
-    void b(CommandType commandType, Uri uri);
+    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
+
+    void b(String str, JSONObject jSONObject, ResponseCallback<e04> responseCallback);
+
+    void c(String str, ResponseCallback<nz3> responseCallback);
+
+    void d(String str);
+
+    void e(String str);
+
+    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
 }

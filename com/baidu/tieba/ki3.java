@@ -1,31 +1,31 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ki3 {
+public final class ki3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ wi3 a;
 
-        public a(ki3 ki3Var, JSONObject jSONObject) {
+        public a(wi3 wi3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ki3Var, jSONObject};
+                Object[] objArr = {wi3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -35,167 +35,72 @@ public class ki3 {
                     return;
                 }
             }
-            this.a = jSONObject;
+            this.a = wi3Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ji3.k("777", this.a);
-                c92.k("SwanAppBusinessUbc", this.a.toString());
+                ci3.k("671", this.a.f());
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ki3 a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public String h;
-
-        public b(int i) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947914004, "Lcom/baidu/tieba/ki3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947914004, "Lcom/baidu/tieba/ki3;");
+                return;
+            }
+        }
+        a = fs1.a;
+    }
+
+    public static void a(nj4 nj4Var, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{nj4Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (nj4Var == null) {
+                if (a) {
+                    Log.d("SwanStabilityUbc", "pms callback is null");
                     return;
                 }
+                return;
             }
-            this.a = new ki3(null);
-            this.c = String.valueOf(i);
-            this.b = "swan";
-        }
-
-        public b h(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.g = str;
-                return this;
+            on3 on3Var = new on3();
+            on3Var.k(11L);
+            on3Var.i(2331L);
+            on3Var.f("Retry=" + z + ", Scene=" + nj4Var.getClass().getName());
+            wi3 wi3Var = new wi3();
+            wi3Var.q(oi3.n(i));
+            wi3Var.p(on3Var);
+            if (nj4Var instanceof we2) {
+                wi3Var.r(((we2) nj4Var).I0());
             }
-            return (b) invokeL.objValue;
-        }
-
-        public b i(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.h = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b j(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b k(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b l(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.e = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public void m() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.a.b(this);
+            b(wi3Var);
+            if (a) {
+                Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + nj4Var.getClass().getSimpleName());
             }
         }
     }
 
-    public ki3() {
+    public static void b(wi3 wi3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public /* synthetic */ ki3(a aVar) {
-        this();
-    }
-
-    public final void b(b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            if (!TextUtils.isEmpty(bVar.b)) {
-                jSONObject.put("from", bVar.b);
-            }
-            if (!TextUtils.isEmpty(bVar.c)) {
-                jSONObject.put("type", bVar.c);
-            }
-            if (!TextUtils.isEmpty(bVar.e)) {
-                jSONObject.put("value", bVar.e);
-            }
-            if (!TextUtils.isEmpty(bVar.d)) {
-                jSONObject.put("source", bVar.d);
-            }
-            if (!TextUtils.isEmpty(bVar.f)) {
-                jSONObject.put("page", bVar.f);
-            }
-            boolean isEmpty = TextUtils.isEmpty(bVar.g);
-            boolean isEmpty2 = TextUtils.isEmpty(bVar.h);
-            if (!isEmpty || !isEmpty2) {
-                JSONObject jSONObject2 = new JSONObject();
-                if (!isEmpty) {
-                    jSONObject2.put("appid", bVar.g);
+        if (interceptable == null || interceptable.invokeL(65538, null, wi3Var) == null) {
+            if (wi3Var == null) {
+                if (a) {
+                    Log.d("SwanStabilityUbc", "event is null");
+                    return;
                 }
-                if (!isEmpty2) {
-                    jSONObject2.put("info", bVar.h);
-                }
-                jSONObject.put("ext", jSONObject2);
+                return;
             }
-            wo3.k(new a(this, jSONObject), "SwanAppBusinessUbcRunnable");
-        } catch (JSONException e) {
-            if (ms1.a) {
-                e.printStackTrace();
-            }
+            po3.k(new a(wi3Var), "SwanStabilityUBC");
         }
     }
 }

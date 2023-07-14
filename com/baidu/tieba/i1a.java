@@ -1,210 +1,116 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ListAdapter;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.aa5;
-import com.baidu.tieba.square.square.SquareActivity;
+import com.baidu.tieba.rc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class i1a extends j9<Object> {
+public final class i1a implements rc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<Object> a;
-    public View b;
-    public BdListView c;
-    public NoNetworkView d;
-    public ba5 e;
-    public f1a f;
-    public NoDataView g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i1a(TbPageContext<Object> tbPageContext, View view2, View.OnKeyListener onKeyListener) {
-        super(tbPageContext);
+    public i1a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2, onKeyListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.c = null;
-        this.e = null;
-        this.f = null;
-        this.a = tbPageContext;
-        this.b = view2;
-        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f092239);
-        this.c = bdListView;
-        bdListView.setOnKeyListener(onKeyListener);
-        if (this.a.getOrignalPage() instanceof SquareActivity) {
-            this.c.setOnItemClickListener((SquareActivity) this.a.getOrignalPage());
-        }
-        f1a f1aVar = new f1a(tbPageContext);
-        this.f = f1aVar;
-        this.c.setAdapter((ListAdapter) f1aVar);
-        ba5 ba5Var = new ba5(tbPageContext);
-        this.e = ba5Var;
-        this.c.setPullRefresh(ba5Var);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public i1a(TbPageContext<Object> tbPageContext, BdUniqueId bdUniqueId, View view2, View.OnKeyListener onKeyListener) {
-        this(tbPageContext, view2, onKeyListener);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, view2, onKeyListener};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((TbPageContext) objArr2[0], (View) objArr2[1], (View.OnKeyListener) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e.a0(bdUniqueId);
-    }
-
-    public void A(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-            y();
-            if (!z && str != null) {
-                this.a.showToast(str, true);
             }
         }
     }
 
-    public View B() {
+    @Override // com.baidu.tieba.qc7
+    public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return rc7.a.b(this);
         }
-        return (View) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void C() {
-        NoDataView noDataView;
+    @Override // com.baidu.tieba.qc7
+    public Map<String, String> a(d87 d87Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (noDataView = this.g) != null) {
-            noDataView.setVisibility(8);
-            this.c.removeHeaderView(this.g);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d87Var)) == null) {
+            return rc7.a.a(this, d87Var);
         }
+        return (Map) invokeL.objValue;
     }
 
-    public void D() {
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x002a, code lost:
+        if (r5.equals("video_forum") == false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0033, code lost:
+        if (r5.equals("live_forum") == false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0048, code lost:
+        if (r5.equals("common_forum") == false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x004b, code lost:
+        return "forum_head_click";
+     */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0067  */
+    /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.tieba.rc7
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(d87 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d.setVisibility(8);
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.c.z(0L);
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.d.setVisibility(0);
-        }
-    }
-
-    public void E(g1a g1aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, g1aVar) == null) && g1aVar != null) {
-            try {
-                if (!g1aVar.g()) {
-                    this.f.i(g1aVar);
-                    this.f.notifyDataSetChanged();
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            String str = businessInfo.a().get("card_head_type");
+            if (str == null) {
+                str = "common_user";
             }
-        }
-    }
-
-    public void F(NoNetworkView.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.d.e(bVar);
-        }
-    }
-
-    public void G(aa5.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, gVar) == null) {
-            this.e.f(gVar);
-        }
-    }
-
-    public void x(NoNetworkView.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.d.a(bVar);
-        }
-    }
-
-    public void H(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            if (this.g == null) {
-                this.g = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07039b)), NoDataViewFactory.e.a(i), null);
+            switch (str.hashCode()) {
+                case -1924729441:
+                    if (str.equals("common_user")) {
+                        return "";
+                    }
+                    if (s05.e()) {
+                        return "";
+                    }
+                    throw new IllegalStateException("unknown card_head_type :" + str);
+                case -1617812209:
+                    if (str.equals("video_user")) {
+                        return "video_user_head_click";
+                    }
+                    if (s05.e()) {
+                    }
+                    break;
+                case 448970189:
+                    break;
+                case 1009035070:
+                    if (str.equals("live_user")) {
+                        return "live_user_head_click";
+                    }
+                    if (s05.e()) {
+                    }
+                    break;
+                case 1201356814:
+                    break;
+                case 1373469789:
+                    break;
+                default:
+                    if (s05.e()) {
+                    }
+                    break;
             }
-            this.g.setTextOption(NoDataViewFactory.e.a(i));
-            this.g.f(this.a, TbadkCoreApplication.getInst().getSkinType());
-            this.g.setVisibility(0);
-            this.c.removeHeaderView(this.g);
-            this.c.addHeaderView(this.g);
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            h05 layoutMode = this.a.getLayoutMode();
-            if (i == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.l(z);
-            this.a.getLayoutMode().k(this.b);
-            this.f.h(i);
-            this.e.H(i);
-            this.d.d(this.mContext, i);
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 }

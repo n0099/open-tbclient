@@ -3,13 +3,13 @@ package com.kwad.components.ad.reward.b;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.ksad.json.annotation.KsJson;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class e implements com.kwad.sdk.core.webview.kwai.a {
     public String TAG;
     public com.kwad.sdk.core.webview.kwai.c kr;
 
     @KsJson
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public String oN;
     }

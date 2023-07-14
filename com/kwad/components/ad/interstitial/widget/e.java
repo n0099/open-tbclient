@@ -17,7 +17,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class e extends b {
     public KsAdVideoPlayConfig cN;
     public KsInterstitialAd.AdInteractionListener fo;
@@ -90,7 +90,7 @@ public final class e extends b {
         cVar.mApkDownloadHelper = new com.kwad.components.core.c.a.c(adTemplate);
         cVar.cN = this.cN;
         cVar.dp = new com.kwad.sdk.core.video.videoview.a(this.mContext);
-        KSFrameLayout kSFrameLayout = (KSFrameLayout) this.iB.findViewById(R.id.obfuscated_res_0x7f09126c);
+        KSFrameLayout kSFrameLayout = (KSFrameLayout) this.iB.findViewById(R.id.obfuscated_res_0x7f091280);
         cVar.gq = kSFrameLayout;
         com.kwad.components.ad.interstitial.c.b bVar = new com.kwad.components.ad.interstitial.c.b(kSFrameLayout, 100);
         cVar.gt = bVar;
@@ -173,7 +173,7 @@ public final class e extends b {
     }
 
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0499;
+        return R.layout.obfuscated_res_0x7f0d04a4;
     }
 
     @Override // android.view.ViewGroup, android.view.View

@@ -22,7 +22,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c implements com.kwad.sdk.core.b {
     public int HV;
     public String HW;
@@ -51,7 +51,7 @@ public final class c implements com.kwad.sdk.core.b {
     public int In = -1;
 
     @KsJson
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
         public int It = -1;
         public int Iu = -1;

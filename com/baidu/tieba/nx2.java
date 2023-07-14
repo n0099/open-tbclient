@@ -1,114 +1,118 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Pair;
-import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.aop.annotation.DebugTrace;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.ox2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface nx2 extends ox2.b {
-    ky1 A(String str);
+public class nx2 implements mx2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    View B(String str);
+    /* loaded from: classes7.dex */
+    public class a implements ew3<dy1> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    String C();
+        public a(nx2 nx2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    cc3 D();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ew3
+        /* renamed from: a */
+        public void run(@NonNull dy1 dy1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dy1Var) == null) {
+                dy1Var.M();
+            }
+        }
+    }
 
-    void E(zw2 zw2Var, wu2 wu2Var);
+    /* loaded from: classes7.dex */
+    public class b implements ew3<dy1> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    qt1 F();
+        public b(nx2 nx2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    @NonNull
-    fk3 G();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ew3
+        /* renamed from: a */
+        public void run(@NonNull dy1 dy1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dy1Var) == null) {
+                dy1Var.p();
+            }
+        }
+    }
 
-    kb2 H();
+    public nx2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void I();
+    @Override // com.baidu.tieba.mx2
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a(new a(this));
+        }
+    }
 
-    SwanAppPropertyWindow J(Activity activity);
+    @Override // com.baidu.tieba.mx2
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a(new b(this));
+        }
+    }
 
-    void K(String str);
-
-    tt1 L();
-
-    boolean M();
-
-    void N();
-
-    tt1 O();
-
-    void a();
-
-    String b();
-
-    void c();
-
-    void d(zw2 zw2Var, wu2 wu2Var);
-
-    @NonNull
-    rc3 e(String str, SwanAppConfigData swanAppConfigData, String str2);
-
-    void exit();
-
-    @NonNull
-    rc3 f(String str);
-
-    String g();
-
-    SwanAppActivity getActivity();
-
-    SwanCoreVersion getCoreVersion();
-
-    jy1 i();
-
-    @NonNull
-    rc3 j(String str);
-
-    boolean k();
-
-    void l(SwanAppActivity swanAppActivity);
-
-    void m(String str, cm2 cm2Var);
-
-    FullScreenFloatView n(Activity activity);
-
-    void o();
-
-    void p();
-
-    @DebugTrace
-    hy1 q();
-
-    @NonNull
-    Pair<Integer, Integer> r();
-
-    void registerReceiver(Context context);
-
-    SwanAppConfigData s();
-
-    void t(Intent intent);
-
-    void u(cm2 cm2Var);
-
-    void unregisterReceiver(Context context);
-
-    void v();
-
-    void w();
-
-    @NonNull
-    Pair<Integer, Integer> x();
-
-    void y(fm2 fm2Var, boolean z);
-
-    String z();
+    public final void a(@NonNull ew3<dy1> ew3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ew3Var) == null) {
+            for (dy1 dy1Var : pi2.U().V().values()) {
+                if (dy1Var != null) {
+                    ew3Var.run(dy1Var);
+                }
+            }
+        }
+    }
 }

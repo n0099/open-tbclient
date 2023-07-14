@@ -18,7 +18,7 @@ import kotlin.reflect.jvm.internal.impl.protobuf.InvalidProtocolBufferException;
 import kotlin.reflect.jvm.internal.impl.protobuf.MessageLiteOrBuilder;
 import kotlin.reflect.jvm.internal.impl.protobuf.Parser;
 import kotlin.reflect.jvm.internal.impl.protobuf.WireFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class JvmProtoBuf {
     public static final GeneratedMessageLite.GeneratedExtension<ProtoBuf.Constructor, JvmMethodSignature> constructorSignature = GeneratedMessageLite.newSingularGeneratedExtension(ProtoBuf.Constructor.getDefaultInstance(), JvmMethodSignature.getDefaultInstance(), JvmMethodSignature.getDefaultInstance(), null, 100, WireFormat.FieldType.MESSAGE, JvmMethodSignature.class);
     public static final GeneratedMessageLite.GeneratedExtension<ProtoBuf.Function, JvmMethodSignature> methodSignature = GeneratedMessageLite.newSingularGeneratedExtension(ProtoBuf.Function.getDefaultInstance(), JvmMethodSignature.getDefaultInstance(), JvmMethodSignature.getDefaultInstance(), null, 100, WireFormat.FieldType.MESSAGE, JvmMethodSignature.class);
@@ -34,23 +34,23 @@ public final class JvmProtoBuf {
     public static final GeneratedMessageLite.GeneratedExtension<ProtoBuf.Package, Integer> packageModuleName = GeneratedMessageLite.newSingularGeneratedExtension(ProtoBuf.Package.getDefaultInstance(), 0, null, null, 101, WireFormat.FieldType.INT32, Integer.class);
     public static final GeneratedMessageLite.GeneratedExtension<ProtoBuf.Package, List<ProtoBuf.Property>> packageLocalVariable = GeneratedMessageLite.newRepeatedGeneratedExtension(ProtoBuf.Package.getDefaultInstance(), ProtoBuf.Property.getDefaultInstance(), null, 102, WireFormat.FieldType.MESSAGE, false, ProtoBuf.Property.class);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface JvmFieldSignatureOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface JvmMethodSignatureOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface JvmPropertySignatureOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface StringTableTypesOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class StringTableTypes extends GeneratedMessageLite implements StringTableTypesOrBuilder {
         public static Parser<StringTableTypes> PARSER = new AbstractParser<StringTableTypes>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.jvm.JvmProtoBuf.StringTableTypes.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -67,11 +67,11 @@ public final class JvmProtoBuf {
         public List<Record> record_;
         public final ByteString unknownFields;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public interface RecordOrBuilder extends MessageLiteOrBuilder {
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Record extends GeneratedMessageLite implements RecordOrBuilder {
             public static Parser<Record> PARSER = new AbstractParser<Record>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.jvm.JvmProtoBuf.StringTableTypes.Record.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -94,7 +94,7 @@ public final class JvmProtoBuf {
             public List<Integer> substringIndex_;
             public final ByteString unknownFields;
 
-            /* loaded from: classes10.dex */
+            /* loaded from: classes2.dex */
             public static final class Builder extends GeneratedMessageLite.Builder<Record, Builder> implements RecordOrBuilder {
                 public int bitField0_;
                 public int predefinedIndex_;
@@ -431,7 +431,7 @@ public final class JvmProtoBuf {
                 return newBuilder(this);
             }
 
-            /* loaded from: classes10.dex */
+            /* loaded from: classes2.dex */
             public enum Operation implements Internal.EnumLite {
                 NONE(0, 0),
                 INTERNAL_TO_CLASS_ID(1, 1),
@@ -697,7 +697,7 @@ public final class JvmProtoBuf {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<StringTableTypes, Builder> implements StringTableTypesOrBuilder {
             public int bitField0_;
             public List<Record> record_ = Collections.emptyList();
@@ -1056,7 +1056,7 @@ public final class JvmProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class JvmFieldSignature extends GeneratedMessageLite implements JvmFieldSignatureOrBuilder {
         public static Parser<JvmFieldSignature> PARSER = new AbstractParser<JvmFieldSignature>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.jvm.JvmProtoBuf.JvmFieldSignature.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1073,7 +1073,7 @@ public final class JvmProtoBuf {
         public int name_;
         public final ByteString unknownFields;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<JvmFieldSignature, Builder> implements JvmFieldSignatureOrBuilder {
             public int bitField0_;
             public int desc_;
@@ -1383,7 +1383,7 @@ public final class JvmProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class JvmMethodSignature extends GeneratedMessageLite implements JvmMethodSignatureOrBuilder {
         public static Parser<JvmMethodSignature> PARSER = new AbstractParser<JvmMethodSignature>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.jvm.JvmProtoBuf.JvmMethodSignature.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1400,7 +1400,7 @@ public final class JvmProtoBuf {
         public int name_;
         public final ByteString unknownFields;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<JvmMethodSignature, Builder> implements JvmMethodSignatureOrBuilder {
             public int bitField0_;
             public int desc_;
@@ -1710,7 +1710,7 @@ public final class JvmProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class JvmPropertySignature extends GeneratedMessageLite implements JvmPropertySignatureOrBuilder {
         public static Parser<JvmPropertySignature> PARSER = new AbstractParser<JvmPropertySignature>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.jvm.JvmProtoBuf.JvmPropertySignature.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1729,7 +1729,7 @@ public final class JvmProtoBuf {
         public JvmMethodSignature syntheticMethod_;
         public final ByteString unknownFields;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<JvmPropertySignature, Builder> implements JvmPropertySignatureOrBuilder {
             public int bitField0_;
             public JvmFieldSignature field_ = JvmFieldSignature.getDefaultInstance();

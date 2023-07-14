@@ -1,17 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.event.SwanJSVersionUpdateEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public interface ex1 {
-    void a(@NonNull SwanJSVersionUpdateEvent swanJSVersionUpdateEvent);
-
-    void b(String str, boolean z);
+    void a(sc3 sc3Var);
 
     /* loaded from: classes5.dex */
     public static class a implements ex1 {
@@ -19,16 +14,9 @@ public interface ex1 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.ex1
-        public void a(@NonNull SwanJSVersionUpdateEvent swanJSVersionUpdateEvent) {
+        public void a(sc3 sc3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, swanJSVersionUpdateEvent) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.ex1
-        public void b(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, sc3Var) == null) {
             }
         }
 

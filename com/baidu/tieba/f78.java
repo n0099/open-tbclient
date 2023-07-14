@@ -1,124 +1,113 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tieba.em5;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f78 {
+public class f78 extends gv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThreadData X0;
 
-    public static SpannableString a(ArrayList<z16> arrayList, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.iv9
+    public int f0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, arrayList, str)) == null) {
-            if (TbFaceManager.i().p(str)) {
-                SpannableString spannableString = new SpannableString(str + " ");
-                z16 d = TbFaceManager.i().d(str);
-                if (arrayList != null) {
-                    arrayList.add(d);
-                }
-                em5.a g = TbFaceManager.i().g(str);
-                if (g != null) {
-                    int a = (int) (g.a() * 0.5d);
-                    d.setBounds(new Rect(0, 0, a, a));
-                } else {
-                    d.setBounds(new Rect(0, 0, 0, 0));
-                }
-                spannableString.setSpan(new y17(d, 1), 0, str.length(), 33);
-                return spannableString;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
         }
-        return (SpannableString) invokeLL.objValue;
+        return invokeV.intValue;
     }
 
-    public static SpannableString b(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f78(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return UrlManager.findAllWebUrl(str);
         }
-        return (SpannableString) invokeL.objValue;
+        s0(true);
     }
 
-    public static ArrayList<TbRichTextData> c(String str, int i) {
-        InterceptResult invokeLI;
-        int i2;
+    @Override // com.baidu.tieba.iv9, com.baidu.tieba.fv9
+    public boolean isPlaying() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            ArrayList<TbRichTextData> arrayList = new ArrayList<>();
-            if (TextUtils.isEmpty(str)) {
-                return arrayList;
-            }
-            TbRichTextData tbRichTextData = new TbRichTextData(1);
-            arrayList.add(tbRichTextData);
-            try {
-                int length = str.length();
-                int i3 = 0;
-                String str2 = "";
-                while (i3 < str.length()) {
-                    char charAt = str.charAt(i3);
-                    if (charAt == '#' && i3 < length - 1 && str.charAt(i3 + 1) == '(') {
-                        String str3 = SmallTailInfo.EMOTION_PREFIX;
-                        i3 += 2;
-                        while (i3 < length) {
-                            char charAt2 = str.charAt(i3);
-                            str3 = str3 + charAt2;
-                            if (charAt2 != ')' && ((i2 = i3 + 1) >= length || str.charAt(i2) != '#')) {
-                                i3 = i2;
-                            }
-                        }
-                        if (!TbFaceManager.i().p(str3)) {
-                            str2 = str2 + str3;
-                        } else {
-                            if (!TextUtils.isEmpty(str2)) {
-                                if (i == 1) {
-                                    tbRichTextData.V(str2);
-                                } else {
-                                    SpannableString b = b(str2);
-                                    if (b != null) {
-                                        tbRichTextData.V(b);
-                                    }
-                                }
-                                str2 = "";
-                            }
-                            SpannableString a = a(tbRichTextData.W(), str3);
-                            if (a != null) {
-                                tbRichTextData.V(a);
-                            }
-                        }
-                    } else {
-                        str2 = str2 + charAt;
-                    }
-                    i3++;
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    if (i == 1) {
-                        tbRichTextData.V(str2);
-                    } else {
-                        SpannableString b2 = b(str2);
-                        if (b2 != null) {
-                            tbRichTextData.V(b2);
-                        }
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.isPlaying();
         }
-        return (ArrayList) invokeLI.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gv9, com.baidu.tieba.iv9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            startPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.iv9, com.baidu.tieba.fv9
+    public void startPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.startPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.iv9, com.baidu.tieba.fv9
+    public void stopPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.stopPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.iv9, com.baidu.tieba.fv9
+    public boolean onBackground(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            return super.onBackground(z);
+        }
+        return invokeZ.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gv9, com.baidu.tieba.iv9, com.baidu.tieba.fv9
+    public void setData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, threadData) != null) || threadData == null) {
+            return;
+        }
+        super.setData(threadData);
+        ThreadData threadData2 = this.X0;
+        this.X0 = threadData;
+    }
+
+    @Override // com.baidu.tieba.iv9, com.baidu.tieba.fv9
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            super.setUniqueId(bdUniqueId);
+        }
     }
 }

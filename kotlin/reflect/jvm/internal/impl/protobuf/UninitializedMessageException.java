@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.protobuf;
 
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class UninitializedMessageException extends RuntimeException {
     public final List<String> missingFields;
 

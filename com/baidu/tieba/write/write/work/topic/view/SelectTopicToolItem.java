@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.y68;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.tb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,14 +30,14 @@ public class SelectTopicToolItem extends RelativeLayout {
     public EMTextView b;
     public ImageView c;
     public LinearLayout d;
-    public y68 e;
+    public tb8 e;
     public b f;
     public boolean g;
     public boolean h;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(@NonNull y68 y68Var);
+        void a(@NonNull tb8 tb8Var);
     }
 
     /* loaded from: classes8.dex */
@@ -159,11 +159,11 @@ public class SelectTopicToolItem extends RelativeLayout {
         }
     }
 
-    public void c(y68 y68Var) {
+    public void c(tb8 tb8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, y68Var) == null) && y68Var != null) {
-            this.e = y68Var;
-            if (y68Var.j()) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, tb8Var) == null) && tb8Var != null) {
+            this.e = tb8Var;
+            if (tb8Var.j()) {
                 this.b.setText("#");
                 this.a.setText(this.e.e() + "#");
             } else {
@@ -174,12 +174,12 @@ public class SelectTopicToolItem extends RelativeLayout {
     }
 
     public void d() {
-        y68 y68Var;
-        y68 y68Var2;
+        tb8 tb8Var;
+        tb8 tb8Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.g && (y68Var2 = this.e) != null) {
-                if (y68Var2.j()) {
+            if (!this.g && (tb8Var2 = this.e) != null) {
+                if (tb8Var2.j()) {
                     this.b.setVisibility(0);
                     this.c.setVisibility(0);
                 } else {
@@ -197,26 +197,26 @@ public class SelectTopicToolItem extends RelativeLayout {
                 this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0103));
                 this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.ic_icon_pure_post_topic12, SkinManager.getColor(R.color.CAM_X0109), null));
             }
-            if (!this.g && (y68Var = this.e) != null && y68Var.h()) {
-                s75.d(this.a).x(R.color.CAM_X0304);
-                s75.d(this.b).x(R.color.CAM_X0304);
-                s75 d = s75.d(this.d);
+            if (!this.g && (tb8Var = this.e) != null && tb8Var.h()) {
+                d85.d(this.a).x(R.color.CAM_X0304);
+                d85.d(this.b).x(R.color.CAM_X0304);
+                d85 d = d85.d(this.d);
                 d.o(R.string.J_X01);
                 d.m(R.dimen.L_X02);
                 d.l(R.color.CAM_X0304);
                 d.f(R.color.CAM_X0905);
             } else if (this.h && !this.g) {
-                s75.d(this.a).x(R.color.CAM_X0105);
-                s75.d(this.b).x(R.color.CAM_X0105);
-                s75 d2 = s75.d(this.d);
+                d85.d(this.a).x(R.color.CAM_X0105);
+                d85.d(this.b).x(R.color.CAM_X0105);
+                d85 d2 = d85.d(this.d);
                 d2.o(R.string.J_X01);
                 d2.m(R.dimen.L_X02);
                 d2.l(R.color.CAM_X0209);
                 d2.f(R.color.CAM_X0201);
             } else {
-                s75.d(this.a).x(R.color.CAM_X0105);
-                s75.d(this.b).x(R.color.CAM_X0105);
-                s75 d3 = s75.d(this.d);
+                d85.d(this.a).x(R.color.CAM_X0105);
+                d85.d(this.b).x(R.color.CAM_X0105);
+                d85 d3 = d85.d(this.d);
                 d3.o(R.string.J_X01);
                 d3.m(R.dimen.L_X02);
                 d3.l(R.color.CAM_X0209);
@@ -228,11 +228,11 @@ public class SelectTopicToolItem extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d087a, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092622);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092624);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092623);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915ed);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0894, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092656);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092658);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092657);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091601);
             setOnClickListener(new a(this));
             d();
         }

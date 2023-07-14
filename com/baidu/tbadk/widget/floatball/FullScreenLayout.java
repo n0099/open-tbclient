@@ -25,13 +25,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a06;
-import com.baidu.tieba.d06;
-import com.baidu.tieba.uz5;
-import com.baidu.tieba.vz5;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yz5;
-import com.baidu.tieba.zz5;
+import com.baidu.tieba.c16;
+import com.baidu.tieba.d16;
+import com.baidu.tieba.e16;
+import com.baidu.tieba.h16;
+import com.baidu.tieba.y06;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.z06;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,18 +39,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class FullScreenLayout extends FrameLayout implements a06 {
+/* loaded from: classes5.dex */
+public class FullScreenLayout extends FrameLayout implements e16 {
     public static /* synthetic */ Interceptable $ic;
     public static final int G;
     public transient /* synthetic */ FieldHolder $fh;
     public ValueAnimator A;
     public ObjectAnimator B;
-    public vz5 C;
-    public zz5 D;
-    public yz5 E;
+    public z06 C;
+    public d16 D;
+    public c16 E;
     public ViewTreeObserver.OnGlobalLayoutListener F;
-    public uz5 a;
+    public y06 a;
     public ImageView b;
     public FrameLayout.LayoutParams c;
     public ImageView d;
@@ -68,7 +68,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
     public int p;
     public int q;
     public int r;
-    public d06 s;
+    public h16 s;
     public boolean t;
     public int u;
     public int v;
@@ -83,7 +83,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? (int) (((i2 * 1.0f) / 800.0f) * 250.0f) : invokeI.intValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,8 +132,8 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements vz5.b {
+    /* loaded from: classes5.dex */
+    public class b implements z06.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FullScreenLayout a;
@@ -156,7 +156,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
             this.a = fullScreenLayout;
         }
 
-        @Override // com.baidu.tieba.vz5.b
+        @Override // com.baidu.tieba.z06.b
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.J() && this.a.isAttachedToWindow()) {
@@ -165,7 +165,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnLayoutChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,7 +201,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -248,7 +248,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -285,7 +285,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -332,7 +332,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -367,7 +367,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class h implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -412,7 +412,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class i extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -468,7 +468,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class j implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -516,7 +516,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
                 return;
             }
         }
-        G = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds45);
+        G = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds45);
     }
 
     public final boolean J() {
@@ -573,7 +573,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         }
     }
 
-    @Override // com.baidu.tieba.a06
+    @Override // com.baidu.tieba.e16
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
@@ -586,9 +586,9 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onAttachedToWindow();
-            vz5 vz5Var = this.C;
-            if (vz5Var != null) {
-                vz5Var.e();
+            z06 z06Var = this.C;
+            if (z06Var != null) {
+                z06Var.e();
             }
         }
     }
@@ -628,7 +628,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.h = ViewConfiguration.get(context).getScaledTouchSlop();
-            this.s = new d06(this);
+            this.s = new h16(this);
             G(context);
             E(context);
             W();
@@ -740,7 +740,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
                 return;
             }
         }
-        this.a = uz5.a();
+        this.a = y06.a();
         this.g = new RectF();
         this.j = true;
         this.k = true;
@@ -763,23 +763,23 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         }
     }
 
-    public void setClickListener(yz5 yz5Var) {
+    public void setClickListener(c16 c16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, yz5Var) == null) {
-            this.E = yz5Var;
+        if (interceptable == null || interceptable.invokeL(1048604, this, c16Var) == null) {
+            this.E = c16Var;
         }
     }
 
-    public void setFloatData(zz5 zz5Var) {
+    public void setFloatData(d16 d16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, zz5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, d16Var) == null) {
             if (this.C == null) {
-                vz5 vz5Var = new vz5(this.b, this.d);
-                this.C = vz5Var;
-                vz5Var.f(new b(this));
+                z06 z06Var = new z06(this.b, this.d);
+                this.C = z06Var;
+                z06Var.f(new b(this));
             }
-            this.C.g(zz5Var);
-            this.D = zz5Var;
+            this.C.g(d16Var);
+            this.D = d16Var;
         }
     }
 
@@ -844,8 +844,8 @@ public class FullScreenLayout extends FrameLayout implements a06 {
                 this.B.cancel();
                 this.b.setRotation(0.0f);
             }
-            d06 d06Var = this.s;
-            if (d06Var != null && d06Var.a()) {
+            h16 h16Var = this.s;
+            if (h16Var != null && h16Var.a()) {
                 this.s.d();
             }
             this.d.setAlpha(1.0f);
@@ -901,9 +901,9 @@ public class FullScreenLayout extends FrameLayout implements a06 {
     }
 
     public final void O() {
-        zz5 zz5Var;
+        d16 d16Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (zz5Var = this.D) != null && !StringUtils.isNull(zz5Var.c())) {
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (d16Var = this.D) != null && !StringUtils.isNull(d16Var.c())) {
             if (this.f == null) {
                 FloatWebLayout floatWebLayout = new FloatWebLayout(getContext(), this.D.c());
                 this.f = floatWebLayout;
@@ -911,9 +911,9 @@ public class FullScreenLayout extends FrameLayout implements a06 {
             }
             this.f.j(this.D.c());
             x(this.a.l());
-            yz5 yz5Var = this.E;
-            if (yz5Var != null) {
-                yz5Var.a(this.j);
+            c16 c16Var = this.E;
+            if (c16Var != null) {
+                c16Var.a(this.j);
             }
         }
     }
@@ -1059,8 +1059,8 @@ public class FullScreenLayout extends FrameLayout implements a06 {
                     this.c.leftMargin = -this.u;
                     this.e.leftMargin = this.a.e();
                 } else {
-                    this.c.leftMargin = xi.l(getContext()) - (this.u + this.a.i());
-                    this.e.leftMargin = xi.l(getContext()) - (this.w + this.a.e());
+                    this.c.leftMargin = yi.l(getContext()) - (this.u + this.a.i());
+                    this.e.leftMargin = yi.l(getContext()) - (this.w + this.a.e());
                 }
                 this.j = false;
                 requestLayout();
@@ -1094,7 +1094,7 @@ public class FullScreenLayout extends FrameLayout implements a06 {
         }
     }
 
-    @Override // com.baidu.tieba.a06
+    @Override // com.baidu.tieba.e16
     public void b(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048600, this, i2, i3, i4, i5) == null) {

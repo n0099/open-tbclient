@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.types;
 
 import kotlin.NoWhenBranchMatchedException;
 import kotlin.TypeCastException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FlexibleTypesKt {
     public static final FlexibleType asFlexibleType(KotlinType kotlinType) {
         UnwrappedType unwrap = kotlinType.unwrap();

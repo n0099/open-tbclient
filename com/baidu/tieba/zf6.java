@@ -1,152 +1,148 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaPersonCenterRealAuthenConfig;
-import com.baidu.ala.data.AlaUserInfoData;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class zf6 extends kn<pg6, CardViewHolder<kh6>> {
+public class zf6 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public tg6 b;
+    public ArrayList<AlaSquareTabInfo> b;
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+    }
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pg6 a;
-        public final /* synthetic */ zf6 b;
+        public TbImageView a;
+        public TextView b;
 
-        public a(zf6 zf6Var, pg6 pg6Var) {
+        public a(zf6 zf6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zf6Var, pg6Var};
+                Object[] objArr = {zf6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.b = zf6Var;
-            this.a = pg6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.u(this.a);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zf6(TbPageContext tbPageContext, tg6 tg6Var) {
-        super(tbPageContext.getPageActivity(), pg6.b);
+    public zf6(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, tg6Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = tbPageContext;
-        this.b = tg6Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: x */
-    public CardViewHolder<kh6> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void b(ArrayList<AlaSquareTabInfo> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new kh6(this.a));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
+            this.b = arrayList;
         }
-        return (CardViewHolder) invokeL.objValue;
     }
 
-    public final void t(pg6 pg6Var, kh6 kh6Var) {
-        dg6 c;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, pg6Var, kh6Var) == null) && (c = pg6Var.c()) != null && c.b() != null) {
-            kh6Var.y(0);
-            kh6Var.z(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0270));
-            int i = c.b().certify_status;
-            if (i == 0) {
-                kh6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0274));
-                kh6Var.x(0);
-            } else if (1 == i) {
-                kh6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0273));
-                kh6Var.x(4);
-            } else if (2 == i) {
-                kh6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0271));
-                kh6Var.x(4);
-            } else if (3 == i) {
-                kh6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0272));
-                kh6Var.x(0);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (!ListUtils.isEmpty(this.b)) {
+                return this.b.get(i);
             }
-            kh6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return null;
         }
+        return invokeI.objValue;
     }
 
-    public final void u(pg6 pg6Var) {
-        AlaUserInfoData b;
-        int i;
+    public ArrayList<AlaSquareTabInfo> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, pg6Var) == null) && pg6Var != null && pg6Var.c() != null && pg6Var.c().b() != null && 1 != (i = (b = pg6Var.c().b()).certify_status) && 2 != i) {
-            Context context = this.mContext;
-            String str = b.user_id;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterRealAuthenConfig(context, str, b.certify_status + "")));
-            tg6 tg6Var = this.b;
-            if (tg6Var != null) {
-                tg6Var.a(1);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pg6 pg6Var, CardViewHolder<kh6> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pg6Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!ListUtils.isEmpty(this.b)) {
+                return this.b.size();
             }
-            t(pg6Var, cardViewHolder.a());
-            cardViewHolder.a().h().setOnClickListener(new a(this, pg6Var));
-            return cardViewHolder.a().h();
+            return 0;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                aVar = new a(this);
+                view3 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ea, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f0907ec);
+                aVar.a = tbImageView;
+                tbImageView.setDrawerType(1);
+                aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0801e8);
+                aVar.a.setDefaultBgResource(R.color.transparent);
+                aVar.a.setRadius(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
+                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f092542);
+                aVar.b = textView;
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
+                view3.setTag(aVar);
+            } else {
+                view3 = view2;
+                aVar = (a) view2.getTag();
+            }
+            aVar.a.N(this.b.get(i).iconUrl, 10, false);
+            aVar.b.setText(this.b.get(i).name);
+            return view3;
+        }
+        return (View) invokeILL.objValue;
     }
 }

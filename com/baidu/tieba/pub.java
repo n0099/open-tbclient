@@ -1,263 +1,347 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.atb;
-import com.baidu.tieba.xsb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeoutException;
+import com.yy.render.RenderEngine;
+import com.yy.render.trans.SimpleClientMessageSender;
+import com.yy.transvod.player.log.TLog;
+import java.lang.ref.WeakReference;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pub<T> implements xsb.b<T, T> {
+public class pub implements ltb {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile pub h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a<T> a;
-    public final b<T> b;
-    public final xsb<? extends T> c;
-    public final atb d;
+    public AtomicBoolean a;
+    public AtomicBoolean b;
+    public int c;
+    public a d;
+    public Handler e;
+    public WeakReference<nub> f;
+    public WeakReference<Looper> g;
 
-    /* loaded from: classes7.dex */
-    public interface a<T> {
-        /* synthetic */ R call(T1 t1, T2 t2, T3 t3);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948075948, "Lcom/baidu/tieba/pub;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948075948, "Lcom/baidu/tieba/pub;");
+        }
     }
 
     /* loaded from: classes7.dex */
-    public interface b<T> {
-        /* synthetic */ R call(T1 t1, T2 t2, T3 t3, T4 t4);
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class c<T> extends dtb<T> {
+    public class a extends SimpleClientMessageSender {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final zxb e;
-        public final gxb<T> f;
-        public final b<T> g;
-        public final xsb<? extends T> h;
-        public final atb.a i;
-        public final wub j;
-        public boolean k;
-        public long l;
+        public String f;
+        public final /* synthetic */ pub g;
 
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public void d(String str, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+            }
+        }
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public String e(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
+                return null;
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public void f(String str, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle) == null) {
+            }
+        }
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public String g(String str, Bundle bundle) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bundle)) == null) {
+                return null;
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public String i(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+                return null;
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public void j(String str, int i, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(1048582, this, str, i, str2, str3) == null) {
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.pub$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class a extends dtb<T> {
+        public class HandlerC0458a extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c e;
+            public final /* synthetic */ a a;
 
-            public a(c cVar) {
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public HandlerC0458a(a aVar, Looper looper) {
+                super(looper);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
+                    Object[] objArr = {aVar, looper};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
                         int i2 = i & 2;
+                        super((Looper) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.e = cVar;
+                this.a = aVar;
             }
 
-            @Override // com.baidu.tieba.dtb
-            public void f(zsb zsbVar) {
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                nub nubVar;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, zsbVar) == null) {
-                    this.e.j.c(zsbVar);
+                if ((interceptable != null && interceptable.invokeL(1048576, this, message) != null) || (nubVar = (nub) this.a.g.f.get()) == null) {
+                    return;
                 }
-            }
-
-            @Override // com.baidu.tieba.ysb
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                    this.e.f.onError(th);
+                int i = message.what;
+                if (i != 1) {
+                    if (i == 2) {
+                        nubVar.b(message.arg1, message.arg2, (String) message.obj);
+                        return;
+                    }
+                    return;
                 }
-            }
-
-            @Override // com.baidu.tieba.ysb
-            public void onNext(T t) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                    this.e.f.onNext(t);
-                }
-            }
-
-            @Override // com.baidu.tieba.ysb
-            public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.e.f.onCompleted();
-                }
+                oub oubVar = (oub) message.obj;
+                nubVar.a(oubVar.a, oubVar.b, oubVar.c, oubVar.d);
             }
         }
 
-        public c(gxb<T> gxbVar, b<T> bVar, zxb zxbVar, xsb<? extends T> xsbVar, atb.a aVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(pub pubVar, String str) {
+            super(str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gxbVar, bVar, zxbVar, xsbVar, aVar};
+                Object[] objArr = {pubVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f = gxbVar;
-            this.g = bVar;
-            this.e = zxbVar;
-            this.h = xsbVar;
-            this.i = aVar;
-            this.j = new wub();
+            this.g = pubVar;
+            this.f = str;
         }
 
-        @Override // com.baidu.tieba.dtb
-        public void f(zsb zsbVar) {
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public void h(String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zsbVar) == null) {
-                this.j.c(zsbVar);
+            if ((interceptable != null && interceptable.invokeLL(1048580, this, str, str2) != null) || !str.equals(this.f)) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str2);
+                o(jSONObject.optString("cmd"), jSONObject.getJSONObject("data"));
+            } catch (Exception e) {
+                e.printStackTrace();
+                TLog.d("[P2pManagerClient]", "(onDataFromServer) ex" + e.getMessage());
             }
         }
 
-        @Override // com.baidu.tieba.ysb
-        public void onError(Throwable th) {
-            boolean z;
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public void k(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                synchronized (this) {
-                    z = true;
-                    if (!this.k) {
-                        this.k = true;
-                    } else {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.e.unsubscribe();
-                    this.f.onError(th);
-                }
+            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+                TLog.g(this, "P2pManagerClient onServiceCrash: " + str);
             }
         }
 
-        public void g(long j) {
-            boolean z;
+        public final void n() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                synchronized (this) {
-                    z = true;
-                    if (j == this.l && !this.k) {
-                        this.k = true;
-                    } else {
-                        z = false;
-                    }
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.g.e == null) {
+                Looper looper = (Looper) this.g.g.get();
+                if (looper == null) {
+                    looper = Looper.getMainLooper();
                 }
-                if (z) {
-                    if (this.h == null) {
-                        this.f.onError(new TimeoutException());
+                this.g.e = new HandlerC0458a(this, looper);
+            }
+        }
+
+        public final void o(String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048585, this, str, jSONObject) == null) && jSONObject != null) {
+                n();
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 144413458) {
+                    if (hashCode != 1541535551) {
+                        if (hashCode == 2091728354 && str.equals("onUpdatePcdnResult")) {
+                            c = 2;
+                        }
+                    } else if (str.equals("onShareStats")) {
+                        c = 0;
+                    }
+                } else if (str.equals("onJsonContent")) {
+                    c = 1;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c == 2) {
+                            int optInt = jSONObject.optInt("playTaskId");
+                            int optInt2 = jSONObject.optInt("result");
+                            String optString = jSONObject.optString("pcdnUrl");
+                            if (this.g.e != null) {
+                                this.g.e.sendMessage(Message.obtain(this.g.e, 3, optInt, optInt2, optString));
+                                return;
+                            }
+                            return;
+                        }
                         return;
                     }
-                    a aVar = new a(this);
-                    this.h.M(aVar);
-                    this.e.a(aVar);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ysb
-        public void onNext(T t) {
-            long j;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                synchronized (this) {
-                    if (!this.k) {
-                        j = this.l + 1;
-                        this.l = j;
-                        z = true;
-                    } else {
-                        j = this.l;
-                        z = false;
+                    int optInt3 = jSONObject.optInt("playTaskId");
+                    int optInt4 = jSONObject.optInt("cbKye");
+                    String optString2 = jSONObject.optString("json");
+                    if (this.g.e != null) {
+                        this.g.e.sendMessage(Message.obtain(this.g.e, 2, optInt3, optInt4, optString2));
+                        return;
                     }
+                    return;
                 }
-                if (z) {
-                    this.f.onNext(t);
-                    this.e.a((etb) this.g.call(this, Long.valueOf(j), t, this.i));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ysb
-        public void onCompleted() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                synchronized (this) {
-                    z = true;
-                    if (!this.k) {
-                        this.k = true;
-                    } else {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.e.unsubscribe();
-                    this.f.onCompleted();
+                int optInt5 = jSONObject.optInt("playTaskId");
+                int optInt6 = jSONObject.optInt("shareUpStreamFlow");
+                int optInt7 = jSONObject.optInt("shareDownStreamFlow");
+                int optInt8 = jSONObject.optInt("serverDownStreamFlow");
+                if (this.g.e != null) {
+                    this.g.e.sendMessage(Message.obtain(this.g.e, 1, new oub(optInt5, optInt6, optInt7, optInt8)));
                 }
             }
         }
     }
 
-    public pub(a<T> aVar, b<T> bVar, xsb<? extends T> xsbVar, atb atbVar) {
+    public pub() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar, xsbVar, atbVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
-        this.c = xsbVar;
-        this.d = atbVar;
+        this.a = new AtomicBoolean(false);
+        this.b = new AtomicBoolean(false);
+        this.c = hashCode();
+        this.d = null;
+        this.e = null;
+        this.f = new WeakReference<>(null);
+        this.g = new WeakReference<>(null);
+        this.d = new a(this, String.valueOf(this.c));
     }
 
-    public dtb<? super T> call(dtb<? super T> dtbVar) {
-        InterceptResult invokeL;
+    public static pub h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dtbVar)) == null) {
-            atb.a createWorker = this.d.createWorker();
-            dtbVar.b(createWorker);
-            gxb gxbVar = new gxb(dtbVar);
-            zxb zxbVar = new zxb();
-            gxbVar.b(zxbVar);
-            c cVar = new c(gxbVar, this.b, zxbVar, this.c, createWorker);
-            gxbVar.b(cVar);
-            gxbVar.f(cVar.j);
-            zxbVar.a((etb) this.a.call(cVar, 0L, createWorker));
-            return cVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (h == null) {
+                synchronized (pub.class) {
+                    if (h == null) {
+                        h = new pub();
+                    }
+                }
+            }
+            return h;
         }
-        return (dtb) invokeL.objValue;
+        return (pub) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xsb.b, com.baidu.tieba.ptb
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((dtb) ((dtb) obj));
+    @Override // com.baidu.tieba.ltb
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TLog.h("[P2pManagerClient]", "P2pManagerClient on service connect");
+            if (ryb.n().k()) {
+                TLog.h("[P2pManagerClient]", "P2pManagerClient on service connect, just return as FailOver2MainProcess");
+            } else {
+                TLog.h("[P2pManagerClient]", "P2pManagerClient on service connect p2p not enabled");
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ltb
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TLog.h("[P2pManagerClient]", "P2pManagerClient on service onDisconnect");
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TLog.h("[P2pManagerClient]", "init");
+            if (this.a.compareAndSet(false, true)) {
+                RenderEngine.r.a().r(this);
+            }
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TLog.h("[P2pManagerClient]", "close");
+            if (this.b.compareAndSet(true, false)) {
+                TLog.h("[P2pManagerClient]", "close msg client!!!");
+                this.d.a();
+            }
+            if (this.a.compareAndSet(true, false)) {
+                RenderEngine.r.a().D(this);
+            }
+        }
     }
 }

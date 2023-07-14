@@ -3,7 +3,7 @@ package com.kwad.components.core.m;
 import android.content.Intent;
 import android.os.Bundle;
 import com.kwad.sdk.api.loader.Loader;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class l {
     public static void e(Intent intent) {
         if (intent == null) {

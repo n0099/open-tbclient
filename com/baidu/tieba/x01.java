@@ -1,146 +1,183 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
+import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.player.minivideo.view.LineLoadingView;
+import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.searchbox.player.event.SystemEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class x01 {
+public class x01 extends h01 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ViewGroup e;
+    public ImageView f;
+    public boolean g;
+    public LineLoadingView h;
 
-    public static final void a(c11 mpdModel, JSONArray clarityUrlList) {
-        ArrayList<y01> a;
-        int i;
-        boolean z;
-        y01 y01Var;
-        ArrayList<Object> d;
-        boolean e;
-        ArrayList<y01> a2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, mpdModel, clarityUrlList) == null) {
-            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
-            Intrinsics.checkNotNullParameter(clarityUrlList, "clarityUrlList");
-            d11 b = mpdModel.b();
-            if (b != null && (a = b.a()) != null) {
-                d11 b2 = mpdModel.b();
-                if (b2 != null && (a2 = b2.a()) != null) {
-                    i = a2.size();
-                } else {
-                    i = 0;
-                }
-                if (i > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    a = null;
-                }
-                if (a != null && (y01Var = a.get(0)) != null && (d = y01Var.d()) != null) {
-                    int size = d.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        JSONObject jSONObject = new JSONObject();
-                        Object obj = d.get(i2);
-                        if (!(obj instanceof e11)) {
-                            obj = null;
-                        }
-                        e11 e11Var = (e11) obj;
-                        if (e11Var != null) {
-                            jSONObject.put("key", e11Var.g());
-                            jSONObject.put(MultiRatePlayUrlHelper.RANK, e11Var.j());
-                            jSONObject.put("title", e11Var.k());
-                            jSONObject.put("url", e11Var.l());
-                            jSONObject.put("width", e11Var.m());
-                            jSONObject.put("height", e11Var.f());
-                            jSONObject.put("download_url", e11Var.d());
-                            jSONObject.put("airPlay_url", f21.a(new String[]{e11Var.a(), e11Var.d(), e11Var.l()}));
-                            jSONObject.put("videoBps", e11Var.b());
-                            jSONObject.put("vodMoovSize", e11Var.h());
-                            jSONObject.put("video_clarity_score", e11Var.c());
-                            jSONObject.put("prefetch_size", e11Var.i());
-                            Boolean b3 = y01Var.b();
-                            if (b3 != null) {
-                                e = b3.booleanValue();
-                            } else {
-                                e = e11Var.e();
-                            }
-                            jSONObject.put("gopAlign", e);
-                            clarityUrlList.put(jSONObject);
-                        }
+        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
+        }
+    }
+
+    public x01() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = false;
+    }
+
+    public void N() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.h.g();
+        }
+    }
+
+    public final void Q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.h.f();
+        }
+    }
+
+    @Override // com.baidu.tieba.m01
+    public View getContentView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ny0
+    @Nullable
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return new int[]{4, 2, 1, 5};
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zz0
+    @SuppressLint({"InflateParams"})
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.c).inflate(R.layout.nad_mini_video_control_layer, (ViewGroup) null);
+            this.e = viewGroup;
+            this.f = (ImageView) viewGroup.findViewById(R.id.video_pause_icon);
+            this.h = (LineLoadingView) this.e.findViewById(R.id.line_loading_view);
+        }
+    }
+
+    public void O(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void P(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.g) {
+            this.f.setVisibility(i);
+            this.g = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.ny0
+    public void d(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, mx0Var) == null) {
+            if (PlayerEvent.ACTION_ON_INFO.equals(mx0Var.c())) {
+                int intValue = ((Integer) mx0Var.f(1)).intValue();
+                if (intValue != 904 && 956 != intValue) {
+                    if (701 == intValue) {
+                        Q();
+                        return;
+                    } else if (702 == intValue) {
+                        N();
+                        return;
+                    } else {
+                        return;
                     }
                 }
+                this.g = false;
+                this.f.setVisibility(4);
+                N();
+            } else if (PlayerEvent.ACTION_ON_PREPARED.equals(mx0Var.c())) {
+                N();
+            } else if (PlayerEvent.ACTION_ON_ERROR.equals(mx0Var.c())) {
+                N();
             }
         }
     }
 
-    public static final void b(c11 mpdModel, JSONObject mpdJson) {
-        JSONArray optJSONArray;
-        JSONArray jSONArray;
-        int i;
-        JSONArray optJSONArray2;
-        Boolean bool;
-        JSONArray jSONArray2;
-        int i2;
-        JSONArray jSONArray3;
-        int i3;
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.ny0
+    public void q(@NonNull mx0 mx0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, mpdModel, mpdJson) == null) {
-            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
-            Intrinsics.checkNotNullParameter(mpdJson, "mpdJson");
-            JSONObject optJSONObject = mpdJson.optJSONObject("video");
-            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("adaptation_set")) != null) {
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                int i4 = 0;
-                while (i4 < length) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i4);
-                    if (optJSONObject2 != null && (optJSONArray2 = optJSONObject2.optJSONArray("representation_list")) != null) {
-                        ArrayList arrayList2 = new ArrayList();
-                        int length2 = optJSONArray2.length();
-                        int i5 = 0;
-                        while (i5 < length2) {
-                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i5);
-                            if (optJSONObject3 != null) {
-                                jSONArray2 = optJSONArray;
-                                jSONArray3 = optJSONArray2;
-                                i3 = length2;
-                                i2 = length;
-                                arrayList2.add(new e11(optJSONObject3.optString("key"), optJSONObject3.optInt(MultiRatePlayUrlHelper.RANK), optJSONObject3.optString("title"), optJSONObject3.optString("url"), optJSONObject3.optString("download_url"), optJSONObject3.optString("airPlay_url"), optJSONObject3.optInt(MultiRatePlayUrlHelper.BPS), optJSONObject3.optInt("width"), optJSONObject3.optInt("height"), optJSONObject3.optDouble("size"), optJSONObject3.optInt("moov_size"), optJSONObject3.optDouble("clarity_score", -1.0d), optJSONObject3.optInt("prefetch_size", 0), optJSONObject3.optBoolean("frm_align")));
-                            } else {
-                                jSONArray2 = optJSONArray;
-                                i2 = length;
-                                jSONArray3 = optJSONArray2;
-                                i3 = length2;
-                            }
-                            i5++;
-                            optJSONArray2 = jSONArray3;
-                            optJSONArray = jSONArray2;
-                            length2 = i3;
-                            length = i2;
-                        }
-                        jSONArray = optJSONArray;
-                        i = length;
-                        String optString = optJSONObject2.optString("type");
-                        if (optJSONObject2.has("frm_align")) {
-                            bool = Boolean.valueOf(optJSONObject2.optBoolean("frm_align"));
-                        } else {
-                            bool = null;
-                        }
-                        arrayList.add(new y01(arrayList2, optString, bool, optJSONObject2.optString("pre"), optJSONObject2.optString("suf"), optJSONObject2.optString("codecs")));
-                    } else {
-                        jSONArray = optJSONArray;
-                        i = length;
-                    }
-                    i4++;
-                    optJSONArray = jSONArray;
-                    length = i;
+        if (interceptable == null || interceptable.invokeL(1048587, this, mx0Var) == null) {
+            if (ControlEvent.ACTION_PAUSE.equals(mx0Var.c())) {
+                if (this.g) {
+                    this.f.setVisibility(0);
                 }
-                mpdModel.f(new d11(arrayList, null, null, null, null, 30, null));
+            } else if (ControlEvent.ACTION_RESUME.equals(mx0Var.c())) {
+                this.g = false;
+                this.f.setVisibility(4);
+            } else if (ControlEvent.ACTION_START.equals(mx0Var.c())) {
+                if (!u().Y()) {
+                    Q();
+                }
+            } else if (ControlEvent.ACTION_STOP.equals(mx0Var.c())) {
+                N();
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.ny0
+    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, playerStatus, playerStatus2) == null) {
+            super.h(playerStatus, playerStatus2);
+            if (playerStatus == PlayerStatus.PLAYING || playerStatus == PlayerStatus.PAUSE || playerStatus == PlayerStatus.STOP) {
+                N();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.ny0
+    public void n(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, mx0Var) == null) && SystemEvent.ACTION_VOLUME_CHANGED.equals(mx0Var.c()) && !u().a0() && !u().Q() && ((Integer) mx0Var.f(5)).intValue() > 0 && u().V()) {
+            u().w0(false);
         }
     }
 }

@@ -7,10 +7,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.gc8;
-import com.baidu.tieba.vg;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.ch8;
+import com.baidu.tieba.j35;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class ImMessageCenterPojo implements Serializable {
     public static final int UN_DELETE = 0;
     public static final long serialVersionUID = -8887966163420052407L;
     public transient /* synthetic */ FieldHolder $fh;
-    public b35 atInfoData;
+    public j35 atInfoData;
     public String bjhAvatar;
     public int followStatus;
     public String forumId;
@@ -64,6 +64,7 @@ public class ImMessageCenterPojo implements Serializable {
     public String serviceId;
     public int showOutOfStranger;
     public long sid;
+    public String specialMsgText;
     public String taskId;
     public int type;
     public int unread_count;
@@ -85,13 +86,13 @@ public class ImMessageCenterPojo implements Serializable {
         this.mCustomGroupType = 2;
     }
 
-    public b35 getAtInfoData() {
+    public j35 getAtInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.atInfoData;
         }
-        return (b35) invokeV.objValue;
+        return (j35) invokeV.objValue;
     }
 
     public String getBjhAvatar() {
@@ -393,10 +394,19 @@ public class ImMessageCenterPojo implements Serializable {
         return invokeV.longValue;
     }
 
-    public String getTaskId() {
+    public String getSpecialMsgText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            return this.specialMsgText;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTaskId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
             return this.taskId;
         }
         return (String) invokeV.objValue;
@@ -405,7 +415,7 @@ public class ImMessageCenterPojo implements Serializable {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             return this.type;
         }
         return invokeV.intValue;
@@ -414,7 +424,7 @@ public class ImMessageCenterPojo implements Serializable {
     public int getUnread_count() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return this.unread_count;
         }
         return invokeV.intValue;
@@ -423,7 +433,7 @@ public class ImMessageCenterPojo implements Serializable {
     public int getUserType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             return this.userType;
         }
         return invokeV.intValue;
@@ -432,7 +442,7 @@ public class ImMessageCenterPojo implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             return Objects.hash(this.gid);
         }
         return invokeV.intValue;
@@ -441,7 +451,7 @@ public class ImMessageCenterPojo implements Serializable {
     public boolean isSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
             return this.isSelf;
         }
         return invokeV.booleanValue;
@@ -472,7 +482,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (userData == null) {
                 return null;
             }
-            if (wi.isEmpty(userData.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
+            if (xi.isEmpty(userData.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
                 oldUserData2.setToUserData(userData);
             }
             String toUid = commonMsgPojo.getToUid();
@@ -481,7 +491,7 @@ public class ImMessageCenterPojo implements Serializable {
             }
             if (currentAccount.equals(commonMsgPojo.getUid())) {
                 if (userData2 != null) {
-                    if (wi.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
+                    if (xi.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
                         oldUserData.setToUserData(userData2);
                     }
                     imMessageCenterPojo.setGroup_name(userData2.getUserName());
@@ -496,7 +506,7 @@ public class ImMessageCenterPojo implements Serializable {
                 imMessageCenterPojo.setBjhAvatar(userData.getImBjhAvatar());
             }
             boolean z = false;
-            if (vg.g(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
+            if (wg.g(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
                 i = userData.getUserType();
             } else if (userData2 != null) {
                 i = userData2.getUserType();
@@ -511,7 +521,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (!z) {
                 imMessageCenterPojo.setCustomGroupType(2);
             }
-            imMessageCenterPojo.setLast_content(gc8.D(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+            imMessageCenterPojo.setLast_content(ch8.D(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
             imMessageCenterPojo.setLast_user_name(userData.getName_show());
             imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
             imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
@@ -540,58 +550,58 @@ public class ImMessageCenterPojo implements Serializable {
         return invokeL.booleanValue;
     }
 
-    public void setAtInfoData(b35 b35Var) {
+    public void setAtInfoData(j35 j35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, b35Var) == null) {
-            this.atInfoData = b35Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, j35Var) == null) {
+            this.atInfoData = j35Var;
         }
     }
 
     public void setBjhAvatar(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             this.bjhAvatar = str;
         }
     }
 
     public void setCustomGroupType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
             this.mCustomGroupType = i;
         }
     }
 
     public void setFollowStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
             this.followStatus = i;
         }
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
             this.forumId = str;
         }
     }
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
             this.forumName = str;
         }
     }
 
     public void setGid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
             this.gid = str;
         }
     }
 
     public void setGroupJumpUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048625, this, str) == null) {
             this.groupJumpUrl = str;
         }
     }
@@ -599,21 +609,21 @@ public class ImMessageCenterPojo implements Serializable {
     @Deprecated
     public void setGroup_ext(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048626, this, str) == null) {
             this.group_ext = str;
         }
     }
 
     public void setGroup_head(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
             this.group_head = str;
         }
     }
 
     public void setGroup_name(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
             this.group_name = str;
         }
     }
@@ -621,196 +631,203 @@ public class ImMessageCenterPojo implements Serializable {
     @Deprecated
     public void setGroup_type(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048628, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
             this.group_type = i;
         }
     }
 
     public void setImUserExtraData(IMUserExtraData iMUserExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, iMUserExtraData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048630, this, iMUserExtraData) == null) {
             this.imUserExtraData = iMUserExtraData;
         }
     }
 
     public void setIsFriend(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
             this.isFriend = i;
         }
     }
 
     public void setIs_delete(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
             this.is_delete = i;
         }
     }
 
     public void setIs_hidden(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048633, this, i) == null) {
             this.is_hidden = i;
         }
     }
 
     public void setLastContentRawData(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048634, this, str) == null) {
             this.last_content_raw_data = str;
         }
     }
 
     public void setLastServiceId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
             this.lastServiceId = str;
         }
     }
 
     public void setLastTaskId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048636, this, str) == null) {
             this.lastTaskId = str;
         }
     }
 
     public void setLast_content(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
             this.last_content = str;
         }
     }
 
     public void setLast_content_time(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048637, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048638, this, j) == null) {
             this.last_content_time = j;
         }
     }
 
     public void setLast_rid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048638, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048639, this, j) == null) {
             this.last_rid = j;
         }
     }
 
     public void setLast_user_name(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048640, this, str) == null) {
             this.last_user_name = str;
         }
     }
 
     public void setNameShow(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048641, this, str) == null) {
             this.nameShow = str;
         }
     }
 
     public void setOrderCol(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048641, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048642, this, j) == null) {
             this.orderCol = j;
         }
     }
 
     public void setPulled_msgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048642, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048643, this, j) == null) {
             this.pulled_msgId = j;
         }
     }
 
     public void setPushIds(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048644, this, str) == null) {
             this.pushIds = str;
         }
     }
 
     public void setRead_msgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048644, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048645, this, j) == null) {
             this.read_msgId = j;
         }
     }
 
     public void setRoomId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048645, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048646, this, j) == null) {
             this.roomId = j;
         }
     }
 
     public void setSelf(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048646, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048647, this, z) == null) {
             this.isSelf = z;
         }
     }
 
     public void setSend_status(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048647, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048648, this, i) == null) {
             this.send_status = i;
         }
     }
 
     public void setSent_msgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048648, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048649, this, j) == null) {
             this.sent_msgId = j;
         }
     }
 
     public void setServiceId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048649, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048650, this, str) == null) {
             this.serviceId = str;
         }
     }
 
     public void setShowOutOfStranger(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048650, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048651, this, i) == null) {
             this.showOutOfStranger = i;
         }
     }
 
     public void setSid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048651, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048652, this, j) == null) {
             this.sid = j;
+        }
+    }
+
+    public void setSpecialMsgText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048653, this, str) == null) {
+            this.specialMsgText = str;
         }
     }
 
     public void setTaskId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048652, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048654, this, str) == null) {
             this.taskId = str;
         }
     }
 
     public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048653, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048655, this, i) == null) {
             this.type = i;
         }
     }
 
     public void setUnread_count(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048654, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048656, this, i) == null) {
             this.unread_count = i;
         }
     }
 
     public void setUserType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048655, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048657, this, i) == null) {
             this.userType = i;
         }
     }
@@ -818,7 +835,7 @@ public class ImMessageCenterPojo implements Serializable {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) {
             return "ImMessageCenterPojo{mCustomGroupType=" + this.mCustomGroupType + ", gid='" + this.gid + "', group_name='" + this.group_name + "', group_head='" + this.group_head + "', group_type=" + this.group_type + ", group_ext='" + this.group_ext + "', is_hidden=" + this.is_hidden + ", unread_count=" + this.unread_count + ", last_rid=" + this.last_rid + ", pulled_msgId=" + this.pulled_msgId + ", last_content_time=" + this.last_content_time + ", last_user_name='" + this.last_user_name + "', last_content='" + this.last_content + "', last_content_raw_data='" + this.last_content_raw_data + "', send_status=" + this.send_status + ", type=" + this.type + ", orderCol=" + this.orderCol + ", is_delete=" + this.is_delete + ", isSelf=" + this.isSelf + ", isFriend=" + this.isFriend + ", followStatus=" + this.followStatus + ", sent_msgId=" + this.sent_msgId + ", read_msgId=" + this.read_msgId + ", userType=" + this.userType + ", sid=" + this.sid + ", taskId='" + this.taskId + "', serviceId='" + this.serviceId + "', lastServiceId='" + this.lastServiceId + "', lastTaskId='" + this.lastTaskId + "', pushIds='" + this.pushIds + "', nameShow='" + this.nameShow + "', bjhAvatar='" + this.bjhAvatar + "', showOutOfStranger='" + this.showOutOfStranger + "'}";
         }
         return (String) invokeV.objValue;

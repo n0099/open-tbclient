@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.shield.request;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
-import com.baidu.android.imsdk.chatmessage.request.RequestContants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.retrieve.RetrieveReportRequest;
@@ -161,9 +160,9 @@ public class GetUserSendMessagePolicyRequest extends BaseHttpRequest {
                 jSONObject.put("appid", AccountManager.getAppid(this.mContext));
                 jSONObject.put("user_type", this.userType);
                 jSONObject.put(Constants.EXTRA_TO_USER_TYPE, this.toUserType);
-                jSONObject.put(RequestContants.EXTRA_TO_USER, this.toUser);
+                jSONObject.put("to_user", this.toUser);
                 jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-                jSONObject.put("sdk_version", "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
                 jSONObject.put("timestamp", System.currentTimeMillis() / 1000);
                 jSONObject.put("scene", this.sendScene);
@@ -183,63 +182,108 @@ public class GetUserSendMessagePolicyRequest extends BaseHttpRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048583, this, i, bArr, th) == null) {
             LogUtils.e(TAG, "errorCode:" + i + GlideException.IndentedAppendable.INDENT + new String(bArr));
-            ShieldAndTopManager.getInstance(this.mContext).onSendMsgPolicyResult(i, "", true, this.mContacterBdUid, this.mKey, 0);
+            ShieldAndTopManager.getInstance(this.mContext).onSendMsgPolicyResult(i, "", true, this.mContacterBdUid, this.mKey, 0, null, null);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
-        int i2;
+        JSONObject jSONObject;
+        JSONObject jSONObject2;
+        JSONObject jSONObject3;
         String str;
         boolean z;
+        int i2;
+        JSONObject jSONObject4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, bArr) == null) {
             LogUtils.d(TAG, "errorCode: " + i + " resultContent: " + new String(bArr));
+            JSONObject jSONObject5 = null;
             int i3 = 0;
             String str2 = "";
             boolean z2 = true;
-            if (i != 200) {
-                str = "";
-                z = true;
-                i2 = 0;
-            } else {
+            if (i == 200) {
                 try {
-                    JSONObject jSONObject = new JSONObject(new String(bArr));
-                    JSONArray optJSONArray = jSONObject.optJSONArray(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS);
-                    int optInt = jSONObject.optInt("follow_relation");
+                    JSONObject jSONObject6 = new JSONObject(new String(bArr));
+                    JSONArray optJSONArray = jSONObject6.optJSONArray(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS);
+                    int optInt = jSONObject6.optInt("follow_relation");
                     if (optJSONArray != null) {
                         try {
                             if (optJSONArray.length() > 0) {
                                 JSONObject optJSONObject = optJSONArray.optJSONObject(0);
-                                boolean optBoolean = optJSONObject.optBoolean("could_send");
-                                try {
-                                    if (optJSONObject.optInt("scene") >= 0) {
-                                        str2 = optJSONObject.optString("tips");
-                                    }
-                                    z2 = optBoolean;
-                                } catch (JSONException e) {
-                                    e = e;
-                                    z2 = optBoolean;
-                                    i3 = optInt;
-                                    LogUtils.e(TAG, "AddSubscribeRequest JSONException", e);
-                                    i2 = i3;
-                                    str = "";
-                                    z = z2;
-                                    ShieldAndTopManager.getInstance(this.mContext).onSendMsgPolicyResult(i, str, z, this.mContacterBdUid, this.mKey, i2);
+                                z2 = optJSONObject.optBoolean("could_send");
+                                if (optJSONObject.optInt("scene") >= 0) {
+                                    str2 = optJSONObject.optString("tips");
                                 }
+                                if (optJSONObject.has("input_box")) {
+                                    jSONObject4 = new JSONObject();
+                                    try {
+                                        jSONObject4.put("input_box", optJSONObject.opt("input_box"));
+                                    } catch (JSONException e) {
+                                        e = e;
+                                        jSONObject = null;
+                                        jSONObject5 = jSONObject4;
+                                        i3 = optInt;
+                                        LogUtils.e(TAG, "AddSubscribeRequest JSONException", e);
+                                        jSONObject2 = jSONObject;
+                                        jSONObject3 = jSONObject5;
+                                        str = str2;
+                                        z = z2;
+                                        i2 = i3;
+                                        ShieldAndTopManager.getInstance(this.mContext).onSendMsgPolicyResult(i, str, z, this.mContacterBdUid, this.mKey, i2, jSONObject3, jSONObject2);
+                                    }
+                                } else {
+                                    jSONObject4 = null;
+                                }
+                                if (optJSONObject.has("bottom_tips")) {
+                                    jSONObject = new JSONObject();
+                                    try {
+                                        jSONObject.put("bottom_tips", optJSONObject.opt("bottom_tips"));
+                                    } catch (JSONException e2) {
+                                        e = e2;
+                                        jSONObject5 = jSONObject4;
+                                        i3 = optInt;
+                                        LogUtils.e(TAG, "AddSubscribeRequest JSONException", e);
+                                        jSONObject2 = jSONObject;
+                                        jSONObject3 = jSONObject5;
+                                        str = str2;
+                                        z = z2;
+                                        i2 = i3;
+                                        ShieldAndTopManager.getInstance(this.mContext).onSendMsgPolicyResult(i, str, z, this.mContacterBdUid, this.mKey, i2, jSONObject3, jSONObject2);
+                                    }
+                                } else {
+                                    jSONObject = null;
+                                }
+                                jSONObject5 = jSONObject4;
+                                jSONObject2 = jSONObject;
+                                str = str2;
+                                jSONObject3 = jSONObject5;
+                                z = z2;
+                                i2 = optInt;
                             }
-                        } catch (JSONException e2) {
-                            e = e2;
+                        } catch (JSONException e3) {
+                            e = e3;
+                            jSONObject = null;
                         }
                     }
+                    jSONObject = null;
+                    jSONObject2 = jSONObject;
                     str = str2;
+                    jSONObject3 = jSONObject5;
                     z = z2;
                     i2 = optInt;
-                } catch (JSONException e3) {
-                    e = e3;
+                } catch (JSONException e4) {
+                    e = e4;
+                    jSONObject = null;
                 }
+            } else {
+                jSONObject3 = null;
+                jSONObject2 = null;
+                str = "";
+                z = true;
+                i2 = 0;
             }
-            ShieldAndTopManager.getInstance(this.mContext).onSendMsgPolicyResult(i, str, z, this.mContacterBdUid, this.mKey, i2);
+            ShieldAndTopManager.getInstance(this.mContext).onSendMsgPolicyResult(i, str, z, this.mContacterBdUid, this.mKey, i2, jSONObject3, jSONObject2);
         }
     }
 }

@@ -1,54 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
+import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
+import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.collections.CollectionsKt__CollectionsJVMKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class l8a extends CustomMessageListener {
+public final class l8a implements k8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final e7a b;
-    public final p7a c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l8a(MainTabActivity mainTabActivity, e7a e7aVar) {
-        super(2921491);
+    public l8a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, e7aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = e7aVar;
-        this.c = mainTabActivity.e;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        e7a e7aVar;
+    @Override // com.baidu.tieba.k8a
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && (e7aVar = this.b) != null && e7aVar.y() != null && this.b.y().getCurrentTabType() != 21) {
-            String str = (String) customResponsedMessage.getData();
-            p7a p7aVar = this.c;
-            if (p7aVar != null && p7aVar.a() != null) {
-                this.c.a().e(str);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return kia.h.a().h();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.k8a
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && HomeSpriteEdgeFloatManager.l.c().W()) {
+            HomeSpriteEdgeFloatManager.l.c().a0();
+        }
+    }
+
+    @Override // com.baidu.tieba.k8a
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            HomeSpriteEdgeFloatManager.l.c().P();
+        }
+    }
+
+    @Override // com.baidu.tieba.k8a
+    public void b(oaa hotEventShowData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hotEventShowData) == null) {
+            Intrinsics.checkNotNullParameter(hotEventShowData, "hotEventShowData");
+            HomeSpriteEdgeFloatManager.l.c().X(hotEventShowData);
+        }
+    }
+
+    @Override // com.baidu.tieba.k8a
+    public void c(Activity context, SpriteTipHttpResponseMessage response, HomePageSpriteBottomTipView spriteTipView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, response, spriteTipView) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(response, "response");
+            Intrinsics.checkNotNullParameter(spriteTipView, "spriteTipView");
+            g65.g(CollectionsKt__CollectionsJVMKt.listOf(new dka(context, response, spriteTipView, null, 8, null)));
         }
     }
 }

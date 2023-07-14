@@ -1,17 +1,47 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.tieba.n2c;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface izb {
-    void f(Activity activity, Dialog dialog, g2c g2cVar, PurchaseStatus purchaseStatus);
+public final class izb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public byte[] a;
+    public int[] b;
 
-    void i(int i, String str, Activity activity, Dialog dialog, g2c g2cVar, n2c.b bVar, w0c w0cVar, a1c a1cVar, PayCallBackBean payCallBackBean, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    public izb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void o(Activity activity, a1c a1cVar, Dialog dialog, g2c g2cVar);
+    public static void a(izb izbVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65537, null, izbVar, i) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                int[] iArr = izbVar.b;
+                byte[] bArr = izbVar.a;
+                int i3 = i2 * 4;
+                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
+            }
+        }
+    }
+
+    public static void b(izb izbVar, byte[] bArr, int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, izbVar, bArr, iArr) == null) {
+            izbVar.a = bArr;
+            izbVar.b = iArr;
+        }
+    }
 }

@@ -9,7 +9,7 @@ import com.kwad.components.ad.reward.presenter.platdetail.actionbar.RewardAction
 import com.kwad.components.core.m.j;
 import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class e extends com.kwad.components.ad.reward.presenter.a implements RewardActionBarControl.c {
     public ViewGroup es;
     public KsLogoView pM;
@@ -29,7 +29,7 @@ public final class e extends com.kwad.components.ad.reward.presenter.a implement
         this.nM.ml.a(this);
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.nM.mAdTemplate);
         this.rO = this.pM.getVisibility();
-        this.rP = d.a(getContext(), bQ, this.pM, R.dimen.obfuscated_res_0x7f070530, true);
+        this.rP = d.a(getContext(), bQ, this.pM, R.dimen.obfuscated_res_0x7f070536, true);
         m mVar = new m(this.es, new com.kwad.components.ad.reward.k.a(getContext(), this.nM) { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.e.1
             @Override // com.kwad.components.ad.reward.k.a, com.kwad.components.ad.reward.k.b
             public final void hA() {
@@ -56,7 +56,7 @@ public final class e extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091237);
+        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09124b);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

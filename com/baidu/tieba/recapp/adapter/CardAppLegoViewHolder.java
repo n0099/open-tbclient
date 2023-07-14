@@ -4,21 +4,21 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bo9;
-import com.baidu.tieba.cs9;
-import com.baidu.tieba.mu8;
+import com.baidu.tieba.iu9;
+import com.baidu.tieba.jy9;
+import com.baidu.tieba.p09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements bo9 {
+public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements iu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cs9 a;
+    public jy9 a;
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -29,13 +29,13 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements bo9
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardAppLegoViewHolder(mu8<?> mu8Var) {
-        super((View) mu8Var);
+    public CardAppLegoViewHolder(p09<?> p09Var) {
+        super((View) p09Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mu8Var};
+            Object[] objArr = {p09Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,27 +48,27 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements bo9
         }
     }
 
-    public void a(int i) {
-        cs9 cs9Var;
+    public void b(int i) {
+        jy9 jy9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (cs9Var = this.a) != null) {
-            cs9Var.autoPlay(i);
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (jy9Var = this.a) != null) {
+            jy9Var.autoPlay(i);
         }
     }
 
-    public void d(cs9 cs9Var) {
+    public void e(jy9 jy9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cs9Var) == null) {
-            this.a = cs9Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jy9Var) == null) {
+            this.a = jy9Var;
         }
     }
 
-    public boolean b() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            cs9 cs9Var = this.a;
-            if (cs9Var != null && cs9Var.canPlay()) {
+            jy9 jy9Var = this.a;
+            if (jy9Var != null && jy9Var.canPlay()) {
                 return true;
             }
             return false;
@@ -76,104 +76,104 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements bo9
         return invokeV.booleanValue;
     }
 
-    public int c() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            cs9 cs9Var = this.a;
-            if (cs9Var == null) {
+            jy9 jy9Var = this.a;
+            if (jy9Var == null) {
                 return -2;
             }
-            return cs9Var.getPlayStatus();
+            return jy9Var.getPlayStatus();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            cs9 cs9Var = this.a;
-            if (cs9Var == null) {
+            jy9 jy9Var = this.a;
+            if (jy9Var == null) {
                 return 0;
             }
-            return (int) cs9Var.getCurrentPosition();
+            return (int) jy9Var.getCurrentPosition();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            cs9 cs9Var = this.a;
-            if (cs9Var == null) {
+            jy9 jy9Var = this.a;
+            if (jy9Var == null) {
                 return "";
             }
-            return cs9Var.getPlayUrl();
+            return jy9Var.getPlayUrl();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            cs9 cs9Var = this.a;
-            if (cs9Var == null) {
+            jy9 jy9Var = this.a;
+            if (jy9Var == null) {
                 return null;
             }
-            return cs9Var.getVideoContainer();
+            return jy9Var.getVideoContainer();
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            cs9 cs9Var = this.a;
-            if (cs9Var == null) {
+            jy9 jy9Var = this.a;
+            if (jy9Var == null) {
                 return false;
             }
-            return cs9Var.isPlayStarted();
+            return jy9Var.isPlayStarted();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            cs9 cs9Var = this.a;
-            if (cs9Var == null) {
+            jy9 jy9Var = this.a;
+            if (jy9Var == null) {
                 return false;
             }
-            return cs9Var.isPlaying();
+            return jy9Var.isPlaying();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public void startPlay() {
-        cs9 cs9Var;
+        jy9 jy9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (cs9Var = this.a) != null) {
-            cs9Var.startPlay();
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (jy9Var = this.a) != null) {
+            jy9Var.startPlay();
         }
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public void stopPlay() {
-        cs9 cs9Var;
+        jy9 jy9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (cs9Var = this.a) != null) {
-            cs9Var.stopPlay();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (jy9Var = this.a) != null) {
+            jy9Var.stopPlay();
         }
     }
 }

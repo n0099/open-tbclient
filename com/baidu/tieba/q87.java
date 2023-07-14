@@ -1,35 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class q87 implements k87 {
+public final class q87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public kl1<k87> a;
+    public final long a;
+    public final boolean b;
+    public final d87 c;
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            il1 b = il1.b();
-            this.a = b;
-            b.a(new l87());
-        }
-    }
-
-    public q87() {
+    public q87(long j, boolean z, d87 businessInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z), businessInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,30 +30,36 @@ public class q87 implements k87 {
                 return;
             }
         }
-        b();
+        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+        this.a = j;
+        this.b = z;
+        this.c = businessInfo;
     }
 
-    @Override // com.baidu.tieba.k87
-    @NonNull
-    public List<s87<?, ?>> a() {
+    public final long a() {
         InterceptResult invokeV;
-        List<k87> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            kl1<k87> kl1Var = this.a;
-            if (kl1Var == null) {
-                list = null;
-            } else {
-                list = kl1Var.getList();
-            }
-            if (list != null) {
-                for (k87 k87Var : list) {
-                    arrayList.addAll(k87Var.a());
-                }
-            }
-            return arrayList;
+            return this.a;
         }
-        return (List) invokeV.objValue;
+        return invokeV.longValue;
+    }
+
+    public final d87 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (d87) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
     }
 }

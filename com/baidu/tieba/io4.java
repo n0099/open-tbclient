@@ -1,60 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class io4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static String b = "0";
-    public static long c;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947860219, "Lcom/baidu/tieba/io4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947860219, "Lcom/baidu/tieba/io4;");
+    public io4(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        lj4 b2 = nj4.b();
-        if (b2 != null) {
-            b = b2.i().getString("key_h2_heart_beat_version", "0");
-        }
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
     }
 
-    public static long a(int i) {
-        InterceptResult invokeI;
+    public static io4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            lj4 b2 = nj4.b();
-            if (b2 != null) {
-                return b2.i().getInt("key_h2_heart_beat_timespan", i);
-            }
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new io4(2, 2, 1000);
         }
-        return invokeI.longValue;
+        return (io4) invokeV.objValue;
     }
 
-    public static long b(int i) {
-        InterceptResult invokeI;
+    @NonNull
+    public static io4 b(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            lj4 b2 = nj4.b();
-            if (b2 != null) {
-                return b2.i().getInt("key_h2_heart_beat_timeout", i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                return new io4(jSONObject.optInt("max_num", 2), jSONObject.optInt("per_call_num", 2), jSONObject.optInt("call_interval", 1000));
             }
-            return i;
+            return a();
         }
-        return invokeI.longValue;
+        return (io4) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PkgDownloadLimitStrategy{maxNum=" + this.a + ", perCallNum=" + this.b + ", callInterval=" + this.c + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,179 +1,187 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import java.util.ArrayList;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import java.util.Queue;
+import java.util.concurrent.atomic.AtomicLong;
+import rx.internal.util.UtilityFunctions;
 /* loaded from: classes7.dex */
-public class q2c extends BaseAdapter {
+public final class q2c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public int b;
-    public List<a1c> c;
-    public PayUIKitConfig d;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static long a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public ImageView b;
-        public ImageView c;
-        public TextView d;
-
-        public a(q2c q2cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q2cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = j + j2;
+            if (j3 < 0) {
+                return Long.MAX_VALUE;
             }
+            return j3;
         }
+        return invokeCommon.longValue;
     }
 
-    public q2c(Context context, PayUIKitConfig payUIKitConfig, List<a1c> list) {
+    public static long b(AtomicLong atomicLong, long j) {
+        long j2;
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, payUIKitConfig, list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, atomicLong, j)) == null) {
+            do {
+                j2 = atomicLong.get();
+            } while (!atomicLong.compareAndSet(j2, a(j2, j)));
+            return j2;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static long c(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = j * j2;
+            if (((j | j2) >>> 31) != 0 && j2 != 0 && j3 / j2 != j) {
+                return Long.MAX_VALUE;
+            }
+            return j3;
+        }
+        return invokeCommon.longValue;
+    }
+
+    /* JADX DEBUG: Type inference failed for r10v3. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Type inference failed for r8v4. Raw type applied. Possible types: R, ? super R */
+    public static <T, R> void d(AtomicLong atomicLong, Queue<T> queue, a2c<? super R> a2cVar, m2c<? super T, ? extends R> m2cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65539, null, atomicLong, queue, a2cVar, m2cVar) == null) {
+            long j = atomicLong.get();
+            if (j == Long.MAX_VALUE) {
+                while (!a2cVar.isUnsubscribed()) {
+                    Object poll = queue.poll();
+                    if (poll == null) {
+                        a2cVar.onCompleted();
+                        return;
+                    }
+                    a2cVar.onNext((R) m2cVar.call(poll));
+                }
                 return;
             }
-        }
-        this.c = new ArrayList();
-        this.a = context;
-        this.c = list;
-        this.d = payUIKitConfig;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public a1c getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.c.get(i);
-        }
-        return (a1c) invokeI.objValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.pay_ui_item_pay_way_choose, viewGroup, false);
-                aVar = new a(this);
-                aVar.a = (TextView) view2.findViewById(R.id.way_tv_title);
-                aVar.c = (ImageView) view2.findViewById(R.id.img_select);
-                aVar.b = (ImageView) view2.findViewById(R.id.recharge_way_bg);
-                aVar.d = (TextView) view2.findViewById(R.id.tv_tips);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
-            }
-            a1c item = getItem(i);
-            aVar.a.setText(item.a());
-            PayType payType = item.a;
-            if (PayType.ALI_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_zhifubao_icon);
-            } else if (PayType.WECHAT_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_weixin_icon);
-            } else if (PayType.DXM_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxm_icon);
-            } else if (PayType.DXM_PAY_KJ.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxmkj_icon);
-            } else if (PayType.UNION_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_unionpay_icon);
-            } else if (PayType.QQ_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_qqpay_icon);
-            } else if (PayType.DXM_PAY_H5.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxm_icon);
-            }
-            aVar.a.setTextColor(this.a.getResources().getColor(R.color.pay_ui_font_color_6));
-            if (this.b == i) {
-                if (c2c.a.b(this.d)) {
-                    i2 = R.drawable.pay_ui_pay_way_item_select;
-                } else {
-                    i2 = R.drawable.pay_ui_pay_way_item_select_y;
+            do {
+                long j2 = Long.MIN_VALUE;
+                while (true) {
+                    int i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    if (i != 0) {
+                        if (a2cVar.isUnsubscribed()) {
+                            return;
+                        }
+                        Object poll2 = queue.poll();
+                        if (poll2 == null) {
+                            a2cVar.onCompleted();
+                            return;
+                        } else {
+                            a2cVar.onNext((R) m2cVar.call(poll2));
+                            j2++;
+                        }
+                    } else {
+                        if (i == 0) {
+                            if (a2cVar.isUnsubscribed()) {
+                                return;
+                            }
+                            if (queue.isEmpty()) {
+                                a2cVar.onCompleted();
+                                return;
+                            }
+                        }
+                        j = atomicLong.get();
+                        if (j == j2) {
+                            j = atomicLong.addAndGet(-(j2 & Long.MAX_VALUE));
+                        }
+                    }
                 }
-                aVar.c.setBackgroundResource(i2);
-            } else {
-                aVar.c.setBackgroundResource(R.drawable.pay_ui_pay_way_item_unselect);
-            }
-            if (TextUtils.isEmpty(item.c)) {
-                aVar.d.setVisibility(8);
-            } else {
-                aVar.d.setVisibility(0);
-                aVar.d.setText(item.c);
-            }
-            return view2;
+            } while (j != Long.MIN_VALUE);
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public static <T> boolean e(AtomicLong atomicLong, long j, Queue<T> queue, a2c<? super T> a2cVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{atomicLong, Long.valueOf(j), queue, a2cVar})) == null) {
+            return f(atomicLong, j, queue, a2cVar, UtilityFunctions.b());
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static <T, R> boolean f(AtomicLong atomicLong, long j, Queue<T> queue, a2c<? super R> a2cVar, m2c<? super T, ? extends R> m2cVar) {
+        InterceptResult invokeCommon;
+        long j2;
+        long j3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{atomicLong, Long.valueOf(j), queue, a2cVar, m2cVar})) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i == 0) {
+                    if ((atomicLong.get() & Long.MIN_VALUE) == 0) {
+                        return true;
+                    }
+                    return false;
+                }
+                while (true) {
+                    j2 = atomicLong.get();
+                    j3 = j2 & Long.MIN_VALUE;
+                    if (atomicLong.compareAndSet(j2, a(Long.MAX_VALUE & j2, j) | j3)) {
+                        break;
+                    }
+                }
+                if (j2 == Long.MIN_VALUE) {
+                    d(atomicLong, queue, a2cVar, m2cVar);
+                    return false;
+                } else if (j3 == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            throw new IllegalArgumentException("n >= 0 required but it was " + j);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static long g(AtomicLong atomicLong, long j) {
+        long j2;
+        long j3;
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, atomicLong, j)) == null) {
+            do {
+                j2 = atomicLong.get();
+                if (j2 == Long.MAX_VALUE) {
+                    return Long.MAX_VALUE;
+                }
+                j3 = j2 - j;
+                if (j3 < 0) {
+                    throw new IllegalStateException("More produced than requested: " + j3);
+                }
+            } while (!atomicLong.compareAndSet(j2, j3));
+            return j3;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static boolean h(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i != 0) {
+                    return true;
+                }
+                return false;
+            }
+            throw new IllegalArgumentException("n >= 0 required but it was " + j);
+        }
+        return invokeJ.booleanValue;
     }
 }

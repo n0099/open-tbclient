@@ -2,125 +2,55 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.util.SparseArray;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.state.StateManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.open.activity.AssistActivity;
-import com.yy.open.activity.BridgeActivity;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class gkb {
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.FunNativeView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import com.fun.ad.sdk.internal.api.utils.PxUtils;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsNativeAd;
+import com.kwad.sdk.api.KsScene;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class gkb extends pjb<vjb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<c> a;
-    public Handler b;
-    public Context c;
-    public String d;
-    public kkb e;
+    public final FunNativeAdListenerHelper<vjb, KsNativeAd.AdInteractionListener> f;
 
-    public final void h(int i, Intent intent, dkb dkbVar, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), intent, dkbVar, Long.valueOf(j)}) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    /* loaded from: classes6.dex */
+    public class a implements KsLoadManager.NativeAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ dkb b;
-        public final /* synthetic */ Intent c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ gkb e;
+        public final /* synthetic */ gkb a;
 
-        public a(gkb gkbVar, int i, dkb dkbVar, Intent intent, long j) {
+        public a(gkb gkbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gkbVar, Integer.valueOf(i), dkbVar, intent, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = gkbVar;
-            this.a = i;
-            this.b = dkbVar;
-            this.c = intent;
-            this.d = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            String str;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a == 0) {
-                        this.b.onCancel();
-                        return;
-                    }
-                    String stringExtra = this.c.getStringExtra("resjson");
-                    this.e.e.a(stringExtra);
-                    JSONObject jSONObject = new JSONObject(stringExtra);
-                    if (jSONObject.has("resCode") && jSONObject.has("resMsg")) {
-                        String optString = jSONObject.optString("resMsg");
-                        int optInt = jSONObject.optInt("resCode");
-                        if (optInt != 1000006 && optInt != 1290001) {
-                            optInt = this.a;
-                            this.e.f(this.c, this.b, this.d, optInt, optString);
-                            return;
-                        }
-                        Log.e("chenqiang", "resCode:" + optInt);
-                        this.e.f(this.c, this.b, this.d, optInt, optString);
-                        return;
-                    }
-                    Log.e("chenqiang", "please update yy new version！");
-                    if (jSONObject.has("openid") && jSONObject.has("access_code")) {
-                        i = this.a;
-                        str = "success";
-                    } else {
-                        str = "handleAuthLoginResult--default error!";
-                        i = 444222199;
-                    }
-                    this.e.f(this.c, this.b, this.d, i, str);
-                } catch (Exception unused) {
-                    this.b.onError(new ekb(444222105, jkb.h(444222105)));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dkb a;
-        public final /* synthetic */ ekb b;
-
-        public b(gkb gkbVar, dkb dkbVar, ekb ekbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gkbVar, dkbVar, ekbVar};
+                Object[] objArr = {gkbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -130,244 +60,238 @@ public final class gkb {
                     return;
                 }
             }
-            this.a = dkbVar;
-            this.b = ekbVar;
+            this.a = gkbVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.kwad.sdk.api.KsLoadManager.NativeAdListener
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onError(this.b);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
             }
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public dkb a;
-        public long b;
-
-        public c(gkb gkbVar, dkb dkbVar) {
+        @Override // com.kwad.sdk.api.KsLoadManager.NativeAdListener
+        public void onNativeAdLoad(@Nullable List<KsNativeAd> list) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gkbVar, dkbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("error: adList is null or empty", new Object[0]);
+                    this.a.onError(0, "NoFill");
                     return;
                 }
+                ArrayList arrayList = new ArrayList();
+                for (KsNativeAd ksNativeAd : list) {
+                    if (ksNativeAd != null) {
+                        arrayList.add(new vjb(ksNativeAd));
+                    }
+                }
+                if (!arrayList.isEmpty()) {
+                    this.a.onAdLoaded(arrayList);
+                    return;
+                }
+                LogPrinter.e("onDrawAdLoad error: adList is null or empty", new Object[0]);
+                onError(0, "NoFill");
             }
-            this.a = dkbVar;
-            this.b = System.currentTimeMillis();
         }
     }
 
-    public gkb(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gkb(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid, true, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = kkb.b();
-        this.c = context;
-        this.d = str;
-        this.a = new SparseArray<>();
-        this.b = new Handler(Looper.getMainLooper());
+        this.f = new FunNativeAdListenerHelper<>(this);
     }
 
-    public final void c(Activity activity, String str, dkb dkbVar) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, dkbVar) == null) {
-            if (ikb.d(activity, BridgeActivity.class) && ikb.d(activity, AssistActivity.class)) {
-                int a2 = jkb.a(activity);
-                if (a2 != 0) {
-                    try {
-                        this.a.put(62345, new c(this, dkbVar));
-                        String c2 = jkb.c(this.c, this.d, str, true);
-                        Intent intent = new Intent(activity, AssistActivity.class);
-                        intent.putExtra("type", "type_web");
-                        intent.putExtra("url", c2);
-                        activity.startActivityForResult(intent, 62345);
-                        return;
-                    } catch (Exception unused) {
-                        g(new ekb(a2), dkbVar);
-                        return;
-                    }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new dkb(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, funAdSlot) == null) {
+            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 5)).build();
+            if (funAdSlot.getExpressWidth() != 0 && funAdSlot.getExpressHeight() != 0) {
+                build.setWidth(PxUtils.dp2px(funAdSlot.getExpressWidth()));
+                build.setHeight(PxUtils.dp2px(funAdSlot.getExpressHeight()));
+            }
+            onLoadStart(funAdSlot);
+            KsLoadManager loadManager = KsAdSDK.getLoadManager();
+            if (loadManager == null) {
+                onError(FunAdSdk.PLATFORM_KS);
+            } else {
+                loadManager.loadNativeAd(build, new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends rkb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final vjb a;
+        public final /* synthetic */ gkb b;
+
+        public b(gkb gkbVar, vjb vjbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gkbVar, vjbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                Intent e = jkb.e(activity);
-                this.a.put(62345, new c(this, dkbVar));
-                Bundle d = jkb.d(activity, this.d);
-                e.putExtra("action", "action_login");
-                e.putExtra(StateManager.KEY_STATE, d);
-                i(activity, e, 62345);
-                return;
             }
-            g(new ekb(3), dkbVar);
+            this.b = gkbVar;
+            this.a = vjbVar;
         }
-    }
 
-    public final boolean d(int i, int i2, Intent intent, dkb dkbVar) {
-        InterceptResult invokeCommon;
-        long currentTimeMillis;
-        dkb dkbVar2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, dkbVar})) == null) {
-            if (i != 62345 && i != 62347) {
+        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+        public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
                 return false;
             }
-            c cVar = this.a.get(i);
-            if (cVar != null) {
-                currentTimeMillis = cVar.b;
-                dkbVar2 = cVar.a;
-                this.a.remove(i);
-            } else {
-                currentTimeMillis = System.currentTimeMillis();
-                dkbVar2 = dkbVar;
-            }
-            if (i == 62345) {
-                e(i2, intent, dkbVar2, currentTimeMillis);
-                return true;
-            } else if (i != 62347) {
-                return false;
-            } else {
-                h(i2, intent, dkbVar2, currentTimeMillis);
-                return true;
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+        public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
+                this.b.f.onAdClick(this.a);
             }
         }
-        return invokeCommon.booleanValue;
-    }
 
-    public final void e(int i, Intent intent, dkb dkbVar, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), intent, dkbVar, Long.valueOf(j)}) == null) {
-            this.b.postDelayed(new a(this, i, dkbVar, intent, j), 10L);
+        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+        public void onAdShow(KsNativeAd ksNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
+                this.b.f.onAdShow(this.a);
+            }
         }
     }
 
-    public final void f(Intent intent, dkb dkbVar, long j, int i, String str) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        vjb vjbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{intent, dkbVar, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            switch (i) {
-                case 1000006:
-                    dkbVar.onError(new ekb(1000006, str));
-                    return;
-                case 1290001:
-                    dkbVar.onError(new ekb(1290001, str));
-                    return;
-                case 444111001:
-                    try {
-                        String stringExtra = intent.getStringExtra("resjson");
-                        this.e.a(stringExtra);
-                        JSONObject jSONObject = new JSONObject(stringExtra);
-                        jSONObject.optString("openid");
-                        jSONObject.optString("uid");
-                        jSONObject.optString("access_code");
-                        dkbVar.onComplete(jSONObject);
-                        return;
-                    } catch (Exception unused) {
-                        dkbVar.onError(new ekb(444222105, jkb.h(444222105)));
-                        return;
-                    }
-                case 444111002:
-                    dkbVar.onCancel();
-                    return;
-                case 444111003:
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(intent.getStringExtra("resjson"));
-                        if ("1".equals(jSONObject2.optString("appType"))) {
-                            jSONObject2.optString("uid");
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (vjbVar = (vjb) obj) != null) {
+            this.f.destroy(vjbVar);
+        }
+    }
+
+    public final com.fun.module.ks.y f(Context context, vjb vjbVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, vjbVar)) == null) {
+            int materialType = ((KsNativeAd) vjbVar.a).getMaterialType();
+            int i = R.layout.fun_ks_ad_native_single_img_h5_open_view;
+            if (materialType != 1) {
+                if (materialType != 2) {
+                    if (materialType == 3) {
+                        int interactionType = ((KsNativeAd) vjbVar.a).getInteractionType();
+                        if (interactionType != 1) {
+                            if (interactionType == 2) {
+                                i = R.layout.fun_ks_ad_native_group_img_h5_open_view;
+                            }
                         } else {
-                            jSONObject2.optString("openid");
+                            i = R.layout.fun_ks_ad_native_group_img_app_download_view;
                         }
-                        dkbVar.onComplete(jSONObject2);
-                        return;
-                    } catch (Exception unused2) {
-                        dkbVar.onError(new ekb(444222105, jkb.h(444222105)));
-                        return;
                     }
-                case 444222000:
-                    dkbVar.onError(new ekb(444222000, str));
-                    return;
-                case 444222001:
-                    dkbVar.onError(new ekb(444222001, str));
-                    return;
-                case 444222002:
-                    dkbVar.onError(new ekb(444222002, str));
-                    return;
-                case 444222003:
-                    dkbVar.onError(new ekb(444222003, str));
-                    return;
-                case 444222104:
-                    dkbVar.onError(new ekb(444222104, str));
-                    return;
-                case 444222105:
-                    dkbVar.onError(new ekb(444222105, str));
-                    return;
-                case 444222106:
-                    try {
-                        new JSONObject(intent.getStringExtra("resjson"));
-                        dkbVar.onError(new ekb(444222106, str));
-                        return;
-                    } catch (Exception unused3) {
-                        dkbVar.onError(new ekb(444222105, jkb.h(444222105)));
-                        return;
+                } else if (((KsNativeAd) vjbVar.a).getInteractionType() == 1) {
+                    i = R.layout.fun_ks_ad_native_single_img_app_download_view;
+                }
+            } else {
+                int interactionType2 = ((KsNativeAd) vjbVar.a).getInteractionType();
+                if (interactionType2 != 1) {
+                    if (interactionType2 == 2) {
+                        i = R.layout.fun_ks_ad_native_video_h5_open_view;
                     }
-                case 444222108:
-                    try {
-                        dkbVar.onComplete(new JSONObject(intent.getStringExtra("resjson")));
-                        return;
-                    } catch (Exception unused4) {
-                        dkbVar.onError(new ekb(444222105, jkb.h(444222105)));
-                        return;
-                    }
-                case 444222110:
-                    try {
-                        new JSONObject(intent.getStringExtra("resjson"));
-                        dkbVar.onError(new ekb(444222110, str));
-                        return;
-                    } catch (Exception unused5) {
-                        dkbVar.onError(new ekb(444222105, jkb.h(444222105)));
-                        return;
-                    }
-                default:
-                    Log.e("chenqiang", "default  error");
-                    dkbVar.onError(new ekb(i, jkb.h(i)));
-                    return;
+                } else {
+                    i = R.layout.fun_ks_ad_native_video_app_download_view;
+                }
             }
+            com.fun.module.ks.y yVar = (com.fun.module.ks.y) LayoutInflater.from(context).inflate(i, (ViewGroup) null, false);
+            yVar.a((KsNativeAd) vjbVar.a);
+            return yVar;
+        }
+        return (com.fun.module.ks.y) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/content/Context;Lcom/baidu/tieba/vjb;Ljava/lang/String;Landroid/view/ViewGroup;Ljava/util/List<Landroid/view/View;>;Lcom/baidu/tieba/gkb$b;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
+    public void g(vjb vjbVar, String str, ViewGroup viewGroup, List list, b bVar, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{vjbVar, str, viewGroup, list, bVar, funAdInteractionListener}) == null) {
+            this.f.startShow(vjbVar, str, this.mPid, bVar, funAdInteractionListener);
+            if (viewGroup instanceof FunNativeView) {
+                viewGroup = ((FunNativeView) viewGroup).getRoot();
+            }
+            ((KsNativeAd) vjbVar.a).registerViewForInteraction(viewGroup, list, bVar);
         }
     }
 
-    public final void g(ekb ekbVar, dkb dkbVar) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd getNativeAdInternal(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, ekbVar, dkbVar) == null) && dkbVar != null) {
-            this.b.postDelayed(new b(this, dkbVar, ekbVar), 50L);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, obj)) == null) {
+            return new vkb(context, (vjb) obj, str, this.mPid, this);
         }
+        return (FunNativeAd) invokeLLL.objValue;
     }
 
-    public final void i(Activity activity, Intent intent, int i) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, activity, intent, i) == null) {
-            intent.putExtra("request_code", i);
-            Intent intent2 = new Intent(activity.getApplicationContext(), BridgeActivity.class);
-            intent2.putExtra("intent", intent);
-            activity.startActivityForResult(intent2, i);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, str, obj)) == null) {
+            vjb vjbVar = (vjb) obj;
+            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, vjbVar, new vkb(context, vjbVar, str, this.mPid, this), new lkb(this, this, vjbVar, context));
         }
+        return (FunNativeAd2) invokeLLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, viewGroup, str, obj)) == null) {
+            vjb vjbVar = (vjb) obj;
+            onShowStart(vjbVar);
+            com.fun.module.ks.y f = f(activity, vjbVar);
+            ((KsNativeAd) vjbVar.a).registerViewForInteraction(f, f.getClickViews(), new jkb(this, vjbVar));
+            viewGroup.removeAllViews();
+            viewGroup.addView(f);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

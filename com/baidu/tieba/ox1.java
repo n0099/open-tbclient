@@ -1,11 +1,16 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import com.baidu.swan.apps.core.container.NgWebView;
 /* loaded from: classes7.dex */
 public interface ox1 {
-    String a();
+    void a(NgWebView ngWebView);
 
-    String b();
+    void b(NgWebView ngWebView, String str);
 
-    String getAppName();
+    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
 
-    String getSchemeHeader();
+    void d(String str, Context context);
+
+    void e(String str, Context context);
 }

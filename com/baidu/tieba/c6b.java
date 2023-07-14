@@ -1,203 +1,176 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.VisibleForTesting;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tieba.g6b;
-import com.baidu.tieba.i6b;
+import android.os.Build;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 /* loaded from: classes5.dex */
 public final class c6b {
     public static /* synthetic */ Interceptable $ic;
+    public static String[] a;
+    public static File b;
+    public static RandomAccessFile c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public int c;
-    public e6b d;
-    public final Set<Ssp> e;
-    public final Set<i6b> f;
-    public final Set<g6b> g;
 
-    public c6b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947628122, "Lcom/baidu/tieba/c6b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947628122, "Lcom/baidu/tieba/c6b;");
                 return;
             }
         }
-        this.e = new HashSet();
-        this.f = new HashSet();
-        this.g = new HashSet();
+        a = new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"};
     }
 
-    public boolean b(String str) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            b = file;
+            if (file.exists()) {
+                return true;
             }
-            try {
-                c(str);
-                LogPrinter.v("Config cfgv:%d parsed over.", Long.valueOf(this.a));
-                if (d()) {
-                    a();
-                    LogPrinter.v("Config cfgv:%d persisted over.", Long.valueOf(this.a));
-                    return true;
-                }
-            } catch (JSONException e) {
-                LogPrinter.e(e);
-            }
-            this.e.clear();
-            this.f.clear();
-            this.g.clear();
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    @VisibleForTesting
-    public boolean d() {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            File file = new File(str);
+            b = file;
+            if (file.delete()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashSet hashSet = new HashSet();
-            HashSet hashSet2 = new HashSet();
-            for (Ssp ssp : this.e) {
-                if (hashSet.contains(ssp.type)) {
-                    LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String externalStorageState = Environment.getExternalStorageState();
+            if (Build.VERSION.SDK_INT >= 23) {
+                if (w4b.h().getContext().checkCallingOrSelfPermission(a[0]) != 0 || !externalStorageState.equals("mounted")) {
                     return false;
                 }
-                hashSet.add(ssp.type);
-                for (Ssp.Pid pid : ssp.pids) {
-                    if (hashSet2.contains(Long.valueOf(pid.id))) {
-                        LogPrinter.e("Duplicate pid(%d) found.", Long.valueOf(pid.id));
-                        return false;
-                    }
-                    hashSet2.add(Long.valueOf(pid.id));
-                }
+                return true;
             }
-            HashSet hashSet3 = new HashSet();
-            for (i6b i6bVar : this.f) {
-                if (hashSet3.contains(i6bVar.a)) {
-                    LogPrinter.e("Duplicate sid(%s) found in SlotId", i6bVar.a);
-                    return false;
-                }
-                hashSet3.add(i6bVar.a);
-                for (i6b.c cVar : i6bVar.e) {
-                    HashSet hashSet4 = new HashSet();
-                    for (i6b.b bVar : cVar.b) {
-                        if (!hashSet2.contains(Long.valueOf(bVar.a))) {
-                            LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(bVar.a));
-                            return false;
-                        } else if (hashSet4.contains(Long.valueOf(bVar.a))) {
-                            LogPrinter.e("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(bVar.a), i6bVar.a);
-                            return false;
-                        } else {
-                            hashSet4.add(Long.valueOf(bVar.a));
-                        }
-                    }
-                }
-            }
-            if (this.c == 2) {
-                for (g6b g6bVar : this.g) {
-                    if (hashSet3.contains(g6bVar.a)) {
-                        LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", g6bVar.a);
-                        return false;
-                    }
-                    hashSet3.add(g6bVar.a);
-                    for (g6b.b bVar2 : g6bVar.b) {
-                        for (g6b.a aVar : bVar2.b) {
-                            if (!hashSet2.contains(Long.valueOf(aVar.a))) {
-                                LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar.a));
-                                return false;
-                            }
-                        }
-                    }
-                }
-            }
-            return true;
+            return externalStorageState.equals("mounted");
         }
         return invokeV.booleanValue;
     }
 
-    public final void a() {
-        int length;
+    public static synchronized boolean d(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.a;
-            int i = this.b;
-            int i2 = this.c;
-            v5b v5bVar = new v5b(this.e, this.f, this.g);
-            e6b e6bVar = this.d;
-            Object obj = l6b.a;
-            String d = z5b.d(v5bVar);
-            Object[] objArr = new Object[1];
-            if (d == null) {
-                length = -1;
-            } else {
-                length = d.length();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
+            synchronized (c6b.class) {
+                if (!c() || !f(str2, str3)) {
+                    return false;
+                }
+                try {
+                    b = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(b, "rwd");
+                    c = randomAccessFile;
+                    randomAccessFile.seek(b.length());
+                    c.write((str + "\r\n").getBytes("UTF-8"));
+                    c.close();
+                    return true;
+                } catch (Exception e) {
+                    f6b.e(e);
+                    return false;
+                }
             }
-            objArr[0] = Integer.valueOf(length);
-            LogPrinter.v("sspsUTF len:%d", objArr);
-            l6b.b.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", d).putString("key_rptcfg", z5b.d(e6bVar)).apply();
         }
+        return invokeLLL.booleanValue;
     }
 
-    @VisibleForTesting
-    public void c(String str) {
-        JSONArray optJSONArray;
+    public static synchronized String e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject jSONObject2 = jSONObject.getJSONObject("config");
-            this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
-            this.b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
-            this.c = NumberUtils.adjustInt(jSONObject2.optInt(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, 1), 1);
-            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
-            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
-            HashMap hashMap = new HashMap();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                Ssp ssp = new Ssp(jSONArray.getJSONObject(i));
-                for (Ssp.Pid pid : ssp.pids) {
-                    hashMap.put(Long.valueOf(pid.id), pid);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            synchronized (c6b.class) {
+                if (c()) {
+                    if (a(str + str2)) {
+                        try {
+                            b = new File(str + str2);
+                            c = new RandomAccessFile(b, "r");
+                            StringBuffer stringBuffer = new StringBuffer();
+                            while (true) {
+                                String readLine = c.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                stringBuffer.append(new String(readLine.getBytes("ISO-8859-1"), "utf-8"));
+                                stringBuffer.append(",");
+                            }
+                            String stringBuffer2 = stringBuffer.toString();
+                            try {
+                                c.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return stringBuffer2;
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            try {
+                                c.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                    }
+                    return "";
                 }
-                this.e.add(ssp);
-            }
-            JSONArray jSONArray2 = jSONObject3.getJSONArray(Config.SID);
-            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                this.f.add(new i6b(jSONArray2.getJSONObject(i2), hashMap));
-            }
-            if (this.c >= 2 && (optJSONArray = jSONObject3.optJSONArray("serialSids")) != null) {
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    this.g.add(new g6b(optJSONArray.getJSONObject(i3), hashMap));
-                }
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("rptConfig");
-            if (optJSONObject != null) {
-                this.d = new e6b(optJSONObject);
+                return "";
             }
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            try {
+                b = new File(str);
+                if (!a(str)) {
+                    b.mkdirs();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                File file = new File(str + str2);
+                b = file;
+                if (file.exists()) {
+                    return true;
+                }
+                return b.createNewFile();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.ArraySet;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,182 +17,203 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class nc3 {
+public class nc3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final qc3<a> e;
-        public static final pc3<a> f;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ String b;
 
-        /* renamed from: com.baidu.tieba.nc3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0413a extends qc3<a> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public C0413a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qc3
-            /* renamed from: b */
-            public void a(@NonNull a aVar, @NonNull iv2 iv2Var) throws Exception {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, iv2Var) == null) {
-                    iv2Var.writeInt(aVar.a);
-                    iv2Var.writeInt(aVar.b);
-                    iv2Var.writeInt(aVar.c);
-                    iv2Var.writeInt(aVar.d);
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public static class b extends pc3<a> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public b() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.pc3
-            /* renamed from: b */
-            public a a(@NonNull hv2 hv2Var) throws Exception {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hv2Var)) == null) {
-                    a aVar = new a();
-                    aVar.a = hv2Var.readInt();
-                    aVar.b = hv2Var.readInt();
-                    aVar.c = hv2Var.readInt();
-                    aVar.d = hv2Var.readInt();
-                    return aVar;
-                }
-                return (a) invokeL.objValue;
-            }
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-580055922, "Lcom/baidu/tieba/nc3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-580055922, "Lcom/baidu/tieba/nc3$a;");
-                    return;
-                }
-            }
-            e = new C0413a();
-            f = new b();
-        }
-
-        public a() {
+        public a(d dVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = dVar;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                v82.k("WebSafeWhiteListMgr", "async read webDomains");
+                nc3.o(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+
+        public b(d dVar, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+            this.b = str;
+            this.c = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                v82.k("WebSafeWhiteListMgr", "async read serverDomains");
+                nc3.p(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ String b;
+
+        public c(d dVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                v82.k("WebSafeWhiteListMgr", "async read webActions");
+                nc3.o(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public List<String> b;
+        public long c;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = new CopyOnWriteArrayList();
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.b.clear();
             }
         }
 
-        public static a b() {
+        @NonNull
+        public static List<String> d(JSONArray jSONArray) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (jSONArray != null && jSONArray.length() > 0) {
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        arrayList.add(jSONArray.optString(i));
+                    }
+                }
+                return arrayList;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        public void a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("token");
+            this.b.addAll(d(jSONObject.optJSONArray("data")));
+        }
+
+        public void b(JSONObject jSONObject, String str) {
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+                return;
+            }
+            this.b.addAll(d(optJSONObject.optJSONArray(str)));
+        }
+
+        public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (nc3.a) {
-                    Log.w("SwanAppCommonConfigData", "NetworkConfig createNullObject()");
-                }
-                a aVar = new a();
-                aVar.a = 10000;
-                aVar.b = 60000;
-                return aVar;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return "WebSafeData{token='" + this.a + "', data=" + this.b + ", lastModifiedTime=" + this.c + '}';
             }
-            return (a) invokeV.objValue;
-        }
-
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return b();
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("networkTimeout");
-                if (optJSONObject == null) {
-                    return b();
-                }
-                a aVar = new a();
-                if (optJSONObject.optInt("request") > 0 && optJSONObject.optInt("request") <= 60000) {
-                    aVar.a = optJSONObject.optInt("request", 10000);
-                } else {
-                    aVar.a = 10000;
-                }
-                aVar.b = optJSONObject.optInt("connectSocket", 60000);
-                aVar.c = optJSONObject.optInt("uploadFile");
-                aVar.d = optJSONObject.optInt("downloadFile");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public static int c(a aVar) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) {
-                if (aVar != null && aVar.a > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    return aVar.a;
-                }
-                return 10000;
-            }
-            return invokeL.intValue;
+            return (String) invokeV.objValue;
         }
     }
 
@@ -203,6 +230,350 @@ public final class nc3 {
                 return;
             }
         }
-        a = ms1.a;
+        a = fs1.a;
+    }
+
+    public static List<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("swanAPI/installApp4Ad");
+            arrayList.add("swanAPI/openApp4Ad");
+            arrayList.add("swanAPI/checkAppInstalled");
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return c("", "aiapps_folder/cloud_config", "global_web_actions.json");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void v(@NonNull d dVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65558, null, dVar, str) == null) {
+            File file = new File(str);
+            if (file.exists()) {
+                dVar.c = file.lastModified();
+            }
+        }
+    }
+
+    @NonNull
+    public static String c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            String path = AppRuntime.getAppContext().getFilesDir().getPath();
+            if (TextUtils.isEmpty(str)) {
+                return path + File.separator + str2 + File.separator + str3;
+            }
+            return path + File.separator + str2 + File.separator + str + "_" + str3;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static boolean u(String str, String str2, JSONArray jSONArray) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65557, null, str, str2, jSONArray)) == null) {
+            if (!TextUtils.isEmpty(str) && jSONArray != null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    if (!TextUtils.isEmpty(str2)) {
+                        jSONObject.put("token", str2);
+                    }
+                    jSONObject.put("data", jSONArray);
+                    String m = m(str);
+                    boolean b2 = yu2.b(m, jSONObject.toString(), false);
+                    v82.k("WebSafeWhiteListMgr", "save WebDomains: result=" + b2 + " filePath=" + m + " appId= " + str + " token=" + str2 + " data=" + jSONArray);
+                    return b2;
+                } catch (JSONException e) {
+                    if (a) {
+                        Log.e("WebSafeWhiteListMgr", Log.getStackTraceString(e));
+                    }
+                    return false;
+                }
+            }
+            if (a) {
+                Log.w("WebSafeWhiteListMgr", "saveWebDomains: appId or data is empty");
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + "aiapps_folder/cloud_config";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static xr4 f(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return jk3.b(str + "_domain_config");
+        }
+        return (xr4) invokeL.objValue;
+    }
+
+    @Nullable
+    public static Set<String> g(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return f(str).getStringSet("prelink", null);
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    @NonNull
+    public static String i(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            return c(str, "aiapps_folder/cloud_config", "server_domains.json");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public static String m(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            return c(str, "aiapps_folder/cloud_config", "web_domains.json");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            return new File(m(str)).exists();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
+            v82.k("WebSafeWhiteListMgr", "read data from: " + str);
+            return yu2.a(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void h(boolean z, String str, String str2, @NonNull d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), str, str2, dVar}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.w("WebSafeWhiteListMgr", "get serverDomains: appId is empty");
+                }
+            } else if (dVar == null) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("Please init webSafeData first!");
+            } else {
+                String i = i(str);
+                if (z) {
+                    ExecutorUtilsExt.postOnElastic(new b(dVar, i, str2), "load-ServerDomains", 2);
+                } else {
+                    p(dVar, i, str2);
+                }
+            }
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void k(boolean z, @NonNull d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65547, null, z, dVar) == null) {
+            if (dVar == null) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("Please init webSafeData first!");
+            }
+            String j = j();
+            if (z) {
+                ExecutorUtilsExt.postOnElastic(new c(dVar, j), "load-WebActions", 2);
+            } else {
+                o(dVar, j);
+            }
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void l(boolean z, String str, @NonNull d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Boolean.valueOf(z), str, dVar}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.w("WebSafeWhiteListMgr", "getWebDomains: appId is empty");
+                }
+            } else if (dVar == null) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("Please init webSafeData first!");
+            } else {
+                String m = m(str);
+                if (z) {
+                    ExecutorUtilsExt.postOnElastic(new a(dVar, m), "load-WebDomains", 2);
+                } else {
+                    o(dVar, m);
+                }
+            }
+        }
+    }
+
+    public static void p(d dVar, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65552, null, dVar, str, str2) == null) {
+            if (dVar == null) {
+                v82.k("WebSafeWhiteListMgr", "webSafeData == null");
+                return;
+            }
+            v82.k("WebSafeWhiteListMgr", "update webSafeData(before): " + dVar);
+            try {
+                dVar.b(new JSONObject(q(str)), str2);
+                v(dVar, str);
+                v82.k("WebSafeWhiteListMgr", "update webSafeData(after): " + dVar);
+            } catch (Exception e) {
+                v82.k("WebSafeWhiteListMgr", Log.getStackTraceString(e));
+            }
+        }
+    }
+
+    public static void o(@NonNull d dVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, null, dVar, str) == null) {
+            if (dVar == null) {
+                v82.k("WebSafeWhiteListMgr", "webSafeData == null");
+                return;
+            }
+            v82.k("WebSafeWhiteListMgr", "update webSafeData(before): " + dVar);
+            try {
+                dVar.a(new JSONObject(q(str)));
+                v(dVar, str);
+                v82.k("WebSafeWhiteListMgr", "update webSafeData(after): " + dVar);
+            } catch (Exception e) {
+                v82.k("WebSafeWhiteListMgr", Log.getStackTraceString(e));
+            }
+        }
+    }
+
+    public static void r(@NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65554, null, str, str2) == null) {
+            JSONArray optJSONArray = vo3.d(str2).optJSONArray("prelink");
+            if (optJSONArray != null) {
+                ArraySet arraySet = new ArraySet();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    String optString = optJSONArray.optString(i);
+                    if (!TextUtils.isEmpty(optString)) {
+                        arraySet.add(optString);
+                    }
+                }
+                w(str, arraySet);
+            }
+            if (a) {
+                Log.d("WebSafeWhiteListMgr", "saveDomainConfig appId=" + str + ", domainConfig=" + str2);
+            }
+        }
+    }
+
+    public static void w(@NonNull String str, @Nullable Set<String> set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65559, null, str, set) == null) {
+            if (set != null) {
+                ArrayList arrayList = new ArrayList(set.size());
+                ArraySet arraySet = new ArraySet(set.size());
+                for (String str2 : set) {
+                    String e = k12.e(str2);
+                    if (e != null && !arrayList.contains(e)) {
+                        arraySet.add(str2);
+                        arrayList.add(e);
+                    }
+                }
+                set = arraySet;
+            }
+            f(str).putStringSet("prelink", set);
+        }
+    }
+
+    public static boolean s(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, str, jSONObject)) == null) {
+            if (!TextUtils.isEmpty(str) && jSONObject != null) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put("data", jSONObject);
+                    String i = i(str);
+                    boolean b2 = yu2.b(i, jSONObject2.toString(), false);
+                    v82.k("WebSafeWhiteListMgr", "save serverDomains: result=" + b2 + " filePath=" + i + " appId= " + str + " data=" + jSONObject);
+                    return b2;
+                } catch (JSONException e) {
+                    if (a) {
+                        Log.e("WebSafeWhiteListMgr", Log.getStackTraceString(e));
+                    }
+                    return false;
+                }
+            }
+            if (a) {
+                Log.d("WebSafeWhiteListMgr", "save serverDomains: appId or data is empty");
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean t(String str, JSONArray jSONArray) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, str, jSONArray)) == null) {
+            if (jSONArray == null) {
+                if (a) {
+                    Log.w("WebSafeWhiteListMgr", "saveWebActions: data is empty");
+                }
+                return false;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("token", str);
+                }
+                jSONObject.put("data", jSONArray);
+                String j = j();
+                boolean b2 = yu2.b(j, jSONObject.toString(), false);
+                v82.k("WebSafeWhiteListMgr", "save webActions: result=" + b2 + " filePath=" + j + " token=" + str + " data=" + jSONArray);
+                return b2;
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("WebSafeWhiteListMgr", Log.getStackTraceString(e));
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -229,9 +229,9 @@ public class PopupWindow implements PopItem {
             if (i == -1) {
                 if (this.mIsDropdown) {
                     if (this.mAboveAnchor) {
-                        return R.style.obfuscated_res_0x7f10017b;
+                        return R.style.obfuscated_res_0x7f10017c;
                     }
-                    return R.style.obfuscated_res_0x7f10017a;
+                    return R.style.obfuscated_res_0x7f10017b;
                 }
                 return 0;
             }

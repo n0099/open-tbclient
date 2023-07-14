@@ -1,183 +1,169 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.switchs.RepostToDynamicDefaultSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public abstract class bya {
+public class bya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public int b;
-    public bya c;
-    public yxa d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public String g;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(bya byaVar);
-
-        void b(bya byaVar);
-
-        void c(int i, int i2);
-
-        void d(String str, bya byaVar);
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull aj5 aj5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, editorTools, aj5Var) == null) {
+            editorTools.d(new nj5(tbPageContext.getPageActivity(), 7));
+            editorTools.setActionListener(16, aj5Var);
+        }
     }
 
-    public bya() {
+    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull aj5 aj5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, tbPageContext, editorTools, aj5Var) == null) {
+            editorTools.d(new cj5(tbPageContext.getPageActivity(), 10));
+            editorTools.setActionListener(59, aj5Var);
+        }
+    }
+
+    public static void e(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull aj5 aj5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, editorTools, aj5Var) == null) {
+            editorTools.d(new tj5(tbPageContext.getPageActivity(), 12));
+            editorTools.setActionListener(69, aj5Var);
+        }
+    }
+
+    public static void f(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull aj5 aj5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, tbPageContext, editorTools, aj5Var) == null) {
+            editorTools.d(new yj5(tbPageContext.getPageActivity(), 11));
+            editorTools.setActionListener(61, aj5Var);
+        }
+    }
+
+    public static zj5 g(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull aj5 aj5Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, tbPageContext, editorTools, aj5Var)) == null) {
+            zj5 zj5Var = new zj5(tbPageContext.getPageActivity(), 4);
+            editorTools.d(zj5Var);
+            editorTools.setActionListener(21, aj5Var);
+            return zj5Var;
+        }
+        return (zj5) invokeLLL.objValue;
+    }
+
+    public static void j(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull aj5 aj5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, tbPageContext, editorTools, aj5Var) == null) {
+            editorTools.d(new ol5(tbPageContext.getPageActivity(), 2));
+            editorTools.setActionListener(60, aj5Var);
+        }
+    }
+
+    public static void l(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull aj5 aj5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, tbPageContext, editorTools, aj5Var) == null) {
+            editorTools.d(new ql5(tbPageContext.getPageActivity(), 8));
+            editorTools.setActionListener(22, aj5Var);
+        }
+    }
+
+    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull aj5 aj5Var) {
+        CustomResponsedMessage runTask;
+        lj5 lj5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, editorTools, aj5Var) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, tbPageContext.getPageActivity()), lj5.class)) != null && (lj5Var = (lj5) runTask.getData()) != null) {
+            lj5Var.o = true;
+            lj5Var.l = 9;
+            editorTools.d(lj5Var);
+            editorTools.setActionListener(25, aj5Var);
+        }
+    }
+
+    public static void d(@NonNull EditorTools editorTools, @NonNull aj5 aj5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, editorTools, aj5Var) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            editorTools.h(arrayList);
+            lj5 p = editorTools.p(5);
+            if (p != null) {
+                p.l = 5;
+                p.d(true);
             }
+            editorTools.setActionListener(24, aj5Var);
+            editorTools.setActionListener(3, aj5Var);
         }
     }
 
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String fileNameWithOutExtention;
-        StringBuilder sb;
+    public static void i(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools) {
+        CustomResponsedMessage runTask;
+        lj5 lj5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if ((interceptable == null || interceptable.invokeLL(65544, null, tbPageContext, editorTools) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, tbPageContext.getPageActivity()), lj5.class)) != null && (lj5Var = (lj5) runTask.getData()) != null) {
+            lj5Var.o = true;
+            lj5Var.l = 10;
+            editorTools.d(lj5Var);
+        }
+    }
+
+    public static void h(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull aj5 aj5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, tbPageContext, editorTools, aj5Var) == null) {
+            editorTools.d(new wj5(tbPageContext.getPageActivity(), 1));
+            editorTools.setActionListener(14, aj5Var);
+            editorTools.setActionListener(12, aj5Var);
+            editorTools.setActionListener(13, aj5Var);
+            editorTools.setActionListener(15, aj5Var);
+            editorTools.setActionListener(48, aj5Var);
+            editorTools.setActionListener(46, aj5Var);
+            editorTools.setActionListener(49, aj5Var);
+            editorTools.setActionListener(47, aj5Var);
+        }
+    }
+
+    public static void k(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull aj5 aj5Var) {
+        lj5 lj5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65546, null, tbPageContext, editorTools, aj5Var) == null) && sea.a()) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, tbPageContext.getPageActivity()), lj5.class);
+            if (runTask != null && (lj5Var = (lj5) runTask.getData()) != null) {
+                lj5Var.l = 3;
+                editorTools.d(lj5Var);
             }
-            if (str2 == null) {
-                str2 = "";
+            editorTools.setActionListener(10, aj5Var);
+            editorTools.setActionListener(11, aj5Var);
+        }
+    }
+
+    public static gua m(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, String str, @NonNull aj5 aj5Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, tbPageContext, editorTools, str, aj5Var)) == null) {
+            gua guaVar = new gua(tbPageContext.getPageActivity(), str);
+            boolean z = false;
+            guaVar.k(0);
+            if (SwitchManager.getInstance().findType(RepostToDynamicDefaultSwitch.KEY) == 1) {
+                z = true;
             }
-            if (TextUtils.isEmpty(this.g)) {
-                sb = new StringBuilder();
-                fileNameWithOutExtention = FileUtils.removeExtention(str);
-            } else {
-                fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
-                sb = new StringBuilder();
-                sb.append(this.g);
-            }
-            sb.append(fileNameWithOutExtention);
-            sb.append(str2);
-            return sb.toString();
+            guaVar.l(z);
+            editorTools.d(guaVar);
+            editorTools.setActionListener(43, aj5Var);
+            editorTools.setActionListener(55, aj5Var);
+            editorTools.setActionListener(66, aj5Var);
+            editorTools.setActionListener(77, aj5Var);
+            return guaVar;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public abstract void b();
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public abstract void d(yxa yxaVar);
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    public void f(bya byaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, byaVar) == null) {
-            this.c = byaVar;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f) {
-            return;
-        }
-        this.e = true;
-        a aVar = this.a;
-        if (aVar != null) {
-            aVar.d(getClass().getName() + str, this);
-        }
-    }
-
-    public abstract void h();
-
-    public void i(int i) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.c(this.b, i);
-    }
-
-    public boolean j(yxa yxaVar) {
-        InterceptResult invokeL;
-        List<wxa> a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, yxaVar)) == null) {
-            if (yxaVar != null && yxaVar.c() != null && yxaVar.c().size() == 1 && yxaVar.c().get(0).a() != null && (a2 = yxaVar.c().get(0).a()) != null && a2.size() == 1) {
-                wxa wxaVar = a2.get(0);
-                if (wxaVar.b() != null && !wxaVar.b().isNeedEdit()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void l(yxa yxaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, yxaVar) == null) {
-            this.d = yxaVar;
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.c(this.b, 100);
-                this.a.b(this);
-            }
-            bya byaVar = this.c;
-            if (byaVar != null) {
-                byaVar.d(yxaVar);
-            }
-        }
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c == null : invokeV.booleanValue;
-    }
-
-    public yxa n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (yxa) invokeV.objValue;
-    }
-
-    public void o() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.a(this);
+        return (gua) invokeLLLL.objValue;
     }
 }

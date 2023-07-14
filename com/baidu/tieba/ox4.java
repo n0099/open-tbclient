@@ -1,28 +1,26 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class ox4 {
+public class ox4 implements ItemCardHelper.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public lx4 b;
-    public mx4 c;
-    public final boolean d;
-    public final long e;
+    public final kk6<WebView> a;
 
-    public ox4(boolean z, long j) {
+    public ox4(@NonNull kk6<WebView> kk6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j)};
+            Object[] objArr = {kk6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,57 +30,33 @@ public class ox4 {
                 return;
             }
         }
-        this.d = z;
-        this.e = j;
+        this.a = kk6Var;
     }
 
-    public lx4 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (lx4) invokeV.objValue;
-    }
-
-    public ViewGroup b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(lx4 lx4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lx4Var) == null) {
-            this.b = lx4Var;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            c(this.a.call(), String.valueOf(j), 0);
         }
     }
 
-    public void f(ViewGroup viewGroup) {
+    @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, viewGroup) == null) {
-            this.a = viewGroup;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            c(this.a.call(), String.valueOf(j), 1);
+        }
+    }
+
+    public final void c(WebView webView, @NonNull String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, webView, str, i) == null) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("id", str);
+            hashMap.put("resultCode", Integer.valueOf(i));
+            hashMap.put("name", null);
+            jn6.a().d(webView, "orderGameApkResult", hashMap);
         }
     }
 }

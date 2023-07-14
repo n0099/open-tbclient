@@ -13,10 +13,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j45;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.r45;
 import com.baidu.tieba.view.HeadlinesItemCountDownView;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -110,27 +110,27 @@ public class HeadlinesItemInfoView extends FrameLayout {
         }
     }
 
-    public void b(j45 j45Var) {
+    public void b(r45 r45Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j45Var) != null) || j45Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r45Var) != null) || r45Var == null) {
             return;
         }
-        this.b.N(j45Var.f(), 10, false);
-        this.c.setText(j45Var.l());
-        this.e.setText(j45Var.b());
-        this.d.setData(vg.g(j45Var.d(), 0L), j45Var.c(), j45Var.k());
+        this.b.N(r45Var.f(), 10, false);
+        this.c.setText(r45Var.l());
+        this.e.setText(r45Var.b());
+        this.d.setData(wg.g(r45Var.d(), 0L), r45Var.c(), r45Var.k());
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            s75 d = s75.d(this);
+            d85 d = d85.d(this);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0201);
-            s75.d(this.c).x(R.color.CAM_X0107);
+            d85.d(this.c).x(R.color.CAM_X0107);
             this.d.i(i);
-            s75 d2 = s75.d(this.e);
+            d85 d2 = d85.d(this.e);
             d2.x(R.color.CAM_X0304);
             d2.m(R.dimen.L_X01);
             d2.l(R.color.CAM_X0304);

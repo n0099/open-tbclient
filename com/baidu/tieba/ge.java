@@ -1,56 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.BundleDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.CursorDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.IntentDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.JsonDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.MapDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.ProtobufDataSource;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+/* loaded from: classes6.dex */
 public class ge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Type[] a;
+    public Type b;
+    public Class<?> c;
 
-    public static final boolean a(oc ocVar, hd hdVar) {
-        InterceptResult invokeLL;
-        wc a;
+    public ge(Type type) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ocVar, hdVar)) == null) {
-            if (ocVar != null && hdVar != null) {
-                for (Field field : mc.b(ocVar.getClass())) {
-                    if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
-                        String name = field.getName();
-                        if (!TextUtils.isEmpty(name) && (a = ie.a(mc.d(ocVar, name))) != null) {
-                            Object obj = null;
-                            if (hdVar instanceof JsonDataSource) {
-                                obj = a.f(new fe(field.getGenericType()));
-                            } else if (hdVar instanceof BundleDataSource) {
-                                obj = a.d(new fe(field.getGenericType()));
-                            } else if (hdVar instanceof IntentDataSource) {
-                                obj = a.e(new fe(field.getGenericType()));
-                            } else if (hdVar instanceof MapDataSource) {
-                                obj = a.b(new fe(field.getGenericType()));
-                            } else if (hdVar instanceof CursorDataSource) {
-                                obj = a.a(new fe(field.getGenericType()));
-                            } else if (hdVar instanceof ProtobufDataSource) {
-                                obj = a.c(new fe(field.getGenericType()));
-                            }
-                            if (obj != null) {
-                                hdVar.set(name, obj);
-                            }
-                        }
-                    }
-                }
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {type};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        if (type instanceof ParameterizedType) {
+            ParameterizedType parameterizedType = (ParameterizedType) type;
+            this.a = parameterizedType.getActualTypeArguments();
+            Type rawType = parameterizedType.getRawType();
+            this.b = rawType;
+            Type[] typeArr = this.a;
+            if (typeArr != null && typeArr.length > 0) {
+                try {
+                    this.c = (Class) rawType;
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+            return;
+        }
+        try {
+            this.c = (Class) type;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public Class<?> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public Type[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Type[]) invokeV.objValue;
     }
 }

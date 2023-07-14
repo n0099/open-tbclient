@@ -1,421 +1,303 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.hh3;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.PermissionRequest;
-import java.util.HashMap;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class p03 extends zd3 {
+public class p03 extends l72 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean X;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean A;
+    public boolean B;
+    public boolean C;
+    public boolean D;
+    public boolean E;
+    public int F;
+    public boolean G;
+    public boolean H;
+    public boolean I;
+    public boolean J;
+    public String K;
+    public boolean L;
+    public boolean M;
+    public boolean N;
+    public boolean O;
+    public boolean P;
+    public boolean Q;
+    public boolean R;
+    public boolean S;
 
-    /* loaded from: classes7.dex */
-    public class a implements vq3<fh3<hh3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ o03 c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ Context e;
-        public final /* synthetic */ n03 f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ cc3 h;
-        public final /* synthetic */ p03 i;
+    /* renamed from: T  reason: collision with root package name */
+    public String f1148T;
+    public boolean U;
+    public String V;
+    public String W;
+    public String j;
+    public boolean k;
+    public String l;
+    public int m;
+    public int n;
+    public boolean o;
+    public boolean p;
+    public String q;
+    public int r;
+    public boolean s;
+    public String t;
+    public String u;
+    public boolean v;
+    public boolean w;
+    public boolean x;
+    public String y;
+    public String z;
 
-        public a(p03 p03Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, o03 o03Var, String str, Context context, n03 n03Var, String str2, cc3 cc3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948008182, "Lcom/baidu/tieba/p03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p03Var, callbackHandler, unitedSchemeEntity, o03Var, str, context, n03Var, str2, cc3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.i = p03Var;
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = o03Var;
-            this.d = str;
-            this.e = context;
-            this.f = n03Var;
-            this.g = str2;
-            this.h = cc3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vq3
-        /* renamed from: b */
-        public void a(fh3<hh3.e> fh3Var) {
-            int b;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fh3Var) == null) {
-                if (!ah3.h(fh3Var)) {
-                    ah3.p(fh3Var, this.a, this.b);
-                    if (fh3Var == null) {
-                        b = 10001;
-                    } else {
-                        b = fh3Var.b();
-                    }
-                    this.i.o(this.c, b, ah3.f(b));
-                } else if (s03.k().q(this.d)) {
-                    this.i.o(this.c, 2001, "error execute time");
-                    c92.c("record", "error execute time");
-                } else {
-                    this.i.r(this.e, this.b, this.a, this.d, this.f, this.c, this.g, this.h.b);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948008182, "Lcom/baidu/tieba/p03;");
+                return;
             }
         }
+        X = fs1.a;
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements f73 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ Context d;
-        public final /* synthetic */ n03 e;
-        public final /* synthetic */ o03 f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ String h;
-        public final /* synthetic */ p03 i;
-
-        public b(p03 p03Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, Context context, n03 n03Var, o03 o03Var, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p03Var, callbackHandler, unitedSchemeEntity, str, context, n03Var, o03Var, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.i = p03Var;
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = str;
-            this.d = context;
-            this.e = n03Var;
-            this.f = o03Var;
-            this.g = str2;
-            this.h = str3;
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.o;
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.f73
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (zd3.b) {
-                    Log.d("AudioRecordAction", str + "");
-                }
-                this.i.p(this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h);
-            }
+    @Override // com.baidu.tieba.l72, com.baidu.tieba.u13
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TextUtils.isEmpty(this.j);
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.f73
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                if (zd3.b) {
-                    Log.d("AudioRecordAction", str + "");
-                }
-                c92.c("record", str);
-                this.i.o(this.f, 10005, "system deny");
-            }
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return TextUtils.equals("auto", this.f1148T);
         }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.C;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.w;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.B;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.A;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return !this.f;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p03(zc3 zc3Var) {
-        super(zc3Var, "/swanAPI/recorder");
+    public p03() {
+        super("video", "componentId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.j = "";
+        this.k = false;
+        this.l = "";
+        this.m = 0;
+        this.n = 0;
+        this.o = false;
+        this.p = false;
+        this.q = "";
+        this.r = 0;
+        this.t = "";
+        this.u = "";
+        this.v = false;
+        this.w = false;
+        this.x = true;
+        this.y = "";
+        this.z = "";
+        this.D = false;
+        this.E = true;
+        this.F = -1;
+        this.G = true;
+        this.H = true;
+        this.I = true;
+        this.J = true;
+        this.K = "";
+        this.L = true;
+        this.M = true;
+        this.N = false;
+        this.O = false;
+        this.P = true;
+        this.Q = false;
+        this.R = true;
+        this.S = false;
+        this.f1148T = "";
+        this.U = true;
+        this.V = "";
+        this.W = "";
     }
 
-    @Override // com.baidu.tieba.zd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
-        InterceptResult invokeLLLL;
+    public static p03 h(JSONObject jSONObject, @NonNull p03 p03Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
-            if (zd3.b) {
-                Log.d("AudioRecordAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, p03Var)) == null) {
+            p03 p03Var2 = new p03();
+            if (jSONObject != null) {
+                p03Var2.e(jSONObject, p03Var);
+                p03Var2.j = jSONObject.optString("componentId", p03Var.j);
+                p03Var2.o = jSONObject.optBoolean("autoplay", p03Var.o);
+                p03Var2.k = jSONObject.optBoolean("muted", p03Var.k);
+                p03Var2.q = jSONObject.optString("objectFit", p03Var.q);
+                p03Var2.m = jSONObject.optInt("initialTime", p03Var.m);
+                p03Var2.l = jSONObject.optString(NativeConstants.POSTER, p03Var.l);
+                p03Var2.r = jSONObject.optInt(CriusAttrConstants.POSITION, p03Var.r);
+                p03Var2.s = jSONObject.optBoolean("fullScreen", p03Var.s);
+                p03Var2.t = p(jSONObject);
+                p03Var2.u = jSONObject.optString("danmuList", p03Var.u);
+                p03Var2.v = jSONObject.optBoolean("enableDanmu", p03Var.v);
+                p03Var2.w = jSONObject.optBoolean("danmuBtn", p03Var.w);
+                p03Var2.p = jSONObject.optBoolean("loop", p03Var.p);
+                p03Var2.x = jSONObject.optBoolean("controls", p03Var.x);
+                p03Var2.y = q(jSONObject.optString("src", p03Var.y));
+                p03Var2.I = !dj3.E(jSONObject.optString("src", p03Var.y));
+                p03Var2.A = jSONObject.optBoolean("showPlayBtn", p03Var.A);
+                p03Var2.B = jSONObject.optBoolean("showMuteBtn", p03Var.B);
+                p03Var2.C = jSONObject.optBoolean("showCenterPlayBtn", p03Var.C);
+                p03Var2.D = jSONObject.optBoolean("pageGesture", p03Var.D);
+                p03Var2.E = jSONObject.optBoolean("showProgress", p03Var.E);
+                p03Var2.F = jSONObject.optInt(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, p03Var.F);
+                p03Var2.G = jSONObject.optBoolean("showFullscreenBtn", p03Var.G);
+                p03Var2.H = jSONObject.optBoolean("enableProgressGesture", p03Var.H);
+                p03Var2.z = jSONObject.optString("componentId", p03Var.z);
+                p03Var2.J = jSONObject.optBoolean("showNoWifiTip", p03Var.J);
+                p03Var2.K = jSONObject.optString("title", p03Var.K);
+                p03Var2.L = jSONObject.optBoolean("enablePlayGesture", p03Var.L);
+                p03Var2.M = jSONObject.optBoolean("vslideGestureInFullscreen", p03Var.M);
+                p03Var2.N = jSONObject.optBoolean("customEnterExitFullScreen", p03Var.N);
+                p03Var2.P = jSONObject.optBoolean("showRateBtn", p03Var.P);
+                p03Var2.Q = jSONObject.optBoolean("isFullscreen", p03Var.Q);
+                p03Var2.O = jSONObject.optBoolean("isAlwaysOnlyShowTopView", p03Var.O);
+                p03Var2.R = jSONObject.optBoolean("showVslideBtnInFullscreen", p03Var.R);
+                p03Var2.S = jSONObject.optBoolean("silentPlay", p03Var.S);
+                p03Var2.f1148T = jSONObject.optString("preload", p03Var.f1148T);
+                p03Var2.U = jSONObject.optBoolean("showSilentPlayMutedIcon", p03Var.U);
+                p03Var2.V = jSONObject.optString("silentPlayTips", p03Var.V);
+                p03Var2.W = jSONObject.optString("rate", p03Var.W);
             }
-            return false;
+            return p03Var2;
         }
-        return invokeLLLL.booleanValue;
+        return (p03) invokeLL.objValue;
     }
 
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            s03.k().t();
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            s03.k().A();
-        }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            s03.k().F();
-            s03.x();
-        }
-    }
-
-    @Override // com.baidu.tieba.zd3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, cc3 cc3Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, cc3Var)) == null) {
-            if (zd3.b) {
-                Log.d("AudioRecordAction", "handleSubAction subAction: " + str);
-            }
-            if (cc3Var == null) {
-                c92.c("record", "param is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (zd3.b) {
-                    Log.d("AudioRecordAction", "record --- illegal swanApp");
-                }
-                return false;
-            }
-            if (cc3Var.n0()) {
-                if (zd3.b) {
-                    Log.d("AudioRecordAction", "AudioRecordAction does not supported when app is invisible.");
-                }
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != -944894266) {
-                    if (hashCode == 731105865 && str.equals("/swanAPI/recorder/resume")) {
-                        c = 1;
-                    }
-                } else if (str.equals("/swanAPI/recorder/start")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c == 1) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                        return false;
-                    }
-                } else {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                    return false;
-                }
-            }
-            if (TextUtils.isEmpty(cc3Var.b)) {
-                c92.c("record", "aiapp id is invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none swanApp id");
-                if (zd3.b) {
-                    Log.d("AudioRecordAction", "record --- none swanApp id");
-                }
-                return false;
-            } else if (!s03.k().p(str)) {
-                return false;
-            } else {
-                JSONObject q = q(unitedSchemeEntity.getParam("params"));
-                if (TextUtils.equals(str, "/swanAPI/recorder/start") && q == null) {
-                    c92.c("record", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
-                    return false;
-                }
-                n03 a2 = n03.a(q, s03.k().j());
-                if (a2 == null) {
-                    c92.c("record", "error params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "error cb");
-                    return false;
-                }
-                JSONObject c2 = a2.c();
-                if (c2 != null) {
-                    c92.c("record", "error params");
-                    unitedSchemeEntity.result = c2;
-                    return false;
-                }
-                o03 a3 = o03.a(callbackHandler, unitedSchemeEntity, a2.g, s03.k().i());
-                String x = kj3.x(cc3Var.b);
-                if (TextUtils.isEmpty(x)) {
-                    c92.c("record", "none tmp path");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!(context instanceof Activity)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    c92.c("record", "handle action, but context is not Activity");
-                    return false;
-                } else {
-                    cc3Var.e0().g(context, PermissionProxy.SCOPE_ID_RECORD, new a(this, callbackHandler, unitedSchemeEntity, a3, str, context, a2, x, cc3Var));
-                    if (zd3.b) {
-                        Log.d("AudioRecordAction", "subAction is : " + str);
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
-            }
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final void o(o03 o03Var, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, o03Var, i, str) == null) {
-            if (o03Var != null && !TextUtils.isEmpty(o03.h)) {
-                o03Var.d(i, str);
-                return;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, i);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str);
-                HashMap hashMap = new HashMap();
-                hashMap.put("data", jSONObject.toString());
-                px2.T().u(new dm2("recorderError", hashMap));
-            } catch (JSONException e) {
-                c92.d("record", "json error", e);
-            }
-        }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final void p(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, Context context, n03 n03Var, o03 o03Var, String str2, String str3) {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{callbackHandler, unitedSchemeEntity, str, context, n03Var, o03Var, str2, str3}) == null) {
-            switch (str.hashCode()) {
-                case -948211622:
-                    if (str.equals("/swanAPI/recorder/pause")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -944894266:
-                    if (str.equals("/swanAPI/recorder/start")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 731105865:
-                    if (str.equals("/swanAPI/recorder/resume")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 2047729950:
-                    if (str.equals("/swanAPI/recorder/stop")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c == 3) {
-                            c92.i("record", "stop");
-                            v();
-                            return;
-                        }
-                        return;
-                    }
-                    c92.i("record", DownloadStatisticConstants.UBC_TYPE_RESUME);
-                    t();
-                    return;
-                }
-                c92.i("record", DownloadStatisticConstants.UBC_TYPE_PAUSE);
-                s();
-                return;
-            }
-            u(context, n03Var, o03Var, str2, str3);
-        }
-    }
-
-    public final JSONObject q(String str) {
+    public static String p(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    return new JSONObject(str);
-                } catch (JSONException e) {
-                    if (zd3.b) {
-                        Log.d("AudioRecordAction", Log.getStackTraceString(e));
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.putOpt("text", jSONObject.optString("text"));
+                jSONObject2.putOpt("color", jSONObject.optString("color"));
+                jSONObject2.putOpt("componentId", jSONObject.optString("componentId"));
+            } catch (JSONException e) {
+                if (X) {
+                    e.printStackTrace();
                 }
             }
-            return null;
+            return jSONObject2.toString();
         }
-        return (JSONObject) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void r(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, n03 n03Var, o03 o03Var, String str2, String str3) {
+    public static String q(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, unitedSchemeEntity, callbackHandler, str, n03Var, o03Var, str2, str3}) == null) {
-            e73.h(new String[]{PermissionRequest.RESOURCE_AUDIO_CAPTURE}, 2, context, new b(this, callbackHandler, unitedSchemeEntity, str, context, n03Var, o03Var, str2, str3));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (dj3.E(str) && vb3.M() != null) {
+                return dj3.H(str, vb3.M());
+            }
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void u(Context context, n03 n03Var, o03 o03Var, String str, String str2) {
+    @Override // com.baidu.tieba.l72
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, n03Var, o03Var, str, str2) == null) {
-            c92.i("record", "init");
-            s03.k().l(str, n03Var, context, o03Var, str2);
-            c92.i("record", "start");
-            s03.k().D(true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "VideoPlayerParams{mPlayerId='" + this.j + "', mMute=" + this.k + ", mPoster='" + this.l + "', mInitialTime=" + this.m + ", duration=" + this.n + ", mAutoPlay=" + this.o + ", mLoop=" + this.p + ", mObjectFit='" + this.q + "', mPos=" + this.r + ", mFullScreen=" + this.s + ", mDanmu='" + this.t + "', mDanmuList='" + this.u + "', mEnableDanmu=" + this.v + ", mShowDanmuBtn=" + this.w + ", mShowControlPanel=" + this.x + ", mSrc='" + this.y + "', mSanId='" + this.z + "', mShowPlayBtn=" + this.A + ", mShowMuteBtn=" + this.B + ", mShowCenterPlayBtn=" + this.C + ", mPageGesture=" + this.D + ", mShowProgress=" + this.E + ", mDirection=" + this.F + ", mShowFullscreenBtn=" + this.G + ", mEnableProgressGesture=" + this.H + ", mIsRemoteFile=" + this.I + '}';
         }
+        return (String) invokeV.objValue;
     }
 }

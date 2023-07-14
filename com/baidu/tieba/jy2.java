@@ -1,256 +1,81 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class jy2 {
+public class jy2 extends hy2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static final Set<String> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Object b;
-    public final int c;
+    public String A;
+    public ArrayList<String> B;
+    public String z;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public Object b;
-        public int c;
-        public RuntimeException d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public Exception c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.d;
-            }
-            return (Exception) invokeV.objValue;
-        }
-
-        @Nullable
-        @SuppressLint({"BDThrowableCheck"})
-        public jy2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.d != null) {
-                    if (!jy2.d) {
-                        return null;
-                    }
-                    throw this.d;
-                } else if (this.a == null) {
-                    this.d = new IllegalStateException("key == null");
-                    if (!jy2.d) {
-                        return null;
-                    }
-                    throw this.d;
-                } else {
-                    synchronized (a.class) {
-                        if (jy2.e.contains(this.a)) {
-                            this.d = new IllegalStateException("the key of switch has been occupied");
-                            if (!jy2.d) {
-                                return null;
-                            }
-                            throw this.d;
-                        } else if (this.b == null) {
-                            this.d = new IllegalStateException("defaultValue == null");
-                            if (!jy2.d) {
-                                return null;
-                            }
-                            throw this.d;
-                        } else if (!jy2.c(this.c, this.b)) {
-                            this.d = new IllegalStateException("valueType error");
-                            if (!jy2.d) {
-                                return null;
-                            }
-                            throw this.d;
-                        } else {
-                            jy2.e.add(this.a);
-                            return new jy2(this);
-                        }
-                    }
-                }
-            }
-            return (jy2) invokeV.objValue;
-        }
-
-        public a b(@NonNull Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                this.b = obj;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a e(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.c = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a d(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    this.d = new IllegalArgumentException("the key of switch must not be empty");
-                    if (!jy2.d) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.d;
-                } else if (TextUtils.equals(Config.SID, str)) {
-                    this.d = new IllegalArgumentException("sid must not equal \"sids\"");
-                    if (!jy2.d) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.d;
-                } else {
-                    this.a = str;
-                    return this;
-                }
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947899558, "Lcom/baidu/tieba/jy2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947899558, "Lcom/baidu/tieba/jy2;");
-                return;
-            }
-        }
-        d = ms1.a;
-        e = new HashSet();
-    }
-
-    public Object d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public jy2(@NonNull a aVar) {
+    public jy2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
+        this.z = "";
+        this.A = "";
     }
 
-    public static boolean c(int i, Object obj) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, obj)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                return false;
-                            }
-                            return obj instanceof String;
-                        }
-                        return obj instanceof Long;
-                    }
-                    return obj instanceof Integer;
-                }
-                return obj instanceof Double;
-            }
-            return obj instanceof Boolean;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @NonNull
-    public String toString() {
+    @Override // com.baidu.tieba.l72, com.baidu.tieba.u13
+    public boolean isValid() {
         InterceptResult invokeV;
+        oy2 oy2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (d) {
-                return "SwanLocalABTestSwitch{key='" + this.a + "', defaultValue=" + this.b + ", valueType=" + this.c + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && (oy2Var = this.j) != null && oy2Var.isValid()) {
+                return true;
             }
-            return super.toString();
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hy2, com.baidu.tieba.l72, com.baidu.tieba.u13
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        if (jSONObject.has("scale")) {
+            this.k = jSONObject.optDouble("scale", 18.0d);
+        }
+        if (jSONObject.has("name")) {
+            this.z = jSONObject.optString("name");
+        }
+        if (jSONObject.has("address")) {
+            this.A = jSONObject.optString("address");
+        }
+        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
+            int length = optJSONArray.length();
+            this.B = new ArrayList<>();
+            for (int i = 0; i < length; i++) {
+                this.B.add(optJSONArray.optString(i));
+            }
+        }
+        if (jSONObject.has("naviPreference")) {
+            jSONObject.optInt("naviPreference", -1);
+        }
     }
 }

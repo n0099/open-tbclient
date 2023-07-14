@@ -29,8 +29,8 @@ import com.baidu.tbadk.core.util.TBAlertBuilderHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh5;
-import com.baidu.tieba.uw5;
+import com.baidu.tieba.yh5;
+import com.baidu.tieba.yx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
     public View b;
     public String c;
     public GroupChatFragment d;
-    public bh5 e;
+    public yh5 e;
     public int f;
     public boolean g;
     public CustomMessageListener h;
@@ -166,9 +166,20 @@ public class GroupChatActivity extends BaseFragmentActivity {
         }
     }
 
-    public static void x1(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z) {
+    public static void x1(@NonNull Context context, long j, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j), Integer.valueOf(i), str2, bundle, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            Intent intent = new Intent(context, GroupChatActivity.class);
+            intent.putExtra("roomId", j);
+            intent.putExtra(IntentConfig.OBJ_LOCATED, i);
+            intent.putExtra("show_chat_list_after_finish", z);
+            context.startActivity(intent);
+        }
+    }
+
+    public static void y1(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, str, Long.valueOf(j), Integer.valueOf(i), str2, bundle, Boolean.valueOf(z)}) == null) {
             Intent intent = new Intent(context, GroupChatActivity.class);
             intent.putExtra("roomId", j);
             intent.putExtra("requestCode", i);
@@ -236,26 +247,26 @@ public class GroupChatActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d003d);
-            this.b = findViewById(R.id.obfuscated_res_0x7f090c17);
+            setContentView(R.layout.obfuscated_res_0x7f0d003c);
+            this.b = findViewById(R.id.obfuscated_res_0x7f090c23);
             if (bundle == null) {
                 this.d = new GroupChatFragment();
                 Intent intent = getIntent();
                 if (intent != null) {
                     this.d.setArguments(intent.getExtras());
                 }
-                uw5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c17, this.d);
+                yx5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c23, this.d);
             } else {
-                this.d = (GroupChatFragment) uw5.b(getSupportFragmentManager(), GroupChatFragment.class);
+                this.d = (GroupChatFragment) yx5.b(getSupportFragmentManager(), GroupChatFragment.class);
             }
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra(IntentConfig.BACK_SCHEME);
                 if (getIntent().getBooleanExtra("show_chat_list_after_finish", false)) {
-                    this.e = new bh5(getIntent().getLongExtra("roomId", 0L), true);
+                    this.e = new yh5(getIntent().getLongExtra("roomId", 0L), true);
                 }
                 int intExtra = getIntent().getIntExtra(IntentConfig.OBJ_LOCATED, 0);
                 this.f = intExtra;
-                this.d.I2(intExtra);
+                this.d.L2(intExtra);
             }
             registerListener(this.h);
         }

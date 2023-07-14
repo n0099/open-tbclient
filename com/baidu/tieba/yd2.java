@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.xd2;
 /* loaded from: classes8.dex */
-public interface yd2 {
-    void C(qi2 qi2Var);
+public interface yd2<T extends xd2> extends zd2<T> {
+    void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo);
 
-    String a();
+    void d(vl2 vl2Var);
 
-    void attachActivity(Activity activity);
+    boolean i();
 
-    void b(qa2 qa2Var);
-
-    ab2 d();
-
-    void destroy();
-
-    void loadUrl(String str);
-
-    void o(int i);
+    void j(boolean z, ge2 ge2Var);
 }

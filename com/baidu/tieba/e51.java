@@ -1,64 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
+import android.database.Cursor;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class e51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public BaseExecutorCell a;
-    @NonNull
-    public BaseExecutorCell b;
-    @NonNull
-    public BaseExecutorCell c;
 
-    public e51() {
+    public static void a(Cursor cursor, g51... g51VarArr) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, cursor, g51VarArr) == null) {
+            int i = 0;
+            for (g51 g51Var : g51VarArr) {
+                for (Column column : g51Var.b().c()) {
+                    d51.h(column, cursor, i);
+                    i++;
+                }
             }
         }
-        this.a = BaseExecutorCell.b(r41.d, BaseExecutorCell.ExecutorType.ARTERY);
-        this.b = BaseExecutorCell.b(r41.e, BaseExecutorCell.ExecutorType.ARTERY);
-        this.c = BaseExecutorCell.b(r41.f, BaseExecutorCell.ExecutorType.ARTERY);
     }
 
-    public boolean a(ElasticTask elasticTask) {
-        InterceptResult invokeL;
+    public static void b(g51 g51Var, Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
-            int b = elasticTask.b();
-            if (b != 0 && b != 1) {
-                if (b == 2) {
-                    if (this.b.c(elasticTask)) {
-                        return true;
-                    }
-                    return this.c.c(elasticTask);
-                } else if (b == 3) {
-                    return this.c.c(elasticTask);
-                } else {
-                    return false;
-                }
-            } else if (this.a.c(elasticTask) || this.b.c(elasticTask)) {
-                return true;
-            } else {
-                return this.c.c(elasticTask);
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, g51Var, cursor) == null) {
+            d51.i(cursor, g51Var.b().c());
         }
-        return invokeL.booleanValue;
     }
 }

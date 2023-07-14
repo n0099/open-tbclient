@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.fu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.DecryptCode.DecryptCodeResIdl;
 public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mu4 decryptData;
+    public fu4 decryptData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DecryptCodeSocketRespMsg(int i) {
@@ -47,9 +47,9 @@ public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {
             try {
                 DecryptCodeResIdl decryptCodeResIdl = (DecryptCodeResIdl) new Wire(new Class[0]).parseFrom(bArr, DecryptCodeResIdl.class);
                 if (decryptCodeResIdl != null) {
-                    mu4 mu4Var = new mu4();
-                    this.decryptData = mu4Var;
-                    mu4Var.h(decryptCodeResIdl.data);
+                    fu4 fu4Var = new fu4();
+                    this.decryptData = fu4Var;
+                    fu4Var.h(decryptCodeResIdl.data);
                 }
                 return decryptCodeResIdl;
             } catch (Throwable th) {
@@ -60,12 +60,12 @@ public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public mu4 getDecryptData() {
+    public fu4 getDecryptData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.decryptData;
         }
-        return (mu4) invokeV.objValue;
+        return (fu4) invokeV.objValue;
     }
 }

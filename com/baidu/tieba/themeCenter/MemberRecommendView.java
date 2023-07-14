@@ -6,26 +6,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iba;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.rd9;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MemberRecommendView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,10 +32,10 @@ public class MemberRecommendView extends FrameLayout {
     public TbImageView c;
     public TextView d;
     public TextView e;
-    public iba f;
+    public zja f;
     public int g;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,64 +62,61 @@ public class MemberRecommendView extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             String str;
+            String str2;
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int i = 9;
+                int i = 2006;
+                String str3 = "";
                 switch (this.a.g) {
                     case 1:
                         TiebaStatic.log("c10261");
-                        i = 8;
-                        str = MemberPayStatistic.REFER_PAGE_DRESS_UP_CENTER;
+                        str3 = MemberPayStatistic.REFER_PAGE_DRESS_UP_CENTER;
                         break;
                     case 2:
                     case 3:
                     case 9:
                         TiebaStatic.log("c10266");
                         if (this.a.g == 9) {
-                            str = MemberPayStatistic.REFER_PAGE_PERSONALITY_CARDS;
+                            str3 = MemberPayStatistic.REFER_PAGE_PERSONALITY_CARDS;
                             break;
                         }
-                        str = "";
                         break;
                     case 4:
                     case 5:
                         TiebaStatic.log("c10278");
-                        i = 12;
                         if (this.a.g == 4) {
                             str = MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND;
-                            break;
                         } else {
                             str = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
-                            break;
                         }
+                        str3 = str;
+                        i = 2010;
+                        break;
                     case 6:
                     case 7:
                         TiebaStatic.log("c10762");
-                        i = 19;
                         if (this.a.g == 7) {
-                            str = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
-                            break;
+                            str2 = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
                         } else {
-                            str = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
-                            break;
+                            str2 = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
                         }
+                        str3 = str2;
+                        i = IMConstants.IM_MSG_TYPE_ADVISORY_EVALUATION;
+                        break;
                     case 8:
-                        i = 22;
                         TiebaStatic.log("c11613");
-                        str = MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT;
+                        i = 2015;
+                        str3 = MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT;
                         break;
                     default:
                         i = 0;
-                        str = "";
                         break;
                 }
                 if (this.a.f == null || (tbPageContext = (TbPageContext) r9.a(this.a.a)) == null) {
                     return;
                 }
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
-                memberPayActivityConfig.setReferPageClickZone(str, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
+                rd9.d(tbPageContext, i, str3, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
             }
         }
     }
@@ -227,13 +222,13 @@ public class MemberRecommendView extends FrameLayout {
         return invokeV.intValue;
     }
 
-    public void e(iba ibaVar) {
+    public void e(zja zjaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ibaVar) != null) || ibaVar == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zjaVar) != null) || zjaVar == null) {
             return;
         }
-        this.f = ibaVar;
-        this.c.N(ibaVar.b(), 10, false);
+        this.f = zjaVar;
+        this.c.N(zjaVar.b(), 10, false);
         this.d.setText(this.f.c());
         if (StringUtils.isNull(this.f.a())) {
             this.e.setVisibility(8);
@@ -246,15 +241,15 @@ public class MemberRecommendView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05f2, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05fe, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092924);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09295a);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
             this.c.setDefaultBgResource(R.drawable.transparent_bg);
             this.c.setAutoChangeStyle(true);
             this.d = (TextView) this.b.findViewById(R.id.title_view);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091215);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091227);
             this.e = textView;
             textView.setOnClickListener(new a(this));
         }

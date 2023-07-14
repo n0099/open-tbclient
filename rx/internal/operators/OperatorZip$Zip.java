@@ -1,28 +1,28 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.dtb;
-import com.baidu.tieba.jtb;
-import com.baidu.tieba.mvb;
-import com.baidu.tieba.rtb;
-import com.baidu.tieba.xsb;
-import com.baidu.tieba.xxb;
-import com.baidu.tieba.ysb;
+import com.baidu.tieba.a2c;
+import com.baidu.tieba.g2c;
+import com.baidu.tieba.j4c;
+import com.baidu.tieba.o2c;
+import com.baidu.tieba.u1c;
+import com.baidu.tieba.u6c;
+import com.baidu.tieba.v1c;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
 public final class OperatorZip$Zip<R> extends AtomicLong {
-    public static final int THRESHOLD = (int) (mvb.c * 0.7d);
+    public static final int THRESHOLD = (int) (j4c.c * 0.7d);
     public static final long serialVersionUID = 5995274816189928317L;
-    public final ysb<? super R> child;
-    public final xxb childSubscription;
+    public final v1c<? super R> child;
+    public final u6c childSubscription;
     public int emitted;
     public AtomicLong requested;
     public volatile Object[] subscribers;
-    public final rtb<? extends R> zipFunction;
+    public final o2c<? extends R> zipFunction;
 
     /* loaded from: classes2.dex */
-    public final class a extends dtb {
-        public final mvb e = mvb.a();
+    public final class a extends a2c {
+        public final j4c e = j4c.a();
 
         public a() {
         }
@@ -31,12 +31,12 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
             e(j);
         }
 
-        @Override // com.baidu.tieba.ysb
+        @Override // com.baidu.tieba.v1c
         public void onError(Throwable th) {
             OperatorZip$Zip.this.child.onError(th);
         }
 
-        @Override // com.baidu.tieba.ysb
+        @Override // com.baidu.tieba.v1c
         public void onNext(Object obj) {
             try {
                 this.e.g(obj);
@@ -46,37 +46,37 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
             OperatorZip$Zip.this.tick();
         }
 
-        @Override // com.baidu.tieba.dtb
+        @Override // com.baidu.tieba.a2c
         public void d() {
-            e(mvb.c);
+            e(j4c.c);
         }
 
-        @Override // com.baidu.tieba.ysb
+        @Override // com.baidu.tieba.v1c
         public void onCompleted() {
             this.e.f();
             OperatorZip$Zip.this.tick();
         }
     }
 
-    public OperatorZip$Zip(dtb<? super R> dtbVar, rtb<? extends R> rtbVar) {
-        xxb xxbVar = new xxb();
-        this.childSubscription = xxbVar;
-        this.child = dtbVar;
-        this.zipFunction = rtbVar;
-        dtbVar.b(xxbVar);
+    public OperatorZip$Zip(a2c<? super R> a2cVar, o2c<? extends R> o2cVar) {
+        u6c u6cVar = new u6c();
+        this.childSubscription = u6cVar;
+        this.child = a2cVar;
+        this.zipFunction = o2cVar;
+        a2cVar.b(u6cVar);
     }
 
-    public void start(xsb[] xsbVarArr, AtomicLong atomicLong) {
-        Object[] objArr = new Object[xsbVarArr.length];
-        for (int i = 0; i < xsbVarArr.length; i++) {
+    public void start(u1c[] u1cVarArr, AtomicLong atomicLong) {
+        Object[] objArr = new Object[u1cVarArr.length];
+        for (int i = 0; i < u1cVarArr.length; i++) {
             a aVar = new a();
             objArr[i] = aVar;
             this.childSubscription.a(aVar);
         }
         this.requested = atomicLong;
         this.subscribers = objArr;
-        for (int i2 = 0; i2 < xsbVarArr.length; i2++) {
-            xsbVarArr[i2].M((a) objArr[i2]);
+        for (int i2 = 0; i2 < u1cVarArr.length; i2++) {
+            u1cVarArr[i2].O((a) objArr[i2]);
         }
     }
 
@@ -85,34 +85,34 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
         Object[] objArr = this.subscribers;
         if (objArr != null && getAndIncrement() == 0) {
             int length = objArr.length;
-            ysb<? super R> ysbVar = this.child;
+            v1c<? super R> v1cVar = this.child;
             AtomicLong atomicLong = this.requested;
             while (true) {
                 Object[] objArr2 = new Object[length];
                 boolean z = true;
                 for (int i = 0; i < length; i++) {
-                    mvb mvbVar = ((a) objArr[i]).e;
-                    Object h = mvbVar.h();
+                    j4c j4cVar = ((a) objArr[i]).e;
+                    Object h = j4cVar.h();
                     if (h == null) {
                         z = false;
-                    } else if (mvbVar.d(h)) {
-                        ysbVar.onCompleted();
+                    } else if (j4cVar.d(h)) {
+                        v1cVar.onCompleted();
                         this.childSubscription.unsubscribe();
                         return;
                     } else {
-                        objArr2[i] = mvbVar.c(h);
+                        objArr2[i] = j4cVar.c(h);
                     }
                 }
                 if (z && atomicLong.get() > 0) {
                     try {
-                        ysbVar.onNext((R) this.zipFunction.call(objArr2));
+                        v1cVar.onNext((R) this.zipFunction.call(objArr2));
                         atomicLong.decrementAndGet();
                         this.emitted++;
                         for (Object obj : objArr) {
-                            mvb mvbVar2 = ((a) obj).e;
-                            mvbVar2.i();
-                            if (mvbVar2.d(mvbVar2.h())) {
-                                ysbVar.onCompleted();
+                            j4c j4cVar2 = ((a) obj).e;
+                            j4cVar2.i();
+                            if (j4cVar2.d(j4cVar2.h())) {
+                                v1cVar.onCompleted();
                                 this.childSubscription.unsubscribe();
                                 return;
                             }
@@ -124,7 +124,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                             this.emitted = 0;
                         }
                     } catch (Throwable th) {
-                        jtb.g(th, ysbVar, objArr2);
+                        g2c.g(th, v1cVar, objArr2);
                         return;
                     }
                 } else if (decrementAndGet() <= 0) {

@@ -1,72 +1,116 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import java.lang.reflect.InvocationTargetException;
-import java.util.NoSuchElementException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dta {
+public class dta<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public T c;
+    public int d;
 
-    public static String a() {
+    public dta() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (b()) {
-                try {
-                    return (String) Class.forName("okhttp3.internal.Version").getMethod(TTDownloadField.TT_USERAGENT, new Class[0]).invoke(null, new Object[0]);
-                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
-                }
-            }
-            return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public static boolean b() {
+    public T c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                Class.forName("okhttp3.OkHttpClient");
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (T) invokeV.objValue;
     }
 
-    public static boolean c() throws RuntimeException {
+    public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String a = a();
-            if (!a.isEmpty()) {
-                String[] split = a.split("/");
-                if (split.length == 2) {
-                    String[] split2 = split[1].split("\\.");
-                    if (split2.length == 3) {
-                        try {
-                            if (Integer.parseInt(split2[0]) == 3) {
-                                if (Integer.parseInt(split2[1]) >= 9) {
-                                    return true;
-                                }
-                            }
-                            return false;
-                        } catch (NumberFormatException unused) {
-                            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
-                        }
-                    }
-                    throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
-                }
-                throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
-            }
-            throw new NoSuchElementException();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public dta(int i, String str, T t, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, t, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = str;
+        this.c = t;
+        this.d = i2;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void g(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+            this.c = t;
+        }
     }
 }

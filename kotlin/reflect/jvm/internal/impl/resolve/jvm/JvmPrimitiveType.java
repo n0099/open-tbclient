@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import kotlin.reflect.jvm.internal.impl.builtins.PrimitiveType;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum JvmPrimitiveType {
     BOOLEAN(PrimitiveType.BOOLEAN, "boolean", "Z", "java.lang.Boolean"),
     CHAR(PrimitiveType.CHAR, "char", "C", "java.lang.Character"),

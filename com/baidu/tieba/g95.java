@@ -1,35 +1,58 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.hybrid.BridgeHandler;
+import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class g95 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public abstract class g95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
+    public Context b;
 
-    public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
+    public abstract void c(h95 h95Var);
+
+    public abstract void e(String str, BridgeHandler bridgeHandler);
+
+    public g95(View view2, y85 y85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2, Integer.valueOf(i2), str3, objArr}) == null) {
-            dh dhVar = new dh();
-            dhVar.c("cmd", Integer.valueOf(i));
-            if (!TextUtils.isEmpty(str2)) {
-                dhVar.b("action", str2);
-            }
-            dhVar.b("errNo", String.valueOf(i2));
-            if (!TextUtils.isEmpty(str3) && i2 != 0) {
-                dhVar.b(StatConstants.KEY_EXT_ERR_MSG, str3);
-            }
-            if (objArr != null && objArr.length > 0) {
-                dhVar.c(objArr);
-            }
-            if (i2 == 0) {
-                BdStatisticsManager.getInstance().debug(str, j, null, dhVar);
-            } else {
-                BdStatisticsManager.getInstance().error(str, j, (String) null, dhVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, y85Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = view2;
+        this.b = view2.getContext();
+    }
+
+    public final void d(NamedBridgeHandler namedBridgeHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, namedBridgeHandler) == null) {
+            e(namedBridgeHandler.scope(), namedBridgeHandler);
+        }
+    }
+
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (Context) invokeV.objValue;
     }
 }

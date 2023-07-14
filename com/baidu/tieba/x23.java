@@ -1,178 +1,279 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.Sets;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import okhttp3.Headers;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x23 extends w23 {
+public class x23 extends sd3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> d;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<String, Long> c;
 
-    public x23(double d) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948248432, "Lcom/baidu/tieba/x23;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948248432, "Lcom/baidu/tieba/x23;");
+                return;
+            }
+        }
+        d = Sets.newHashSet("REFERER", "USER-AGENT");
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return cv2.q().a().getCookie(".baidu.com");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x23(sc3 sc3Var, String str) {
+        super(sc3Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {sc3Var, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = d;
+        this.c = new ConcurrentHashMap<>();
     }
 
-    @Override // com.baidu.tieba.w23
-    public boolean a(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        Rect rect2;
-        int i;
-        int i2;
+    public void j(@NonNull JSONObject jSONObject, String str) throws JSONException {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (w23.c) {
-                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, jSONObject, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        String optString = jSONObject.optString("Cookie");
+        if (TextUtils.isEmpty(optString)) {
+            jSONObject.put("Cookie", str);
+            return;
+        }
+        if (optString.endsWith(ParamableElem.DIVIDE_PARAM)) {
+            str2 = optString + str;
+        } else {
+            str2 = optString + ParamableElem.DIVIDE_PARAM + str;
+        }
+        jSONObject.put("Cookie", str2);
+    }
+
+    public boolean k(vb3 vb3Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vb3Var, unitedSchemeEntity)) == null) {
+            if (vb3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
                 return false;
             }
-            if (!b(bitmap, rect)) {
-                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            JSONObject a = sd3.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params");
+                return false;
+            } else if (TextUtils.isEmpty(a.optString("cb"))) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal cb");
+                return false;
+            } else if (TextUtils.isEmpty(a.optString("url"))) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal url");
+                return false;
             } else {
-                rect2 = rect;
+                return true;
             }
-            int width = rect2.width() - 2;
-            int height = rect2.height() - 2;
-            int i3 = width / 3;
-            int i4 = height / i3;
-            int ceil = (int) Math.ceil(i4 * 3 * this.a);
-            int i5 = 0;
-            int i6 = 0;
-            while (i6 < 3) {
-                int i7 = rect2.left;
-                int i8 = (i6 * i3) + 1 + i7;
-                if (i6 == 2) {
-                    i = width + 1;
-                } else {
-                    i = ((i6 + 1) * i3) + i7;
-                }
-                int i9 = i;
-                int i10 = i5;
-                int i11 = 0;
-                while (i11 < i4) {
-                    int i12 = rect2.top;
-                    int i13 = (i11 * i3) + 1 + i12;
-                    if (i11 == i4 - 1) {
-                        i2 = height + 1;
-                    } else {
-                        i2 = ((i11 + 1) * i3) + i12;
-                    }
-                    int i14 = i11;
-                    if (e(bitmap, i8, i13, i9, i2)) {
-                        int i15 = i10 + 1;
-                        if (i15 >= ceil) {
-                            return true;
-                        }
-                        i10 = i15;
-                    }
-                    i11 = i14 + 1;
-                }
-                i6++;
-                i5 = i10;
-            }
-            return false;
         }
         return invokeLL.booleanValue;
     }
 
-    public double d(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        Rect rect2;
-        int i;
-        int i2;
+    public void r(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
-            if (w23.c) {
-                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
-                return 0.0d;
-            }
-            if (!b(bitmap, rect)) {
-                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            } else {
-                rect2 = rect;
-            }
-            int width = rect2.width() - 2;
-            int height = rect2.height() - 2;
-            int i3 = width / 3;
-            if (i3 == 0) {
-                return 0.0d;
-            }
-            int i4 = height / i3;
-            int i5 = 0;
-            int i6 = 0;
-            while (i5 < 3) {
-                int i7 = rect2.left;
-                int i8 = (i5 * i3) + 1 + i7;
-                if (i5 == 2) {
-                    i = width + 1;
-                } else {
-                    i = ((i5 + 1) * i3) + i7;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, jSONObject) == null) && !TextUtils.isEmpty(str) && jSONObject != null && jSONObject != null) {
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("header", jSONObject);
+                HashMap hashMap = new HashMap();
+                hashMap.put("data", jSONObject2.toString());
+                ix2.T().u(new wl2(str, hashMap));
+            } catch (JSONException e) {
+                if (sd3.b) {
+                    e.printStackTrace();
                 }
-                int i9 = i;
-                int i10 = i6;
-                int i11 = 0;
-                while (i11 < i4) {
-                    int i12 = rect2.top;
-                    int i13 = (i11 * i3) + 1 + i12;
-                    if (i11 == i4 - 1) {
-                        i2 = height + 1;
-                    } else {
-                        i2 = ((i11 + 1) * i3) + i12;
-                    }
-                    int i14 = i11;
-                    if (e(bitmap, i8, i13, i9, i2)) {
-                        i10++;
-                    }
-                    i11 = i14 + 1;
-                }
-                i5++;
-                i6 = i10;
             }
-            return i6 / (i4 * 3);
         }
-        return invokeLL.doubleValue;
     }
 
-    public final boolean e(Bitmap bitmap, int i, int i2, int i3, int i4) {
-        InterceptResult invokeCommon;
+    public static HashMap<String, String> l(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (i < 0 || i3 < i || i2 < 0 || i4 < i2) {
-                return false;
-            }
-            int pixel = bitmap.getPixel(i, i2);
-            while (i <= i3) {
-                for (int i5 = i2; i5 <= i4; i5++) {
-                    if (pixel != bitmap.getPixel(i, i5)) {
-                        return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject != null && jSONObject.length() >= 1) {
+                HashMap<String, String> hashMap = new HashMap<>();
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!TextUtils.isEmpty(next) && !d.contains(next.toUpperCase())) {
+                        String optString = jSONObject.optString(next);
+                        if (TextUtils.isEmpty(optString)) {
+                            optString = "";
+                        }
+                        hashMap.put(next, optString);
                     }
                 }
-                i++;
+                return hashMap;
             }
-            return true;
+            return null;
         }
-        return invokeCommon.booleanValue;
+        return (HashMap) invokeL.objValue;
+    }
+
+    public JSONObject t(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i != 5) {
+                                    return UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
+                                }
+                                return UnitedSchemeUtility.wrapCallbackParams(202, "illegal upload file over size.");
+                            }
+                            return UnitedSchemeUtility.wrapCallbackParams(202, "HTTP method is invalid");
+                        }
+                        return UnitedSchemeUtility.wrapCallbackParams(202, "request:fail parameter error: arrayBuffer of data exceed size limit.");
+                    }
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "request url header must be https or wss");
+                }
+                return UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
+            }
+            return UnitedSchemeUtility.wrapCallbackParams(0);
+        }
+        return (JSONObject) invokeI.objValue;
+    }
+
+    public static HashMap<String, String> m(@Nullable JSONObject jSONObject, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, jSONObject, z)) == null) {
+            HashMap<String, String> l = l(jSONObject);
+            if (z) {
+                if (l == null) {
+                    l = new HashMap<>();
+                }
+                l.put("Referer", k12.d());
+            }
+            return l;
+        }
+        return (HashMap) invokeLZ.objValue;
+    }
+
+    public static JSONObject s(Headers headers) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, headers)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (headers == null) {
+                return jSONObject;
+            }
+            for (String str : headers.names()) {
+                if (!TextUtils.isEmpty(str)) {
+                    List<String> values = headers.values(str);
+                    StringBuilder sb = new StringBuilder();
+                    int size = values.size();
+                    for (int i = 0; i < size; i++) {
+                        sb.append(values.get(i));
+                        if (i == size - 1) {
+                            break;
+                        }
+                        sb.append(",");
+                    }
+                    jSONObject.put(str, sb.toString());
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public JSONObject n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("cancelTag", str);
+                }
+            } catch (JSONException e) {
+                if (sd3.b) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final long p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0L;
+            }
+            try {
+                return this.c.get(str).longValue();
+            } catch (Exception unused) {
+                return 0L;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    public final void q(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && this.c != null && !TextUtils.isEmpty(str)) {
+            this.c.remove(str);
+        }
     }
 }

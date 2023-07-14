@@ -6,11 +6,11 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ch;
+import com.baidu.tieba.dh;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.rg;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.qla;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,6 +25,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public ThemeColorInfo bgUrlTheme;
     public b buttonInfo;
+    public int disappearSeconds;
     public int needSend;
     public int scene;
     public String sendText;
@@ -62,7 +63,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rg.h().m(this.a, 19, null, null);
+                sg.h().m(this.a, 59, null, null);
             }
         }
     }
@@ -123,6 +124,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
                 return;
             }
         }
+        this.disappearSeconds = -1;
     }
 
     private void preLoadBgUrl() {
@@ -131,9 +133,9 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeV(65537, this) != null) || (themeColorInfo = this.bgUrlTheme) == null) {
             return;
         }
-        String g = zca.g(themeColorInfo);
-        if (!wi.isEmpty(g)) {
-            ch.c(new a(this, g));
+        String g = qla.g(themeColorInfo);
+        if (!xi.isEmpty(g)) {
+            dh.c(new a(this, g));
         }
     }
 
@@ -155,10 +157,19 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         return (b) invokeV.objValue;
     }
 
-    public boolean getNeedSend() {
+    public int getDisappearSeconds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.disappearSeconds;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean getNeedSend() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.needSend != 0) {
                 return true;
             }
@@ -170,7 +181,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
     public int getScene() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.scene;
         }
         return invokeV.intValue;
@@ -179,7 +190,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
     public String getSendText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.sendText;
         }
         return (String) invokeV.objValue;
@@ -188,7 +199,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
     public int getSpeechType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.speechType;
         }
         return invokeV.intValue;
@@ -197,7 +208,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
     public String getSpriteText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.spriteText;
         }
         return (String) invokeV.objValue;
@@ -206,7 +217,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.text;
         }
         return (String) invokeV.objValue;
@@ -215,7 +226,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
     public ThemeColorInfo getTextColorTheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.textColorTheme;
         }
         return (ThemeColorInfo) invokeV.objValue;
@@ -224,7 +235,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
     public String getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.version;
         }
         return (String) invokeV.objValue;
@@ -249,8 +260,9 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
                     this.needSend = optJSONObject.optInt("need_send");
                     this.sendText = optJSONObject.optString("send_text");
                     this.version = optJSONObject.optString("version");
-                    this.textColorTheme = zca.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-                    this.bgUrlTheme = zca.j(optJSONObject.optJSONObject("icon_url"));
+                    this.disappearSeconds = optJSONObject.optInt("disappear_seconds", -1);
+                    this.textColorTheme = qla.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+                    this.bgUrlTheme = qla.j(optJSONObject.optJSONObject("icon_url"));
                     this.buttonInfo = b.a(optJSONObject.optJSONObject("button_info"));
                     preLoadBgUrl();
                 }

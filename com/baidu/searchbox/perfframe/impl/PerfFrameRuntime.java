@@ -3,16 +3,16 @@ package com.baidu.searchbox.perfframe.impl;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister_PerfFrameRuntime_ListProvider;
-import com.baidu.tieba.il1;
-import com.baidu.tieba.kl1;
+import com.baidu.tieba.bl1;
+import com.baidu.tieba.dl1;
 /* loaded from: classes4.dex */
 public class PerfFrameRuntime {
     public static PerfFrameRuntime sInstance;
     @Inject
-    public kl1<IPerfFrameRegister> mIPerfFrameMonitorList;
+    public dl1<IPerfFrameRegister> mIPerfFrameMonitorList;
 
     public void initmIPerfFrameMonitorList() {
-        il1 b = il1.b();
+        bl1 b = bl1.b();
         this.mIPerfFrameMonitorList = b;
         b.a(new IPerfFrameRegister_PerfFrameRuntime_ListProvider());
     }
@@ -32,7 +32,7 @@ public class PerfFrameRuntime {
         return sInstance;
     }
 
-    public kl1<IPerfFrameRegister> getPerfFrameRegister() {
+    public dl1<IPerfFrameRegister> getPerfFrameRegister() {
         return this.mIPerfFrameMonitorList;
     }
 }

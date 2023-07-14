@@ -1,50 +1,39 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.guide.MaskView;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class lf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public dl1<ff> a;
 
-    public static View a(LayoutInflater layoutInflater, mf mfVar) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, layoutInflater, mfVar)) == null) {
-            View c = mfVar.c(layoutInflater);
-            MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
-            layoutParams.c = mfVar.getXOffset();
-            layoutParams.d = mfVar.getYOffset();
-            layoutParams.a = mfVar.a();
-            layoutParams.b = mfVar.b();
-            ViewGroup.LayoutParams layoutParams2 = c.getLayoutParams();
-            if (layoutParams2 != null) {
-                ((ViewGroup.LayoutParams) layoutParams).width = layoutParams2.width;
-                ((ViewGroup.LayoutParams) layoutParams).height = layoutParams2.height;
-            }
-            c.setLayoutParams(layoutParams);
-            return c;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            bl1 b = bl1.b();
+            this.a = b;
+            b.a(new gf());
         }
-        return (View) invokeLL.objValue;
     }
 
-    public static Rect b(View view2, int i, int i2) {
-        InterceptResult invokeLII;
+    public lf() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, view2, i, i2)) == null) {
-            int[] iArr = new int[2];
-            view2.getLocationInWindow(iArr);
-            Rect rect = new Rect();
-            rect.set(iArr[0], iArr[1], iArr[0] + view2.getMeasuredWidth(), iArr[1] + view2.getMeasuredHeight());
-            rect.offset(-i, -i2);
-            return rect;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (Rect) invokeLII.objValue;
+        a();
     }
 }

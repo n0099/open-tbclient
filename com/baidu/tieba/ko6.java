@@ -1,9 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes6.dex */
-public class ko6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ko6 {
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IWebViewFactoryService");
+
+    void a();
+
+    @NonNull
+    android.webkit.WebView b(Context context, String str);
+
+    void c(String str, android.webkit.WebView webView);
 }

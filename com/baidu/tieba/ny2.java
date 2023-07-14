@@ -3,80 +3,85 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ny2 extends oy2 {
+public class ny2 implements u13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] A;
-    public ArrayList<vy2> z;
+    public String a;
+    public String b;
+    public boolean c;
+    public sy2 d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948018722, "Lcom/baidu/tieba/ny2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948018722, "Lcom/baidu/tieba/ny2;");
+                return;
+            }
+        }
+        boolean z = fs1.a;
+    }
 
     public ny2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.A = new int[]{0, 0, 0, 0};
+        this.b = "";
+        this.c = false;
     }
 
-    @Override // com.baidu.tieba.oy2, com.baidu.tieba.s72, com.baidu.tieba.b23
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray jSONArray;
-        JSONArray jSONArray2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
-            int length = jSONArray2.length();
-            this.z = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    vy2 vy2Var = new vy2();
-                    vy2Var.a(jSONObject2);
-                    if (vy2Var.isValid()) {
-                        this.z.add(vy2Var);
-                    }
-                }
-            }
-        }
-        if (jSONObject.has(CriusAttrConstants.PADDING) && (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) != null && jSONArray.length() > 0) {
-            int min = Math.min(jSONArray.length(), 4);
-            for (int i2 = 0; i2 < min; i2++) {
-                this.A[i2] = tp3.g(jSONArray.optInt(i2));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s72, com.baidu.tieba.b23
+    @Override // com.baidu.tieba.u13
     public boolean isValid() {
         InterceptResult invokeV;
-        ArrayList<vy2> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && (arrayList = this.z) != null && arrayList.size() > 0) {
+            sy2 sy2Var = this.d;
+            if (sy2Var != null && sy2Var.isValid() && !TextUtils.isEmpty(this.b)) {
                 return true;
             }
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.u13
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has(CriusAttrConstants.POSITION) && jSONObject.has("iconPath")) {
+            String optString = jSONObject.optString("controlId");
+            this.a = optString;
+            if (TextUtils.isEmpty(optString)) {
+                this.a = jSONObject.optString("id");
+            }
+            sy2 sy2Var = new sy2();
+            this.d = sy2Var;
+            sy2Var.a(jSONObject.optJSONObject(CriusAttrConstants.POSITION));
+            this.b = jSONObject.optString("iconPath");
+            this.c = jSONObject.optBoolean("clickable");
+        }
     }
 }

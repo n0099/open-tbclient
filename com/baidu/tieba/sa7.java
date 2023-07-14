@@ -1,69 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.filedownloader.TbFileDownloaderImpl;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedContentResource;
+import tbclient.TitleComponent;
 /* loaded from: classes7.dex */
 public final class sa7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948144768, "Lcom/baidu/tieba/sa7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static final void a(TitleComponent titleComponent, List<mc7<?>> dataList, SpannableStringBuilder titleBuilder, s87 feedExtraData, boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{titleComponent, dataList, titleBuilder, feedExtraData, Boolean.valueOf(z)}) == null) {
+            Intrinsics.checkNotNullParameter(titleComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            l77 l77Var = new l77(titleBuilder, z);
+            List<FeedContentResource> list = titleComponent.data;
+            if (list != null) {
+                qa7.a(list, titleBuilder, feedExtraData, l77Var);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948144768, "Lcom/baidu/tieba/sa7;");
-                return;
+            if (titleBuilder.length() > 0) {
+                z2 = true;
+            } else {
+                z2 = false;
             }
-        }
-        a = new a(null);
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if (z2) {
+                dataList.add(new nc7(l77Var, "title"));
             }
-        }
-
-        public final ta7 a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                if (i == 1) {
-                    return TbFileDownloaderImpl.a.a();
-                }
-                return TbFileDownloaderImpl.a.a();
-            }
-            return (ta7) invokeI.objValue;
         }
     }
 }

@@ -1,130 +1,51 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import android.util.Log;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class y13 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        return i != 3 ? 100 : 118;
-                    }
-                    return 112;
-                }
-                return 100;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948277262, "Lcom/baidu/tieba/y13;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return 82;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Bundle b = p83.b(z13.class, null);
-            if (b == null) {
-                return 1;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948277262, "Lcom/baidu/tieba/y13;");
+                return;
             }
-            return b.getInt("font_size_level", 1);
         }
-        return invokeV.intValue;
+        a = fs1.a;
     }
 
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b() + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return rp3.f("3.200.101");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            SwanAppConfigData s = px2.T().s();
-            if (s == null) {
-                return false;
-            }
-            return TextUtils.equals("none", s.e.q);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static NgWebView c(ib2 ib2Var) {
+    public static String a(PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
-        HashMap<String, ky1> V;
-        ky1 ky1Var;
-        jy1 r;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ib2Var)) == null) {
-            if (ib2Var instanceof kb2) {
-                iy1 q3 = ((kb2) ib2Var).q3();
-                if (q3 != null && q3.j() != null) {
-                    return (NgWebView) q3.j().r();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                if (a) {
+                    Log.e("AppInfoExt", "appInfo can not be null, please check");
+                    return "";
                 }
-                if (q3 == null) {
-                    return null;
-                }
-                return (NgWebView) q3.r();
-            } else if (!(ib2Var instanceof pb2) || (V = wi2.U().V()) == null || V.size() <= 0 || (ky1Var = V.get(ur3.c().h())) == null || !(ky1Var instanceof SwanWebModeWidget) || (r = ky1Var.r()) == null || !(r instanceof NgWebView)) {
-                return null;
-            } else {
-                return (NgWebView) r;
+                return "";
             }
+            String str = pMSAppInfo.serverExt;
+            if (a) {
+                Log.d("AppInfoExt", "appId - " + pMSAppInfo.appId + ",get app info' ext - " + str);
+            }
+            return str;
         }
-        return (NgWebView) invokeL.objValue;
-    }
-
-    public static void g(int i, int i2) {
-        SwanAppActivity w;
-        lb2 Y;
-        ib2 m;
-        NgWebView c;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(65542, null, i, i2) != null) || (w = bc3.K().w()) == null || (Y = w.Y()) == null || (m = Y.m()) == null || (c = c(m)) == null) {
-            return;
-        }
-        if (!f()) {
-            c.getSettings().setTextZoom(a(i));
-            x13.a(Integer.valueOf(i + 1), String.valueOf(i2));
-        }
-        h(i);
-    }
-
-    public static void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("key_text_size", i);
-            s83.e().h(new u83(22, bundle));
-        }
+        return (String) invokeL.objValue;
     }
 }

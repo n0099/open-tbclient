@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.jk9;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.xe;
+import com.baidu.tieba.o55;
+import com.baidu.tieba.pq9;
+import com.baidu.tieba.ye;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class PersonBarModel extends BdBaseModel {
     public static final String e;
     public static TbHttpMessageTask f;
     public transient /* synthetic */ FieldHolder $fh;
-    public jk9 a;
+    public pq9 a;
     public boolean b;
     public String c;
     public int d;
@@ -99,20 +99,20 @@ public class PersonBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = new jk9();
+        this.a = new pq9();
         this.b = z;
     }
 
-    public jk9 U() {
+    public pq9 V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (jk9) invokeV.objValue;
+        return (pq9) invokeV.objValue;
     }
 
-    public boolean V() {
+    public boolean W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -121,7 +121,7 @@ public class PersonBarModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void W() {
+    public void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.sendMessage(new PersonBarByUidLocalMessage());
@@ -137,12 +137,12 @@ public class PersonBarModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public void X(boolean z, String str, int i, int i2) {
+    public void Y(boolean z, String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), str, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
             httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!V()) {
+            if (!W()) {
                 httpMessage.addParam(TiebaStatic.Params.FRIEND_UID, str);
                 httpMessage.addParam("is_guest", String.valueOf(1));
                 httpMessage.setExtra(str);
@@ -153,7 +153,7 @@ public class PersonBarModel extends BdBaseModel {
         }
     }
 
-    public void Y(String str) {
+    public void Z(String str) {
         String str2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || this.d != 1 || !this.b) {
@@ -166,25 +166,25 @@ public class PersonBarModel extends BdBaseModel {
         }
         if (str != null) {
             try {
-                f55.d();
-                xe<String> e2 = f55.e("tb.my_pages");
-                if (e2 != null) {
-                    e2.e(str2, str, 604800000L);
+                o55.e();
+                ye<String> f2 = o55.f("tb.my_pages");
+                if (f2 != null) {
+                    f2.e(str2, str, 604800000L);
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    public void Z(int i) {
+    public void a0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.d = i;
         }
     }
 
-    public void a0(String str) {
+    public void b0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.c = str;

@@ -1,42 +1,62 @@
 package com.baidu.tieba;
 
-import android.bluetooth.BluetoothAdapter;
-import android.content.Context;
-import android.media.AudioManager;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class d21 {
+public abstract class d21<T extends c21> extends b21<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Object c;
 
-    public static final boolean a(Context context) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d21(int i) {
+        super(i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            AudioManager a = l21.a(context);
-            if (a != null) {
-                z = a.isWiredHeadsetOn();
-            } else {
-                z = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
-            if (defaultAdapter != null && defaultAdapter.getProfileConnectionState(1) == 2) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            i21.b("BdHeadsetUtils", "当前耳机连接状态>>> 有线耳机=" + z + ", 蓝牙=" + z2);
-            if (!z && !z2) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
+        this.c = new Object();
+    }
+
+    @Override // com.baidu.tieba.b21
+    @NonNull
+    public T a() {
+        InterceptResult invokeV;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this.c) {
+                t = (T) super.a();
+            }
+            return t;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.b21
+    public void d(@NonNull T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            synchronized (this.c) {
+                super.d(t);
+            }
+        }
     }
 }

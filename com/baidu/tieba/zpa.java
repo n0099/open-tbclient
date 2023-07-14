@@ -1,25 +1,228 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.view.MotionEvent;
+import android.graphics.drawable.GradientDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class zpa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public Bitmap b;
-    public Rect c;
+    public View b;
+    public LinearLayout c;
+    public TextView d;
+    public View e;
+    public TextView f;
+    public String g;
+    public List<b> h;
+    public e i;
+    public c j;
+    public boolean k;
+
+    /* loaded from: classes8.dex */
+    public interface c {
+        void onClick();
+    }
+
+    /* loaded from: classes8.dex */
+    public interface d {
+        void onClick();
+    }
+
+    /* loaded from: classes8.dex */
+    public interface e {
+        void a(int i, View view2);
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public zpa b;
+        public View c;
+        public TextView d;
+        public View e;
+        public String f;
+        public int g;
+        public d h;
+        public boolean i;
+        public boolean j;
+        public final View.OnClickListener k;
+
+        /* loaded from: classes8.dex */
+        public class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    if (this.a.h != null) {
+                        this.a.h.onClick();
+                    }
+                    if (this.a.b != null && this.a.b.c() != null) {
+                        this.a.b.c().a(this.a.a, view2);
+                    }
+                }
+            }
+        }
+
+        public b(String str, zpa zpaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, zpaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = 17;
+            this.i = true;
+            this.k = new a(this);
+            this.f = str;
+            this.b = zpaVar;
+            this.a = hashCode();
+            f();
+            e();
+        }
+
+        public void h(d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
+                this.h = dVar;
+                e();
+            }
+        }
+
+        public View d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.c;
+            }
+            return (View) invokeV.objValue;
+        }
+
+        public final void e() {
+            TextView textView;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (textView = this.d) != null) {
+                textView.setOnClickListener(this.k);
+            }
+        }
+
+        public final void f() {
+            zpa zpaVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (zpaVar = this.b) != null && zpaVar.getContext() != null) {
+                View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.b.d(), false);
+                this.c = inflate;
+                TextView textView = (TextView) inflate.findViewById(R.id.item_view);
+                this.d = textView;
+                textView.setText(this.f);
+                this.d.setGravity(this.g);
+                View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0908f9);
+                this.e = findViewById;
+                if (this.i) {
+                    findViewById.setVisibility(0);
+                } else {
+                    findViewById.setVisibility(8);
+                }
+                g();
+            }
+        }
+
+        public void g() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                TextView textView = this.d;
+                if (textView != null) {
+                    if (this.j) {
+                        SkinManager.setBackgroundResource(textView, R.drawable.bg_bottom_up_corner_dialog);
+                    } else {
+                        textView.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0211));
+                    }
+                }
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+                SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zpa a;
+
+        public a(zpa zpaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zpaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zpaVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.j.onClick();
+            }
+        }
+    }
 
     public zpa(Context context) {
         Interceptable interceptable = $ic;
@@ -36,47 +239,124 @@ public class zpa {
                 return;
             }
         }
-        this.a = context;
-        this.c = new Rect();
-    }
-
-    public boolean b(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (motionEvent == null) {
-                return false;
-            }
-            Rect rect = this.c;
-            int i = rect.left;
-            int i2 = rect.right;
-            int i3 = rect.top;
-            int i4 = rect.bottom;
-            if (motionEvent.getX(0) < i || motionEvent.getX(0) > i2 || motionEvent.getY(0) < i3 || motionEvent.getY(0) > i4) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void a(Canvas canvas, float f, float f2) {
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) != null) || (bitmap = this.b) == null) {
+        if (context == null) {
             return;
         }
-        this.c.left = (int) (f - (bitmap.getWidth() / 2));
-        this.c.right = (int) (f + (this.b.getWidth() / 2));
-        this.c.top = (int) (f2 - (this.b.getHeight() / 2));
-        this.c.bottom = (int) (f2 + (this.b.getHeight() / 2));
-        canvas.drawBitmap(this.b, (Rect) null, this.c, (Paint) null);
+        this.a = context;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.bottom_up_list_dialog_view, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (LinearLayout) inflate.findViewById(R.id.content_view);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092542);
+        this.e = this.b.findViewById(R.id.title_divide_line);
+        this.h = new ArrayList();
+        this.f = (TextView) this.b.findViewById(R.id.dialog_bottom_cancel_button);
     }
 
-    public void c(int i) {
+    public void g(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = BitmapHelper.getResBitmap(this.a, i);
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.j = cVar;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!StringUtils.isNull(this.g)) {
+                this.d.setText(this.g);
+                this.e.setVisibility(0);
+            } else {
+                this.d.setVisibility(8);
+                this.e.setVisibility(8);
+            }
+            if (this.j != null) {
+                this.f.setOnClickListener(new a(this));
+            }
+            e();
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public e c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return (e) invokeV.objValue;
+    }
+
+    public ViewGroup d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (ViewGroup) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public void e() {
+        b bVar;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.d, R.drawable.bg_title_corner_dialog_item);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.f, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
+            List<b> list = this.h;
+            if (list != null) {
+                for (b bVar2 : list) {
+                    bVar2.g();
+                }
+            }
+            if (this.k) {
+                if (!StringUtils.isNull(this.g) && (textView = this.d) != null && (textView.getBackground() instanceof GradientDrawable)) {
+                    float dimension = getContext().getResources().getDimension(R.dimen.tbds32);
+                    ((GradientDrawable) this.d.getBackground()).setCornerRadii(new float[]{dimension, dimension, dimension, dimension, 0.0f, 0.0f, 0.0f, 0.0f});
+                    return;
+                }
+                List<b> list2 = this.h;
+                if (list2 != null && ListUtils.getCount(list2) > 0 && (bVar = this.h.get(0)) != null && !bVar.j) {
+                    bVar.j = true;
+                    bVar.g();
+                }
+            }
+        }
+    }
+
+    public void f(List<b> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || list == null) {
+            return;
+        }
+        this.h = list;
+        this.c.removeAllViews();
+        for (int i = 0; i < list.size(); i++) {
+            b bVar = list.get(i);
+            if (bVar != null) {
+                this.c.addView(bVar.d());
+            }
         }
     }
 }

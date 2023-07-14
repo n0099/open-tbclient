@@ -22,16 +22,16 @@ public class FooterLoadingLayout extends LoadingLayout {
     }
 
     private void init(Context context) {
-        this.mLoadingView = (LoadingAnimView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d72);
-        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d71);
+        this.mLoadingView = (LoadingAnimView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d8c);
+        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d8b);
         this.mHintView = textView;
-        textView.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060944));
+        textView.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06094b));
         setState(ILoadingLayout.State.RESET);
     }
 
     public void showTopDivider(boolean z) {
         int i;
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09259f);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925d3);
         if (findViewById != null) {
             if (z) {
                 i = 0;
@@ -57,30 +57,30 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public View createLoadingView(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0806, viewGroup, false);
-        inflate.setBackgroundColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06095e));
+        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d081e, viewGroup, false);
+        inflate.setBackgroundColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060965));
         return inflate;
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout, com.baidu.searchbox.ui.pullrefresh.ILoadingLayout
     public int getContentSize() {
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d70);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d8a);
         if (findViewById != null) {
             return findViewById.getHeight();
         }
-        return (int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070762);
+        return (int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070775);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onNoMoreData() {
         this.mHintView.setVisibility(0);
-        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1167);
+        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1179);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onPullToRefresh() {
         this.mHintView.setVisibility(0);
-        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1164);
+        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1176);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
@@ -88,17 +88,17 @@ public class FooterLoadingLayout extends LoadingLayout {
         this.mLoadingView.setVisibility(0);
         this.mLoadingView.startAnim();
         this.mHintView.setVisibility(0);
-        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1163);
+        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1175);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onReleaseToRefresh() {
         this.mHintView.setVisibility(0);
-        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1165);
+        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1177);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onReset() {
-        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1163);
+        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1175);
     }
 }

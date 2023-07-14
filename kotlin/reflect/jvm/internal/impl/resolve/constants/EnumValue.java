@@ -13,7 +13,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.DescriptorUtils;
 import kotlin.reflect.jvm.internal.impl.types.ErrorUtils;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class EnumValue extends ConstantValue<Pair<? extends ClassId, ? extends Name>> {
     public final ClassId enumClassId;
     public final Name enumEntryName;

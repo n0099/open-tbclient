@@ -1,159 +1,260 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.log.ActivityLog;
-import com.baidu.tieba.zu9;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.constants.PlayerConstant;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class yu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
 
-    /* loaded from: classes8.dex */
-    public static class a implements zu9.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Uri b;
-        public final /* synthetic */ Context c;
-
-        public a(String str, Uri uri, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, uri, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public yu9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            this.a = str;
-            this.b = uri;
-            this.c = context;
         }
+    }
 
-        /* JADX WARN: Removed duplicated region for block: B:43:0x00a3 A[ORIG_RETURN, RETURN] */
-        /* JADX WARN: Removed duplicated region for block: B:53:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        @Override // com.baidu.tieba.zu9.c
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void a(HashMap<String, String> hashMap) {
-            JSONObject jSONObject;
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, hashMap) != null) || hashMap == null) {
-                return;
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "Unknown";
             }
-            Class<?> cls = null;
-            try {
-                JSONObject jSONObject2 = new JSONObject(this.a);
-                str = jSONObject2.optString("page");
-                try {
-                    String optString = jSONObject2.optString("refre");
-                    jSONObject = jSONObject2.optJSONObject("pageParams");
-                    if (jSONObject == null) {
-                        try {
-                            jSONObject = new JSONObject();
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (jSONObject == null) {
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1679289728:
+                    if (str.equals("Concern")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case -1152667590:
+                    if (str.equals("ad_feed")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -654725321:
+                    if (str.equals("ad_video_landing")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -421681106:
+                    if (str.equals("HomePage")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case -181435716:
+                    if (str.equals("HomeVideo")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case 2546:
+                    if (str.equals("PB")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 70919:
+                    if (str.equals("Frs")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 175967569:
+                    if (str.equals(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 671041499:
+                    if (str.equals("ad_paster")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 1974553171:
+                    if (str.equals(PlayerConstant.PAGE_VIDEO_LANDING)) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                case 1:
+                case 2:
+                    return "ad";
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case '\b':
+                case '\t':
+                    return "tbc";
+                default:
+                    return "Unknown";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "Unknown";
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 1567) {
+                if (hashCode != 1568) {
+                    if (hashCode != 1570) {
+                        if (hashCode != 1576) {
+                            if (hashCode != 1599) {
+                                switch (hashCode) {
+                                    case 49:
+                                        if (str.equals("1")) {
+                                            c = 0;
+                                            break;
+                                        }
+                                        break;
+                                    case 50:
+                                        if (str.equals("2")) {
+                                            c = 2;
+                                            break;
+                                        }
+                                        break;
+                                    case 51:
+                                        if (str.equals("3")) {
+                                            c = 4;
+                                            break;
+                                        }
+                                        break;
+                                    case 52:
+                                        if (str.equals("4")) {
+                                            c = 3;
+                                            break;
+                                        }
+                                        break;
+                                    default:
+                                        switch (hashCode) {
+                                            case 54:
+                                                if (str.equals("6")) {
+                                                    c = 7;
+                                                    break;
+                                                }
+                                                break;
+                                            case 55:
+                                                if (str.equals("7")) {
+                                                    c = 1;
+                                                    break;
+                                                }
+                                                break;
+                                            case 56:
+                                                if (str.equals("8")) {
+                                                    c = '\b';
+                                                    break;
+                                                }
+                                                break;
+                                            case 57:
+                                                if (str.equals("9")) {
+                                                    c = '\t';
+                                                    break;
+                                                }
+                                                break;
+                                        }
+                                }
+                            } else if (str.equals("21")) {
+                                c = '\f';
                             }
+                        } else if (str.equals("19")) {
+                            c = '\n';
                         }
+                    } else if (str.equals("13")) {
+                        c = 11;
                     }
-                    jSONObject.put("page", str);
-                    jSONObject.put("refre", optString);
-                    jSONObject.put("from", 1);
-                    for (String str2 : this.b.getQueryParameterNames()) {
-                        if (!"params".equals(str2)) {
-                            jSONObject.put(str2, this.b.getQueryParameter(str2));
-                        }
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    jSONObject = null;
+                } else if (str.equals("11")) {
+                    c = 6;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                jSONObject = null;
-                str = null;
+            } else if (str.equals("10")) {
+                c = 5;
             }
-            if (jSONObject == null) {
-                try {
-                    cls = Class.forName(hashMap.get(str));
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-                if (cls == null) {
-                    return;
-                }
-                for (Class<?> cls2 : cls.getInterfaces()) {
-                    if (cls2.isAssignableFrom(xu9.class)) {
-                        try {
-                            ((xu9) cls.newInstance()).dispatch(jSONObject, this.c);
-                            return;
-                        } catch (Exception e5) {
-                            e5.printStackTrace();
-                            return;
-                        }
-                    }
-                }
+            switch (c) {
+                case 0:
+                    return "HomePage";
+                case 1:
+                    return "Concern";
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    return "Frs";
+                case 7:
+                    return "PB";
+                case '\b':
+                case '\t':
+                case '\n':
+                    return "HomeVideo";
+                case 11:
+                    return FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE;
+                case '\f':
+                    return PlayerConstant.PAGE_VIDEO_LANDING;
+                default:
+                    return "Unknown";
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public static int a(Context context, String[] strArr) {
-        InterceptResult invokeLL;
+    public int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, strArr)) == null) {
-            if (context != null && strArr != null && strArr.length != 0) {
-                String str = strArr[0];
-                if (TextUtils.isEmpty(str)) {
-                    return 3;
-                }
-                if (!str.startsWith("tiebaapp://router/portal") && !str.startsWith("com.baidu.tieba://unidispatch/router/portal") && ((str = wi.getUrlDecode(str)) == null || !str.startsWith("com.baidu.tieba://unidispatch/router/portal"))) {
-                    str = null;
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    Uri parse = Uri.parse(str);
-                    ActivityLog.getInstance().c("scheme", "SchemaHelper:" + str);
-                    try {
-                        zu9.c().b(new a(parse.getQueryParameter("params"), parse, context));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return 0;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 1;
             }
-            return 3;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static int b(TbPageContext<?> tbPageContext, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, strArr)) == null) {
-            if (tbPageContext != null && strArr != null && strArr.length != 0) {
-                return a(tbPageContext.getPageActivity(), strArr);
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 49) {
+                if (hashCode == 50 && str.equals("2")) {
+                    c = 1;
+                }
+            } else if (str.equals("1")) {
+                c = 0;
             }
-            return 3;
+            if (c == 0 || c != 1) {
+                return 1;
+            }
+            return 0;
         }
-        return invokeLL.intValue;
+        return invokeL.intValue;
     }
 }

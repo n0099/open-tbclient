@@ -1,10 +1,16 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.game.guide.dialog.GamenowRecommendPopView;
+import com.baidu.swan.game.guide.view.GameGuideViewContainer;
+import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +18,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes4.dex */
-public class a24 {
+import java.util.ArrayList;
+@Singleton
+@Service
+/* loaded from: classes5.dex */
+public class a24 implements f94 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static a24 b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public class a implements GamenowRecommendPopView.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GameCloseGuidePopView.e a;
+
+        public a(a24 a24Var, GameCloseGuidePopView.e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a24Var, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+        }
+
+        @Override // com.baidu.swan.game.guide.dialog.GamenowRecommendPopView.e
+        public void a() {
+            GameCloseGuidePopView.e eVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (eVar = this.a) == null) {
+                return;
+            }
+            eVar.a();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,8 +74,7 @@ public class a24 {
                 return;
             }
         }
-        a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
-        b = new a24();
+        boolean z = fs1.a;
     }
 
     public a24() {
@@ -51,121 +91,65 @@ public class a24 {
         }
     }
 
-    public static a24 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.f94
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (a24) invokeV.objValue;
-    }
-
-    public synchronized void a(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            synchronized (this) {
-                long elapsedRealtime = SystemClock.elapsedRealtime();
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j > elapsedRealtime) {
-                    File file = new File(a);
-                    if (!file.exists() && !file.mkdirs()) {
-                        if (ms1.a) {
-                            Log.d("GameGuideConfigCache", "创建缓存目录失败");
-                        }
-                        return;
-                    }
-                    File[] listFiles = file.listFiles();
-                    if (listFiles != null && listFiles.length > 0) {
-                        for (File file2 : listFiles) {
-                            if (file2 != null && file2.exists() && file2.getName().startsWith(str)) {
-                                gs4.j(file2);
-                            }
-                        }
-                    }
-                    boolean N = gs4.N(str2, new File(a, b(str, j)));
-                    if (ms1.a) {
-                        Log.d("GameGuideConfigCache", "缓存配置信息成功：  " + N);
-                    }
-                    return;
-                }
-                if (ms1.a) {
-                    Log.d("GameGuideConfigCache", "缓存失败，参数异常  appKey = " + str + ",  config = " + str2 + ",  expiration = " + j + ",  currentTime = " + elapsedRealtime);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            f24.n().t();
         }
     }
 
-    public final String b(String str, long j) {
-        InterceptResult invokeLJ;
+    @Override // com.baidu.tieba.f94
+    public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
-            return str + "_" + j;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            f24.n().u();
         }
-        return (String) invokeLJ.objValue;
     }
 
-    public final boolean d(File file) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.f94
+    public View a(Context context, GameCloseGuidePopView.e eVar) {
+        InterceptResult invokeLL;
+        u14 u14Var;
+        GameGuideConfigInfo z;
+        GameGuideConfigInfo.CloseInfo closeInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            if (file != null && file.exists()) {
-                String[] split = file.getName().split("_");
-                if (split.length != 2) {
-                    return true;
-                }
-                try {
-                    if (Long.valueOf(split[1]).longValue() > SystemClock.elapsedRealtime()) {
-                        return false;
-                    }
-                } catch (Throwable th) {
-                    if (ms1.a) {
-                        th.printStackTrace();
-                    }
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    if (ms1.a) {
-                        Log.d("GameGuideConfigCache", "获取缓存配置失败， appKey为null");
-                    }
-                    return null;
-                }
-                File file = new File(a);
-                if (!file.exists()) {
-                    if (ms1.a) {
-                        Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录不存在");
-                    }
-                    return null;
-                }
-                File[] listFiles = file.listFiles();
-                if (listFiles != null && listFiles.length > 0) {
-                    File file2 = null;
-                    for (File file3 : listFiles) {
-                        if (d(file3)) {
-                            gs4.j(file3);
-                        } else if (file3.getName().startsWith(str)) {
-                            file2 = file3;
-                        }
-                    }
-                    if (file2 == null) {
-                        return null;
-                    }
-                    return gs4.E(file2);
-                }
-                if (ms1.a) {
-                    Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录中的文件为空");
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eVar)) == null) {
+            if (context == null || (u14Var = u14.o) == null) {
                 return null;
             }
+            String I = u14Var.I();
+            if ((!TextUtils.equals(I, z14.a) && pp3.F(context, I)) || (z = u14.o.z()) == null || (closeInfo = z.closeInfo) == null) {
+                return null;
+            }
+            int i = closeInfo.type;
+            ArrayList<GameGuideConfigInfo.RecommendGameInfo> arrayList = closeInfo.gameList;
+            if ((i != 0 || arrayList == null || arrayList.size() < 3) && ((i != 1 || arrayList == null || arrayList.size() < 6) && i != 2)) {
+                return null;
+            }
+            if (i != 0 && i != 1) {
+                if (i == 2) {
+                    r24.n().c("gbADialogShow");
+                }
+            } else {
+                r24.n().c("gbBDialogShow");
+            }
+            GamenowRecommendPopView gamenowRecommendPopView = new GamenowRecommendPopView(context, closeInfo);
+            gamenowRecommendPopView.setOnClickListener(new a(this, eVar));
+            return gamenowRecommendPopView;
         }
-        return (String) invokeL.objValue;
+        return (View) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.f94
+    public void b(int i) {
+        u14 u14Var;
+        GameGuideViewContainer B;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (u14Var = u14.o) != null && (B = u14Var.B()) != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) B.getLayoutParams();
+            layoutParams.rightMargin = i;
+            B.setLayoutParams(layoutParams);
+        }
     }
 }

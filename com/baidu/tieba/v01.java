@@ -1,95 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class v01 {
+public class v01 implements u01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(c11 mpdModel, JSONArray clarityUrlList) {
-        ArrayList<y01> a;
-        int i;
-        boolean z;
-        y01 y01Var;
-        ArrayList<Object> d;
-        ArrayList<y01> a2;
+    public v01() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, mpdModel, clarityUrlList) == null) {
-            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
-            Intrinsics.checkNotNullParameter(clarityUrlList, "clarityUrlList");
-            a11 a3 = mpdModel.a();
-            if (a3 != null && (a = a3.a()) != null) {
-                a11 a4 = mpdModel.a();
-                if (a4 != null && (a2 = a4.a()) != null) {
-                    i = a2.size();
-                } else {
-                    i = 0;
-                }
-                if (i > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    a = null;
-                }
-                if (a != null && (y01Var = a.get(0)) != null && (d = y01Var.d()) != null) {
-                    int length = clarityUrlList.length();
-                    for (int i2 = 0; i2 < length; i2++) {
-                        Object obj = clarityUrlList.get(i2);
-                        if (!(obj instanceof JSONObject)) {
-                            obj = null;
-                        }
-                        JSONObject jSONObject = (JSONObject) obj;
-                        if (jSONObject != null) {
-                            Object obj2 = d.get(0);
-                            if (!(obj2 instanceof b11)) {
-                                obj2 = null;
-                            }
-                            b11 b11Var = (b11) obj2;
-                            if (b11Var != null) {
-                                jSONObject.put("interact_url", b11Var.a());
-                            }
-                        }
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static final void b(c11 mpdModel, JSONObject mpdJson) {
-        JSONArray optJSONArray;
-        JSONArray optJSONArray2;
+    @Override // com.baidu.tieba.u01
+    public t01 createMessenger() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, mpdModel, mpdJson) == null) {
-            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
-            Intrinsics.checkNotNullParameter(mpdJson, "mpdJson");
-            JSONObject optJSONObject = mpdJson.optJSONObject(BdVideoSeries.RESOURCE_TYPE_INTERACT);
-            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("adaptation_set")) != null) {
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject2 != null && (optJSONArray2 = optJSONObject2.optJSONArray("representation_list")) != null) {
-                        ArrayList arrayList2 = new ArrayList();
-                        int length2 = optJSONArray2.length();
-                        for (int i2 = 0; i2 < length2; i2++) {
-                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
-                            if (optJSONObject3 != null) {
-                                arrayList2.add(new b11(optJSONObject3.optString("url")));
-                            }
-                        }
-                        arrayList.add(new y01(arrayList2, optJSONObject2.optString("type"), null, null, null, null, 60, null));
-                    }
-                }
-                mpdModel.c(new a11(arrayList));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new s01();
         }
+        return (t01) invokeV.objValue;
     }
 }

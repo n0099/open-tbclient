@@ -1,5 +1,5 @@
 package com.baidu.ugc.editvideo.subtitle.ninepatchchunk;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WrongPaddingException extends RuntimeException {
     public WrongPaddingException(String str) {
         super(str);

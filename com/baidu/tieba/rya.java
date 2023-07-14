@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.media.MediaFormat;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface rya {
-    void a(MediaFormat mediaFormat);
+    void callback(List<String> list);
 }

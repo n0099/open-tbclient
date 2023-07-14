@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface t2 {
     void a(float f, float f2, float f3, float f4, int i, int i2);
 

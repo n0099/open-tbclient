@@ -8,7 +8,7 @@ import com.kwad.sdk.core.report.k;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static volatile boolean mHasInit;
     public static double pi;

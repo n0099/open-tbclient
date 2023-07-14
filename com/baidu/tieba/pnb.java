@@ -1,43 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public class pnb {
+public final class pnb<TResult> implements qob<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public rob<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948069221, "Lcom/baidu/tieba/pnb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public pnb(Executor executor, rob<TResult> robVar) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, robVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948069221, "Lcom/baidu/tieba/pnb;");
-        }
+        this.c = new Object();
+        this.a = robVar;
+        this.b = executor;
     }
 
-    public static synchronized void a(Context context) {
+    @Override // com.baidu.tieba.qob
+    public final void a(cob<TResult> cobVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            synchronized (pnb.class) {
-                if (a) {
-                    return;
-                }
-                a = true;
-                Log.i("[cronet]", "cronet_lib load");
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, cobVar) == null) {
+            this.b.execute(new nnb(this, cobVar));
         }
     }
 }

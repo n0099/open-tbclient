@@ -1,135 +1,100 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.n5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.LinkedHashMap;
 /* loaded from: classes8.dex */
-public class v5b extends s6b {
+public final class v5b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<Ssp> a;
-    public final Set<i6b> b;
-    public final Set<g6b> c;
+    public final LinkedHashMap<String, Long> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v5b(int i, ObjectInput objectInput) {
-        super(i);
-        HashSet hashSet;
+    /* loaded from: classes8.dex */
+    public class a extends z5b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
+
+        public a(v5b v5bVar, com.baidu.ubs.analytics.a.l lVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v5bVar, lVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lVar;
+        }
+
+        @Override // com.baidu.tieba.z5b
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                new f5b().c(this.a);
+            }
+        }
+    }
+
+    public v5b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int readInt = objectInput.readInt();
-        HashSet hashSet2 = new HashSet(readInt);
-        HashMap hashMap = new HashMap();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            Ssp ssp = new Ssp(objectInput.readInt(), objectInput);
-            hashSet2.add(ssp);
-            for (Ssp.Pid pid : ssp.pids) {
-                hashMap.put(Long.valueOf(pid.id), pid);
-            }
-        }
-        int readInt2 = objectInput.readInt();
-        HashSet hashSet3 = new HashSet(readInt2);
-        for (int i5 = 0; i5 < readInt2; i5++) {
-            hashSet3.add(new i6b(objectInput.readInt(), objectInput, hashMap));
-        }
-        this.a = Collections.unmodifiableSet(hashSet2);
-        this.b = Collections.unmodifiableSet(hashSet3);
-        if (i == 1) {
-            int readInt3 = objectInput.readInt();
-            hashSet = new HashSet(readInt3);
-            for (int i6 = 0; i6 < readInt3; i6++) {
-                hashSet.add(new g6b(objectInput.readInt(), objectInput, hashMap));
-            }
-        } else {
-            hashSet = new HashSet();
-        }
-        this.c = Collections.unmodifiableSet(hashSet);
+        this.a = new LinkedHashMap<>();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v5b(Set<Ssp> set, Set<i6b> set2, Set<g6b> set3) {
-        super(1);
+    public final void a(String str) {
+        n5b n5bVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {set, set2, set3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str)) {
+            com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+            synchronized (this.a) {
+                Long remove = this.a.remove(str);
+                if (remove == null) {
+                    return;
+                }
+                try {
+                    lVar.setStartTime(String.valueOf(remove));
+                    lVar.t(str);
+                    lVar.z(String.valueOf(System.currentTimeMillis()));
+                    n5bVar = n5b.a.a;
+                    lVar.setPath(n5bVar.b());
+                    lVar.x(w5b.e().I());
+                } catch (Exception e) {
+                    f6b.a(e.toString());
+                    x5b.b(e.toString());
+                }
+                y5b.c(new a(this, lVar));
             }
         }
-        this.a = set;
-        this.b = set2;
-        this.c = set3;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || v5b.class != obj.getClass()) {
-                return false;
-            }
-            v5b v5bVar = (v5b) obj;
-            return Objects.equals(this.a, v5bVar.a) && Objects.equals(this.b, v5bVar.b) && Objects.equals(this.c, v5bVar.c);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b, this.c) : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.s6b
-    public void srzableInternal(ObjectOutput objectOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
-            objectOutput.writeInt(this.a.size());
-            for (Ssp ssp : this.a) {
-                ssp.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.b.size());
-            for (i6b i6bVar : this.b) {
-                i6bVar.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.c.size());
-            for (g6b g6bVar : this.c) {
-                g6bVar.srzable(objectOutput);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
+            synchronized (this.a) {
+                this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+                String.valueOf(System.currentTimeMillis());
             }
         }
     }

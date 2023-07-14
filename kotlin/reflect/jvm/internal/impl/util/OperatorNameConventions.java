@@ -10,7 +10,7 @@ import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.text.Regex;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class OperatorNameConventions {
     @JvmField
     public static final Name AND;

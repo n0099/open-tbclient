@@ -23,21 +23,21 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a25;
-import com.baidu.tieba.b45;
-import com.baidu.tieba.c45;
-import com.baidu.tieba.ry;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.uq5;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.zz4;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.i05;
+import com.baidu.tieba.i25;
+import com.baidu.tieba.j45;
+import com.baidu.tieba.k45;
+import com.baidu.tieba.sy;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.yr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class RecommendForumLayout extends LinearLayout implements ry {
+public class RecommendForumLayout extends LinearLayout implements sy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -111,28 +111,28 @@ public class RecommendForumLayout extends LinearLayout implements ry {
         b();
     }
 
-    public void a(c45 c45Var) {
+    public void a(k45 k45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c45Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, k45Var) == null) {
             this.g.setOnClickListener(this.o);
-            if (!TextUtils.isEmpty(c45Var.d) && c45Var.e != 0) {
-                this.f.setText(c45Var.d);
+            if (!TextUtils.isEmpty(k45Var.d) && k45Var.e != 0) {
+                this.f.setText(k45Var.d);
             } else {
                 this.f.setText(R.string.recommend_forum_title_horizontal);
                 if (this.e.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).topMargin = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+                    ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).topMargin = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
                     this.e.requestLayout();
                 }
             }
             if (!this.j) {
                 this.g.setVisibility(8);
             }
-            if (c45Var != null && c45Var.e() != null && c45Var.e().size() > 0) {
-                ArrayList<? extends uq5> arrayList = new ArrayList<>();
-                ArrayList<b45> e = c45Var.e();
+            if (k45Var != null && k45Var.e() != null && k45Var.e().size() > 0) {
+                ArrayList<? extends yr5> arrayList = new ArrayList<>();
+                ArrayList<j45> e = k45Var.e();
                 if (this.h) {
                     if (this.i) {
-                        arrayList.add(new a25());
+                        arrayList.add(new i25());
                     }
                     if (e != null) {
                         arrayList.addAll(e);
@@ -142,10 +142,10 @@ public class RecommendForumLayout extends LinearLayout implements ry {
                         arrayList.addAll(e);
                     }
                     if (this.i) {
-                        arrayList.add(new a25());
+                        arrayList.add(new i25());
                     }
                 }
-                this.d.l(arrayList);
+                this.d.m(arrayList);
             }
             c();
         }
@@ -160,7 +160,7 @@ public class RecommendForumLayout extends LinearLayout implements ry {
             this.e = (FrameLayout) findViewById(R.id.title_view);
             TextView textView = (TextView) findViewById(R.id.tv_title);
             this.f = textView;
-            s75.d(textView).C(R.dimen.T_X07);
+            d85.d(textView).C(R.dimen.T_X07);
             this.g = (ImageView) findViewById(R.id.img_arrow);
             this.b = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
             this.c = (RecyclerView) findViewById(R.id.recycler_view);
@@ -168,9 +168,9 @@ public class RecommendForumLayout extends LinearLayout implements ry {
             this.d = horizontalRecommendForumAdapter;
             int i = this.l;
             if (i == 0) {
-                horizontalRecommendForumAdapter.m(this.n);
+                horizontalRecommendForumAdapter.n(this.n);
             } else if (i == 1) {
-                horizontalRecommendForumAdapter.o(this.m);
+                horizontalRecommendForumAdapter.p(this.m);
             }
             this.c.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity(), 0, false));
             this.c.setAdapter(this.d);
@@ -187,17 +187,17 @@ public class RecommendForumLayout extends LinearLayout implements ry {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            s75 d = s75.d(this);
+            d85 d = d85.d(this);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            s75.d(this.f).x(R.color.CAM_X0105);
+            d85.d(this.f).x(R.color.CAM_X0105);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             this.k.d();
             this.d.notifyDataSetChanged();
         }
     }
 
-    @Override // com.baidu.tieba.ry
+    @Override // com.baidu.tieba.sy
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
@@ -205,10 +205,10 @@ public class RecommendForumLayout extends LinearLayout implements ry {
         }
     }
 
-    public void setData(c45 c45Var) {
+    public void setData(k45 k45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c45Var) == null) {
-            a(c45Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, k45Var) == null) {
+            a(k45Var);
         }
     }
 
@@ -240,10 +240,10 @@ public class RecommendForumLayout extends LinearLayout implements ry {
         }
     }
 
-    public void setOnItemCoverListener(zz4<b45> zz4Var) {
+    public void setOnItemCoverListener(i05<j45> i05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, zz4Var) == null) {
-            this.d.n(zz4Var);
+        if (interceptable == null || interceptable.invokeL(1048585, this, i05Var) == null) {
+            this.d.o(i05Var);
         }
     }
 

@@ -8,10 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class m62 extends i52 {
+public class m62 extends b52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+
+    @Override // com.baidu.tieba.b52
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public m62() {
         Interceptable interceptable = $ic;
@@ -23,26 +29,18 @@ public class m62 extends i52 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
     }
 
-    @Override // com.baidu.tieba.i52
-    public void a(j52 j52Var, Canvas canvas) {
-        int i;
+    @Override // com.baidu.tieba.b52
+    public void a(c52 c52Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) && (i = this.a) >= 0) {
-            j52Var.c.setStrokeMiter(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.i52
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = tp3.g((float) jSONArray.optDouble(0));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, c52Var, canvas) == null) {
+            int alpha = c52Var.c.getAlpha();
+            c52Var.c(c52Var.c);
+            canvas.drawPath(c52Var.f, c52Var.c);
+            c52Var.c.setAlpha(alpha);
         }
     }
 }

@@ -28,22 +28,23 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ew8;
-import com.baidu.tieba.id5;
-import com.baidu.tieba.in;
-import com.baidu.tieba.l0a;
-import com.baidu.tieba.nn5;
-import com.baidu.tieba.rg;
-import com.baidu.tieba.rw5;
-import com.baidu.tieba.s2a;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.ae5;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.dba;
+import com.baidu.tieba.du6;
+import com.baidu.tieba.h29;
+import com.baidu.tieba.jn;
+import com.baidu.tieba.kia;
+import com.baidu.tieba.mo5;
+import com.baidu.tieba.qla;
+import com.baidu.tieba.sg;
 import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.t8a;
+import com.baidu.tieba.vx5;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.yr6;
-import com.baidu.tieba.yu9;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.z2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,6 +54,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.lang.ref.WeakReference;
+import java.util.concurrent.TimeUnit;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.JvmOverloads;
@@ -60,7 +62,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import tbclient.ThemeColorInfo;
-@Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0012\u0018\u0000 (2\u00020\u0001:\u0002()B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\b\u0010\u001d\u001a\u00020\u0018H\u0002J\u0006\u0010\u001e\u001a\u00020\u0018J\u0006\u0010\u001f\u001a\u00020\u0018J\u0006\u0010 \u001a\u00020\u0018J\u0016\u0010!\u001a\u00020\u00182\u0006\u0010\"\u001a\u00020\u00112\u0006\u0010#\u001a\u00020\nJ\b\u0010$\u001a\u00020\u0018H\u0002J\b\u0010%\u001a\u00020\u0018H\u0002J\b\u0010&\u001a\u00020\u0018H\u0002J\b\u0010'\u001a\u00020\u0018H\u0002R\u0012\u0010\u0007\u001a\u00060\bR\u00020\u0000X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R7\u0010\u0014\u001a\u001f\u0012\u0013\u0012\u00110\f¢\u0006\f\b\u0016\u0012\b\b\u0017\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\u0018\u0018\u00010\u0015X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0019\u0010\u001a\"\u0004\b\u001b\u0010\u001c¨\u0006*"}, d2 = {"Lcom/baidu/tieba/sprite/tips/HomePageSpriteBottomTipView;", "Landroid/widget/LinearLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "animationHandler", "Lcom/baidu/tieba/sprite/tips/HomePageSpriteBottomTipView$ShowAnimationHandler;", "dismissListener", "Lcom/baidu/tieba/controller/TipController$OnDismissListener;", "isVisibility", "", "mButton", "Landroid/widget/TextView;", "mContent", "mData", "Lcom/baidu/tieba/sprite/funnysprite/data/SpriteTipHttpResponseMessage;", "mRoot", "Landroid/view/View;", "onVisibilityChangedListener", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "", "getOnVisibilityChangedListener", "()Lkotlin/jvm/functions/Function1;", "setOnVisibilityChangedListener", "(Lkotlin/jvm/functions/Function1;)V", "clickToChatStatistic", "dismiss", "gotoChatPage", "onChangeSkin", "setDataAndShow", "responseMessage", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "show", "updateButtonStatus", "updateMaxContentWidth", "updateMaxLineCount", "Companion", "ShowAnimationHandler", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0014\u0018\u0000 *2\u00020\u0001:\u0002*+B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\b\u0010\u001d\u001a\u00020\u0018H\u0002J\u0010\u0010\u001e\u001a\u00020\u00182\u0006\u0010\u001f\u001a\u00020\u0011H\u0002J\u0006\u0010 \u001a\u00020\u0018J\u0006\u0010!\u001a\u00020\u0018J\u0010\u0010\"\u001a\u00020\u00182\u0006\u0010\u001f\u001a\u00020\u0011H\u0002J\u0006\u0010#\u001a\u00020\u0018J\u0016\u0010$\u001a\u00020\u00182\u0006\u0010\u001f\u001a\u00020\u00112\u0006\u0010%\u001a\u00020\nJ\b\u0010&\u001a\u00020\u0018H\u0002J\b\u0010'\u001a\u00020\u0018H\u0002J\b\u0010(\u001a\u00020\u0018H\u0002J\b\u0010)\u001a\u00020\u0018H\u0002R\u0012\u0010\u0007\u001a\u00060\bR\u00020\u0000X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R7\u0010\u0014\u001a\u001f\u0012\u0013\u0012\u00110\f¢\u0006\f\b\u0016\u0012\b\b\u0017\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\u0018\u0018\u00010\u0015X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0019\u0010\u001a\"\u0004\b\u001b\u0010\u001c¨\u0006,"}, d2 = {"Lcom/baidu/tieba/sprite/tips/HomePageSpriteBottomTipView;", "Landroid/widget/LinearLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "animationHandler", "Lcom/baidu/tieba/sprite/tips/HomePageSpriteBottomTipView$ShowAnimationHandler;", "dismissListener", "Lcom/baidu/tieba/controller/TipController$OnDismissListener;", "isVisibility", "", "mButton", "Landroid/widget/TextView;", "mContent", "mData", "Lcom/baidu/tieba/sprite/funnysprite/data/SpriteTipHttpResponseMessage;", "mRoot", "Landroid/view/View;", "onVisibilityChangedListener", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "", "getOnVisibilityChangedListener", "()Lkotlin/jvm/functions/Function1;", "setOnVisibilityChangedListener", "(Lkotlin/jvm/functions/Function1;)V", "clickToChatStatistic", "delayDismiss", "responseMessage", "dismiss", "gotoChatPage", "markColdStartSpriteTipShown", "onChangeSkin", "setDataAndShow", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "show", "updateButtonStatus", "updateMaxContentWidth", "updateMaxLineCount", "Companion", "ShowAnimationHandler", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
 public final class HomePageSpriteBottomTipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -68,7 +70,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public SpriteTipHttpResponseMessage b;
-    public yr6.e c;
+    public du6.e c;
     public TextView d;
     public TextView e;
     public final b f;
@@ -176,7 +178,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
                 int i = msg.what;
                 if (i != 1) {
                     if (i == 2 && (homePageSpriteBottomTipView = this.a.get()) != null) {
-                        homePageSpriteBottomTipView.d();
+                        homePageSpriteBottomTipView.e();
                         return;
                     }
                     return;
@@ -185,7 +187,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
                 if (homePageSpriteBottomTipView2 == null) {
                     return;
                 }
-                homePageSpriteBottomTipView2.g();
+                homePageSpriteBottomTipView2.i();
             }
         }
     }
@@ -211,19 +213,19 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08ba, (ViewGroup) this, true);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f0907b1);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08d4, (ViewGroup) this, true);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0907b2);
         Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.content)");
         this.a = findViewById;
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09171b);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09172c);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.message)");
         this.d = (TextView) findViewById2;
-        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f09221f);
+        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f092251);
         Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.sprite_tip_button)");
         this.e = (TextView) findViewById3;
-        f();
+        h();
         this.f = new b(this, this);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.j0a
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.r8a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -246,21 +248,49 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(context, "$context");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            if (!rw5.a() && (context instanceof TbPageContextSupport)) {
-                this$0.e();
+            if (!vx5.a() && (context instanceof TbPageContextSupport)) {
+                this$0.f();
                 this$0.c();
             }
         }
     }
 
+    public final void d(SpriteTipHttpResponseMessage spriteTipHttpResponseMessage) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, spriteTipHttpResponseMessage) == null) {
+            this.f.removeMessages(2);
+            if (spriteTipHttpResponseMessage.getDisappearSeconds() > 0) {
+                j = TimeUnit.SECONDS.toMillis(spriteTipHttpResponseMessage.getDisappearSeconds());
+            } else {
+                j = 5000;
+            }
+            this.f.sendEmptyMessageDelayed(2, j);
+        }
+    }
+
+    public final void g(SpriteTipHttpResponseMessage spriteTipHttpResponseMessage) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, spriteTipHttpResponseMessage) == null) {
+            kia a2 = kia.h.a();
+            if (spriteTipHttpResponseMessage.getScene() == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            a2.i(z);
+        }
+    }
+
     public final void setOnVisibilityChangedListener(Function1<? super Boolean, Unit> function1) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, function1) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, function1) == null) {
             this.g = function1;
         }
     }
 
-    public static final void i(HomePageSpriteBottomTipView this$0, SpriteTipHttpResponseMessage this_run, View view2) {
+    public static final void k(HomePageSpriteBottomTipView this$0, SpriteTipHttpResponseMessage this_run, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, this$0, this_run, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -269,7 +299,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
             if (StringUtils.isNotNull(this_run.getButtonInfo().b)) {
                 UrlManager.getInstance().dealOneLink(this_run.getButtonInfo().b);
             } else {
-                this$0.e();
+                this$0.f();
             }
         }
     }
@@ -305,11 +335,11 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void h() {
+    public final void j() {
         final SpriteTipHttpResponseMessage spriteTipHttpResponseMessage;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (spriteTipHttpResponseMessage = this.b) != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (spriteTipHttpResponseMessage = this.b) != null) {
             if (spriteTipHttpResponseMessage.getButtonInfo() != null) {
                 String text = spriteTipHttpResponseMessage.getButtonInfo().a;
                 boolean z2 = true;
@@ -324,7 +354,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
                 z2 = false;
                 if (z2) {
                     this.e.setText(StringHelper.cutChineseAndEnglishWithSuffix(spriteTipHttpResponseMessage.getButtonInfo().a, 8, (String) null));
-                    this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.i0a
+                    this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.q8a
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -332,7 +362,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
                         public final void onClick(View view2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                HomePageSpriteBottomTipView.i(HomePageSpriteBottomTipView.this, spriteTipHttpResponseMessage, view2);
+                                HomePageSpriteBottomTipView.k(HomePageSpriteBottomTipView.this, spriteTipHttpResponseMessage, view2);
                             }
                         }
                     });
@@ -344,13 +374,13 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         }
     }
 
-    public final void d() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.h) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.h) {
             return;
         }
         this.h = false;
-        yr6.e eVar = this.c;
+        du6.e eVar = this.c;
         if (eVar != null) {
             eVar.onDismiss();
         }
@@ -358,18 +388,6 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         Function1<? super Boolean, Unit> function1 = this.g;
         if (function1 != null) {
             function1.invoke(Boolean.FALSE);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.h) {
-            return;
-        }
-        this.h = true;
-        Function1<? super Boolean, Unit> function1 = this.g;
-        if (function1 != null) {
-            function1.invoke(Boolean.TRUE);
         }
     }
 
@@ -383,10 +401,22 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         return (Function1) invokeV.objValue;
     }
 
-    public final void e() {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String b2 = nn5.b("", 0);
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.h) {
+            return;
+        }
+        this.h = true;
+        Function1<? super Boolean, Unit> function1 = this.g;
+        if (function1 != null) {
+            function1.invoke(Boolean.TRUE);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String b2 = mo5.b("", 0);
             SpriteTipHttpResponseMessage spriteTipHttpResponseMessage = this.b;
             if (spriteTipHttpResponseMessage != null && this.h) {
                 Intrinsics.checkNotNull(spriteTipHttpResponseMessage);
@@ -395,13 +425,13 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
                     Intrinsics.checkNotNull(spriteTipHttpResponseMessage2);
                     String sendText = spriteTipHttpResponseMessage2.getSendText();
                     Intrinsics.checkNotNullExpressionValue(sendText, "mData!!.sendText");
-                    b2 = nn5.b(sendText, 1);
+                    b2 = mo5.b(sendText, 1);
                 } else {
                     SpriteTipHttpResponseMessage spriteTipHttpResponseMessage3 = this.b;
                     Intrinsics.checkNotNull(spriteTipHttpResponseMessage3);
                     String text = spriteTipHttpResponseMessage3.getText();
                     Intrinsics.checkNotNullExpressionValue(text, "mData!!.text");
-                    b2 = nn5.b(text, 2);
+                    b2 = mo5.b(text, 2);
                 }
             }
             SpriteTipHttpResponseMessage spriteTipHttpResponseMessage4 = this.b;
@@ -409,65 +439,65 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
                 if (StringUtils.isNotNull(spriteTipHttpResponseMessage4.getSpriteText())) {
                     String spriteText = spriteTipHttpResponseMessage4.getSpriteText();
                     Intrinsics.checkNotNullExpressionValue(spriteText, "spriteText");
-                    nn5.i(spriteText);
+                    mo5.j(spriteText);
                 } else if (StringUtils.isNotNull(spriteTipHttpResponseMessage4.getText())) {
                     String text2 = spriteTipHttpResponseMessage4.getText();
                     Intrinsics.checkNotNullExpressionValue(text2, "text");
-                    nn5.i(text2);
+                    mo5.j(text2);
                 }
             }
             Context context = getContext();
             if (context != null) {
-                yu9.b(((TbPageContextSupport) context).getPageContext(), new String[]{b2});
+                z2a.b(((TbPageContextSupport) context).getPageContext(), new String[]{b2});
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.TbPageContextSupport");
         }
     }
 
-    public final void f() {
+    public final void h() {
         String str;
-        in inVar;
+        jn jnVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            s75.d(this.d).x(R.color.CAM_X0119);
-            s75.d(this.e).x(R.color.CAM_X0920);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            d85.d(this.d).x(R.color.CAM_X0119);
+            d85.d(this.e).x(R.color.CAM_X0920);
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_list_arrow16_right, SkinManager.getColor(R.color.CAM_X0920), null);
             if (pureDrawable != null) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
                 pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
-                this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, new l0a(pureDrawable), (Drawable) null);
+                this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, new t8a(pureDrawable), (Drawable) null);
             }
             SpriteTipHttpResponseMessage spriteTipHttpResponseMessage = this.b;
             if (spriteTipHttpResponseMessage != null) {
                 ThemeColorInfo textColorTheme = spriteTipHttpResponseMessage.getTextColorTheme();
                 if (textColorTheme != null) {
                     Intrinsics.checkNotNullExpressionValue(textColorTheme, "textColorTheme");
-                    int f = s2a.f(zca.e(textColorTheme));
-                    if (!s2a.e(f)) {
+                    int f = dba.f(qla.e(textColorTheme));
+                    if (!dba.e(f)) {
                         this.d.setTextColor(f);
                     }
                 }
                 ThemeColorInfo bgUrlTheme = spriteTipHttpResponseMessage.getBgUrlTheme();
                 if (bgUrlTheme != null) {
                     Intrinsics.checkNotNullExpressionValue(bgUrlTheme, "bgUrlTheme");
-                    str = zca.g(bgUrlTheme);
+                    str = qla.g(bgUrlTheme);
                 } else {
                     str = null;
                 }
-                if (!wi.isEmpty(str)) {
-                    Object n = rg.h().n(str, 19, new Object[0]);
-                    if (n instanceof in) {
-                        inVar = (in) n;
+                if (!xi.isEmpty(str)) {
+                    Object n = sg.h().n(str, 59, new Object[0]);
+                    if (n instanceof jn) {
+                        jnVar = (jn) n;
                     } else {
-                        inVar = null;
+                        jnVar = null;
                     }
-                    if (inVar != null) {
-                        this.a.setBackgroundDrawable(new NinePatchDrawable(getResources(), inVar.p(), inVar.p().getNinePatchChunk(), inVar.o(), null));
+                    if (jnVar != null) {
+                        this.a.setBackgroundDrawable(new NinePatchDrawable(getResources(), jnVar.p(), jnVar.p().getNinePatchChunk(), jnVar.o(), null));
                         return;
                     }
                     SkinManager.setBackgroundResource(this.a, R.drawable.funny_sprite_tip_bg_left);
-                    rg.h().m(str, 19, null, null);
+                    sg.h().m(str, 59, null, null);
                     return;
                 }
                 SkinManager.setBackgroundResource(this.a, R.drawable.funny_sprite_tip_bg_left);
@@ -475,18 +505,18 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         }
     }
 
-    public final void j() {
+    public final void l() {
         int l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int g = xi.g(getContext(), R.dimen.tbds190);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            int g = yi.g(getContext(), R.dimen.tbds190);
             if (UtilHelper.isFoldScreen() && UtilHelper.isLargeScreen(getContext())) {
-                l = xi.l(getContext()) / 2;
+                l = yi.l(getContext()) / 2;
             } else {
-                l = xi.l(getContext());
+                l = yi.l(getContext());
             }
-            int g2 = xi.g(getContext(), R.dimen.M_W_X012);
-            int g3 = xi.g(getContext(), R.dimen.tbds42);
+            int g2 = yi.g(getContext(), R.dimen.M_W_X012);
+            int g3 = yi.g(getContext(), R.dimen.tbds42);
             int i2 = 0;
             if (this.e.getVisibility() == 0) {
                 i2 = (int) (this.e.getPaint().measureText(this.e.getText().toString()) + g3);
@@ -495,11 +525,11 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         }
     }
 
-    public final void k() {
+    public final void m() {
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            id5 funnySpriteConfig = TbSingleton.getInstance().getFunnySpriteConfig();
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            ae5 funnySpriteConfig = TbSingleton.getInstance().getFunnySpriteConfig();
             if (funnySpriteConfig != null) {
                 num = funnySpriteConfig.a();
             } else {
@@ -509,10 +539,10 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         }
     }
 
-    public final void setDataAndShow(SpriteTipHttpResponseMessage responseMessage, yr6.e listener) {
+    public final void setDataAndShow(SpriteTipHttpResponseMessage responseMessage, du6.e listener) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, responseMessage, listener) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, responseMessage, listener) == null) {
             Intrinsics.checkNotNullParameter(responseMessage, "responseMessage");
             Intrinsics.checkNotNullParameter(listener, "listener");
             if (TextUtils.isEmpty(responseMessage.getText())) {
@@ -520,16 +550,15 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
             }
             this.b = responseMessage;
             this.d.setText(responseMessage.getText());
-            h();
             j();
-            k();
-            f();
+            l();
+            m();
+            h();
             this.f.removeMessages(1);
-            this.f.removeMessages(2);
             this.c = listener;
             this.f.sendEmptyMessage(1);
-            this.f.sendEmptyMessageDelayed(2, 5000L);
-            ew8 defaultLog = DefaultLog.getInstance();
+            d(responseMessage);
+            h29 defaultLog = DefaultLog.getInstance();
             StringBuilder sb = new StringBuilder();
             sb.append("showTip:");
             SpriteTipHttpResponseMessage spriteTipHttpResponseMessage = this.b;
@@ -543,6 +572,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
             StatisticItem param = new StatisticItem("c15225").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("content", responseMessage.getText()).param("obj_type", responseMessage.getSpeechType());
             Intrinsics.checkNotNullExpressionValue(param, "StatisticItem(\"c15225\")\n…sponseMessage.speechType)");
             TiebaStatic.log(param);
+            g(responseMessage);
         }
     }
 }

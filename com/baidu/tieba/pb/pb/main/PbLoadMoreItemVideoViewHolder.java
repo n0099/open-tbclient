@@ -5,7 +5,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,14 +40,14 @@ public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
         this.b = (RelativeLayout) view2.findViewById(R.id.pb_check_video_more);
         TextView textView = (TextView) view2.findViewById(R.id.pb_check_more_text);
         this.c = textView;
-        s75 d = s75.d(textView);
+        d85 d = d85.d(textView);
         d.C(R.dimen.T_X12);
         d.D(R.string.F_X01);
         d.x(R.color.CAM_X0107);
         this.b.setVisibility(0);
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
             this.a.setOnClickListener(onClickListener);

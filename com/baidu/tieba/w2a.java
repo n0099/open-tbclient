@@ -1,60 +1,117 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
+import com.baidu.searchbox.wordscommand.data.CommandContent;
+import com.baidu.searchbox.wordscommand.listener.PictureCommandInvokeCallBack;
+import com.baidu.searchbox.wordscommand.runtime.IWordCommandApp;
+import com.baidu.tbadk.GrowthStatsUtil;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class w2a extends BaseCardInfo implements xn {
+public class w2a implements IWordCommandApp {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ThreadData> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948220067, "Lcom/baidu/tieba/w2a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948220067, "Lcom/baidu/tieba/w2a;");
-                return;
-            }
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public boolean canPreloadSwanApp(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return false;
         }
-        b = BdUniqueId.gen();
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public void getPictureCommandContent(String str, PictureCommandInvokeCallBack pictureCommandInvokeCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, pictureCommandInvokeCallBack) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public void handlePreloadSwanApp() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
     }
 
     public w2a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
-    public BdUniqueId getType() {
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public boolean isMainProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return TbadkCoreApplication.getInst().isMainProcess(false);
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public boolean isNewInstall() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return TbadkCoreApplication.getInst().getIsFirstUse();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public void doOnShowParseCommandDialogWithPopupExclusion(Context context, CommandContent commandContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, commandContent) == null) {
+            WordCommandManager.getInstance().doOnShowParseCommandDialog(context, commandContent, null, null);
+        }
+    }
+
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public void schemeInvoke(String str) {
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || !PermissionUtil.isAgreePrivacyPolicy() || (parse = Uri.parse(str)) == null) {
+            return;
+        }
+        if (str.startsWith("com.baidu.tieba://unidispatch/tbwebview")) {
+            if (!str.contains("tbwebview?url=https%3A") && !str.contains("tbwebview?url=http%3A")) {
+                str = str.replace("com.baidu.tieba://unidispatch/tbwebview?url=", "");
+            } else {
+                str = parse.getQueryParameter("url");
+            }
+        }
+        Activity b = h9.f().b();
+        if (b != null && (r9.a(b) instanceof TbPageContext)) {
+            UrlManager.getInstance().dealOneLink((TbPageContext) r9.a(b), new String[]{str});
+            uu4.c(Uri.parse(str));
+            GrowthStatsUtil.statisticClipBoard(str);
+        }
     }
 }

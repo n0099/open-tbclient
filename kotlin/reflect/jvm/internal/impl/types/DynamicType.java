@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.renderer.DescriptorRendererOptions;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.types.model.DynamicTypeMarker;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DynamicType extends FlexibleType implements DynamicTypeMarker {
     public final Annotations annotations;
 

@@ -1,27 +1,28 @@
 package com.baidu.tieba;
 
-import android.media.MediaPlayer;
-/* loaded from: classes5.dex */
-public interface g64 extends t54 {
-    void a(boolean z);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class g64 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public long c;
 
-    void c(String str) throws Exception;
-
-    void f(si4 si4Var);
-
-    void g(MediaPlayer.OnInfoListener onInfoListener);
-
-    void h(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener);
-
-    void j(MediaPlayer.OnPreparedListener onPreparedListener);
-
-    void l(MediaPlayer.OnErrorListener onErrorListener);
-
-    void n(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener);
-
-    void q(MediaPlayer.OnCompletionListener onCompletionListener);
-
-    boolean s();
-
-    void setVolume(float f);
+    public g64() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

@@ -7,7 +7,7 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.kwad.components.ad.reward.presenter.a {
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
@@ -35,7 +35,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends com.kwad.components.ad.reward.presenter.b {
         public a(AdInfo adInfo) {
             super(adInfo);
@@ -43,7 +43,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a {
 
         @Override // com.kwad.components.ad.reward.presenter.b
         public final int gS() {
-            return R.id.obfuscated_res_0x7f091255;
+            return R.id.obfuscated_res_0x7f091269;
         }
 
         @Override // com.kwad.components.ad.reward.presenter.b

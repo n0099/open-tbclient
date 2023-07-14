@@ -1,457 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import android.app.Activity;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.write.accountAccess.AccountAccessActivity;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class vka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public BaseActivity b;
-    public uka c;
-    public View d;
-    public BaseWebView e;
-    public View f;
-    public TextView g;
-    public u95 h;
-    public w95 i;
-    public boolean j;
-    public float k;
-    public Runnable l;
-    public Runnable m;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vka a;
-
-        public a(vka vkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vkaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vkaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.e != null) {
-                this.a.p(false);
-                this.a.s();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vka a;
-
-        public b(vka vkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vkaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vkaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.ShowSoftKeyPadDelay(this.a.e);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vka a;
-
-        public c(vka vkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vkaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vkaVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.c.e();
-                this.a.b.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d extends WebViewClient {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vka a;
-
-        public d(vka vkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vkaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vkaVar;
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                super.onPageFinished(webView, str);
-                this.a.j = true;
-                if (this.a.c != null) {
-                    this.a.c.d();
-                }
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
-                super.onReceivedError(webView, i, str, str2);
-                this.a.p(false);
-                this.a.b.showToast(R.string.obfuscated_res_0x7f0f0e0f);
-                this.a.b.finish();
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
-                if (StringUtils.isNull(str) || this.a.c == null) {
-                    return false;
-                }
-                if (!this.a.j) {
-                    this.a.j = true;
-                    this.a.p(false);
-                    this.a.s();
-                    this.a.c.d();
-                    return true;
-                }
-                return this.a.c.f(str);
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vka a;
-
-        public e(vka vkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vkaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vkaVar;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.b.finish();
-            }
-        }
-    }
-
-    public vka(AccountAccessActivity accountAccessActivity) {
+    public static boolean d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {accountAccessActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
+    }
+
+    public static void a(c65 c65Var, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, c65Var, i) == null) && c65Var != null && i >= 0) {
+            int i2 = 1;
+            int i3 = i + 1;
+            boolean d = c65Var.d();
+            String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
+            if (d) {
+                i2 = 2;
             }
-        }
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = false;
-        this.k = 1.2631578f;
-        this.l = new a(this);
-        this.m = new b(this);
-        if (accountAccessActivity == null) {
-            return;
-        }
-        this.b = accountAccessActivity;
-        if (!j(accountAccessActivity)) {
-            accountAccessActivity.finish();
+            TiebaStatic.log(new StatisticItem("c14633").param("uid", valueOf).param("obj_locate", i3).param("obj_type", i2));
         }
     }
 
-    public void l(uka ukaVar) {
+    public static boolean b(Activity activity, int i, String str) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ukaVar) == null) {
-            this.c = ukaVar;
-        }
-    }
-
-    public void m(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            this.k = f;
-            UtilHelper.setSupportHeight(this.b.getPageContext().getPageActivity(), this.e, f);
-        }
-    }
-
-    public void o(boolean z) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && (view2 = this.f) != null) {
-            if (z) {
-                view2.setVisibility(0);
-            } else {
-                view2.setVisibility(8);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
+            if (d(i)) {
+                e(activity, str);
+                return true;
             }
+            return false;
         }
+        return invokeLIL.booleanValue;
     }
 
-    public void p(boolean z) {
+    public static void g(ViewGroup viewGroup, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            if (this.h == null) {
-                u95 u95Var = new u95(this.b.getPageContext());
-                this.h = u95Var;
-                u95Var.e(new e(this));
-            }
-            this.h.h(z);
+        if ((interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) && viewGroup != null && !TextUtils.isEmpty(str)) {
+            BdTopToast bdTopToast = new BdTopToast(viewGroup.getContext());
+            bdTopToast.h(z);
+            bdTopToast.g(str);
+            bdTopToast.i(viewGroup);
         }
     }
 
-    public void q(boolean z) {
-        BaseWebView baseWebView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048588, this, z) == null) && (baseWebView = this.e) != null) {
-            if (z) {
-                baseWebView.setVisibility(0);
-            } else {
-                baseWebView.setVisibility(4);
-            }
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            yg.a().postDelayed(this.l, i);
-        }
-    }
-
-    public Animation f(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, f, f2);
-            translateAnimation.setFillAfter(true);
-            translateAnimation.setDuration(300L);
-            return translateAnimation;
-        }
-        return (Animation) invokeCommon.objValue;
-    }
-
-    public float g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.floatValue;
-    }
-
-    public BaseActivity getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (BaseActivity) invokeV.objValue;
-    }
-
-    public float h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.k;
-        }
-        return invokeV.floatValue;
-    }
-
-    public WebView i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (WebView) invokeV.objValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            yg.a().removeCallbacks(this.l);
-            yg.a().removeCallbacks(this.m);
-            this.h = null;
-        }
-    }
-
-    public final boolean j(AccountAccessActivity accountAccessActivity) {
+    public static String c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, accountAccessActivity)) == null) {
-            accountAccessActivity.setActivityBgTransparent();
-            accountAccessActivity.setSwipeBackEnabled(false);
-            accountAccessActivity.setContentView(R.layout.obfuscated_res_0x7f0d001e);
-            View findViewById = accountAccessActivity.findViewById(R.id.obfuscated_res_0x7f090065);
-            this.d = findViewById;
-            findViewById.setOnClickListener(new c(this));
-            View findViewById2 = accountAccessActivity.findViewById(R.id.obfuscated_res_0x7f090023);
-            this.f = findViewById2;
-            TextView textView = (TextView) findViewById2.findViewById(R.id.custom_loading_text);
-            this.g = textView;
-            textView.setText(accountAccessActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1349));
-            w95 w95Var = new w95();
-            this.i = w95Var;
-            w95Var.a = 1000L;
-            this.a = xi.l(accountAccessActivity.getBaseContext()) / xi.j(accountAccessActivity.getBaseContext());
-            if (this.e != null) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null) {
+                return null;
             }
-            try {
-                this.e = (BaseWebView) accountAccessActivity.findViewById(R.id.obfuscated_res_0x7f090066);
-                UtilHelper.setSupportHeight(accountAccessActivity.getPageContext().getPageActivity(), this.e, this.k);
-                this.e.setBackgroundColor(accountAccessActivity.getResources().getColor(17170443));
-                this.e.setWebViewClient(new d(this));
-                return true;
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                TbadkCoreApplication.getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() + 1);
-                return false;
+            Object tag = view2.getTag();
+            if (tag instanceof yca) {
+                yca ycaVar = (yca) tag;
+                if (ycaVar.q() != null) {
+                    return ycaVar.q().getUserId();
+                }
             }
+            return null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public void n(int i, int i2, int i3, int i4) {
+    public static void e(Activity activity, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) && (this.e.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.e.getLayoutParams();
-            marginLayoutParams.setMargins(i, i2, i3, i4);
-            this.e.setLayoutParams(marginLayoutParams);
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) && activity != null && !TextUtils.isEmpty(str)) {
+            g((ViewGroup) activity.findViewById(16908290), str, false);
         }
     }
 
-    public void s() {
-        BaseActivity baseActivity;
+    public static void f(View view2, yca ycaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (baseActivity = this.b) != null) {
-            if (this.k == this.a) {
-                int j = xi.j(baseActivity.getBaseContext());
-                BaseWebView baseWebView = this.e;
-                baseWebView.startAnimation(f(j - (baseWebView.getWidth() * 1.2631578f), 0.0f));
-                yg.a().postDelayed(this.m, 800L);
-                return;
-            }
-            BaseWebView baseWebView2 = this.e;
-            baseWebView2.startAnimation(f(baseWebView2.getHeight(), 0.0f));
+        if ((interceptable != null && interceptable.invokeLL(65541, null, view2, ycaVar) != null) || view2 == null) {
+            return;
         }
+        view2.setTag(ycaVar);
     }
 }

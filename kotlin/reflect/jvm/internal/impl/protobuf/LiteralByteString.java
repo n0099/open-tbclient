@@ -7,7 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import kotlin.reflect.jvm.internal.impl.protobuf.ByteString;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class LiteralByteString extends ByteString {
     public final byte[] bytes;
     public int hash = 0;
@@ -26,7 +26,7 @@ public class LiteralByteString extends ByteString {
         return true;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class LiteralByteIterator implements ByteString.ByteIterator {
         public final int limit;
         public int position;

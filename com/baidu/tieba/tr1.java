@@ -1,218 +1,122 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.text.TextUtils;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sso.r.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.security.PublicKey;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateFactory;
-import java.util.Enumeration;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes8.dex */
-public final class tr1 {
+public class tr1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public com.baidu.sso.r.a a;
+    public Context b;
+    public String c;
+    public String d;
+    public qr1 e;
+    public ServiceConnection f;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public tr1(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-            } catch (Throwable th) {
-                lr1.d(th);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (!TextUtils.isEmpty(a)) {
-                return a;
-            }
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
-            if (packageInfo == null) {
-                return "";
-            }
-            a = b(packageInfo, packageInfo.applicationInfo.sourceDir);
-            return a;
         }
-        return (String) invokeL.objValue;
+        this.a = null;
+        this.c = null;
+        this.d = null;
+        this.f = new vr1(this);
+        this.b = context;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0020  */
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
+            intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
+            this.b.bindService(intent, this.f, 1);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0055 A[Catch: NoSuchAlgorithmException -> 0x006f, all -> 0x007e, LOOP:0: B:24:0x0053->B:25:0x0055, LOOP_END, TryCatch #1 {NoSuchAlgorithmException -> 0x006f, blocks: (B:23:0x0045, B:25:0x0055, B:26:0x006b), top: B:45:0x0045 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String b(PackageInfo packageInfo, String str) {
-        InterceptResult invokeLL;
-        PublicKey publicKey;
-        byte[] encoded;
+    public String a(String str) {
+        InterceptResult invokeL;
+        String str2;
         Signature[] signatureArr;
+        PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, packageInfo, str)) == null) {
-            if (packageInfo != null && (signatureArr = packageInfo.signatures) != null && signatureArr.length > 0 && signatureArr[0] != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a != null) {
+                String str3 = null;
                 try {
-                    publicKey = c(signatureArr[0]);
-                } catch (Throwable th) {
-                    lr1.d(th);
-                }
-                if (publicKey == null) {
-                    publicKey = d(str);
-                }
-                if (publicKey == null && (encoded = publicKey.getEncoded()) != null) {
-                    return qr1.b(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
-                }
-            }
-            publicKey = null;
-            if (publicKey == null) {
-            }
-            return publicKey == null ? "" : "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static PublicKey c(Signature signature) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, signature)) == null) {
-            CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(signature.toByteArray());
-            Certificate generateCertificate = certificateFactory.generateCertificate(byteArrayInputStream);
-            try {
-                byteArrayInputStream.close();
-            } catch (Throwable th) {
-                lr1.d(th);
-            }
-            return generateCertificate.getPublicKey();
-        }
-        return (PublicKey) invokeL.objValue;
-    }
-
-    public static PublicKey d(String str) {
-        InterceptResult invokeL;
-        JarFile jarFile;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                byte[] bArr = new byte[8192];
-                try {
-                    jarFile = new JarFile(str);
-                    try {
-                        Enumeration<JarEntry> entries = jarFile.entries();
-                        Certificate[] certificateArr = null;
-                        while (entries.hasMoreElements()) {
-                            JarEntry nextElement = entries.nextElement();
-                            if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
-                                Certificate[] e = e(jarFile, nextElement, bArr);
-                                if (e != null && e.length > 0) {
-                                    if (certificateArr == null) {
-                                        certificateArr = e;
-                                    } else {
-                                        for (int i = 0; i < certificateArr.length; i++) {
-                                            int i2 = 0;
-                                            while (true) {
-                                                if (i2 < e.length) {
-                                                    if (certificateArr[i] != null && certificateArr[i].equals(e[i2])) {
-                                                        z = true;
-                                                        break;
-                                                    }
-                                                    i2++;
-                                                } else {
-                                                    z = false;
-                                                    break;
-                                                }
-                                            }
-                                            if (z && certificateArr.length == e.length) {
-                                            }
-                                            jarFile.close();
-                                            jarFile.close();
-                                            return null;
-                                        }
-                                        continue;
-                                    }
-                                }
-                                jarFile.close();
-                                jarFile.close();
-                                return null;
-                            }
-                        }
-                        jarFile.close();
-                        if (certificateArr == null || certificateArr.length <= 0) {
-                            return null;
-                        }
-                        return certificateArr[0].getPublicKey();
-                    } catch (Throwable th) {
-                        th = th;
-                        if (jarFile != null) {
-                            jarFile.close();
-                        }
-                        throw th;
+                    if (TextUtils.isEmpty(this.c)) {
+                        this.c = this.b.getPackageName();
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    jarFile = null;
-                }
-            } catch (Throwable th3) {
-                lr1.d(th3);
-                return null;
-            }
-        } else {
-            return (PublicKey) invokeL.objValue;
-        }
-    }
-
-    public static Certificate[] e(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
-        InterceptResult invokeLLL;
-        BufferedInputStream bufferedInputStream;
-        Certificate[] certificateArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jarFile, jarEntry, bArr)) == null) {
-            try {
-                bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
-                while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
-                    try {
-                    } catch (Throwable th) {
-                        th = th;
+                    if (TextUtils.isEmpty(this.d)) {
                         try {
-                            lr1.d(th);
-                            return new Certificate[0];
-                        } finally {
-                            if (bufferedInputStream != null) {
+                            packageInfo = this.b.getPackageManager().getPackageInfo(this.c, 64);
+                        } catch (PackageManager.NameNotFoundException unused) {
+                        }
+                        if (packageInfo != null) {
+                            signatureArr = packageInfo.signatures;
+                            if (signatureArr != null && signatureArr.length > 0) {
                                 try {
-                                    bufferedInputStream.close();
-                                } catch (Throwable th2) {
-                                    lr1.d(th2);
+                                    byte[] digest = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
+                                    StringBuilder sb = new StringBuilder();
+                                    for (byte b : digest) {
+                                        sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
+                                    }
+                                    str3 = sb.toString();
+                                } catch (NoSuchAlgorithmException unused2) {
                                 }
                             }
+                            this.d = str3;
                         }
+                        signatureArr = null;
+                        if (signatureArr != null) {
+                            byte[] digest2 = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
+                            StringBuilder sb2 = new StringBuilder();
+                            while (r3 < r4) {
+                            }
+                            str3 = sb2.toString();
+                        }
+                        this.d = str3;
                     }
+                    str2 = ((a.AbstractBinderC0204a.C0205a) this.a).a(this.c, this.d, str);
+                } catch (Throwable unused3) {
+                    str2 = str3;
                 }
-                if (jarEntry != null) {
-                    certificateArr = jarEntry.getCertificates();
-                } else {
-                    certificateArr = new Certificate[0];
+                if (!TextUtils.isEmpty(str2)) {
+                    return str2;
                 }
-                try {
-                    bufferedInputStream.close();
-                } catch (Throwable th3) {
-                    lr1.d(th3);
-                }
-                return certificateArr;
-            } catch (Throwable th4) {
-                th = th4;
-                bufferedInputStream = null;
             }
-        } else {
-            return (Certificate[]) invokeLLL.objValue;
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 }

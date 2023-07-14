@@ -1,36 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.view.View;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.frs.ForumWriteData;
+import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
+import com.baidu.tieba.frs.view.FrsTopItemInfoView;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.ItemInfo;
 /* loaded from: classes8.dex */
 public class xi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<kn> a;
-    public BdTypeRecyclerView b;
-    public aj7 c;
-    public zi7 d;
-    public yi7 e;
+    public BaseFragment a;
+    public FrsTopItemInfoView b;
 
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-        }
-    }
-
-    public xi7(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
+    public xi7(BaseFragment baseFragment) {
+        FrsViewData frsViewData;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumRulesShowActivity, bdTypeRecyclerView};
+            Object[] objArr = {baseFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,49 +39,44 @@ public class xi7 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        a(forumRulesShowActivity, bdTypeRecyclerView);
-    }
-
-    public final void a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, forumRulesShowActivity, bdTypeRecyclerView) == null) {
-            this.b = bdTypeRecyclerView;
-            this.c = new aj7(forumRulesShowActivity, ej7.m);
-            this.d = new zi7(forumRulesShowActivity, fj7.d);
-            this.e = new yi7(forumRulesShowActivity, dj7.f);
-            this.a.add(this.c);
-            this.a.add(this.d);
-            this.a.add(this.e);
-            bdTypeRecyclerView.addAdapters(this.a);
+        if (baseFragment == null) {
+            return;
+        }
+        this.a = baseFragment;
+        this.b = new FrsTopItemInfoView(baseFragment.getContext());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+        layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
+        this.b.setLayoutParams(layoutParams);
+        b();
+        BaseFragment baseFragment2 = this.a;
+        if ((baseFragment2 instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) baseFragment2).d) != null && frsViewData.getForum() != null) {
+            ForumData forum = frsViewData.getForum();
+            this.b.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
         }
     }
 
-    public void c(List<xn> list) {
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.b;
-            if (bdTypeRecyclerView != null) {
-                bdTypeRecyclerView.setData(list);
-            }
-            zi7 zi7Var = this.d;
-            if (zi7Var != null) {
-                zi7Var.y(list);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void b() {
+        FrsTopItemInfoView frsTopItemInfoView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (frsTopItemInfoView = this.b) != null) {
+            frsTopItemInfoView.e();
         }
     }
 
-    public void d(String str) {
+    public void c(ItemInfo itemInfo) {
+        FrsTopItemInfoView frsTopItemInfoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            aj7 aj7Var = this.c;
-            if (aj7Var != null) {
-                aj7Var.setFrom(str);
-            }
-            yi7 yi7Var = this.e;
-            if (yi7Var != null) {
-                yi7Var.setFrom(str);
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) && (frsTopItemInfoView = this.b) != null) {
+            frsTopItemInfoView.setData(itemInfo);
         }
     }
 }

@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.IMediaSetSessionReadListener;
-import com.baidu.android.imsdk.chatmessage.request.RequestContants;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -127,7 +126,7 @@ public class IMMarkBCSessionReadedMsg extends Message {
                 jSONObject.put("uk", this.mUk);
                 jSONObject.put("user_type", 0);
                 jSONObject.put("contacter_uk", this.mContacterUk);
-                jSONObject.put(RequestContants.EXTRA_CONTACTER_USER_TYPE, 0);
+                jSONObject.put("contacter_user_type", 0);
                 jSONObject.put("business_type", this.mBusinessType);
                 jSONObject.put("session_type", this.mSessionType);
                 jSONObject.put("category", this.mCategory);
@@ -157,17 +156,17 @@ public class IMMarkBCSessionReadedMsg extends Message {
                 jSONObject.put("user_type", 1);
                 if (this.mType != 1) {
                     jSONObject.put("contacter_uk", getContacterUk());
-                    jSONObject.put(RequestContants.EXTRA_CONTACTER_USER_TYPE, getUserType(this.mBusinessType));
+                    jSONObject.put("contacter_user_type", getUserType(this.mBusinessType));
                     if (this.mContacterPa > 0) {
-                        jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.mContacterPa);
+                        jSONObject.put("contacter_pa_uid", this.mContacterPa);
                     }
                     jSONObject.put("business_type", getRequestBusinessType());
                     jSONObject.put("category", this.mCategory);
                     jSONObject.put(Constants.EXTRA_CLIENT_MAX_MSGID, this.mMaxMsgid);
                 } else if (this.mIsStranger == 1) {
                     jSONObject.put("contacter_uk", 0);
-                    jSONObject.put(RequestContants.EXTRA_CONTACTER_USER_TYPE, getUserType(this.mBusinessType));
-                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, 0);
+                    jSONObject.put("contacter_user_type", getUserType(this.mBusinessType));
+                    jSONObject.put("contacter_pa_uid", 0);
                     jSONObject.put("aggr_type", 12);
                     jSONObject.put("business_type", 3);
                     jSONObject.put("category", this.mCategory);

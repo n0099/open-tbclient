@@ -1,65 +1,22 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.tieba.wa2;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes8.dex */
 public interface yv1 {
-    boolean A();
+    int a();
 
-    boolean B();
+    VideoPlayerFactory b();
 
-    JSONObject C();
+    int c();
 
-    boolean D();
+    void d(boolean z);
 
-    void E();
+    boolean e();
 
-    long F();
+    boolean f();
 
-    boolean G();
+    void g(int i);
 
-    long H();
-
-    String getExpInfos();
-
-    JSONObject getRawSwitch();
-
-    int getSwitch(String str, int i);
-
-    String getSwitch(String str, String str2);
-
-    boolean getSwitch(String str, boolean z);
-
-    boolean j();
-
-    String k();
-
-    boolean l();
-
-    boolean m();
-
-    long n();
-
-    boolean o();
-
-    boolean p();
-
-    int q();
-
-    boolean r();
-
-    boolean s();
-
-    boolean t();
-
-    int u();
-
-    boolean v();
-
-    boolean w();
-
-    boolean x();
-
-    int y();
-
-    boolean z();
+    void h(wa2.c cVar);
 }

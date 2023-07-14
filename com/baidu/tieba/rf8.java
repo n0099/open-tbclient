@@ -1,177 +1,193 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tieba.im.settingcache.GroupSettingItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class rf8 {
+public class rf8 extends pf8 {
     public static /* synthetic */ Interceptable $ic;
+    public static rf8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public qf8 a;
-    public CollapseState b;
-    public int c;
 
-    public rf8(qf8 qf8Var, sf8 sf8Var) {
+    /* loaded from: classes7.dex */
+    public class a extends wy5<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GroupSettingItemData a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ rf8 c;
+
+        public a(rf8 rf8Var, GroupSettingItemData groupSettingItemData, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rf8Var, groupSettingItemData, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = rf8Var;
+            this.a = groupSettingItemData;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wy5
+        /* renamed from: a */
+        public Void doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.c.b().g(this.b, OrmObject.jsonStrWithObject(this.a));
+                return null;
+            }
+            return (Void) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948119813, "Lcom/baidu/tieba/rf8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948119813, "Lcom/baidu/tieba/rf8;");
+                return;
+            }
+        }
+        b = new rf8();
+    }
+
+    public rf8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qf8Var, sf8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.c = 0;
-        this.a = qf8Var;
-        this.b = new CollapseState();
-    }
-
-    public final void d(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
-            if (!TextUtils.isEmpty(str) && j != 0) {
-                CollapseState collapseState = this.b;
-                collapseState.a = CollapseState.Icon.FORUM;
-                collapseState.e = str;
-                collapseState.d = j;
-                return;
-            }
-            CollapseState collapseState2 = this.b;
-            collapseState2.a = CollapseState.Icon.DEFAULT;
-            collapseState2.e = null;
-            collapseState2.d = 0L;
         }
     }
 
-    public final void e(boolean z, boolean z2) {
+    public static rf8 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                this.b.c = CollapseState.Tip.AT_ME;
-            } else if (z2) {
-                this.b.c = CollapseState.Tip.THREE_EXP;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (rf8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pf8
+    public ye<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            o55.e();
+            return o55.f("tb.im_group_setting");
+        }
+        return (ye) invokeV.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.e(GroupSettingItemData.class);
+        }
+    }
+
+    @Override // com.baidu.tieba.pf8
+    public void h(ChatSetting chatSetting) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
+            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
+            String uid = groupSettingItemData.getUid();
+            String gid = groupSettingItemData.getGid();
+            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
+                ye<String> b2 = b();
+                String str = uid + "@" + gid;
+                String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
+                synchronized (this.a) {
+                    this.a.put(str, groupSettingItemData);
+                }
+                b2.g(str, jsonStrWithObject);
+            } else if (!TbConfig.getDebugSwitch()) {
             } else {
-                this.b.c = CollapseState.Tip.DEFAULT;
+                throw new RuntimeException("key param is null");
             }
         }
     }
 
-    public void a(List<Long> list, long j, List list2, int i) {
-        List<Long> list3;
-        ChatRoomInfo chatRoomInfo;
-        boolean z;
-        boolean a;
+    @Override // com.baidu.tieba.pf8
+    public void i(ChatSetting chatSetting, ay5<Void> ay5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Long.valueOf(j), list2, Integer.valueOf(i)}) == null) && (list3 = list) != null && list2 != null) {
-            long j2 = 0;
-            String str = null;
-            this.c = 0;
-            for (int i2 = 0; i2 < list2.size(); i2++) {
-                if (list2.get(i2) instanceof ChatGroupInfo) {
-                    List<ChatRoomInfo> roomInfoList = ((ChatGroupInfo) list2.get(i2)).getRoomInfoList();
-                    if (!ListUtils.isEmpty(roomInfoList)) {
-                        this.c += roomInfoList.size();
-                    }
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, ay5Var) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
+            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
+            String uid = groupSettingItemData.getUid();
+            String gid = groupSettingItemData.getGid();
+            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
+                String str = uid + "@" + gid;
+                synchronized (this.a) {
+                    this.a.put(str, groupSettingItemData);
+                }
+                az5.c(new a(this, groupSettingItemData, str), ay5Var);
+            } else if (!TbConfig.getDebugSwitch()) {
+            } else {
+                throw new RuntimeException("key param is null");
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pf8
+    /* renamed from: k */
+    public GroupSettingItemData a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            GroupSettingItemData groupSettingItemData = null;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            String str3 = str + "@" + str2;
+            synchronized (this.a) {
+                ChatSetting chatSetting = this.a.get(str3);
+                if (chatSetting instanceof GroupSettingItemData) {
+                    groupSettingItemData = (GroupSettingItemData) chatSetting;
                 }
             }
-            int i3 = -1;
-            int i4 = 0;
-            boolean z2 = false;
-            boolean z3 = false;
-            int i5 = -1;
-            while (i4 < list2.size()) {
-                if (list2.get(i4) instanceof ChatGroupInfo) {
-                    List<ChatRoomInfo> roomInfoList2 = ((ChatGroupInfo) list2.get(i4)).getRoomInfoList();
-                    if (!ListUtils.isEmpty(roomInfoList2)) {
-                        int i6 = 0;
-                        while (i6 < roomInfoList2.size() && (chatRoomInfo = roomInfoList2.get(i6)) != null) {
-                            if (chatRoomInfo.getAtInfo() != null && chatRoomInfo.getAtInfo().getCountAll() > 0) {
-                                z = true;
-                            } else {
-                                z = false;
-                            }
-                            int indexOf = list3.indexOf(Long.valueOf(chatRoomInfo.getRoomId()));
-                            if (indexOf != i3) {
-                                if (z && !z2) {
-                                    j2 = chatRoomInfo.getRoomId();
-                                    str = chatRoomInfo.getAvatar();
-                                } else if (z && z2) {
-                                    if (i5 < 0 || indexOf < i5) {
-                                        j2 = chatRoomInfo.getRoomId();
-                                        str = chatRoomInfo.getAvatar();
-                                    }
-                                } else if (!z && !z2 && ((!(a = mj8.a(j)) || this.c == 1) && (i5 < 0 || indexOf < i5))) {
-                                    j2 = chatRoomInfo.getRoomId();
-                                    z3 = !a;
-                                    str = chatRoomInfo.getAvatar();
-                                    i5 = indexOf;
-                                    z2 = false;
-                                }
-                                i5 = indexOf;
-                                z2 = true;
-                                z3 = false;
-                            }
-                            i6++;
-                            list3 = list;
-                            i3 = -1;
-                        }
-                    }
-                }
-                i4++;
-                list3 = list;
-                i3 = -1;
+            if (groupSettingItemData == null) {
+                GroupSettingItemData groupSettingItemData2 = new GroupSettingItemData();
+                groupSettingItemData2.setUid(str);
+                groupSettingItemData2.setGid(str2);
+                groupSettingItemData2.setAcceptNotify(true);
+                groupSettingItemData2.setInGroup(true);
+                return groupSettingItemData2;
             }
-            CollapseState clone = this.b.clone();
-            e(z2, z3);
-            d(str, j2);
-            qf8 qf8Var = this.a;
-            if (qf8Var != null) {
-                qf8Var.update(clone, this.b);
-            }
+            return groupSettingItemData;
         }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            CollapseState clone = this.b.clone();
-            if (z) {
-                this.b.b = CollapseState.State.EXPAND;
-            } else {
-                this.b.b = CollapseState.State.COLLAPSE;
-            }
-            qf8 qf8Var = this.a;
-            if (qf8Var != null) {
-                qf8Var.update(clone, this.b);
-            }
-        }
-    }
-
-    public void c(List<Long> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            CollapseState clone = this.b.clone();
-            e(false, false);
-            if (this.c != 1) {
-                d(null, 0L);
-            }
-            qf8 qf8Var = this.a;
-            if (qf8Var != null) {
-                qf8Var.update(clone, this.b);
-            }
-        }
+        return (GroupSettingItemData) invokeLL.objValue;
     }
 }

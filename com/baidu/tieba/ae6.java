@@ -1,225 +1,117 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class ae6 {
+public class ae6 {
     public static /* synthetic */ Interceptable $ic;
+    public static ae6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RecyclerView.LayoutManager a;
+    public List<StatisticItem> a;
 
-    public abstract int c(View view2);
-
-    public abstract int d(View view2);
-
-    public abstract int e();
-
-    public abstract int f();
-
-    public abstract int g();
-
-    /* loaded from: classes5.dex */
-    public static class a extends ae6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(RecyclerView.LayoutManager layoutManager) {
-            super(layoutManager, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {layoutManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((RecyclerView.LayoutManager) objArr2[0], (a) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ae6
-        public int c(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
-                return this.a.getDecoratedMeasuredWidth(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.ae6
-        public int d(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-                return this.a.getDecoratedLeft(view2) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).leftMargin;
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.ae6
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.getWidth();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ae6
-        public int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.getPaddingLeft();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ae6
-        public int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return (this.a.getWidth() - this.a.getPaddingLeft()) - this.a.getPaddingRight();
-            }
-            return invokeV.intValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends ae6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(RecyclerView.LayoutManager layoutManager) {
-            super(layoutManager, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {layoutManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((RecyclerView.LayoutManager) objArr2[0], (a) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ae6
-        public int c(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
-                return this.a.getDecoratedMeasuredHeight(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.ae6
-        public int d(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-                return this.a.getDecoratedTop(view2) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).topMargin;
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.ae6
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.getHeight();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ae6
-        public int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.getPaddingTop();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ae6
-        public int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return (this.a.getHeight() - this.a.getPaddingTop()) - this.a.getPaddingBottom();
-            }
-            return invokeV.intValue;
-        }
-    }
-
-    public ae6(RecyclerView.LayoutManager layoutManager) {
+    public ae6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {layoutManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        new Rect();
-        this.a = layoutManager;
     }
 
-    public /* synthetic */ ae6(RecyclerView.LayoutManager layoutManager, a aVar) {
-        this(layoutManager);
+    public static ae6 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ae6.class) {
+                    if (b == null) {
+                        b = new ae6();
+                    }
+                }
+            }
+            return b;
+        }
+        return (ae6) invokeV.objValue;
     }
 
-    public static ae6 a(RecyclerView.LayoutManager layoutManager) {
+    public void a(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
+            return;
+        }
+        if (this.a == null) {
+            this.a = new ArrayList();
+        }
+        List<StatisticItem> list = this.a;
+        if (list != null) {
+            list.add(statisticItem);
+        }
+    }
+
+    public final long c(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, layoutManager)) == null) {
-            return new a(layoutManager);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData)) == null) {
+            if (threadData != null && threadData.getThreadAlaInfo() != null) {
+                return threadData.getThreadAlaInfo().live_id;
+            }
+            return -1L;
         }
-        return (ae6) invokeL.objValue;
+        return invokeL.longValue;
     }
 
-    public static ae6 b(RecyclerView.LayoutManager layoutManager) {
-        InterceptResult invokeL;
+    public StatisticItem d(int i, String str, int i2, String str2, ThreadData threadData) {
+        InterceptResult invokeCommon;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, layoutManager)) == null) {
-            return new b(layoutManager);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, threadData})) == null) {
+            if (threadData == null) {
+                return null;
+            }
+            if (threadData.getThreadAlaInfo() != null && !StringUtils.isNull(threadData.getThreadAlaInfo().appId)) {
+                str3 = threadData.getThreadAlaInfo().appId;
+            } else {
+                str3 = "";
+            }
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_type", 1);
+            statisticItem.param("obj_id", c(threadData));
+            statisticItem.param("tid", threadData.getId());
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+            statisticItem.param("entryid", i2);
+            statisticItem.param("name", str2);
+            statisticItem.param("is_small_follow", i);
+            return statisticItem;
         }
-        return (ae6) invokeL.objValue;
+        return (StatisticItem) invokeCommon.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
+        }
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null) {
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
     }
 }

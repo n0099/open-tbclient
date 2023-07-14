@@ -1,83 +1,187 @@
 package com.baidu.tieba;
 
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.TranslateAnimation;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class g21 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public final class g21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public t01 a;
+    public PlayerStatus b;
+    public StringBuilder c;
 
-    public static Animation a() {
-        InterceptResult invokeV;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 2.0f, 1, 0.0f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        return (Animation) invokeV.objValue;
     }
 
-    public static Animation b() {
-        InterceptResult invokeV;
+    public g21() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, 2.0f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (Animation) invokeV.objValue;
+        this.b = PlayerStatus.IDLE;
+        d();
     }
 
-    public static Animation c() {
+    @NonNull
+    public PlayerStatus c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -0.15f, 1, 0.0f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (Animation) invokeV.objValue;
+        return (PlayerStatus) invokeV.objValue;
     }
 
-    public static Animation d() {
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            h();
+            this.b = PlayerStatus.IDLE;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public void a(mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mx0Var) == null) {
+            if (mx0Var.getType() != 4 && mx0Var.getType() != 2) {
+                return;
+            }
+            String c = mx0Var.c();
+            char c2 = 65535;
+            switch (c.hashCode()) {
+                case -525235558:
+                    if (c.equals(PlayerEvent.ACTION_ON_PREPARED)) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case -461848373:
+                    if (c.equals(PlayerEvent.ACTION_ON_ERROR)) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
+                case 154871702:
+                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+                case 1370689931:
+                    if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+            }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        if (c2 == 3) {
+                            g(PlayerStatus.ERROR);
+                            return;
+                        }
+                        return;
+                    }
+                    g(PlayerStatus.PREPARED);
+                    return;
+                }
+                g(PlayerStatus.COMPLETE);
+                return;
+            }
+            int g = mx0Var.g(1);
+            if (904 == g || 956 == g) {
+                g(PlayerStatus.PLAYING);
+            }
+        }
+    }
+
+    public void b(@NonNull t01 t01Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t01Var) == null) {
+            this.a = t01Var;
+        }
+    }
+
+    public boolean e(@NonNull PlayerStatus... playerStatusArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, playerStatusArr)) == null) {
+            for (PlayerStatus playerStatus : playerStatusArr) {
+                if (playerStatus == c()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(PlayerStatus playerStatus) {
+        PlayerStatus playerStatus2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, playerStatus) != null) || playerStatus == (playerStatus2 = this.b)) {
+            return;
+        }
+        this.b = playerStatus;
+        t01 t01Var = this.a;
+        if (t01Var != null) {
+            t01Var.d(hx0.w(playerStatus2, playerStatus));
+        }
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -0.15f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (ru0.f()) {
+                StringBuilder sb = this.c;
+                if (sb == null) {
+                    this.c = new StringBuilder();
+                } else if (sb.length() > 0) {
+                    StringBuilder sb2 = this.c;
+                    sb2.delete(0, sb2.length());
+                }
+                StringBuilder sb3 = this.c;
+                sb3.append("，Courier :");
+                sb3.append(this.a);
+                sb3.append("，status :");
+                sb3.append(this.b);
+                sb3.append("，hash :");
+                sb3.append(hashCode());
+                sb3.append("】");
+                return this.c.toString();
+            }
+            return super.toString();
         }
-        return (Animation) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

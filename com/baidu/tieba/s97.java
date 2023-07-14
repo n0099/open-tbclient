@@ -1,44 +1,51 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.card.FeedCardView;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class s97 extends d87<FeedCardView, j57<?>> {
+public class s97 implements mb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public String c;
+    public long d;
+    public int e;
+    public boolean f;
+    public long g;
+    public long h;
+    public long i;
+    public y97 j;
+    @Nullable
+    public Object k;
+    public d87 l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s97(String str) {
-        super(str);
+    public s97() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.j = new y97();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.s87
-    /* renamed from: e */
-    public void b(@NonNull FeedCardView feedCardView, @NonNull j57<?> j57Var) {
+    @Override // com.baidu.tieba.mb7
+    public void d(@NonNull Object obj) {
+        y97 y97Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedCardView, j57Var) == null) {
-            feedCardView.f(j57Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (y97Var = this.j) != null) {
+            y97Var.d(obj);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.adp.framework.message;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zf;
+import com.baidu.tieba.ag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,9 +23,9 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
 
-    public void logStatInBackground(int i, zf zfVar) {
+    public void logStatInBackground(int i, ag agVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, zfVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, agVar) == null) {
         }
     }
 

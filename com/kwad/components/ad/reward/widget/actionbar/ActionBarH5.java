@@ -14,7 +14,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.c;
 import com.kwad.sdk.widget.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ActionBarH5 extends FrameLayout implements c {
     public TextView cE;
     public AdTemplate mAdTemplate;
@@ -22,7 +22,7 @@ public class ActionBarH5 extends FrameLayout implements c {
     public a wR;
     public View wS;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void R(boolean z);
     }
@@ -43,14 +43,14 @@ public class ActionBarH5 extends FrameLayout implements c {
     }
 
     private void E(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04df, this);
-        this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09129b);
-        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09129f);
-        this.wS = findViewById(R.id.obfuscated_res_0x7f09127d);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04ea, this);
+        this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0912af);
+        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b3);
+        this.wS = findViewById(R.id.obfuscated_res_0x7f091291);
     }
 
     private void b(View view2, final boolean z) {
-        com.kwad.components.core.c.a.a.a(new a.C0641a(view2.getContext()).L(this.mAdTemplate).ae(view2 == this.wS ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
+        com.kwad.components.core.c.a.a.a(new a.C0646a(view2.getContext()).L(this.mAdTemplate).ae(view2 == this.wS ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 if (ActionBarH5.this.wR != null) {

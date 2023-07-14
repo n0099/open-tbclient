@@ -1,91 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.net.Uri;
+import androidx.annotation.NonNull;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.tieba.a04;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.baidu.tieba.qz3;
 /* loaded from: classes8.dex */
-public class zz3 implements a04.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final ExecutorService a;
-    public final h04 b;
-    public final DownloadInfo c;
-    public final a d;
-    public long e;
-    public volatile AtomicBoolean f;
+public interface zz3 {
+    void a(DownloadInfo downloadInfo);
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void e(DownloadInfo downloadInfo);
-    }
+    void b(DownloadInfo downloadInfo);
 
-    public zz3(ExecutorService executorService, h04 h04Var, DownloadInfo downloadInfo, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executorService, h04Var, downloadInfo, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = System.currentTimeMillis();
-        this.f = new AtomicBoolean(false);
-        this.a = executorService;
-        this.b = h04Var;
-        this.c = downloadInfo;
-        this.d = aVar;
-    }
+    void c(DownloadInfo downloadInfo);
 
-    @Override // com.baidu.tieba.a04.a
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.getProgress() == this.c.getSize()) {
-            this.c.setPackageName(u14.d(AppRuntime.getAppContext(), this.c.getPath()));
-            this.c.setStatus(DownloadState.DOWNLOADED.value());
-            this.b.b(this.c);
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.e(this.c);
-            }
-        }
-    }
+    void d(DownloadInfo downloadInfo);
 
-    @Override // com.baidu.tieba.a04.a
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f.get()) {
-            synchronized (this) {
-                if (!this.f.get()) {
-                    this.f.set(true);
-                    long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - this.e > 1000) {
-                        this.b.b(this.c);
-                        this.e = currentTimeMillis;
-                    }
-                    this.f.set(false);
-                }
-            }
-        }
-    }
+    void destroy();
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.submit(new a04(this.b, this.c, this));
-        }
-    }
+    void f(@NonNull String str, @NonNull Uri uri, @NonNull qz3.d<Boolean> dVar);
+
+    DownloadInfo g(String str);
 }

@@ -1,32 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.view.animation.AccelerateInterpolator;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.location.BDLocation;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.CircleOptions;
+import com.baidu.mapapi.map.LogoPosition;
+import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.map.PolygonOptions;
-import com.baidu.mapapi.map.PolylineOptions;
-import com.baidu.mapapi.map.Stroke;
+import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.LatLngBounds;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.wy2;
-import com.baidu.tieba.zo3;
+import com.baidu.mapapi.search.core.PoiInfo;
+import com.baidu.mapapi.search.core.SearchResult;
+import com.baidu.mapapi.search.geocode.GeoCodeResult;
+import com.baidu.mapapi.search.geocode.GeoCoder;
+import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
+import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
+import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
+import com.baidu.swan.map.location.FlipperFrameLayout;
+import com.baidu.swan.map.location.LocationDetailAdapter;
+import com.baidu.swan.map.location.LocationItemDecoration;
+import com.baidu.swan.map.location.model.SelectedLocationInfo;
+import com.baidu.tieba.eb2;
+import com.baidu.tieba.kh4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,131 +53,143 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
-public class gh4 {
+/* loaded from: classes6.dex */
+public class gh4 extends bb2 implements OnGetGeoCoderResultListener, BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapStatusChangeListener, View.OnClickListener, hh4, kh4.b {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final int e1;
     public transient /* synthetic */ FieldHolder $fh;
+    public RecyclerView G0;
+    public FrameLayout H0;
+    public ImageView I0;
+    public FrameLayout J0;
+    public FrameLayout K0;
+    public View L0;
+    public View M0;
+    public TextView N0;
+    public ImageView O0;
+    public View P0;
+    public GeoCoder Q0;
+    public BaiduMap R0;
+    public TextureMapView S0;
+    public Marker T0;
+    public BitmapDescriptor U0;
+    public ih4 V0;
+    public List<ih4> W0;
+    public kh4 X0;
+    public LocationDetailAdapter Y0;
+    public jh4 Z0;
+    public boolean a1;
+    public boolean b1;
+    public b c1;
+    public SelectedLocationInfo d1;
 
-    /* loaded from: classes5.dex */
-    public static class a implements zo3.b {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(SelectedLocationInfo selectedLocationInfo);
+
+        void onCancel();
+
+        void onError();
+    }
+
+    @Override // com.baidu.tieba.bb2
+    public void W1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.bb2
+    public boolean e2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bb2
+    public boolean g2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bb2, com.baidu.searchbox.widget.SlideInterceptor
+    public boolean isSlidable(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, motionEvent)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bb2
+    public void l2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener
+    public void onGetGeoCodeResult(GeoCodeResult geoCodeResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, geoCodeResult) == null) {
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChange(MapStatus mapStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, mapStatus) == null) {
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeStart(MapStatus mapStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, mapStatus) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wy2 a;
-        public final /* synthetic */ lh4 b;
-        public final /* synthetic */ List c;
-        public final /* synthetic */ Context d;
-        public final /* synthetic */ mh4 e;
-        public final /* synthetic */ List f;
-        public final /* synthetic */ List g;
-        public final /* synthetic */ AtomicInteger h;
-        public final /* synthetic */ int i;
+        public final /* synthetic */ ReverseGeoCodeResult a;
+        public final /* synthetic */ gh4 b;
 
-        public a(wy2 wy2Var, lh4 lh4Var, List list, Context context, mh4 mh4Var, List list2, List list3, AtomicInteger atomicInteger, int i) {
+        public a(gh4 gh4Var, ReverseGeoCodeResult reverseGeoCodeResult) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wy2Var, lh4Var, list, context, mh4Var, list2, list3, atomicInteger, Integer.valueOf(i)};
+                Object[] objArr = {gh4Var, reverseGeoCodeResult};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = wy2Var;
-            this.b = lh4Var;
-            this.c = list;
-            this.d = context;
-            this.e = mh4Var;
-            this.f = list2;
-            this.g = list3;
-            this.h = atomicInteger;
-            this.i = i;
+            this.b = gh4Var;
+            this.a = reverseGeoCodeResult;
         }
 
-        @Override // com.baidu.tieba.zo3.b
-        public void a(String str, Bitmap bitmap) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-                if (gh4.a) {
-                    Log.d("MarkerViewCreateHelper", "url=" + str);
-                }
-                if (bitmap == null) {
-                    bitmap = gh4.b();
-                }
-                Bitmap g = gh4.g(bitmap, this.a);
-                vy2 vy2Var = this.a.b;
-                LatLng latLng = new LatLng(vy2Var.a, vy2Var.b);
-                MarkerOptions zIndex = new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(g)).alpha((float) this.a.f).title(this.a.c).rotate((float) this.a.e).zIndex(88);
-                wy2.a aVar = this.a.k;
-                MarkerOptions anchor = zIndex.anchor((float) aVar.a, (float) aVar.b);
-                this.b.a = this.a;
-                this.c.add(anchor);
-                LinearLayout linearLayout = new LinearLayout(this.d);
-                linearLayout.setOrientation(1);
-                linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-                linearLayout.setGravity(17);
-                View view2 = new View(this.d);
-                view2.setLayoutParams(new ViewGroup.LayoutParams(g.getWidth(), g.getHeight()));
-                view2.setVisibility(4);
-                linearLayout.addView(view2);
-                this.b.e = linearLayout;
-                if (lh4.h.booleanValue()) {
-                    wy2.b bVar = this.a.i;
-                    if (bVar != null && bVar.isValid() && TextUtils.equals(this.a.i.g, "ALWAYS")) {
-                        View a = ah4.a(this.e, this.a);
-                        linearLayout.addView(a, 0);
-                        this.b.d = a;
-                    }
-                    wy2.c cVar = this.a.j;
-                    if (cVar != null && cVar.isValid()) {
-                        this.f.add(ch4.a(this.e, this.b));
-                    }
-                }
-                linearLayout.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-                MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-                builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-                builder.position(latLng);
-                builder.yOffset((int) ((g.getHeight() * (1.0d - this.a.k.b)) + 0.0d));
-                this.e.l.addView(linearLayout, builder.build());
-                linearLayout.setAlpha(0.0f);
-                BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(linearLayout);
-                if (fromView == null) {
-                    return;
-                }
-                Bitmap bitmap2 = fromView.getBitmap();
-                this.g.add(new MarkerOptions().position(latLng).icon(fromView).anchor(((float) (((bitmap2.getWidth() - g.getWidth()) / 2.0f) + (this.a.k.a * g.getWidth()))) / bitmap2.getWidth(), ((float) (((float) ((bitmap2.getHeight() - 0.0d) - g.getHeight())) + (this.a.k.b * g.getHeight()))) / bitmap2.getHeight()).zIndex(66));
-                synchronized (eh4.a) {
-                    this.h.getAndIncrement();
-                    this.e.n.add(this.b);
-                    int size = this.e.n.size();
-                    if (this.i == this.h.get()) {
-                        List<Overlay> addOverlays = this.e.l.getMap().addOverlays(this.f);
-                        int size2 = addOverlays.size();
-                        for (int i = 0; i < size2 && i < size; i++) {
-                            this.e.n.get(i).c = (Marker) addOverlays.get(i);
-                        }
-                        List<Overlay> addOverlays2 = this.e.l.getMap().addOverlays(this.c);
-                        int size3 = addOverlays2.size();
-                        for (int i2 = 0; i2 < size3 && i2 < size; i2++) {
-                            this.e.n.get(i2).b = (Marker) addOverlays2.get(i2);
-                        }
-                        List<Overlay> addOverlays3 = this.e.l.getMap().addOverlays(this.g);
-                        int size4 = addOverlays3.size();
-                        for (int i3 = 0; i3 < size4 && i3 < size; i3++) {
-                            this.e.n.get(i3).f = (Marker) addOverlays3.get(i3);
-                        }
-                    }
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.n3(this.a);
             }
         }
     }
@@ -176,141 +207,500 @@ public class gh4 {
                 return;
             }
         }
-        a = ms1.a;
+        e1 = mp3.g(20.0f);
     }
 
-    public static /* synthetic */ Bitmap b() {
-        return f();
+    public gh4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
-    public static Bitmap f() {
+    @Override // com.baidu.tieba.bb2
+    public boolean H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), R.drawable.obfuscated_res_0x7f081220);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            g3(17);
+            return false;
         }
-        return (Bitmap) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Nullable
-    public static Bitmap g(Bitmap bitmap, wy2 wy2Var) {
-        InterceptResult invokeLL;
+    public final void Y2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bitmap, wy2Var)) == null) {
-            int i = wy2Var.g;
-            if (i == -1) {
-                i = bitmap.getWidth();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Activity activity = this.c0;
+            if (activity != null) {
+                activity.onBackPressed();
             }
-            int i2 = wy2Var.h;
-            if (i2 == -1) {
-                i2 = bitmap.getHeight();
-            }
-            return bi4.a(bitmap, i, i2);
-        }
-        return (Bitmap) invokeLL.objValue;
-    }
-
-    public static void d(@NonNull oy2 oy2Var, @NonNull mh4 mh4Var, ih4 ih4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, oy2Var, mh4Var, ih4Var) == null) {
-            List<uy2> list = oy2Var.o;
-            if (list != null && list.size() > 0) {
-                for (uy2 uy2Var : oy2Var.o) {
-                    bh4.a(mh4Var, uy2Var, ih4Var);
-                    c92.i("map", "initMapView createControl id " + uy2Var.a);
-                }
-            }
-            ArrayList arrayList = new ArrayList();
-            List<yy2> list2 = oy2Var.m;
-            if (list2 != null && list2.size() > 0) {
-                for (yy2 yy2Var : oy2Var.m) {
-                    if (!yy2Var.isValid()) {
-                        c92.c("map", "polyline is invalid");
-                    } else {
-                        ArrayList arrayList2 = new ArrayList(yy2Var.a.size());
-                        Iterator<vy2> it = yy2Var.a.iterator();
-                        while (it.hasNext()) {
-                            vy2 next = it.next();
-                            arrayList2.add(new LatLng(next.a, next.b));
-                        }
-                        if (arrayList2.size() >= 2 && !arrayList2.contains(null)) {
-                            arrayList.add(new PolylineOptions().points(arrayList2).color(yy2Var.b).width((int) yy2Var.c).dottedLine(yy2Var.d));
-                            c92.i("map", "initMapView createPoly");
-                        } else {
-                            c92.c("map", "polyline count can't less than 2 or your polyline points contains null");
-                        }
-                    }
-                }
-            }
-            List<xy2> list3 = oy2Var.q;
-            if (list3 != null && !list3.isEmpty()) {
-                for (xy2 xy2Var : oy2Var.q) {
-                    if (!xy2Var.isValid()) {
-                        c92.c("map", "polygon is invalid");
-                    } else {
-                        ArrayList arrayList3 = new ArrayList(xy2Var.a.size());
-                        Iterator<vy2> it2 = xy2Var.a.iterator();
-                        while (it2.hasNext()) {
-                            vy2 next2 = it2.next();
-                            arrayList3.add(new LatLng(next2.a, next2.b));
-                        }
-                        if (arrayList3.size() >= 3 && !arrayList3.contains(null)) {
-                            arrayList.add(new PolygonOptions().points(arrayList3).stroke(new Stroke(xy2Var.b, xy2Var.c)).fillColor(xy2Var.d).zIndex(xy2Var.e));
-                            c92.i("map", "initMapView createPolygons");
-                        } else {
-                            c92.c("map", "polygons count can't less than 3 or your polygons points contains null");
-                        }
-                    }
-                }
-            }
-            List<vy2> list4 = oy2Var.p;
-            if (list4 != null && list4.size() > 0) {
-                LatLngBounds.Builder builder = new LatLngBounds.Builder();
-                for (vy2 vy2Var : oy2Var.p) {
-                    builder.include(new LatLng(vy2Var.a, vy2Var.b));
-                }
-                mh4Var.l.getMap().setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
-                c92.i("map", "initMapView includePoints");
-            }
-            List<ty2> list5 = oy2Var.n;
-            if (list5 != null && list5.size() > 0) {
-                for (ty2 ty2Var : oy2Var.n) {
-                    if (ty2Var.isValid()) {
-                        CircleOptions circleOptions = new CircleOptions();
-                        vy2 vy2Var2 = ty2Var.a;
-                        arrayList.add(circleOptions.center(new LatLng(vy2Var2.a, vy2Var2.b)).stroke(new Stroke((int) ty2Var.e, ty2Var.b)).fillColor(ty2Var.c).radius(ty2Var.d));
-                        c92.i("map", "initMapView createCircle");
-                    }
-                }
-            }
-            mh4Var.l.getMap().addOverlays(arrayList);
+            this.c1 = null;
         }
     }
 
-    public static void e(Context context, @NonNull oy2 oy2Var, @NonNull mh4 mh4Var) {
-        List<wy2> list;
+    public final void f3() {
+        Marker marker;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65541, null, context, oy2Var, mh4Var) == null) && (list = oy2Var.l) != null && list.size() != 0) {
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            ArrayList arrayList3 = new ArrayList();
-            int size = list.size();
-            AtomicInteger atomicInteger = new AtomicInteger(0);
-            Iterator<wy2> it = list.iterator();
-            while (it.hasNext()) {
-                wy2 next = it.next();
-                lh4 lh4Var = new lh4();
-                if (next.k == null) {
-                    next.k = new wy2.a();
-                }
-                String str = next.d;
-                if (TextUtils.isEmpty(str)) {
-                    str = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.obfuscated_res_0x7f081220).build().getSourceUri().toString();
-                }
-                zo3.e(str, new a(next, lh4Var, arrayList, context, mh4Var, arrayList2, arrayList3, atomicInteger, size));
-                it = it;
-                arrayList = arrayList;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (marker = this.T0) != null) {
+            marker.remove();
+            this.T0 = null;
+        }
+    }
+
+    public void k3() {
+        eb2 U;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (U = ix2.T().U()) != null) {
+            eb2.b i = U.i("navigateTo");
+            i.n(eb2.g, eb2.i);
+            i.j(this);
+            i.b();
+        }
+    }
+
+    public final void l3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            kh4 kh4Var = new kh4(ix2.T().getActivity(), this.R0);
+            this.X0 = kh4Var;
+            kh4Var.n(true);
+            this.X0.k(this);
+            j3(true);
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapLoadedCallback
+    public void onMapLoaded() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            Z2(this.R0.getMapStatus().target);
+        }
+    }
+
+    @Override // com.baidu.tieba.bb2, com.baidu.swan.support.v4.app.Fragment
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+            super.onPause();
+            this.S0.onPause();
+            kh4 kh4Var = this.X0;
+            if (kh4Var != null) {
+                kh4Var.n(false);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.bb2, com.baidu.swan.support.v4.app.Fragment
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            super.onResume();
+            this.S0.onResume();
+            kh4 kh4Var = this.X0;
+            if (kh4Var != null) {
+                kh4Var.n(true);
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void z0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+            super.z0();
+            if (Build.VERSION.SDK_INT > 19) {
+                this.S0.onDestroy();
+            }
+            this.Q0.destroy();
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048608, this, mapStatus, i) == null) {
+            boolean z2 = false;
+            if (i == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.a1 = z;
+            this.b1 = (z || this.b1) ? true : true;
+        }
+    }
+
+    public static gh4 d3(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
+            gh4 gh4Var = new gh4();
+            if (bundle != null) {
+                gh4Var.k1(bundle);
+            }
+            return gh4Var;
+        }
+        return (gh4) invokeL.objValue;
+    }
+
+    public final void Z2(LatLng latLng) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, latLng) == null) {
+            this.Q0.reverseGeoCode(new ReverseGeoCodeOption().location(latLng).newVersion(1));
+        }
+    }
+
+    @Override // com.baidu.tieba.kh4.b
+    public void a(BDLocation bDLocation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bDLocation) == null) {
+            Z2(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude()));
+        }
+    }
+
+    public final void h3(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048592, this, z) == null) && this.I0 != null) {
+            if (z) {
+                i = R.drawable.obfuscated_res_0x7f0801a8;
+            } else {
+                i = R.drawable.obfuscated_res_0x7f0801a7;
+            }
+            this.I0.setImageResource(i);
+        }
+    }
+
+    public void i3(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, bVar) == null) {
+            this.c1 = bVar;
+        }
+    }
+
+    public final void j3(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            if (z) {
+                this.W0.clear();
+                this.Y0.setData(this.W0);
+            }
+            View view2 = this.P0;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            view2.setVisibility(i);
+        }
+    }
+
+    public final void m3(ih4 ih4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048599, this, ih4Var) == null) && ih4Var != null && ih4Var.a != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("city", ih4Var.a.city);
+            mh4 e3 = mh4.e3(bundle);
+            e3.m1(this, 1);
+            e3.k3();
+        }
+    }
+
+    @Override // com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener
+    public void onGetReverseGeoCodeResult(ReverseGeoCodeResult reverseGeoCodeResult) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048603, this, reverseGeoCodeResult) == null) && reverseGeoCodeResult != null && reverseGeoCodeResult.error == SearchResult.ERRORNO.NO_ERROR) {
+            this.G0.postDelayed(new a(this, reverseGeoCodeResult), 150L);
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeFinish(MapStatus mapStatus) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048606, this, mapStatus) == null) && this.a1) {
+            e3(mapStatus.target, true, true);
+            h3(false);
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void J0(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, strArr, iArr) == null) {
+            super.J0(i, strArr, iArr);
+            if (i == 3001) {
+                if (iArr.length > 0 && iArr[0] == -1) {
+                    nb3.f(ix2.T().getActivity(), R.string.obfuscated_res_0x7f0f01ca).G();
+                } else if (iArr.length > 0 && iArr[0] == 0) {
+                    l3();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public View y0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048612, this, layoutInflater, viewGroup, bundle)) == null) {
+            cg4.a();
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0088, viewGroup, false);
+            a3(inflate);
+            b3();
+            if (V1()) {
+                inflate = Y1(inflate);
+                x1(-1);
+            }
+            return F1(inflate, this);
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    public final void X2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.O0, Key.TRANSLATION_Y, 0.0f, -e1, 0.0f);
+            ofFloat.setInterpolator(new AccelerateInterpolator());
+            ofFloat.setDuration(500L);
+            ofFloat.start();
+        }
+    }
+
+    public final void b3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.R0.setMapStatus(MapStatusUpdateFactory.zoomTo(16.0f));
+            this.R0.getUiSettings().setRotateGesturesEnabled(false);
+            this.S0.showZoomControls(false);
+            this.S0.setLogoPosition(LogoPosition.logoPostionRightBottom);
+            if (c3()) {
+                return;
+            }
+            l3();
+        }
+    }
+
+    public final void a3(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            SDKInitializer.setCoordType(CoordType.GCJ02);
+            this.W0 = new ArrayList(11);
+            this.G0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091640);
+            this.I0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b3d);
+            this.H0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b3f);
+            this.L0 = view2.findViewById(R.id.obfuscated_res_0x7f09052c);
+            this.M0 = view2.findViewById(R.id.obfuscated_res_0x7f0920c6);
+            this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b04);
+            this.O0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090689);
+            this.J0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091528);
+            this.K0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916b9);
+            this.P0 = view2.findViewById(R.id.obfuscated_res_0x7f091626);
+            this.S0 = (TextureMapView) view2.findViewById(R.id.obfuscated_res_0x7f090372);
+            this.I0.setOnClickListener(this);
+            this.N0.setOnClickListener(this);
+            this.M0.setOnClickListener(this);
+            this.L0.setOnClickListener(this);
+            this.Q0 = GeoCoder.newInstance();
+            this.R0 = this.S0.getMap();
+            this.Q0.setOnGetGeoCodeResultListener(this);
+            this.R0.setOnMapLoadedCallback(this);
+            this.R0.setOnMapStatusChangeListener(this);
+            this.G0.setLayoutManager(new LinearLayoutManager(ix2.T().getActivity()));
+            LocationDetailAdapter locationDetailAdapter = new LocationDetailAdapter(ix2.T().getActivity(), this.G0, this, false);
+            this.Y0 = locationDetailAdapter;
+            this.G0.setAdapter(locationDetailAdapter);
+            this.G0.addItemDecoration(new LocationItemDecoration(ix2.T().getActivity(), true));
+            jh4 jh4Var = new jh4(this.J0, this.K0, this.H0);
+            this.Z0 = jh4Var;
+            ((FlipperFrameLayout) this.J0).setViewFlipper(jh4Var);
+        }
+    }
+
+    public final boolean c3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                ArrayList arrayList = new ArrayList();
+                if (ix2.T().getActivity().checkSelfPermission(com.kuaishou.weapon.p0.h.g) != 0) {
+                    arrayList.add(com.kuaishou.weapon.p0.h.g);
+                }
+                if (arrayList.size() > 0) {
+                    requestPermissions((String[]) arrayList.toArray(new String[arrayList.size()]), 0);
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hh4
+    public void d(ih4 ih4Var) {
+        PoiInfo poiInfo;
+        LatLng latLng;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, ih4Var) == null) && ih4Var != null && (poiInfo = ih4Var.a) != null && (latLng = poiInfo.location) != null) {
+            this.V0 = ih4Var;
+            this.R0.animateMapStatus(MapStatusUpdateFactory.newLatLng(latLng));
+            f3();
+            if (this.U0 == null) {
+                this.U0 = BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f0801b2);
+            }
+            if (!ih4Var.c) {
+                this.T0 = (Marker) this.R0.addOverlay(new MarkerOptions().position(ih4Var.a.location).zIndex(88).icon(this.U0));
+            }
+            if (!ih4Var.c) {
+                h3(false);
+            }
+        }
+    }
+
+    public final void n3(ReverseGeoCodeResult reverseGeoCodeResult) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, reverseGeoCodeResult) == null) {
+            PoiInfo poiInfo = new PoiInfo();
+            SelectedLocationInfo selectedLocationInfo = this.d1;
+            if (selectedLocationInfo != null) {
+                poiInfo.name = selectedLocationInfo.mName;
+                SelectedLocationInfo selectedLocationInfo2 = this.d1;
+                poiInfo.location = new LatLng(selectedLocationInfo2.mLatitude, selectedLocationInfo2.mLongitude);
+                poiInfo.address = this.d1.mAddress;
+                this.d1 = null;
+                z = false;
+            } else {
+                String address = reverseGeoCodeResult.getAddress();
+                String sematicDescription = reverseGeoCodeResult.getSematicDescription();
+                if (TextUtils.isEmpty(address)) {
+                    address = "[位置]";
+                }
+                poiInfo.name = address;
+                poiInfo.location = reverseGeoCodeResult.getLocation();
+                poiInfo.address = sematicDescription;
+                ReverseGeoCodeResult.AddressComponent addressDetail = reverseGeoCodeResult.getAddressDetail();
+                if (addressDetail != null) {
+                    poiInfo.city = addressDetail.city;
+                }
+                z = true;
+            }
+            ih4 ih4Var = new ih4(poiInfo, true, z);
+            this.W0.clear();
+            this.W0.add(ih4Var);
+            this.W0.addAll(ih4.a(reverseGeoCodeResult.getPoiList()));
+            this.Y0.setData(this.W0);
+            this.V0 = ih4Var;
+            if (this.W0.size() > 0) {
+                j3(false);
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090b3d) {
+                kh4 kh4Var = this.X0;
+                if (kh4Var != null && kh4Var.i() != null) {
+                    BDLocation i = this.X0.i();
+                    LatLng latLng = new LatLng(i.getLatitude(), i.getLongitude());
+                    this.R0.animateMapStatus(MapStatusUpdateFactory.newLatLng(latLng));
+                    f3();
+                    if (this.b1) {
+                        e3(latLng, true, true);
+                        this.b1 = false;
+                    }
+                    h3(true);
+                }
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090b04) {
+                g3(16);
+                Y2();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0920c6) {
+                m3(this.V0);
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09052c) {
+                g3(17);
+                Y2();
+            }
+        }
+    }
+
+    public final void e3(LatLng latLng, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{latLng, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            j3(true);
+            Z2(latLng);
+            f3();
+            if (z) {
+                X2();
+                if (this.Z0.d()) {
+                    this.Z0.e(false);
+                }
+            }
+            if (z2) {
+                this.G0.smoothScrollToPosition(0);
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void r0(int i, int i2, Intent intent) {
+        SelectedLocationInfo selectedLocationInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048611, this, i, i2, intent) == null) {
+            super.r0(i, i2, intent);
+            if (intent == null || i != 1 || (selectedLocationInfo = (SelectedLocationInfo) intent.getParcelableExtra(SelectedLocationInfo.LOCATION_KEY)) == null) {
+                return;
+            }
+            double d = selectedLocationInfo.mLatitude;
+            double d2 = selectedLocationInfo.mLongitude;
+            if (!Double.isNaN(d) && !Double.isNaN(d2)) {
+                this.d1 = selectedLocationInfo;
+                LatLng latLng = new LatLng(d, d2);
+                this.R0.setMapStatus(MapStatusUpdateFactory.newLatLng(latLng));
+                this.b1 = true;
+                e3(latLng, false, true);
+                h3(false);
+            }
+        }
+    }
+
+    public final void g3(int i) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048591, this, i) != null) || (bVar = this.c1) == null) {
+            return;
+        }
+        switch (i) {
+            case 16:
+                ih4 ih4Var = this.V0;
+                if (ih4Var != null) {
+                    PoiInfo poiInfo = ih4Var.a;
+                    if (TextUtils.equals(poiInfo.name, "[位置]")) {
+                        poiInfo.name = "";
+                    }
+                    this.c1.a(new SelectedLocationInfo(poiInfo.name, poiInfo.address, poiInfo.location));
+                    return;
+                }
+                return;
+            case 17:
+                bVar.onCancel();
+                return;
+            case 18:
+                bVar.onError();
+                return;
+            default:
+                return;
         }
     }
 }

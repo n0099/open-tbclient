@@ -10,8 +10,8 @@ import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-import com.baidu.tieba.ew8;
-import com.baidu.tieba.j05;
+import com.baidu.tieba.h29;
+import com.baidu.tieba.s05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -185,9 +185,9 @@ public class FrsTabViewPager extends BdBaseViewPager {
             try {
                 super.onMeasure(i, i2);
             } catch (Exception e) {
-                if (!j05.e() && !j05.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
+                if (!s05.e() && !s05.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
                     e.printStackTrace();
-                    ew8 defaultLog = DefaultLog.getInstance();
+                    h29 defaultLog = DefaultLog.getInstance();
                     defaultLog.b("FrsTabViewPager", "FrsTabViewPager onMeasure crash, msg=" + e);
                     if ((getContext() instanceof Activity) && !((Activity) getContext()).isFinishing()) {
                         ((Activity) getContext()).finish();

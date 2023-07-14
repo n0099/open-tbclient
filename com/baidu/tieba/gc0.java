@@ -1,48 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import java.util.List;
+/* loaded from: classes6.dex */
 public interface gc0 {
-    void a(Context context, String str);
+    void D0();
 
-    void b(Context context);
+    void Y0(List<String> list);
 
-    void c();
+    void g0();
 
-    void d();
+    void h(int i);
 
-    void e(Context context);
+    void h0(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
 
-    void f(Context context, int i);
+    void i();
 
-    void g(String str, String str2, RequestSearchData requestSearchData);
+    void m(hc0 hc0Var);
 
-    void h();
+    void p(List<String> list);
 
-    void i(String str);
+    void r(SearchResultBean searchResultBean);
 
-    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
+    void showToast(String str);
 
-    void onDetach();
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static /* synthetic */ void a(gc0 gc0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 4) != 0) {
-                    requestSearchData = new RequestSearchData();
-                }
-                gc0Var.g(str, str2, requestSearchData);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
-        }
-    }
+    void w0(List<? extends LiveRoomEntity> list);
 }

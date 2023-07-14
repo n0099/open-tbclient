@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public abstract class j83 implements h83<f83> {
+public class j83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final Map<String, ProviderDelegation> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    @Override // com.baidu.tieba.h83
-    public abstract /* synthetic */ void onEvent(@NonNull T t);
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +32,9 @@ public abstract class j83 implements h83<f83> {
                 return;
             }
         }
-        b = ms1.a;
+        a = new ConcurrentHashMap();
+        c(uz1.a());
+        c(cv2.s().d());
     }
 
     public j83() {
@@ -50,22 +51,37 @@ public abstract class j83 implements h83<f83> {
         }
     }
 
-    @Override // com.baidu.tieba.h83
-    @SuppressLint({"BDThrowableCheck"})
-    public String b() {
-        InterceptResult invokeV;
+    @Nullable
+    public static ProviderDelegation a(@NonNull Class<? extends ProviderDelegation> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.a)) {
-                return this.a;
-            }
-            String str = System.currentTimeMillis() + "" + hashCode();
-            this.a = str;
-            if (b && k83.a(str)) {
-                throw new RuntimeException("illegal observer id");
-            }
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            return a.get(cls.getName());
         }
-        return (String) invokeV.objValue;
+        return (ProviderDelegation) invokeL.objValue;
+    }
+
+    @Nullable
+    public static ProviderDelegation b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return a.get(str);
+        }
+        return (ProviderDelegation) invokeL.objValue;
+    }
+
+    public static void c(@Nullable Map<Class, Object> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && map != null) {
+            for (Class cls : map.keySet()) {
+                if (cls != null) {
+                    Object obj = map.get(cls);
+                    if (obj instanceof ProviderDelegation) {
+                        a.put(cls.getName(), (ProviderDelegation) obj);
+                    }
+                }
+            }
+        }
     }
 }

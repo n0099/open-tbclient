@@ -1,102 +1,152 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.AudioManager;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class cu2 extends wp2<nu2> {
+public class cu2 extends bu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioManager b;
+    public String b;
 
-    @Override // com.baidu.tieba.wp2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setVolume" : (String) invokeV.objValue;
-    }
-
-    public cu2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cu2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wp2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull nu2 nu2Var) {
+    @Override // com.baidu.tieba.fu2, com.baidu.tieba.eu2
+    public void a(String str, String str2) {
+        String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, nu2Var) != null) || command.obj == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && e(str)) {
+            boolean equals = TextUtils.equals(str2, "auto");
+            boolean equals2 = TextUtils.equals(str2, "api");
+            zt2 zt2Var = this.a;
+            String str4 = "1";
+            if (equals) {
+                str3 = "1";
+            } else {
+                str3 = "0";
+            }
+            zt2Var.g("autoPlay", str3);
+            zt2 zt2Var2 = this.a;
+            if (!equals2) {
+                str4 = "0";
+            }
+            zt2Var2.g("playMethod", str4);
         }
-        if (!nu2Var.P()) {
-            d(nu2Var, command.what, "Not Set!! Volume: " + command.obj, false);
-            return;
-        }
-        Object obj = command.obj;
-        if (obj instanceof Double) {
-            try {
-                double doubleValue = ((Double) obj).doubleValue();
-                d(nu2Var, command.what, "Volume: " + command.obj, false);
-                if (doubleValue > 1.0d) {
-                    doubleValue = 1.0d;
+    }
+
+    @Override // com.baidu.tieba.bu2, com.baidu.tieba.fu2, com.baidu.tieba.eu2
+    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
+        String str;
+        long j;
+        long j2;
+        long j3;
+        long j4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
+            UbcFlowEvent g = hybridUbcFlow.g("fe_slave_dispatch_start");
+            UbcFlowEvent g2 = hybridUbcFlow.g("fe_master_page_oninit_start");
+            UbcFlowEvent g3 = hybridUbcFlow.g("master_page_onload_start");
+            UbcFlowEvent g4 = hybridUbcFlow.g("video_fe_init");
+            UbcFlowEvent g5 = hybridUbcFlow.g("video_fe_init_end");
+            long j5 = 0;
+            if (g != null) {
+                zt2 zt2Var = this.a;
+                if (z) {
+                    j4 = g.g();
+                } else {
+                    j4 = 0;
                 }
-                if (doubleValue < 0.0d) {
-                    doubleValue = 0.0d;
+                zt2Var.i("fe_slave_dispatch_start", j4);
+            }
+            if (g2 != null) {
+                zt2 zt2Var2 = this.a;
+                if (z) {
+                    j3 = g2.g();
+                } else {
+                    j3 = 0;
                 }
-                f(doubleValue, nu2Var.getContext());
-            } catch (Exception unused) {
-                if (wp2.a) {
-                    Log.e(b(), "setVolume param type error");
+                zt2Var2.i("fe_master_page_oninit_start", j3);
+            }
+            if (g3 != null) {
+                zt2 zt2Var3 = this.a;
+                if (z) {
+                    j2 = g3.g();
+                } else {
+                    j2 = 0;
                 }
+                zt2Var3.i("master_page_onload_start", j2);
+            }
+            if (g4 != null) {
+                zt2 zt2Var4 = this.a;
+                if (z) {
+                    j = g4.g();
+                } else {
+                    j = 0;
+                }
+                zt2Var4.i("video_fe_init", j);
+            }
+            if (g5 != null) {
+                zt2 zt2Var5 = this.a;
+                if (z) {
+                    j5 = g5.g();
+                }
+                zt2Var5.i("video_fe_init_end", j5);
+            }
+            zt2 zt2Var6 = this.a;
+            if (z) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            zt2Var6.g("fmpArrived", str);
+            if (this.a.f()) {
+                this.a.k();
+                au2.e();
             }
         }
     }
 
-    public final void f(double d, Context context) {
+    @Override // com.baidu.tieba.fu2, com.baidu.tieba.eu2
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), context}) == null) {
-            if (this.b == null) {
-                this.b = (AudioManager) context.getSystemService("audio");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.a.d("video_will_play")) {
+                this.a.h("video_play_cancel");
             }
-            AudioManager audioManager = this.b;
-            if (audioManager == null) {
-                return;
-            }
-            int round = (int) Math.round(audioManager.getStreamMaxVolume(3) * d);
-            if (round == this.b.getStreamVolume(3)) {
-                if (wp2.a) {
-                    Log.d("【InlineCommand】", "Setting same volume level, ignore : (" + round + SmallTailInfo.EMOTION_SUFFIX);
-                    return;
-                }
-                return;
-            }
-            if (d > 0.0d && round == 0) {
-                round = 1;
-            }
-            if (wp2.a) {
-                Log.d("【InlineCommand】", "setVolumeInt" + round);
-            }
-            this.b.setStreamVolume(3, round, 0);
+            d();
         }
+    }
+
+    public final boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return TextUtils.equals(this.b, str);
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,46 +1,70 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetCardByCategory.ThemeCardInMain;
+import tbclient.ThemeCardPropMain;
 /* loaded from: classes7.dex */
-public class rja implements Runnable {
+public class rja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public String b;
-    public String c;
+    public String a;
+    public ArrayList<uia> b;
 
-    public rja(String str, String str2, Bitmap bitmap) {
+    public rja() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = str;
-        this.c = str2;
-        this.a = bitmap;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Bitmap bitmap;
+    public ArrayList<uia> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c) && (bitmap = this.a) != null && !bitmap.isRecycled()) {
-            FileUtils.saveBitmap2JPG(this.b, ija.a(this.c), this.a, 100);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(ThemeCardInMain themeCardInMain) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeCardInMain) != null) || themeCardInMain == null) {
+            return;
+        }
+        this.a = themeCardInMain.card_category;
+        List<ThemeCardPropMain> list = themeCardInMain.props;
+        if (list != null && list.size() > 0) {
+            this.b = new ArrayList<>();
+            for (ThemeCardPropMain themeCardPropMain : list) {
+                if (themeCardPropMain != null) {
+                    uia uiaVar = new uia();
+                    uiaVar.k(themeCardPropMain);
+                    this.b.add(uiaVar);
+                }
+            }
         }
     }
 }

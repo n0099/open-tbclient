@@ -5,7 +5,7 @@ import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.rm6;
+import com.baidu.tieba.vn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,7 +88,7 @@ public class JSEnvelope {
                 try {
                     jSONObject.put(entry.getKey(), entry.getValue());
                 } catch (JSONException e) {
-                    rm6.b("newHybrid", "Map 转 json 非法json字符串:" + e);
+                    vn6.b("newHybrid", "Map 转 json 非法json字符串:" + e);
                 }
             }
             return jSONObject;

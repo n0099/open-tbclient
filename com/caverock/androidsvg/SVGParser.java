@@ -22,9 +22,8 @@ import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.fx;
-import com.baidu.tieba.u4b;
-import com.baidu.tieba.v4b;
+import com.baidu.tieba.sdb;
+import com.baidu.tieba.tdb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -240,7 +239,7 @@ public class SVGParser {
             direction = new SVGAttr(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, 8);
             dx = new SVGAttr(LoginConstants.DX_ONE_KEY_LOGIN, 9);
             dy = new SVGAttr("dy", 10);
-            fx = new SVGAttr(fx.a, 11);
+            fx = new SVGAttr("fx", 11);
             fy = new SVGAttr("fy", 12);
             d = new SVGAttr("d", 13);
             display = new SVGAttr(CriusAttrConstants.DISPLAY, 14);
@@ -1442,7 +1441,7 @@ public class SVGParser {
         public String a;
         public int b;
         public int c;
-        public v4b d;
+        public tdb d;
 
         public boolean j(int i) {
             InterceptResult invokeI;
@@ -1473,7 +1472,7 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new v4b();
+            this.d = new tdb();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -4063,7 +4062,7 @@ public class SVGParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             int i = 5;
             if (str.charAt(0) == '#') {
-                u4b b2 = u4b.b(str, 1, str.length());
+                sdb b2 = sdb.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 != 4) {
@@ -4586,7 +4585,7 @@ public class SVGParser {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new v4b().b(str, i, i2);
+            float b2 = new tdb().b(str, i, i2);
             if (!Float.isNaN(b2)) {
                 return b2;
             }
@@ -4653,7 +4652,7 @@ public class SVGParser {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x0090, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0091, code lost:
         continue;
      */
     /*
@@ -5369,7 +5368,7 @@ public class SVGParser {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:73:0x00d3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x00d4, code lost:
         continue;
      */
     /*

@@ -1,105 +1,139 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.SevenZipUtils;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetVipInfo.VipSpecialItem;
-import tbclient.GetVipInfo.VipSpecialList;
-/* loaded from: classes5.dex */
-public class g09 implements xn {
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class g09 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
-    public static int d;
-    public static boolean e;
-    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public f09 a;
-    public List<h09> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740249, "Lcom/baidu/tieba/g09;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947740249, "Lcom/baidu/tieba/g09;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-        d = 3;
-        e = false;
+    public static boolean h(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? obj == null : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static <T> void a(List<T> list, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, list, t) != null) || h(list)) {
+            return;
         }
-        return (BdUniqueId) invokeV.objValue;
+        try {
+            list.add(t);
+        } catch (Exception e) {
+            BdLog.e(e);
+            j(e);
+        }
     }
 
-    public g09(VipSpecialList vipSpecialList) {
-        List<VipSpecialItem> list;
-        String str;
+    public static <T> T d(List<T> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialList};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
+            if (e(list) || !g(list, i)) {
+                return null;
+            }
+            try {
+                return list.get(i);
+            } catch (Exception e) {
+                BdLog.e(e);
+                j(e);
+                return null;
             }
         }
-        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
-            String str2 = vipSpecialList.card_id;
-            f09 f09Var = new f09();
-            this.a = f09Var;
-            f09Var.e(4);
-            this.a.d(vipSpecialList.class_name);
-            this.a.f(vipSpecialList.class_url_name);
-            this.a.g(vipSpecialList.class_url);
-            if (TbadkCoreApplication.isLogin()) {
-                str = TbadkCoreApplication.getCurrentAccount();
-            } else {
-                str = SevenZipUtils.FILE_NAME_TEMP;
+        return (T) invokeLI.objValue;
+    }
+
+    public static boolean g(List list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) {
+            if (h(list) || i < 0 || i >= list.size()) {
+                return false;
             }
-            if (StringUtils.isNull(f) || !f.equals(str)) {
-                e = false;
-                f = str;
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static <T> void b(List<T> list, T t, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65537, null, list, t, i) == null) && !h(list) && i >= 0 && i <= list.size()) {
+            try {
+                list.add(i, t);
+            } catch (Exception e) {
+                BdLog.e(e);
+                j(e);
             }
-            this.b = new ArrayList();
-            for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
-                this.b.add(new h09(vipSpecialList.item.get(i3)));
-                if (e) {
-                    if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
-                        this.b.add(new h09(true, true));
-                    }
-                } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
-                    this.b.add(new h09(true, false));
-                    return;
+        }
+    }
+
+    public static void c(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, list) != null) || e(list)) {
+            return;
+        }
+        try {
+            list.clear();
+        } catch (Exception e) {
+            BdLog.e(e);
+            j(e);
+        }
+    }
+
+    public static boolean e(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+            if (!h(list) && !list.isEmpty()) {
+                return false;
+            }
+            BdLog.e("list is empty");
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(Map map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
+            if (!h(map) && !map.isEmpty()) {
+                return false;
+            }
+            BdLog.e("map is empty");
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int i(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, list)) == null) {
+            if (!h(list) && !list.isEmpty()) {
+                try {
+                    return list.size();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    j(e);
                 }
             }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void j(Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, null, exc) == null) && BdBaseApplication.getInst().isDebugMode() && (exc instanceof RuntimeException)) {
+            throw ((RuntimeException) exc);
         }
     }
 }

@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d85;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.ItemQuickChatReplyBinding;
-import com.baidu.tieba.ip8;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.jv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,10 +73,10 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             GradientDrawable gradientDrawable = new GradientDrawable();
             this.c = gradientDrawable;
             gradientDrawable.setCornerRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds47));
-            b();
+            c();
         }
 
-        public final float a(String str) {
+        public final float b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -87,20 +87,20 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             return invokeL.floatValue;
         }
 
-        public final void b() {
+        public final void c() {
             int skinType;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
                 this.b = skinType;
                 this.a.c.setBackground(this.c);
-                s75 d = s75.d(this.a.d);
+                d85 d = d85.d(this.a.d);
                 d.n(0);
                 d.o(R.string.J_X01);
                 d.f(R.color.CAM_X0205);
             }
         }
 
-        public final void c(QuickReplyData.QuestionData data) {
+        public final void d(QuickReplyData.QuestionData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
@@ -115,13 +115,13 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
                 if (!StringUtils.isNull(data.getTextColor())) {
                     this.a.b.setTextColor(Color.parseColor(data.getTextColor()));
                 } else {
-                    s75 d = s75.d(this.a.b);
+                    d85 d = d85.d(this.a.b);
                     d.C(R.dimen.T_X07);
                     d.D(R.string.F_X01);
                     this.a.b.setTextColor(SkinManager.getColor(0, (int) R.color.CAM_X0119));
                 }
                 ViewGroup.LayoutParams layoutParams = this.a.c.getLayoutParams();
-                layoutParams.width = ((int) a(String.valueOf(data.getQuestion()))) + (UtilHelper.getDimenPixelSize(R.dimen.M_W_X009) * 2);
+                layoutParams.width = ((int) b(String.valueOf(data.getQuestion()))) + (UtilHelper.getDimenPixelSize(R.dimen.M_W_X009) * 2);
                 this.a.c.setLayoutParams(layoutParams);
             }
         }
@@ -165,7 +165,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
         return (Context) invokeV.objValue;
     }
 
-    public final QuickReplyData.QuestionData k(int i) {
+    public final QuickReplyData.QuestionData l(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
@@ -189,7 +189,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: l */
+    /* renamed from: m */
     public void onBindViewHolder(ViewHolder holder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, holder, i) == null) {
@@ -197,17 +197,20 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             Object item = ListUtils.getItem(this.b, i);
             Intrinsics.checkNotNullExpressionValue(item, "getItem(mDataList, position)");
             QuickReplyData.QuestionData questionData = (QuickReplyData.QuestionData) item;
-            holder.c(questionData);
+            holder.d(questionData);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            Intrinsics.checkNotNullExpressionValue(currentAccount, "getCurrentAccount()");
-            ip8.a("c15229", currentAccount, questionData.getQuestion());
-            holder.b();
+            if (currentAccount == null) {
+                currentAccount = "";
+            }
+            Intrinsics.checkNotNullExpressionValue(currentAccount, "TbadkApplication.getCurrentAccount() ?: \"\"");
+            jv8.a("c15229", currentAccount, questionData.getQuestion());
+            holder.c();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: m */
+    /* renamed from: n */
     public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

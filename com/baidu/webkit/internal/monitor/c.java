@@ -4,7 +4,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.webkit.internal.Base64;
 import com.baidu.webkit.sdk.WebKitFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c implements com.baidu.webkit.logsdk.b {
     public static String[] a;
 

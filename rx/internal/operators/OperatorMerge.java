@@ -1,16 +1,16 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.axb;
-import com.baidu.tieba.dtb;
-import com.baidu.tieba.dwb;
-import com.baidu.tieba.mvb;
-import com.baidu.tieba.mwb;
-import com.baidu.tieba.rvb;
-import com.baidu.tieba.ttb;
-import com.baidu.tieba.uvb;
-import com.baidu.tieba.xsb;
-import com.baidu.tieba.xxb;
-import com.baidu.tieba.zsb;
+import com.baidu.tieba.a2c;
+import com.baidu.tieba.a5c;
+import com.baidu.tieba.j4c;
+import com.baidu.tieba.j5c;
+import com.baidu.tieba.o4c;
+import com.baidu.tieba.q2c;
+import com.baidu.tieba.r4c;
+import com.baidu.tieba.u1c;
+import com.baidu.tieba.u6c;
+import com.baidu.tieba.w1c;
+import com.baidu.tieba.x5c;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -21,7 +21,7 @@ import rx.exceptions.OnErrorThrowable;
 import rx.internal.util.ScalarSynchronousObservable;
 import rx.internal.util.atomic.SpscExactAtomicArrayQueue;
 /* loaded from: classes2.dex */
-public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
+public final class OperatorMerge<T> implements u1c.b<T, u1c<? extends T>> {
     public final boolean a;
     public final int b;
 
@@ -36,7 +36,7 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class MergeProducer<T> extends AtomicLong implements zsb {
+    public static final class MergeProducer<T> extends AtomicLong implements w1c {
         public static final long serialVersionUID = -1214379189873595503L;
         public final d<T> subscriber;
 
@@ -48,14 +48,14 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
             return addAndGet(-i);
         }
 
-        @Override // com.baidu.tieba.zsb
+        @Override // com.baidu.tieba.w1c
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i > 0) {
                 if (get() == Long.MAX_VALUE) {
                     return;
                 }
-                ttb.b(this, j);
+                q2c.b(this, j);
                 this.subscriber.i();
             } else if (i >= 0) {
             } else {
@@ -65,22 +65,22 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class c<T> extends dtb<T> {
-        public static final int j = mvb.c / 4;
+    public static final class c<T> extends a2c<T> {
+        public static final int j = j4c.c / 4;
         public final d<T> e;
         public final long f;
         public volatile boolean g;
-        public volatile mvb h;
+        public volatile j4c h;
         public int i;
 
-        @Override // com.baidu.tieba.dtb
+        @Override // com.baidu.tieba.a2c
         public void d() {
-            int i = mvb.c;
+            int i = j4c.c;
             this.i = i;
             e(i);
         }
 
-        @Override // com.baidu.tieba.ysb
+        @Override // com.baidu.tieba.v1c
         public void onCompleted() {
             this.g = true;
             this.e.i();
@@ -97,7 +97,7 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
                 this.i = i;
                 return;
             }
-            int i2 = mvb.c;
+            int i2 = j4c.c;
             this.i = i2;
             int i3 = i2 - i;
             if (i3 > 0) {
@@ -105,28 +105,28 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
             }
         }
 
-        @Override // com.baidu.tieba.ysb
+        @Override // com.baidu.tieba.v1c
         public void onError(Throwable th) {
             this.g = true;
             this.e.o().offer(th);
             this.e.i();
         }
 
-        @Override // com.baidu.tieba.ysb
+        @Override // com.baidu.tieba.v1c
         public void onNext(T t) {
             this.e.w(this, t);
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class d<T> extends dtb<xsb<? extends T>> {
+    public static final class d<T> extends a2c<u1c<? extends T>> {
         public static final c<?>[] v = new c[0];
-        public final dtb<? super T> e;
+        public final a2c<? super T> e;
         public final boolean f;
         public final int g;
         public MergeProducer<T> h;
         public volatile Queue<Object> i;
-        public volatile xxb j;
+        public volatile u6c j;
         public volatile ConcurrentLinkedQueue<Throwable> k;
         public volatile boolean l;
         public boolean m;
@@ -176,26 +176,26 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
             this.u = i;
         }
 
-        public xxb n() {
-            xxb xxbVar;
-            xxb xxbVar2 = this.j;
-            if (xxbVar2 == null) {
+        public u6c n() {
+            u6c u6cVar;
+            u6c u6cVar2 = this.j;
+            if (u6cVar2 == null) {
                 boolean z = false;
                 synchronized (this) {
-                    xxbVar = this.j;
-                    if (xxbVar == null) {
-                        xxb xxbVar3 = new xxb();
-                        this.j = xxbVar3;
-                        xxbVar = xxbVar3;
+                    u6cVar = this.j;
+                    if (u6cVar == null) {
+                        u6c u6cVar3 = new u6c();
+                        this.j = u6cVar3;
+                        u6cVar = u6cVar3;
                         z = true;
                     }
                 }
                 if (z) {
-                    b(xxbVar);
+                    b(u6cVar);
                 }
-                return xxbVar;
+                return u6cVar;
             }
-            return xxbVar2;
+            return u6cVar2;
         }
 
         public Queue<Throwable> o() {
@@ -212,7 +212,7 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
             return concurrentLinkedQueue;
         }
 
-        @Override // com.baidu.tieba.ysb
+        @Override // com.baidu.tieba.v1c
         public void onCompleted() {
             this.l = true;
             i();
@@ -227,8 +227,8 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
             }
         }
 
-        public d(dtb<? super T> dtbVar, boolean z, int i) {
-            this.e = dtbVar;
+        public d(a2c<? super T> a2cVar, boolean z, int i) {
+            this.e = a2cVar;
             this.f = z;
             this.g = i;
             if (i == Integer.MAX_VALUE) {
@@ -254,7 +254,7 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
             }
         }
 
-        @Override // com.baidu.tieba.ysb
+        @Override // com.baidu.tieba.v1c
         public void onError(Throwable th) {
             o().offer(th);
             this.l = true;
@@ -264,22 +264,22 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: rx.internal.operators.OperatorMerge$d<T> */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.ysb
+        @Override // com.baidu.tieba.v1c
         /* renamed from: p */
-        public void onNext(xsb<? extends T> xsbVar) {
-            if (xsbVar == null) {
+        public void onNext(u1c<? extends T> u1cVar) {
+            if (u1cVar == null) {
                 return;
             }
-            if (xsbVar == xsb.j()) {
+            if (u1cVar == u1c.j()) {
                 j();
-            } else if (xsbVar instanceof ScalarSynchronousObservable) {
-                v(((ScalarSynchronousObservable) xsbVar).P());
+            } else if (u1cVar instanceof ScalarSynchronousObservable) {
+                v(((ScalarSynchronousObservable) u1cVar).R());
             } else {
                 long j = this.q;
                 this.q = 1 + j;
                 c cVar = new c(this, j);
                 g(cVar);
-                xsbVar.M(cVar);
+                u1cVar.O(cVar);
                 i();
             }
         }
@@ -296,7 +296,7 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
             boolean z3;
             int i2;
             try {
-                dtb<? super T> dtbVar = this.e;
+                a2c<? super T> a2cVar = this.e;
                 while (!h()) {
                     Queue<Object> queue = this.i;
                     long j2 = this.h.get();
@@ -324,7 +324,7 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
                                     obj = poll;
                                     break;
                                 }
-                                dtbVar.onNext((Object) NotificationLite.e(poll));
+                                a2cVar.onNext((Object) NotificationLite.e(poll));
                                 i++;
                                 i4++;
                                 j--;
@@ -357,7 +357,7 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
                             t();
                             return;
                         }
-                        dtbVar.onCompleted();
+                        a2cVar.onCompleted();
                         return;
                     }
                     if (length > 0) {
@@ -389,12 +389,12 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
                                     if (h()) {
                                         return;
                                     }
-                                    mvb mvbVar = cVar.h;
-                                    if (mvbVar == null || (obj2 = mvbVar.i()) == null) {
+                                    j4c j4cVar = cVar.h;
+                                    if (j4cVar == null || (obj2 = j4cVar.i()) == null) {
                                         break;
                                     }
                                     try {
-                                        dtbVar.onNext((Object) NotificationLite.e(obj2));
+                                        a2cVar.onNext((Object) NotificationLite.e(obj2));
                                         j--;
                                         i8++;
                                     }
@@ -413,8 +413,8 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
                                 }
                             } while (obj2 != null);
                             boolean z5 = cVar.g;
-                            mvb mvbVar2 = cVar.h;
-                            if (z5 && (mvbVar2 == null || mvbVar2.e())) {
+                            j4c j4cVar2 = cVar.h;
+                            if (z5 && (j4cVar2 == null || j4cVar2.e())) {
                                 s(cVar);
                                 if (h()) {
                                     return;
@@ -536,13 +536,13 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
             if (queue == null) {
                 int i = this.g;
                 if (i == Integer.MAX_VALUE) {
-                    queue = new uvb<>(mvb.c);
+                    queue = new r4c<>(j4c.c);
                 } else {
-                    if (dwb.a(i)) {
-                        if (axb.b()) {
-                            spscExactAtomicArrayQueue = new mwb<>(i);
+                    if (a5c.a(i)) {
+                        if (x5c.b()) {
+                            spscExactAtomicArrayQueue = new j5c<>(i);
                         } else {
-                            spscExactAtomicArrayQueue = new rvb<>(i);
+                            spscExactAtomicArrayQueue = new o4c<>(i);
                         }
                     } else {
                         spscExactAtomicArrayQueue = new SpscExactAtomicArrayQueue<>(i);
@@ -558,14 +558,14 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
         }
 
         public void r(c<T> cVar, T t) {
-            mvb mvbVar = cVar.h;
-            if (mvbVar == null) {
-                mvbVar = mvb.b();
-                cVar.b(mvbVar);
-                cVar.h = mvbVar;
+            j4c j4cVar = cVar.h;
+            if (j4cVar == null) {
+                j4cVar = j4c.b();
+                cVar.b(j4cVar);
+                cVar.h = j4cVar;
             }
             try {
-                mvbVar.g(NotificationLite.i(t));
+                j4cVar.g(NotificationLite.i(t));
             } catch (IllegalStateException e) {
                 if (!cVar.isUnsubscribed()) {
                     cVar.unsubscribe();
@@ -578,9 +578,9 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
         }
 
         public void s(c<T> cVar) {
-            mvb mvbVar = cVar.h;
-            if (mvbVar != null) {
-                mvbVar.j();
+            j4c j4cVar = cVar.h;
+            if (j4cVar != null) {
+                j4cVar.j();
             }
             this.j.d(cVar);
             synchronized (this.o) {
@@ -651,8 +651,8 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
                 }
             }
             if (z) {
-                mvb mvbVar = cVar.h;
-                if (mvbVar != null && !mvbVar.e()) {
+                j4c j4cVar = cVar.h;
+                if (j4cVar != null && !j4cVar.e()) {
                     r(cVar, t);
                     k();
                     return;
@@ -677,17 +677,17 @@ public final class OperatorMerge<T> implements xsb.b<T, xsb<? extends T>> {
         return (OperatorMerge<T>) b.a;
     }
 
-    public dtb<xsb<? extends T>> call(dtb<? super T> dtbVar) {
-        d dVar = new d(dtbVar, this.a, this.b);
+    public a2c<u1c<? extends T>> call(a2c<? super T> a2cVar) {
+        d dVar = new d(a2cVar, this.a, this.b);
         MergeProducer<T> mergeProducer = new MergeProducer<>(dVar);
         dVar.h = mergeProducer;
-        dtbVar.b(dVar);
-        dtbVar.f(mergeProducer);
+        a2cVar.b(dVar);
+        a2cVar.f(mergeProducer);
         return dVar;
     }
 
-    @Override // com.baidu.tieba.xsb.b, com.baidu.tieba.ptb
+    @Override // com.baidu.tieba.u1c.b, com.baidu.tieba.m2c
     public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((dtb) ((dtb) obj));
+        return call((a2c) ((a2c) obj));
     }
 }

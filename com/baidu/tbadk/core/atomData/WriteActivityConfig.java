@@ -23,11 +23,11 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.j6a;
-import com.baidu.tieba.k6a;
-import com.baidu.tieba.l6a;
-import com.baidu.tieba.ska;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.qta;
+import com.baidu.tieba.uea;
+import com.baidu.tieba.vea;
+import com.baidu.tieba.wea;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,10 +115,10 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean n = j6a.k().n();
-            k6a.a("发帖阻拦状态 = " + n);
+            boolean n = uea.k().n();
+            vea.a("发帖阻拦状态 = " + n);
             if (n && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-                xi.Q(currentActivity, "正在发布，请稍后");
+                yi.R(currentActivity, "正在发布，请稍后");
             }
             return n;
         }
@@ -137,7 +137,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l6a.h = new Intent(getIntent());
+            wea.h = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -321,7 +321,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
             getIntent().putExtra(IS_ARTICLE, str);
-            if (ska.l.equals(str)) {
+            if (qta.l.equals(str)) {
                 setType(11);
             }
             return this;

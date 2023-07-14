@@ -9,7 +9,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatEggRainData;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (CharSequence) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.xn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.yn
     public abstract /* synthetic */ BdUniqueId getType();
 
     public boolean isConvertToNormalMsg() {
@@ -347,7 +347,7 @@ public abstract class BaseSysMsg extends BaseMsg {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return vg.g(BIMManager.getBdUidFromBdUK(this.bduk), 0L);
+                return wg.g(BIMManager.getBdUidFromBdUK(this.bduk), 0L);
             }
             return invokeV.longValue;
         }
@@ -359,6 +359,13 @@ public abstract class BaseSysMsg extends BaseMsg {
                 return this.username;
             }
             return (String) invokeV.objValue;
+        }
+
+        public void setBduk(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                this.bduk = str;
+            }
         }
     }
 
@@ -479,6 +486,13 @@ public abstract class BaseSysMsg extends BaseMsg {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.sysMsgType = i;
+        }
+    }
+
+    public void setUserFrom(User user) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, user) == null) {
+            this.userFrom = user;
         }
     }
 }

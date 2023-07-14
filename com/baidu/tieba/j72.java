@@ -1,28 +1,36 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Color;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j72 extends o72 {
+public class j72 extends l72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public int H;
-    public String I;
-    public boolean J;
-    public int K;
+    @Nullable
+    public JSONObject j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public JSONArray o;
+    public float p;
+    @Nullable
+    public JSONObject q;
+    public long r;
+    public String s;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j72(String str, @NonNull String str2) {
@@ -43,98 +51,101 @@ public class j72 extends o72 {
                 return;
             }
         }
-        this.I = "";
+        this.k = 0;
+        this.m = 0;
+        this.p = -1.0f;
+        this.s = "";
     }
 
-    private void i() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
-            this.u = SwanAppConfigData.t(jSONObject.optString("color"));
-            this.v = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.o72, com.baidu.tieba.q72, com.baidu.tieba.s72, com.baidu.tieba.b23
+    @Override // com.baidu.tieba.l72, com.baidu.tieba.u13
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         super.a(jSONObject);
-        this.D = jSONObject.optInt("maxLength");
-        this.E = k(jSONObject);
-        this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
-        this.G = jSONObject.optInt("selectionStart");
-        this.H = jSONObject.optInt("selectionEnd");
-        this.I = jSONObject.optString("confirmType");
-        boolean z = true;
-        if (jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m) != 1) {
-            z = false;
-        }
-        this.J = z;
+        this.j = jSONObject.optJSONObject("style");
+        this.q = jSONObject.optJSONObject(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
         i();
+        h();
     }
 
-    @Override // com.baidu.tieba.o72, com.baidu.tieba.q72, com.baidu.tieba.s72
+    @Override // com.baidu.tieba.l72
     public void g(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             super.g(jSONObject);
-            if (!TextUtils.isEmpty(jSONObject.optString("cursorSpacing"))) {
-                this.E = k(jSONObject);
-            }
-            this.D = jSONObject.optInt("maxLength", this.D);
-            this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.F);
-            this.G = jSONObject.optInt("selectionStart", this.G);
-            this.H = jSONObject.optInt("selectionEnd", this.H);
-            this.I = jSONObject.optString("confirmType", this.I);
-            boolean z = true;
-            if (jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m, this.J ? 1 : 0) != 1) {
-                z = false;
-            }
-            this.J = z;
-            this.t = jSONObject.optString("value", this.t);
             i();
+            h();
         }
     }
 
-    public final int k(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.l72
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            String optString = jSONObject.optString("cursorSpacing");
-            if (TextUtils.isEmpty(optString)) {
-                return 0;
-            }
-            if (optString.endsWith("rpx")) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            j72 j72Var = (j72) super.clone();
+            if (this.j != null) {
                 try {
-                    return tp3.g(Integer.parseInt(optString.replace("rpx", "")));
-                } catch (NumberFormatException unused) {
-                    return 0;
+                    j72Var.j = new JSONObject(this.j.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
-            try {
-                return Integer.parseInt(optString.replace("px", ""));
-            } catch (NumberFormatException unused2) {
-                return 0;
+            if (this.o != null) {
+                try {
+                    j72Var.o = new JSONArray(this.o.toString());
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
             }
+            if (this.q != null) {
+                try {
+                    j72Var.q = new JSONObject(this.q.toString());
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
+                }
+            }
+            return j72Var;
         }
-        return invokeL.intValue;
+        return invokeV.objValue;
     }
 
-    public void l(int i, int i2) {
+    public final void h() {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            this.G = i;
-            this.H = i2;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jSONObject = this.q) != null) {
+            try {
+                this.r = Long.parseLong(jSONObject.optString("duration"));
+            } catch (Exception unused) {
+                v82.b("Component-Model-View", "duration occurs exception");
+                this.r = 0L;
+            }
+            this.s = this.q.optString("easing");
         }
     }
 
-    public void m(int i) {
+    public final void i() {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.K = i;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (jSONObject = this.j) != null) {
+            try {
+                this.k = Color.parseColor(jSONObject.optString("bgColor"));
+            } catch (Exception unused) {
+                v82.b("Component-Model-View", "backgroundColor occurs exception");
+                this.k = 0;
+            }
+            this.l = this.j.optInt("borderWidth");
+            try {
+                this.m = Color.parseColor(this.j.optString("borderColor"));
+            } catch (Exception unused2) {
+                v82.b("Component-Model-View", "borderColor occurs exception");
+                this.m = 0;
+            }
+            this.n = mp3.g(this.j.optInt("borderRadius"));
+            this.p = vo3.b(this.j, NativeConstants.OPACITY, -1.0f);
+            this.o = this.j.optJSONArray(CriusAttrConstants.PADDING);
         }
     }
 }

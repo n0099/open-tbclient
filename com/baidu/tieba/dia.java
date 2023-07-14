@@ -1,84 +1,91 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.SurfaceTexture;
-import android.hardware.Camera;
-import android.media.MediaPlayer;
-import android.view.Surface;
+import android.app.Activity;
+import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tieba.h0b;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.switchs.SpriteInterceptHomeTipSwitch;
+import com.baidu.tieba.du6;
+import com.baidu.tieba.f65;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class dia extends aia {
+public class dia extends f65 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile dia F;
+    public static String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public Camera.CameraInfo B;
-    public Surface C;
-    public MediaPlayer D;
-    public byte[][] E;
-    public Camera r;
-    public Camera.Parameters s;
-    public int t;
-    public h0b.f u;
-    public int v;
-    public List<Camera.Area> w;
-    public List<Camera.Area> x;
-    public Matrix y;
-    public int z;
+    public final pfa c;
+    public final MainTabActivity d;
+    public final String e;
+    public String f;
+    @NonNull
+    public bu6 g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947706893, "Lcom/baidu/tieba/dia;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947706893, "Lcom/baidu/tieba/dia;");
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class a implements f65.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f65.a a;
+        public final /* synthetic */ dia b;
 
-    @Override // com.baidu.tieba.h0b.b
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        public a(dia diaVar, f65.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {diaVar, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = diaVar;
+            this.a = aVar;
         }
-    }
 
-    @Override // com.baidu.tieba.h0b.b
-    public void s(h0b.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) {
+        @Override // com.baidu.tieba.f65.a
+        public void callback(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (!z) {
+                    this.b.j();
+                }
+                this.a.callback(z);
+            }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements Camera.PreviewCallback {
+    public class b implements du6.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dia a;
 
-        public a(dia diaVar) {
+        public b(dia diaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,572 +103,336 @@ public class dia extends aia {
             this.a = diaVar;
         }
 
-        @Override // android.hardware.Camera.PreviewCallback
-        public void onPreviewFrame(byte[] bArr, Camera camera) {
+        @Override // com.baidu.tieba.du6.e
+        public void onDismiss() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.a.u != null) {
-                this.a.u.a(bArr, 1);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.j();
+                this.a.c();
             }
         }
     }
 
-    public dia(TbPageContext tbPageContext) {
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ dia b;
+
+        public c(dia diaVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {diaVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = diaVar;
+            this.a = str;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                try {
+                    if (!StringUtils.isNull(this.a)) {
+                        if ("source_from_virtual_image".equals(this.b.e)) {
+                            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                                str = "&skin=dark";
+                            } else {
+                                str = "";
+                            }
+                            UrlManager.getInstance().dealOneLink(this.b.d.getPageContext(), new String[]{this.a + str + "&from=2"});
+                        } else if ("source_from_theme".equals(this.b.e)) {
+                            UrlManager.getInstance().dealOneLink(this.b.d.getPageContext(), new String[]{this.a});
+                            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_DRESS_UP_BUNDLE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.b.f));
+                        }
+                    }
+                } catch (Exception e) {
+                    BdLog.e("openPageByUrl fail:" + e.toString());
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dia(@NonNull MainTabActivity mainTabActivity, @NonNull pfa pfaVar, @NonNull String str) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {mainTabActivity, pfaVar, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.t = 0;
-        this.a = tbPageContext;
-        D();
-        ArrayList arrayList = new ArrayList();
-        this.w = arrayList;
-        arrayList.add(new Camera.Area(new Rect(0, 0, 0, 0), 1));
-        ArrayList arrayList2 = new ArrayList();
-        this.x = arrayList2;
-        arrayList2.add(new Camera.Area(new Rect(0, 0, 0, 0), 1));
+        this.c = pfaVar;
+        this.d = mainTabActivity;
+        this.e = str;
     }
 
-    @Override // com.baidu.tieba.h0b.b
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && this.r != null) {
-            if ((i >= 1 || i <= -1) && this.z != -1) {
-                try {
-                    Camera.Parameters parameters = this.r.getParameters();
-                    if (!parameters.isZoomSupported()) {
-                        return;
-                    }
-                    int i2 = this.A + i;
-                    if (i2 > this.z) {
-                        i2 = this.z;
-                    } else if (i2 < 0) {
-                        i2 = 0;
-                    }
-                    if (this.A != i2) {
-                        parameters.setZoom(i2);
-                        this.r.setParameters(parameters);
-                        this.A = i2;
-                    }
-                } catch (Exception e) {
-                    h1b.g(e);
-                }
-            }
-        }
-    }
-
-    public static dia B(TbPageContext tbPageContext) {
+    public static HashMap<String, String> k(String str) {
         InterceptResult invokeL;
+        char c2;
+        String string;
+        le5 le5Var;
+        String str2;
+        String str3;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
-            if (F == null) {
-                synchronized (dia.class) {
-                    if (F == null) {
-                        F = new dia(tbPageContext);
-                    } else if (tbPageContext != null) {
-                        F.a = tbPageContext;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            int hashCode = str.hashCode();
+            if (hashCode != -867211368) {
+                if (hashCode != 525854610) {
+                    if (hashCode == 1522674166 && str.equals("source_from_virtual_image")) {
+                        c2 = 1;
                     }
-                }
-            }
-            return F;
-        }
-        return (dia) invokeL.objValue;
-    }
-
-    public static Camera.Size C(List<Camera.Size> list, int i, int i2) {
-        InterceptResult invokeLII;
-        Camera.Size size;
-        Camera.Size size2;
-        Camera.Size size3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, list, i, i2)) == null) {
-            if (list != null) {
-                int i3 = i * i2;
-                int i4 = Integer.MAX_VALUE;
-                float f = i / i2;
-                float f2 = 2.1474836E9f;
-                float f3 = Float.MAX_VALUE;
-                Iterator<Camera.Size> it = list.iterator();
-                size = null;
-                size2 = null;
-                while (true) {
-                    if (it.hasNext()) {
-                        size3 = it.next();
-                        if (size3 != null) {
-                            if (size3.width == i && size3.height == i2) {
-                                break;
-                            }
-                            int abs = Math.abs(i3 - (size3.width * size3.height));
-                            if (abs < i4) {
-                                size = size3;
-                                i4 = abs;
-                            }
-                            float abs2 = Math.abs((size3.width / size3.height) - f);
-                            if (abs2 - f3 <= 0.001d) {
-                                float f4 = abs;
-                                if (f4 < f2) {
-                                    size2 = size3;
-                                    f2 = f4;
-                                    f3 = abs2;
-                                }
-                            }
-                        }
-                    } else {
-                        size3 = null;
-                        break;
+                    c2 = 65535;
+                } else {
+                    if (str.equals("source_from_help")) {
+                        c2 = 0;
                     }
+                    c2 = 65535;
                 }
             } else {
-                size = null;
-                size2 = null;
-                size3 = null;
+                if (str.equals("source_from_theme")) {
+                    c2 = 2;
+                }
+                c2 = 65535;
             }
-            if (size3 != null) {
-                return size3;
+            String str5 = "";
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        string = "";
+                    } else {
+                        string = TbadkCoreApplication.getInst().getString(R.string.set_theme);
+                    }
+                } else {
+                    string = TbadkCoreApplication.getInst().getString(R.string.set_virtual_image);
+                }
+            } else {
+                string = TbadkApplication.getInst().getString(R.string.send_for_help_tips);
             }
-            if (size2 != null) {
-                return size2;
+            ke5 mainTabPopConfig = TbSingleton.getInstance().getMainTabPopConfig();
+            if (mainTabPopConfig != null) {
+                le5Var = mainTabPopConfig.b(str);
+            } else {
+                le5Var = null;
             }
-            if (size == null) {
+            if (le5Var == null) {
                 return null;
             }
-            return size;
-        }
-        return (Camera.Size) invokeLII.objValue;
-    }
-
-    public static void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            int numberOfCameras = Camera.getNumberOfCameras();
-            boolean z = false;
-            for (int i = 0; i < numberOfCameras; i++) {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                try {
-                    Camera.getCameraInfo(i, cameraInfo);
-                    int i2 = cameraInfo.facing;
-                    if (i2 == 1) {
-                        aia.o = true;
-                    } else if (i2 == 0) {
-                        aia.p = true;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    pxa.b("getCameraInfo", e.getMessage());
-                }
+            if (!StringUtils.isNull(le5Var.d())) {
+                string = le5Var.d();
             }
-            if (aia.o && !DeviceInfoUtil.isHuaweiMateX() && !DeviceInfoUtil.isOppN5207()) {
-                z = true;
-            }
-            aia.o = z;
-        }
-    }
-
-    public final int A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int numberOfCameras = Camera.getNumberOfCameras();
-            if (numberOfCameras > 0) {
-                if (numberOfCameras == 1) {
-                    Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                    Camera.getCameraInfo(0, cameraInfo);
-                    this.B = cameraInfo;
-                    return 0;
-                }
-                for (int i = 0; i < numberOfCameras; i++) {
-                    Camera.CameraInfo cameraInfo2 = new Camera.CameraInfo();
-                    Camera.getCameraInfo(i, cameraInfo2);
-                    if (this.b && cameraInfo2.facing == 1) {
-                        this.B = cameraInfo2;
-                        return i;
-                    } else if (!this.b && cameraInfo2.facing == 0) {
-                        this.B = cameraInfo2;
-                        return i;
-                    }
-                }
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.h0b.b
-    public void d(byte[] bArr) {
-        Camera camera;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) && (camera = this.r) != null) {
-            camera.addCallbackBuffer(bArr);
-        }
-    }
-
-    @Override // com.baidu.tieba.h0b.b
-    public void i(boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            if ((z && x()) || (!z && !w())) {
-                z2 = true;
+            if (StringUtils.isNull(le5Var.b())) {
+                str2 = "";
             } else {
-                z2 = false;
+                str2 = le5Var.b();
             }
-            this.b = z2;
+            if (!StringUtils.isNull(le5Var.a())) {
+                str5 = le5Var.a();
+            }
+            if (!StringUtils.isNull(le5Var.e())) {
+                str3 = le5Var.e();
+            } else {
+                str3 = "3000";
+            }
+            if (!StringUtils.isNull(le5Var.c())) {
+                str4 = le5Var.c();
+            } else {
+                str4 = "1";
+            }
+            hashMap.put("pop_params_key_text", string);
+            hashMap.put("pop_params_key_link", str2);
+            hashMap.put("pop_params_key_img", str5);
+            hashMap.put("pop_params_key_time", str3);
+            hashMap.put("pop_params_key_max", str4);
+            hashMap.put("pop_params_key_source", str);
+            return hashMap;
         }
+        return (HashMap) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.h0b.b
-    public void u(int i) {
+    @Override // com.baidu.tieba.f65
+    public void b() {
+        bu6 bu6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.v = i;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bu6Var = this.g) != null) {
+            bu6Var.h();
         }
     }
 
-    public final int[] E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<int[]> supportedPreviewFpsRange = this.r.getParameters().getSupportedPreviewFpsRange();
-            int[] iArr = null;
-            if (supportedPreviewFpsRange != null && supportedPreviewFpsRange.size() != 0) {
-                int i = Integer.MAX_VALUE;
-                Iterator<int[]> it = supportedPreviewFpsRange.iterator();
-                int i2 = 0;
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    int[] next = it.next();
-                    if (next != null) {
-                        int i3 = 1000;
-                        if (next[1] < 1000) {
-                            i3 = 1;
-                        }
-                        int i4 = next[0] / i3;
-                        int i5 = next[1] / i3;
-                        int i6 = this.k;
-                        if (i6 >= i4 && i6 <= i5) {
-                            iArr = next;
-                            i2 = i6;
-                            break;
-                        }
-                        int abs = Math.abs(i4 - this.k);
-                        int abs2 = Math.abs(i5 - this.k);
-                        if (abs <= abs2 && abs < i) {
-                            iArr = next;
-                            i2 = i4;
-                            i = abs;
-                        } else if (abs2 <= abs && abs2 < i) {
-                            iArr = next;
-                            i2 = i5;
-                            i = abs2;
-                        }
-                    }
-                }
-                this.t = i2;
-            }
-            return iArr;
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    public final void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            List<Camera.Size> supportedPreviewSizes = this.r.getParameters().getSupportedPreviewSizes();
-            Camera.Size C = C(supportedPreviewSizes, this.f, this.g);
-            if (C != null) {
-                this.d = C.width;
-                this.e = C.height;
-            }
-            if (aia.q == null) {
-                if (C == null || this.f != C.width || this.g != C.height) {
-                    StringBuilder sb = new StringBuilder();
-                    if (supportedPreviewSizes != null) {
-                        for (Camera.Size size : supportedPreviewSizes) {
-                            sb.append(size.width);
-                            sb.append(',');
-                            sb.append(size.height);
-                            sb.append('=');
-                            sb.append(size.height / size.width);
-                            sb.append('\n');
-                        }
-                    }
-                    aia.q = sb.toString();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.h0b.b
-    public void q() {
-        Camera camera;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (camera = this.r) != null) {
-            try {
-                camera.stopPreview();
-            } catch (Exception e) {
-                e.printStackTrace();
-                String str = "stopPreview:" + e.getMessage();
-            }
-            try {
-                this.r.setPreviewTexture(null);
-                this.r.setPreviewCallbackWithBuffer(null);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                String str2 = "stopPreview:" + e2.getMessage();
-            }
-            try {
-                this.r.release();
-            } catch (Exception e3) {
-                e3.printStackTrace();
-                String str3 = "stopPreview:" + e3.getMessage();
-            }
-            this.z = 0;
-            this.A = 0;
-            this.y = null;
-            this.r = null;
-            Surface surface = this.C;
-            if (surface != null) {
-                surface.release();
-            }
-            MediaPlayer mediaPlayer = this.D;
-            if (mediaPlayer != null) {
-                mediaPlayer.stop();
-                this.D.release();
-            }
-        }
-    }
-
-    public final void G() {
+    @Override // com.baidu.tieba.f65
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if ((this.c && this.d < this.e) || (!this.c && this.d > this.e)) {
-                this.h = this.e;
-                this.i = this.d;
+            j();
+        }
+    }
+
+    @Override // com.baidu.tieba.f65
+    public void d(f65.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            a aVar2 = new a(this, aVar);
+            pfa pfaVar = this.c;
+            if (pfaVar != null && pfaVar.y() != null) {
+                if (SpriteInterceptHomeTipSwitch.isOn() && kia.a().h()) {
+                    aVar2.callback(false);
+                    return;
+                }
+                FragmentTabWidget fragmentTabWidget = this.c.y().getFragmentTabWidget();
+                if ("source_from_help".equals(this.e)) {
+                    l(aVar2, k(this.e), fragmentTabWidget);
+                    return;
+                } else if ("source_from_virtual_image".equals(this.e) || "source_from_theme".equals(this.e)) {
+                    m(aVar2, k(this.e), fragmentTabWidget);
+                    return;
+                } else {
+                    return;
+                }
+            }
+            aVar2.callback(false);
+        }
+    }
+
+    @Override // com.baidu.tieba.f65
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            bu6 bu6Var = this.g;
+            if (bu6Var == null) {
+                j();
+                c();
                 return;
             }
-            this.h = this.d;
-            this.i = this.e;
-        }
-    }
-
-    @Override // com.baidu.tieba.h0b.b
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Camera camera = this.r;
-            if (camera != null && this.a != null) {
-                return camera.getParameters().getPreviewFormat();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.h0b.b
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return aia.q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h0b.b
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.r != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.h0b.b
-    public void n() {
-        TbPageContext tbPageContext;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.r != null && (tbPageContext = this.a) != null) {
-            hia.h(tbPageContext, A(), this.r);
-            G();
-        }
-    }
-
-    @Override // com.baidu.tieba.h0b.b
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            Camera.CameraInfo cameraInfo = this.B;
-            if ((cameraInfo != null && cameraInfo.facing == 1) || this.b) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.h0b.b
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            F = null;
-            this.a = null;
-            this.u = null;
-            this.l = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.h0b.b
-    public void c(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) && this.r != null && this.a != null) {
-            try {
-                z(i, i2, 1.0f, i3, i4, a2b.e(), a2b.d(), this.w.get(0).rect);
-                z(i, i2, 1.5f, i3, i4, a2b.e(), a2b.d(), this.x.get(0).rect);
-                this.r.cancelAutoFocus();
-                Camera.Parameters parameters = this.r.getParameters();
-                if (parameters.getSupportedFocusModes().contains("auto")) {
-                    parameters.setFocusMode("auto");
-                    parameters.setFocusAreas(this.w);
-                }
-                parameters.setMeteringAreas(this.x);
-                this.r.setParameters(parameters);
-                this.r.autoFocus(null);
-            } catch (Exception e) {
-                h1b.g(e);
+            bu6Var.z(new b(this));
+            this.g.W(this.f, h, true, false);
+            if ("source_from_theme".equals(this.e)) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_DRESS_UP_BUNDLE_SHOW).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.f));
             }
         }
     }
 
-    @Override // com.baidu.tieba.h0b.b
-    public void g(int i, int i2, int i3, boolean z) {
-        boolean z2;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-            this.f = Math.max(i, i2);
-            this.g = Math.min(i, i2);
-            if (i > i2) {
-                z2 = true;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            h29 defaultLog = DefaultLog.getInstance();
+            defaultLog.c("MainTabTip", "首页引导展示结束：" + this.e);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921802, this.e));
+        }
+    }
+
+    public void l(f65.a aVar, HashMap<String, String> hashMap, FragmentTabWidget fragmentTabWidget) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, aVar, hashMap, fragmentTabWidget) == null) {
+            h = "SendHelpTipTask";
+            if (hashMap == null) {
+                aVar.callback(false);
+                return;
+            }
+            if (fragmentTabWidget != null && fragmentTabWidget.getChildCount() > 2) {
+                bu6 bu6Var = new bu6(this.d.getPageContext(), fragmentTabWidget.getChildAt(2), this.e, hashMap);
+                this.g = bu6Var;
+                bu6Var.s(false);
+                this.g.t(true);
+                this.g.L(R.drawable.bg_tip_blue_dropdown);
+                this.g.l(2);
+                this.g.o(32);
+                this.g.N(true);
+                this.g.R(-yi.g(this.b, R.dimen.tbds10));
+                this.g.Q(-yi.g(this.b, R.dimen.tbds60));
+                this.g.C(R.color.CAM_X0101);
+                this.g.J(R.dimen.T_X09);
+                this.g.w(Integer.valueOf(hashMap.get("pop_params_key_max")).intValue());
+                this.g.n(Integer.valueOf(hashMap.get("pop_params_key_time")).intValue());
+                this.g.q(R.dimen.tbds90);
+                this.f = hashMap.get("pop_params_key_text");
+                int g = yi.g(this.b, R.dimen.obfuscated_res_0x7f070399);
+                this.g.E(g, 0, g, yi.g(this.b, R.dimen.obfuscated_res_0x7f070410));
+                this.g.A(h);
+            }
+            bu6 bu6Var2 = this.g;
+            if (bu6Var2 == null) {
+                aVar.callback(false);
+            } else if (!bu6Var2.d()) {
+                aVar.callback(false);
             } else {
-                z2 = false;
+                this.g.c(this.f, h, true, false, aVar);
             }
-            this.c = z2;
-            this.k = i3;
-            i(z);
         }
     }
 
-    @Override // com.baidu.tieba.h0b.b
-    public boolean k(SurfaceTexture surfaceTexture, h0b.f fVar) {
-        InterceptResult invokeLL;
-        float f;
-        List<String> supportedAntibanding;
+    public void m(f65.a aVar, HashMap<String, String> hashMap, FragmentTabWidget fragmentTabWidget) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, surfaceTexture, fVar)) == null) {
-            this.l = surfaceTexture;
-            this.u = fVar;
-            try {
-                q();
-                int A = A();
-                this.j = A;
-                if (A >= 0) {
-                    Camera open = Camera.open(A);
-                    this.r = open;
-                    if (open != null) {
-                        F();
-                        int[] E = E();
-                        if (this.d > 0 && this.e > 0 && this.t != 0 && E != null && E.length == 2) {
-                            Camera.Parameters parameters = this.r.getParameters();
-                            this.s = parameters;
-                            parameters.setPreviewSize(this.d, this.e);
-                            if (cia.c && (supportedAntibanding = this.s.getSupportedAntibanding()) != null && supportedAntibanding.contains("50hz")) {
-                                this.s.setAntibanding("50hz");
-                            }
-                            List<String> supportedFocusModes = this.s.getSupportedFocusModes();
-                            if (supportedFocusModes != null && supportedFocusModes.contains("continuous-video")) {
-                                this.s.setFocusMode("continuous-video");
-                            }
-                            this.s.setPreviewFpsRange(E[0], E[1]);
-                            hia.g(this.v, this.j, this.r);
-                            if (this.s.isVideoStabilizationSupported() && !this.s.getVideoStabilization()) {
-                                this.s.setVideoStabilization(true);
-                            }
-                            try {
-                                this.s.setExposureCompensation((int) (((this.s.getMaxExposureCompensation() - f) * 0.5d) + this.s.getMinExposureCompensation()));
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            this.z = hia.c(this.s);
-                            this.r.setParameters(this.s);
-                            if (this.E == null) {
-                                this.E = (byte[][]) Array.newInstance(byte.class, 3, ((this.d * this.e) * 3) / 2);
-                            }
-                            a aVar = new a(this);
-                            this.r.setPreviewCallbackWithBuffer(aVar);
-                            for (int i = 0; i < 3; i++) {
-                                this.r.addCallbackBuffer(this.E[i]);
-                            }
-                            this.r.setPreviewCallbackWithBuffer(aVar);
-                            this.r.setPreviewTexture(this.l);
-                            this.r.startPreview();
-                            G();
-                            cia.b.k(1);
-                            return true;
-                        }
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, aVar, hashMap, fragmentTabWidget) == null) {
+            if ("source_from_virtual_image".equals(this.e)) {
+                h = "setVirtualImage";
+            } else {
+                h = "setThemeSuit";
+            }
+            if (hashMap == null) {
+                aVar.callback(false);
+            } else if (fragmentTabWidget != null && fragmentTabWidget.getChildCount() >= 4) {
+                if (!ProfileVirtualImageInfo.getInstance().isNetDataRespond() && "source_from_virtual_image".equals(this.e)) {
+                    aVar.callback(false);
+                    return;
+                }
+                bu6 bu6Var = new bu6(this.d.getPageContext(), fragmentTabWidget.getChildAt(4), this.e, hashMap);
+                this.g = bu6Var;
+                bu6Var.L(R.drawable.bg_tip_blue_dropdown_right);
+                this.g.l(2);
+                this.g.o(48);
+                this.g.s(false);
+                boolean z = true;
+                this.g.N(true);
+                this.g.Q(-yi.g(this.b, R.dimen.tbds62));
+                this.g.C(R.color.CAM_X0101);
+                this.g.J(R.dimen.T_X09);
+                this.g.w(Integer.valueOf(hashMap.get("pop_params_key_max")).intValue());
+                this.g.n(Integer.valueOf(hashMap.get("pop_params_key_time")).intValue());
+                this.g.A(h);
+                this.f = hashMap.get("pop_params_key_text");
+                if (StringUtils.isNull(hashMap.get("pop_params_key_img"))) {
+                    this.g.q(R.dimen.tbds90);
+                    int g = yi.g(this.b, R.dimen.obfuscated_res_0x7f070399);
+                    this.g.E(g, 0, g, yi.g(this.b, R.dimen.obfuscated_res_0x7f070410));
+                }
+                this.g.m(new c(this, hashMap.get("pop_params_key_link")));
+                if ("source_from_virtual_image".equals(this.e)) {
+                    if (ProfileVirtualImageInfo.getInstance().getIsSetVirtualImage() == 1) {
+                        z = false;
+                    }
+                    boolean d = this.g.d();
+                    if (!z || !d) {
+                        aVar.callback(false);
+                        return;
                     }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                e2.getMessage();
+                this.g.c(this.f, h, true, false, aVar);
+            } else {
+                aVar.callback(false);
             }
-            q();
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.h0b.b
-    public void t(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIII(1048595, this, i, i2, i3, i4) != null) || this.r == null || this.a == null) {
-        }
-    }
-
-    public final void z(int i, int i2, float f, int i3, int i4, int i5, int i6, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), rect}) == null) {
-            int i7 = (int) (i * f);
-            int i8 = (int) (i2 * f);
-            int a2 = hia.a(i3 - (i7 / 2), 0, i5 - i7);
-            int a3 = hia.a(i4 - (i8 / 2), 0, i6 - i8);
-            RectF rectF = new RectF(a2, a3, a2 + i7, a3 + i8);
-            if (this.y == null) {
-                this.y = new Matrix();
-                Matrix matrix = new Matrix();
-                TbPageContext tbPageContext = this.a;
-                if (tbPageContext != null) {
-                    hia.e(tbPageContext, this.j, matrix);
-                }
-                matrix.invert(this.y);
-            }
-            this.y.mapRect(rectF);
-            hia.f(rectF, rect);
         }
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.gx5;
+import com.baidu.tieba.ky5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.AddTaskScores.AddTaskScoresReqIdl;
 import tbclient.AddTaskScores.DataReq;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class GetTaskScoresRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class GetTaskScoresRequestMessage extends NetMessage {
             builder.task_id = Integer.valueOf(this.taskId);
             builder.user_id = Long.valueOf(this.userId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                gx5.a(builder, true);
+                ky5.a(builder, true);
             }
             AddTaskScoresReqIdl.Builder builder2 = new AddTaskScoresReqIdl.Builder();
             builder2.data = builder.build(false);

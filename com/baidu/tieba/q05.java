@@ -1,82 +1,64 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.Lifecycle;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.searchbox.performance.speed.SpeedStats;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.BdToken.BdTokenController;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.browser.TBWebViewActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.util.CurrentPageTypeHelper;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tbadk.mutiprocess.currentpagetype.CurrentPageTypeEvent;
-import com.baidu.tbadk.mutiprocess.thirdpartylifecycle.ThirdPartyActivityLifecycleEvent;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 /* loaded from: classes7.dex */
-public class q05 implements Application.ActivityLifecycleCallbacks {
+public class q05 {
     public static /* synthetic */ Interceptable $ic;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public xw6 a;
+    public boolean a;
+    public Map<String, p05> b;
+    public Resources c;
+    public Resources d;
+    public boolean e;
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, activity, bundle) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948038035, "Lcom/baidu/tieba/q05;")) == null) {
+            return;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-
-        public a(q05 q05Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q05Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdTokenController.J().M(this.a);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948038035, "Lcom/baidu/tieba/q05;");
         }
     }
 
@@ -84,268 +66,437 @@ public class q05 implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new xw6();
+        this.a = false;
+        this.b = new HashMap();
+        this.e = false;
     }
 
-    public final void a(Activity activity) {
+    public void c() {
+        Map<String, p05> map;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, activity) != null) || activity == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (map = this.b) != null) {
+            map.clear();
+            this.b = null;
         }
-        String name = activity.getClass().getName();
-        if (k85.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
-            if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name)) {
-                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    k85.a().k(true);
-                    return;
-                } else if (!SchemeActionHelper.isToMaintab(activity.getIntent())) {
-                    return;
-                }
+    }
+
+    public static int h(Resources resources, Resources resources2, int i) {
+        String str;
+        int i2;
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, resources, resources2, i)) == null) {
+            try {
+                str = resources.getResourceName(i);
+            } catch (Exception unused) {
+                str = "";
             }
-            k85.a().h(name);
-        }
-    }
-
-    public final void b(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) != null) || activity == null) {
-            return;
-        }
-        String name = activity.getClass().getName();
-        if (k85.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
-            if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name)) {
-                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    k85.a().l(true);
-                    return;
-                } else if (!SchemeActionHelper.isToMaintab(activity.getIntent())) {
-                    return;
+            if (!TextUtils.isEmpty(str)) {
+                String packageName = SkinManager.getPackageName();
+                f = packageName;
+                if (StringUtils.isNull(packageName)) {
+                    f = BdBaseApplication.getInst().getPackageName();
                 }
-            }
-            k85.a().g(name);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-            d(activity, Lifecycle.Event.ON_PAUSE);
-            c(activity, Lifecycle.Event.ON_PAUSE);
-            boolean z = false;
-            if (activity.isFinishing()) {
-                x55.i();
-                if (((activity instanceof TBWebViewActivity) && activity.getIntent() != null && !TextUtils.isEmpty(activity.getIntent().getStringExtra(WebViewActivityConfig.TAG_WEB_DIALOG_NAME))) || activity.getClass().getName().equals("com.baidu.tieba.UpdateDialog")) {
-                    z = true;
-                }
-                d65.l(z);
+                str = f + str.substring(str.indexOf(":"));
+                i2 = resources2.getIdentifier(str + SkinManager.darkSuffix, null, null);
             } else {
-                d65.l(false);
+                i2 = i;
             }
-            TbadkCoreApplication.getInst().setCurGlobalActivity(null);
-            this.a.a(activity);
+            if (i2 == 0) {
+                BdLog.e(str + " 缺少深色资源,使用了日间资源");
+                return i;
+            }
+            return i2;
         }
+        return invokeLLI.intValue;
     }
 
-    public final void c(@Nullable Activity activity, @NonNull Lifecycle.Event event) {
+    public final int d(boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, event) != null) || activity == null) {
-            return;
-        }
-        String name = activity.getClass().getName();
-        if (Lifecycle.Event.ON_START.equals(event)) {
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                TbadkCoreApplication.getInst().notifyPageCountDelta(1, name);
-            } else {
-                e(1, name);
-            }
-        } else if (Lifecycle.Event.ON_STOP.equals(event)) {
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                TbadkCoreApplication.getInst().notifyPageCountDelta(-1, name);
-            } else {
-                e(-1, name);
-            }
-        }
-    }
-
-    public final void d(@Nullable Activity activity, @NonNull Lifecycle.Event event) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, activity, event) == null) && activity != null && !BaseActivity.class.isAssignableFrom(activity.getClass()) && !BaseFragmentActivity.class.isAssignableFrom(activity.getClass())) {
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                q45 q45Var = new q45();
-                q45Var.a = TbadkCoreApplication.getInst();
-                q45Var.b = activity;
-                q45Var.c = event;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921698, q45Var));
-                return;
-            }
-            ThirdPartyActivityLifecycleEvent thirdPartyActivityLifecycleEvent = new ThirdPartyActivityLifecycleEvent();
-            thirdPartyActivityLifecycleEvent.event = event;
-            sp5.i(thirdPartyActivityLifecycleEvent);
-        }
-    }
-
-    public final void e(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            Intent intent = new Intent("com.tieba.baidu.pagecount");
-            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            intent.putExtra("countDelta", i);
-            intent.putExtra("activityClassName", str);
-            TbadkCoreApplication.getInst().sendBroadcast(intent);
-        }
-    }
-
-    public final void f(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, activity) != null) || activity == null || !PermissionUtil.isAgreePrivacyPolicy()) {
-            return;
-        }
-        if (activity.getClass().getName().equals(xi.y())) {
-            CurrentPageTypeHelper.PageType pageType = CurrentPageTypeHelper.PageType.OTHER;
-            if (TBWebViewActivity.class.isAssignableFrom(activity.getClass())) {
-                pageType = CurrentPageTypeHelper.PageType.WEB;
-            } else if (activity.getClass().getName().contains("SwanAppActivity")) {
-                pageType = CurrentPageTypeHelper.PageType.SMART_APP;
-            } else if (activity.getClass().getName().contains("FlutterPageActivity")) {
-                pageType = CurrentPageTypeHelper.PageType.FLUTTER;
-            } else if (activity.getClass().getName().contains("NewSquareSearchActivity")) {
-                pageType = CurrentPageTypeHelper.PageType.NATIVE_WEB;
-            } else if (BaseActivity.class.isAssignableFrom(activity.getClass()) || BaseFragmentActivity.class.isAssignableFrom(activity.getClass())) {
-                pageType = CurrentPageTypeHelper.PageType.NATIVE;
-            }
-            sp5.i(new CurrentPageTypeEvent(pageType));
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (activity != null && currentActivity != null && jp5.b().h(activity) && !jp5.b().h(currentActivity)) {
-                jp5.b().o();
-                if (!jp5.b().g(currentActivity.getClass().getName())) {
-                    jp5.b().l(false);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType != 2 && (this.e || skinType != 4)) {
+                if (!z) {
+                    return this.c.getColor(i);
+                }
+                if (i == i2) {
+                    Resources resources = this.c;
+                    this.d = resources;
+                    i2 = h(resources, resources, i);
+                }
+                Resources resources2 = this.d;
+                if (resources2 == null) {
+                    return this.c.getColor(i);
+                }
+                try {
+                    return resources2.getColor(i2);
+                } catch (Resources.NotFoundException unused) {
+                    return this.c.getColor(i);
                 }
             }
-            if (zf5.i() != null && activity == zf5.i().getActivity()) {
-                zf5.i().m();
-            }
-            if (zf5.k() != null && activity == zf5.k().getActivity()) {
-                zf5.l();
-            }
-            if (ne5.b() != null && activity == ne5.b().getActivity()) {
-                ne5.b().t();
-            }
-            d(activity, Lifecycle.Event.ON_DESTROY);
-            c(activity, Lifecycle.Event.ON_DESTROY);
-            if (activity instanceof TbPageContextSupport) {
-                TbPageContext pageContext = ((TbPageContextSupport) activity).getPageContext();
-                gs6.b().unregister(pageContext);
-                BdUniqueId uniqueId = pageContext.getUniqueId();
-                if (uniqueId != null) {
-                    gs6.a(uniqueId);
-                }
-            }
+            return SkinManager.getColor(i);
         }
+        return invokeCommon.intValue;
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(Activity activity, Bundle bundle) {
+    public final ColorStateList e(boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, activity, bundle) != null) || activity == null) {
-            return;
-        }
-        o95.q().w(activity);
-        if (o95.q().v(activity)) {
-            return;
-        }
-        String name = activity.getClass().getName();
-        if (!SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !d65.k(activity) && ((!"com.baidu.tieba.pb.pb.main.PbActivity".equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name)) || !j85.a().a)) {
-            bc.b().e();
-        }
-        if (jp5.b().e(name)) {
-            jp5.b().a();
-        } else if (jp5.b().h(activity)) {
-            jp5.b().c();
-            if (jp5.b().g(name)) {
-                jp5.b().l(true);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType != 2 && (this.e || skinType != 4)) {
+                if (!z) {
+                    return this.c.getColorStateList(i);
+                }
+                if (i == i2) {
+                    Resources resources = this.c;
+                    this.d = resources;
+                    i2 = h(resources, resources, i);
+                }
+                Resources resources2 = this.d;
+                if (resources2 == null) {
+                    return this.c.getColorStateList(i);
+                }
+                try {
+                    return resources2.getColorStateList(i2);
+                } catch (Resources.NotFoundException unused) {
+                    return this.c.getColorStateList(i);
+                }
             }
-        } else if (jp5.b().f(name)) {
-            jp5.b().o();
-            if (!jp5.b().g(name)) {
-                jp5.b().l(false);
-            } else {
-                jp5.b().l(true);
-            }
+            return SkinManager.getColorList(i);
         }
-        j85.a().e(activity);
-        d(activity, Lifecycle.Event.ON_CREATE);
-        c(activity, Lifecycle.Event.ON_CREATE);
-        x55.i();
-        d65.l(false);
+        return (ColorStateList) invokeCommon.objValue;
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(Activity activity) {
+    public final Drawable g(boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
-            if (activity != null) {
-                if (!activity.getClass().getSimpleName().equals("LogoActivity")) {
-                    bc.b().a("BdTokenController", new a(this, UtilHelper.isActivityStartFromScheme(activity)));
-                }
-                String name = activity.getClass().getName();
-                if (jp5.b().e(name)) {
-                    jp5.b().a();
-                } else if (jp5.b().h(activity)) {
-                    jp5.b().c();
-                    if (jp5.b().g(name)) {
-                        jp5.b().l(true);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType != 2 && (this.e || skinType != 4)) {
+                if (!z) {
+                    try {
+                        return this.c.getDrawable(i);
+                    } catch (Throwable unused) {
+                        return null;
                     }
                 }
+                if (i == i2) {
+                    Resources resources = this.c;
+                    this.d = resources;
+                    i2 = h(resources, resources, i);
+                }
+                Resources resources2 = this.d;
+                if (resources2 == null) {
+                    try {
+                        return this.c.getDrawable(i);
+                    } catch (Throwable unused2) {
+                        return null;
+                    }
+                }
+                try {
+                    try {
+                        return resources2.getDrawable(i2);
+                    } catch (Throwable unused3) {
+                        return null;
+                    }
+                } catch (Resources.NotFoundException unused4) {
+                    return this.c.getDrawable(i);
+                } catch (ArrayIndexOutOfBoundsException unused5) {
+                    return null;
+                }
             }
-            f(activity);
-            b(activity);
-            a(activity);
-            d(activity, Lifecycle.Event.ON_RESUME);
-            c(activity, Lifecycle.Event.ON_RESUME);
-            TbadkCoreApplication.getInst().setCurGlobalActivity(activity);
-            this.a.b(activity);
-            if (!TbadkCoreApplication.getInst().isMainProcess(false) && activity != null && activity.getClass().getName().equals("com.bdgame.assist.SplashActivity")) {
-                Intent intent = new Intent("com.tieba.baidu.notifyprocess");
-                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                intent.putExtra("message", false);
-                TbadkCoreApplication.getInst().sendBroadcast(intent);
+            return SkinManager.getDrawable(i);
+        }
+        return (Drawable) invokeCommon.objValue;
+    }
+
+    public final void a(View view2) {
+        Drawable g;
+        Drawable g2;
+        Drawable g3;
+        int q;
+        ColorStateList f2;
+        ColorStateList f3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            String str = "@" + view2.getId();
+            Map<String, p05> map = this.b;
+            if (map != null && map.containsKey(str)) {
+                p05 p05Var = this.b.get(str);
+                if (view2 instanceof TextView) {
+                    if (p05Var.v() != 0 && (f3 = f(this.a, p05Var.u(), p05Var.v())) != null) {
+                        ((TextView) view2).setTextColor(f3);
+                    }
+                    if (p05Var.t() != 0 && (f2 = f(this.a, p05Var.s(), p05Var.t())) != null) {
+                        ((TextView) view2).setHintTextColor(f2);
+                    }
+                    if (p05Var.r() != 0) {
+                        TextView textView = (TextView) view2;
+                        Context context = view2.getContext();
+                        if (this.a) {
+                            q = p05Var.r();
+                        } else {
+                            q = p05Var.q();
+                        }
+                        textView.setTextAppearance(context, q);
+                    }
+                    if (p05Var.k() != 0) {
+                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, g(this.a, p05Var.j(), p05Var.k()), (Drawable) null, (Drawable) null);
+                    }
+                    if (p05Var.g() != 0) {
+                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds(g(this.a, p05Var.f(), p05Var.g()), (Drawable) null, (Drawable) null, (Drawable) null);
+                    }
+                    if (p05Var.i() != 0) {
+                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, g(this.a, p05Var.h(), p05Var.i()), (Drawable) null);
+                    }
+                } else if (view2 instanceof ImageButton) {
+                    if (p05Var.n() != 0 && (g3 = g(this.a, p05Var.m(), p05Var.n())) != null) {
+                        ((ImageView) view2).setImageDrawable(g3);
+                    }
+                } else if (view2 instanceof ImageView) {
+                    if (p05Var.n() != 0 && (g2 = g(this.a, p05Var.m(), p05Var.n())) != null) {
+                        ((ImageView) view2).setImageDrawable(g2);
+                    }
+                } else if ((view2 instanceof ProgressBar) && p05Var.p() != 0 && (g = g(this.a, p05Var.o(), p05Var.p())) != null) {
+                    ((ProgressBar) view2).setProgressDrawable(g);
+                }
+                if (p05Var.c() != 0) {
+                    int paddingLeft = view2.getPaddingLeft();
+                    int paddingTop = view2.getPaddingTop();
+                    int paddingRight = view2.getPaddingRight();
+                    int paddingBottom = view2.getPaddingBottom();
+                    String resourceTypeName = this.c.getResourceTypeName(p05Var.b());
+                    if (resourceTypeName != null && resourceTypeName.equals("color")) {
+                        view2.setBackgroundColor(d(this.a, p05Var.b(), p05Var.c()));
+                    } else {
+                        view2.setBackgroundDrawable(g(this.a, p05Var.b(), p05Var.c()));
+                    }
+                    view2.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+                }
             }
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(Activity activity) {
+    public final void b(ViewGroup viewGroup) throws Resources.NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, activity) == null) {
-            d(activity, Lifecycle.Event.ON_START);
-            c(activity, Lifecycle.Event.ON_START);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
+            String str = "@" + viewGroup.getId();
+            Map<String, p05> map = this.b;
+            if (map != null && map.containsKey(str)) {
+                p05 p05Var = this.b.get(str);
+                if (viewGroup instanceof AdapterView) {
+                    if ((viewGroup instanceof ListView) && p05Var.e() != 0) {
+                        ListView listView = (ListView) viewGroup;
+                        int dividerHeight = listView.getDividerHeight();
+                        listView.setDivider(g(this.a, p05Var.d(), p05Var.e()));
+                        listView.setDividerHeight(dividerHeight);
+                    }
+                    Adapter adapter = ((AdapterView) viewGroup).getAdapter();
+                    if (adapter != null && (adapter instanceof BaseAdapter)) {
+                        ((BaseAdapter) adapter).notifyDataSetChanged();
+                    }
+                }
+                if (p05Var.c() != 0) {
+                    int paddingLeft = viewGroup.getPaddingLeft();
+                    int paddingTop = viewGroup.getPaddingTop();
+                    int paddingRight = viewGroup.getPaddingRight();
+                    int paddingBottom = viewGroup.getPaddingBottom();
+                    String resourceTypeName = this.c.getResourceTypeName(p05Var.b());
+                    if (resourceTypeName != null && resourceTypeName.equals("color")) {
+                        viewGroup.setBackgroundColor(d(this.a, p05Var.b(), p05Var.c()));
+                    } else {
+                        viewGroup.setBackgroundDrawable(g(this.a, p05Var.b(), p05Var.c()));
+                    }
+                    viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+                }
+            }
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(Activity activity) {
+    public final ColorStateList f(boolean z, int i, int i2) {
+        String str;
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
-            TbadkCoreApplication.getInst().setStartType(1);
-            o95.q().x(activity);
-            d(activity, Lifecycle.Event.ON_STOP);
-            c(activity, Lifecycle.Event.ON_STOP);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            try {
+                return e(z, i, i2);
+            } catch (Exception e) {
+                try {
+                    str = this.c.getResourceName(i);
+                } catch (Exception unused) {
+                    str = "";
+                }
+                TiebaStatic.log(new StatisticItem("getColorListCrash").param("obj_source", e.toString()).param("obj_param1", i).param(TiebaStatic.Params.OBJ_PARAM2, str));
+                return null;
+            }
+        }
+        return (ColorStateList) invokeCommon.objValue;
+    }
+
+    public final int[] i(String str) {
+        InterceptResult invokeL;
+        int parseInt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (!TextUtils.isDigitsOnly(str.substring(1)) || (parseInt = Integer.parseInt(str.substring(1))) == 0) {
+                return null;
+            }
+            return new int[]{parseInt, h(this.c, this.d, parseInt)};
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public void j(String str, Context context, AttributeSet attributeSet) {
+        int[] i;
+        int e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, context, attributeSet) == null) {
+            try {
+                Resources resources = context.getResources();
+                this.c = resources;
+                this.d = resources;
+                int attributeCount = attributeSet.getAttributeCount();
+                p05 p05Var = new p05();
+                p05Var.R(str);
+                boolean z = false;
+                for (int i2 = 0; i2 < attributeCount; i2++) {
+                    String attributeName = attributeSet.getAttributeName(i2);
+                    String attributeValue = attributeSet.getAttributeValue(i2);
+                    if (attributeName.equals("id")) {
+                        p05Var.G(attributeValue);
+                    } else if (attributeName.equals("tb_background")) {
+                        int[] i3 = i(attributeValue);
+                        if (i3 != null) {
+                            p05Var.w(i3[0]);
+                            p05Var.x(i3[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_src")) {
+                        int[] i4 = i(attributeValue);
+                        if (i4 != null) {
+                            p05Var.H(i4[0]);
+                            p05Var.I(i4[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_textColor")) {
+                        int[] i5 = i(attributeValue);
+                        if (i5 != null) {
+                            p05Var.P(i5[0]);
+                            p05Var.Q(i5[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_style")) {
+                        int[] i6 = i(attributeValue);
+                        if (i6 != null) {
+                            p05Var.L(i6[0]);
+                            p05Var.M(i6[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_divider")) {
+                        int[] i7 = i(attributeValue);
+                        if (i7 != null) {
+                            p05Var.y(i7[0]);
+                            p05Var.z(i7[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_drawableTop")) {
+                        int[] i8 = i(attributeValue);
+                        if (i8 != null) {
+                            p05Var.E(i8[0]);
+                            p05Var.F(i8[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_drawableLeft")) {
+                        int[] i9 = i(attributeValue);
+                        if (i9 != null) {
+                            p05Var.A(i9[0]);
+                            p05Var.B(i9[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_drawableRight")) {
+                        int[] i10 = i(attributeValue);
+                        if (i10 != null) {
+                            p05Var.C(i10[0]);
+                            p05Var.D(i10[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_progressDrawable")) {
+                        int[] i11 = i(attributeValue);
+                        if (i11 != null) {
+                            p05Var.J(i11[0]);
+                            p05Var.K(i11[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_textColorHint") && (i = i(attributeValue)) != null) {
+                        p05Var.N(i[0]);
+                        p05Var.O(i[1]);
+                        z = true;
+                    }
+                    if (z && TbConfig.getDebugSwitch() && (e = wg.e(attributeValue.substring(1), 0)) != 0) {
+                        String resourceName = this.c.getResourceName(e);
+                        p05Var.a(attributeName + "=" + resourceName);
+                    }
+                }
+                if (z && !TextUtils.isEmpty(p05Var.l()) && this.b != null && !this.b.containsKey(p05Var.l())) {
+                    this.b.put(p05Var.l(), p05Var);
+                }
+            } catch (Resources.NotFoundException unused) {
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void k(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, view2) != null) || view2 == null) {
+            return;
+        }
+        Stack stack = new Stack();
+        stack.push(view2);
+        while (!stack.isEmpty()) {
+            View view3 = (View) stack.pop();
+            if (view3 instanceof ViewGroup) {
+                try {
+                    b((ViewGroup) view3);
+                } catch (Resources.NotFoundException e) {
+                    BdLog.e(e);
+                }
+                if (!(view3 instanceof AdapterView)) {
+                    ViewGroup viewGroup = (ViewGroup) view3;
+                    int childCount = viewGroup.getChildCount();
+                    for (int i = 0; i < childCount; i++) {
+                        stack.push(viewGroup.getChildAt(i));
+                    }
+                }
+            } else {
+                a(view3);
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void m(Resources resources) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, resources) == null) {
+            this.d = resources;
         }
     }
 }

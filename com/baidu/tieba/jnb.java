@@ -1,344 +1,308 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.content.pm.SigningInfo;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.api.entity.auth.AuthCode;
-import com.yy.transvod.player.log.TLog;
-import java.lang.ref.WeakReference;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.UUID;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
 /* loaded from: classes6.dex */
 public class jnb {
     public static /* synthetic */ Interceptable $ic;
-    public static int u;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer a;
-    public int b;
-    public AtomicInteger c;
-    public WeakReference<fnb> d;
-    public boolean e;
-    public boolean f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public long m;
-    public long n;
-    public long o;
-    public long p;
-    public AtomicLong q;
-    public AtomicLong r;
-    public AtomicLong s;
-    public AtomicBoolean t;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947890475, "Lcom/baidu/tieba/jnb;")) == null) {
-            return;
+    public static String f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            if (bArr.length != 0) {
+                StringBuilder sb = new StringBuilder();
+                for (byte b : bArr) {
+                    String hexString = Integer.toHexString(b & 255);
+                    if (hexString.length() == 1) {
+                        sb.append(TransactionIdCreater.FILL_BYTE);
+                    }
+                    sb.append(hexString);
+                }
+                return sb.toString();
+            }
+            return "";
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947890475, "Lcom/baidu/tieba/jnb;");
-        }
+        return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jnb a;
+    public static byte[] h(String str) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new byte[0];
+            }
+            String upperCase = str.toUpperCase(Locale.ENGLISH);
+            int length = upperCase.length() / 2;
+            byte[] bArr = new byte[length];
+            try {
+                byte[] bytes = upperCase.getBytes(StandardCharsets.UTF_8);
+                for (int i2 = 0; i2 < length; i2++) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("0x");
+                    sb.append(new String(new byte[]{bytes[i2 * 2]}, StandardCharsets.UTF_8));
+                    bArr[i2] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i + 1]}, StandardCharsets.UTF_8)).byteValue());
+                }
+            } catch (NumberFormatException e) {
+                String str2 = "hex string 2 byte array exception : " + e.getMessage();
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
 
-        public a(jnb jnbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jnbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static byte[] i(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) {
+            if (bArr == null) {
+                return bArr;
+            }
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                if (i < 0) {
+                    bArr[i2] = (byte) (bArr[i2] << (-i));
+                } else {
+                    bArr[i2] = (byte) (bArr[i2] >> i);
                 }
             }
-            this.a = jnbVar;
+            return bArr;
         }
+        return (byte[]) invokeLI.objValue;
+    }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a.e) {
-                    jnb.k(this.a);
-                    int i = ((System.currentTimeMillis() - this.a.r.get()) > 600L ? 1 : ((System.currentTimeMillis() - this.a.r.get()) == 600L ? 0 : -1));
-                    if (i <= 0 || this.a.f || this.a.g == -1 || this.a.r.get() == 0) {
-                        if (i < 0 && this.a.f) {
-                            this.a.g = -1;
-                            this.a.f = false;
-                            this.a.v(AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED);
-                        }
-                    } else {
-                        this.a.f = true;
-                        this.a.v(AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED);
-                    }
-                    if (this.a.b % 20 == 0) {
-                        this.a.v(6000);
-                        this.a.k = 0;
-                    }
-                    if (this.a.b % 20 == 0) {
-                        this.a.v(6001);
-                        this.a.l = 0;
-                    }
-                    if (this.a.b % 30 == 0 && this.a.t.get()) {
-                        long currentTimeMillis = System.currentTimeMillis() - this.a.q.get();
-                        if (currentTimeMillis > 2000 && this.a.q.get() >= this.a.r.get() && this.a.r.get() > 0) {
-                            TLog.g(this, "[draw] may block, elapse " + currentTimeMillis + "ms after drawStart");
-                            this.a.t.set(false);
-                        }
-                    }
-                    if (this.a.b % 50 == 0 && this.a.s.get() > 1500) {
-                        TLog.g(this, "[draw] max cost: " + this.a.s.get());
-                        this.a.s.set(0L);
-                    }
-                    if (this.a.b % 50 != 0) {
-                        return;
-                    }
-                    this.a.v(AuthCode.StatusCode.PERMISSION_NOT_EXIST);
-                    this.a.m = 0L;
-                    this.a.n = 0L;
-                    this.a.b = 0;
-                    return;
+    public static byte[] j(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = null;
+            if (bArr != null) {
+                int length = bArr.length;
+                if (length != bArr2.length) {
+                    return null;
                 }
-                this.a.e = false;
-                this.a.m = 0L;
-                this.a.n = 0L;
-                this.a.l = 0;
+                bArr3 = new byte[length];
+                for (int i = 0; i < length; i++) {
+                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
+                }
             }
+            return bArr3;
         }
+        return (byte[]) invokeLL.objValue;
     }
 
-    public jnb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = 0;
-        this.c = new AtomicInteger(0);
-        this.d = new WeakReference<>(null);
-        this.e = true;
-        this.f = false;
-        this.g = -1;
-        this.h = 0;
-        this.i = 0;
-        this.j = 0;
-        this.k = 0;
-        this.l = 0;
-        this.m = 0L;
-        this.n = 0L;
-        this.o = 0L;
-        this.p = 0L;
-        this.q = new AtomicLong(0L);
-        this.r = new AtomicLong(0L);
-        this.s = new AtomicLong(0L);
-        this.t = new AtomicBoolean(false);
-    }
-
-    public static /* synthetic */ int k(jnb jnbVar) {
-        int i = jnbVar.b;
-        jnbVar.b = i + 1;
-        return i;
-    }
-
-    public void A(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.r.set(j);
-            long j2 = this.r.get() - this.q.get();
-            if (j2 >= this.s.get()) {
-                this.s.set(j2);
-            }
-        }
-    }
-
-    public void B(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.q.set(j);
-            this.t.set(true);
-        }
-    }
-
-    public void C(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    public void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.n += i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.m += i;
-        }
-    }
-
-    public void x(fnb fnbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, fnbVar) == null) {
-            this.d = new WeakReference<>(fnbVar);
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.h = i;
-            v(6002);
-        }
-    }
-
-    public void y(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            this.i = i;
-            this.j = i2;
-            v(AuthCode.StatusCode.CERT_FINGERPRINT_ERROR);
-        }
-    }
-
-    public static int w() {
+    public static RequestHeader a() throws ApiException {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            return u;
-        }
-        return invokeV.intValue;
-    }
-
-    public void F() {
-        Timer timer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (timer = this.a) != null) {
-            timer.cancel();
-            this.a = null;
-            this.e = true;
-            this.p = 0L;
-            this.o = 0L;
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.l++;
-        }
-    }
-
-    public void E(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c.set(i);
-            TLog.g(this, String.format(Locale.getDefault(), "QualityMonitor playTaskId %d", Integer.valueOf(this.c.get())));
-            TLog.g(this, "QualityMonitor start");
-            if (this.a == null) {
-                Timer timer = new Timer();
-                this.a = timer;
-                timer.schedule(new a(this), 1000L, 100L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = qnb.e.a();
+            String str2 = null;
+            try {
+                Object obj = a.getPackageManager().getApplicationInfo(a.getPackageName(), 128).metaData.get("com.hihonor.push.app_id");
+                if (obj != null) {
+                    str2 = String.valueOf(obj);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                lnb.b("ConfigUtils", "getPushAppId", e);
             }
-            TLog.g(this, "QualityMonitor start");
+            if (!TextUtils.isEmpty(str2)) {
+                String str3 = "checkPushAppId Parameter is " + str2;
+                String e2 = e(a, a.getPackageName());
+                if (!TextUtils.isEmpty(e2)) {
+                    String str4 = "checkPushCertFingerprint Parameter is " + e2;
+                    RequestHeader requestHeader = new RequestHeader();
+                    requestHeader.setPackageName(a.getPackageName());
+                    requestHeader.setAppId(str2);
+                    requestHeader.setCertificateFingerprint(e2);
+                    onb onbVar = onb.b;
+                    requestHeader.setPushToken(onbVar.c(a));
+                    synchronized (onbVar) {
+                        onbVar.a(a);
+                        SharedPreferences sharedPreferences = onb.a.a;
+                        if (sharedPreferences != null) {
+                            str = sharedPreferences.getString("key_aaid", "");
+                        } else {
+                            str = "";
+                        }
+                        if (TextUtils.isEmpty(str)) {
+                            str = UUID.randomUUID().toString().replace("-", "");
+                            String str5 = "getRandomUUID UUID =" + str;
+                            onb.a.b("key_aaid", str);
+                        }
+                    }
+                    requestHeader.setAAID(str);
+                    requestHeader.setSdkVersion(70001103);
+                    return requestHeader;
+                }
+                lnb.a("checkPushConfig Parameter is missing.");
+                throw HonorPushErrorEnum.ERROR_CERT_FINGERPRINT_EMPTY.toApiException();
+            }
+            lnb.a("checkPushConfig Parameter is missing");
+            throw HonorPushErrorEnum.ERROR_NO_APPID.toApiException();
         }
+        return (RequestHeader) invokeV.objValue;
     }
 
-    public final void v(int i) {
-        fnb fnbVar;
-        float currentTimeMillis;
-        float currentTimeMillis2;
+    public static ApiException b(Exception exc) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || (fnbVar = this.d.get()) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, exc)) == null) {
+            if (exc.getCause() instanceof ApiException) {
+                return (ApiException) exc.getCause();
+            }
+            if (exc instanceof ApiException) {
+                return (ApiException) exc;
+            }
+            return new ApiException(-1, exc.getMessage());
+        }
+        return (ApiException) invokeL.objValue;
+    }
+
+    public static <TResult> cob<TResult> c(Callable<TResult> callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) {
+            ExecutorService executorService = vob.c.b;
+            uob uobVar = new uob();
+            try {
+                executorService.execute(new znb(uobVar, callable));
+            } catch (Exception e) {
+                uobVar.a(e);
+            }
+            return uobVar.a;
+        }
+        return (cob) invokeL.objValue;
+    }
+
+    public static void g(Handler handler) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, handler) != null) || Looper.myLooper() == handler.getLooper()) {
             return;
         }
-        Message message = null;
-        switch (i) {
-            case 6000:
-                message = Message.obtain(null, 6000, this.k, 0);
-                break;
-            case 6001:
-                if (this.p == 0) {
-                    currentTimeMillis = 2.0f;
-                } else {
-                    currentTimeMillis = (float) ((System.currentTimeMillis() - this.p) / 1000);
+        throw new IllegalStateException("Must be called on the handler thread");
+    }
+
+    public static <TResult> TResult d(cob<TResult> cobVar) throws ExecutionException, InterruptedException {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cobVar)) == null) {
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                synchronized (cobVar.a) {
+                    z = cobVar.b;
                 }
-                int i2 = (int) (this.l / currentTimeMillis);
-                u = i2;
-                message = Message.obtain(null, 6001, i2, 0);
-                this.p = System.currentTimeMillis();
-                break;
-            case 6002:
-                message = Message.obtain(null, 6002, this.h, 0);
-                break;
-            case AuthCode.StatusCode.CERT_FINGERPRINT_ERROR /* 6003 */:
-                message = Message.obtain(null, AuthCode.StatusCode.CERT_FINGERPRINT_ERROR, this.i, this.j);
-                TLog.g(this, String.format(Locale.getDefault(), "QualityMonitor output size %d * %d  , taskId %d", Integer.valueOf(this.i), Integer.valueOf(this.j), Integer.valueOf(this.c.get())));
-                break;
-            case AuthCode.StatusCode.PERMISSION_NOT_EXIST /* 6004 */:
-                if (this.o == 0) {
-                    currentTimeMillis2 = 5.0f;
-                } else {
-                    currentTimeMillis2 = (float) ((System.currentTimeMillis() - this.o) / 1000);
+                if (z) {
+                    if (cobVar.f()) {
+                        return cobVar.d();
+                    }
+                    throw new ExecutionException(cobVar.c());
                 }
-                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_NOT_EXIST, (int) (((float) (this.m * 8)) / currentTimeMillis2), (int) (((float) (this.n * 8)) / currentTimeMillis2));
-                this.o = System.currentTimeMillis();
-                break;
-            case AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED /* 6005 */:
-                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED, this.f ? 1 : 0, this.g);
-                break;
-            case AuthCode.StatusCode.PERMISSION_EXPIRED /* 6006 */:
-                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_EXPIRED, 1, this.g);
-                break;
+                gob gobVar = new gob();
+                vob vobVar = vob.c;
+                cobVar.a(new xnb(vobVar.a, gobVar));
+                cobVar.a(new tnb(vobVar.a, gobVar));
+                cobVar.a(new knb(vobVar.a, gobVar));
+                gobVar.a.await();
+                if (cobVar.f()) {
+                    return cobVar.d();
+                }
+                throw new ExecutionException(cobVar.c());
+            }
+            throw new IllegalStateException("await must not be called on the UI thread");
         }
-        fnbVar.a(message, this.c.get());
+        return (TResult) invokeL.objValue;
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0054 -> B:20:0x0055). Please submit an issue!!! */
+    public static String e(Context context, String str) {
+        InterceptResult invokeLL;
+        Signature[] signatureArr;
+        String str2;
+        SigningInfo signingInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            String str3 = "getCertFingerprint pkgName=" + str + "onlyOne=true";
+            ArrayList arrayList = new ArrayList();
+            PackageManager packageManager = context.getPackageManager();
+            if (Build.VERSION.SDK_INT >= 30) {
+                PackageInfo packageInfo = packageManager.getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+                if (packageInfo != null && (signingInfo = packageInfo.signingInfo) != null) {
+                    if (signingInfo.hasMultipleSigners()) {
+                        signatureArr = signingInfo.getApkContentsSigners();
+                    } else {
+                        signatureArr = signingInfo.getSigningCertificateHistory();
+                    }
+                }
+                signatureArr = null;
+            } else {
+                PackageInfo packageInfo2 = packageManager.getPackageInfo(str, 64);
+                if (packageInfo2 != null) {
+                    signatureArr = packageInfo2.signatures;
+                }
+                signatureArr = null;
+            }
+            if (signatureArr != null && signatureArr.length > 0) {
+                int length = signatureArr.length;
+                int i = 0;
+                while (true) {
+                    if (i >= length) {
+                        break;
+                    }
+                    try {
+                        byte[] digest = MessageDigest.getInstance("SHA256").digest(signatureArr[i].toByteArray());
+                        StringBuilder sb = new StringBuilder();
+                        for (byte b : digest) {
+                            String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
+                            if (upperCase.length() == 1) {
+                                sb.append("0");
+                            }
+                            sb.append(upperCase);
+                        }
+                        str2 = sb.toString();
+                    } catch (NoSuchAlgorithmException unused) {
+                        str2 = null;
+                    }
+                    if (str2 != null) {
+                        arrayList.add(str2);
+                        break;
+                    }
+                    i++;
+                }
+            }
+            if (arrayList.isEmpty()) {
+                return null;
+            }
+            return (String) arrayList.get(0);
+        }
+        return (String) invokeLL.objValue;
     }
 }

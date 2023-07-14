@@ -3,7 +3,7 @@ package com.kwad.components.core.offline.init.kwai;
 import com.kwad.components.offline.api.core.api.IEncrypt;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c implements IEncrypt {
     @Override // com.kwad.components.offline.api.core.api.IEncrypt
     public final String getFileMD5(File file) {

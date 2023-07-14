@@ -6,14 +6,14 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.os.Handler;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.kxa;
+import com.baidu.tieba.i6b;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class OutputSurfaceWithFilter extends BaseOutputSurface {
     public boolean isAr;
     public boolean isInitFu;
@@ -108,7 +108,7 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
     @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
     public void setup() {
         super.setup();
-        this.isAr = kxa.c().i();
+        this.isAr = i6b.c().i();
         this.mFullScreenFUDisplay = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
     }
 }

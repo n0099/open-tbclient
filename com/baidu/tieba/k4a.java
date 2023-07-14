@@ -1,15 +1,33 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.BitmapDrawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import android.view.View;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Shader;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.message.FestivalTaskRequestMessage;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mutiprocess.share.ShareEvent;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,145 +35,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k4a {
+public abstract class k4a implements q4a {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern f;
-    public static final Pattern g;
+    public static String h;
+    public static String i;
+    public static String j;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public BdUniqueId a;
+    public Context b;
     public String c;
     public String d;
-    public SpannableStringBuilder e;
+    public ShareEntity e;
+    public boolean f;
+    public String g;
 
-    public static boolean k(int i, int i2) {
-        InterceptResult invokeII;
+    public void n(Intent intent) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? (i != 0 || i2 == 3 || i2 == 2) ? false : true : invokeII.booleanValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends zw5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k4a a;
-
-        public a(k4a k4aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k4aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k4aVar;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                b(this.a.b);
-            }
+        if (interceptable == null || interceptable.invokeL(1048593, this, intent) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends zw5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k4a a;
-
-        public b(k4a k4aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k4aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k4aVar;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Matcher matcher = k4a.f.matcher(this.a.d);
-                if (matcher.find()) {
-                    try {
-                        String group = matcher.group();
-                        a(group.substring(group.lastIndexOf("/") + 1));
-                        return;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                Matcher matcher2 = k4a.g.matcher(this.a.d);
-                if (matcher2.find()) {
-                    try {
-                        String group2 = matcher2.group();
-                        a(group2.substring(group2.lastIndexOf("=") + 1));
-                        return;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                b(this.a.d);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends zw5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k4a a;
-
-        public c(k4a k4aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k4aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k4aVar;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.b != null) {
-                    this.a.b.replace("@", "").replace(" ", "");
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(TbadkCoreApplication.getInst()).createNormalConfig(vg.g(this.a.d, 0L), false, false)));
-            }
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
         }
     }
 
@@ -172,140 +79,383 @@ public class k4a {
                 return;
             }
         }
-        f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-        g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share";
+        i = "temp_video_thumb.png";
+        j = "_temp_share_pic.png";
     }
 
-    public k4a() {
+    public k4a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = null;
-        this.d = null;
-        this.e = null;
+        this.b = context;
     }
 
-    public String f() {
+    public void A(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void B(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            E(str, BdToast.ToastIcon.FAILURE);
+        }
+    }
+
+    public void C(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            E(str, BdToast.ToastIcon.SUCCESS);
+        }
+    }
+
+    public Bitmap f(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+            return BitmapHelper.getCashBitmap(i2);
+        }
+        return (Bitmap) invokeI.objValue;
+    }
+
+    public Bitmap h(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, uri)) == null) {
+            return BitmapHelper.loadBitmap(uri.getPath());
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public Bitmap i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            return BitmapHelper.loadBitmap(str);
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public boolean o(Uri uri) {
+        InterceptResult invokeL;
+        File file;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            try {
+                file = new File(new URI(uri.toString()));
+            } catch (IllegalArgumentException | URISyntaxException unused) {
+            }
+            if (!file.isFile() || !file.exists()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str);
+            if (!file.isFile() || !file.exists()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void s(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
+        }
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void D(int i2, String str, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
+            if (i2 == 1) {
+                if (TextUtils.isEmpty(str)) {
+                    str = m(R.string.share_success, new Object[0]);
+                }
+                ShareEntity shareEntity = this.e;
+                if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getFestivalTaskType())) {
+                    v();
+                    return;
+                }
+                JSONObject jSONObject = new JSONObject();
+                ShareEntity shareEntity2 = this.e;
+                if (shareEntity2 != null) {
+                    try {
+                        jSONObject.put("thread_id", shareEntity2.getTid());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (this.f && eu4.d().c("share_thread", jSONObject.toString())) {
+                    return;
+                }
+                C(str);
+                w();
+            } else if (i2 == 3) {
+                if (TextUtils.isEmpty(str)) {
+                    str = m(R.string.share_cancel, new Object[0]);
+                }
+                B(str);
+            } else if (i2 == 2) {
+                if (TextUtils.isEmpty(str)) {
+                    str = m(R.string.share_failed, new Object[0]);
+                }
+                B(str);
+            }
+        }
+    }
+
+    public void E(String str, BdToast.ToastIcon toastIcon) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, toastIcon) == null) {
+            BdToast b = BdToast.b(d(), str);
+            b.g(toastIcon);
+            b.q();
+        }
+    }
+
+    public Bitmap k(Bitmap bitmap, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, bitmap, i2)) == null) {
+            return BitmapHelper.resizeBitmap(bitmap, i2, i2, false);
+        }
+        return (Bitmap) invokeLI.objValue;
+    }
+
+    public String m(int i2, Object... objArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i2, objArr)) == null) {
+            return d().getString(i2, objArr);
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public void t(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) {
+            D(i2, null, i3);
+            c(i2, i3);
+        }
+    }
+
+    public void b(int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048581, this, i2, i3, i4) == null) {
+            ShareEvent shareEvent = new ShareEvent();
+            shareEvent.status = i2;
+            shareEvent.tid = this.c;
+            shareEvent.channel = i3;
+            shareEvent.extLiveInfo = this.d;
+            shareEvent.from = i4;
+            wq5.i(shareEvent);
+        }
+    }
+
+    public Bitmap l(Bitmap bitmap, int i2, int i3) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048591, this, bitmap, i2, i3)) == null) {
+            return BitmapHelper.resizeBitmap(bitmap, i2, i3, false);
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    public final void c(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
+            if (!TextUtils.isEmpty(this.c)) {
+                b(i2, i3, 0);
+            } else if (!StringUtils.isNull(this.d)) {
+                b(i2, i3, 0);
+            } else {
+                ShareEntity shareEntity = this.e;
+                if (shareEntity != null && shareEntity.isFromDuXiaoMan()) {
+                    b(i2, i3, 1);
+                }
+            }
+        }
+    }
+
+    public Context d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return TbadkCoreApplication.getInst().getContext();
         }
-        return (String) invokeV.objValue;
+        return (Context) invokeV.objValue;
+    }
+
+    public Bitmap e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return BitmapHelper.getCashBitmap(R.drawable.tb_launcher_icon);
+        }
+        return (Bitmap) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.g;
         }
         return (String) invokeV.objValue;
     }
 
-    public int getType() {
+    public BdUniqueId j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            BdUniqueId bdUniqueId = this.a;
+            if (bdUniqueId != null) {
+                return bdUniqueId;
+            }
+            q9 c = r9.c(this.b);
+            if (c != null) {
+                return c.getUniqueId();
+            }
+            return bdUniqueId;
         }
-        return invokeV.intValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public String i() {
-        InterceptResult invokeV;
+    public final void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && g() != null) {
+            StatisticItem statisticItem = new StatisticItem("c14390");
+            statisticItem.addParam("topic_id", g());
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
         }
-        return (String) invokeV.objValue;
     }
 
-    public SpannableStringBuilder j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (SpannableStringBuilder) invokeV.objValue;
-    }
-
-    public SpannableStringBuilder e(SpannableString spannableString) {
+    public jn q(ShareEntity shareEntity) {
         InterceptResult invokeL;
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, spannableString)) == null) {
-            if (this.e == null) {
-                this.e = new SpannableStringBuilder();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, shareEntity)) == null) {
+            if (shareEntity == null || (bundle = shareEntity.diskPicOperate) == null) {
+                return null;
             }
-            this.e.append((CharSequence) spannableString);
-            return this.e;
+            String string = bundle.getString("path");
+            String string2 = bundle.getString("name");
+            if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {
+                return null;
+            }
+            boolean z = bundle.getBoolean("isSubDir", true);
+            boolean z2 = bundle.getBoolean("isSdcard", false);
+            boolean z3 = bundle.getBoolean("isSavedCache", true);
+            boolean z4 = bundle.getBoolean("formatData", true);
+            jc jcVar = new jc(string, string2, DiskFileOperate.Action.READ);
+            jcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            jcVar.setSubFolder(z);
+            jcVar.setIsFormatData(z4);
+            jcVar.setSdCard(z2);
+            jcVar.setSavedCache(z3);
+            if (!fc.f().call(jcVar) || !jcVar.isSuccess()) {
+                return null;
+            }
+            jcVar.formatData(jcVar.getData());
+            Bitmap bitmap = jcVar.getBitmap();
+            if (bitmap == null) {
+                return null;
+            }
+            return new jn(bitmap, jcVar.isGif());
         }
-        return (SpannableStringBuilder) invokeL.objValue;
+        return (jn) invokeL.objValue;
     }
 
-    public void l(int i) {
+    public Bitmap u(Bitmap bitmap, ShareEntity shareEntity, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048600, this, bitmap, shareEntity, z)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            Bitmap k = k(bitmap, (yi.g(this.b, R.dimen.tbds113) * Math.max(bitmap.getWidth(), bitmap.getHeight())) / Math.min(bitmap.getWidth(), bitmap.getHeight()));
+            Bitmap createBitmap = Bitmap.createBitmap(k.getWidth(), k.getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(createBitmap);
+            canvas.drawBitmap(k, 0.0f, 0.0f, (Paint) null);
+            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, k.getHeight(), this.b.getResources().getColor(R.color.CAM_X0601), this.b.getResources().getColor(R.color.CAM_X0605), Shader.TileMode.CLAMP);
+            Paint paint = new Paint();
+            paint.setShader(linearGradient);
+            canvas.drawRect(0.0f, 0.0f, k.getWidth(), k.getHeight(), paint);
+            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0807b9, R.color.CAM_X0101, null, false);
+            if (pureDrawable != null) {
+                int min = (int) (Math.min(k.getWidth(), k.getHeight()) * 0.3f);
+                int width = (k.getWidth() - min) / 2;
+                int height = (k.getHeight() - min) / 2;
+                pureDrawable.setBounds(width, height, width + min, min + height);
+                pureDrawable.draw(canvas);
+            }
+            if (z) {
+                String saveFileAsPNG = FileHelper.saveFileAsPNG(h, i, createBitmap, 100);
+                if (!StringUtils.isNull(saveFileAsPNG)) {
+                    shareEntity.setImageUri(Uri.parse(saveFileAsPNG));
+                }
+            }
+            return createBitmap;
         }
+        return (Bitmap) invokeLLZ.objValue;
     }
 
-    public SpannableString h() {
-        InterceptResult invokeV;
+    public final void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.a;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                return null;
-                            }
-                            if (!this.b.endsWith(" ")) {
-                                this.b += " ";
-                            }
-                            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f17b7);
-                            String str = string + this.b;
-                            SpannableString spannableString = new SpannableString(str);
-                            spannableString.setSpan(new a(this), string.length(), str.length() - 1, 33);
-                            return spannableString;
-                        }
-                        if (!this.b.endsWith(" ")) {
-                            this.b += " ";
-                        }
-                        SpannableString spannableString2 = new SpannableString(this.b);
-                        spannableString2.setSpan(new c(this), 0, this.b.length() - 1, 33);
-                        return spannableString2;
-                    }
-                    SpannableString spannableString3 = new SpannableString(this.b + " ");
-                    in face = TbadkCoreApplication.getInst().getFace(this.b);
-                    if (face != null) {
-                        BitmapDrawable j = face.j();
-                        j.setBounds(0, 0, face.r(), face.m());
-                        spannableString3.setSpan(new ImageSpan(j, 1), 0, this.b.length(), 33);
-                    }
-                    return spannableString3;
-                }
-                if (!this.b.endsWith(" ")) {
-                    this.b += " ";
-                }
-                SpannableString spannableString4 = new SpannableString(this.b);
-                spannableString4.setSpan(new b(this), 0, this.b.length() - 1, 33);
-                return spannableString4;
-            }
-            return new SpannableString(this.b);
+        if ((interceptable != null && interceptable.invokeV(1048601, this) != null) || this.e == null) {
+            return;
         }
-        return (SpannableString) invokeV.objValue;
+        MessageManager.getInstance().sendMessage(new FestivalTaskRequestMessage(this.e.getFestivalTaskType()).tid(this.e.getFestivalTaskTid()).sharedUid(this.e.getFloorAuthorUid()));
     }
 }

@@ -1,170 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
+import android.app.Activity;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fgb;
+import com.baidu.tieba.hgb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class mgb extends ggb {
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+/* loaded from: classes7.dex */
+public class mgb extends FunNativeAd2Bridger<ugb, com.fun.module.csj.f0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context c;
-    public final String d;
-    public hgb e;
-    public volatile ngb f;
-    public final Object g;
-    public agb h;
-    public final Map<String, String> i;
-    public volatile ogb j;
+    public final TTNativeAd.AdInteractionListener b;
+    public final /* synthetic */ hgb c;
 
-    public mgb(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mgb(hgb hgbVar, ReporterPidLoader reporterPidLoader, ugb ugbVar) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {hgbVar, reporterPidLoader, ugbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new Object();
-        this.h = agb.b;
-        this.i = new HashMap();
-        this.c = context;
-        this.d = str;
+        this.c = hgbVar;
+        this.b = new hgb.b(hgbVar, ugbVar);
     }
 
-    public static String e(String str) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.csj.f0, android.view.View] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.csj.f0 createExpressView(ugb ugbVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int i = 0;
-            if (str.length() > 0) {
-                while (str.charAt(i) == '/') {
-                    i++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ugbVar)) == null) {
+            return igb.a((TTNativeAd) ugbVar.a);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, ugb ugbVar, BaseNativeAd2<ugb, com.fun.module.csj.f0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ugbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.c.k(activity, ugbVar, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.b, funAdInteractionListener);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, ugb ugbVar, BaseNativeAd2<ugb, com.fun.module.csj.f0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ugbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            ugb ugbVar2 = ugbVar;
+            hgb hgbVar = this.c;
+            FunNativeAdListenerHelper<ugb, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = hgbVar.g;
+            pid = hgbVar.mPid;
+            funNativeAdListenerHelper.startShow(ugbVar2, str, pid, this.b, funAdInteractionListener);
+            com.fun.module.csj.f0 expressView = baseNativeAd2.getExpressView();
+            if (expressView == null) {
+                if (!FunAdSdk.isLogEnabled()) {
+                    LogPrinter.e("The image mode of ad is not support!", new Object[0]);
+                    return;
                 }
+                throw new RuntimeException("The image mode of ad is not support!");
             }
-            return WebvttCueParser.CHAR_SLASH + str.substring(i);
+            this.c.j(activity, ugbVar2, expressInflater.inflate(), expressView, this.b);
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dgb
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? i(str, null) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dgb
-    public agb b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.h == null) {
-                this.h = agb.b;
-            }
-            if (this.h == agb.b && this.f == null) {
-                f();
-            }
-            agb agbVar = this.h;
-            return agbVar == null ? agb.b : agbVar;
-        }
-        return (agb) invokeV.objValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f == null) {
-            synchronized (this.g) {
-                if (this.f == null) {
-                    if (this.e != null) {
-                        this.f = new rgb(this.e.b());
-                        this.e.a();
-                        throw null;
-                    }
-                    this.f = new ugb(this.c, this.d);
-                    this.j = new ogb(this.f);
-                }
-                h();
-            }
-        }
-    }
-
-    public final String g(String str) {
-        InterceptResult invokeL;
-        fgb.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            Map<String, fgb.a> a = fgb.a();
-            if (a.containsKey(str) && (aVar = a.get(str)) != null) {
-                return aVar.a(this);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ggb, com.baidu.tieba.dgb
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ggb, com.baidu.tieba.dgb
-    public String getIdentifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "DEFAULT_INSTANCE" : (String) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.h == agb.b) {
-            if (this.f != null) {
-                this.h = jgb.f(this.f.a("/region", null), this.f.a("/agcgw/url", null));
-            } else {
-                Log.w("AGConnectServiceConfig", "get route fail , config not ready");
-            }
-        }
-    }
-
-    public String i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            if (str != null) {
-                if (this.f == null) {
-                    f();
-                }
-                String e = e(str);
-                String str3 = this.i.get(e);
-                if (str3 != null) {
-                    return str3;
-                }
-                String g = g(e);
-                if (g != null) {
-                    return g;
-                }
-                String a = this.f.a(e, str2);
-                return ogb.c(a) ? this.j.a(a, str2) : a;
-            }
-            throw new NullPointerException("path must not be null.");
-        }
-        return (String) invokeLL.objValue;
     }
 }

@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.kb;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.pra;
+import com.baidu.tieba.n0b;
+import com.baidu.tieba.tb8;
 import com.baidu.tieba.write.write.work.topic.model.GetRecommendTopicReqMessage;
-import com.baidu.tieba.y68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,11 +28,11 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public final kb a;
     public b b;
     public boolean c;
-    public List<y68> d;
+    public List<tb8> d;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(@NonNull List<y68> list);
+        void a(@NonNull List<tb8> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -88,8 +88,8 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (responsedMessage != null && (responsedMessage instanceof pra)) {
-                    this.a.Y(((pra) responsedMessage).getTopicList());
+                if (responsedMessage != null && (responsedMessage instanceof n0b)) {
+                    this.a.Z(((n0b) responsedMessage).getTopicList());
                 }
             }
         }
@@ -114,15 +114,15 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             }
         }
         this.a = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, 309719);
-        W();
+        X();
     }
 
-    public final void Y(List<TopicList> list) {
+    public final void Z(List<TopicList> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.d = new ArrayList();
             for (TopicList topicList : list) {
-                this.d.add(new y68(topicList));
+                this.d.add(new tb8(topicList));
             }
             b bVar = this.b;
             if (bVar != null) {
@@ -131,14 +131,14 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public final void W() {
+    public final void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             registerListener(this.a);
         }
     }
 
-    public void X() {
+    public void Y() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.c && ListUtils.isEmpty(this.d)) {
             this.c = true;
@@ -146,7 +146,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void Z(b bVar) {
+    public void a0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.b = bVar;

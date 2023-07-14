@@ -79,8 +79,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
         });
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.eP, Key.TRANSLATION_X, f - (this.eP.getLeft() + (this.eP.getWidth() / 2.0f)));
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.eP, Key.TRANSLATION_Y, f2 - (this.eP.getTop() + (this.eP.getHeight() / 2.0f)));
-        float dimension = resources.getDimension(R.dimen.obfuscated_res_0x7f07049a);
-        final float dimension2 = resources.getDimension(R.dimen.obfuscated_res_0x7f0704ae);
+        float dimension = resources.getDimension(R.dimen.obfuscated_res_0x7f0704b0);
+        final float dimension2 = resources.getDimension(R.dimen.obfuscated_res_0x7f0704b4);
         float width = this.eT.getWidth();
         float width2 = this.eS.getWidth();
         if (width == 0.0f || width2 == 0.0f) {
@@ -112,7 +112,7 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
         });
         int color = resources.getColor(R.color.obfuscated_res_0x7f0607a2);
         final int color2 = resources.getColor(R.color.obfuscated_res_0x7f06079e);
-        final int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704af);
+        final int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b5);
         ValueAnimator ofArgb = com.kwad.sdk.widget.a.ofArgb(color, color2);
         ofArgb.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.fullscreen.b.kwai.f.10
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -182,7 +182,7 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
             }
         });
         final ViewGroup.LayoutParams layoutParams = this.eV.getLayoutParams();
-        final ValueAnimator duration = ValueAnimator.ofFloat(0.0f, resources.getDimension(R.dimen.obfuscated_res_0x7f0704b1)).setDuration(500L);
+        final ValueAnimator duration = ValueAnimator.ofFloat(0.0f, resources.getDimension(R.dimen.obfuscated_res_0x7f0704b7)).setDuration(500L);
         duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.fullscreen.b.kwai.f.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -242,18 +242,18 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     }
 
     private void bW() {
-        final AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913b7);
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04cf, (ViewGroup) adBaseFrameLayout, false);
+        final AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913cb);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04da, (ViewGroup) adBaseFrameLayout, false);
         this.eP = viewGroup;
         viewGroup.setVisibility(0);
         Resources resources = this.eP.getResources();
-        final int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07049c);
-        final int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07049b);
-        int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b0);
-        int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07049a);
-        FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04d0, (ViewGroup) adBaseFrameLayout, false);
+        final int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b2);
+        final int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b1);
+        int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b6);
+        int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b0);
+        FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04db, (ViewGroup) adBaseFrameLayout, false);
         this.eV = frameLayout;
-        this.eW = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0913c7);
+        this.eW = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0913db);
         this.eV.setVisibility(4);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, dimensionPixelSize4);
         layoutParams.leftMargin = dimensionPixelSize;
@@ -278,11 +278,11 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     }
 
     private void initView() {
-        this.eQ = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913c4);
-        this.eR = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913c3);
-        this.eS = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913c1);
-        this.eT = (FrameLayout) this.eP.findViewById(R.id.obfuscated_res_0x7f0913bf);
-        this.eU = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913c0);
+        this.eQ = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913d8);
+        this.eR = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913d7);
+        this.eS = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913d5);
+        this.eT = (FrameLayout) this.eP.findViewById(R.id.obfuscated_res_0x7f0913d3);
+        this.eU = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913d4);
         this.eQ.setOnClickListener(this);
         this.eR.setOnClickListener(this);
         this.eT.setOnClickListener(this);

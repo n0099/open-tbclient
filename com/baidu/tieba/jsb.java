@@ -7,15 +7,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jsb extends msb implements hsb {
+public final class jsb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
+    public final double a;
+    public final double b;
 
-    public jsb() {
+    public jsb(double d, double d2, double d3, double d4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,28 +28,25 @@ public class jsb extends msb implements hsb {
                 return;
             }
         }
-        this.c = "*";
+        this.a = d3;
+        this.b = d4;
     }
 
-    @Override // com.baidu.tieba.gsb
-    public String f() {
+    public final double a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public final double b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hsb
-    public void b(String str) throws IllegalArgumentException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (str != null) {
-                this.c = str;
-                return;
-            }
-            throw new IllegalArgumentException("http resource descriptor must not be null");
-        }
+        return invokeV.doubleValue;
     }
 }

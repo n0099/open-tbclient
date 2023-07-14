@@ -1,19 +1,50 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface hzb {
-    void a(Activity activity, w0c w0cVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+public final class hzb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int[] b;
+    public int[] c;
 
-    z0c b();
+    public hzb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(z0c z0cVar);
+    public static void a(hzb hzbVar, bzb bzbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, hzbVar, bzbVar) == null) {
+            int length = hzbVar.c.length;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                hzbVar.c[i2] = i;
+                ezb.n(hzbVar.a, hzbVar.b, i, bzbVar);
+                i += 1080;
+            }
+        }
+    }
 
-    void release();
+    public static void b(hzb hzbVar, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65538, null, hzbVar, i, i2) == null) {
+            hzbVar.a = i;
+            hzbVar.b = new int[i2 * 1080];
+            hzbVar.c = new int[i2];
+        }
+    }
 }

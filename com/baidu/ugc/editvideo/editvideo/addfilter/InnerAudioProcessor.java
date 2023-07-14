@@ -8,11 +8,11 @@ import android.media.MediaCrypto;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.view.Surface;
-import com.baidu.tieba.r1b;
+import com.baidu.tieba.pab;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import java.nio.ByteBuffer;
 @TargetApi(18)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class InnerAudioProcessor extends InnerMediaProcessor {
     public static final String TAG = "InnerAudioProcessor";
     public static final boolean VERBOSE = false;
@@ -127,8 +127,8 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                 } else {
                     if (dequeueOutputBuffer == -2) {
                         MediaFormat outputFormat = mediaCodec.getOutputFormat();
-                        r1b.n(outputFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
-                        r1b.n(outputFormat, mediaFormat, "channel-count", i4);
+                        pab.n(outputFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
+                        pab.n(outputFormat, mediaFormat, "channel-count", i4);
                         mediaCodec3 = mediaCodec2;
                         obj = null;
                         mediaCodec3.configure(mediaFormat, (Surface) null, (MediaCrypto) null, i4);
@@ -384,7 +384,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
         MediaCodec mediaCodec2;
         MediaCodec mediaCodec3;
         int integer;
-        MediaCodecInfo m = r1b.m("audio/mp4a-latm");
+        MediaCodecInfo m = pab.m("audio/mp4a-latm");
         if (m == null) {
             return;
         }
@@ -393,7 +393,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
         e = null;
         Exception e = null;
         try {
-            mediaExtractor = r1b.b(this.mSourcePath);
+            mediaExtractor = pab.b(this.mSourcePath);
         } catch (Exception e2) {
             mediaCodec = null;
             mediaExtractor = null;
@@ -405,18 +405,18 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
             mediaCodec = null;
         }
         try {
-            MediaFormat trackFormat = mediaExtractor.getTrackFormat(r1b.e(mediaExtractor));
+            MediaFormat trackFormat = mediaExtractor.getTrackFormat(pab.e(mediaExtractor));
             if (this.mDoDecode) {
                 MediaFormat mediaFormat = new MediaFormat();
                 mediaFormat.setString("mime", "audio/mp4a-latm");
                 mediaFormat.setInteger("aac-profile", 2);
                 mediaFormat.setInteger("max-input-size", 8192);
-                r1b.n(trackFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
-                r1b.n(trackFormat, mediaFormat, "channel-count", 1);
-                r1b.n(trackFormat, mediaFormat, "bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
+                pab.n(trackFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
+                pab.n(trackFormat, mediaFormat, "channel-count", 1);
+                pab.n(trackFormat, mediaFormat, "bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
                 mediaCodec2 = MediaCodec.createByCodecName(m.getName());
                 try {
-                    mediaCodec = r1b.a(trackFormat);
+                    mediaCodec = pab.a(trackFormat);
                     try {
                         try {
                             doExtractDecodeEditEncodeMux(mediaExtractor, mediaCodec, mediaCodec2, mediaFormat);

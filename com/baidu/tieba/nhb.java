@@ -1,254 +1,88 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Executor;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public final class nhb<TResult> extends fhb<TResult> {
+public class nhb extends FunNativeAd2Bridger<ahb, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
     public boolean b;
-    public volatile boolean c;
-    public TResult d;
-    public Exception e;
-    public List<bhb<TResult>> f;
+    public final /* synthetic */ hhb c;
 
-    public nhb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nhb(hhb hhbVar, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hhbVar, reporterPidLoader};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Object();
-        this.f = new ArrayList();
+        this.c = hhbVar;
     }
 
-    @Override // com.baidu.tieba.fhb
-    public final fhb<TResult> a(chb<TResult> chbVar) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, ahb ahbVar, BaseNativeAd2<ahb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ahbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(ahb ahbVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chbVar)) == null) {
-            m(hhb.c(), chbVar);
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ahbVar)) == null) {
+            return ((TTNativeExpressAd) ahbVar.a).getExpressAdView();
         }
-        return (fhb) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.fhb
-    public final fhb<TResult> b(dhb dhbVar) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, ahb ahbVar, BaseNativeAd2<ahb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dhbVar)) == null) {
-            n(hhb.c(), dhbVar);
-            return this;
-        }
-        return (fhb) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.fhb
-    public final fhb<TResult> c(ehb<TResult> ehbVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ehbVar)) == null) {
-            o(hhb.c(), ehbVar);
-            return this;
-        }
-        return (fhb) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.fhb
-    public final Exception d() {
-        InterceptResult invokeV;
-        Exception exc;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.a) {
-                exc = this.e;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ahbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            ahb ahbVar2 = ahbVar;
+            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.g.get(ahbVar2);
+            if (expressAdListenerWrapper != null) {
+                expressAdListenerWrapper.funListener = funAdInteractionListener;
+            } else {
+                LogPrinter.e("Can not get correspond listener by csjNativeExpressAd.", new Object[0]);
             }
-            return exc;
-        }
-        return (Exception) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fhb
-    public final TResult e() {
-        InterceptResult invokeV;
-        TResult tresult;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.a) {
-                if (this.e != null) {
-                    throw new RuntimeException(this.e);
-                }
-                tresult = this.d;
-            }
-            return tresult;
-        }
-        return (TResult) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fhb
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fhb
-    public final boolean g() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this.a) {
-                z = this.b;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fhb
-    public final boolean h() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this.a) {
-                z = this.b && !f() && this.e == null;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final fhb<TResult> i(bhb<TResult> bhbVar) {
-        InterceptResult invokeL;
-        boolean g;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bhbVar)) == null) {
-            synchronized (this.a) {
-                g = g();
-                if (!g) {
-                    this.f.add(bhbVar);
-                }
-            }
-            if (g) {
-                bhbVar.onComplete(this);
-            }
-            return this;
-        }
-        return (fhb) invokeL.objValue;
-    }
-
-    public final void j(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, exc) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                this.e = exc;
-                this.a.notifyAll();
-                p();
-            }
-        }
-    }
-
-    public final void k(TResult tresult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, tresult) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                this.d = tresult;
-                this.a.notifyAll();
-                p();
-            }
-        }
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    return false;
-                }
-                this.b = true;
-                this.c = true;
-                this.a.notifyAll();
-                p();
-                return true;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final fhb<TResult> m(Executor executor, chb<TResult> chbVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, executor, chbVar)) == null) {
-            i(new khb(executor, chbVar));
-            return this;
-        }
-        return (fhb) invokeLL.objValue;
-    }
-
-    public final fhb<TResult> n(Executor executor, dhb dhbVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, executor, dhbVar)) == null) {
-            i(new lhb(executor, dhbVar));
-            return this;
-        }
-        return (fhb) invokeLL.objValue;
-    }
-
-    public final fhb<TResult> o(Executor executor, ehb<TResult> ehbVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, executor, ehbVar)) == null) {
-            i(new mhb(executor, ehbVar));
-            return this;
-        }
-        return (fhb) invokeLL.objValue;
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            synchronized (this.a) {
-                for (bhb<TResult> bhbVar : this.f) {
-                    try {
-                        bhbVar.onComplete(this);
-                    } catch (RuntimeException e) {
-                        throw e;
-                    } catch (Exception e2) {
-                        throw new RuntimeException(e2);
-                    }
-                }
-                this.f = null;
-            }
+            this.c.onShowStart(ahbVar2, this.b);
+            expressInflater.inflate();
+            View expressView = expressInflater.getExpressView();
+            hhb hhbVar = this.c;
+            hhbVar.getClass();
+            ((TTNativeExpressAd) ahbVar2.a).setDislikeCallback(activity, new mhb(hhbVar, expressView, ahbVar2, funAdInteractionListener, str));
+            this.b = true;
         }
     }
 }

@@ -1,19 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import android.net.Uri;
+import com.baidu.swan.game.ad.jsbridge.CommandType;
 /* loaded from: classes5.dex */
 public interface f04 {
-    void a();
-
-    void b(DownloadException downloadException);
-
-    void c();
-
-    void d();
-
-    void e(long j, long j2);
-
-    void f(long j, long j2);
-
-    void onStart();
+    void b(CommandType commandType, Uri uri);
 }

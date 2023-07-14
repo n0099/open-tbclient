@@ -278,7 +278,7 @@ public final class FunctionClassDescriptor extends AbstractClassDescriptor {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.reflect.jvm.internal.impl.types.AbstractClassTypeConstructor, kotlin.reflect.jvm.internal.impl.types.AbstractTypeConstructor, kotlin.reflect.jvm.internal.impl.types.TypeConstructor
         /* renamed from: getDeclarationDescriptor */
-        public FunctionClassDescriptor mo2099getDeclarationDescriptor() {
+        public FunctionClassDescriptor mo2101getDeclarationDescriptor() {
             return FunctionClassDescriptor.this;
         }
 
@@ -293,7 +293,7 @@ public final class FunctionClassDescriptor extends AbstractClassDescriptor {
         }
 
         public String toString() {
-            return mo2099getDeclarationDescriptor().toString();
+            return mo2101getDeclarationDescriptor().toString();
         }
     }
 
@@ -308,7 +308,7 @@ public final class FunctionClassDescriptor extends AbstractClassDescriptor {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getCompanionObjectDescriptor  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ ClassDescriptor mo2092getCompanionObjectDescriptor() {
+    public /* bridge */ /* synthetic */ ClassDescriptor mo2094getCompanionObjectDescriptor() {
         return (ClassDescriptor) getCompanionObjectDescriptor();
     }
 
@@ -351,7 +351,7 @@ public final class FunctionClassDescriptor extends AbstractClassDescriptor {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getUnsubstitutedPrimaryConstructor  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ ClassConstructorDescriptor mo2093getUnsubstitutedPrimaryConstructor() {
+    public /* bridge */ /* synthetic */ ClassConstructorDescriptor mo2095getUnsubstitutedPrimaryConstructor() {
         return (ClassConstructorDescriptor) getUnsubstitutedPrimaryConstructor();
     }
 

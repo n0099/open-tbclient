@@ -1,30 +1,42 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
+import com.qq.e.comm.adevent.AdEventType;
 /* loaded from: classes8.dex */
-public class ul5 implements yl5 {
+public class ul5 implements wl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ByteBuffer a;
+    public View a;
+    public ImageView b;
+    public ImageView c;
+    public TextView d;
+    public LinearLayout e;
 
-    @Override // com.baidu.tieba.yl5
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public ul5() {
+    public ul5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,58 +46,46 @@ public class ul5 implements yl5 {
                 return;
             }
         }
-        d(10240);
+        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
+        this.d = (TextView) this.a.findViewById(R.id.floating_view_title);
+        this.c = (ImageView) this.a.findViewById(R.id.floating_view_arrow);
+        this.e = (LinearLayout) this.a.findViewById(R.id.floating_view_main);
+        this.d.setText(R.string.frs_forum_bcast_return_info);
+        b();
     }
 
-    public int a() {
+    @Override // com.baidu.tieba.wl5
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null) {
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            SkinManager.setImageResource(this.b, R.drawable.pic_float_return_broadcast32);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(AdEventType.VIDEO_LOADING).tlRadius(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
+        }
+    }
+
+    @Override // com.baidu.tieba.wl5
+    public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.position();
-        }
-        return invokeV.intValue;
-    }
-
-    public byte[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.array();
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public void b(byte b) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b) == null) {
-            this.a.put(b);
-        }
-    }
-
-    public void c(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-            this.a.put(bArr);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            ByteBuffer byteBuffer = this.a;
-            if (byteBuffer == null || i > byteBuffer.capacity()) {
-                ByteBuffer allocate = ByteBuffer.allocate(i);
-                this.a = allocate;
-                allocate.order(ByteOrder.LITTLE_ENDIAN);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            View view2 = this.a;
+            if (view2 != null) {
+                return view2;
             }
-            this.a.clear();
+            return LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
         }
+        return (View) invokeV.objValue;
     }
 
-    public void e(int i) {
+    @Override // com.baidu.tieba.wl5
+    public void onClick() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.a.position(i + a());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_FORUM_FLOAT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

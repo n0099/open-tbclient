@@ -1,31 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface ef8 {
-    void a();
+public class ef8 {
+    public static /* synthetic */ Interceptable $ic;
+    public static ef8 b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public wb a;
 
-    void c(@NonNull String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947732530, "Lcom/baidu/tieba/ef8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947732530, "Lcom/baidu/tieba/ef8;");
+        }
+    }
 
-    void k();
+    public ef8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.a = new wb(1000, 1000, 1000);
+    }
 
-    void l(@NonNull String str);
+    public static ef8 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (ef8.class) {
+                    if (b == null) {
+                        b = new ef8();
+                    }
+                }
+            }
+            return b;
+        }
+        return (ef8) invokeV.objValue;
+    }
 
-    void m(@NonNull String str, @NonNull CharSequence charSequence);
-
-    void n(@NonNull cf8 cf8Var);
-
-    void o(Object obj);
-
-    void onDestroy();
-
-    void p();
-
-    void q(boolean z, int i, int i2, @Nullable Map<String, Object> map, boolean z2, long j, long j2);
-
-    void r(@NonNull String str, @Nullable String str2);
-
-    void s(int i, int i2, @Nullable String str);
+    public wb b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (wb) invokeV.objValue;
+    }
 }

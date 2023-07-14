@@ -1,135 +1,122 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
-import com.baidu.tbadk.coreExtra.message.ChannelConfigResponseMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class we5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final we5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public yc5 a;
-    public b b;
-    public int c;
-    public int d;
-    public ChannelIconConfigFinalData e;
-    public HttpMessageListener f;
+    public String a;
+    public String b;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(boolean z, yc5 yc5Var);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ we5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(we5 we5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948267714, "Lcom/baidu/tieba/we5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {we5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = we5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ChannelConfigResponseMessage)) {
-                ChannelConfigResponseMessage channelConfigResponseMessage = (ChannelConfigResponseMessage) httpResponsedMessage;
-                this.a.a = channelConfigResponseMessage.getData();
-                if (this.a.b != null) {
-                    this.a.b.a(channelConfigResponseMessage.isSuccess(), channelConfigResponseMessage.getData());
-                }
-                if (channelConfigResponseMessage.isSuccess()) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921493, null));
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948267714, "Lcom/baidu/tieba/we5;");
+                return;
             }
         }
+        c = new we5(false);
     }
 
-    public we5() {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public we5(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f = new a(this, CmdConfigHttp.CMD_GET_CHANNEL_CONFIG);
-        MessageManager.getInstance().registerListener(this.f);
-        this.c = r95.p().q("key_common_category_version", 0);
-        this.d = r95.p().q("key_special_category_version", 0);
+        this.a = "";
+        this.b = "";
     }
 
-    public ChannelIconConfigFinalData c() {
-        InterceptResult invokeV;
+    public static we5 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ChannelIconConfigFinalData channelIconConfigFinalData = this.e;
-            if (channelIconConfigFinalData != null) {
-                return channelIconConfigFinalData;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return c;
             }
-            if (this.a == null) {
-                return null;
-            }
-            ChannelIconConfigFinalData channelIconConfigFinalData2 = new ChannelIconConfigFinalData();
-            yc5 yc5Var = this.a;
-            if (yc5Var != null && yc5Var.b() != null && this.d < this.a.b().e()) {
-                channelIconConfigFinalData2.setIcon(this.a.b().a());
-                channelIconConfigFinalData2.setPopText(this.a.b().b());
-                channelIconConfigFinalData2.setTabCode(this.a.b().c());
-                channelIconConfigFinalData2.setTid(this.a.b().d());
-                channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_SPECIAL);
-            } else {
-                yc5 yc5Var2 = this.a;
-                if (yc5Var2 != null && yc5Var2.a() > 0 && this.c < this.a.a()) {
-                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_COMMON);
-                } else {
-                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_NONE);
+            JSONObject optJSONObject = jSONObject.optJSONObject("video_activity");
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("image_url");
+                String optString2 = optJSONObject.optString("url");
+                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2)) {
+                    we5 we5Var = new we5(true);
+                    we5Var.f(optString);
+                    we5Var.e(optString2);
+                    return we5Var;
                 }
             }
-            this.e = channelIconConfigFinalData2;
-            return channelIconConfigFinalData2;
+            return c;
         }
-        return (ChannelIconConfigFinalData) invokeV.objValue;
+        return (we5) invokeL.objValue;
     }
 
-    public void d() {
+    public boolean a(we5 we5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_CHANNEL_CONFIG));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, we5Var)) == null) {
+            if (this.b.equals(we5Var.b()) && this.a.equals(we5Var.c())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
         }
     }
 }

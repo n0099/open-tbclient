@@ -1,55 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.menu.viewpager.PointPageIndicator;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes7.dex */
-public class ni4 extends PointPageIndicator {
+public class ni4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ni4(Context context) {
-        super(context);
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return b().h();
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.swan.menu.viewpager.PointPageIndicator
-    public /* bridge */ /* synthetic */ PointPageIndicator d(Drawable drawable, Drawable drawable2) {
-        g(drawable, drawable2);
-        return this;
+    @Inject
+    public static mi4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return qv2.a();
+        }
+        return (mi4) invokeV.objValue;
     }
 
-    public ni4 g(Drawable drawable, Drawable drawable2) {
-        InterceptResult invokeLL;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, drawable2)) == null) {
-            this.a = drawable;
-            this.b = drawable2;
-            this.c.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            this.d.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b().isDebug();
         }
-        return (ni4) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 }

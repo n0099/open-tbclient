@@ -1,28 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes6.dex */
-public class ij2 {
+public final class ij2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ij2 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public int b;
-    public final po4 c;
-    public long d;
+    public final Lock a;
+    public ArrayList<mj2> b;
 
-    public ij2(@NonNull String str, @NonNull po4 po4Var) {
+    public ij2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, po4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,69 +30,113 @@ public class ij2 {
                 return;
             }
         }
-        this.b = 0;
-        this.d = 0L;
-        this.a = str;
-        this.c = po4Var;
+        this.a = new ReentrantLock();
+        this.b = new ArrayList<>();
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i > this.c.b) {
-                return false;
-            }
-            boolean e = e();
-            if (!e) {
-                this.b++;
-            }
-            return !e;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TextUtils.equals(str, this.a);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b() {
+    public static ij2 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.d >= this.c.c) {
-                this.d = currentTimeMillis;
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (ij2.class) {
+                    if (c == null) {
+                        c = new ij2();
+                    }
+                }
             }
-            return false;
+            return c;
         }
-        return invokeV.booleanValue;
+        return (ij2) invokeV.objValue;
     }
 
-    public String c() {
+    public final Object[] a() {
+        Object[] objArr;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                this.a.lock();
+                if (this.b.size() > 0) {
+                    objArr = this.b.toArray();
+                } else {
+                    objArr = null;
+                }
+                return objArr;
+            } finally {
+                this.a.unlock();
+            }
         }
-        return (String) invokeV.objValue;
+        return (Object[]) invokeV.objValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public void b(dj2 dj2Var) {
+        Object[] a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b >= this.c.a) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dj2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((mj2) obj).d(dj2Var);
             }
-            return false;
         }
-        return invokeV.booleanValue;
+    }
+
+    public void c(dj2 dj2Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dj2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((mj2) obj).b(dj2Var);
+            }
+        }
+    }
+
+    public void d(dj2 dj2Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, dj2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((mj2) obj).f(dj2Var);
+            }
+        }
+    }
+
+    public void e(dj2 dj2Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, dj2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((mj2) obj).c(dj2Var);
+            }
+        }
+    }
+
+    public void f(dj2 dj2Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, dj2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((mj2) obj).g(dj2Var);
+            }
+        }
+    }
+
+    public void g(dj2 dj2Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, dj2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((mj2) obj).a(dj2Var);
+            }
+        }
+    }
+
+    public void h(dj2 dj2Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, dj2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((mj2) obj).e(dj2Var);
+            }
+        }
     }
 }

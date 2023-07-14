@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,13 +12,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h34 extends i44 {
+public class h34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final h34 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-796130045, "Lcom/baidu/tieba/h34$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-796130045, "Lcom/baidu/tieba/h34$a;");
+                    return;
+                }
+            }
+            a = new h34();
+        }
+    }
+
     public h34() {
-        super("getAvailableSpace");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,28 +47,79 @@ public class h34 extends i44 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.i44
-    public c42 a(@NonNull JSONObject jSONObject, @NonNull gp2 gp2Var) {
-        InterceptResult invokeLL;
+    public static h34 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, gp2Var)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("data", qp3.c());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            gp2Var.onSuccess(jSONObject2);
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return (c42) invokeLL.objValue;
+        return (h34) invokeV.objValue;
+    }
+
+    public void a(@NonNull JSONObject jSONObject, @NonNull o34 o34Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, o34Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                o34Var.a(new p34(31008, "download is not exist"));
+            } else {
+                m84.c().c(optString);
+            }
+        }
+    }
+
+    public void c(@NonNull JSONObject jSONObject, @NonNull o34 o34Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, o34Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                o34Var.a(new p34(31008, "download is not exist"));
+            } else {
+                m84.c().e(optString);
+            }
+        }
+    }
+
+    public void e(@NonNull JSONObject jSONObject, @NonNull o34 o34Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, o34Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                o34Var.a(new p34(31008, "download is not exist"));
+            } else {
+                m84.c().f(optString);
+            }
+        }
+    }
+
+    public void d(@NonNull JSONObject jSONObject, @NonNull o34 o34Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, o34Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            if (!optBoolean) {
+                o34Var.a(new p34(31008, "download is not exist"));
+                return;
+            }
+            String optString = jSONObject.optString("packageName");
+            String optString2 = jSONObject.optString("apkId");
+            String optString3 = jSONObject.optString("url");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                if (!m84.c().a(optString3, optString, optString2, optBoolean, new j34(o34Var))) {
+                    o34Var.a(new p34(31006, "is not in main process"));
+                    return;
+                }
+                return;
+            }
+            o34Var.a(new p34(31007, "invalid params"));
+        }
     }
 }

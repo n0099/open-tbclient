@@ -3,9 +3,9 @@ package com.faceunity;
 import android.content.Context;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.cfa;
-import com.baidu.tieba.hm;
-import com.baidu.tieba.pm;
+import com.baidu.tieba.im;
+import com.baidu.tieba.qm;
+import com.baidu.tieba.tna;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,17 +52,17 @@ public class FaceUnityUtils {
                 th.printStackTrace();
             }
             if (!isLibNamaLoaded()) {
-                hm.a("setUpFaceUnity, libnama so not loaded");
+                im.a("setUpFaceUnity, libnama so not loaded");
                 return 0;
             }
-            String b = pm.b("v3.mp3");
+            String b = qm.b("v3.mp3");
             File file = new File(b);
             if (file.exists() && file.isFile()) {
                 FileInputStream fileInputStream = new FileInputStream(b);
                 fileInputStream.close();
-                faceunity.fuSetup(new byte[fileInputStream.available()], null, cfa.a());
+                faceunity.fuSetup(new byte[fileInputStream.available()], null, tna.a());
             }
-            String b2 = pm.b("face_beautification.mp3");
+            String b2 = qm.b("face_beautification.mp3");
             File file2 = new File(b2);
             if (file2.exists() && file2.isFile()) {
                 FileInputStream fileInputStream2 = new FileInputStream(b2);

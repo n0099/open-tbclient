@@ -1,250 +1,369 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tbadk.data.TbMusicData;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.external.music.data.MusicData;
+import com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UrlResponseInfo;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes5.dex */
-public final class ata extends UrlResponseInfo {
+public class ata extends BaseAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> a;
-    public final int b;
-    public final String c;
-    public final boolean d;
-    public final String e;
-    public final String f;
-    public final AtomicLong g;
-    public final a h;
+    public List<dta> a;
+    public String b;
+    public int c;
+    public RecordEffectLayout.i d;
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
 
     /* loaded from: classes5.dex */
-    public static final class a extends UrlResponseInfo.HeaderBlock {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<Map.Entry<String, String>> a;
-        public Map<String, List<String>> b;
+        public TbImageView a;
+        public ProgressBar b;
+        public TextView c;
+        public int d;
 
-        public a(List<Map.Entry<String, String>> list) {
+        public a(ata ataVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {list};
+                Object[] objArr = {ataVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = list;
-        }
-
-        public List<Map.Entry<String, String>> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public Map<String, List<String>> b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Map<String, List<String>> map = this.b;
-                if (map != null) {
-                    return map;
-                }
-                TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-                for (Map.Entry<String, String> entry : this.a) {
-                    ArrayList arrayList = new ArrayList();
-                    if (treeMap.containsKey(entry.getKey())) {
-                        arrayList.addAll((Collection) treeMap.get(entry.getKey()));
-                    }
-                    arrayList.add(entry.getValue());
-                    treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
-                }
-                Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
-                this.b = unmodifiableMap;
-                return unmodifiableMap;
-            }
-            return (Map) invokeV.objValue;
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @Deprecated
-    public ata(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
-        this(list, i, str, list2, z, str2, str3, 0L);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, Integer.valueOf(i), str, list2, Boolean.valueOf(z), str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (List) objArr2[3], ((Boolean) objArr2[4]).booleanValue(), (String) objArr2[5], (String) objArr2[6], ((Long) objArr2[7]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947628091, "Lcom/baidu/tieba/ata;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947628091, "Lcom/baidu/tieba/ata;");
                 return;
             }
         }
+        e = UtilHelper.getDimenPixelSize(R.dimen.tbds156);
     }
 
-    public ata(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3, long j) {
+    public ata() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, Integer.valueOf(i), str, list2, Boolean.valueOf(z), str2, str3, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = Collections.unmodifiableList(list);
-        this.b = i;
-        this.c = str;
-        this.h = new a(Collections.unmodifiableList(list2));
-        this.d = z;
-        this.e = str2;
-        this.f = str3;
-        this.g = new AtomicLong(j);
+        this.c = -1;
     }
 
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public List<Map.Entry<String, String>> a() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h.a();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            List<dta> list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public String c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public dta getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<dta> list = this.a;
+            if (list == null || i < 0 || i >= list.size()) {
+                return null;
+            }
+            return this.a.get(i);
         }
-        return (String) invokeV.objValue;
+        return (dta) invokeI.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public String d() {
-        InterceptResult invokeV;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g.get();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<String> list = this.a;
-            return list.get(list.size() - 1);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Map<String, List<String>> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h.b();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<String> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.g.set(j);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void f(RecordEffectLayout.i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedByteCount = %d", Integer.toHexString(System.identityHashCode(this)), f(), i().toString(), Integer.valueOf(b()), c(), a().toString(), Boolean.valueOf(k()), d(), h(), Long.valueOf(e()));
+        if (interceptable == null || interceptable.invokeL(1048581, this, iVar) == null) {
+            this.d = iVar;
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            dta item = getItem(i);
+            if (item == null) {
+                return 0;
+            }
+            int type = item.getType();
+            if (type != 1) {
+                if (type != 3) {
+                    return 0;
+                }
+                return 1;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public final void b(a aVar, View view2, ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, view2, viewGroup) == null) {
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911f5);
+            aVar.a = tbImageView;
+            tbImageView.setIsRound(true);
+            aVar.a.setDrawerType(1);
+            aVar.a.setDefaultBgResource(R.color.transparent);
+            aVar.a.setBorderWidth(yi.g(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
+            aVar.a.setConrers(15);
+            aVar.a.setBorderColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0302));
+            aVar.c = (TextView) view2.findViewById(R.id.tv_name);
+        }
+    }
+
+    public void c(TbMusicData tbMusicData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMusicData) == null) && getCount() > 1 && getItem(1) != null && getItem(1).getType() == 3) {
+            this.c = 1;
+            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cf0);
+            notifyDataSetChanged();
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && getCount() > 1 && getItem(1) != null && getItem(1).getType() == 3 && (getItem(1).c() instanceof MusicData)) {
+            ((MusicData) getItem(1).c()).img = str;
+            notifyDataSetChanged();
+        }
+    }
+
+    public void e(List<dta> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, str) == null) {
+            this.a = list;
+            this.b = str;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        View view3;
+        dta dtaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                aVar = new a(this);
+                int itemViewType = getItemViewType(i);
+                if (itemViewType != 0) {
+                    if (itemViewType != 1) {
+                        if (itemViewType != 2) {
+                            view3 = view2;
+                        } else {
+                            view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0195, (ViewGroup) null);
+                            b(aVar, view3, viewGroup);
+                            aVar.c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
+                        }
+                    } else {
+                        view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0196, (ViewGroup) null);
+                        b(aVar, view3, viewGroup);
+                        aVar.b = (ProgressBar) view3.findViewById(R.id.obfuscated_res_0x7f091204);
+                        aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f08036c);
+                        aVar.c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
+                    }
+                } else {
+                    view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0196, (ViewGroup) null);
+                    b(aVar, view3, viewGroup);
+                    aVar.b = (ProgressBar) view3.findViewById(R.id.obfuscated_res_0x7f091204);
+                    aVar.c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
+                }
+                view3.setTag(aVar);
+            } else {
+                aVar = (a) view2.getTag();
+                view3 = view2;
+            }
+            List<dta> list = this.a;
+            if (list != null && i >= 0 && i <= list.size() - 1 && (dtaVar = this.a.get(i)) != null) {
+                int itemViewType2 = getItemViewType(i);
+                if (itemViewType2 != 0) {
+                    if (itemViewType2 != 1) {
+                        if (itemViewType2 == 2) {
+                            if (!TextUtils.isEmpty(dtaVar.b()) && dtaVar.b().equals(this.b)) {
+                                aVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0802aa);
+                            } else {
+                                aVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0802a9);
+                            }
+                            aVar.c.setText(dtaVar.b());
+                        }
+                    } else {
+                        MusicData musicData = (MusicData) dtaVar.c();
+                        int i2 = musicData.editMusicType;
+                        if (i2 != 0 && (i2 != 2 || TextUtils.isEmpty(musicData.img))) {
+                            TbImageView tbImageView = aVar.a;
+                            String valueOf = String.valueOf(dtaVar.a());
+                            int i3 = e;
+                            tbImageView.J(valueOf, 24, i3, i3, false);
+                        } else {
+                            TbImageView tbImageView2 = aVar.a;
+                            String str = musicData.img;
+                            int i4 = e;
+                            tbImageView2.J(str, 10, i4, i4, false);
+                        }
+                        if (!TextUtils.isEmpty(dtaVar.b()) && dtaVar.b().equals(this.b)) {
+                            aVar.a.setDrawBorder(true);
+                        } else {
+                            aVar.a.setDrawBorder(false);
+                        }
+                        if (this.c != i) {
+                            aVar.b.setVisibility(4);
+                        } else if (aVar.b.getVisibility() == 0) {
+                            aVar.a.setDrawBorder(false);
+                        }
+                        aVar.c.setText(musicData.name);
+                    }
+                } else {
+                    QmFilterItem qmFilterItem = (QmFilterItem) dtaVar.c();
+                    if ("-1".equals(qmFilterItem.id)) {
+                        TbImageView tbImageView3 = aVar.a;
+                        String str2 = qmFilterItem.bgurl;
+                        int i5 = e;
+                        tbImageView3.J(str2, 24, i5, i5, false);
+                    } else {
+                        TbImageView tbImageView4 = aVar.a;
+                        String str3 = qmFilterItem.bgurl;
+                        int i6 = e;
+                        tbImageView4.J(str3, 10, i6, i6, false);
+                    }
+                    if (!TextUtils.isEmpty(qmFilterItem.id) && qmFilterItem.id.equals(this.b)) {
+                        aVar.a.setDrawBorder(true);
+                    } else {
+                        aVar.a.setDrawBorder(false);
+                    }
+                    if (qmFilterItem.isDownLoading) {
+                        aVar.b.setVisibility(0);
+                    } else {
+                        aVar.b.setVisibility(4);
+                    }
+                    if (this.c != i) {
+                        aVar.b.setVisibility(4);
+                    } else if (aVar.b.getVisibility() == 0) {
+                        aVar.a.setDrawBorder(false);
+                    }
+                    aVar.c.setText(dtaVar.b());
+                }
+                aVar.a.setTag(dtaVar);
+                aVar.a.setTag(R.id.obfuscated_res_0x7f091e63, aVar);
+                aVar.a.setOnClickListener(this);
+                aVar.d = i;
+            }
+            return view3;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        RecordEffectLayout.i iVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0911f5 && (view2.getTag() instanceof dta)) {
+            dta dtaVar = (dta) view2.getTag();
+            if (dtaVar.getType() == 3 && (dtaVar.c() instanceof MusicData)) {
+                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0cf0).equals(dtaVar.b()) && (iVar = this.d) != null) {
+                    iVar.b(dtaVar, view2.getTag(R.id.obfuscated_res_0x7f091e63));
+                    this.c = this.a.indexOf(dtaVar);
+                    this.b = dtaVar.b();
+                }
+                if (!TextUtils.isEmpty(dtaVar.b()) && dtaVar.b().equals(this.b)) {
+                    return;
+                }
+                if (!dtaVar.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0cf0))) {
+                    this.c = this.a.indexOf(dtaVar);
+                }
+            } else {
+                this.c = this.a.indexOf(dtaVar);
+            }
+            if (dtaVar.getType() == 2 && (dtaVar.c() instanceof QmFilterItem)) {
+                this.b = ((QmFilterItem) dtaVar.c()).id;
+            } else {
+                this.b = dtaVar.b();
+            }
+            notifyDataSetChanged();
+            RecordEffectLayout.i iVar2 = this.d;
+            if (iVar2 != null) {
+                iVar2.b(dtaVar, view2.getTag(R.id.obfuscated_res_0x7f091e63));
+            }
+        }
     }
 }

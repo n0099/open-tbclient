@@ -1,22 +1,29 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.validation.utils.ValidationLog;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class zbb<A> {
+public class zbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final A a;
+    public String a;
+    public final List<String> b;
 
-    public zbb(A a) {
+    public zbb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,19 +33,47 @@ public abstract class zbb<A> {
                 return;
             }
         }
-        this.a = a;
+        this.b = new ArrayList();
     }
 
-    public double a() {
+    public static zbb a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                zbb zbbVar = new zbb();
+                JSONObject optJSONObject = jSONObject.optJSONObject("action");
+                if (optJSONObject != null) {
+                    zbbVar.a = optJSONObject.optString("name");
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("params");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            zbbVar.b.add(optJSONArray.optString(i));
+                        }
+                    }
+                }
+                return zbbVar;
+            } catch (JSONException e) {
+                ValidationLog.e(e);
+                return null;
+            }
+        }
+        return (zbb) invokeL.objValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0.0d;
-        }
-        return invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public abstract void b(int i, int i2, int i3, String str);
-
-    public abstract void c(long j, long j2);
+    public List<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
 }

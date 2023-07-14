@@ -1,167 +1,130 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ActivityOptions;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.NinePatch;
 import android.graphics.Rect;
-import android.view.MotionEvent;
-import android.view.TouchDelegate;
-import android.view.View;
-import android.view.ViewConfiguration;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 /* loaded from: classes8.dex */
-public class yc1 extends TouchDelegate {
+public class yc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<View, a> a;
 
-    /* loaded from: classes8.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Rect a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-        public Rect g;
-        public boolean h;
-
-        public a(yc1 yc1Var, Rect rect, int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yc1Var, rect, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = i;
-            this.a = rect;
-            this.d = i2;
-            this.c = i3;
-            this.e = i4;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yc1(View view2, int i, int i2, int i3, int i4) {
-        super(new Rect(), view2);
+    @SuppressLint({"DiscouragedPrivateApi"})
+    public static void a(Activity activity, wc1 wc1Var) {
+        Class<?>[] declaredClasses;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Rect) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
-        a(view2, i, i2, i3, i4);
-    }
-
-    public void a(View view2, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.a.put(view2, new a(this, new Rect(), i, i2, i3, i4));
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (Map.Entry<View, a> entry : this.a.entrySet()) {
-                View key = entry.getKey();
-                int[] iArr = new int[2];
-                key.getLocationOnScreen(iArr);
-                int measuredWidth = key.getMeasuredWidth();
-                int measuredHeight = key.getMeasuredHeight();
-                a value = entry.getValue();
-                Rect rect = value.a;
-                rect.left = iArr[0] - value.b;
-                rect.right = iArr[0] + measuredWidth + value.c;
-                rect.top = iArr[1] - value.d;
-                rect.bottom = iArr[1] + measuredHeight + value.e;
-                value.f = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
-                Rect rect2 = new Rect(value.a);
-                value.g = rect2;
-                int i = value.f;
-                rect2.inset(-i, -i);
-            }
-        }
-    }
-
-    @Override // android.view.TouchDelegate
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            b();
-            int rawX = (int) motionEvent.getRawX();
-            int rawY = (int) motionEvent.getRawY();
-            boolean z = false;
-            boolean z2 = false;
-            boolean z3 = true;
-            for (Map.Entry<View, a> entry : this.a.entrySet()) {
-                View key = entry.getKey();
-                if (key.getVisibility() != 0) {
-                    break;
-                }
-                a value = entry.getValue();
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action != 1 && action != 2) {
-                        if (action == 3) {
-                            z2 = value.h;
-                            value.h = false;
-                        }
-                    } else {
-                        z2 = value.h;
-                        if (z2 && !value.g.contains(rawX, rawY)) {
-                            z3 = false;
-                        }
+        if (interceptable == null || interceptable.invokeLL(65536, null, activity, wc1Var) == null) {
+            try {
+                Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
+                declaredMethod.setAccessible(true);
+                Object invoke = declaredMethod.invoke(activity, new Object[0]);
+                Class<?> cls = null;
+                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                        cls = cls2;
                     }
-                } else if (value.a.contains(rawX, rawY)) {
-                    value.h = true;
-                    z2 = true;
+                }
+                Object newProxyInstance = Proxy.newProxyInstance(Activity.class.getClassLoader(), new Class[]{cls}, new zc1(wc1Var));
+                Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
+                declaredMethod2.setAccessible(true);
+                declaredMethod2.invoke(activity, newProxyInstance, invoke);
+            } catch (Throwable unused) {
+                if (wc1Var != null) {
+                    wc1Var.onTranslucent(false);
+                }
+            }
+        }
+    }
+
+    public static void b(Activity activity, wc1 wc1Var) {
+        Class<?>[] declaredClasses;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, activity, wc1Var) == null) {
+            try {
+                Class<?> cls = null;
+                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                        cls = cls2;
+                    }
+                }
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(activity, null);
+                if (wc1Var != null) {
+                    wc1Var.onTranslucent(true);
+                }
+            } catch (Throwable unused) {
+                if (wc1Var != null) {
+                    wc1Var.onTranslucent(false);
+                }
+            }
+        }
+    }
+
+    public static Drawable e(Context context, String str) {
+        InterceptResult invokeLL;
+        Bitmap decodeFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
+                return null;
+            }
+            byte[] ninePatchChunk = decodeFile.getNinePatchChunk();
+            if (NinePatch.isNinePatchChunk(ninePatchChunk)) {
+                return new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
+            }
+            return new BitmapDrawable(context.getResources(), decodeFile);
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
+    public static void c(Activity activity, wc1 wc1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, activity, wc1Var) == null) {
+            try {
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertFromTranslucent", new Class[0]);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(activity, new Object[0]);
+                if (wc1Var != null) {
+                    wc1Var.onTranslucent(false);
+                }
+            } catch (Throwable unused) {
+                if (wc1Var != null) {
+                    wc1Var.onTranslucent(true);
+                }
+            }
+        }
+    }
+
+    public static void d(Activity activity, wc1 wc1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, wc1Var) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    a(activity, wc1Var);
                 } else {
-                    value.h = false;
-                    z2 = false;
+                    b(activity, wc1Var);
                 }
-                if (z2) {
-                    if (z3) {
-                        motionEvent.setLocation(key.getWidth() / 2, key.getHeight() / 2);
-                    } else {
-                        float f = -(value.f * 2);
-                        motionEvent.setLocation(f, f);
-                    }
-                    z = key.dispatchTouchEvent(motionEvent);
-                    continue;
-                }
-                if (z) {
-                    break;
+            } catch (Throwable unused) {
+                if (wc1Var != null) {
+                    wc1Var.onTranslucent(false);
                 }
             }
-            return z;
         }
-        return invokeL.booleanValue;
     }
 }

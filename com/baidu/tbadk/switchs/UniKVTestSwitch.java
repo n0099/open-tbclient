@@ -17,13 +17,13 @@ import java.io.File;
 /* loaded from: classes4.dex */
 public class UniKVTestSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String FILE_DOUBLE_KV = "swankv_double_kv.txt";
-    public static final String FILE_KV = "swankv_kv.txt";
-    public static final String FILE_SP = "swankv_sp.txt";
+    public static final String FILE_DOUBLE_KV = "swankv_double_kv2.txt";
+    public static final String FILE_DOUBLE_SP = "swankv_double_sp2.txt";
+    public static final String FILE_SP = "swankv_sp2.txt";
     public static final int TYPE_DOUBLE_KV = 1;
-    public static final int TYPE_KV = 2;
+    public static final int TYPE_DOUBLE_SP = 2;
     public static final int TYPE_SP = 0;
-    public static final String UNI_KV_TEST_ENABLE = "uni_kv_test_switch_12_43";
+    public static final String UNI_KV_TEST_ENABLE = "uni_kv_test_switch_12_44";
     public static volatile int type = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,7 +42,7 @@ public class UniKVTestSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ef
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ff
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class UniKVTestSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    public static boolean isTypeKv() {
+    public static boolean isTypeDoubleSp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
@@ -108,7 +108,7 @@ public class UniKVTestSwitch extends BaseNormalSwitch {
             synchronized (UniKVTestSwitch.class) {
                 if (type > 2) {
                     String str = BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_DOUBLE_KV;
-                    String str2 = BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_KV;
+                    String str2 = BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_DOUBLE_SP;
                     if (FileUtils.exists(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_SP)) {
                         type = 0;
                     } else if (FileUtils.exists(str)) {
@@ -116,7 +116,7 @@ public class UniKVTestSwitch extends BaseNormalSwitch {
                     } else if (FileUtils.exists(str2)) {
                         type = 2;
                     } else {
-                        type = 0;
+                        type = 2;
                     }
                 }
                 i = type;
@@ -134,13 +134,13 @@ public class UniKVTestSwitch extends BaseNormalSwitch {
                     if (i == 0) {
                         FileUtils.createFileSafely(new File(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_SP));
                         FileUtils.deleteFile(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_DOUBLE_KV);
-                        FileUtils.deleteFile(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_KV);
+                        FileUtils.deleteFile(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_DOUBLE_SP);
                     } else if (i == 1) {
                         FileUtils.createFileSafely(new File(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_DOUBLE_KV));
                         FileUtils.deleteFile(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_SP);
-                        FileUtils.deleteFile(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_KV);
+                        FileUtils.deleteFile(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_DOUBLE_SP);
                     } else if (i == 2) {
-                        FileUtils.createFileSafely(new File(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_KV));
+                        FileUtils.createFileSafely(new File(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_DOUBLE_SP));
                         FileUtils.deleteFile(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_DOUBLE_KV);
                         FileUtils.deleteFile(BdBaseApplication.getInst().getFilesDir() + File.separator + FILE_SP);
                     }

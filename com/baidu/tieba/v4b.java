@@ -1,274 +1,235 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v4b {
+public final class v4b {
     public static /* synthetic */ Interceptable $ic;
-    public static final float[] b;
-    public static final float[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public Context a;
+    public boolean b;
+    public long c;
+    public long d;
+    public long e;
+    public boolean f;
+    public int g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948192229, "Lcom/baidu/tieba/v4b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
+        public boolean b;
+        public long c;
+        public long d;
+        public long e;
+        public boolean f;
+        public int g;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948192229, "Lcom/baidu/tieba/v4b;");
-                return;
-            }
+            this.b = true;
+            this.c = 30000L;
+            this.d = 60000L;
+            this.e = 10000L;
+            this.f = false;
+            this.g = 1000;
         }
-        b = new float[]{1.0f, 10.0f, 100.0f, 1000.0f, 10000.0f, 100000.0f, 1000000.0f, 1.0E7f, 1.0E8f, 1.0E9f, 1.0E10f, 1.0E11f, 1.0E12f, 1.0E13f, 1.0E14f, 1.0E15f, 1.0E16f, 1.0E17f, 1.0E18f, 1.0E19f, 1.0E20f, 1.0E21f, 1.0E22f, 1.0E23f, 1.0E24f, 1.0E25f, 1.0E26f, 1.0E27f, 1.0E28f, 1.0E29f, 1.0E30f, 1.0E31f, 1.0E32f, 1.0E33f, 1.0E34f, 1.0E35f, 1.0E36f, 1.0E37f, 1.0E38f};
-        c = new float[]{1.0f, 0.1f, 0.01f, 0.001f, 1.0E-4f, 1.0E-5f, 1.0E-6f, 1.0E-7f, 1.0E-8f, 1.0E-9f, 1.0E-10f, 1.0E-11f, 1.0E-12f, 1.0E-13f, 1.0E-14f, 1.0E-15f, 1.0E-16f, 1.0E-17f, 1.0E-18f, 1.0E-19f, 1.0E-20f, 1.0E-21f, 1.0E-22f, 1.0E-23f, 1.0E-24f, 1.0E-25f, 1.0E-26f, 1.0E-27f, 1.0E-28f, 1.0E-29f, 1.0E-30f, 1.0E-31f, 1.0E-32f, 1.0E-33f, 1.0E-34f, 1.0E-35f, 1.0E-36f, 1.0E-37f, 1.0E-38f};
+
+        public a e(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                this.a = context;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a j(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.b = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
+
+        public a k(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                if (i <= 0) {
+                    i = 0;
+                }
+                if (i >= 1000) {
+                    i = 1000;
+                }
+                this.g = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        public a l(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+                this.f = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
+
+        public a m(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                this.d = i * 60 * 1000;
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        public a n(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                this.c = j * 1000;
+                return this;
+            }
+            return (a) invokeJ.objValue;
+        }
+
+        public a o(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                this.e = j * 1000;
+                return this;
+            }
+            return (a) invokeJ.objValue;
+        }
+
+        public v4b c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a == null) {
+                    f6b.b("Context must be not empty!");
+                    return null;
+                }
+                return new v4b(this, (byte) 0);
+            }
+            return (v4b) invokeV.objValue;
+        }
     }
 
-    public v4b() {
+    public v4b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = aVar.a;
+        this.b = aVar.b;
+        this.c = aVar.c;
+        this.d = aVar.d;
+        this.f = aVar.f;
+        this.e = aVar.e;
+        this.g = aVar.g;
     }
 
-    public int a() {
+    public /* synthetic */ v4b(a aVar, byte b) {
+        this(aVar);
+    }
+
+    public final Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (Context) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:114:0x008e A[EDGE_INSN: B:114:0x008e->B:44:0x008e ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0043  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0099  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x009f  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x00ba A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x00bb  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x00df  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public float b(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        boolean z;
-        int i3;
-        int i4;
-        boolean z2;
-        int i5;
-        int i6;
-        int i7;
-        float f;
-        char charAt;
-        int i8;
-        boolean z3;
-        boolean z4;
-        char charAt2;
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, i2)) == null) {
-            this.a = i;
-            if (i >= i2) {
-                return Float.NaN;
-            }
-            char charAt3 = str.charAt(i);
-            if (charAt3 != '+') {
-                if (charAt3 != '-') {
-                    z = false;
-                    int i9 = this.a;
-                    long j = 0;
-                    i3 = 0;
-                    i4 = 0;
-                    int i10 = 0;
-                    z2 = false;
-                    int i11 = 0;
-                    while (true) {
-                        i5 = this.a;
-                        if (i5 >= i2) {
-                            break;
-                        }
-                        char charAt4 = str.charAt(i5);
-                        if (charAt4 == '0') {
-                            if (i3 == 0) {
-                                i10++;
-                            } else {
-                                i4++;
-                            }
-                        } else if (charAt4 >= '1' && charAt4 <= '9') {
-                            int i12 = i3 + i4;
-                            while (i4 > 0) {
-                                if (j > 922337203685477580L) {
-                                    return Float.NaN;
-                                }
-                                j *= 10;
-                                i4--;
-                            }
-                            if (j > 922337203685477580L) {
-                                return Float.NaN;
-                            }
-                            j = (j * 10) + (charAt4 - '0');
-                            i3 = i12 + 1;
-                            if (j < 0) {
-                                return Float.NaN;
-                            }
-                        } else if (charAt4 != '.' || z2) {
-                            break;
-                        } else {
-                            i11 = this.a - i9;
-                            z2 = true;
-                        }
-                        this.a++;
-                    }
-                    if (!z2 && this.a == i11 + 1) {
-                        return Float.NaN;
-                    }
-                    if (i3 == 0) {
-                        if (i10 == 0) {
-                            return Float.NaN;
-                        }
-                        i3 = 1;
-                    }
-                    if (z2) {
-                        i4 = (i11 - i10) - i3;
-                    }
-                    i6 = this.a;
-                    if (i6 < i2 && ((charAt = str.charAt(i6)) == 'E' || charAt == 'e')) {
-                        i8 = this.a + 1;
-                        this.a = i8;
-                        if (i8 != i2) {
-                            return Float.NaN;
-                        }
-                        char charAt5 = str.charAt(i8);
-                        if (charAt5 != '+') {
-                            if (charAt5 != '-') {
-                                switch (charAt5) {
-                                    case '0':
-                                    case '1':
-                                    case '2':
-                                    case '3':
-                                    case '4':
-                                    case '5':
-                                    case '6':
-                                    case '7':
-                                    case '8':
-                                    case '9':
-                                        z3 = false;
-                                        z4 = false;
-                                        break;
-                                    default:
-                                        this.a--;
-                                        z3 = false;
-                                        z4 = true;
-                                        break;
-                                }
-                                if (!z4) {
-                                    int i13 = this.a;
-                                    int i14 = 0;
-                                    while (true) {
-                                        int i15 = this.a;
-                                        if (i15 < i2 && (charAt2 = str.charAt(i15)) >= '0' && charAt2 <= '9') {
-                                            if (i14 > 922337203685477580L) {
-                                                return Float.NaN;
-                                            }
-                                            i14 = (i14 * 10) + (charAt2 - '0');
-                                            this.a++;
-                                        }
-                                    }
-                                    if (this.a == i13) {
-                                        return Float.NaN;
-                                    }
-                                    if (z3) {
-                                        i4 -= i14;
-                                    } else {
-                                        i4 += i14;
-                                    }
-                                }
-                            } else {
-                                z3 = true;
-                            }
-                        } else {
-                            z3 = false;
-                        }
-                        this.a++;
-                        z4 = false;
-                        if (!z4) {
-                        }
-                    }
-                    i7 = i3 + i4;
-                    if (i7 <= 39 || i7 < -44) {
-                        return Float.NaN;
-                    }
-                    long j2 = j;
-                    float f2 = (float) j2;
-                    if (j2 != 0) {
-                        if (i4 > 0) {
-                            f = b[i4];
-                        } else if (i4 < 0) {
-                            if (i4 < -38) {
-                                f2 = (float) (f2 * 1.0E-20d);
-                                i4 += 20;
-                            }
-                            f = c[-i4];
-                        }
-                        f2 *= f;
-                    }
-                    if (z) {
-                        return -f2;
-                    }
-                    return f2;
-                }
-                z = true;
-            } else {
-                z = false;
-            }
-            this.a++;
-            int i92 = this.a;
-            long j3 = 0;
-            i3 = 0;
-            i4 = 0;
-            int i102 = 0;
-            z2 = false;
-            int i112 = 0;
-            while (true) {
-                i5 = this.a;
-                if (i5 >= i2) {
-                }
-                this.a++;
-            }
-            if (!z2) {
-            }
-            if (i3 == 0) {
-            }
-            if (z2) {
-            }
-            i6 = this.a;
-            if (i6 < i2) {
-                i8 = this.a + 1;
-                this.a = i8;
-                if (i8 != i2) {
-                }
-            }
-            i7 = i3 + i4;
-            if (i7 <= 39) {
-            }
-            return Float.NaN;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeLII.floatValue;
+        return invokeV.booleanValue;
+    }
+
+    public final long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public final long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public final long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
     }
 }

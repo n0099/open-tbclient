@@ -215,7 +215,7 @@ public class GrantPermissionActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d003c);
+            setContentView(R.layout.obfuscated_res_0x7f0d003b);
             Intent intent = getIntent();
             this.a = intent.getIntExtra("request_code", -1);
             a0 c = c0.b().c(intent.getStringExtra("request_time_stamp"));

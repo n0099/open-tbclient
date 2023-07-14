@@ -50,12 +50,12 @@ public final class c {
 
     /* renamed from: com.bytedance.pangle.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C0566c {
+    public static class C0570c {
         public final X509Certificate[] a;
         public final b b;
         public byte[] c;
 
-        public C0566c(X509Certificate[] x509CertificateArr, b bVar) {
+        public C0570c(X509Certificate[] x509CertificateArr, b bVar) {
             this.a = x509CertificateArr;
             this.b = bVar;
         }
@@ -130,17 +130,17 @@ public final class c {
         }
     }
 
-    public static C0566c a(RandomAccessFile randomAccessFile, m mVar) {
+    public static C0570c a(RandomAccessFile randomAccessFile, m mVar) {
         ArrayMap arrayMap = new ArrayMap();
         try {
             CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
             try {
                 ByteBuffer a2 = f.a(mVar.a);
                 int i = 0;
-                C0566c c0566c = null;
+                C0570c c0570c = null;
                 while (a2.hasRemaining()) {
                     try {
-                        c0566c = a(f.a(a2), arrayMap, certificateFactory);
+                        c0570c = a(f.a(a2), arrayMap, certificateFactory);
                         i++;
                     } catch (a unused) {
                     } catch (IOException e) {
@@ -154,14 +154,14 @@ public final class c {
                         throw new SecurityException("Failed to parse/verify signer #" + i + " block", e);
                     }
                 }
-                if (i > 0 && c0566c != null) {
+                if (i > 0 && c0570c != null) {
                     if (i == 1) {
                         if (!arrayMap.isEmpty()) {
                             f.a(arrayMap, randomAccessFile, mVar);
                             if (arrayMap.containsKey(3)) {
-                                c0566c.c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
+                                c0570c.c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
                             }
-                            return c0566c;
+                            return c0570c;
                         }
                         throw new SecurityException("No content digests found");
                     }
@@ -176,7 +176,7 @@ public final class c {
         }
     }
 
-    public static C0566c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
+    public static C0570c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
         X509Certificate[] x509CertificateArr = (X509Certificate[]) list.toArray(new X509Certificate[list.size()]);
         b bVar = null;
         while (byteBuffer.hasRemaining()) {
@@ -200,10 +200,10 @@ public final class c {
                 throw new IOException("Remaining buffer too short to contain additional attribute ID. Remaining: " + a2.remaining());
             }
         }
-        return new C0566c(x509CertificateArr, bVar);
+        return new C0570c(x509CertificateArr, bVar);
     }
 
-    public static C0566c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
+    public static C0570c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
         ByteBuffer a2 = f.a(byteBuffer);
         int i = byteBuffer.getInt();
         int i2 = byteBuffer.getInt();

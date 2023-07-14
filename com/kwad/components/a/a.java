@@ -65,14 +65,14 @@ public class a {
         if (this.PM.contains(bVar.ait)) {
             return;
         }
-        com.kwad.components.a.a.a.a(this.mContext, bVar, new a.InterfaceC0591a() { // from class: com.kwad.components.a.a.5
-            @Override // com.kwad.components.a.a.a.InterfaceC0591a
+        com.kwad.components.a.a.a.a(this.mContext, bVar, new a.InterfaceC0596a() { // from class: com.kwad.components.a.a.5
+            @Override // com.kwad.components.a.a.a.InterfaceC0596a
             public final void c(com.kwad.sdk.e.kwai.b bVar2) {
                 a.this.PM.add(bVar2.ait);
                 com.kwad.sdk.core.e.b.d("HybridPackageManager", "download onStart: " + bVar2.toString());
             }
 
-            @Override // com.kwad.components.a.a.a.InterfaceC0591a
+            @Override // com.kwad.components.a.a.a.InterfaceC0596a
             public final void d(com.kwad.sdk.e.kwai.b bVar2) {
                 com.kwad.sdk.core.e.b.d("HybridPackageManager", "download success: " + bVar2.toString());
                 if (com.kwad.components.a.a.b.a(a.this.mContext, bVar2)) {
@@ -85,7 +85,7 @@ public class a {
                 a.this.PM.remove(bVar2.ait);
             }
 
-            @Override // com.kwad.components.a.a.a.InterfaceC0591a
+            @Override // com.kwad.components.a.a.a.InterfaceC0596a
             public final void e(com.kwad.sdk.e.kwai.b bVar2) {
                 com.kwad.sdk.core.e.b.d("HybridPackageManager", "download failure: " + bVar2.toString());
                 a.this.PM.remove(bVar2.ait);
@@ -151,7 +151,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0044 A[Catch: all -> 0x005c, TryCatch #4 {, blocks: (B:7:0x001e, B:16:0x0033, B:17:0x003e, B:19:0x0044, B:21:0x004e, B:22:0x0056, B:24:0x0058, B:25:0x005b, B:15:0x0030), top: B:33:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0045 A[Catch: all -> 0x005d, TryCatch #4 {, blocks: (B:7:0x001e, B:16:0x0034, B:17:0x003f, B:19:0x0045, B:21:0x004f, B:22:0x0057, B:24:0x0059, B:25:0x005c, B:15:0x0031), top: B:33:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

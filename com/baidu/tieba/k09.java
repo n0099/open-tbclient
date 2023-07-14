@@ -1,88 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.res.Resources;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipThemeItem;
-import tbclient.GetVipInfo.VipThemeList;
 /* loaded from: classes6.dex */
-public class k09 implements xn {
+public class k09 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public f09 a;
-    public List<l09> b;
-    public List<l09> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947859413, "Lcom/baidu/tieba/k09;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947859413, "Lcom/baidu/tieba/k09;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                return Integer.parseInt(Build.VERSION.SDK);
+            } catch (NumberFormatException unused) {
+                return 0;
+            }
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public k09(VipThemeList vipThemeList) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipThemeList};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a() >= 14) {
+                return true;
             }
+            return false;
         }
-        if (vipThemeList == null) {
-            return;
-        }
-        String str = vipThemeList.card_id;
-        f09 f09Var = new f09();
-        this.a = f09Var;
-        f09Var.e(2);
-        this.a.d(vipThemeList.class_name);
-        this.a.f(vipThemeList.class_url_name);
-        this.a.g(vipThemeList.class_url);
-        if (vipThemeList.item != null) {
-            this.b = new ArrayList();
-            for (VipThemeItem vipThemeItem : vipThemeList.item) {
-                this.b.add(new l09(vipThemeItem));
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Resources resources;
+        int identifier;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (b() && (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", "android")) > 0) {
+                return resources.getBoolean(identifier);
             }
+            return false;
         }
-        if (vipThemeList.item_card != null) {
-            this.c = new ArrayList();
-            for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
-                this.c.add(new l09(vipThemeItem2));
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

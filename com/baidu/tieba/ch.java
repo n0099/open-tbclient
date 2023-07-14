@@ -1,117 +1,84 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes5.dex */
 public class ch {
     public static /* synthetic */ Interceptable $ic;
-    public static Handler a;
-    public static Handler b;
+    public static ch b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ThreadPoolExecutor a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448301544, "Lcom/baidu/tieba/ch;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448301544, "Lcom/baidu/tieba/ch;");
+                return;
+            }
+        }
+        b = new ch();
+    }
 
     public ch() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ScheduledThreadPoolExecutor(1);
     }
 
-    public static Handler a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ch.class) {
-                    if (b == null) {
-                        HandlerThread handlerThread = new HandlerThread("UiUtils-Background");
-                        handlerThread.start();
-                        b = new Handler(handlerThread.getLooper());
-                    }
-                }
-            }
-            return b;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static Handler b() {
+    public static ch a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (ch.class) {
-                    if (a == null) {
-                        a = new Handler(Looper.getMainLooper());
-                    }
-                }
+            return b;
+        }
+        return (ch) invokeV.objValue;
+    }
+
+    public void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            if (this.a.getTaskCount() >= 1) {
+                new Thread(runnable).start();
+                return;
             }
-            return a;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            b().post(runnable);
-        }
-    }
-
-    public static void d(@NonNull Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) {
-            a().removeCallbacks(runnable);
-        }
-    }
-
-    public static void e(@NonNull Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, runnable) == null) {
-            if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
-                a().post(runnable);
-            } else {
-                runnable.run();
+            try {
+                this.a.submit(runnable);
+            } catch (Throwable unused) {
             }
         }
     }
 
-    public static void g(Runnable runnable) {
+    public void c(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, runnable) == null) {
-            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                b().post(runnable);
-            } else {
-                runnable.run();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
+            try {
+                this.a.submit(runnable);
+            } catch (Throwable unused) {
             }
-        }
-    }
-
-    public static void f(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65542, null, runnable, j) == null) {
-            a().postDelayed(runnable, j);
-        }
-    }
-
-    public static void h(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65544, null, runnable, j) == null) {
-            b().postDelayed(runnable, j);
         }
     }
 }

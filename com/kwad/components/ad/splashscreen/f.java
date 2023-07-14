@@ -1,5 +1,5 @@
 package com.kwad.components.ad.splashscreen;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface f {
     void f(boolean z, boolean z2);
 }

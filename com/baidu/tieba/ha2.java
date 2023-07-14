@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.net.LocalServerSocket;
-import android.net.LocalSocket;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.da2;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,117 +10,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TimeZone;
+import com.baidu.webkit.sdk.CookieManager;
+import com.baidu.webkit.sdk.CookieSyncManager;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ha2 implements da2.c {
+public class ha2 extends xg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public da2.b a;
-    public LocalServerSocket b;
-    public fa2 c;
-    public String d;
-    public boolean e;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, String> a;
-        public String b;
-        public String c;
-        public String d;
-        public boolean e;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new HashMap();
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldAcceptCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public static abstract class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public a a;
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldSendCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            return true;
         }
-
-        public abstract Map<String, String> b();
-
-        public abstract String c();
-
-        public b(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        public final void d(PrintWriter printWriter, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, printWriter, str, str2) == null) {
-                printWriter.append((CharSequence) str).append(": ").append((CharSequence) str2).append("\r\n");
-            }
-        }
-
-        public void e(OutputStream outputStream) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, outputStream) == null) {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
-                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-                PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
-                printWriter.append("HTTP/1.1").append(WebvttCueParser.CHAR_SPACE).append((CharSequence) c()).append(" \r\n");
-                d(printWriter, "Date", simpleDateFormat.format(new Date()));
-                printWriter.print("Content-Length: " + a().getBytes().length + "\r\n");
-                Map<String, String> b = b();
-                if (b != null && b.size() > 0) {
-                    for (Map.Entry<String, String> entry : b.entrySet()) {
-                        d(printWriter, entry.getKey(), entry.getValue());
-                    }
-                }
-                printWriter.append("\r\n");
-                printWriter.append((CharSequence) a());
-                printWriter.flush();
-            }
-        }
+        return invokeLL.booleanValue;
     }
 
     static {
@@ -139,77 +52,108 @@ public class ha2 implements da2.c {
                 return;
             }
         }
-        f = ms1.a;
-    }
-
-    @Override // com.baidu.tieba.da2.c
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = false;
-            LocalServerSocket localServerSocket = this.b;
-            if (localServerSocket != null) {
-                try {
-                    localServerSocket.close();
-                } catch (IOException e) {
-                    c92.d("V8InspectorServer", "stop local server fail", e);
-                }
-                this.b = null;
+        a = fs1.a;
+        try {
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+        } catch (Exception e) {
+            if (a) {
+                Log.w("RealCookieManager", "static createInstance err=" + e + " trace=" + Log.getStackTraceString(e));
             }
-            fa2 fa2Var = this.c;
-            if (fa2Var != null) {
-                fa2Var.l();
-                this.c = null;
-            }
-            this.a = null;
         }
     }
 
-    public ha2(String str, da2.b bVar) {
+    public ha2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, bVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.d = str;
-        this.a = bVar;
     }
 
-    @Override // com.baidu.tieba.da2.c
-    public void start() {
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (co3.f()) {
+                if (a) {
+                    Log.i("RealCookieManager", "syncCookie: hasLollipop flush");
+                }
+                CookieManager.getInstance().flush();
+                android.webkit.CookieManager.getInstance().flush();
+                return;
+            }
+            if (a) {
+                Log.i("RealCookieManager", "syncCookie: noLollipop sync");
+            }
+            CookieSyncManager.getInstance().sync();
         }
-        try {
-            this.b = new LocalServerSocket(this.d);
-            this.e = true;
-            int i = 0;
-            while (this.e) {
-                LocalSocket accept = this.b.accept();
-                fa2 fa2Var = new fa2(accept.getInputStream(), accept.getOutputStream());
-                this.c = fa2Var;
-                fa2Var.o(this.a);
-                ExecutorUtilsExt.postOnSerial(this.c, "V8InspectorServer");
-                if (b83.H() && (i = i + 1) > 10) {
-                    if (f) {
-                        Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
-                        return;
-                    }
-                    return;
+    }
+
+    @Override // com.baidu.tieba.xg3, com.baidu.searchbox.http.cookie.CookieManager
+    public String getCookie(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (a) {
+                Log.i("RealCookieManager", "getCookie: httpUrl=" + str);
+            }
+            String str2 = "";
+            try {
+                str2 = CookieManager.getInstance().getCookie(str);
+                if (a) {
+                    Log.d("RealCookieManager", "RealCookieManager:" + str2);
+                }
+            } catch (Exception e) {
+                if (a) {
+                    Log.e("RealCookieManager", "getCookie: err=" + e + " trace=" + Log.getStackTraceString(e));
                 }
             }
-        } catch (IOException e) {
-            c92.d("V8InspectorServer", "launch local server fail", e);
+            if (a) {
+                Log.i("RealCookieManager", "getCookie: ret cookie=" + str2 + " for httpUrl=" + str);
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public void storeCookie(String str, List<String> list) {
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            if (a) {
+                Log.d("RealCookieManager", "storeCookie: httpUrl= " + str);
+                StringBuilder sb = new StringBuilder();
+                sb.append("storeCookie: cookies=");
+                if (list == null) {
+                    size = -1;
+                } else {
+                    size = list.size();
+                }
+                sb.append(size);
+                Log.i("RealCookieManager", sb.toString());
+            }
+            if (list != null && list.size() > 0) {
+                try {
+                    for (String str2 : list) {
+                        if (a) {
+                            Log.i("RealCookieManager", "storeCookie: cookies item=" + str2);
+                        }
+                        CookieManager.getInstance().setCookie(str, str2);
+                        android.webkit.CookieManager.getInstance().setCookie(str, str2);
+                    }
+                    a();
+                } catch (Exception e) {
+                    if (a) {
+                        Log.e("RealCookieManager", "storeCookie: err=" + e + " trace=" + Log.getStackTraceString(e));
+                    }
+                }
+            }
         }
     }
 }

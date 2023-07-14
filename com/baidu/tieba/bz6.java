@@ -1,90 +1,42 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.enterForum.hotuserrank.RankListViewController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONObject;
+import tbclient.ItemManage.DataRes;
+import tbclient.ManageInfo;
 /* loaded from: classes5.dex */
-public class bz6 {
+public class bz6 implements fs5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public RankListViewController.RankListViewHolder c;
-    public TextView d;
-    public TextView e;
-    public String f;
-    public int g;
-    public View.OnClickListener h;
+    public List<sy6> a;
+    public List<sy6> b;
+    public Integer c;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bz6 a;
-
-        public a(bz6 bz6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bz6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bz6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (TextUtils.isEmpty(this.a.f)) {
-                    this.a.a.showToast(R.string.load_error_retry);
-                    return;
-                }
-                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.f});
-                if (this.a.g == 0) {
-                    return;
-                }
-                if (this.a.g == 2) {
-                    StatisticItem statisticItem = new StatisticItem("c13658");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("obj_locate", 2);
-                    TiebaStatic.log(statisticItem);
-                } else if (this.a.g == 1) {
-                    StatisticItem statisticItem2 = new StatisticItem("c13669");
-                    statisticItem2.param("obj_locate", 2);
-                    TiebaStatic.log(statisticItem2);
-                }
-            }
+    @Override // com.baidu.tieba.fs5
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
         }
     }
 
-    public bz6(TbPageContext tbPageContext, View view2) {
+    @Override // com.baidu.tieba.fs5
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
+        }
+    }
+
+    public bz6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -94,48 +46,30 @@ public class bz6 {
                 return;
             }
         }
-        this.h = new a(this);
-        this.a = tbPageContext;
-        this.b = view2;
-        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f092804));
-        this.c = rankListViewHolder;
-        rankListViewHolder.l(1);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090dfe);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ddb);
-        this.e = textView;
-        textView.setTextSize(0, xi.g(this.a.getPageActivity(), R.dimen.tbfontsize46));
-        this.d.setOnClickListener(this.h);
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = 0;
     }
 
-    public void d(int i) {
+    public void a(bz6 bz6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c.i(i);
-            SkinManager.setBackgroundColor(this.c.itemView, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bz6Var) == null) {
+            this.a.addAll(bz6Var.a);
+            this.b = bz6Var.b;
+            this.c = bz6Var.c;
         }
     }
 
-    public void f(int i) {
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void e(ez6 ez6Var) {
-        dz6 dz6Var;
-        MetaData metaData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ez6Var) == null) {
-            if (ez6Var != null && (dz6Var = ez6Var.c) != null && (metaData = dz6Var.f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
-                this.b.setVisibility(0);
-                this.c.e(ez6Var.c);
-                this.c.h();
-                this.f = ez6Var.e;
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
+            for (ManageInfo manageInfo : dataRes.manage_list) {
+                this.a.add(sy6.c(manageInfo));
             }
-            this.b.setVisibility(8);
+            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
+                this.b.add(sy6.c(manageInfo2));
+            }
+            this.c = dataRes.has_more;
         }
     }
 }

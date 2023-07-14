@@ -192,7 +192,7 @@ public class GroupMemberQuitMsg extends NotifyMsg implements Parcelable, NoProGu
             super.writeToParcel(parcel, i);
             parcel.writeString(this.mQuitMember);
             parcel.writeString(this.mNewMaster);
-            parcel.writeLong(this.groupnum);
+            parcel.writeInt(this.groupnum);
             parcel.writeLong(this.mMemberVersion);
         }
     }

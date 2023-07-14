@@ -1,15 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tieba.l84;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public class xc4 implements st1 {
+public class xc4 extends ck2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +24,13 @@ public class xc4 implements st1 {
         }
     }
 
-    @Override // com.baidu.tieba.st1
+    @Override // com.baidu.tieba.ek2
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            zc4.a(str);
+            l84.d.d(str);
+            fo2.k(str);
+            zc4.k(str);
         }
     }
 }

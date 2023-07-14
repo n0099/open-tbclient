@@ -1,199 +1,131 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class hy2 {
+public class hy2 extends l72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final jy2 a;
-    public final List<iy2> b;
-    public Boolean c;
-    public iy2 d;
+    public oy2 j;
+    public double k;
+    public List<py2> l;
+    public List<ry2> m;
+    public List<my2> n;
+    public List<ny2> o;
+    public List<oy2> p;
+    public List<qy2> q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public boolean u;
+    public boolean v;
+    public boolean w;
+    public boolean x;
+    public String y;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public jy2 a;
-        public List<iy2> b;
-        public RuntimeException c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a a(@NonNull List<iy2> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                if (list.contains(null)) {
-                    this.c = new IllegalArgumentException("branches contains null value");
-                    if (!hy2.e) {
-                        this.b = null;
-                        return this;
-                    }
-                    throw this.c;
-                }
-                for (iy2 iy2Var : list) {
-                    if (iy2Var.c() + 0 > 100) {
-                        this.c = new IllegalArgumentException("The sum of all flow in the branch must be in [0,100]");
-                        if (!hy2.e) {
-                            this.b = null;
-                            return this;
-                        }
-                        throw this.c;
-                    }
-                }
-                this.b = Collections.unmodifiableList(list);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        @Nullable
-        @SuppressLint({"BDThrowableCheck"})
-        public hy2 b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.c != null) {
-                    if (!hy2.e) {
-                        return null;
-                    }
-                    throw this.c;
-                } else if (this.a == null) {
-                    this.c = new IllegalStateException("testSwitch == null");
-                    if (!hy2.e) {
-                        return null;
-                    }
-                    throw this.c;
-                } else {
-                    List<iy2> list = this.b;
-                    if (list == null) {
-                        this.c = new IllegalStateException("branches == null");
-                        if (!hy2.e) {
-                            return null;
-                        }
-                        throw this.c;
-                    }
-                    for (iy2 iy2Var : list) {
-                        if (!jy2.c(this.a.f(), iy2Var.e)) {
-                            this.c = new IllegalStateException("branch valueType error");
-                            if (!hy2.e) {
-                                return null;
-                            }
-                            throw this.c;
-                        }
-                    }
-                    return new hy2(this);
-                }
-            }
-            return (hy2) invokeV.objValue;
-        }
-
-        public a c(@NonNull jy2 jy2Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jy2Var)) == null) {
-                this.a = jy2Var;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947839976, "Lcom/baidu/tieba/hy2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947839976, "Lcom/baidu/tieba/hy2;");
-                return;
-            }
-        }
-        e = ms1.a;
-    }
-
-    @NonNull
-    public jy2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (jy2) invokeV.objValue;
-    }
-
-    public hy2(a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hy2() {
+        super("map", "mapId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = Boolean.FALSE;
-        this.a = aVar.a;
-        this.b = aVar.b;
+        this.k = 16.0d;
+        this.r = true;
+        this.y = "";
     }
 
-    @Nullable
-    public synchronized iy2 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.l72, com.baidu.tieba.u13
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.c.booleanValue()) {
-                    return this.d;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            String str = "markers";
+            if (jSONObject == null) {
+                return;
+            }
+            super.a(jSONObject);
+            if (jSONObject.has("longitude") && jSONObject.has("latitude")) {
+                oy2 oy2Var = new oy2();
+                this.j = oy2Var;
+                oy2Var.a(jSONObject);
+            }
+            if (jSONObject.has("scale")) {
+                this.k = jSONObject.optDouble("scale", 16.0d);
+            }
+            jSONObject.optString("subkey", "");
+            jSONObject.optString("layerStyle", "");
+            this.y = jSONObject.optString("cb");
+            this.r = jSONObject.optBoolean("showLocation", true);
+            this.s = jSONObject.optBoolean("enableZoom", true);
+            this.t = jSONObject.optBoolean("enableScroll", true);
+            this.u = jSONObject.optBoolean("enableRotate", false);
+            this.v = jSONObject.optBoolean("showCompass", false);
+            this.w = jSONObject.optBoolean("enableOverlooking", false);
+            this.x = jSONObject.optBoolean("enable3D", false);
+            try {
+                if (!jSONObject.has("markers")) {
+                    str = "covers";
                 }
-                int currentTimeMillis = (int) (System.currentTimeMillis() % 100);
-                this.c = Boolean.TRUE;
-                for (int i = 0; i < this.b.size(); i++) {
-                    iy2 iy2Var = this.b.get(i);
-                    currentTimeMillis -= iy2Var.c();
-                    if (currentTimeMillis < 0) {
-                        this.d = iy2Var;
-                        return iy2Var;
-                    }
-                }
-                return null;
+                this.l = h(jSONObject, str, py2.class);
+                this.n = h(jSONObject, "circles", my2.class);
+                this.m = h(jSONObject, "polyline", ry2.class);
+                this.o = h(jSONObject, "controls", ny2.class);
+                this.p = h(jSONObject, "includePoints", oy2.class);
+                this.q = h(jSONObject, "polygons", qy2.class);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        return (iy2) invokeV.objValue;
+    }
+
+    public final <T extends u13> List<T> h(JSONObject jSONObject, String str, Class<T> cls) throws IllegalAccessException, InstantiationException, JSONException {
+        InterceptResult invokeLLL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str, cls)) == null) {
+            if (jSONObject.has(str)) {
+                JSONArray optJSONArray = jSONObject.optJSONArray(str);
+                if (optJSONArray == null) {
+                    length = 0;
+                } else {
+                    length = optJSONArray.length();
+                }
+                if (length > 0) {
+                    ArrayList arrayList = new ArrayList(length);
+                    for (int i = 0; i < length; i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            T newInstance = cls.newInstance();
+                            newInstance.a(optJSONObject);
+                            if (newInstance.isValid()) {
+                                arrayList.add(newInstance);
+                            }
+                        }
+                    }
+                    return arrayList;
+                }
+            }
+            return null;
+        }
+        return (List) invokeLLL.objValue;
     }
 }

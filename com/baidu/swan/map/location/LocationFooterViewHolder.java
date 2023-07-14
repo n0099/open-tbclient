@@ -12,15 +12,15 @@ public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
 
     public LocationFooterViewHolder(View view2) {
         super(view2);
-        a(view2);
+        b(view2);
     }
 
-    public final void a(View view2) {
+    public final void b(View view2) {
         this.a = (TextView) view2.findViewById(R.id.loading_text);
-        this.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091612);
+        this.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091626);
     }
 
-    public void b(boolean z) {
+    public void c(boolean z) {
         int i;
         View view2 = this.itemView;
         if (z) {

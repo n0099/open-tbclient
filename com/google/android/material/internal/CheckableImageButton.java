@@ -152,7 +152,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
     }
 
     public CheckableImageButton(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040368);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040369);
     }
 
     public CheckableImageButton(Context context, AttributeSet attributeSet, int i) {

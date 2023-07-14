@@ -6,11 +6,11 @@ import androidx.core.util.Pair;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.ew8;
-import com.baidu.tieba.gl6;
-import com.baidu.tieba.ok6;
-import com.baidu.tieba.ol6;
-import com.baidu.tieba.ym6;
+import com.baidu.tieba.co6;
+import com.baidu.tieba.h29;
+import com.baidu.tieba.km6;
+import com.baidu.tieba.sl6;
+import com.baidu.tieba.sm6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public class ImageLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static final ok6 a;
+    public static final sl6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class ImageLoader {
                 return;
             }
         }
-        a = new ok6();
+        a = new sl6();
     }
 
     public static WebResourceResponse a(String str, Map<String, String> map, Pair<InputStream, Long> pair) {
@@ -49,7 +49,7 @@ public class ImageLoader {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, map, pair)) == null) {
-            String b = ym6.b(str);
+            String b = co6.b(str);
             HashMap<String, String> hashMap = new HashMap<String, String>() { // from class: com.baidu.tieba.browser.core.webview.flyweight.loader.ImageLoader.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -91,14 +91,14 @@ public class ImageLoader {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            ol6 f = gl6.e().f(str);
+            sm6 f = km6.e().f(str);
             if (f == null) {
-                f = gl6.e().f(ym6.c(str2));
+                f = km6.e().f(co6.c(str2));
             }
             if (f == null) {
                 return null;
             }
-            String c = ym6.c(str2);
+            String c = co6.c(str2);
             String str3 = "";
             for (String str4 : f.f) {
                 if (c.endsWith(str4)) {
@@ -118,7 +118,7 @@ public class ImageLoader {
             try {
                 String b = b(str, str2);
                 if (!TextUtils.isEmpty(b) && (a2 = a.a(b)) != null && a2.first != null) {
-                    ew8 hybridLog = HybridLog.getInstance();
+                    h29 hybridLog = HybridLog.getInstance();
                     hybridLog.c("Offline", "返回离线包图片数据:" + b + " originUrl：" + str + " url：" + str2);
                     return a(str2, map, a2);
                 }

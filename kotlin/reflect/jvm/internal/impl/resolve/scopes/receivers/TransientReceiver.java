@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers;
 
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TransientReceiver extends AbstractReceiverValue {
     public static /* synthetic */ void $$$reportNull$$$0(int i) {
         Object[] objArr = new Object[3];

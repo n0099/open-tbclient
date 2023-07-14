@@ -3,7 +3,7 @@ package com.baidu.tieba.write.write.work.classdialog.model;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.gx5;
+import com.baidu.tieba.ky5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class GetSelectClassReqMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                gx5.a(builder, true);
+                ky5.a(builder, true);
             }
             GetWorksTagsReqIdl.Builder builder2 = new GetWorksTagsReqIdl.Builder();
             builder2.data = builder.build(false);

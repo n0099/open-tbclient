@@ -1,170 +1,155 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.content.Context;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-@Singleton
-@Service
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class i96 implements zw1 {
+public class i96 extends pl1<ik0> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
 
-    @Override // com.baidu.tieba.zw1
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+    /* loaded from: classes6.dex */
+    public class a implements ik0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ik0
+        public String[] c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (String[]) invokeV.objValue;
         }
-    }
 
-    @Override // com.baidu.tieba.zw1
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        @Override // com.baidu.tieba.ik0
+        public boolean d(Context context, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
         }
-    }
 
-    @Override // com.baidu.tieba.zw1
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        /* renamed from: com.baidu.tieba.i96$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0330a implements lk0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ boolean[] a;
+            public final /* synthetic */ jk0 b;
+
+            public C0330a(a aVar, boolean[] zArr, jk0 jk0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, zArr, jk0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = zArr;
+                this.b = jk0Var;
+            }
+
+            @Override // com.baidu.tieba.lk0
+            public void onResult(boolean z) {
+                jk0 jk0Var;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                    this.a[0] = z;
+                    if (z && (jk0Var = this.b) != null) {
+                        jk0Var.a(true, null);
+                    }
+                }
+            }
         }
-    }
 
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a061" : (String) invokeV.objValue;
-    }
-
-    public ds5 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (ds5) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947808387, "Lcom/baidu/tieba/i96;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(i96 i96Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947808387, "Lcom/baidu/tieba/i96;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i96Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        b = ms1.a;
+
+        @Override // com.baidu.tieba.ik0
+        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable jk0 jk0Var) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, jk0Var)) == null) {
+                Log.e("CMDConfig", "host invoke command = " + str);
+                if (UrlSchemaJumpHelper.isHitBlackList(str)) {
+                    return true;
+                }
+                if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                    nk0.a(context, str, null, new C0330a(this, new boolean[1], jk0Var), false);
+                    return true;
+                }
+                UrlManager.getInstance().dealOneLink(new String[]{str});
+                return true;
+            }
+            return invokeLLLL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ik0
+        public void b(String str, String str2, lk0 lk0Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, lk0Var) == null) && lk0Var != null) {
+                lk0Var.onResult(true);
+            }
+        }
     }
 
     public i96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public List<String> h() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pl1
+    /* renamed from: a */
+    public ik0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("a001");
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zw1
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppBackground");
-            }
-            long r = r95.p().r("smart_app_tid", 0L);
-            String w = r95.p().w("smart_app_id", "");
-            String w2 = r95.p().w("smart_app_name", "");
-            if (this.a != 0 && r != 0) {
-                long currentTimeMillis = System.currentTimeMillis() - this.a;
-                fs5 fs5Var = new fs5();
-                fs5Var.y(currentTimeMillis);
-                fs5Var.s(g());
-                fs5Var.C(r);
-                fs5Var.i = w;
-                fs5Var.j = w2;
-                fs5Var.x(h());
-                gs5.b().j(true);
-                gs5.b().k(TbadkApplication.getInst().getApplicationContext(), fs5Var, i());
-                r95.p().H("smart_app_tid", 0L);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zw1
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppForeground" + cc3.M().b);
-            }
-            File file = new File(pm.b("libBaiduMapSDK.so"));
-            if (file.exists() && file.isFile() && BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK.so") == null && rm.a(BdBaseApplication.getInst().getContext(), pm.a("libBaiduMapSDK.so"))) {
-                try {
-                    System.loadLibrary("BaiduMapSDK");
-                } catch (Throwable unused) {
-                }
-                BdBaseApplication.getInst().getResHashMap().put("libBaiduMapSDK.so", pm.a("libBaiduMapSDK.so"));
-            }
-            this.a = System.currentTimeMillis();
-        }
-    }
-
-    @Override // com.baidu.tieba.zw1
-    public void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable zw2 zw2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i, zw2Var) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppExit");
-            }
-            if (r95.p().l("key_ai_app_guide_display", true)) {
-                Intent intent = new Intent(swanAppActivity, DealIntentService.class);
-                intent.putExtra("class", 38);
-                swanAppActivity.startService(intent);
-            }
-        }
+        return (ik0) invokeV.objValue;
     }
 }

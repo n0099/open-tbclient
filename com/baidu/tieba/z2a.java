@@ -1,203 +1,159 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.log.ActivityLog;
+import com.baidu.tieba.a3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.StarEnter;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class z2a implements xn {
+public class z2a {
     public static /* synthetic */ Interceptable $ic;
-    public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
-    public int g;
 
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-        }
-    }
+    /* loaded from: classes8.dex */
+    public static class a implements a3a.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Uri b;
+        public final /* synthetic */ Context c;
 
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948309440, "Lcom/baidu/tieba/z2a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(String str, Uri uri, Context context) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, uri, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948309440, "Lcom/baidu/tieba/z2a;");
+            this.a = str;
+            this.b = uri;
+            this.c = context;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:43:0x00a3 A[ORIG_RETURN, RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:53:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        @Override // com.baidu.tieba.a3a.c
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void a(HashMap<String, String> hashMap) {
+            JSONObject jSONObject;
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, hashMap) != null) || hashMap == null) {
                 return;
             }
-        }
-        h = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
-    }
-
-    public z2a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            Class<?> cls = null;
+            try {
+                JSONObject jSONObject2 = new JSONObject(this.a);
+                str = jSONObject2.optString("page");
+                try {
+                    String optString = jSONObject2.optString("refre");
+                    jSONObject = jSONObject2.optJSONObject("pageParams");
+                    if (jSONObject == null) {
+                        try {
+                            jSONObject = new JSONObject();
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (jSONObject == null) {
+                            }
+                        }
+                    }
+                    jSONObject.put("page", str);
+                    jSONObject.put("refre", optString);
+                    jSONObject.put("from", 1);
+                    for (String str2 : this.b.getQueryParameterNames()) {
+                        if (!"params".equals(str2)) {
+                            jSONObject.put(str2, this.b.getQueryParameter(str2));
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    jSONObject = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                jSONObject = null;
+                str = null;
+            }
+            if (jSONObject == null) {
+                try {
+                    cls = Class.forName(hashMap.get(str));
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                if (cls == null) {
+                    return;
+                }
+                for (Class<?> cls2 : cls.getInterfaces()) {
+                    if (cls2.isAssignableFrom(y2a.class)) {
+                        try {
+                            ((y2a) cls.newInstance()).dispatch(jSONObject, this.c);
+                            return;
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                            return;
+                        }
+                    }
+                }
             }
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static int a(Context context, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return BdUniqueId.gen();
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public void i(StarEnter starEnter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, starEnter) == null) {
-            l(starEnter.icon);
-            n(starEnter.time.intValue());
-            o(starEnter.title);
-            s(starEnter.type.intValue());
-            p(starEnter.url);
-            q(starEnter.weight.intValue());
-            m(starEnter.rank_num.intValue());
-            k(starEnter.bazhu_mark.intValue());
-            if (StringUtils.isNull(this.a) && this.g == 1) {
-                this.a = h;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, strArr)) == null) {
+            if (context != null && strArr != null && strArr.length != 0) {
+                String str = strArr[0];
+                if (TextUtils.isEmpty(str)) {
+                    return 3;
+                }
+                if (!str.startsWith("tiebaapp://router/portal") && !str.startsWith("com.baidu.tieba://unidispatch/router/portal") && ((str = xi.getUrlDecode(str)) == null || !str.startsWith("com.baidu.tieba://unidispatch/router/portal"))) {
+                    str = null;
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    Uri parse = Uri.parse(str);
+                    ActivityLog.getInstance().c("scheme", "SchemaHelper:" + str);
+                    try {
+                        a3a.c().b(new a(parse.getQueryParameter("params"), parse, context));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return 0;
+                }
             }
-            this.d = starEnter.obj_id;
-            this.e = starEnter.text;
+            return 3;
         }
+        return invokeLL.intValue;
     }
 
-    public void k(int i) {
+    public static int b(TbPageContext<?> tbPageContext, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.g = i;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, strArr)) == null) {
+            if (tbPageContext != null && strArr != null && strArr.length != 0) {
+                return a(tbPageContext.getPageActivity(), strArr);
+            }
+            return 3;
         }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.b = i;
-        }
+        return invokeLL.intValue;
     }
 }

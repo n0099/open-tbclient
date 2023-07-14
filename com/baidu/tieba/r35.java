@@ -1,46 +1,33 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PbPage.NewsInfo;
+import org.json.JSONObject;
+import tbclient.McnAdInfo;
 /* loaded from: classes7.dex */
 public class r35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
 
-    public r35() {
+    public static McnAdInfo a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            McnAdInfo.Builder builder = new McnAdInfo.Builder();
+            if (jSONObject != null) {
+                builder.ad_start_time = Long.valueOf(jSONObject.optLong("ad_start_time"));
+                builder.ad_end_time = Long.valueOf(jSONObject.optLong("ad_end_time"));
+                builder.pic_url = jSONObject.optString("pic_url");
+                builder.jump_url = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+                builder.card_title = jSONObject.optString("card_title");
+                builder.button_title = jSONObject.optString("button_title");
+                builder.effect_time = Long.valueOf(jSONObject.optLong("effect_time"));
+                builder.expire_time = Long.valueOf(jSONObject.optLong("expire_time"));
             }
+            return builder.build(true);
         }
-    }
-
-    public void a(NewsInfo newsInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, newsInfo) != null) || newsInfo == null) {
-            return;
-        }
-        this.a = newsInfo.news_link;
-        this.b = newsInfo.summary;
-        newsInfo.position.intValue();
-        this.c = newsInfo.news_type.intValue();
-        this.d = newsInfo.news_icon;
-        this.e = newsInfo.subtitle;
-        this.f = newsInfo.button_text;
+        return (McnAdInfo) invokeL.objValue;
     }
 }

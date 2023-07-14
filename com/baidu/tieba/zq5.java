@@ -1,9 +1,46 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
+import android.content.Intent;
+import com.baidu.tbadk.mutiprocess.DataType;
+import com.baidu.tbadk.mutiprocess.ParcelableEvent;
+import com.baidu.tbadk.mutiprocess.SerializableEvent;
+import com.baidu.tbadk.mutiprocess.StickyEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface zq5 extends uq5 {
-    HashMap<String, Object> O();
+public class zq5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    HashMap<String, String> S();
+    public zq5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(Intent intent, pq5 pq5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, intent, pq5Var) == null) {
+            if (pq5Var instanceof StickyEvent) {
+                intent.putExtra("value_type", DataType.ORM.ordinal());
+                intent.putExtra("value", (StickyEvent) pq5Var);
+            } else if (pq5Var instanceof ParcelableEvent) {
+                intent.putExtra("value_type", DataType.PARCELABLE.ordinal());
+                intent.putExtra("value", (ParcelableEvent) pq5Var);
+            } else if (pq5Var instanceof SerializableEvent) {
+                intent.putExtra("value_type", DataType.SERIALIZABLE.ordinal());
+                intent.putExtra("value", (SerializableEvent) pq5Var);
+            }
+        }
+    }
 }

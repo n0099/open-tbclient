@@ -7,7 +7,7 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.RandomAccess;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SmartList<E> extends AbstractList<E> implements RandomAccess {
     public Object myElem;
     public int mySize;
@@ -58,7 +58,7 @@ public class SmartList<E> extends AbstractList<E> implements RandomAccess {
         throw new IllegalStateException(format);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class EmptyIterator<T> implements Iterator<T> {
         public static final EmptyIterator INSTANCE = new EmptyIterator();
 
@@ -82,7 +82,7 @@ public class SmartList<E> extends AbstractList<E> implements RandomAccess {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class SingletonIterator extends SingletonIteratorBase<E> {
         public final int myInitialModCount;
 
@@ -111,7 +111,7 @@ public class SmartList<E> extends AbstractList<E> implements RandomAccess {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class SingletonIteratorBase<T> implements Iterator<T> {
         public boolean myVisited;
 

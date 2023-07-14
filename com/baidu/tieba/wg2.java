@@ -1,28 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class wg2 extends InputStream {
+public class wg2 implements xg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputStream a;
-    public ug2 b;
+    public final List<zg2> a;
+    public boolean b;
 
-    public wg2(@NonNull InputStream inputStream, @NonNull ug2 ug2Var) {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-318729270, "Lcom/baidu/tieba/wg2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-318729270, "Lcom/baidu/tieba/wg2$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[RecordType.values().length];
+            a = iArr;
+            try {
+                iArr[RecordType.APP_ID.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[RecordType.APP_VERSION.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[RecordType.PREFETCH_TYPE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[RecordType.PREFETCH_EVENT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[RecordType.PREFETCH_OTHER_MSG.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[RecordType.PREFETCH_PRELINK.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+        }
+    }
+
+    public wg2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, ug2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,103 +86,135 @@ public final class wg2 extends InputStream {
                 return;
             }
         }
-        this.a = inputStream;
-        this.b = ug2Var;
+        this.a = new ArrayList();
+        this.b = false;
     }
 
-    @Override // java.io.InputStream
-    public int available() throws IOException {
-        InterceptResult invokeV;
+    public void a(String str, UbcFlowEvent ubcFlowEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.available();
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, ubcFlowEvent) != null) || !b(str)) {
+            return;
         }
-        return invokeV.intValue;
+        a53.q(PrefetchEvent.MODULE, str).F(ubcFlowEvent);
     }
 
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    public void d(String str, boolean z) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.close();
-            this.b.c(this.a);
-            this.b.a();
-            gs4.d(this.a);
+        if ((interceptable != null && interceptable.invokeLZ(1048579, this, str, z) != null) || !b(str)) {
+            return;
+        }
+        HybridUbcFlow q = a53.q(PrefetchEvent.MODULE, str);
+        if (z) {
+            str2 = "success";
+        } else {
+            str2 = "fail";
+        }
+        q.E("value", str2);
+    }
+
+    public void e(String str, zg2 zg2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, zg2Var) != null) || !b(str)) {
+            return;
+        }
+        c(a53.q(PrefetchEvent.MODULE, str), zg2Var);
+    }
+
+    public final boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return !TextUtils.isEmpty(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || !b(str)) {
+            return;
+        }
+        a53.s(PrefetchEvent.MODULE, str);
+        a53.q(PrefetchEvent.MODULE, str);
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && b(str) && !this.b) {
+            this.b = true;
+            HybridUbcFlow q = a53.q(PrefetchEvent.MODULE, str);
+            g(q);
+            q.A();
+            a53.s(PrefetchEvent.MODULE, str);
         }
     }
 
-    @Override // java.io.InputStream
-    public boolean markSupported() {
-        InterceptResult invokeV;
+    public final void c(HybridUbcFlow hybridUbcFlow, zg2 zg2Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.markSupported();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.read();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public synchronized void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                super.reset();
-                this.a.reset();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow, zg2Var) == null) && hybridUbcFlow != null && zg2Var != null) {
+            switch (a.a[zg2Var.a.ordinal()]) {
+                case 1:
+                    hybridUbcFlow.D("app_id", zg2Var.b);
+                    return;
+                case 2:
+                    hybridUbcFlow.D("app_version", zg2Var.b);
+                    return;
+                case 3:
+                    if (zg2Var.c) {
+                        str = "hot";
+                    } else {
+                        str = "cold";
+                    }
+                    hybridUbcFlow.E("type", str);
+                    return;
+                case 4:
+                    hybridUbcFlow.E("source", zg2Var.b);
+                    return;
+                case 5:
+                    hybridUbcFlow.D("msg", zg2Var.b);
+                    return;
+                case 6:
+                    synchronized (this.a) {
+                        this.a.add(zg2Var);
+                    }
+                    return;
+                default:
+                    return;
             }
         }
     }
 
-    @Override // java.io.InputStream
-    public void mark(int i) {
+    public final void g(HybridUbcFlow hybridUbcFlow) {
+        List<zg2> list;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            super.mark(i);
-            this.a.mark(i);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, hybridUbcFlow) == null) && hybridUbcFlow != null && (list = this.a) != null && list.size() > 0) {
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            synchronized (this.a) {
+                try {
+                    for (zg2 zg2Var : this.a) {
+                        String str2 = zg2Var.b;
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("url", str2);
+                        if (zg2Var.c) {
+                            str = "1";
+                        } else {
+                            str = "0";
+                        }
+                        jSONObject2.put("link", str);
+                        jSONArray.put(jSONObject2);
+                    }
+                    jSONObject.put("links", jSONArray);
+                } catch (JSONException unused) {
+                }
+                this.a.clear();
+            }
+            if (jSONObject.length() > 0) {
+                hybridUbcFlow.D("prelink", jSONObject.toString());
+            }
         }
-    }
-
-    @Override // java.io.InputStream
-    public int read(@NonNull byte[] bArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
-            int read = this.a.read(bArr);
-            this.b.d(bArr, 0, read);
-            return read;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
-            this.a.skip(j);
-            return super.skip(j);
-        }
-        return invokeJ.longValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
-            int read = this.a.read(bArr, i, i2);
-            this.b.d(bArr, i, read);
-            return read;
-        }
-        return invokeLII.intValue;
     }
 }

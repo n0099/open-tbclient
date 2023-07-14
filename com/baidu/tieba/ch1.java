@@ -1,30 +1,40 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import org.json.JSONObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface ch1 {
-    void a(Activity activity, String str, String str2);
+public abstract class ch1<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void aLiAuth(Activity activity, String str, jh1<JSONObject> jh1Var);
+    public void a(Throwable th, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+        }
+    }
 
-    boolean b(Context context);
+    public void b(Throwable th, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) {
+        }
+    }
 
-    void c(Activity activity, String str, xg1 xg1Var);
+    public abstract void c(T t);
 
-    void d(Context context, JSONObject jSONObject, xg1 xg1Var);
-
-    void e(Activity activity, String str, xg1 xg1Var);
-
-    void f(Context context, JSONObject jSONObject);
-
-    void g(Bundle bundle);
-
-    void h(String str);
-
-    void i(Activity activity, JSONObject jSONObject, xg1 xg1Var);
-
-    String j(Context context);
+    public ch1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

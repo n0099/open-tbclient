@@ -1,107 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class qi1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
+    public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948092688, "Lcom/baidu/tieba/qi1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948092688, "Lcom/baidu/tieba/qi1;");
-                return;
-            }
-        }
-        if (qh1.a() != 1) {
-            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
-        }
-    }
-
-    public qi1() {
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public void a(lh1 lh1Var, kh1 kh1Var, jh1 jh1Var) {
-        DataOutputStream dataOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, lh1Var, kh1Var, jh1Var) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            JSONObject b = b(str3);
             try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
-                for (Map.Entry<String, String> entry : lh1Var.c().entrySet()) {
-                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                }
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setUseCaches(false);
-                httpURLConnection.setConnectTimeout(5000);
-                httpURLConnection.setReadTimeout(5000);
-                StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry2 : kh1Var.c().entrySet()) {
-                    String encode = URLEncoder.encode(entry2.getValue(), "utf-8");
-                    sb.append(entry2.getKey());
-                    sb.append("=");
-                    sb.append(encode);
-                    sb.append("&");
-                }
-                byte[] bytes = sb.toString().getBytes();
-                httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
-                httpURLConnection.connect();
-                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                try {
-                    dataOutputStream.write(bytes);
-                    dataOutputStream.flush();
-                    int responseCode = httpURLConnection.getResponseCode();
-                    if (jh1Var != null) {
-                        if (responseCode >= 200 && responseCode <= 299) {
-                            jh1Var.c(null);
-                        } else {
-                            jh1Var.a(null, 119501, null);
-                        }
-                    }
-                    zi1.a(dataOutputStream);
-                } catch (Throwable unused) {
-                    if (jh1Var != null) {
-                        try {
-                            jh1Var.a(null, 119501, null);
-                        } catch (Throwable th) {
-                            zi1.a(dataOutputStream);
-                            throw th;
-                        }
-                    }
-                    zi1.a(dataOutputStream);
-                }
-            } catch (Throwable unused2) {
-                dataOutputStream = null;
+                b.put("orderId", str);
+                b.put("payInfo", str2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return b.toString();
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String d(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            JSONObject b = b(str3);
+            try {
+                b.put("orderId", str);
+                b.put("payUrl", str2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return b.toString();
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static JSONObject b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("returnData", a);
+                jSONObject.put("msg", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return b(str).toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void e(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
+            if (bundle != null) {
+                a = bundle.getString("returnData");
+            } else {
+                a = "";
             }
         }
     }

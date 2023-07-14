@@ -1,9 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.net.NetResponse;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface vd0<T> {
-    void onNetResponse(NetResponse netResponse, T t);
+public class vd0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    T onParseResponseInBackground(NetResponse netResponse);
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null && str.trim().length() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 }

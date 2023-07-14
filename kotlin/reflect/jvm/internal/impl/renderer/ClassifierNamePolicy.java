@@ -11,11 +11,11 @@ import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.name.FqNameUnsafe;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.DescriptorUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ClassifierNamePolicy {
     String renderClassifier(ClassifierDescriptor classifierDescriptor, DescriptorRenderer descriptorRenderer);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class FULLY_QUALIFIED implements ClassifierNamePolicy {
         public static final FULLY_QUALIFIED INSTANCE = new FULLY_QUALIFIED();
 
@@ -32,7 +32,7 @@ public interface ClassifierNamePolicy {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class SHORT implements ClassifierNamePolicy {
         public static final SHORT INSTANCE = new SHORT();
 
@@ -56,7 +56,7 @@ public interface ClassifierNamePolicy {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class SOURCE_CODE_QUALIFIED implements ClassifierNamePolicy {
         public static final SOURCE_CODE_QUALIFIED INSTANCE = new SOURCE_CODE_QUALIFIED();
 

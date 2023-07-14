@@ -1,747 +1,275 @@
 package com.baidu.tieba;
 
-import android.media.MediaFormat;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.EditText;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
+import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
+import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.p55;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.audioedit.AudioChangeConfig;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class gya implements rya, Runnable {
+public class gya {
     public static /* synthetic */ Interceptable $ic;
-    public static AudioChangeConfig A;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public Object b;
-    public Object c;
-    public volatile long d;
-    public volatile eya e;
-    public volatile long f;
-    public volatile long g;
-    public volatile kya h;
-    public volatile b0b i;
-    public volatile boolean j;
-    public volatile boolean k;
-    public volatile boolean l;
-    public volatile boolean m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public float r;
-    public int s;
-    public volatile boolean t;
-    public byte[] u;
-    public List<pya> v;
-    public int[] w;
-    public int x;
-    public int y;
-    public c0b z;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final lva b;
+    @NonNull
+    public final iya c;
+    @Nullable
+    public EditText d;
+    @Nullable
+    public EditText e;
+    public final Runnable f;
+    public final NewWriteModel.d g;
 
-    public gya(int i, String str, float f, float f2, int[] iArr) throws Exception {
+    /* loaded from: classes6.dex */
+    public class b implements NewWriteModel.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gya a;
+
+        /* loaded from: classes6.dex */
+        public class a implements p55.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.p55.e
+            public void onClick(p55 p55Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
+                    p55Var.dismiss();
+                }
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.gya$b$b  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0321b implements p55.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public C0321b(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.baidu.tieba.p55.e
+            public void onClick(p55 p55Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
+                    p55Var.dismiss();
+                    rd9.c(this.a.a.a, IMConstants.IM_MSG_TYPE_ADVISORY_EVALUATION, MemberPayStatistic.REFER_PAGE_POSTING);
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK).param("obj_locate", 1).param("obj_type", 1));
+                }
+            }
+        }
+
+        public b(gya gyaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gyaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gyaVar;
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ve5 ve5Var, WriteData writeData, AntiData antiData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, ve5Var, writeData, antiData}) != null) || postWriteCallBackData == null) {
+                return;
+            }
+            this.a.b.m(null);
+            if (z) {
+                return;
+            }
+            if (postWriteCallBackData.isSensitiveError()) {
+                this.a.b.n(postWriteCallBackData.getErrorString());
+                this.a.b.m(postWriteCallBackData.getSensitiveWords());
+                this.a.b.h(this.a.d, this.a.e);
+            } else if (postWriteCallBackData.isErrorLinkCountExceedLimit()) {
+                if (this.a.a.getPageActivity() == null) {
+                    return;
+                }
+                if (xi.isEmpty(postWriteCallBackData.getErrorString())) {
+                    DefaultNavigationBarCoverTip.s(this.a.a.getPageActivity(), this.a.a.getPageActivity().getString(R.string.current_links_too_much_please_modify_and_publish), null).u();
+                } else {
+                    DefaultNavigationBarCoverTip.s(this.a.a.getPageActivity(), postWriteCallBackData.getErrorString(), null).u();
+                }
+            } else if (postWriteCallBackData.isErrorShowApplyMemberDialog()) {
+                if (this.a.a.getPageActivity() == null) {
+                    return;
+                }
+                p55 p55Var = new p55(this.a.a.getPageActivity());
+                if (xi.isEmpty(postWriteCallBackData.getErrorString())) {
+                    p55Var.setMessage(this.a.a.getPageActivity().getString(R.string.open_member_and_add_more_links));
+                } else {
+                    p55Var.setMessage(postWriteCallBackData.getErrorString());
+                }
+                p55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ce, new a(this));
+                p55Var.setPositiveButton(R.string.open_now, new C0321b(this));
+                p55Var.create(this.a.a).show();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 1));
+            } else if ((ve5Var == null || writeData == null || ve5Var.c() == null || AntiHelper.h(antiData)) && postWriteCallBackData.getErrorCode() != 227001 && !vka.d(postWriteCallBackData.getErrorCode())) {
+                this.a.c.b(postWriteCallBackData);
+            } else if (ve5Var != null && writeData != null && ve5Var.c() != null) {
+                if (writeData.isCanNoForum()) {
+                    writeData.setForumName("");
+                    writeData.setForumId("0");
+                }
+                writeData.setVcodeMD5(ve5Var.b());
+                writeData.setVcodeUrl(ve5Var.c());
+                writeData.setVcodeExtra(ve5Var.a());
+                if (vz5.b(ve5Var.d())) {
+                    this.a.a.sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.getPageActivity(), 12006, writeData, false, ve5Var.d())));
+                } else {
+                    this.a.a.sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.a.getPageActivity(), writeData, 12006)));
+                }
+            } else if (postWriteCallBackData.getErrorCode() == 227001) {
+                this.a.a.sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gya a;
+
+        public a(gya gyaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gyaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gyaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.g.callback(false, wea.d, wea.e, wea.f, wea.g);
+            }
+        }
+    }
+
+    public gya(@NonNull TbPageContext<?> tbPageContext, @NonNull lva lvaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, Float.valueOf(f), Float.valueOf(f2), iArr};
+            Object[] objArr = {tbPageContext, lvaVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = Long.MIN_VALUE;
-        this.g = Long.MIN_VALUE;
-        this.r = 1.0f;
-        this.s = 0;
-        this.t = false;
-        this.u = null;
-        this.n = i;
-        this.w = iArr;
-        q(str);
-        this.h = p();
-        this.a = new Object();
-        this.b = new Object();
-        this.c = new Object();
-        this.j = true;
-        this.k = false;
-        this.l = false;
-        this.m = false;
+        this.f = new a(this);
+        this.g = new b(this);
+        this.a = tbPageContext;
+        this.b = lvaVar;
+        this.c = new iya(tbPageContext);
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public gya(int i, String str, int[] iArr) throws Exception {
-        this(i, str, 1.0f, 1.0f, iArr);
+    public void i(@Nullable EditText editText) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, iArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], ((Float) objArr2[2]).floatValue(), ((Float) objArr2[3]).floatValue(), (int[]) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editText) == null) {
+            this.e = editText;
         }
     }
 
-    public static boolean o(int[] iArr) {
-        InterceptResult invokeL;
+    public void j(@Nullable EditText editText) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iArr)) == null) {
-            if (iArr == null || iArr.length == 0) {
-                return false;
-            }
-            boolean z = false;
-            for (int i : iArr) {
-                if (i > 700 || i > 300 || i > 200 || i > 100) {
-                    z = true;
-                    break;
-                }
-                if (i > 0) {
-                    z = true;
-                }
-            }
-            AudioChangeConfig audioChangeConfig = A;
-            return audioChangeConfig != null ? audioChangeConfig.configEnabled(z) : z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || A == null) {
-            return;
-        }
-        A = null;
-    }
-
-    public abstract void B(long j);
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.i == null || this.k) {
-            return;
-        }
-        long currentPosition = this.e.getCurrentPosition();
-        long duration = this.e.getDuration();
-        this.i.onProgressChanged(this.n, (currentPosition == 0 || duration == 0) ? 0.0d : currentPosition / duration, currentPosition);
-    }
-
-    public void D(int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, iArr) == null) {
-            E(iArr, null, null);
+        if (interceptable == null || interceptable.invokeL(1048579, this, editText) == null) {
+            this.d = editText;
         }
     }
 
-    public void E(int[] iArr, int[] iArr2, double[] dArr) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, iArr, iArr2, dArr) == null) {
-            this.w = iArr;
-            iya f = f();
-            if (iArr2 == null && dArr == null) {
-                f.b(this.w);
-            } else {
-                f.c(this.w, iArr2, dArr);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zg.a().removeCallbacks(this.f);
         }
     }
 
-    public void F(b0b b0bVar) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, b0bVar) == null) {
-            this.i = b0bVar;
-        }
-    }
-
-    public void G(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
-            if (this.v == null) {
-                this.v = new ArrayList();
-            }
-            hya hyaVar = null;
-            Iterator<pya> it = this.v.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                pya next = it.next();
-                if (next instanceof hya) {
-                    hyaVar = (hya) next;
-                    break;
-                }
-            }
-            if (hyaVar == null) {
-                hyaVar = new hya();
-                hyaVar.a(this.n, this.o, this.p, this.q);
-                this.v.add(0, hyaVar);
-            }
-            hyaVar.b(f);
-        }
-    }
-
-    public void H(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-            this.r = f;
-            if (this.v == null) {
-                this.v = new ArrayList();
-            }
-            jya jyaVar = null;
-            Iterator<pya> it = this.v.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                pya next = it.next();
-                if (next instanceof jya) {
-                    jyaVar = (jya) next;
-                    break;
-                }
-            }
-            if (jyaVar == null) {
-                jyaVar = new jya();
-                jyaVar.a(this.n, this.o, this.p, this.q);
-                List<pya> list = this.v;
-                list.add(list.size(), jyaVar);
-            }
-            jyaVar.b(this.r);
-        }
-    }
-
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this.a) {
-                u();
-                this.j = false;
-                this.m = false;
-                this.k = false;
-                this.l = false;
-                this.a.notifyAll();
-            }
-        }
-    }
-
-    public void J() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.j) {
-                synchronized (this.a) {
-                    this.j = false;
-                    this.a.notifyAll();
-                }
-            }
-            v();
-            this.k = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.rya
-    public void a(MediaFormat mediaFormat) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mediaFormat) == null) {
-            try {
-                this.o = this.e.e();
-                this.p = this.e.b();
-                r();
-                if (this.h instanceof oya) {
-                    ((oya) this.h).c(m(), i());
-                }
-            } catch (Exception e) {
-                c0b c0bVar = this.z;
-                if (c0bVar != null) {
-                    c0bVar.onExceptionThrown(r1b.g(e));
-                }
-            }
-        }
-    }
-
-    public final byte[] b() throws IOException {
-        InterceptResult invokeV;
-        byte[] l;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.t) {
-                return null;
-            }
-            this.t = true;
-            if (l(Math.abs(this.s)).length > 0) {
-                synchronized (this.b) {
-                    this.d += this.h.write(l, 0, length);
-                    h1b.j("VideoMuxer: ", "bytesWritten ：" + this.d + " ， empty bytesWritten time ：" + (((float) this.d) / ((this.q * this.p) * this.o)) + 1000);
-                }
-                return null;
-            }
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || m1b.e(this.v)) {
-            return;
-        }
-        for (pya pyaVar : this.v) {
-            if (pyaVar != null) {
-                pyaVar.e();
-            }
-        }
-    }
-
-    public final byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, bArr)) == null) {
-            if (!this.t) {
-                this.t = true;
-                this.u = l(Math.abs(this.s));
-            }
-            byte[] bArr2 = this.u;
-            if (bArr2 == null) {
-                return bArr;
-            }
-            if (bArr.length < bArr2.length) {
-                int length = bArr2.length - bArr.length;
-                byte[] bArr3 = new byte[length];
-                System.arraycopy(bArr2, bArr.length, bArr3, 0, length);
-                this.u = bArr3;
-                h1b.j("VideoMuxer: ", "----discardAudioData-----,result.length : " + this.u.length);
-                return null;
-            }
-            h1b.j("VideoMuxer: ", "----discardAudioData-----, audioData.length >= result.length ， audioData.length : " + bArr.length + " ， result.length : " + this.u.length);
-            int length2 = bArr.length;
-            byte[] bArr4 = this.u;
-            int length3 = length2 - bArr4.length;
-            byte[] bArr5 = new byte[length3];
-            System.arraycopy(bArr, bArr4.length, bArr5, 0, length3);
-            this.u = null;
-            h1b.j("VideoMuxer: ", "----discardAudioData-----, audioData.length >= result.length ，new baffle length : " + length3);
-            return bArr5;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || m1b.e(this.v)) {
-            return;
-        }
-        for (pya pyaVar : this.v) {
-            if (pyaVar != null) {
-                pyaVar.c();
-            }
-        }
-    }
-
-    public final iya f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.v == null) {
-                this.v = new ArrayList();
-            }
-            iya iyaVar = null;
-            Iterator<pya> it = this.v.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                pya next = it.next();
-                if (next instanceof iya) {
-                    iyaVar = (iya) next;
-                    break;
-                }
-            }
-            if (iyaVar == null) {
-                iya iyaVar2 = new iya();
-                iyaVar2.a(this.n, this.o, this.p, this.q * 8);
-                List<pya> list = this.v;
-                list.add(list.size(), iyaVar2);
-                return iyaVar2;
-            }
-            return iyaVar;
-        }
-        return (iya) invokeV.objValue;
-    }
-
-    public int[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.w : (int[]) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.q : invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            this.y = this.o;
-            if (n()) {
-                this.y = 1;
-            }
-            return this.y;
-        }
-        return invokeV.intValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            synchronized (this.c) {
-                if (this.e != null) {
-                    return this.e.getCurrentPosition();
-                }
-                return Long.MIN_VALUE;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (this.e != null) {
-                return this.e.getDuration();
-            }
-            return Long.MIN_VALUE;
-        }
-        return invokeV.longValue;
-    }
-
-    public final byte[] l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            int m = (((this.q * m()) * i()) / 1000) * i;
-            h1b.j("VideoMuxer: ", "byte size is : " + m);
-            return new byte[m];
-        }
-        return (byte[]) invokeI.objValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            this.x = this.p;
-            h1b.b("SoundStreamRunnable: mTargetSampleRate=" + this.x);
-            return this.x;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? o(this.w) : invokeV.booleanValue;
-    }
-
-    public abstract kya p() throws IOException;
-
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            synchronized (this.a) {
-                t();
-                this.j = true;
-            }
-        }
-    }
-
-    public final void q(String str) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            if (Build.VERSION.SDK_INT < 16) {
-                if (this.i == null || this.l) {
-                    return;
-                }
-                this.i.onExceptionThrown("Only API level >= 16 supported.");
-                return;
-            }
-            this.e = new qya(str);
-            ((qya) this.e).k(this);
-            this.o = this.e.e();
-            this.p = this.e.b();
-            this.q = this.e.a();
-            h1b.d("SoundStreamRunnable: channels=" + this.o + ";samplingRate=" + this.p + ";byteWidth=" + this.q);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || m1b.e(this.v)) {
-            return;
-        }
-        for (pya pyaVar : this.v) {
-            if (pyaVar != null) {
-                pyaVar.a(this.n, this.o, this.p, this.q);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            while (!this.k) {
-                try {
-                    try {
-                        if (!this.m) {
-                            y();
-                            synchronized (this.c) {
-                                this.e.d();
-                            }
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        if (this.i != null && !this.l) {
-                            this.i.onExceptionThrown(r1b.g(e));
-                        }
-                        this.k = true;
-                        z();
-                        A();
-                        synchronized (this.b) {
-                            try {
-                                this.h.close();
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
-                            }
-                            this.h = null;
-                            synchronized (this.c) {
-                                if (this.e != null) {
-                                    this.e.close();
-                                }
-                                this.e = null;
-                                return;
-                            }
-                        }
-                    }
-                } catch (Throwable th) {
-                    this.k = true;
-                    z();
-                    A();
-                    synchronized (this.b) {
-                        try {
-                            this.h.close();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                        this.h = null;
-                        synchronized (this.c) {
-                            if (this.e != null) {
-                                this.e.close();
-                            }
-                            this.e = null;
-                            throw th;
-                        }
-                    }
-                }
-            }
-            this.k = true;
-            z();
-            A();
-            synchronized (this.b) {
-                try {
-                    this.h.close();
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-                this.h = null;
-            }
-            synchronized (this.c) {
-                if (this.e != null) {
-                    this.e.close();
-                }
-                this.e = null;
-            }
-        }
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? (this.f == Long.MIN_VALUE || this.g == Long.MIN_VALUE) ? false : true : invokeV.booleanValue;
-    }
-
-    public abstract void t();
-
-    public abstract void u();
-
-    public abstract void v();
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            synchronized (this.a) {
-                while (this.j) {
-                    try {
-                        this.a.wait();
-                    } catch (InterruptedException unused) {
-                    }
-                }
-            }
-        }
-    }
-
-    public final int x(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, bArr)) == null) {
-            if (bArr == null) {
-                return 0;
-            }
-            if (m1b.e(this.v)) {
-                length = bArr.length;
-            } else {
-                length = bArr.length;
-                for (pya pyaVar : this.v) {
-                    if (!pyaVar.b()) {
-                        pyaVar.a(this.n, this.o, this.p, this.q);
-                    }
-                    if (pyaVar.a() && bArr != null) {
-                        int length2 = bArr.length;
-                        pyaVar.a(bArr, length2);
-                        bArr = pyaVar.a(length2);
-                        length = bArr != null ? bArr.length : 0;
-                    }
-                }
-            }
-            if (length > 0) {
-                synchronized (this.b) {
-                    this.d += this.h.write(bArr, 0, length);
-                }
-            }
-            return length;
-        }
-        return invokeL.intValue;
-    }
-
-    public final void y() throws IOException {
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            while (true) {
-                boolean z = false;
-                if ((this.e.f() || j() >= k() + this.s) && !s()) {
-                    break;
-                }
-                w();
-                if (this.k) {
-                    break;
-                }
-                if (s() && this.e.getCurrentPosition() >= this.g) {
-                    B(this.f);
-                    this.t = false;
-                }
-                synchronized (this.c) {
-                    try {
-                        z = this.e.c();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        if (this.i != null && !this.l) {
-                            this.i.onExceptionThrown(r1b.g(e));
-                        }
-                    }
-                }
-                if (z) {
-                    byte[] g = this.e.g();
-                    int i = this.s;
-                    if (i != 0) {
-                        if (i > 0) {
-                            b();
-                        } else {
-                            g = d(g);
-                        }
-                    }
-                    C();
-                    x(g);
-                }
-            }
-            h1b.j("VideoMuxer: ", "----解码结束-----");
-            if (this.l) {
-                if (this.i != null) {
-                    this.i.onCancel();
-                    return;
-                }
-                return;
-            }
-            if (!m1b.e(this.v)) {
-                for (int i2 = 0; i2 < this.v.size(); i2++) {
-                    if (this.v.get(i2).a()) {
-                        this.v.get(i2).c();
-                        do {
-                            byte[] a = this.v.get(i2).a(4096);
-                            if (a != null && a.length != 0) {
-                                length = a.length;
-                                int i3 = length;
-                                for (int i4 = i2 + 1; i4 < this.v.size(); i4++) {
-                                    if (this.v.get(i4).a()) {
-                                        int length2 = a.length;
-                                        this.v.get(i4).a(a, length2);
-                                        a = this.v.get(i4).a(length2);
-                                        i3 = a != null ? a.length : 0;
-                                    }
-                                }
-                                if (i3 > 0) {
-                                    synchronized (this.b) {
-                                        h1b.j("VideoMuxer: ", "----getLastBuffer-----");
-                                        this.d += this.h.write(a, 0, i3);
-                                    }
-                                    continue;
-                                }
-                            }
-                        } while (length > 0);
-                    }
-                }
-            }
-            e();
-            if (this.i != null) {
-                this.i.onTrackEnd(this.n);
-                h1b.j("VideoMuxer: ", "----所有数据输入编码器onTrackEnd-----,bytesWritten:" + this.d);
-            }
-            this.m = true;
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || m1b.e(this.v)) {
-            return;
-        }
-        for (pya pyaVar : this.v) {
-            if (pyaVar != null) {
-                pyaVar.d();
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            zg.a().postDelayed(this.f, 500L);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.processor;
 
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseEffectProcessor implements IEffectProcessor {
     public int mInputTextureMode;
     public int mPreviewHeight;

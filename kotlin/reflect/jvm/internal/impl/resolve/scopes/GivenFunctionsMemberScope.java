@@ -31,7 +31,7 @@ import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.utils.CollectionsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class GivenFunctionsMemberScope extends MemberScopeImpl {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(GivenFunctionsMemberScope.class), "allDescriptors", "getAllDescriptors()Ljava/util/List;"))};
     public final NotNullLazyValue allDescriptors$delegate;
@@ -78,10 +78,10 @@ public abstract class GivenFunctionsMemberScope extends MemberScopeImpl {
         final ArrayList arrayList = new ArrayList(3);
         TypeConstructor typeConstructor = this.containingClass.getTypeConstructor();
         Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "containingClass.typeConstructor");
-        Collection<KotlinType> mo2100getSupertypes = typeConstructor.mo2100getSupertypes();
-        Intrinsics.checkExpressionValueIsNotNull(mo2100getSupertypes, "containingClass.typeConstructor.supertypes");
+        Collection<KotlinType> mo2102getSupertypes = typeConstructor.mo2102getSupertypes();
+        Intrinsics.checkExpressionValueIsNotNull(mo2102getSupertypes, "containingClass.typeConstructor.supertypes");
         ArrayList arrayList2 = new ArrayList();
-        for (KotlinType kotlinType : mo2100getSupertypes) {
+        for (KotlinType kotlinType : mo2102getSupertypes) {
             CollectionsKt__MutableCollectionsKt.addAll(arrayList2, ResolutionScope.DefaultImpls.getContributedDescriptors$default(kotlinType.getMemberScope(), null, null, 3, null));
         }
         ArrayList arrayList3 = new ArrayList();

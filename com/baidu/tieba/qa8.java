@@ -1,54 +1,146 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class qa8 {
+public class qa8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LayoutInflater a;
+    public int b;
+    public ItemViewHolder c;
+    public List<ra8> d;
+    public final ArrayList<ItemViewHolder> e;
+    public View.OnClickListener f;
 
-    public qa8() {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public boolean hasStableIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public qa8(Context context, int i, ItemViewHolder itemViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), itemViewHolder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new ArrayList<>();
+        this.a = LayoutInflater.from(context);
+        this.b = i;
+        this.c = itemViewHolder;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = this.a.inflate(this.b, viewGroup, false);
+                ItemViewHolder c = this.c.c(view2);
+                c.e(this.f);
+                view2.setTag(c);
+                this.e.add(c);
+            }
+            ItemViewHolder itemViewHolder = (ItemViewHolder) view2.getTag();
+            if (ListUtils.getItem(this.d, i) != null) {
+                a(itemViewHolder, this.d.get(i));
+            }
+            return itemViewHolder.getView();
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    public final void a(ItemViewHolder itemViewHolder, ra8 ra8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, itemViewHolder, ra8Var) == null) && ra8Var != null && itemViewHolder != null) {
+            itemViewHolder.b(ra8Var);
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && ListUtils.getCount(this.e) > 0) {
+            Iterator<ItemViewHolder> it = this.e.iterator();
+            while (it.hasNext()) {
+                it.next().d(i);
             }
         }
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
-        bd5 a;
+    public void c(List<ra8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null) {
-                try {
-                    dc5 dc5Var = new dc5(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
-                    String storeFile = FileHelper.getStoreFile(str, 1);
-                    dc5Var.a("type", 2);
-                    cd5 d = dc5Var.d(storeFile);
-                    if (d != null && d.d() && (a = d.a()) != null) {
-                        String b = a.b();
-                        ac5.b(str, b);
-                        return b;
-                    }
-                    return null;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.d = list;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void d(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.f = onClickListener;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return ListUtils.getItem(this.d, i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (ListUtils.getItem(this.d, i) == null) {
+                return -1L;
+            }
+            return ((ra8) ListUtils.getItem(this.d, i)).hashCode();
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ListUtils.getCount(this.d);
+        }
+        return invokeV.intValue;
     }
 }

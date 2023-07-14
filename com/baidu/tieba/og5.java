@@ -1,49 +1,45 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.lang.ref.WeakReference;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class og5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
-    public c b;
-    public b c;
+    public b a;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface b {
+        void a(ShareItem shareItem);
     }
 
     /* loaded from: classes7.dex */
-    public interface c {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<String, Void, Boolean> {
+    public class a extends BdAsyncTask<ShareItem, Integer, ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Process a;
+        public final /* synthetic */ ShareItem a;
         public final /* synthetic */ og5 b;
 
-        public b(og5 og5Var) {
+        public a(og5 og5Var, ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {og5Var};
+                Object[] objArr = {og5Var, shareItem};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,182 +50,88 @@ public class og5 {
                 }
             }
             this.b = og5Var;
-            this.a = null;
-        }
-
-        public /* synthetic */ b(og5 og5Var, a aVar) {
-            this(og5Var);
+            this.a = shareItem;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
+        public ShareItem doInBackground(ShareItem... shareItemArr) {
             InterceptResult invokeL;
+            ShareItem shareItem;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                boolean z = false;
-                if (strArr != null && strArr.length >= 1) {
-                    try {
-                        try {
-                            try {
-                                Process exec = Runtime.getRuntime().exec(strArr[0]);
-                                this.a = exec;
-                                if (exec.waitFor() == 0) {
-                                    z = true;
-                                }
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        } catch (InterruptedException e2) {
-                            e2.printStackTrace();
-                        }
-                    } finally {
-                        this.a.destroy();
-                    }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareItemArr)) == null) {
+                String str = null;
+                if (shareItemArr == null || shareItemArr.length < 1 || (shareItem = shareItemArr[0]) == null) {
+                    return null;
                 }
-                return Boolean.valueOf(z);
+                String str2 = shareItem.O;
+                NetWork netWork = new NetWork();
+                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
+                if (shareItem.C == 4) {
+                    netWork.addPostData("forum_id", this.a.N);
+                    netWork.addPostData("type", "2");
+                } else {
+                    netWork.addPostData("thread_id", str2);
+                    netWork.addPostData("type", "3");
+                }
+                String postNetData = netWork.postNetData();
+                if (xi.isEmpty(postNetData)) {
+                    return shareItem;
+                }
+                try {
+                    str = new JSONObject(postNetData).optString(BigdayActivityConfig.IMG_URL);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+                if (!TextUtils.isEmpty(str) && shareItem.C != 4) {
+                    shareItem.t0 = str;
+                    shareItem.z = Uri.parse(str);
+                }
+                return shareItem;
             }
-            return (Boolean) invokeL.objValue;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                super.onCancelled();
-                Process process = this.a;
-                if (process != null) {
-                    try {
-                        process.destroy();
-                    } catch (Throwable th) {
-                        th.printStackTrace();
-                    }
-                }
-                if (this.b.b != null) {
-                    this.b.b.a(false);
-                }
-                if (this.b.a != null) {
-                    this.b.a.removeMessages(0);
-                }
-            }
+            return (ShareItem) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            boolean booleanValue;
+        /* renamed from: c */
+        public void onPostExecute(ShareItem shareItem) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
-                if (this.b.b != null) {
-                    c cVar = this.b.b;
-                    if (bool == null) {
-                        booleanValue = false;
-                    } else {
-                        booleanValue = bool.booleanValue();
-                    }
-                    cVar.a(booleanValue);
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem) == null) {
+                super.onPostExecute(shareItem);
                 if (this.b.a != null) {
-                    this.b.a.removeMessages(0);
+                    this.b.a.a(shareItem);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class d extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<og5> a;
-
-        public d(og5 og5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {og5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(og5Var);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            og5 og5Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what == 0 && (og5Var = this.a.get()) != null) {
-                    og5Var.e();
-                }
-            }
-        }
-    }
-
-    public og5(String str, c cVar) {
+    public og5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        d dVar = new d(this);
-        this.a = dVar;
-        this.b = cVar;
-        dVar.sendEmptyMessageDelayed(0, 50000L);
-        b bVar = new b(this, null);
-        this.c = bVar;
-        bVar.setSelfExecute(true);
-        b bVar2 = this.c;
-        bVar2.execute(d() + str);
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    public void b(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            if (netType != 1) {
-                if (netType != 2) {
-                    return "ping -c 3 -w 5000 ";
-                }
-                return "ping -c 3 -w 10000 ";
-            }
-            return "ping -c 3 -w 3000 ";
+        if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
+            new a(this, shareItem).execute(shareItem);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final void e() {
+    public void c(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = this.c;
-            if (bVar != null) {
-                bVar.cancel(true);
-            }
-            d dVar = this.a;
-            if (dVar != null) {
-                dVar.removeMessages(0);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.a = bVar;
         }
     }
 }

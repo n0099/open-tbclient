@@ -5,9 +5,9 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fhb;
-import com.baidu.tieba.ghb;
-import com.baidu.tieba.ihb;
+import com.baidu.tieba.cqb;
+import com.baidu.tieba.dqb;
+import com.baidu.tieba.fqb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -144,7 +144,7 @@ public class HmsInstanceId {
                 HMSLog.d(str, sb.toString());
                 l lVar = new l("push.gettoken", tokenReq, this.a, a);
                 lVar.setApiLevel(i);
-                return ((TokenResult) ihb.a(this.c.doWrite(lVar))).getToken();
+                return ((TokenResult) fqb.a(this.c.doWrite(lVar))).getToken();
             } catch (Exception e) {
                 if (e.getCause() instanceof ApiException) {
                     ApiException apiException = (ApiException) e.getCause();
@@ -166,19 +166,19 @@ public class HmsInstanceId {
         }
     }
 
-    public fhb<AAIDResult> getAAID() {
+    public cqb<AAIDResult> getAAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             try {
-                return ihb.b(new j(this.a.getApplicationContext()));
+                return fqb.b(new j(this.a.getApplicationContext()));
             } catch (Exception unused) {
-                ghb ghbVar = new ghb();
-                ghbVar.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
-                return ghbVar.b();
+                dqb dqbVar = new dqb();
+                dqbVar.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
+                return dqbVar.b();
             }
         }
-        return (fhb) invokeV.objValue;
+        return (cqb) invokeV.objValue;
     }
 
     public final void a(DeleteTokenReq deleteTokenReq, int i) throws ApiException {
@@ -201,7 +201,7 @@ public class HmsInstanceId {
                 deleteTokenReq.setToken(b);
                 k kVar = new k("push.deletetoken", deleteTokenReq, a);
                 kVar.setApiLevel(i);
-                ihb.a(this.c.doWrite(kVar));
+                fqb.a(this.c.doWrite(kVar));
                 i.a(this.a).c(subjectId);
             } catch (Exception e) {
                 if (e.getCause() instanceof ApiException) {

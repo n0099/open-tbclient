@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.bdeventbus.Action;
-import com.baidu.searchbox.bdeventbus.BdEventBus;
+import com.baidu.tbadk.data.JSONLikeSerializable;
+import com.baidu.tieba.immessagecenter.arch.utils.IMLog;
+import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
+import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,90 +12,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class us8 extends wl1<is6> {
+public final class us8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a implements is6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final BdEventBus b;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-364726574, "Lcom/baidu/tieba/us8$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-364726574, "Lcom/baidu/tieba/us8$a;");
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948221679, "Lcom/baidu/tieba/us8;")) == null) {
+            return;
         }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.b = BdEventBus.Companion.getDefault();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.tieba.is6
-        public <T extends hs6> void a(@NonNull Object obj, @NonNull final js6<T> js6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, js6Var) == null) {
-                if (obj instanceof fs6) {
-                    fs6 fs6Var = (fs6) obj;
-                    fs6Var.a(js6Var);
-                    ts8.a(fs6Var);
-                    this.b.unregister(obj);
-                }
-                BdEventBus bdEventBus = this.b;
-                Class<T> a = js6Var.a();
-                js6Var.getClass();
-                bdEventBus.register(obj, a, new Action() { // from class: com.baidu.tieba.ss8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.searchbox.bdeventbus.Action
-                    public final void call(Object obj2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj2) == null) {
-                            js6.this.onEvent((hs6) obj2);
-                        }
-                    }
-                });
-            }
-        }
-
-        @Override // com.baidu.tieba.is6
-        public <T extends hs6> void b(@Nullable T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && t != null) {
-                this.b.post(t);
-            }
-        }
-
-        @Override // com.baidu.tieba.is6
-        public void unregister(@NonNull Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.b.unregister(obj);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948221679, "Lcom/baidu/tieba/us8;");
         }
     }
 
@@ -104,25 +43,74 @@ public class us8 extends wl1<is6> {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wl1
-    /* renamed from: a */
-    public is6 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public final HashMap<String, Serializable> a(List<tr8> list) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            h29 iMLog = IMLog.getInstance();
+            StringBuilder sb = new StringBuilder();
+            sb.append("NavigationData Size = ");
+            if (list != null) {
+                i = list.size();
+            } else {
+                i = 0;
+            }
+            sb.append(i);
+            iMLog.c("im", sb.toString());
+            List<MsgTabForumData> b = b(list);
+            h29 iMLog2 = IMLog.getInstance();
+            iMLog2.c("im", "ForumListData Size = " + b.size());
+            HashMap<String, Serializable> hashMap = new HashMap<>();
+            ArrayList arrayList = new ArrayList();
+            for (MsgTabForumData msgTabForumData : b) {
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                linkedHashMap.put("forum_id", String.valueOf(msgTabForumData.getForumId()));
+                linkedHashMap.put("forum_name", msgTabForumData.getForumName());
+                linkedHashMap.put("avatar", msgTabForumData.getIcon());
+                String hotNumsText = msgTabForumData.getHotNumsText();
+                if (hotNumsText == null) {
+                    hotNumsText = "";
+                }
+                linkedHashMap.put("hot_num_value", hotNumsText);
+                arrayList.add(linkedHashMap);
+            }
+            JSONLikeSerializable jSONLikeSerializable = new JSONLikeSerializable();
+            jSONLikeSerializable.parseJsonArray(new JSONArray((Collection) arrayList));
+            hashMap.put("often_forum_list", jSONLikeSerializable);
+            hashMap.put("checkLength", Integer.valueOf(b.size()));
+            h29 iMLog3 = IMLog.getInstance();
+            iMLog3.c("im", "OftenForumListString = " + jSONLikeSerializable.getJsonString());
+            return hashMap;
         }
-        return (is6) invokeV.objValue;
+        return (HashMap) invokeL.objValue;
+    }
+
+    public final List<MsgTabForumData> b(List<tr8> list) {
+        InterceptResult invokeL;
+        MsgTabForumData e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null) {
+                for (tr8 tr8Var : list) {
+                    if (tr8Var.getType() == 3 && (e = ForumChannelDataObs.c.a().e(tr8Var.c())) != null) {
+                        arrayList.add(e);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

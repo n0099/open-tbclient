@@ -1,29 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.impl.nalib.encrypt.EncryptConstant;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tieba.ki3;
-import com.baidu.tieba.ru3;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tieba.yk4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Callback;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes8.dex */
-public class tu3 {
+public class tu3 implements iv1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,173 +36,91 @@ public class tu3 {
                 return;
             }
         }
-        a = ms1.a;
+        a = fs1.a;
     }
 
-    @Nullable
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public tu3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), "AES"), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
-                return Base64.encodeToString(cipher.doFinal(str.getBytes("utf-8")), 2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("info", "encrypt request param fail with exception : " + e.getMessage());
-                } catch (JSONException e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                }
-                f(jSONObject.toString());
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static void b(ru3 ru3Var, su3 su3Var) {
-        String str;
-        char c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, ru3Var, su3Var) == null) && ru3Var != null && su3Var != null) {
-            if (TextUtils.isEmpty(su3Var.a)) {
-                str = "unknown";
-            } else {
-                str = su3Var.a;
-            }
-            int i = 0;
-            switch (str.hashCode()) {
-                case -1395470197:
-                    if (str.equals("bd09ll")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3017163:
-                    if (str.equals("bd09")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 98175376:
-                    if (str.equals("gcj02")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 113079775:
-                    if (str.equals("wgs84")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            i = -1;
-                        } else {
-                            i = 3;
-                        }
-                    } else {
-                        i = 2;
-                    }
-                } else {
-                    i = 1;
-                }
-            }
-            ru3.c cVar = ru3Var.c;
-            cVar.a = i;
-            cVar.b = su3Var.b;
-            cVar.c = su3Var.c;
         }
     }
 
-    public static int c() {
+    @Override // com.baidu.tieba.iv1
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String e = SwanAppNetworkUtils.e();
-            if ("wifi".equals(e)) {
-                return 1;
-            }
-            if ("2g".equals(e)) {
-                return 2;
-            }
-            if ("3g".equals(e)) {
-                return 3;
-            }
-            if ("4g".equals(e)) {
-                return 4;
-            }
-            if ("5g".equals(e)) {
-                return 5;
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return uu3.b().d();
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        TelephonyManager telephonyManager;
-        String simOperator;
+    @Override // com.baidu.tieba.iv1
+    public void d(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
-                return 0;
-            }
-            if (!"46000".equals(simOperator) && !"46002".equals(simOperator) && !"46007".equals(simOperator)) {
-                if ("46001".equals(simOperator)) {
-                    return 3;
-                }
-                if (!"46003".equals(simOperator)) {
-                    return 0;
-                }
-                return 2;
-            }
-            return 1;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
+            uu3.b().c(bArr);
         }
-        return invokeL.intValue;
     }
 
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (a) {
-            Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
-        }
-        ki3.b bVar = new ki3.b(10003);
-        bVar.i(str);
-        bVar.h(cc3.g0());
-        bVar.m();
-    }
-
-    public static boolean e(@NonNull Context context) {
+    @Override // com.baidu.tieba.iv1
+    public boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if ((context.getResources().getConfiguration().screenLayout & 15) >= 3) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return uu3.b().e(str);
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.iv1
+    public <T> void e(String str, String str2, ResponseCallback<T> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, responseCallback) == null) {
+            new kv3().q(str, str2, responseCallback);
+        }
+    }
+
+    @Override // com.baidu.tieba.iv1
+    public void f(String str, String str2, yk4.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, cVar) == null) {
+            new jv3().k(str, str2, cVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.iv1
+    public boolean i(@NonNull vb3 vb3Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, oq3<String> oq3Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{vb3Var, jSONObject, str, str2, callback, oq3Var})) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            if (optJSONObject == null || !optJSONObject.optBoolean("enableBdtls", false)) {
+                return false;
+            }
+            String optString = optJSONObject.optString("serviceId");
+            if (TextUtils.isEmpty(optString)) {
+                if (a) {
+                    Log.d("BdtlsImpl", "onFailure: serviceId is invalid");
+                }
+                if (oq3Var != null) {
+                    oq3Var.a("serviceId is invalid");
+                    return true;
+                }
+                return true;
+            }
+            oi3.D(str, vb3Var.Y().G(), null, str2);
+            new mv3(vb3Var, jSONObject, str2, callback).o(optString);
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

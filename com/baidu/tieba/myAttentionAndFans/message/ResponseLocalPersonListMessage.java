@@ -2,17 +2,17 @@ package com.baidu.tieba.myAttentionAndFans.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v35;
+import com.baidu.tieba.d45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v35 data;
+    public d45 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseLocalPersonListMessage() {
@@ -33,7 +33,7 @@ public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Objec
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.v35' to match base method */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.d45' to match base method */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage
     /* renamed from: getData */
     public Object getData2() {
@@ -42,13 +42,13 @@ public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Objec
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.data;
         }
-        return (v35) invokeV.objValue;
+        return (d45) invokeV.objValue;
     }
 
-    public void setData(v35 v35Var) {
+    public void setData(d45 d45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v35Var) == null) {
-            this.data = v35Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d45Var) == null) {
+            this.data = d45Var;
         }
     }
 }

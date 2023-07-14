@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,28 +10,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class ln4 implements on4 {
+public class ln4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ln4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    @Nullable
-    public JSONArray c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a extends fs4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_ceres");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
-        return (JSONObject) invokeV.objValue;
     }
 
     public ln4() {
@@ -44,45 +50,71 @@ public abstract class ln4 implements on4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new a();
     }
 
-    public static <T> T e(@Nullable T t, @Nullable mn4<T> mn4Var) {
-        InterceptResult invokeLL;
+    public static ln4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, mn4Var)) == null) {
-            if (t != null && mn4Var != null) {
-                mn4Var.a(t);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ln4.class) {
+                    if (b == null) {
+                        b = new ln4();
+                    }
+                }
             }
-            return t;
+            return b;
         }
-        return (T) invokeLL.objValue;
+        return (ln4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.on4
-    @Nullable
-    public JSONObject a(@Nullable mn4<JSONObject> mn4Var) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mn4Var)) == null) {
-            JSONObject d = d();
-            e(d, mn4Var);
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getString("ceres_info", "0");
         }
-        return (JSONObject) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.on4
-    @Nullable
-    public JSONArray b(@Nullable mn4<JSONArray> mn4Var) {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getString("global_info", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public kn4 d(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mn4Var)) == null) {
-            JSONArray c = c();
-            e(c, mn4Var);
-            return c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("global_info");
+            if (optJSONObject == null || optJSONObject2 == null) {
+                return null;
+            }
+            String optString = optJSONObject.optString("version");
+            JSONArray optJSONArray = optJSONObject.optJSONArray("data");
+            if (TextUtils.isEmpty(optString) || optJSONArray == null) {
+                return null;
+            }
+            String optString2 = optJSONObject2.optString("version");
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
+            if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
+                return null;
+            }
+            this.a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+            return new kn4(optJSONArray, optJSONObject3);
         }
-        return (JSONArray) invokeL.objValue;
+        return (kn4) invokeL.objValue;
     }
 }

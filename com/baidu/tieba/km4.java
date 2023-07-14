@@ -1,115 +1,144 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class km4 implements am4 {
+public class km4 extends bl4<qm4> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ep4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vector<am4> a;
-    public Object b;
+    public final String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947917879, "Lcom/baidu/tieba/km4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947917879, "Lcom/baidu/tieba/km4;");
-                return;
-            }
-        }
-        c = ep4.e();
+    @Override // com.baidu.tieba.bl4
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
     }
 
-    public km4(am4 am4Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public km4(String str, qj4 qj4Var, bn4 bn4Var) {
+        super(qj4Var, bn4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {am4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str, qj4Var, bn4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((qj4) objArr2[0], (bn4) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new Object();
-        this.a = new Vector<>();
-        c(am4Var);
+        this.d = str;
     }
 
-    @Override // com.baidu.tieba.am4
-    public <T> void a(em4<T> em4Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bl4
+    /* renamed from: x */
+    public qm4 t(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, em4Var) == null) {
-            try {
-                synchronized (this.b) {
-                    Iterator<am4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        it.next().a(em4Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) {
+            return cp4.g(this.d, jSONObject);
+        }
+        return (qm4) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bl4
+    /* renamed from: v */
+    public boolean r(qm4 qm4Var, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, qm4Var, i)) == null) {
+            if (qm4Var != null) {
+                q(qm4Var.e);
+                return false;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bl4
+    /* renamed from: u */
+    public boolean e(qm4 qm4Var) {
+        InterceptResult invokeL;
+        List<vk4> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qm4Var)) == null) {
+            if (qm4Var == null) {
+                return false;
+            }
+            if (qm4Var.a == null && (((list = qm4Var.b) == null || list.isEmpty()) && qm4Var.d == null && qm4Var.f == null && qm4Var.e == null)) {
+                return false;
+            }
+            uk4 uk4Var = qm4Var.a;
+            if (uk4Var != null && !uk4Var.a()) {
+                return false;
+            }
+            List<vk4> list2 = qm4Var.b;
+            if (list2 != null) {
+                for (vk4 vk4Var : list2) {
+                    if (!vk4Var.a()) {
+                        return false;
                     }
                 }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
             }
+            sk4 sk4Var = qm4Var.d;
+            if (sk4Var != null && !sk4Var.a()) {
+                return false;
+            }
+            qk4 qk4Var = qm4Var.f;
+            if (qk4Var != null && !qk4Var.a()) {
+                return false;
+            }
+            PMSAppInfo pMSAppInfo = qm4Var.e;
+            if (pMSAppInfo != null && !pMSAppInfo.checkValid()) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.am4
-    public <T> void b(em4<T> em4Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bl4
+    /* renamed from: w */
+    public pk4 s(qm4 qm4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, em4Var) == null) {
-            Vector vector = new Vector();
-            try {
-                synchronized (this.b) {
-                    Iterator<am4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        vector.add(it.next());
-                    }
-                }
-                Iterator it2 = vector.iterator();
-                while (it2.hasNext()) {
-                    ((am4) it2.next()).b(em4Var);
-                }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, qm4Var)) == null) {
+            this.a.E();
+            dp4 dp4Var = new dp4();
+            n(qm4Var.a, dp4Var);
+            o(qm4Var.b, dp4Var);
+            m(f(qm4Var.c), dp4Var);
+            l(qm4Var.d, dp4Var);
+            k(qm4Var.f, dp4Var);
+            q(qm4Var.e);
+            if (dp4Var.n() == 0) {
+                this.a.F();
+                return null;
             }
+            this.a.G(dp4Var);
+            gl4.b(qm4Var, this.a);
+            return null;
         }
-    }
-
-    public void c(am4 am4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, am4Var) == null) && am4Var != null) {
-            synchronized (this.b) {
-                this.a.add(am4Var);
-            }
-        }
-    }
-
-    public void d(am4 am4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, am4Var) == null) && am4Var != null) {
-            synchronized (this.b) {
-                if (!this.a.remove(am4Var)) {
-                    this.a.remove(this.a.indexOf(am4Var));
-                }
-            }
-        }
+        return (pk4) invokeL.objValue;
     }
 }

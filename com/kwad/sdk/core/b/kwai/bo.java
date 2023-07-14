@@ -3,47 +3,47 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.components.core.webview.a.a;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class bo implements com.kwad.sdk.core.d<a.C0653a> {
+public final class bo implements com.kwad.sdk.core.d<a.C0658a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(a.C0653a c0653a, JSONObject jSONObject) {
+    public static void a2(a.C0658a c0658a, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        c0653a.url = jSONObject.optString("url");
+        c0658a.url = jSONObject.optString("url");
         if (jSONObject.opt("url") == JSONObject.NULL) {
-            c0653a.url = "";
+            c0658a.url = "";
         }
-        c0653a.packageName = jSONObject.optString("packageName");
+        c0658a.packageName = jSONObject.optString("packageName");
         if (jSONObject.opt("packageName") == JSONObject.NULL) {
-            c0653a.packageName = "";
+            c0658a.packageName = "";
         }
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(a.C0653a c0653a, JSONObject jSONObject) {
+    public static JSONObject b2(a.C0658a c0658a, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        String str = c0653a.url;
+        String str = c0658a.url;
         if (str != null && !str.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "url", c0653a.url);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "url", c0658a.url);
         }
-        String str2 = c0653a.packageName;
+        String str2 = c0658a.packageName;
         if (str2 != null && !str2.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "packageName", c0653a.packageName);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "packageName", c0658a.packageName);
         }
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(a.C0653a c0653a, JSONObject jSONObject) {
-        a2(c0653a, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(a.C0658a c0658a, JSONObject jSONObject) {
+        a2(c0658a, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(a.C0653a c0653a, JSONObject jSONObject) {
-        return b2(c0653a, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(a.C0658a c0658a, JSONObject jSONObject) {
+        return b2(c0658a, jSONObject);
     }
 }

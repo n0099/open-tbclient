@@ -3,9 +3,21 @@ package com.baidu.tieba;
 import java.io.File;
 /* loaded from: classes6.dex */
 public interface kt1 {
-    File a(String str, String str2);
+    String a(String str);
 
-    File b();
+    ek2 b();
 
-    String c();
+    void c();
+
+    File[] d();
+
+    String e();
+
+    void f();
+
+    void g();
+
+    String h(String str);
+
+    void i();
 }

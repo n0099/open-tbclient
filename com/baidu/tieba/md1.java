@@ -1,10 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.annotation.ColorInt;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.widget.bubble.ArrowView;
 import com.baidu.nadcore.widget.bubble.BubblePosition;
-import com.baidu.tieba.g61;
+import com.baidu.nadcore.widget.bubble.shadow.MaskViewGroup;
+import com.baidu.tieba.ae1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,19 +22,83 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class md1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public float b;
-    public float c;
-    public boolean d;
-    public BubblePosition e;
-    public boolean f;
+    public ViewGroup a;
+    public View b;
+    public View c;
+    public ViewGroup d;
+    public TextView e;
+    public MaskViewGroup f;
+    public ArrowView g;
+    public ArrowView h;
+    public ArrowView i;
+    public ArrowView j;
+    public ArrowView k;
+    public View l;
+    public View m;
+    @ColorInt
+    public int n;
+    public zd1 o;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public abstract int e();
+
+    public void x(@ColorInt int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements ae1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Resources a;
+        public final /* synthetic */ md1 b;
+
+        @Override // com.baidu.tieba.ae1.a
+        public void onLinkTouch(TextView textView, MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, textView, motionEvent) == null) {
+            }
+        }
+
+        public a(md1 md1Var, Resources resources) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {md1Var, resources};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = md1Var;
+            this.a = resources;
+        }
+
+        @Override // com.baidu.tieba.ae1.a
+        public void onNoLinkTouch(TextView textView, MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, motionEvent) == null) {
+                if (motionEvent.getAction() == 0) {
+                    this.b.e.setLinkTextColor(this.a.getColor(R.color.nad_bubble_link_text_color));
+                } else {
+                    this.b.e.setLinkTextColor(this.a.getColorStateList(R.color.nad_home_tab_bubble_tips_text_color));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,33 +106,37 @@ public class md1 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-607821134, "Lcom/baidu/tieba/md1$a;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-607821103, "Lcom/baidu/tieba/md1$b;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-607821134, "Lcom/baidu/tieba/md1$a;");
+                    classClinitInterceptable.invokePostClinit(-607821103, "Lcom/baidu/tieba/md1$b;");
                     return;
                 }
             }
             int[] iArr = new int[BubblePosition.values().length];
             a = iArr;
             try {
-                iArr[BubblePosition.UP.ordinal()] = 1;
+                iArr[BubblePosition.DOWN.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[BubblePosition.DOWN.ordinal()] = 2;
+                a[BubblePosition.UP.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[BubblePosition.LEFT.ordinal()] = 3;
+                a[BubblePosition.RIGHT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[BubblePosition.RIGHT.ordinal()] = 4;
+                a[BubblePosition.LEFT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[BubblePosition.INVALID.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
             }
         }
     }
@@ -76,322 +154,353 @@ public class md1 {
                 return;
             }
         }
-        this.a = false;
-        this.b = 0.0f;
-        this.d = true;
-        this.e = BubblePosition.INVALID;
-        this.f = true;
+        this.n = -1;
     }
 
-    public int[] a(ud1 ud1Var, int[] iArr, BubblePosition bubblePosition) {
-        InterceptResult invokeLLL;
-        float f;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, ud1Var, iArr, bubblePosition)) == null) {
-            if (ud1Var == null) {
-                return new int[]{0, 0};
-            }
-            if (bubblePosition == BubblePosition.INVALID) {
-                return iArr;
-            }
-            Context context = ud1Var.a.getContext();
-            int i = iArr[0];
-            int i2 = iArr[1];
-            int[] iArr2 = new int[2];
-            int measuredWidth = ud1Var.b.getMeasuredWidth();
-            int measuredHeight = ud1Var.b.getMeasuredHeight();
-            int measuredWidth2 = ud1Var.a.getMeasuredWidth();
-            int measuredHeight2 = ud1Var.a.getMeasuredHeight();
-            if (this.f) {
-                f = 0.0f;
-            } else {
-                f = 15.0f;
-            }
-            if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
-                if (bubblePosition == BubblePosition.LEFT || bubblePosition == BubblePosition.RIGHT) {
-                    int i3 = measuredHeight / 2;
-                    if (i3 >= i2) {
-                        iArr2[1] = g61.c.a(context, f);
-                    } else if (i3 >= measuredHeight2 - i2) {
-                        iArr2[1] = (measuredHeight2 - measuredHeight) - g61.c.a(context, f);
-                    } else {
-                        iArr2[1] = iArr[1] - (ud1Var.b.getMeasuredHeight() / 2);
-                    }
-                    if (bubblePosition == BubblePosition.LEFT) {
-                        iArr2[0] = iArr[0] - ud1Var.b.getMeasuredWidth();
-                    } else {
-                        iArr2[0] = iArr[0];
-                    }
-                }
-            } else {
-                int i4 = measuredWidth / 2;
-                if (i4 >= i) {
-                    iArr2[0] = g61.c.a(context, f);
-                } else if (i4 >= measuredWidth2 - i) {
-                    iArr2[0] = (measuredWidth2 - measuredWidth) - g61.c.a(context, f);
-                } else {
-                    iArr2[0] = iArr[0] - (ud1Var.b.getMeasuredWidth() / 2);
-                }
-                if (bubblePosition == BubblePosition.UP) {
-                    iArr2[1] = iArr[1] - ud1Var.b.getMeasuredHeight();
-                } else {
-                    iArr2[1] = iArr[1];
-                }
-            }
-            return iArr2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.h.setVisibility(8);
+            this.i.setVisibility(8);
+            this.j.setVisibility(8);
+            this.k.setVisibility(8);
         }
-        return (int[]) invokeLLL.objValue;
     }
 
-    public BubblePosition b(ud1 ud1Var) {
-        InterceptResult invokeL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ud1Var)) == null) {
-            if (!ud1Var.i()) {
-                return BubblePosition.INVALID;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            View view2 = this.c;
+            if (view2 != null) {
+                return view2.getClass().getSimpleName();
             }
-            if (this.d) {
-                if (n(ud1Var)) {
-                    return BubblePosition.UP;
-                }
-                if (j(ud1Var)) {
-                    return BubblePosition.DOWN;
-                }
-                if (k(ud1Var)) {
-                    return BubblePosition.LEFT;
-                }
-                if (m(ud1Var)) {
-                    return BubblePosition.RIGHT;
-                }
-                return BubblePosition.INVALID;
-            } else if (l(ud1Var, this.e)) {
-                return this.e;
-            } else {
-                return BubblePosition.INVALID;
-            }
+            return "NULL";
         }
-        return (BubblePosition) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final boolean o(ud1 ud1Var) {
-        InterceptResult invokeL;
-        float f;
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, ud1Var)) == null) {
-            if (this.f) {
-                f = 0.0f;
-            } else {
-                f = 15.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.n;
+            if (i != -1) {
+                return i;
             }
-            Context context = ud1Var.c.getContext();
-            int a2 = g61.c.a(context, f) + context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_radius) + (context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_horizontal_arrow_view_height) / 2);
-            if (a2 <= f(ud1Var) && a2 <= c(ud1Var)) {
+            return rk0.b().getResources().getColor(R.color.NAD_UC29);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.c != null && this.a != null) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final boolean p(ud1 ud1Var) {
-        InterceptResult invokeL;
-        float f;
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, ud1Var)) == null) {
-            if (this.f) {
-                f = 0.0f;
-            } else {
-                f = 15.0f;
-            }
-            Context context = ud1Var.c.getContext();
-            int a2 = g61.c.a(context, f) + (h(context) / 2) + (context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_vertical_arrow_view_width) / 2);
-            if (a2 <= d(ud1Var) && a2 <= e(ud1Var)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.c != null && this.a != null && this.b != null) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final int c(ud1 ud1Var) {
-        InterceptResult invokeL;
+    public void k() {
+        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ud1Var)) == null) {
-            return (ud1Var.a.getMeasuredHeight() - g(ud1Var)[1]) - (ud1Var.c.getMeasuredHeight() / 2);
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (viewGroup = this.a) != null && this.b != null && this.l != null) {
+            viewGroup.removeView(this.m);
         }
-        return invokeL.intValue;
     }
 
-    public final int d(ud1 ud1Var) {
-        InterceptResult invokeL;
+    public void l() {
+        ViewGroup viewGroup;
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ud1Var)) == null) {
-            return g(ud1Var)[0] + (ud1Var.c.getMeasuredWidth() / 2);
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (viewGroup = this.a) != null && this.b != null && (view2 = this.l) != null) {
+            viewGroup.removeView(view2);
         }
-        return invokeL.intValue;
     }
 
-    public int e(ud1 ud1Var) {
-        InterceptResult invokeL;
+    public void m() {
+        ViewGroup viewGroup;
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ud1Var)) == null) {
-            return (ud1Var.a.getMeasuredWidth() - g(ud1Var)[0]) - (ud1Var.c.getMeasuredWidth() / 2);
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (viewGroup = this.a) != null && (view2 = this.b) != null && this.l != null) {
+            viewGroup.removeView(view2);
         }
-        return invokeL.intValue;
     }
 
-    public final int f(ud1 ud1Var) {
-        InterceptResult invokeL;
+    public void o() {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ud1Var)) == null) {
-            return g(ud1Var)[1] + (ud1Var.c.getMeasuredHeight() / 2);
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (view2 = this.m) != null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            layoutParams.width = 0;
+            layoutParams.height = 0;
+            this.m.setLayoutParams(layoutParams);
         }
-        return invokeL.intValue;
     }
 
-    public final int h(Context context) {
-        InterceptResult invokeL;
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            if (this.f) {
-                return context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_radius_d20);
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.m != null) {
+            dd1.a().b("——>checksafe anchor layer begin");
+            a(this.m);
+            dd1.a().b("——>checksafe anchor layer end");
+            this.a.addView(this.m);
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.l != null) {
+            dd1.a().b("——>check bg view begin");
+            a(this.l);
+            dd1.a().b("——>check bg view end");
+            this.a.addView(this.l);
+        }
+    }
+
+    public void A(int[] iArr) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, iArr) == null) && (view2 = this.b) != null) {
+            view2.setX(iArr[0]);
+            this.b.setY(iArr[1]);
+            this.d.setVisibility(0);
+            this.b.setVisibility(0);
+            this.g.setVisibility(0);
+            this.l.setVisibility(0);
+            MaskViewGroup maskViewGroup = this.f;
+            if (maskViewGroup != null) {
+                maskViewGroup.setVisibility(0);
             }
-            return context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_radius);
-        }
-        return invokeL.intValue;
-    }
-
-    public void q(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
-            this.b = f;
         }
     }
 
-    public final int[] g(ud1 ud1Var) {
-        InterceptResult invokeL;
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ud1Var)) == null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && view2 != null && view2.getParent() != null) {
+            ((ViewGroup) view2.getParent()).removeView(view2);
+            dd1.a().b("——>checkSafe remove view end");
+        }
+    }
+
+    public void j(Runnable runnable) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, runnable) == null) && (view2 = this.c) != null) {
+            view2.post(runnable);
+        }
+    }
+
+    public void t(View.OnClickListener onClickListener) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, onClickListener) == null) && (view2 = this.m) != null) {
+            view2.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void u(View.OnClickListener onClickListener) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, onClickListener) == null) && (view2 = this.l) != null) {
+            view2.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void v(View.OnClickListener onClickListener) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048598, this, onClickListener) == null) && (view2 = this.b) != null) {
+            view2.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void w(@ColorInt int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.n = i;
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Resources resources = rk0.b().getResources();
+            this.e.setLinkTextColor(resources.getColorStateList(R.color.nad_home_tab_bubble_tips_text_color));
+            this.e.setHighlightColor(0);
+            ae1 ae1Var = new ae1();
+            ae1Var.a(new a(this, resources));
+            this.e.setMovementMethod(ae1Var);
+            if (this.o == null) {
+                this.o = new zd1(this.e);
+            }
+            this.e.getViewTreeObserver().addOnGlobalLayoutListener(this.o);
+        }
+    }
+
+    public void y() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048601, this) == null) && (view2 = this.m) != null && this.c != null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            layoutParams.width = this.c.getMeasuredWidth();
+            layoutParams.height = this.c.getMeasuredHeight();
+            this.m.setLayoutParams(layoutParams);
             int[] iArr = new int[2];
-            ud1Var.c.getLocationOnScreen(iArr);
+            this.c.getLocationOnScreen(iArr);
             int[] iArr2 = new int[2];
-            ud1Var.a.getLocationOnScreen(iArr2);
-            return new int[]{iArr[0] - iArr2[0], iArr[1] - iArr2[1]};
+            this.a.getLocationOnScreen(iArr2);
+            this.m.setX(iArr[0] - iArr2[0]);
+            this.m.setY(iArr[1] - iArr2[1]);
         }
-        return (int[]) invokeL.objValue;
     }
 
-    public final boolean j(ud1 ud1Var) {
-        InterceptResult invokeL;
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, ud1Var)) == null) {
-            if (ud1Var.b.getMeasuredHeight() + g61.c.a(ud1Var.c.getContext(), this.b) <= (ud1Var.a.getMeasuredHeight() - ud1Var.c.getMeasuredHeight()) - g(ud1Var)[1] && p(ud1Var)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean k(ud1 ud1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, ud1Var)) == null) {
-            if (ud1Var.b.getMeasuredWidth() + g61.c.a(ud1Var.c.getContext(), this.b) > g(ud1Var)[0] || !o(ud1Var)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.b != null) {
                 return false;
             }
+            View inflate = LayoutInflater.from(this.c.getContext()).inflate(e(), this.a, false);
+            this.b = inflate;
+            inflate.setVisibility(4);
+            this.d = (ViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f0904fc);
+            this.f = (MaskViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f09216d);
+            this.h = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f0904f8);
+            this.i = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f0904f5);
+            this.j = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f0904f6);
+            this.k = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f0904f7);
+            int d = d();
+            MaskViewGroup maskViewGroup = this.f;
+            if (maskViewGroup != null) {
+                maskViewGroup.setShadowColor(d);
+            }
+            if (this.d.getBackground() instanceof GradientDrawable) {
+                ((GradientDrawable) this.d.getBackground()).setColor(d);
+            }
+            this.d.setVisibility(4);
+            this.h.setArrowViewColor(d);
+            this.i.setArrowViewColor(d);
+            this.j.setArrowViewColor(d);
+            this.k.setArrowViewColor(d);
+            View view2 = new View(this.c.getContext());
+            this.l = view2;
+            view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            this.l.setVisibility(4);
+            this.m = new View(this.c.getContext());
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final boolean m(ud1 ud1Var) {
-        InterceptResult invokeL;
+    public void n() {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, ud1Var)) == null) {
-            if (ud1Var.b.getMeasuredWidth() + g61.c.a(ud1Var.c.getContext(), this.b) > (ud1Var.a.getMeasuredWidth() - ud1Var.c.getMeasuredWidth()) - g(ud1Var)[0] || !o(ud1Var)) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            if (this.o != null && (textView = this.e) != null) {
+                textView.getViewTreeObserver().removeOnGlobalLayoutListener(this.o);
+                this.o = null;
             }
-            return true;
+            this.a = null;
+            this.b = null;
+            this.d = null;
+            this.g = null;
+            this.e = null;
+            this.c = null;
+            this.h = null;
+            this.i = null;
+            this.l = null;
+            this.m = null;
+            this.f = null;
         }
-        return invokeL.booleanValue;
     }
 
-    public final boolean n(ud1 ud1Var) {
-        InterceptResult invokeL;
+    public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, ud1Var)) == null) {
-            if (ud1Var.b.getMeasuredHeight() + g61.c.a(ud1Var.c.getContext(), this.b) <= g(ud1Var)[1] && p(ud1Var)) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && this.b != null) {
+            dd1.a().b("——>check bubble view begin");
+            a(this.b);
+            dd1.a().b("——>check bubble view end");
+            this.b.setVisibility(4);
+            this.a.addView(this.b);
         }
-        return invokeL.booleanValue;
     }
 
-    public int[] i(BubblePosition bubblePosition, ud1 ud1Var) {
-        InterceptResult invokeLL;
+    public void s(View view2, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bubblePosition, ud1Var)) == null) {
-            if (bubblePosition != null && ud1Var != null) {
-                int[] iArr = new int[2];
-                ud1Var.c.getLocationOnScreen(iArr);
-                int[] iArr2 = new int[2];
-                ud1Var.a.getLocationOnScreen(iArr2);
-                int[] iArr3 = new int[2];
-                if (bubblePosition == BubblePosition.UP) {
-                    iArr3[0] = iArr[0] - iArr2[0];
-                    if (!this.a) {
-                        iArr3[0] = iArr3[0] + (ud1Var.c.getMeasuredWidth() / 2);
+        if (interceptable == null || interceptable.invokeLL(1048595, this, view2, viewGroup) == null) {
+            if (view2 != null) {
+                this.c = view2;
+                this.a = viewGroup;
+                if (viewGroup == null && view2 != null) {
+                    ViewGroup viewGroup2 = (ViewGroup) view2.getRootView().findViewById(16908290);
+                    this.a = viewGroup2;
+                    if (viewGroup2 == null) {
+                        throw new IllegalArgumentException("root view must be a child of android.R.id.content");
                     }
-                    iArr3[1] = (iArr[1] - iArr2[1]) - g61.c.a(ud1Var.c.getContext(), this.b);
-                } else if (bubblePosition == BubblePosition.DOWN) {
-                    iArr3[0] = iArr[0] - iArr2[0];
-                    if (!this.a) {
-                        iArr3[0] = iArr3[0] + (ud1Var.c.getMeasuredWidth() / 2);
-                    }
-                    iArr3[1] = (iArr[1] - iArr2[1]) + ud1Var.c.getMeasuredHeight() + g61.c.a(ud1Var.c.getContext(), this.b);
-                } else if (bubblePosition == BubblePosition.LEFT) {
-                    iArr3[0] = ((iArr[0] - iArr2[0]) - (ud1Var.i.getMeasuredWidth() / 2)) - g61.c.a(ud1Var.c.getContext(), this.b);
-                    iArr3[1] = (iArr[1] - iArr2[1]) + (ud1Var.c.getMeasuredHeight() / 2);
-                } else if (bubblePosition == BubblePosition.RIGHT) {
-                    iArr3[0] = (iArr[0] - iArr2[0]) + ud1Var.c.getMeasuredWidth() + g61.c.a(ud1Var.c.getContext(), this.b);
-                    iArr3[1] = (iArr[1] - iArr2[1]) + (ud1Var.c.getMeasuredHeight() / 2);
+                    return;
                 }
-                int[] a2 = a(ud1Var, iArr3, bubblePosition);
-                if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
-                    if (bubblePosition == BubblePosition.LEFT || bubblePosition == BubblePosition.RIGHT) {
-                        ud1Var.g.setY(((iArr3[1] - a2[1]) - Math.max(ud1Var.j.getMeasuredHeight() / 2, ud1Var.k.getMeasuredHeight() / 2)) + this.c);
-                    }
-                } else {
-                    ud1Var.g.setX(((iArr3[0] - a2[0]) - Math.max(ud1Var.i.getMeasuredWidth() / 2, ud1Var.h.getMeasuredWidth() / 2)) + this.c);
-                }
-                return a2;
+                return;
             }
-            return new int[]{0, 0};
+            throw new IllegalArgumentException("anchor view must not be null !!!");
         }
-        return (int[]) invokeLL.objValue;
     }
 
-    public final boolean l(ud1 ud1Var, BubblePosition bubblePosition) {
-        InterceptResult invokeLL;
+    public void z(BubblePosition bubblePosition) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, ud1Var, bubblePosition)) == null) {
-            int i = a.a[bubblePosition.ordinal()];
+        if (interceptable == null || interceptable.invokeL(1048602, this, bubblePosition) == null) {
+            b();
+            int i = b.a[bubblePosition.ordinal()];
             if (i != 1) {
                 if (i != 2) {
                     if (i != 3) {
-                        if (i != 4) {
-                            return false;
+                        if (i == 4) {
+                            this.k.setDirection(3);
+                            this.g = this.k;
+                            return;
                         }
-                        return m(ud1Var);
+                        return;
                     }
-                    return k(ud1Var);
+                    this.j.setDirection(1);
+                    ArrowView arrowView = this.j;
+                    this.g = arrowView;
+                    if (Build.VERSION.SDK_INT <= 25) {
+                        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.g.getLayoutParams();
+                        marginLayoutParams.setMargins(marginLayoutParams.leftMargin, marginLayoutParams.topMargin, marginLayoutParams.rightMargin - ((int) arrowView.a(1.0f)), marginLayoutParams.bottomMargin);
+                        this.g.setLayoutParams(marginLayoutParams);
+                        return;
+                    }
+                    return;
                 }
-                return j(ud1Var);
+                this.i.setDirection(4);
+                this.g = this.i;
+                return;
             }
-            return n(ud1Var);
+            this.h.setDirection(2);
+            ArrowView arrowView2 = this.h;
+            this.g = arrowView2;
+            if (Build.VERSION.SDK_INT <= 25) {
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.g.getLayoutParams();
+                marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.topMargin, marginLayoutParams2.rightMargin, marginLayoutParams2.bottomMargin - ((int) arrowView2.a(1.0f)));
+                this.g.setLayoutParams(marginLayoutParams2);
+            }
         }
-        return invokeLL.booleanValue;
     }
 }

@@ -1,5 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+
+import android.graphics.Rect;
+/* loaded from: classes8.dex */
 public interface t77 {
-    void onUpdate();
+    Rect a();
 }

@@ -8,18 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class br2 extends wp2<ms2> {
+public class br2 extends pp2<gs2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.wp2
+    @Override // com.baidu.tieba.pp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onSurfaceChanged" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableMicPhone" : (String) invokeV.objValue;
     }
 
     public br2() {
@@ -37,17 +36,16 @@ public class br2 extends wp2<ms2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wp2
+    @Override // com.baidu.tieba.pp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ms2 ms2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull gs2 gs2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ms2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gs2Var) == null) {
             String str = command.what;
-            d(ms2Var, str, "" + command.obj, true);
+            d(gs2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                ms2Var.onSurfaceChanged(jSONObject.optInt("width"), jSONObject.optInt("height"));
+            if (obj instanceof Boolean) {
+                gs2Var.c0(((Boolean) obj).booleanValue());
             }
         }
     }

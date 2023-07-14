@@ -1,197 +1,77 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.download.util.LocalFilesFilterKt;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-import okhttp3.OkHttpClient;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xo9 {
+public class xo9 extends ln<tp9, CardViewHolder<lq9>> {
     public static /* synthetic */ Interceptable $ic;
-    public static OkHttpClient a;
-    public static xsa b;
-    public static long c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public lq9 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948307239, "Lcom/baidu/tieba/xo9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xo9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948307239, "Lcom/baidu/tieba/xo9;");
-        }
-    }
-
-    public static OkHttpClient a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            b = g();
-            cta ctaVar = new cta(b);
-            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(ctaVar);
-            return builder.build();
-        }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    public static xsa g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            xsa xsaVar = new xsa(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
-            b = xsaVar;
-            return xsaVar;
-        }
-        return (xsa) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String b() {
-        InterceptResult invokeV;
-        String path;
-        boolean equalsIgnoreCase;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
-            try {
-                String externalStorageState = Environment.getExternalStorageState();
-                equalsIgnoreCase = externalStorageState.equalsIgnoreCase("mounted");
-                if (!equalsIgnoreCase && !Environment.isExternalStorageRemovable() && !externalStorageState.equalsIgnoreCase(SwanKV.FLAVOR_SHARED)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-            } catch (Exception unused) {
-                File cacheDir = context.getCacheDir();
-                if (cacheDir == null) {
-                    return null;
-                }
-                path = cacheDir.getPath();
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (!equalsIgnoreCase && !z) {
-                path = context.getCacheDir().getPath();
-                if (!path.endsWith(File.separator)) {
-                    return path.substring(0, path.length() - 1);
-                }
-                return path;
-            }
-            path = context.getExternalCacheDir().getPath();
-            if (!path.endsWith(File.separator)) {
-            }
-        } else {
-            return (String) invokeV.objValue;
+        }
+        this.a = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: s */
+    public CardViewHolder<lq9> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            this.b = new lq9(this.a);
+            return new CardViewHolder<>(this.b);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void onScroll() {
+        lq9 lq9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (lq9Var = this.b) != null) {
+            lq9Var.onScroll();
         }
     }
 
-    public static OkHttpClient c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tp9 tp9Var, CardViewHolder<lq9> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = a();
-            }
-            return a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tp9Var, cardViewHolder})) == null) {
+            cardViewHolder.b().i(tp9Var);
+            return cardViewHolder.getView();
         }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    public static long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            xsa xsaVar = b;
-            if (xsaVar != null && c == 0) {
-                c = xsaVar.c();
-            }
-            return c;
-        }
-        return invokeV.longValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65542, null) != null) || d) {
-            return;
-        }
-        d = true;
-        try {
-            c();
-        } catch (Throwable th) {
-            d = false;
-            th.printStackTrace();
-        }
-    }
-
-    public static wsa d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            wsa wsaVar = new wsa();
-            wsaVar.j(15);
-            wsaVar.c(true);
-            wsaVar.b(true);
-            wsaVar.e(true);
-            wsaVar.a("http://tb-video.bdstatic.com|2");
-            wsaVar.f(true);
-            wsaVar.i("bdns", "bce_http_dns_account_id", "119799");
-            wsaVar.i("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
-            wsaVar.i("bdns", "bce_http_dns_tag", "tieba");
-            wsaVar.i("bdbus", "min_trigger_interval", 180);
-            wsaVar.i("bdns", "dual_stack_bdns_cache_policy", 1);
-            File file = new File(b(), "turbonetcache");
-            if (file.exists()) {
-                if (file.isFile()) {
-                    file.delete();
-                    file.mkdirs();
-                }
-            } else {
-                file.mkdirs();
-            }
-            wsaVar.k(file.getAbsolutePath());
-            wsaVar.d(3, Config.FULL_TRACE_LOG_LIMIT);
-            wsaVar.i(LocalFilesFilterKt.FILTER_NAME_LOG, "lite_log_in_response_header", Boolean.TRUE);
-            wsaVar.i("app", "app_package_name", "com.baidu.tieba");
-            wsaVar.i("nq", "network_quality_enabled", Boolean.TRUE);
-            wsaVar.i("nq", "watch_all", Boolean.TRUE);
-            wsaVar.i("nq", "rejudge_interval_sec", 10);
-            wsaVar.i("nq", "weak_window_sec", 30);
-            wsaVar.i("nq", "weak_min_cnt", 10);
-            wsaVar.i("nq", "probe_enabled", Boolean.FALSE);
-            wsaVar.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
-            wsaVar.i("nq", "weak_policy_tcp_retrans_percentage", 30);
-            wsaVar.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
-            wsaVar.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
-            wsaVar.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
-            wsaVar.i("nq", "weak_policy_http_ttfb_percentage", 30);
-            wsaVar.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
-            wsaVar.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
-            wsaVar.i("nq", "weak_policy_tcp_rtt_percentage", 30);
-            wsaVar.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
-            return wsaVar;
-        }
-        return (wsa) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

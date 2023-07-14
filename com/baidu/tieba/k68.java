@@ -1,7 +1,12 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,87 +14,100 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.TopicList.DataRes;
-import tbclient.TopicList.NewTopicList;
-import tbclient.TopicList.TabList;
-import tbclient.TopicList.TopicList;
-import tbclient.TopicList.TopicListModule;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes6.dex */
-public class k68 {
+public class k68 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public List<o68> b;
-    public n68 c;
-    public List<d68> d;
-    public List<c68> e;
-    public List<TopicList> f;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public List<String> f;
+    public List<String> g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947865148, "Lcom/baidu/tieba/k68;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947865148, "Lcom/baidu/tieba/k68;");
+                return;
+            }
+        }
+        h = BdUniqueId.gen();
+    }
 
     public k68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.f = new ArrayList();
+        this.g = new ArrayList();
     }
 
-    public List<TopicList> a() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return h;
         }
-        return (List) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void b(DataRes dataRes) {
-        List<TopicList> list;
-        List<TopicList> list2;
+    public void c(LiveAnswer liveAnswer) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, liveAnswer) != null) || liveAnswer == null) {
             return;
         }
-        List<TabList> list3 = dataRes.tab_list;
-        if (list3 != null && !ListUtils.isEmpty(list3)) {
-            this.b = new ArrayList();
-            for (TabList tabList : dataRes.tab_list) {
-                o68 o68Var = new o68();
-                o68Var.a(tabList);
-                this.b.add(o68Var);
+        this.a = liveAnswer.activity_id.toString();
+        this.d = liveAnswer.banner_url;
+        this.b = liveAnswer.banner_high.intValue();
+        this.c = liveAnswer.banner_width.intValue();
+        this.e = liveAnswer.jump_url;
+        this.f.clear();
+        this.f.addAll(liveAnswer.show_statistics_urls);
+        this.g.clear();
+        this.g.addAll(liveAnswer.click_statistics_urls);
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("activity_id", this.a);
+                jSONObject.put("img_width", this.c);
+                jSONObject.put(BigdayActivityConfig.IMG_URL, this.d);
+                jSONObject.put("img_height", this.b);
+                jSONObject.put(BigdayActivityConfig.JUMP_URL, this.e);
+                jSONObject.put("show_statistics_urls", this.f);
+                jSONObject.put("click_statistics_urls", this.g);
+                return jSONObject.toString();
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return "";
             }
         }
-        if (dataRes.media_topic != null) {
-            n68 n68Var = new n68();
-            this.c = n68Var;
-            n68Var.a(dataRes.media_topic);
-        }
-        TopicListModule topicListModule = dataRes.topic_manual;
-        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
-            this.e = new ArrayList();
-            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
-                c68 c68Var = new c68();
-                c68Var.b(dataRes.topic_manual);
-                c68Var.a(dataRes.topic_manual.topic_list.get(i));
-                this.e.add(c68Var);
-            }
-        }
-        TopicListModule topicListModule2 = dataRes.topic_bang;
-        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
-            this.d = new ArrayList();
-            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
-                d68 d68Var = new d68();
-                d68Var.b(dataRes.topic_bang);
-                d68Var.a(dataRes.topic_bang.topic_list.get(i2));
-                this.d.add(d68Var);
-            }
-        }
-        this.f = dataRes.frs_tab_topic;
-        List<NewTopicList> list4 = dataRes.topic_list;
+        return (String) invokeV.objValue;
     }
 }

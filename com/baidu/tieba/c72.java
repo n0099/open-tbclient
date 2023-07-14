@@ -1,80 +1,140 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c72 extends z62 {
+public class c72 extends h72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String k;
-    public String l;
-    public float m;
-    public boolean n;
-    public boolean o;
+    public int D;
+    public int E;
+    public int F;
+    public int G;
+    public int H;
+    public String I;
+    public boolean J;
+    public int K;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c72(String str) {
-        super(str);
-        String[] split;
+    public c72(String str, @NonNull String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = "sans-serif";
-        this.m = tp3.g(10.0f);
-        this.n = false;
-        this.o = false;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.k = jSONObject.optString("text");
-            String optString = jSONObject.optString("font");
-            if (optString != null && optString.length() > 0) {
-                for (String str2 : optString.split(" ")) {
-                    if (str2.contains("italic")) {
-                        this.o = true;
-                    } else if (str2.contains("oblique")) {
-                        this.o = true;
-                    } else if (str2.contains("bold")) {
-                        this.n = true;
-                    } else if (!str2.contains("normal")) {
-                        if (Character.isDigit(str2.charAt(0))) {
-                            int length = str2.length();
-                            int i3 = 0;
-                            while (true) {
-                                if (i3 >= str2.length()) {
-                                    break;
-                                } else if (!Character.isDigit(str2.charAt(i3))) {
-                                    length = i3;
-                                    break;
-                                } else {
-                                    i3++;
-                                }
-                            }
-                            this.m = tp3.g(Float.parseFloat(str2.substring(0, length)));
-                        } else {
-                            this.l = str2;
-                        }
-                    }
+        this.I = "";
+    }
+
+    private void i() {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
+            this.u = SwanAppConfigData.t(jSONObject.optString("color"));
+            this.v = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.h72, com.baidu.tieba.j72, com.baidu.tieba.l72, com.baidu.tieba.u13
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.D = jSONObject.optInt("maxLength");
+        this.E = k(jSONObject);
+        this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
+        this.G = jSONObject.optInt("selectionStart");
+        this.H = jSONObject.optInt("selectionEnd");
+        this.I = jSONObject.optString("confirmType");
+        boolean z = true;
+        if (jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m) != 1) {
+            z = false;
+        }
+        this.J = z;
+        i();
+    }
+
+    @Override // com.baidu.tieba.h72, com.baidu.tieba.j72, com.baidu.tieba.l72
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.g(jSONObject);
+            if (!TextUtils.isEmpty(jSONObject.optString("cursorSpacing"))) {
+                this.E = k(jSONObject);
+            }
+            this.D = jSONObject.optInt("maxLength", this.D);
+            this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.F);
+            this.G = jSONObject.optInt("selectionStart", this.G);
+            this.H = jSONObject.optInt("selectionEnd", this.H);
+            this.I = jSONObject.optString("confirmType", this.I);
+            boolean z = true;
+            if (jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m, this.J ? 1 : 0) != 1) {
+                z = false;
+            }
+            this.J = z;
+            this.t = jSONObject.optString("value", this.t);
+            i();
+        }
+    }
+
+    public final int k(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            String optString = jSONObject.optString("cursorSpacing");
+            if (TextUtils.isEmpty(optString)) {
+                return 0;
+            }
+            if (optString.endsWith("rpx")) {
+                try {
+                    return mp3.g(Integer.parseInt(optString.replace("rpx", "")));
+                } catch (NumberFormatException unused) {
+                    return 0;
                 }
             }
-        } catch (Exception e) {
-            if (ms1.a) {
-                e.printStackTrace();
+            try {
+                return Integer.parseInt(optString.replace("px", ""));
+            } catch (NumberFormatException unused2) {
+                return 0;
             }
+        }
+        return invokeL.intValue;
+    }
+
+    public void l(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.G = i;
+            this.H = i2;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.K = i;
         }
     }
 }

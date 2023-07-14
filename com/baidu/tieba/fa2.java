@@ -1,135 +1,32 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.InspectorNativeChannel;
-import com.baidu.searchbox.v8engine.InspectorNativeClient;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
-import com.baidu.tieba.da2;
-import com.baidu.tieba.ha2;
-import com.baidu.tieba.ja2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.zxing.common.StringUtils;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.StringTokenizer;
-import java.util.concurrent.LinkedBlockingQueue;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fa2 implements Runnable {
+public class fa2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
-    public static int i;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputStream a;
-    public OutputStream b;
-    public ja2 c;
-    public LinkedBlockingQueue<String> d;
-    public InspectorNativeClient e;
-    public kj2 f;
-    public da2.b g;
 
     /* loaded from: classes5.dex */
-    public class a implements ja2.a {
+    public class a implements pq3<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fa2 a;
+        public final /* synthetic */ Bundle a;
+        public final /* synthetic */ fa2 b;
 
-        /* renamed from: com.baidu.tieba.fa2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0294a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0294a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    String str = (String) this.a.a.d.poll();
-                    while (str != null) {
-                        this.a.a.e.dispatchProtocolMessage(str);
-                        this.a.d(str);
-                        str = (String) this.a.a.d.poll();
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g.onConnected();
-                    this.a.a.g = null;
-                    int unused = fa2.i = 2;
-                }
-            }
-        }
-
-        public a(fa2 fa2Var) {
+        public a(fa2 fa2Var, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fa2Var};
+                Object[] objArr = {fa2Var, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -139,302 +36,73 @@ public class fa2 implements Runnable {
                     return;
                 }
             }
-            this.a = fa2Var;
+            this.b = fa2Var;
+            this.a = bundle;
         }
 
-        @Override // com.baidu.tieba.ja2.a
-        public void a(WebSocketFrame webSocketFrame) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, webSocketFrame) == null) {
-                this.a.d.offer(webSocketFrame.g());
-                this.a.f.postOnJSThread(new RunnableC0294a(this));
-            }
-        }
-
-        @Override // com.baidu.tieba.ja2.a
-        public void b(IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) {
-                c92.d("ClientHandler", "V8 inspector exception", iOException);
-                this.a.l();
-            }
-        }
-
-        public final void d(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !TextUtils.isEmpty(str) && this.a.g != null && fa2.i != 2) {
-                try {
-                    if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
-                        bc3 K = bc3.K();
-                        SwanAppActivity w = bc3.K().w();
-                        if (K.E() && w != null) {
-                            w.runOnUiThread(new b(this));
-                        }
-                    }
-                } catch (JSONException e) {
-                    if (fa2.h) {
-                        Log.e("ClientHandler", "message is not a Json object", e);
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ja2.a
-        public void onClose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                c92.i("ClientHandler", "V8 inspector closed");
-                this.a.l();
-            }
-        }
-
-        @Override // com.baidu.tieba.ja2.a
-        public void onOpen() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                c92.i("ClientHandler", "V8 inspector opened");
-                yd2 W = wi2.U().W();
-                if (W instanceof ce2) {
-                    this.a.f = (kj2) W.d();
-                }
-                if (this.a.f == null) {
-                    c92.i("ClientHandler", "inner error, V8 mEngine is null");
-                    this.a.l();
-                    return;
-                }
-                if (this.a.e != null) {
-                    this.a.e.destroy();
-                }
-                fa2 fa2Var = this.a;
-                fa2Var.e = fa2Var.f.q0(new b(this.a));
-                int unused = fa2.i = 1;
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends InspectorNativeChannel {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fa2 a;
-
-        public b(fa2 fa2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fa2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fa2Var;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
-        public void sendMessage(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                try {
-                    this.a.c.j(new WebSocketFrame(WebSocketFrame.OpCode.Text, true, str));
-                } catch (Exception unused) {
-                    if (fa2.h) {
-                        Log.d("ClientHandler", "V8 send message fail, try to check if websocket has opened");
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
-        public String awaitMessage() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pq3
+        /* renamed from: a */
+        public Bundle create() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (fa2.h) {
-                    Log.d("ClientHandler", "getInspectorMessage");
-                }
-                try {
-                    return (String) this.a.d.take();
-                } catch (InterruptedException e) {
-                    if (fa2.h) {
-                        Log.e("ClientHandler", "awaitMessage on Debugger", e);
-                        return "";
-                    }
-                    return "";
-                }
+                return this.b.d(this.a);
             }
-            return (String) invokeV.objValue;
+            return (Bundle) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947757330, "Lcom/baidu/tieba/fa2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947757330, "Lcom/baidu/tieba/fa2;");
-                return;
-            }
-        }
-        h = ms1.a;
-    }
-
-    public fa2(InputStream inputStream, OutputStream outputStream) {
+    public fa2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, outputStream};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.d = new LinkedBlockingQueue<>();
-        this.a = inputStream;
-        this.b = outputStream;
     }
 
-    public static String n(String str) {
+    public final Bundle d(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            try {
-                return URLDecoder.decode(str, StringUtils.UTF8);
-            } catch (UnsupportedEncodingException unused) {
-                if (h) {
-                    Log.d("ClientHandler", "Encoding not supported, ignored");
-                }
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void o(da2.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && i == 0) {
-            this.g = bVar;
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinkedBlockingQueue<String> linkedBlockingQueue = this.d;
-            if (linkedBlockingQueue != null) {
-                linkedBlockingQueue.clear();
-                this.d = null;
-            }
-            InspectorNativeClient inspectorNativeClient = this.e;
-            if (inspectorNativeClient != null) {
-                inspectorNativeClient.destroy();
-                this.e = null;
-            }
-            InputStream inputStream = this.a;
-            if (inputStream != null) {
-                gs4.d(inputStream);
-                this.a = null;
-            }
-            OutputStream outputStream = this.b;
-            if (outputStream != null) {
-                gs4.d(outputStream);
-                this.b = null;
-            }
-            this.c = null;
-            this.f = null;
-            i = 3;
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final void m(BufferedReader bufferedReader, ha2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bufferedReader, aVar) == null) {
-            try {
-                String readLine = bufferedReader.readLine();
-                if (readLine == null) {
-                    return;
-                }
-                StringTokenizer stringTokenizer = new StringTokenizer(readLine);
-                if (stringTokenizer.hasMoreTokens()) {
-                    aVar.b = stringTokenizer.nextToken();
-                    if (stringTokenizer.hasMoreTokens()) {
-                        aVar.c = n(stringTokenizer.nextToken());
-                        if (stringTokenizer.hasMoreTokens()) {
-                            aVar.d = stringTokenizer.nextToken();
-                        } else {
-                            aVar.d = "HTTP/1.1";
-                            if (h) {
-                                Log.d("ClientHandler", "no protocol version specified, Assuming HTTP/1.1.");
-                            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            int i = bundle.getInt("type");
+            ha2 ha2Var = new ha2();
+            String string = bundle.getString("param1");
+            Bundle bundle2 = new Bundle();
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return bundle2;
                         }
-                        String readLine2 = bufferedReader.readLine();
-                        while (readLine2 != null && !readLine2.trim().isEmpty()) {
-                            if (h) {
-                                Log.d("ClientHandler", "Http header :" + readLine2);
-                            }
-                            int indexOf = readLine2.indexOf(58);
-                            if (indexOf >= 0) {
-                                aVar.a.put(readLine2.substring(0, indexOf).trim().toLowerCase(), readLine2.substring(indexOf + 1).trim());
-                            }
-                            readLine2 = bufferedReader.readLine();
-                        }
-                        return;
+                        bundle2.putString("result", ha2Var.getCookie(string));
+                        return bundle2;
                     }
-                    throw new RuntimeException("BAD REQUEST: Missing URI. Usage: GET /example/file.html");
+                    ha2Var.storeCookie(string, bundle.getStringArrayList("param2"));
+                    return bundle2;
                 }
-                throw new RuntimeException("BAD REQUEST: Syntax error. Usage: GET /example/file.html");
-            } catch (IOException e) {
-                if (h) {
-                    Log.e("ClientHandler", "Decode header exception", e);
-                }
+                bundle2.putBoolean("result", ha2Var.shouldSendCookie(string, bundle.getString("param2")));
+                return bundle2;
             }
+            bundle2.putBoolean("result", ha2Var.shouldAcceptCookie(string, bundle.getString("param2")));
+            return bundle2;
         }
+        return (Bundle) invokeL.objValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.a));
-                    ha2.a aVar = new ha2.a();
-                    m(bufferedReader, aVar);
-                    ia2.a(aVar).e(this.b);
-                    if (aVar.e) {
-                        if (i != 0 && i != 3) {
-                            ub3.f(jv2.c(), R.string.obfuscated_res_0x7f0f0166).G();
-                            return;
-                        }
-                        ja2 ja2Var = new ja2();
-                        this.c = ja2Var;
-                        ja2Var.k(new a(this));
-                        this.c.h(this.a, this.b);
-                    }
-                } catch (RuntimeException e) {
-                    if (h) {
-                        Log.e("ClientHandler", "Request parse fail", e);
-                    }
-                }
-            } finally {
-                gs4.d(this.a);
-                gs4.d(this.b);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            return (Bundle) mq3.b(new a(this, bundle));
         }
+        return (Bundle) invokeL.objValue;
     }
 }

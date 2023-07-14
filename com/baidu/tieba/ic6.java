@@ -1,99 +1,75 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.ala.alasquare.live_tab.view.StageLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ic6 extends sn6<yb6> {
+public class ic6 extends ln<oc6, StageLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hc6 i;
-    public hc6 j;
-    public hc6 k;
-    public ViewGroup l;
-
-    @Override // com.baidu.tieba.sn6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d092b : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
+    public TbPageContext a;
+    public qd6 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ic6(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    public ic6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), oc6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new hc6(tbPageContext);
-        this.j = new hc6(tbPageContext);
-        this.k = new hc6(tbPageContext);
-        this.l = (ViewGroup) h();
-        new View(getContext());
-        this.l.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-        this.l.addView(this.i.e());
-        this.l.addView(this.j.e());
-        this.l.addView(this.k.e());
-        j(this.b, TbadkCoreApplication.getInst().getSkinType());
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sn6
-    /* renamed from: r */
-    public void i(yb6 yb6Var) {
+    @Override // com.baidu.tieba.ln
+    /* renamed from: s */
+    public StageLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, yb6Var) == null) && yb6Var != null) {
-            this.i.f(yb6Var.a);
-            this.j.f(yb6Var.b);
-            this.k.f(yb6Var.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new qd6(this.a, viewGroup);
+            return new StageLiveViewHolder(this.b);
         }
+        return (StageLiveViewHolder) invokeL.objValue;
     }
 
-    public void s(jc6 jc6Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, oc6 oc6Var, StageLiveViewHolder stageLiveViewHolder) {
+        InterceptResult invokeCommon;
+        qd6 qd6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jc6Var) == null) {
-            this.i.h(jc6Var);
-            this.j.h(jc6Var);
-            this.k.h(jc6Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oc6Var, stageLiveViewHolder})) == null) {
+            if (stageLiveViewHolder != null && (qd6Var = stageLiveViewHolder.a) != null) {
+                qd6Var.i(oc6Var);
+                stageLiveViewHolder.a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+                return stageLiveViewHolder.getView();
+            }
+            return null;
         }
-    }
-
-    @Override // com.baidu.tieba.sn6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
-            this.i.g(tbPageContext, i);
-            this.j.g(tbPageContext, i);
-            this.k.g(tbPageContext, i);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

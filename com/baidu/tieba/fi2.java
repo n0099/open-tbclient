@@ -1,181 +1,182 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.ru2;
+import com.baidu.tieba.sw2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import dalvik.system.DexFile;
-import dalvik.system.PathClassLoader;
 import java.io.File;
-import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-@SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
 /* loaded from: classes5.dex */
 public class fi2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static Boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, String str) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
-            Object e = e((PathClassLoader) context.getClassLoader());
-            Field declaredField = e.getClass().getDeclaredField("nativeLibraryDirectories");
-            declaredField.setAccessible(true);
-            File[] fileArr = (File[]) declaredField.get(e);
-            Object newInstance = Array.newInstance(File.class, fileArr.length + 1);
-            Array.set(newInstance, 0, new File(str));
-            for (int i = 1; i < fileArr.length + 1; i++) {
-                Array.set(newInstance, i, fileArr[i - 1]);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947765018, "Lcom/baidu/tieba/fi2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            declaredField.set(e, newInstance);
-        }
-    }
-
-    public static void c(Context context, String str) throws NoSuchFieldException, IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            PathClassLoader pathClassLoader = (PathClassLoader) context.getClassLoader();
-            Field declaredField = pathClassLoader.getClass().getDeclaredField("mLibPaths");
-            declaredField.setAccessible(true);
-            String[] strArr = (String[]) declaredField.get(pathClassLoader);
-            Object newInstance = Array.newInstance(String.class, strArr.length + 1);
-            Array.set(newInstance, 0, str);
-            for (int i = 1; i < strArr.length + 1; i++) {
-                Array.set(newInstance, i, strArr[i - 1]);
-            }
-            declaredField.set(pathClassLoader, newInstance);
-        }
-    }
-
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static void b(Context context, String str) throws IllegalAccessException, NoSuchFieldException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, context, str) != null) || Build.VERSION.SDK_INT < 21) {
-            return;
-        }
-        Object e = e((PathClassLoader) context.getClassLoader());
-        Field declaredField = e.getClass().getDeclaredField("systemNativeLibraryDirectories");
-        declaredField.setAccessible(true);
-        List list = (List) declaredField.get(e);
-        list.add(new File(str));
-        declaredField.set(e, list);
-        Field declaredField2 = e.getClass().getDeclaredField("nativeLibraryDirectories");
-        declaredField2.setAccessible(true);
-        ArrayList arrayList = (ArrayList) declaredField2.get(e);
-        arrayList.add(new File(str));
-        declaredField2.set(e, arrayList);
-        Class<?> cls = Class.forName("dalvik.system.DexPathList$Element");
-        Constructor<?> constructor = cls.getConstructor(File.class, Boolean.TYPE, File.class, DexFile.class);
-        Field declaredField3 = e.getClass().getDeclaredField("nativeLibraryPathElements");
-        declaredField3.setAccessible(true);
-        Object[] objArr = (Object[]) declaredField3.get(e);
-        Object newInstance = Array.newInstance(cls, objArr.length + 1);
-        if (constructor != null) {
-            try {
-                Array.set(newInstance, 0, constructor.newInstance(new File(str), Boolean.TRUE, null, null));
-                for (int i = 1; i < objArr.length + 1; i++) {
-                    Array.set(newInstance, i, objArr[i - 1]);
-                }
-                declaredField3.set(e, newInstance);
-            } catch (IllegalArgumentException unused) {
-                Method declaredMethod = e.getClass().getDeclaredMethod("makePathElements", List.class);
-                declaredMethod.setAccessible(true);
-                Object invoke = declaredMethod.invoke(null, arrayList);
-                Field declaredField4 = e.getClass().getDeclaredField("nativeLibraryPathElements");
-                declaredField4.setAccessible(true);
-                declaredField4.set(e, invoke);
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947765018, "Lcom/baidu/tieba/fi2;");
+                return;
             }
         }
+        a = fs1.a;
+        cv2.g0().getSwitch("swan_naview_slave_preload_type", 0);
+        c = 0;
     }
 
-    public static Object d(Object obj, Class cls, String str) throws NoSuchFieldException, IllegalAccessException {
-        InterceptResult invokeLLL;
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, cls, str)) == null) {
-            Field declaredField = cls.getDeclaredField(str);
-            declaredField.setAccessible(true);
-            return declaredField.get(obj);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Boolean bool = b;
+            if (bool != null) {
+                return bool.booleanValue();
+            }
+            Boolean valueOf = Boolean.valueOf(a());
+            b = valueOf;
+            return valueOf.booleanValue();
         }
-        return invokeLLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static Object e(Object obj) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
-        InterceptResult invokeL;
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
-            return d(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == 2) {
+                return true;
+            }
+            return false;
         }
-        return invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
     public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            try {
-                Class.forName("dalvik.system.BaseDexClassLoader");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (c == 1) {
                 return true;
-            } catch (ClassNotFoundException unused) {
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (c == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            boolean z = false;
+            if (!pi2.U().r0()) {
+                Log.w("NASlaveConfig", "v8 is not enabled");
                 return false;
+            } else if (!cv2.F0().j(1)) {
+                return false;
+            } else {
+                String c0 = pi2.U().c0();
+                if (TextUtils.isEmpty(c0)) {
+                    Log.w("NASlaveConfig", "base path is not exists");
+                    return false;
+                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
+                    Log.w("NASlaveConfig", "talos-js file is not exists");
+                    return false;
+                } else if (a && u73.Y()) {
+                    return true;
+                } else {
+                    if (c != 0) {
+                        z = true;
+                    }
+                    if (a) {
+                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
+                    }
+                    return z;
+                }
             }
         }
         return invokeV.booleanValue;
     }
 
-    public static void g(Context context, String str) {
+    public static int b(@Nullable kc3 kc3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) {
-            if (f()) {
-                try {
-                    try {
-                        a(context, str);
-                        return;
-                    } catch (Exception unused) {
-                        b(context, str);
-                        return;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, kc3Var)) == null) {
+            if (kc3Var == null || !d()) {
+                return 0;
             }
-            try {
-                c(context, str);
-            } catch (Exception unused2) {
-            }
+            return "na".equals(kc3Var.r) ? 1 : 0;
         }
+        return invokeL.intValue;
     }
 
-    public static boolean h(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
+    public static int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, str, str2, z)) == null) {
-            if (!z) {
-                try {
-                    System.loadLibrary(str);
-                    return true;
-                } catch (Throwable unused) {
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return 0;
             }
-            try {
-                System.load(str2 + File.separator + "lib" + str + ".so");
-                return true;
-            } catch (Throwable unused2) {
+            if (str.contains("?")) {
+                str = str.substring(0, str.indexOf("?"));
+            }
+            int b2 = b(ix2.T().f(str));
+            if (a) {
+                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
+            }
+            return b2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean h(vb3 vb3Var) {
+        InterceptResult invokeL;
+        sw2.a W;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, vb3Var)) == null) {
+            if (vb3Var == null || !vb3Var.E()) {
                 return false;
             }
+            if (u73.B(vb3Var.W())) {
+                str = ru2.b.g().getPath() + File.separator;
+            } else {
+                str = ru2.e.i(W.H(), W.v1()).getPath() + File.separator;
+            }
+            if (a) {
+                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            ix2.T().K(str);
+            return true;
         }
-        return invokeLLZ.booleanValue;
+        return invokeL.booleanValue;
     }
 }

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class dt2 extends wp2<ys2> {
+public class dt2 extends pp2<gu2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.wp2
+    @Override // com.baidu.tieba.pp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showConfirmBar" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getCurrentPosition" : (String) invokeV.objValue;
     }
 
     public dt2() {
@@ -36,15 +36,14 @@ public class dt2 extends wp2<ys2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wp2
+    @Override // com.baidu.tieba.pp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ys2 ys2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull gu2 gu2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ys2Var) == null) {
-            int i = command.arg1;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gu2Var) == null) {
+            command.ret = gu2Var.getCurrentPosition();
             String str = command.what;
-            d(ys2Var, str, "(keyboardHeight)" + i, false);
-            ys2Var.z0(i);
+            d(gu2Var, str, "Position: " + command.ret, false);
         }
     }
 }

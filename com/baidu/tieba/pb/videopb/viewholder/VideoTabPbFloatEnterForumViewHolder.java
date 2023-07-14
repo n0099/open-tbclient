@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.widget.layout.FlowLabelLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,10 +43,10 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
         }
         this.a = context;
         this.b = (FlowLabelLayout) ((ViewGroup) view2).getChildAt(0);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090b54);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090b60);
     }
 
-    public void a() {
+    public void b() {
         ThreadForumEnterButton threadForumEnterButton;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (threadForumEnterButton = this.c) != null) {
@@ -54,7 +54,7 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
         }
     }
 
-    public void b(View.OnClickListener onClickListener) {
+    public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
             this.c.setAfterClickListener(onClickListener);
@@ -67,7 +67,7 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
             return;
         }
         this.b.removeAllViews();
-        if (!wi.isEmpty(threadData.getForum_name())) {
+        if (!xi.isEmpty(threadData.getForum_name())) {
             ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.a);
             this.c = threadForumEnterButton;
             threadForumEnterButton.d(true);

@@ -1,7 +1,7 @@
 package com.baidu.tieba.immessagecenter.arch.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ew8;
+import com.baidu.tieba.h29;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ public final class IMLog {
     public static /* synthetic */ Interceptable $ic;
     public static final IMLog INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ew8 instance;
+    public final h29 instance;
 
     static {
         InterceptResult invokeClinit;
@@ -36,13 +36,13 @@ public final class IMLog {
         $VALUES = new IMLog[]{iMLog};
     }
 
-    public static ew8 getInstance() {
+    public static h29 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return INSTANCE.instance;
         }
-        return (ew8) invokeV.objValue;
+        return (h29) invokeV.objValue;
     }
 
     public static IMLog[] values() {
@@ -72,7 +72,7 @@ public final class IMLog {
                 return;
             }
         }
-        this.instance = new ew8("im");
+        this.instance = new h29("im");
     }
 
     public static IMLog valueOf(String str) {

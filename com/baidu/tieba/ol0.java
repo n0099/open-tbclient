@@ -1,79 +1,218 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.CriusLoader;
+import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ol0 {
+public class ol0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
+    public Map<String, a> b;
 
-    public static void a(String str, String str2) {
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            f(3, str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            f(6, str, str2);
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public CriusData a;
 
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            f(4, str, str2);
-        }
-    }
-
-    public static void b(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, th) == null) {
-            f(3, str, str2 + '\n' + Log.getStackTraceString(th));
-        }
-    }
-
-    public static void d(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
-            f(6, str, str2 + '\n' + Log.getStackTraceString(th));
-        }
-    }
-
-    public static void g(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65542, null, i, str, str2) == null) {
-            if (str2.length() > 1000) {
-                Log.println(i, str, str2.substring(0, 1000));
-                g(i, str, str2.substring(1000));
-                return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            Log.println(i, str, str2);
         }
     }
 
-    public static void h(String str, String str2, Throwable th) {
+    public ol0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, str, str2, th) == null) {
-            f(5, str, str2 + '\n' + Log.getStackTraceString(th));
-        }
-    }
-
-    public static void f(int i, String str, String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(65541, null, i, str, str2) == null) && str != null) {
-            if (str2 != null) {
-                str3 = PreferencesUtil.LEFT_MOUNT + Thread.currentThread().getName() + PreferencesUtil.RIGHT_MOUNT + str2;
-            } else {
-                str3 = "LogEx method param(msg) is null";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            g(i, str, str3);
         }
+    }
+
+    public static ol0 b(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            ol0 ol0Var = new ol0();
+            ol0Var.i(jSONObject);
+            return ol0Var;
+        }
+        return (ol0) invokeL.objValue;
+    }
+
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            CriusLoader.init(context);
+            CriusLoader.registerComponentFactory(new ml0());
+            CriusLoader.registerNativeRenderFactory(new nl0());
+        }
+    }
+
+    public CriusData e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            try {
+                return new CriusData(rk0.b(), jSONObject, true, null);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (CriusData) invokeL.objValue;
+    }
+
+    public final void g(Set<String> set) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, set) != null) || set == null) {
+            return;
+        }
+        for (String str : set) {
+            rp0.a().d(str);
+        }
+    }
+
+    public ol0 i(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jSONObject)) == null) {
+            j(jSONObject, "cmd_map", Arrays.asList("crius", "crius_pop", "crius_content"));
+            return this;
+        }
+        return (ol0) invokeL.objValue;
+    }
+
+    public final Map<String, String> c(@NonNull JSONObject jSONObject, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject(str);
+            if (optJSONObject != null) {
+                HashMap hashMap = new HashMap();
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys != null && keys.hasNext()) {
+                    String next = keys.next();
+                    String optString = optJSONObject.optString(next);
+                    if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
+                        hashMap.put(next, optString);
+                    }
+                }
+                return hashMap;
+            }
+            return null;
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    public a d(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull Map<String, String> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, map)) == null) {
+            a aVar = new a();
+            String optString = jSONObject.optString(str);
+            if (h()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue()) && optString != null) {
+                        optString = optString.replaceAll(entry.getKey(), Uri.encode(entry.getValue()));
+                    }
+                }
+            }
+            if (CriusLoader.isCriusNone()) {
+                a(rk0.b());
+            }
+            if (!CriusLoader.isCriusOk()) {
+                return aVar;
+            }
+            try {
+                aVar.a = e(new JSONObject(optString));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            CriusData criusData = aVar.a;
+            if (criusData != null && criusData.getImageUrls() != null) {
+                g(aVar.a.getImageUrls());
+            }
+            return aVar;
+        }
+        return (a) invokeLLL.objValue;
+    }
+
+    public final Map<String, a> f(@NonNull JSONObject jSONObject, @NonNull List<String> list, @NonNull Map<String, String> map) {
+        InterceptResult invokeLLL;
+        a d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, jSONObject, list, map)) == null) {
+            HashMap hashMap = null;
+            for (String str : list) {
+                if (!TextUtils.isEmpty(str) && (d = d(jSONObject, str, map)) != null) {
+                    if (hashMap == null) {
+                        hashMap = new HashMap();
+                    }
+                    hashMap.put(str, d);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    public ol0 j(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull List<String> list) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, str, list)) == null) {
+            Map<String, String> c = c(jSONObject, str);
+            this.a = c;
+            if (c != null) {
+                this.b = f(jSONObject, list, c);
+            }
+            return this;
+        }
+        return (ol0) invokeLLL.objValue;
     }
 }

@@ -1,88 +1,157 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
+import com.baidu.tbadk.core.atomData.OfficialBarFeedActivityConfig;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.immessagecenter.StrangerListActivityConfig;
+import com.baidu.tieba.immessagecenter.im.chat.notify.MessageAggregationListAdapter;
+import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
+import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetTagList.DataRes;
-import tbclient.GetTagList.ResponseTagInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class ns8 {
+public final class ns8 implements AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ms8> a;
-    public List<ms8> b;
-    public List<Integer> c;
+    public final Context a;
+    public final BdUniqueId b;
+    public final MsgChatCenterSliceView c;
+    public final MessageAggregationListAdapter d;
+    public final MsgChatCenterSliceViewModel e;
 
-    public ns8() {
+    public ns8(Context context, BdUniqueId uniqueId, MsgChatCenterSliceView sliceView, MessageAggregationListAdapter messageAggregationListAdapter, MsgChatCenterSliceViewModel viewModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, uniqueId, sliceView, messageAggregationListAdapter, viewModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
+        Intrinsics.checkNotNullParameter(sliceView, "sliceView");
+        Intrinsics.checkNotNullParameter(viewModel, "viewModel");
+        this.a = context;
+        this.b = uniqueId;
+        this.c = sliceView;
+        this.d = messageAggregationListAdapter;
+        this.e = viewModel;
     }
 
-    public List<ms8> a() {
-        InterceptResult invokeV;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        ImMessageCenterShowItemData imMessageCenterShowItemData;
+        boolean z;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<ms8> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void c(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i < 0) {
             return;
         }
-        if (!ListUtils.isEmpty(dataRes.sex_taglist)) {
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            d(arrayList, dataRes.sex_taglist);
+        MessageAggregationListAdapter messageAggregationListAdapter = this.d;
+        String str3 = null;
+        if (messageAggregationListAdapter != null) {
+            imMessageCenterShowItemData = messageAggregationListAdapter.getItem(i);
+        } else {
+            imMessageCenterShowItemData = null;
         }
-        if (!ListUtils.isEmpty(dataRes.taglist)) {
-            this.b = new ArrayList();
-            this.c = new ArrayList();
-            d(this.b, dataRes.taglist);
+        if (imMessageCenterShowItemData != null && imMessageCenterShowItemData.getDataType() == 2) {
+            z = true;
+        } else {
+            z = false;
         }
-    }
-
-    public final void d(List<ms8> list, List<ResponseTagInfo> list2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) && list != null && list2 != null) {
-            for (ResponseTagInfo responseTagInfo : list2) {
-                if (responseTagInfo != null && !StringUtils.isNull(responseTagInfo.tag_name)) {
-                    ms8 ms8Var = new ms8();
-                    ms8Var.a(responseTagInfo);
-                    list.add(ms8Var);
-                    List<Integer> list3 = this.c;
-                    if (list3 != null && ms8Var.c) {
-                        list3.add(Integer.valueOf(ms8Var.a));
-                    }
-                }
+        if (z) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a).createNormalCfg(imMessageCenterShowItemData.getForumName(), FrsActivityConfig.FRS_FROM_IM_REC_FORUM)));
+            vu8.a.f(imMessageCenterShowItemData);
+            return;
+        }
+        if (imMessageCenterShowItemData != null) {
+            vu8.a.d(imMessageCenterShowItemData, this.a);
+        }
+        StatisticItem statisticItem = new StatisticItem("c13720");
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+        if (imMessageCenterShowItemData != null) {
+            str = imMessageCenterShowItemData.getOwnerName();
+        } else {
+            str = null;
+        }
+        if (TextUtils.isEmpty(str)) {
+            xu8.a(imMessageCenterShowItemData, this.a, this.b);
+            statisticItem.param("obj_type", 6);
+        } else if (Intrinsics.areEqual(str, "5")) {
+            TiebaStatic.log("c12931");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialBarFeedActivityConfig(this.a)));
+        } else if (Intrinsics.areEqual(str, "8")) {
+            long g = wg.g(imMessageCenterShowItemData.getFriendId(), 0L);
+            OfficalBarChatActivityConfig officalBarChatActivityConfig = new OfficalBarChatActivityConfig(this.a, g, imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendPortrait(), 0, imMessageCenterShowItemData.getUserType());
+            vu8.a.g(g);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002006, officalBarChatActivityConfig));
+        } else if (Intrinsics.areEqual(str, "7")) {
+            TiebaStatic.log(new StatisticItem("c12614"));
+            statisticItem.param("obj_type", 6);
+            vu8.a.e(imMessageCenterShowItemData);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new StrangerListActivityConfig(this.a)));
+            return;
+        } else if (Intrinsics.areEqual(str, "9")) {
+            this.c.X(imMessageCenterShowItemData);
+            if (imMessageCenterShowItemData.getAtInfoData() != null) {
+                imMessageCenterShowItemData.setAtInfoData(null);
             }
+            imMessageCenterShowItemData.setUnReadCount(0);
+            this.e.B(false);
+            this.e.o().W(wg.g(imMessageCenterShowItemData.getFriendId(), 0L));
+            this.e.E(null, imMessageCenterShowItemData, 2);
+            vu8.a.c(imMessageCenterShowItemData);
+            this.e.o().L();
+        } else {
+            xu8.a(imMessageCenterShowItemData, this.a, this.b);
+            statisticItem.param("obj_type", 6);
+        }
+        if (imMessageCenterShowItemData != null) {
+            str2 = imMessageCenterShowItemData.getFriendName();
+        } else {
+            str2 = null;
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            if (imMessageCenterShowItemData != null) {
+                str3 = imMessageCenterShowItemData.getFriendName();
+            }
+            if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cb7))) {
+                statisticItem.param("obj_type", 8);
+            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cba))) {
+                statisticItem.param("obj_type", 9);
+            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cb8))) {
+                statisticItem.param("obj_type", 10);
+            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cb3))) {
+                statisticItem.param("obj_type", 4);
+            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cb5))) {
+                statisticItem.param("obj_type", 5);
+            }
+        }
+        TiebaStatic.log(statisticItem);
+        if (imMessageCenterShowItemData != null) {
+            vu8.a.b(imMessageCenterShowItemData, this.a);
         }
     }
 }

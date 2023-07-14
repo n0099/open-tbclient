@@ -1,76 +1,41 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xf4;
+import android.text.TextUtils;
+import com.baidu.swan.hide.api.bypass.NativeHideApiBypass;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
 public class yf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a implements xf4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static boolean a(Object obj, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, str)) == null) {
+            if (obj != null && !TextUtils.isEmpty(str)) {
+                return true;
             }
+            return false;
         }
-
-        @Override // com.baidu.tieba.xf4.a
-        public void a(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
-                return;
-            }
-            view2.setAlpha(1.0f);
-        }
-
-        @Override // com.baidu.tieba.xf4.a
-        public void b(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null) {
-                return;
-            }
-            view2.setAlpha(0.2f);
-        }
+        return invokeLL.booleanValue;
     }
 
-    public static void a(View view2) {
+    public static Method b(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, view2) == null) {
-            b(view2, null);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, obj, str, clsArr)) == null) {
+            if (!a(obj, str)) {
+                return null;
+            }
+            if (xf4.g()) {
+                return NativeHideApiBypass.getDeclaredMethod(obj, str, clsArr);
+            }
+            return (Method) Class.class.getMethod("getDeclaredMethod", String.class, Class[].class).invoke(obj, str, clsArr);
         }
-    }
-
-    public static void b(View view2, Drawable drawable) {
-        xf4 xf4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, view2, drawable) != null) || view2 == null) {
-            return;
-        }
-        if (drawable == null) {
-            xf4Var = new xf4();
-        } else {
-            xf4Var = new xf4(drawable);
-        }
-        xf4Var.b(view2);
-        xf4Var.a(new a());
-        view2.setBackground(xf4Var);
+        return (Method) invokeLLL.objValue;
     }
 }

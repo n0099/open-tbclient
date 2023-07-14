@@ -1,22 +1,75 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class si8 extends xj8 {
+public class si8 extends pl1<dq5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean e;
+
+    /* loaded from: classes7.dex */
+    public class a implements dq5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(si8 si8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {si8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.dq5
+        public void a(@NonNull Context context, long j, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+                GroupChatActivity.v1(context, j, i, str, 0);
+            }
+        }
+
+        @Override // com.baidu.tieba.dq5
+        public void c(@NonNull Context context, long j, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
+                GroupChatActivity.w1(context, j, -1, str, "", i);
+            }
+        }
+
+        @Override // com.baidu.tieba.dq5
+        public void d(@NonNull Context context, int i, long j, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+                GroupChatActivity.x1(context, j, i, true);
+            }
+        }
+
+        @Override // com.baidu.tieba.dq5
+        public void b(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, Long.valueOf(j), Integer.valueOf(i), str2, bundle, Boolean.valueOf(z)}) == null) {
+                GroupChatActivity.y1(context, str, j, i, str2, bundle, z);
+            }
+        }
+    }
 
     public si8() {
         Interceptable interceptable = $ic;
@@ -28,110 +81,19 @@ public class si8 extends xj8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = true;
     }
 
-    @Override // com.baidu.tieba.wj8
-    public boolean a(int i, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        boolean z2;
-        boolean z3;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pl1
+    /* renamed from: a */
+    public dq5 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
-            wj8 wj8Var = this.c;
-            if (wj8Var != null) {
-                z2 = wj8Var.a(i, z, obj);
-            } else {
-                z2 = true;
-            }
-            for (int i2 = 0; i2 < this.a.size(); i2++) {
-                vj8 vj8Var = this.a.get(i2);
-                if (vj8Var instanceof bj8) {
-                    bj8 bj8Var = (bj8) vj8Var;
-                    if (bj8Var.d() && i != i2) {
-                        bj8Var.e(false);
-                        i(i2);
-                    } else {
-                        if (i == i2) {
-                            z3 = true;
-                        } else {
-                            z3 = false;
-                        }
-                        bj8Var.e(z3);
-                    }
-                }
-            }
-            return z2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xj8
-    public List<vj8> j(List list) {
-        InterceptResult invokeL;
-        List<BotsDTO.BotListDTO.SkillDTO> list2;
-        zi8 zi8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            while (true) {
-                boolean z = true;
-                if (i < list.size()) {
-                    Object obj = list.get(i);
-                    if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO) {
-                        BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) obj;
-                        if (itemsDTO.getItemType() == 1) {
-                            zi8Var = new aj8(itemsDTO);
-                        } else {
-                            zi8 zi8Var2 = new zi8(itemsDTO);
-                            int i2 = this.d;
-                            if (i2 > -1) {
-                                if (i != i2) {
-                                    z = false;
-                                }
-                                zi8Var2.n(z);
-                            }
-                            zi8Var = zi8Var2;
-                        }
-                        arrayList.add(zi8Var);
-                    } else if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) {
-                        bj8 bj8Var = new bj8((BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) obj);
-                        int i3 = this.d;
-                        if (i3 > -1) {
-                            if (i != i3) {
-                                z = false;
-                            }
-                            bj8Var.e(z);
-                        }
-                        arrayList.add(bj8Var);
-                    } else if (obj instanceof BaseMsg) {
-                        TextGenImageMsg textGenImageMsg = (TextGenImageMsg) obj;
-                        if (textGenImageMsg.getSubSkillConfig() != null && (list2 = textGenImageMsg.getSubSkillConfig().a) != null && !list2.isEmpty()) {
-                            if (this.e) {
-                                arrayList.add(new xi8());
-                                this.e = false;
-                            }
-                            for (BotsDTO.BotListDTO.SkillDTO skillDTO : list2) {
-                                yi8 yi8Var = new yi8(skillDTO);
-                                yi8Var.e(textGenImageMsg);
-                                arrayList.add(yi8Var);
-                            }
-                        }
-                    } else if (obj instanceof AbilityItem) {
-                        arrayList.add(new cj8((AbilityItem) obj));
-                    }
-                    i++;
-                } else {
-                    this.e = true;
-                    return arrayList;
-                }
-            }
-        } else {
-            return (List) invokeL.objValue;
-        }
+        return (dq5) invokeV.objValue;
     }
 }

@@ -1,169 +1,28 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.account.data.DelAllUerDataReqMsg;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a15 {
     public static /* synthetic */ Interceptable $ic;
-    public static a15 b;
+    public static a15 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ProgressDialog a;
+    public int a;
+    public int b;
+    public String c;
+    public boolean d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947562340, "Lcom/baidu/tieba/a15;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947562340, "Lcom/baidu/tieba/a15;");
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements ww5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a15 a;
-
-        /* loaded from: classes4.dex */
-        public class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    oca.b(true);
-                }
-            }
-        }
-
-        public b(a15 a15Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a15Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a15Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ww5
-        /* renamed from: a */
-        public void onReturnDataInUI(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                this.a.d();
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                if (currentActivity == null) {
-                    return;
-                }
-                if (bool.booleanValue()) {
-                    TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(currentActivity);
-                    tBAlertBuilder.w(R.string.delete_success);
-                    tBAlertBuilder.m(R.string.delete_all_user_data_hint);
-                    tBAlertBuilder.u(new TBAlertConfig.a(currentActivity.getString(R.string.obfuscated_res_0x7f0f10e0), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
-                    tBAlertBuilder.z();
-                    return;
-                }
-                xi.P(currentActivity, R.string.delete_fail);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends sx5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(a15 a15Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a15Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.sx5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2008015, currentAccount));
-                    qe5.p0().b0(true);
-                    NotificationHelper.cancelAllNotification(TbadkCoreApplication.getInst());
-                    q3a.y("");
-                    t05.t().g(currentAccount, false);
-                    BdCacheService.n().a(currentAccount);
-                    r95.p().e(currentAccount);
-                    return Boolean.TRUE;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return Boolean.FALSE;
-                }
-            }
-            return (Boolean) invokeV.objValue;
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
         }
     }
 
@@ -171,86 +30,134 @@ public class a15 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0;
+        this.c = null;
+        this.d = true;
+        this.e = 0;
     }
 
     public static a15 c() {
         InterceptResult invokeV;
+        a15 a15Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            a15 a15Var2 = f;
+            if (a15Var2 == null) {
                 synchronized (a15.class) {
-                    if (b == null) {
-                        b = new a15();
+                    if (f == null) {
+                        f = new a15();
                     }
+                    a15Var = f;
                 }
+                return a15Var;
             }
-            return b;
+            return a15Var2;
         }
         return (a15) invokeV.objValue;
     }
 
-    public final void b() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            wx5.b(new a(this), new b(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void d() {
-        ProgressDialog progressDialog;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (progressDialog = this.a) != null && progressDialog.isShowing()) {
-            this.a.dismiss();
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            da5 p = da5.p();
+            int q = p.q(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
+            this.b = q;
+            return q;
         }
+        return invokeV.intValue;
     }
 
-    public final void f() {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            DelAllUerDataReqMsg delAllUerDataReqMsg = new DelAllUerDataReqMsg();
-            delAllUerDataReqMsg.setOpType(1);
-            MessageManager.getInstance().sendMessage(delAllUerDataReqMsg);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int q = da5.p().q("image_quality", 0);
+            this.a = q;
+            return q;
         }
+        return invokeV.intValue;
     }
 
-    public final void g() {
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ProgressDialog progressDialog = this.a;
-            if (progressDialog == null) {
-                this.a = xi.L(TbadkCoreApplication.getInst().getCurrentActivity(), null);
-            } else {
-                progressDialog.show();
+            this.a = da5.p().q("image_quality", 0);
+            da5.p().q("new_abstract_state", 0);
+            this.e = da5.p().q("view_image_quality", 0);
+            boolean l = da5.p().l("show_images", true);
+            this.d = l;
+            if (!l) {
+                this.d = true;
+                da5.p().Q("show_images");
+                da5.p().F("view_image_quality", 0);
+                this.e = 0;
             }
         }
     }
 
-    public void h() {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g();
-            f();
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public void e(boolean z, String str) {
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
-            if (z) {
-                d();
-                xi.Q(TbadkCoreApplication.getInst().getCurrentActivity(), str);
-                return;
-            }
-            b();
+        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || this.e == i) {
+            return;
         }
+        this.e = i;
+        da5.p().F("view_image_quality", i);
+        TbImageHelper.getInstance().updateFrsShowBigImage();
+        TbImageHelper.getInstance().updateUrlQuality();
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.b == i) {
+            return;
+        }
+        this.b = i;
+        da5 p = da5.p();
+        p.F(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
     }
 }

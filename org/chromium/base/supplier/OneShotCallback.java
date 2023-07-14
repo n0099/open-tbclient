@@ -1,7 +1,7 @@
 package org.chromium.base.supplier;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.drb;
+import com.baidu.tieba.a0c;
 import java.lang.ref.WeakReference;
 import org.chromium.base.Callback;
 /* loaded from: classes2.dex */
@@ -16,7 +16,7 @@ public class OneShotCallback<E> {
 
         @Override // org.chromium.base.Callback
         public /* synthetic */ Runnable bind(T t) {
-            return drb.$default$bind(this, t);
+            return a0c.$default$bind(this, t);
         }
 
         public CallbackWrapper() {

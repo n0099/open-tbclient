@@ -1,99 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Build;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.gb3;
+import android.os.Environment;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.ru2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes8.dex */
 public class z82 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cc3 a;
-
-        public a(cc3 cc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cc3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cc3Var;
+    public static ru2.g a(sw2 sw2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sw2Var)) == null) {
+            File file = new File(Environment.getExternalStorageDirectory() + "/" + a92.d());
+            ru2.M(file, b(), sw2Var);
+            zr4.j(file);
+            ru2.g gVar = new ru2.g();
+            File file2 = new File(b(), "app.json");
+            SwanAppConfigData c = SwanAppConfigData.c(zr4.E(file2), b());
+            gVar.a = b().getPath() + File.separator;
+            gVar.b = c;
+            v82.k("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                SwanAppActivity w = this.a.w();
-                if (w != null && Build.VERSION.SDK_INT >= 21) {
-                    w.finishAndRemoveTask();
-                }
-                System.exit(0);
-            }
-        }
+        return (ru2.g) invokeL.objValue;
     }
 
-    public static boolean a() {
+    public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            c(context, !a());
-        }
-    }
-
-    public static void c(Context context, boolean z) {
-        cc3 M;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (M = cc3.M()) != null) {
-            a92.c(z);
-            if (z) {
-                i = R.string.obfuscated_res_0x7f0f01cf;
-            } else {
-                i = R.string.obfuscated_res_0x7f0f0143;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_adb_debug");
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            gb3.a aVar = new gb3.a(context);
-            aVar.V(context.getString(R.string.obfuscated_res_0x7f0f017f));
-            aVar.x(context.getString(i));
-            aVar.n(new kr3());
-            aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f0146, new a(M));
-            aVar.X();
+            return file;
         }
+        return (File) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_adb_debug";
+        }
+        return (String) invokeV.objValue;
     }
 }

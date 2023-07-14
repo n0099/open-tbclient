@@ -1,88 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x53 implements y53 {
+public class x53 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public x53() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251315, "Lcom/baidu/tieba/x53;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948251315, "Lcom/baidu/tieba/x53;");
+                return;
+            }
+        }
+        a = fs1.a;
+        b = c("swan_perf_stat_rectify", 0);
+        c = c("swan_perf_stat_overlay_rectify", 0);
+        if (a) {
+            Log.d("SwanRectifyAbSwitcher", "670 data rectify on - " + b);
+            Log.d("SwanRectifyAbSwitcher", "670 data overlay rectify on - " + c);
         }
     }
 
-    @Override // com.baidu.tieba.y53
-    public List<k53> a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String optString = jSONObject.optString("apiName");
-            c("api-name " + optString);
-            if (TextUtils.isEmpty(optString)) {
-                return arrayList;
-            }
-            int optInt = jSONObject.optInt("count");
-            c("api-count " + optInt);
-            if (optInt <= 0) {
-                return arrayList;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("caller");
-            if (optJSONObject == null) {
-                return arrayList;
-            }
-            b(optString, optJSONObject.optJSONObject("swan"), arrayList, 0);
-            b(optString, optJSONObject.optJSONObject("boxjs"), arrayList, 1);
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c;
         }
-        return (List) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void b(String str, @Nullable JSONObject jSONObject, @NonNull List<k53> list, int i) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, list, i) == null) && jSONObject != null && jSONObject.length() > 0) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("startTime");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("endTime");
-            if (optJSONArray != null && optJSONArray2 != null) {
-                int min = Math.min(optJSONArray.length(), optJSONArray2.length());
-                for (int i2 = 0; i2 < min; i2++) {
-                    k53 k53Var = new k53();
-                    k53Var.g(i);
-                    k53Var.f(str);
-                    k53Var.i(optJSONArray.optLong(i2));
-                    k53Var.h(optJSONArray2.optLong(i2));
-                    list.add(k53Var);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void c(String str) {
+    public static boolean c(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && y53.a) {
-            Log.d("Api-Parser", str);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            cv2.g0().getSwitch(str, i);
+            if (a) {
+                Log.d("SwanRectifyAbSwitcher", str + " - " + i);
+            }
+            if (i == 1) {
+                return true;
+            }
+            return false;
         }
+        return invokeLI.booleanValue;
     }
 }

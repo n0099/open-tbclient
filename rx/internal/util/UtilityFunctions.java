@@ -1,46 +1,46 @@
 package rx.internal.util;
 
-import com.baidu.tieba.ptb;
+import com.baidu.tieba.m2c;
 /* loaded from: classes2.dex */
 public final class UtilityFunctions {
 
     /* loaded from: classes2.dex */
-    public enum Identity implements ptb<Object, Object> {
+    public enum Identity implements m2c<Object, Object> {
         INSTANCE;
 
-        @Override // com.baidu.tieba.ptb
+        @Override // com.baidu.tieba.m2c
         public Object call(Object obj) {
             return obj;
         }
     }
 
-    public static <T> ptb<? super T, Boolean> a() {
+    public static <T> m2c<? super T, Boolean> a() {
         return AlwaysTrue.INSTANCE;
     }
 
-    public static <T> ptb<T, T> b() {
+    public static <T> m2c<T, T> b() {
         return Identity.INSTANCE;
     }
 
     /* loaded from: classes2.dex */
-    public enum AlwaysFalse implements ptb<Object, Boolean> {
+    public enum AlwaysFalse implements m2c<Object, Boolean> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.ptb
+        @Override // com.baidu.tieba.m2c
         public Boolean call(Object obj) {
             return Boolean.FALSE;
         }
     }
 
     /* loaded from: classes2.dex */
-    public enum AlwaysTrue implements ptb<Object, Boolean> {
+    public enum AlwaysTrue implements m2c<Object, Boolean> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.ptb
+        @Override // com.baidu.tieba.m2c
         public Boolean call(Object obj) {
             return Boolean.TRUE;
         }

@@ -177,8 +177,8 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x020e  */
-    /* JADX WARN: Removed duplicated region for block: B:62:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x024c  */
+    /* JADX WARN: Removed duplicated region for block: B:68:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -188,11 +188,11 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         int i2;
         String str;
         IGetPaInfoListener iGetPaInfoListener;
+        PaInfo paInfo;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
             String str2 = new String(bArr);
-            PaInfo paInfo = null;
             try {
                 jSONObject = new JSONObject(str2);
                 i2 = jSONObject.getInt("error_code");
@@ -233,6 +233,11 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                                     try {
                                         JSONObject jSONObject3 = new JSONObject(optString);
                                         paInfo2.setSubsetType(jSONObject3.optInt(Constants.EXTRA_SUB_PA_TYPE, 0));
+                                        if (jSONObject3.has("default_do_not_disturb")) {
+                                            if (!Utility.readBooleanData(this.mContext, Utility.readUid(this.mContext) + "_" + paInfo2.getPaId(), false)) {
+                                                paInfo2.setDisturb(jSONObject3.optInt("default_do_not_disturb"));
+                                            }
+                                        }
                                         paInfo2.setShieldMsg(new JSONObject(jSONObject3.optString("pa_attributes")).optInt(TableDefine.PaSubscribeColumns.COLUMN_SHIELD_MSG, 0));
                                     } catch (JSONException unused) {
                                         LogUtils.d(TAG, "set patype JSONException");
@@ -275,6 +280,8 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                     if (iGetPaInfoListener != null) {
                         if (arrayList != null && arrayList.size() > 0) {
                             paInfo = (PaInfo) arrayList.get(0);
+                        } else {
+                            paInfo = null;
                         }
                         if (paInfo != null) {
                             iGetPaInfoListener.onGetPaInfoResult(i2, str, paInfo);

@@ -1,130 +1,75 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
 /* loaded from: classes8.dex */
-public abstract class tq3<OuT> implements Runnable {
+public class tq3 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wq3<OuT> a;
-    public OuT b;
 
-    public abstract void c();
-
-    /* loaded from: classes8.dex */
-    public static class a extends tq3<OuT> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CountDownLatch c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(wq3 wq3Var, CountDownLatch countDownLatch) {
-            super(wq3Var, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wq3Var, countDownLatch};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((wq3) objArr2[0], (a) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = countDownLatch;
-        }
-
-        @Override // com.baidu.tieba.tq3
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.countDown();
-            }
-        }
-    }
-
-    public tq3(wq3<OuT> wq3Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tq3(Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wq3Var};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.a = wq3Var;
     }
 
-    public static <OuT> OuT b(wq3<OuT> wq3Var) {
-        InterceptResult invokeL;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, wq3Var)) == null) {
-            return (OuT) a(Looper.getMainLooper(), wq3Var);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Drawable drawable = getDrawable();
+            canvas.save();
+            canvas.translate(f, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
+            drawable.draw(canvas);
+            canvas.restore();
         }
-        return (OuT) invokeL.objValue;
     }
 
-    public /* synthetic */ tq3(wq3 wq3Var, a aVar) {
-        this(wq3Var);
-    }
-
-    public static <OuT> OuT a(Looper looper, wq3<OuT> wq3Var) {
-        InterceptResult invokeLL;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, wq3Var)) == null) {
-            if (wq3Var == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Rect bounds = getDrawable().getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                int i4 = (bounds.bottom - bounds.top) / 2;
+                int i5 = i3 / 4;
+                int i6 = i4 - i5;
+                int i7 = -(i4 + i5);
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                fontMetricsInt.bottom = i6;
+                fontMetricsInt.descent = i6;
             }
-            if (looper != null && Thread.currentThread() != looper.getThread()) {
-                CountDownLatch countDownLatch = new CountDownLatch(1);
-                a aVar = new a(wq3Var, countDownLatch);
-                new Handler(looper).post(aVar);
-                try {
-                    countDownLatch.await();
-                } catch (InterruptedException e) {
-                    c92.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e);
-                    e.printStackTrace();
-                }
-                return aVar.b;
-            }
-            return wq3Var.create();
+            return bounds.right;
         }
-        return (OuT) invokeLL.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                try {
-                    this.b = this.a.create();
-                } catch (Exception e) {
-                    c92.o("Awaiting", "catch: " + e + "\n" + Log.getStackTraceString(e));
-                }
-            } finally {
-                c();
-            }
-        }
+        return invokeCommon.intValue;
     }
 }

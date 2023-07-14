@@ -7,16 +7,16 @@ import com.kwad.sdk.utils.r;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends com.kwad.components.ad.reward.i.a {
     public b ua = new b();
-    public final C0618a ub = new C0618a(d.sf());
+    public final C0623a ub = new C0623a(d.sf());
 
     /* renamed from: com.kwad.components.ad.reward.i.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0618a extends com.kwad.components.ad.reward.i.b {
+    /* loaded from: classes10.dex */
+    public static class C0623a extends com.kwad.components.ad.reward.i.b {
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 int)] */
-        public C0618a(int i) {
+        public C0623a(int i) {
             StringBuilder sb = new StringBuilder();
             sb.append(i);
             this.tY = String.format("进阶奖励：浏览详情页 %ss", sb.toString());
@@ -26,7 +26,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b extends com.kwad.components.ad.reward.i.b {
         public b() {
             this.tY = "基础奖励：观看视频";

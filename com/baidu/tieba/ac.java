@@ -27,7 +27,7 @@ public class ac implements xb {
     }
 
     @Override // com.baidu.tieba.xb
-    public in a(byte[] bArr, int i, int i2) {
+    public jn a(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
@@ -35,13 +35,13 @@ public class ac implements xb {
             if (f == null) {
                 return null;
             }
-            return new in(f);
+            return new jn(f);
         }
-        return (in) invokeLII.objValue;
+        return (jn) invokeLII.objValue;
     }
 
     @Override // com.baidu.tieba.xb
-    public in get(String str) {
+    public jn get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -49,8 +49,8 @@ public class ac implements xb {
             if (e == null) {
                 return null;
             }
-            return new in(e);
+            return new jn(e);
         }
-        return (in) invokeL.objValue;
+        return (jn) invokeL.objValue;
     }
 }

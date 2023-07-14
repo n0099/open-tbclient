@@ -4,7 +4,7 @@ import java.util.Arrays;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.ModuleDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CharValue extends IntegerValueConstant<Character> {
     public CharValue(char c) {
         super(Character.valueOf(c));

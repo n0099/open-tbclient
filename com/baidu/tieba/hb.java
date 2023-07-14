@@ -106,7 +106,7 @@ public class hb {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ebVar) != null) || ebVar == null) {
             return;
         }
-        xi.c();
+        yi.c();
         if (ebVar instanceof cb) {
             FrameHelper.insert(this.a, (cb) ebVar);
         } else if (ebVar instanceof jb) {
@@ -123,7 +123,7 @@ public class hb {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fbVar) != null) || fbVar == null) {
             return;
         }
-        xi.c();
+        yi.c();
         if (fbVar instanceof bb) {
             FrameHelper.insert(this.d, (bb) fbVar);
         } else if (fbVar instanceof ib) {
@@ -140,7 +140,7 @@ public class hb {
         if ((interceptable != null && interceptable.invokeL(1048579, this, ebVar) != null) || ebVar == null) {
             return;
         }
-        xi.c();
+        yi.c();
         if (ebVar instanceof cb) {
             this.a.remove(ebVar);
         } else if (ebVar instanceof jb) {

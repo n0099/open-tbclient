@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
-import com.baidu.tieba.mo5;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.to6;
-import com.baidu.tieba.uo6;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.op5;
+import com.baidu.tieba.xp6;
+import com.baidu.tieba.yp6;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class SecondFloorFragment extends BaseFragment {
     public boolean e;
     public String f;
     @Nullable
-    public mo5.a g;
+    public op5.a g;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -174,8 +174,8 @@ public class SecondFloorFragment extends BaseFragment {
                 d dVar = new d();
                 dVar.a = view2;
                 dVar.b = (AlaRecommendLayout) view2.findViewById(R.id.recommend_layout);
-                dVar.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091e37);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e39);
+                dVar.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091e59);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e5b);
                 return dVar;
             }
             return (d) invokeL.objValue;
@@ -201,7 +201,7 @@ public class SecondFloorFragment extends BaseFragment {
     public void L1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            yg.a().removeCallbacks(this.d);
+            zg.a().removeCallbacks(this.d);
         }
     }
 
@@ -211,9 +211,9 @@ public class SecondFloorFragment extends BaseFragment {
             if (this.b == null) {
                 PollingModel pollingModel = new PollingModel(getPageContext(), getUniqueId());
                 this.b = pollingModel;
-                pollingModel.R0(new c(this));
+                pollingModel.S0(new c(this));
             }
-            this.b.C0("live_pic_second_floor,live_follow_second_floor");
+            this.b.D0("live_pic_second_floor,live_follow_second_floor");
         }
     }
 
@@ -224,7 +224,7 @@ public class SecondFloorFragment extends BaseFragment {
         }
         this.a.c.setVisibility(8);
         this.a.b.setVisibility(8);
-        mo5.a aVar = this.g;
+        op5.a aVar = this.g;
         if (aVar != null) {
             aVar.a(false, this.e);
         }
@@ -243,7 +243,7 @@ public class SecondFloorFragment extends BaseFragment {
         }
     }
 
-    public void R1(@Nullable mo5.a aVar) {
+    public void R1(@Nullable op5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.g = aVar;
@@ -283,7 +283,7 @@ public class SecondFloorFragment extends BaseFragment {
             this.e = false;
             this.a.c.setVisibility(0);
             this.a.b.setVisibility(8);
-            mo5.a aVar = this.g;
+            op5.a aVar = this.g;
             if (aVar != null) {
                 aVar.b(false);
             }
@@ -296,8 +296,8 @@ public class SecondFloorFragment extends BaseFragment {
             this.e = true;
             this.a.c.setVisibility(8);
             this.a.b.setVisibility(0);
-            TiebaStatic.log(to6.c("c13620", 7));
-            mo5.a aVar = this.g;
+            TiebaStatic.log(xp6.c("c13620", 7));
+            op5.a aVar = this.g;
             if (aVar != null) {
                 aVar.b(true);
             }
@@ -323,7 +323,7 @@ public class SecondFloorFragment extends BaseFragment {
         } else {
             this.a.c.setVisibility(0);
         }
-        mo5.a aVar = this.g;
+        op5.a aVar = this.g;
         if (aVar != null) {
             aVar.a(true, this.e);
         }
@@ -332,13 +332,13 @@ public class SecondFloorFragment extends BaseFragment {
     public final void U1(@Nullable List<AlaLiveInfo> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && list != null && !list.isEmpty()) {
-            this.a.d.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11e1), Integer.valueOf(list.size())));
-            this.a.b.setData(new uo6(getUniqueId(), list, this.f));
+            this.a.d.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11f3), Integer.valueOf(list.size())));
+            this.a.b.setData(new yp6(getUniqueId(), list, this.f));
             TbSingleton tbSingleton = TbSingleton.getInstance();
             if (tbSingleton.isFirstEnterBigPicPage()) {
                 tbSingleton.setFirstEnterBigPicPage(false);
                 N1();
-                yg.a().postDelayed(this.d, 3000L);
+                zg.a().postDelayed(this.d, 3000L);
                 return;
             }
             this.a.c.setVisibility(0);
@@ -350,7 +350,7 @@ public class SecondFloorFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.a.b.d(i);
-            s75 d2 = s75.d(this.a.c);
+            d85 d2 = d85.d(this.a.c);
             d2.e(R.string.A_X05);
             d2.o(R.string.J_X01);
             d2.h(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0106));
@@ -362,7 +362,7 @@ public class SecondFloorFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00f5, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00f4, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }

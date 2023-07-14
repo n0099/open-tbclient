@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.view.Choreographer;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@TargetApi(16)
 /* loaded from: classes6.dex */
-public class ht5 implements Choreographer.FrameCallback {
+public abstract class ht5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public int d;
-    public int e;
-    public boolean f;
+    public boolean a;
+
+    public abstract int b();
+
+    public abstract boolean c();
 
     public ht5() {
         Interceptable interceptable = $ic;
@@ -33,80 +29,61 @@ public class ht5 implements Choreographer.FrameCallback {
                 return;
             }
         }
-        this.a = 0L;
-        this.d = 0;
-        this.e = -1;
-        this.f = false;
+        this.a = da5.p().l("page_stay_duration_switch", false);
     }
 
-    public int b() {
+    public boolean a(jt5 jt5Var) {
+        InterceptResult invokeL;
+        int b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jt5Var)) == null) {
+            if (jt5Var != null && !jt5Var.p()) {
+                if (jt5Var.a) {
+                    jt5Var.x(it5.b(jt5Var.h(), 6));
+                } else {
+                    if (b() > kt5.b().c()) {
+                        b = kt5.b().c();
+                    } else {
+                        b = b();
+                    }
+                    if (b > 5) {
+                        b = 5;
+                    }
+                    jt5Var.x(it5.b(jt5Var.h(), b));
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.c = currentTimeMillis;
-            this.b = currentTimeMillis + 1000;
-            this.a = 0L;
-            this.d = 0;
-            this.e = -1;
-            this.f = false;
-            Choreographer.getInstance().postFrameCallback(this);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = true;
-            Choreographer.getInstance().removeFrameCallback(this);
-            a(System.currentTimeMillis());
-            this.d = 0;
-            this.c = 0L;
-        }
-    }
-
-    public final void a(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            long j2 = this.c;
-            if (j2 <= 0) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                return this.a;
             }
-            long j3 = j - j2;
-            if (j3 > 0 && this.e <= 0) {
-                this.e = (int) (60 - ((this.d * 1000) / j3));
+            if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
+                e(false);
+                return false;
+            } else if (!kt5.b().f()) {
+                e(false);
+                return false;
+            } else {
+                e(true);
+                return true;
             }
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // android.view.Choreographer.FrameCallback
-    public void doFrame(long j) {
+    public final void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            long j2 = this.a;
-            if (j2 != 0) {
-                long j3 = (j - j2) / 1000000;
-                if (j3 > 16 && j3 < 960) {
-                    this.d = (int) (this.d + (j3 / 16));
-                }
-            }
-            this.a = j;
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis < this.b && !this.f) {
-                Choreographer.getInstance().postFrameCallback(this);
-                return;
-            }
-            a(currentTimeMillis);
-            this.d = 0;
-            this.c = 0L;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.a != z) {
+            da5.p().A("page_stay_duration_switch", true);
+            this.a = z;
         }
     }
 }

@@ -1,49 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.CookieManager;
-import com.baidu.webkit.sdk.CookieSyncManager;
 /* loaded from: classes5.dex */
-public class dq3 {
+public final class dq3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                CookieManager.getInstance().setCookie(".baidu.com", up3.k(".baidu.com", "SP_FW_VER", hl3.h(0), 2937600L));
-                CookieManager.getInstance().setCookie(".baidu.com", up3.k(".baidu.com", "SG_FW_VER", hl3.h(1), 2937600L));
-                dq3.b();
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -58,25 +28,19 @@ public class dq3 {
                 return;
             }
         }
-        jv2.g0().getSwitch("swan_env_init_thread_pool_optimize", true);
+        a = a("b3Bwbw==");
+        b = a("T1BQTw==");
+        a("T3Bwbw==");
+        c = a("cm8uYnVpbGQudmVyc2lvbi5vcHBvcm9t");
+        d = a("Y29tLm9wcG8uZmVhdHVyZS5zY3JlZW4uaGV0ZXJvbW9ycGhpc20=");
     }
 
-    public static void a() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            bc3.M().post(new a());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new String(Base64.decode(str, 0));
         }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            if (jo3.f()) {
-                CookieManager.getInstance().flush();
-                return;
-            }
-            CookieSyncManager.createInstance(AppRuntime.getAppContext());
-            CookieSyncManager.getInstance().sync();
-        }
+        return (String) invokeL.objValue;
     }
 }

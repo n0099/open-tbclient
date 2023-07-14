@@ -1,72 +1,96 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.TabList;
+import java.util.List;
+import tbclient.Personalized.DataRes;
+import tbclient.Personalized.DislikeReason;
+import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes7.dex */
-public class o68 implements xn {
+public class o68 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984312, "Lcom/baidu/tieba/o68;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static void a(DataRes.Builder builder, List<yn> list) {
+        cq6 cq6Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, builder, list) == null) && builder != null && list != null) {
+            LongSparseArray longSparseArray = new LongSparseArray();
+            for (ThreadPersonalized threadPersonalized2 : builder.thread_personalized) {
+                if (threadPersonalized2 != null) {
+                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947984312, "Lcom/baidu/tieba/o68;");
-                return;
+            int count = ListUtils.getCount(list);
+            for (int i = 0; i < count; i++) {
+                yn ynVar = (yn) ListUtils.getItem(list, i);
+                if ((ynVar instanceof cq6) && (threadData = (cq6Var = (cq6) ynVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(wg.g(threadData.getTid(), 0L))) != null) {
+                    cq6Var.C(threadPersonalized.source);
+                    cq6Var.H(threadPersonalized.weight);
+                    cq6Var.y(threadPersonalized.abtest_tag);
+                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                    threadData.mRecomSource = threadPersonalized.source;
+                    threadData.mRecomWeight = threadPersonalized.weight;
+                    if (threadData.getThreadVideoInfo() != null) {
+                        cq6Var.A(threadData.getThreadVideoInfo().is_vertical);
+                    }
+                    List<DislikeReason> list2 = threadPersonalized.dislike_resource;
+                    if (list2 != null) {
+                        SparseArray<String> sparseArray = new SparseArray<>();
+                        for (DislikeReason dislikeReason : list2) {
+                            int intValue = dislikeReason.dislike_id.intValue();
+                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                        }
+                        cq6Var.feedBackReasonMap = sparseArray;
+                        cq6Var.z(threadPersonalized.extra);
+                    }
+                }
             }
         }
-        b = BdUniqueId.gen();
     }
 
-    public o68() {
+    public static void b(List<yn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void a(TabList tabList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, tabList) != null) || tabList == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
             return;
         }
-        String str = tabList.tab_name;
-        this.a = tabList.tab_type;
-        String str2 = tabList.share_pic;
-        String str3 = tabList.share_title;
-        String str4 = tabList.share_desc;
-        String str5 = tabList.share_url;
+        int count = ListUtils.getCount(list);
+        int i = 0;
+        while (i < count) {
+            yn ynVar = (yn) ListUtils.getItem(list, i);
+            boolean z = ynVar instanceof qq6;
+            if (z) {
+                ((qq6) ynVar).j(true);
+            }
+            i++;
+            yn ynVar2 = (yn) ListUtils.getItem(list, i);
+            if (z && (ynVar2 instanceof qq6)) {
+                qq6 qq6Var = (qq6) ynVar;
+                qq6 qq6Var2 = (qq6) ynVar2;
+                if (qq6Var.w()) {
+                    qq6Var2.j(false);
+                    if (qq6Var2 instanceof v68) {
+                        qq6Var.O(false);
+                    }
+                }
+            }
+            if (ynVar instanceof v68) {
+                ((v68) ynVar).O(false);
+            }
+        }
+    }
+
+    public static void c(DataRes.Builder builder, List<yn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, builder, list) == null) {
+            b(list);
+            a(builder, list);
+        }
     }
 }

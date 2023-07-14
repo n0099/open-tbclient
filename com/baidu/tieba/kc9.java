@@ -1,170 +1,124 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreReqMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleATitleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class kc9 {
+public class kc9 extends ln<tc9, InterestedForumStyleATitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbModel a;
-    public b b;
-    public final BdUniqueId c;
-    public final kb d;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i, String str, String str2);
-
-        void onSuccess(List<n4a> list);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends kb {
+    public class a implements io {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kc9 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(kc9 kc9Var, int i, int i2) {
-            super(i, i2);
+        public a(kc9 kc9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kc9Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {kc9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = kc9Var;
         }
 
-        @Override // com.baidu.tieba.kb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.io
+        public void b(View view2, yn ynVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != null && responsedMessage.getOrginalMessage().getTag() != this.a.c) {
-                return;
-            }
-            if (responsedMessage instanceof LookMoreHttpResMessage) {
-                LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
-                List<n4a> data = lookMoreHttpResMessage.getData();
-                String errorString = lookMoreHttpResMessage.getErrorString();
-                int error = lookMoreHttpResMessage.getError();
-                if (error == 0) {
-                    if (!ListUtils.isEmpty(data)) {
-                        this.a.b.onSuccess(data);
-                        return;
-                    }
-                    return;
-                }
-                this.a.b.a(error, errorString, "");
-            } else if (responsedMessage instanceof LookMoreSocketResMessage) {
-                LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
-                List<n4a> data2 = lookMoreSocketResMessage.getData();
-                String errorString2 = lookMoreSocketResMessage.getErrorString();
-                int error2 = lookMoreSocketResMessage.getError();
-                if (error2 == 0) {
-                    if (data2 != null) {
-                        this.a.b.onSuccess(data2);
-                        return;
-                    }
-                    return;
-                }
-                this.a.b.a(error2, errorString2, "");
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, ynVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(ynVar instanceof tc9)) {
             }
         }
     }
 
-    public kc9(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kc9(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbModel, baseFragmentActivity};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new a(this, CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
-        this.a = pbModel;
-        this.c = BdUniqueId.gen();
-        e();
-        this.d.setTag(baseFragmentActivity.getUniqueId());
-        MessageManager.getInstance().registerListener(this.d);
-        this.b = null;
+        this.mContext = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this));
     }
 
-    public void f(b bVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: s */
+    public InterestedForumStyleATitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.b = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new InterestedForumStyleATitleViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0461, viewGroup, false));
+        }
+        return (InterestedForumStyleATitleViewHolder) invokeL.objValue;
+    }
+
+    public final void x(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, interestedForumStyleATitleViewHolder) == null) {
+            d85 d = d85.d(interestedForumStyleATitleViewHolder.c);
+            d.x(R.color.CAM_X0105);
+            d.C(R.dimen.T_X06);
+            d.D(R.string.F_X02);
         }
     }
 
-    public void c(List<Long> list) {
-        PbModel pbModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && (pbModel = this.a) != null && pbModel.y1() != null) {
-            int l = xi.l(TbadkCoreApplication.getInst());
-            int j = xi.j(TbadkCoreApplication.getInst());
-            LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-            lookMoreReqMessage.setKz(Long.valueOf(vg.g(this.a.b, 0L)));
-            lookMoreReqMessage.setPost_id(list);
-            lookMoreReqMessage.setSt_type(vg.e(this.a.mStType, 0));
-            lookMoreReqMessage.setWith_floor(1);
-            lookMoreReqMessage.setScr_w(l);
-            lookMoreReqMessage.setScr_h(j);
-            lookMoreReqMessage.setTag(this.c);
-            MessageManager.getInstance().sendMessage(lookMoreReqMessage);
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.ln
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tc9 tc9Var, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
+        t(i, view2, viewGroup, tc9Var, interestedForumStyleATitleViewHolder);
+        return view2;
     }
 
-    public void d() {
+    public View t(int i, View view2, ViewGroup viewGroup, tc9 tc9Var, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.d);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tc9Var, interestedForumStyleATitleViewHolder})) == null) {
+            if (tc9Var == null) {
+                return view2;
+            }
+            x(interestedForumStyleATitleViewHolder);
+            u(interestedForumStyleATitleViewHolder, tc9Var);
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public final void e() {
+    public final void u(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder, tc9 tc9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, v3a.a(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
-            tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            v3a.f(309446, LookMoreSocketResMessage.class, false);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleATitleViewHolder, tc9Var) == null) {
+            interestedForumStyleATitleViewHolder.b.setDefaultResource(R.drawable.obfuscated_res_0x7f08094a);
+            interestedForumStyleATitleViewHolder.b.N(tc9Var.a(), 10, false);
+            interestedForumStyleATitleViewHolder.c.setText(tc9Var.b());
         }
     }
 }

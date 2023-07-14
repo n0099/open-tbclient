@@ -11,7 +11,7 @@ import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class KotlinTypeRefiner {
     public abstract ClassDescriptor findClassAcrossModuleDependencies(ClassId classId);
 
@@ -27,7 +27,7 @@ public abstract class KotlinTypeRefiner {
 
     public abstract KotlinType refineType(KotlinType kotlinType);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Default extends KotlinTypeRefiner {
         public static final Default INSTANCE = new Default();
 
@@ -66,9 +66,9 @@ public abstract class KotlinTypeRefiner {
         public Collection<KotlinType> refineSupertypes(ClassDescriptor classDescriptor) {
             TypeConstructor typeConstructor = classDescriptor.getTypeConstructor();
             Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "classDescriptor.typeConstructor");
-            Collection<KotlinType> mo2100getSupertypes = typeConstructor.mo2100getSupertypes();
-            Intrinsics.checkExpressionValueIsNotNull(mo2100getSupertypes, "classDescriptor.typeConstructor.supertypes");
-            return mo2100getSupertypes;
+            Collection<KotlinType> mo2102getSupertypes = typeConstructor.mo2102getSupertypes();
+            Intrinsics.checkExpressionValueIsNotNull(mo2102getSupertypes, "classDescriptor.typeConstructor.supertypes");
+            return mo2102getSupertypes;
         }
     }
 }

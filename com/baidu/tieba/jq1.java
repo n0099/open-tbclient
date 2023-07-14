@@ -2,16 +2,15 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sdk.base.api.CallBack;
 /* loaded from: classes6.dex */
-public class jq1 {
+public abstract class jq1<T> implements CallBack<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public String d;
+    public final long a;
 
     public jq1() {
         Interceptable interceptable = $ic;
@@ -26,7 +25,15 @@ public class jq1 {
                 return;
             }
         }
-        this.c = -1;
-        this.d = "";
+        this.a = System.currentTimeMillis();
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
     }
 }

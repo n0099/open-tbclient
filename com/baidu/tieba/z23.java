@@ -1,67 +1,87 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.util.Log;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okio.BufferedSink;
+import okio.Okio;
+import okio.Source;
 /* loaded from: classes8.dex */
-public class z23 extends w23 {
+public class z23 extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final File a;
+    public final p33 b;
+    public final String c;
 
-    public z23() {
+    public z23(File file, String str, p33 p33Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, str, p33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = file;
+        this.c = str;
+        this.b = p33Var;
     }
 
-    @Override // com.baidu.tieba.w23
-    public boolean a(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
+    @Override // okhttp3.RequestBody
+    public long contentLength() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (w23.c) {
-                Log.d("SolidErrorPageParser", "SolidErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!b(bitmap, rect)) {
-                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            }
-            int i = 0;
-            for (int i2 = rect.left + 1; i2 < rect.right - 1; i2++) {
-                for (int i3 = rect.top + 1; i3 < rect.bottom - 1; i3++) {
-                    int pixel = bitmap.getPixel(i2, i3);
-                    if (i == 0) {
-                        i = pixel;
-                    }
-                    if (i != pixel && pixel != 0) {
-                        if (ms1.a) {
-                            Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + "," + i3 + SmallTailInfo.EMOTION_SUFFIX);
-                        }
-                        return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.length();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return MediaType.parse(this.c);
+        }
+        return (MediaType) invokeV.objValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public void writeTo(BufferedSink bufferedSink) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
+            Source source = null;
+            try {
+                source = Okio.source(this.a);
+                long j = 0;
+                while (true) {
+                    long read = source.read(bufferedSink.buffer(), 2048L);
+                    if (read != -1) {
+                        j += read;
+                        bufferedSink.flush();
+                        this.b.a(j);
+                    } else {
+                        return;
                     }
                 }
+            } finally {
+                zr4.d(source);
             }
-            if (w23.c) {
-                Log.d("SolidErrorPageParser", "color = " + i + "图片大小 " + rect.width() + " x " + rect.height());
-            }
-            return true;
         }
-        return invokeLL.booleanValue;
     }
 }

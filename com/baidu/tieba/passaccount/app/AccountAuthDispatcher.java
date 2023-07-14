@@ -9,12 +9,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.account.certification.CertificationCheckParams;
 import com.baidu.tbadk.core.account.certification.CertificationRequestParams;
+import com.baidu.tbadk.core.account.certification.CheckCertificationResult;
 import com.baidu.tbadk.core.account.certification.ICertificationCallback;
 import com.baidu.tbadk.core.account.certification.ICheckCertificationCallback;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.w05;
-import com.baidu.tieba.x05;
-import com.baidu.tieba.xu9;
+import com.baidu.tieba.f15;
+import com.baidu.tieba.y2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class AccountAuthDispatcher implements xu9 {
+public class AccountAuthDispatcher implements y2a {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, Integer> STATUS;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,12 +62,12 @@ public class AccountAuthDispatcher implements xu9 {
         }
 
         @Override // com.baidu.tbadk.core.account.certification.ICheckCertificationCallback
-        public void onResult(@Nullable w05 w05Var) {
+        public void onResult(@Nullable CheckCertificationResult checkCertificationResult) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, w05Var) != null) || w05Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, checkCertificationResult) != null) || checkCertificationResult == null) {
                 return;
             }
-            if (!AccountAuthDispatcher.STATUS.containsKey(w05Var.b) || ((Integer) AccountAuthDispatcher.STATUS.get(w05Var.b)).intValue() < this.a) {
+            if (!AccountAuthDispatcher.STATUS.containsKey(checkCertificationResult.b) || ((Integer) AccountAuthDispatcher.STATUS.get(checkCertificationResult.b)).intValue() < this.a) {
                 this.d.launchRealName(this.b, this.c);
             } else {
                 this.d.dealOneLink(this.b, this.c);
@@ -104,18 +104,18 @@ public class AccountAuthDispatcher implements xu9 {
         }
 
         @Override // com.baidu.tbadk.core.account.certification.ICertificationCallback
-        public void onResult(x05 x05Var) {
+        public void onResult(f15 f15Var) {
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, x05Var) != null) || x05Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, f15Var) != null) || f15Var == null) {
                 return;
             }
-            if (x05Var.a == 0) {
+            if (f15Var.a == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            if (!z || !x05Var.f) {
+            if (!z || !f15Var.f) {
                 return;
             }
             this.c.dealOneLink(this.a, this.b);
@@ -170,7 +170,7 @@ public class AccountAuthDispatcher implements xu9 {
         }
     }
 
-    @Override // com.baidu.tieba.xu9
+    @Override // com.baidu.tieba.y2a
     public void dispatch(JSONObject jSONObject, Context context) {
         String str;
         int i;

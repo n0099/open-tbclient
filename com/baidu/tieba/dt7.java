@@ -1,23 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.CardHListViewData;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class dt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, long j, String str2, ys7 ys7Var, int i) {
+    public static boolean a(ArrayList<yn> arrayList, String str, CardHListViewData cardHListViewData, int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), str2, ys7Var, Integer.valueOf(i)}) == null) {
-            StatisticItem param = new StatisticItem(str).param("fid", j).param("fname", str2).param("obj_param1", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE).param(TiebaStatic.Params.OBJ_PARAM2, i);
-            if (ys7Var != null) {
-                param.param(TiebaStatic.Params.OBJ_PARAM3, ys7Var.e);
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65536, null, arrayList, str, cardHListViewData, i)) == null) {
+            if (cardHListViewData != null && !ListUtils.isEmpty(arrayList) && !StringUtils.isNull(str) && i >= 0) {
+                int size = arrayList.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    yn ynVar = arrayList.get(i2);
+                    if ((ynVar instanceof CardHListViewData) && str.equals(((CardHListViewData) ynVar).threadId)) {
+                        return false;
+                    }
+                }
+                int i3 = i + 1;
+                if (i3 > 0) {
+                    ListUtils.add(arrayList, i3, cardHListViewData);
+                    return true;
+                }
             }
-            param.eventStat();
+            return false;
         }
+        return invokeLLLI.booleanValue;
+    }
+
+    public static boolean b(FrsRequestData frsRequestData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsRequestData)) == null) {
+            if (frsRequestData == null || frsRequestData.a0() != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -16,12 +16,12 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i69;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.gb5;
+import com.baidu.tieba.ib5;
+import com.baidu.tieba.mc9;
 import com.baidu.tieba.newinterest.model.InterestedForumModel;
-import com.baidu.tieba.oa5;
-import com.baidu.tieba.qa5;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public View j;
     public LinearLayout k;
     public View l;
-    public i69 m;
+    public mc9 m;
 
     public InterestedForumStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             if (context == null) {
                 context = TbadkCoreApplication.getInst();
             }
-            return xi.g(context, i);
+            return yi.g(context, i);
         }
         return invokeI.intValue;
     }
@@ -120,32 +120,32 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public final void N1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.h = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091133);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091141);
+            this.h = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091145);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091153);
             this.g = textView;
             String[] strArr = this.b;
             if (strArr != null && strArr.length == 3) {
                 textView.setText(strArr[0]);
                 this.h.setText(this.b[2]);
             }
-            oa5 oa5Var = new oa5();
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f091120);
+            gb5 gb5Var = new gb5();
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f091132);
             this.i = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-            this.i.setConfig(oa5Var);
-            this.i.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0ac5));
+            this.i.setConfig(gb5Var);
+            this.i.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0ad0));
             this.i.setEnabled(false);
-            qa5 qa5Var = new qa5();
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f0920f1);
+            ib5 ib5Var = new ib5();
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f092125);
             this.f = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
-            qa5Var.s(R.color.CAM_X0105);
-            this.f.setConfig(qa5Var);
-            this.f.setText(getString(R.string.obfuscated_res_0x7f0f0acd));
-            this.j = this.d.findViewById(R.id.obfuscated_res_0x7f091121);
-            this.k = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091122);
-            this.l = this.d.findViewById(R.id.obfuscated_res_0x7f091123);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.d.findViewById(R.id.obfuscated_res_0x7f091138);
+            ib5Var.t(R.color.CAM_X0105);
+            this.f.setConfig(ib5Var);
+            this.f.setText(getString(R.string.obfuscated_res_0x7f0f0ad8));
+            this.j = this.d.findViewById(R.id.obfuscated_res_0x7f091133);
+            this.k = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091134);
+            this.l = this.d.findViewById(R.id.obfuscated_res_0x7f091135);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.d.findViewById(R.id.obfuscated_res_0x7f09114a);
             this.e = bdTypeRecyclerView;
             bdTypeRecyclerView.getRecycledViewPool().setMaxRecycledViews(1, 12);
             ((DefaultItemAnimator) this.e.getItemAnimator()).setSupportsChangeAnimations(false);
@@ -154,7 +154,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             View view2 = new View(this.e.getContext());
             view2.setLayoutParams(new LinearLayout.LayoutParams(-2, L1(R.dimen.tbds78)));
             this.e.addHeaderView(view2);
-            this.m = new i69(this, this.e, this.i, this.f, getPageContext(), new InterestedForumModel(getUniqueId()), this.a);
+            this.m = new mc9(this, this.e, this.i, this.f, getPageContext(), new InterestedForumModel(getUniqueId()), this.a);
         }
     }
 
@@ -163,22 +163,22 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            s75 d = s75.d(this.g);
+            d85 d = d85.d(this.g);
             d.x(R.color.CAM_X0105);
             d.C(R.dimen.T_X03);
             d.D(R.string.F_X02);
-            s75 d2 = s75.d(this.h);
+            d85 d2 = d85.d(this.h);
             d2.x(R.color.CAM_X0108);
             d2.C(R.dimen.T_X07);
             d2.D(R.string.F_X01);
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
-            s75.d(this.k).f(R.color.CAM_X0201);
-            s75.d(this.j).p(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
-            s75.d(this.l).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
+            d85.d(this.k).f(R.color.CAM_X0201);
+            d85.d(this.j).p(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
+            d85.d(this.l).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.f.k();
-            i69 i69Var = this.m;
-            if (i69Var != null) {
-                i69Var.k(i);
+            mc9 mc9Var = this.m;
+            if (mc9Var != null) {
+                mc9Var.k(i);
             }
         }
     }
@@ -192,7 +192,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
                 this.a = getArguments().getInt("scene");
                 this.b = getArguments().getStringArray(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);
             }
-            this.d = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d031d, viewGroup, false);
+            this.d = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0326, viewGroup, false);
             N1();
             initData();
             return this.d;

@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.protobuf;
 
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface Parser<MessageType> {
     MessageType parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException;
 

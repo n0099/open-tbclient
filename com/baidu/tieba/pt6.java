@@ -1,19 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s7;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class pt6 implements e0, s7.a {
+public final class pt6 implements qc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public it6 a;
+
+    @Override // com.baidu.tieba.qc7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreStatisticKey.HOT_TOPIC_CLICK : (String) invokeV.objValue;
+    }
 
     public pt6() {
         Interceptable interceptable = $ic;
@@ -25,35 +32,20 @@ public abstract class pt6 implements e0, s7.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = it6.i.a();
     }
 
-    public final it6 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qc7
+    public Map<String, String> a(d87 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            hashMap.put("obj_locate", "index");
+            return hashMap;
         }
-        return (it6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s7.a
-    @CallSuper
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = it6.i.a();
-        }
-    }
-
-    public final void b(it6 it6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it6Var) == null) {
-            Intrinsics.checkNotNullParameter(it6Var, "<set-?>");
-            this.a = it6Var;
-        }
+        return (Map) invokeL.objValue;
     }
 }

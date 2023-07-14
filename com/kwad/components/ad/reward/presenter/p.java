@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk.core.webview.a.kwai.a {
     public static long qY = 2000;
     public KsAdWebView bF;
@@ -178,7 +178,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
                     }
                 }
                 if (adTemplate != null) {
-                    AdWebViewActivityProxy.launch(p.this.getContext(), new AdWebViewActivityProxy.a.C0648a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
+                    AdWebViewActivityProxy.launch(p.this.getContext(), new AdWebViewActivityProxy.a.C0653a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
                 }
             }
         }));
@@ -236,9 +236,9 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
 
     private void hl() {
         SceneImpl sceneImpl = this.nM.mAdTemplate.mAdScene;
-        SceneImpl m170clone = sceneImpl != null ? sceneImpl.m170clone() : null;
-        if (m170clone != null) {
-            com.kwad.components.ad.reward.e.a(m170clone, this);
+        SceneImpl m172clone = sceneImpl != null ? sceneImpl.m172clone() : null;
+        if (m172clone != null) {
+            com.kwad.components.ad.reward.e.a(m172clone, this);
         }
     }
 
@@ -364,7 +364,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0913a1);
+        KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0913b5);
         this.qX = ksRefluxView;
         this.bF = ksRefluxView.getWebView();
         this.qX.setViewListener(this);

@@ -1,8 +1,27 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface b5a {
-    @Deprecated
-    boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult);
+public class b5a {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile a5a a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static synchronized a5a a() {
+        InterceptResult invokeV;
+        a5a a5aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (b5a.class) {
+                if (a == null) {
+                    a = new a5a();
+                }
+                a5aVar = a;
+            }
+            return a5aVar;
+        }
+        return (a5a) invokeV.objValue;
+    }
 }

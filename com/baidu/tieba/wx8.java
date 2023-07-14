@@ -1,40 +1,115 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.PayChannelService;
+import android.content.Context;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.impersonal.components.LoadingMsgView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class wx8 extends wl1<PayChannelService> {
+public final class wx8 extends vx8<zv8, LoadingMsgView, tv8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public wx8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static final class a implements LoadingMsgView.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tv8 a;
+
+        public a(tv8 tv8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tv8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tv8Var;
+        }
+
+        @Override // com.baidu.tieba.impersonal.components.LoadingMsgView.a
+        public void onShow() {
+            zv8 f;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (f = this.a.c().f()) != null) {
+                f.d(true);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wl1
-    /* renamed from: a */
-    public PayChannelService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wx8(String name) {
+        super(name);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new xx8();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (PayChannelService) invokeV.objValue;
+        Intrinsics.checkNotNullParameter(name, "name");
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vx8
+    /* renamed from: l */
+    public LoadingMsgView g(ViewGroup parent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Context context = parent.getContext();
+            Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+            LoadingMsgView loadingMsgView = new LoadingMsgView(context, null, 2, null);
+            loadingMsgView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+            return loadingMsgView;
+        }
+        return (LoadingMsgView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vx8
+    /* renamed from: k */
+    public void d(LoadingMsgView loadingMsgView, tv8 data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, loadingMsgView, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (loadingMsgView != null) {
+                loadingMsgView.setShowEmotionTextStatusListener(new a(data));
+            }
+            zv8 f = data.c().f();
+            if (f != null) {
+                if (loadingMsgView != null) {
+                    loadingMsgView.setHasShowEmotionText(f.c());
+                }
+                if (loadingMsgView != null) {
+                    loadingMsgView.setAnimationId(f.a());
+                }
+                if (loadingMsgView != null) {
+                    loadingMsgView.setEmotionText(f.b());
+                }
+            }
+        }
     }
 }

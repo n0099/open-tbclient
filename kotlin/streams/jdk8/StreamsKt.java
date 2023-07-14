@@ -25,7 +25,7 @@ import kotlin.sequences.Sequence;
 import kotlin.streams.jdk8.StreamsKt;
 @Metadata(d1 = {"\u0000.\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0006\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0000\u001a\u0012\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u0001*\u00020\u0003H\u0007\u001a\u0012\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00040\u0001*\u00020\u0005H\u0007\u001a\u0012\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00060\u0001*\u00020\u0007H\u0007\u001a\u001e\u0010\u0000\u001a\b\u0012\u0004\u0012\u0002H\b0\u0001\"\u0004\b\u0000\u0010\b*\b\u0012\u0004\u0012\u0002H\b0\tH\u0007\u001a\u001e\u0010\n\u001a\b\u0012\u0004\u0012\u0002H\b0\t\"\u0004\b\u0000\u0010\b*\b\u0012\u0004\u0012\u0002H\b0\u0001H\u0007\u001a\u0012\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00020\f*\u00020\u0003H\u0007\u001a\u0012\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00040\f*\u00020\u0005H\u0007\u001a\u0012\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00060\f*\u00020\u0007H\u0007\u001a\u001e\u0010\u000b\u001a\b\u0012\u0004\u0012\u0002H\b0\f\"\u0004\b\u0000\u0010\b*\b\u0012\u0004\u0012\u0002H\b0\tH\u0007¨\u0006\r"}, d2 = {"asSequence", "Lkotlin/sequences/Sequence;", "", "Ljava/util/stream/DoubleStream;", "", "Ljava/util/stream/IntStream;", "", "Ljava/util/stream/LongStream;", ExifInterface.GPS_DIRECTION_TRUE, "Ljava/util/stream/Stream;", "asStream", "toList", "", "kotlin-stdlib-jdk8"}, k = 2, mv = {1, 6, 0}, pn = "kotlin.streams", xi = 48)
 @JvmName(name = "StreamsKt")
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class StreamsKt {
     @SinceKotlin(version = "1.2")
     public static final Sequence<Double> asSequence(final DoubleStream doubleStream) {
@@ -43,7 +43,7 @@ public final class StreamsKt {
     @SinceKotlin(version = "1.2")
     public static final <T> Stream<T> asStream(final Sequence<? extends T> sequence) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
-        Stream<T> stream = StreamSupport.stream(new Supplier() { // from class: com.baidu.tieba.ypb
+        Stream<T> stream = StreamSupport.stream(new Supplier() { // from class: com.baidu.tieba.vyb
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +51,7 @@ public final class StreamsKt {
             public final Object get() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? StreamsKt.m2121asStream$lambda4(Sequence.this) : invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? StreamsKt.m2123asStream$lambda4(Sequence.this) : invokeV.objValue;
             }
         }, 16, false);
         Intrinsics.checkNotNullExpressionValue(stream, "stream({ Spliterators.sp…literator.ORDERED, false)");
@@ -59,7 +59,7 @@ public final class StreamsKt {
     }
 
     /* renamed from: asStream$lambda-4  reason: not valid java name */
-    public static final Spliterator m2121asStream$lambda4(Sequence this_asStream) {
+    public static final Spliterator m2123asStream$lambda4(Sequence this_asStream) {
         Intrinsics.checkNotNullParameter(this_asStream, "$this_asStream");
         return Spliterators.spliteratorUnknownSize(this_asStream.iterator(), 16);
     }

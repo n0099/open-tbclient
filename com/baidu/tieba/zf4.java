@@ -1,372 +1,308 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jf4;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Member;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 /* loaded from: classes8.dex */
-public class zf4 implements kf4 {
+public class zf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static boolean b;
+    public static Method c;
+    public static Method d;
+    public static Method e;
+    public static Method f;
+    public static Method g;
+    public static Method h;
+    public static Method i;
     public transient /* synthetic */ FieldHolder $fh;
-    public kf4 a;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ mf4 b;
-        public final /* synthetic */ jf4.b c;
-        public final /* synthetic */ zf4 d;
-
-        public a(zf4 zf4Var, int i, mf4 mf4Var, jf4.b bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948358017, "Lcom/baidu/tieba/zf4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf4Var, Integer.valueOf(i), mf4Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.d = zf4Var;
-            this.a = i;
-            this.b = mf4Var;
-            this.c = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Context b = we4.b();
-                if (b == null) {
-                    c92.c("RecommendButton", "context is null.");
-                    return;
-                }
-                this.d.a = jf4.c(this.a, b, this.b);
-                this.d.a.t(this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rf4 a;
-        public final /* synthetic */ zf4 b;
-
-        public b(zf4 zf4Var, rf4 rf4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf4Var, rf4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = zf4Var;
-            this.a = rf4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.d(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jf4.b a;
-        public final /* synthetic */ zf4 b;
-
-        public c(zf4 zf4Var, jf4.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf4Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = zf4Var;
-            this.a = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.t(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ zf4 b;
-
-        public d(zf4 zf4Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf4Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = zf4Var;
-            this.a = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.m(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf4 a;
-
-        public e(zf4 zf4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zf4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.show();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf4 a;
-
-        public f(zf4 zf4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zf4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.hide();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf4 a;
-
-        public g(zf4 zf4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zf4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.destroy();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class h implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf4 a;
-
-        public h(zf4 zf4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zf4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.update();
-            }
-        }
-    }
-
-    public zf4(int i, @NonNull mf4 mf4Var, jf4.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), mf4Var, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948358017, "Lcom/baidu/tieba/zf4;");
                 return;
             }
         }
-        wp3.e0(new a(this, i, mf4Var, bVar));
-    }
-
-    @Override // com.baidu.tieba.kf4
-    public void d(rf4 rf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rf4Var) == null) {
-            wp3.e0(new b(this, rf4Var));
+        boolean f2 = xf4.f();
+        a = f2;
+        if (f2) {
+            try {
+                Method declaredMethod = Class.class.getDeclaredMethod("forName", String.class);
+                c = declaredMethod;
+                declaredMethod.setAccessible(true);
+                Method declaredMethod2 = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
+                d = declaredMethod2;
+                declaredMethod2.setAccessible(true);
+                Method declaredMethod3 = Class.class.getDeclaredMethod("getMethod", String.class, Class[].class);
+                e = declaredMethod3;
+                declaredMethod3.setAccessible(true);
+                Method declaredMethod4 = Class.class.getDeclaredMethod("getDeclaredField", String.class);
+                f = declaredMethod4;
+                declaredMethod4.setAccessible(true);
+                Method declaredMethod5 = Class.class.getDeclaredMethod("getField", String.class);
+                g = declaredMethod5;
+                declaredMethod5.setAccessible(true);
+                Method declaredMethod6 = Class.class.getDeclaredMethod("newInstance", new Class[0]);
+                h = declaredMethod6;
+                declaredMethod6.setAccessible(true);
+                Method declaredMethod7 = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
+                i = declaredMethod7;
+                declaredMethod7.setAccessible(true);
+                b = true;
+            } catch (Throwable unused) {
+            }
         }
     }
 
-    @Override // com.baidu.tieba.kf4
-    public void m(boolean z) {
+    public static Class<?> a(String str) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            wp3.e0(new d(this, z));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return b(str, false);
         }
+        return (Class) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.kf4
-    public void t(jf4.b bVar) {
+    public static boolean l(Member member) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            wp3.e0(new c(this, bVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, member)) == null) {
+            if (member == null) {
+                return false;
+            }
+            return Modifier.isStatic(member.getModifiers());
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.if4
-    public void destroy() {
+    public static <T> T m(Class<T> cls) throws InvocationTargetException, IllegalAccessException, InstantiationException, ClassCastException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            wp3.e0(new g(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, cls)) == null) {
+            if (cls == null) {
+                return null;
+            }
+            if (a && b) {
+                return (T) h.invoke(cls, new Object[0]);
+            }
+            return cls.newInstance();
         }
+        return (T) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.if4
-    public void hide() {
+    public static Class<?> b(String str, boolean z) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wp3.e0(new f(this));
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (z) {
+                xf4.d(xf4.b(str));
+            }
+            if (a && b) {
+                return (Class) c.invoke(null, str);
+            }
+            return Class.forName(str);
         }
+        return (Class) invokeLZ.objValue;
     }
 
-    @Override // com.baidu.tieba.if4
-    public void show() {
+    public static <T> Constructor<T> c(Class<T> cls, Class<?>... clsArr) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException, ClassCastException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            wp3.e0(new e(this));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, clsArr)) == null) {
+            if (cls == null) {
+                return null;
+            }
+            if (a && b) {
+                return (Constructor) i.invoke(cls, clsArr);
+            }
+            return cls.getDeclaredConstructor(clsArr);
         }
+        return (Constructor) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.kf4
-    public void update() {
+    public static Field d(Class<?> cls, String str) throws NoSuchFieldException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            wp3.e0(new h(this));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str)) == null) {
+            if (cls != null && !TextUtils.isEmpty(str)) {
+                if (a && b) {
+                    return (Field) f.invoke(cls, str);
+                }
+                return cls.getDeclaredField(str);
+            }
+            return null;
         }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static Field f(Class<?> cls, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, str)) == null) {
+            Field field = null;
+            if (cls != null && !TextUtils.isEmpty(str)) {
+                boolean z = false;
+                for (Class<?> cls2 = cls; cls2 != null && cls2 != Object.class; cls2 = cls2.getSuperclass()) {
+                    try {
+                        field = d(cls, str);
+                    } catch (Exception unused) {
+                    }
+                    if (field == null && !z) {
+                        z = true;
+                        try {
+                            field = g(cls, str);
+                        } catch (Exception unused2) {
+                        }
+                    }
+                    if (field != null) {
+                        return field;
+                    }
+                }
+            }
+            return field;
+        }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static Field g(Class<?> cls, String str) throws NoSuchFieldException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, cls, str)) == null) {
+            if (cls != null && !TextUtils.isEmpty(str)) {
+                if (a && b) {
+                    return (Field) g.invoke(cls, str);
+                }
+                return cls.getField(str);
+            }
+            return null;
+        }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static Method e(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, cls, str, clsArr)) == null) {
+            if (cls != null && !TextUtils.isEmpty(str)) {
+                if (a && b) {
+                    return (Method) d.invoke(cls, str, clsArr);
+                }
+                return cls.getDeclaredMethod(str, clsArr);
+            }
+            return null;
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Method i(Class<?> cls, String str, Class<?>... clsArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, cls, str, clsArr)) == null) {
+            Method method = null;
+            if (cls != null && !TextUtils.isEmpty(str)) {
+                boolean z = false;
+                for (Class<?> cls2 = cls; cls2 != null && cls2 != Object.class; cls2 = cls2.getSuperclass()) {
+                    try {
+                        method = e(cls, str, clsArr);
+                    } catch (Exception unused) {
+                    }
+                    if (method == null && !z) {
+                        z = true;
+                        try {
+                            method = j(cls, str, clsArr);
+                        } catch (Exception unused2) {
+                        }
+                    }
+                    if (method != null) {
+                        return method;
+                    }
+                }
+            }
+            return method;
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Method j(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, cls, str, clsArr)) == null) {
+            if (cls != null && !TextUtils.isEmpty(str)) {
+                if (a && b) {
+                    return (Method) e.invoke(cls, str, clsArr);
+                }
+                return cls.getMethod(str, clsArr);
+            }
+            return null;
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Object k(Class<?> cls, String str, Object... objArr) {
+        InterceptResult invokeLLL;
+        Class[] clsArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, cls, str, objArr)) == null) {
+            if (objArr != null) {
+                clsArr = new Class[objArr.length];
+                for (int i2 = 0; i2 < objArr.length; i2++) {
+                    clsArr[i2] = objArr[i2].getClass();
+                }
+            } else {
+                clsArr = null;
+            }
+            Method i3 = i(cls, str, clsArr);
+            if (i3 == null) {
+                return null;
+            }
+            try {
+                i3.setAccessible(true);
+                if (!l(i3)) {
+                    return null;
+                }
+                return i3.invoke(null, objArr);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return invokeLLL.objValue;
+    }
+
+    public static Object h(Object obj, String str) {
+        InterceptResult invokeLL;
+        Field f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, obj, str)) == null) {
+            if (obj == null || TextUtils.isEmpty(str) || (f2 = f(obj.getClass(), str)) == null) {
+                return null;
+            }
+            try {
+                f2.setAccessible(true);
+                return f2.get(obj);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return invokeLL.objValue;
     }
 }

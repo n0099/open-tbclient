@@ -2,7 +2,7 @@ package com.kwad.components.core.i.kwai;
 
 import android.os.SystemClock;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public long HA;
     public boolean HB;

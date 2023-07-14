@@ -1,56 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zt9 {
+public class zt9 extends dy {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Set<xn>> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public hv9 B;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948371626, "Lcom/baidu/tieba/zt9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948371626, "Lcom/baidu/tieba/zt9;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zt9(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap();
     }
 
-    public static Set<xn> a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.uz
+    public void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return a.get(str);
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && a.get(str) != null) {
-            a.get(str).clear();
-            a.remove(str);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.A();
         }
     }
 
-    public static void b(String str, Set<xn> set) {
+    @Override // com.baidu.tieba.uz
+    public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, set) == null) {
-            a.put(str, set);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.B();
         }
+    }
+
+    @Override // com.baidu.tieba.dy, com.baidu.tieba.uz
+    public fv9 y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            hv9 hv9Var = new hv9(this.b, this.i);
+            this.B = hv9Var;
+            return hv9Var;
+        }
+        return (fv9) invokeV.objValue;
     }
 }

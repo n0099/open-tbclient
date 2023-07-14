@@ -11,12 +11,12 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.iba;
+import com.baidu.tieba.gca;
 import com.baidu.tieba.kb;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
-import com.baidu.tieba.v3a;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,12 +24,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleListActivity a;
-    public iba b;
+    public zja b;
     public List<DressItemData> c;
     public List<DressItemData> d;
     public c e;
@@ -40,9 +40,9 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public kb j;
     public final HttpMessageListener k;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
-        void a(int i, String str, iba ibaVar, List<DressItemData> list);
+        void a(int i, String str, zja zjaVar, List<DressItemData> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -55,7 +55,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends kb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
                 return;
             }
             if (responsedMessage.getError() != 0) {
-                BubbleListModel.W(this.a);
+                BubbleListModel.X(this.a);
             } else {
                 if (z) {
                     BubbleListHttpResponseMessage bubbleListHttpResponseMessage = (BubbleListHttpResponseMessage) responsedMessage;
@@ -129,7 +129,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
                     this.a.a.showToast(bubbleSetResponseMessage.getErrorString());
                     return;
                 }
-                this.a.m0(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
+                this.a.n0(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
                 this.a.e.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.b, this.a.d);
             }
         }
@@ -199,24 +199,24 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         this.i = bubbleListActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         registerTask();
         registerListener(this.j);
-        k0();
+        l0();
         registerListener(this.k);
     }
 
-    public static /* synthetic */ int W(BubbleListModel bubbleListModel) {
+    public static /* synthetic */ int X(BubbleListModel bubbleListModel) {
         int i = bubbleListModel.f;
         bubbleListModel.f = i - 1;
         return i;
     }
 
-    public void l0(c cVar) {
+    public void m0(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
             this.e = cVar;
         }
     }
 
-    public void U() {
+    public void V() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.g) {
             return;
@@ -228,7 +228,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         sendMessage(bubbleListRequestMessage);
     }
 
-    public boolean j0() {
+    public boolean k0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -241,7 +241,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             BubbleListRequestMessage bubbleListRequestMessage = new BubbleListRequestMessage();
             this.f = 1;
             bubbleListRequestMessage.setPn(1);
@@ -255,12 +255,12 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            v3a.h(309031, BubbleListSocketResponseMessage.class, false, false);
-            v3a.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
+            gca.h(309031, BubbleListSocketResponseMessage.class, false, false);
+            gca.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
         }
     }
 
-    public final void k0() {
+    public final void l0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -270,7 +270,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         }
     }
 
-    public final void m0(int i) {
+    public final void n0(int i) {
         List<DressItemData> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (list = this.d) != null && list.size() > 0) {

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,8 +50,8 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         this.device = new HashMap();
         try {
             if (TbadkCoreApplication.getInst().getLocationShared()) {
-                this.lat = vg.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
-                this.lng = vg.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
+                this.lat = wg.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
+                this.lng = wg.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

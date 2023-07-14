@@ -1,97 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Handler;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes5.dex */
-public class bi1 implements Runnable {
+public class bi1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public Handler b;
-    public String c;
-    public ImageView d;
-    public int e;
-    public int f;
 
-    public bi1(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler, str, imageView, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context.getApplicationContext();
-        this.b = handler;
-        this.c = str;
-        this.d = imageView;
-        this.e = i;
-        this.f = i2;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0036  */
-    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final Bitmap a(String str, int i, int i2) {
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i, i2)) == null) {
-            try {
-                bitmap = vh1.b(this.a).c(str, i, i2);
-            } catch (IOException e) {
-                e = e;
-                bitmap = null;
-            }
-            try {
-            } catch (IOException e2) {
-                e = e2;
-                e.printStackTrace();
-                bitmap2 = bitmap;
-                if (bitmap2 != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (hexString.length() == 1) {
+                    sb.append(TransactionIdCreater.FILL_BYTE);
                 }
+                sb.append(hexString);
             }
-            if (bitmap != null) {
-                vh1.c().a(str, bitmap);
-                return bitmap;
-            }
-            vh1.b(this.a).a(str);
-            bitmap2 = vh1.b(this.a).c(str, i, i2);
-            if (bitmap2 != null) {
-                return yh1.a(str);
-            }
-            return bitmap2;
+            return sb.toString();
         }
-        return (Bitmap) invokeLII.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Bitmap a = a(this.c, this.e, this.f);
-            if (this.b != null) {
-                this.b.obtainMessage(1, new ai1(this.d, this.c, a)).sendToTarget();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest());
+            } catch (NoSuchAlgorithmException unused) {
+                return String.valueOf(str.hashCode());
             }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest());
+            } catch (NoSuchAlgorithmException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

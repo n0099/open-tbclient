@@ -1,89 +1,106 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.InlineExecutionProhibitedException;
-import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public final class rsa implements Executor {
+public class rsa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
+    public LruCache<String, Bitmap> a;
 
     /* loaded from: classes7.dex */
-    public static final class a implements Runnable {
+    public class a extends LruCache<String, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Runnable a;
-        public Thread b;
-        public InlineExecutionProhibitedException c;
 
-        public a(Runnable runnable, Thread thread) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(rsa rsaVar, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {runnable, thread};
+                Object[] objArr = {rsaVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = runnable;
-            this.b = thread;
         }
 
-        public /* synthetic */ a(Runnable runnable, Thread thread, psa psaVar) {
-            this(runnable, thread);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public void entryRemoved(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (Thread.currentThread() == this.b) {
-                    this.c = new InlineExecutionProhibitedException();
-                } else {
-                    this.a.run();
-                }
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bitmap, bitmap2}) == null) && bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: b */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
+                return (bitmap.getRowBytes() * bitmap.getHeight()) / 1024;
+            }
+            return invokeLL.intValue;
         }
     }
 
-    public rsa(Executor executor) {
+    public rsa(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = executor;
+        if (i > 0) {
+            this.a = new a(this, i);
+            return;
+        }
+        throw new IllegalArgumentException("maxSize <= 0");
     }
 
-    @Override // java.util.concurrent.Executor
-    public void execute(Runnable runnable) {
+    public Bitmap a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            a aVar = new a(runnable, Thread.currentThread(), null);
-            this.a.execute(aVar);
-            if (aVar.c != null) {
-                throw aVar.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            aVar.b = null;
+            return this.a.get(str);
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public void b(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap) == null) && !TextUtils.isEmpty(str) && bitmap != null && !bitmap.isRecycled()) {
+            this.a.put(str, bitmap);
         }
     }
 }

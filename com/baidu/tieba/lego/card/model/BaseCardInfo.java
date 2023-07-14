@@ -3,8 +3,8 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.lt8;
-import com.baidu.tieba.su8;
+import com.baidu.tieba.oz8;
+import com.baidu.tieba.v09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,12 +69,12 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             if (shouldResponseAttention()) {
-                if (obj instanceof UpdateAttentionMessage.a) {
-                    UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
-                    return responseAttentionUser(aVar.c, aVar.d);
-                } else if (obj instanceof su8) {
-                    su8 su8Var = (su8) obj;
-                    return responseAttentionForum(su8Var.a, su8Var.b);
+                if (obj instanceof UpdateAttentionMessage.b) {
+                    UpdateAttentionMessage.b bVar = (UpdateAttentionMessage.b) obj;
+                    return responseAttentionUser(bVar.c, bVar.d);
+                } else if (obj instanceof v09) {
+                    v09 v09Var = (v09) obj;
+                    return responseAttentionForum(v09Var.a, v09Var.b);
                 } else {
                     return false;
                 }
@@ -89,7 +89,7 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return lt8.b.a(str).d("fid");
+                return oz8.b.a(str).d("fid");
             }
             return "";
         }
@@ -101,7 +101,7 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return lt8.b.a(str).d("touid");
+                return oz8.b.a(str).d("touid");
             }
             return "";
         }

@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class dd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
 
     public dd5() {
         Interceptable interceptable = $ic;
@@ -27,13 +27,16 @@ public class dd5 {
         }
     }
 
-    public String a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            if (this.a == 1) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public void b(JSONObject jSONObject) {
@@ -41,10 +44,6 @@ public class dd5 {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        try {
-            this.a = jSONObject.optString("client_id");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.a = jSONObject.optInt("agree_icon", 0);
     }
 }

@@ -1,5 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface ng0 {
-    void a(String str, String str2, String str3, mg0 mg0Var);
+    void a(long j, long j2, int i);
+
+    void b(String str);
+
+    void onFailed(Exception exc);
+
+    void onStarted();
 }

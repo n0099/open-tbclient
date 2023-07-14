@@ -1,7 +1,7 @@
 package com.baidu.ugc.audioedit;
 
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BaseAudioConfig implements Serializable {
     public int audioType;
     public boolean enable;

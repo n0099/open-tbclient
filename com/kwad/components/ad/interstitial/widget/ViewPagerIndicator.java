@@ -16,7 +16,7 @@ import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.kwad.sdk.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ViewPagerIndicator extends View {
     public int jf;
     public int jg;
@@ -36,7 +36,7 @@ public class ViewPagerIndicator extends View {
     public ValueAnimator ju;
     public final Context mContext;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void dS();
     }

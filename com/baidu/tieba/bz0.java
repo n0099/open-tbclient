@@ -1,184 +1,166 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.nadcore.player.tail.AdVideoTailFrameView;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bz0 implements CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnVideoSizeChangedListener, CyberPlayerManager.OnMediaSourceChangedListener {
+public class bz0 extends ty0 implements AdVideoTailFrameView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gz0 a;
+    public AdVideoTailFrameView b;
+    public Object c;
 
-    public final int b(int i) {
-        InterceptResult invokeI;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i != 701) {
-                if (i != 702) {
-                    if (i != 904) {
-                        if (i != 910) {
-                            if (i != 924) {
-                                if (i != 946) {
-                                    if (i != 5000) {
-                                        if (i != 10009) {
-                                            if (i != 10103) {
-                                                if (i != 936) {
-                                                    if (i != 937) {
-                                                        if (i != 955) {
-                                                            if (i != 956) {
-                                                                if (i != 11004) {
-                                                                    if (i != 11005) {
-                                                                        if (i != 12005) {
-                                                                            if (i != 12006) {
-                                                                                return i;
-                                                                            }
-                                                                            return 12006;
-                                                                        }
-                                                                        return 12005;
-                                                                    }
-                                                                    return 11005;
-                                                                }
-                                                                return 11004;
-                                                            }
-                                                            return 956;
-                                                        }
-                                                        return 955;
-                                                    }
-                                                    return 937;
-                                                }
-                                                return 936;
-                                            }
-                                            return 10103;
-                                        }
-                                        return 10009;
-                                    }
-                                    return 5000;
-                                }
-                                return 946;
-                            }
-                            return 924;
-                        }
-                        return 910;
-                    }
-                    return 904;
-                }
-                return 702;
-            }
-            return 701;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        return invokeI.intValue;
     }
 
-    public bz0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bz0(d01 d01Var, Object obj) {
+        super(d01Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d01Var, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((d01) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = obj;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-    public void onCompletion() {
-        gz0 gz0Var;
+    @Override // com.baidu.nadcore.player.tail.AdVideoTailFrameView.b
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (gz0Var = this.a) != null) {
-            gz0Var.onCompletion();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            boolean z = this.c instanceof os0;
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
-    public void onPrepared() {
-        gz0 gz0Var;
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (gz0Var = this.a) != null) {
-            gz0Var.onPrepared();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null && this.c != null) {
+            g();
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
-    public void onSeekComplete() {
-        gz0 gz0Var;
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (gz0Var = this.a) != null) {
-            gz0Var.onSeekComplete();
-        }
-    }
-
-    public void a(@Nullable gz0 gz0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gz0Var) == null) {
-            this.a = gz0Var;
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
-    public void onBufferingUpdate(int i) {
-        gz0 gz0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (gz0Var = this.a) != null) {
-            gz0Var.onBufferingUpdate(i);
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
-    public boolean onError(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i, i2, obj)) == null) {
-            gz0 gz0Var = this.a;
-            if (gz0Var != null) {
-                return gz0Var.onError(i, i2, obj);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AdVideoTailFrameView adVideoTailFrameView = this.b;
+            if (adVideoTailFrameView != null && adVideoTailFrameView.q()) {
+                return true;
             }
             return false;
         }
-        return invokeIIL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
-    public boolean onInfo(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
+    public void l() {
+        AdVideoTailFrameView adVideoTailFrameView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i, i2, obj)) == null) {
-            if (this.a != null) {
-                return this.a.onInfo(b(i), i2, obj);
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (adVideoTailFrameView = this.b) != null) {
+            adVideoTailFrameView.y();
+        }
+    }
+
+    public void m() {
+        AdVideoTailFrameView adVideoTailFrameView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (adVideoTailFrameView = this.b) != null) {
+            adVideoTailFrameView.t();
+        }
+    }
+
+    @Override // com.baidu.nadcore.player.tail.AdVideoTailFrameView.b
+    public void b() {
+        d01 d01Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Object obj = this.c;
+            if (obj instanceof os0) {
+                if ("ad_full_video".equals(((os0) obj).s)) {
+                    if (this.a != null && h() && this.a.O()) {
+                        if (this.a.u().V0()) {
+                            this.a.H(dx0.w(PlayerEvent.ACTION_ON_COMPLETE));
+                        } else {
+                            this.a.u().y().G(0);
+                        }
+                    }
+                } else if ("ad_append_video".equals(((os0) this.c).s) && (d01Var = this.a) != null && d01Var.O()) {
+                    this.b.u(ClogBuilder.LogType.CLOSE.type, "", "");
+                    this.a.R(8);
+                    this.a.P();
+                    this.a.H(cx0.w("layer_event_ad_finish"));
+                    if (!this.a.u().a0()) {
+                        this.a.H(dx0.w(PlayerEvent.ACTION_ON_COMPLETE));
+                    }
+                }
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a == null) {
+            return;
+        }
+        if (this.b == null) {
+            AdVideoTailFrameView adVideoTailFrameView = new AdVideoTailFrameView(this.a.getContentView().getContext(), this.a, d());
+            this.b = adVideoTailFrameView;
+            this.a.N(adVideoTailFrameView);
+        }
+        this.b.n(d());
+        this.b.setCallBack(this);
+        Object obj = this.c;
+        if (obj != null) {
+            this.b.setData(obj);
+            this.b.x();
+        }
+    }
+
+    public final boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            d01 d01Var = this.a;
+            if (d01Var != null && d01Var.u().o1() != null && this.a.u().o1().getVideoAd() != null && this.a.u().o1().getVideoAd().fullItemAdData != null) {
+                return true;
             }
             return false;
         }
-        return invokeIIL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnMediaSourceChangedListener
-    public boolean onMediaSourceChanged(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
+    public void j(boolean z) {
+        AdVideoTailFrameView adVideoTailFrameView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048582, this, i, i2, obj)) == null) {
-            gz0 gz0Var = this.a;
-            if (gz0Var != null) {
-                return gz0Var.onMediaSourceChanged(i, i2, obj);
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (adVideoTailFrameView = this.b) != null) {
+            adVideoTailFrameView.s(z);
         }
-        return invokeIIL.booleanValue;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
-        gz0 gz0Var;
+    public void k(boolean z) {
+        AdVideoTailFrameView adVideoTailFrameView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) && (gz0Var = this.a) != null) {
-            gz0Var.onVideoSizeChanged(i, i2, i3, i4);
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (adVideoTailFrameView = this.b) != null) {
+            adVideoTailFrameView.n(z);
         }
     }
 }

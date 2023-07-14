@@ -1,221 +1,111 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.cfg.VideoOption;
-import com.qq.e.ads.nativ.ADSize;
-import com.qq.e.ads.nativ.NativeExpressAD;
-import com.qq.e.ads.nativ.NativeExpressADView;
-import com.qq.e.comm.util.AdError;
-import java.util.List;
+import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
+import com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer;
+import com.faceunity.gles.GeneratedTexture;
 /* loaded from: classes6.dex */
-public class h9b extends e9b<cab> {
+public class h9b extends MediaBaseRenderer implements w9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int[] b;
+    public int c;
+    public float d;
 
-    /* loaded from: classes6.dex */
-    public class a implements NativeExpressAD.NativeExpressADListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public cab c;
-        public final /* synthetic */ h9b d;
-
-        public a(h9b h9bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h9bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = h9bVar;
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADClicked(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nativeExpressADView) == null) {
-                LogPrinter.d();
-                this.d.onAdClicked((h9b) this.c, this.b, new String[0]);
-                this.b = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADClosed(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeExpressADView) == null) {
-                LogPrinter.e("GDTNativeExpressAd onADClosed", new Object[0]);
-                this.d.onAdClose(this.c);
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADExposure(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressADView) == null) {
-                LogPrinter.d();
-                this.d.onAdShow((h9b) this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, nativeExpressADView) == null) {
-                LogPrinter.e("GDTNativeExpressAd onADLeftApplication", new Object[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADLoaded(List<NativeExpressADView> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    this.d.onError(0, "NoFill");
-                    return;
-                }
-                NativeExpressADView nativeExpressADView = list.get(0);
-                nativeExpressADView.render();
-                this.c = new cab(nativeExpressADView);
-            }
-        }
-
-        @Override // com.qq.e.ads.NativeAbstractAD.BasicADListener
-        public void onNoAD(AdError adError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, adError) == null) {
-                LogPrinter.e("GDTNativeExpressAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-                this.d.onError(adError.getErrorCode(), adError.getErrorMsg());
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onRenderFail(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, nativeExpressADView) == null) {
-                LogPrinter.e();
-                this.d.onError(0, "RenderFail");
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, nativeExpressADView) == null) {
-                LogPrinter.d();
-                this.d.onAdLoaded(this.c, new String[0]);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h9b(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid, false);
+    public h9b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new int[1];
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.w9b
+    public void a(q9b q9bVar, SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new b9b(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.e9b
-    public void e(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            if (!(context instanceof Activity)) {
-                onError(0, "NotActvity");
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, q9bVar, surfaceTexture) == null) {
+            int i = this.mSurfaceViewHeight;
+            int i2 = this.mSurfaceViewWidth;
+            float f = this.mRatio;
+            int i3 = i - ((int) (i2 * f));
+            if (f != 0.0f && f != (i * 1.0f) / i2 && i3 > 0) {
+                b();
+                GLES20.glBindFramebuffer(36160, this.c);
+                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.a, 0);
+                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+                GLES20.glClear(16640);
+                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, (i3 * (-1.0680001f)) / this.mSurfaceViewHeight);
+                this.mFullScreen2D.drawFrame(this.mTextureId, this.mMtx);
+                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
+                GLES20.glBindFramebuffer(36160, 0);
+                q9bVar.h(this.mFullScreen2D, this.a, GlUtil.IDENTITY_MATRIX);
+            } else if (this.mTextureMode == 1) {
+                q9bVar.h(this.mFullScreen2D, this.mTextureId, this.mMtx);
+            } else {
+                q9bVar.h(this.mFullScreenEXT, this.mTextureId, this.mMtx);
             }
-            NativeExpressAD nativeExpressAD = new NativeExpressAD((Activity) context, (funAdSlot.getExpressWidth() == 0 || funAdSlot.getExpressHeight() == 0) ? new ADSize(-1, -2) : new ADSize(funAdSlot.getExpressWidth(), funAdSlot.getExpressHeight()), this.mPid.pid, new a(this));
-            nativeExpressAD.setVideoOption(new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(!FunAdSdk.getFunAdConfig().isVideoSoundEnable).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build());
-            nativeExpressAD.setMinVideoDuration(0);
-            nativeExpressAD.setMaxVideoDuration(0);
-            nativeExpressAD.loadAD(1);
+            q9bVar.f(surfaceTexture);
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        cab cabVar;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (cabVar = (cab) obj) != null) {
-            ((NativeExpressADView) cabVar.a).destroy();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, obj)) == null) {
-            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (cab) obj, new m9b(this, this));
-        }
-        return (FunNativeAd2) invokeLLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
-            cab cabVar = (cab) obj;
-            if (((NativeExpressADView) cabVar.a).getBoundData().getAdPatternType() == 2) {
-                ((NativeExpressADView) cabVar.a).setMediaListener(new k9b(this));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.d != this.mRatio) {
+                c();
             }
-            onShowStart(cabVar);
-            if (((NativeExpressADView) cabVar.a).getParent() != null) {
-                ((ViewGroup) ((NativeExpressADView) cabVar.a).getParent()).removeView((View) cabVar.a);
+            if (this.a == 0) {
+                this.a = this.mFullScreen2D.createTexture2DObject();
+                int i = this.mSurfaceViewWidth;
+                GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, i, (int) (i * this.mRatio), 0, GeneratedTexture.FORMAT, 5121, null);
+                GLES20.glBindTexture(3553, 0);
+                GLES20.glGenFramebuffers(1, this.b, 0);
+                this.c = this.b[0];
+                this.d = this.mRatio;
             }
-            viewGroup.removeAllViews();
-            viewGroup.addView((View) cabVar.a);
-            return true;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == 0) {
+            return;
+        }
+        GLES20.glDeleteFramebuffers(1, this.b, 0);
+        GLES20.glDeleteTextures(1, new int[]{this.a}, 0);
+        this.a = 0;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
+    public void onDestroyInGlThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroyInGlThread();
+            c();
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
+    public void onPauseInGlThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPauseInGlThread();
+            c();
+        }
     }
 }

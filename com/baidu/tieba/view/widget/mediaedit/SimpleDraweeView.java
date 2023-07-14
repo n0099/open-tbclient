@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h1b;
+import com.baidu.tieba.fab;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -83,7 +83,7 @@ public class SimpleDraweeView extends com.facebook.drawee.view.SimpleDraweeView 
             try {
                 super.onDraw(canvas);
             } catch (Exception e) {
-                h1b.g(e);
+                fab.g(e);
             }
         }
     }

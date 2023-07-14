@@ -1,70 +1,75 @@
 package com.baidu.tieba;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.MotionEvent;
 import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xf8 {
+public class xf8 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    @NonNull
-    public static StatisticItem a(String str, String str2, long j, String str3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j), str3})) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", j);
-            statisticItem.param("fname", str3);
-            if (!StringUtils.isNull(str2)) {
-                statisticItem.param("room_id", str2);
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeCommon.objValue;
+    /* loaded from: classes8.dex */
+    public interface a {
+        void onClick();
     }
 
-    public static void b(String str, long j, String str2, String str3, int i, String str4) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xf8(@NonNull Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2, str3, Integer.valueOf(i), str4}) == null) {
-            StatisticItem a = a(str, str3, j, str2);
-            a.param("obj_locate", i);
-            if (!StringUtils.isNull(str4)) {
-                a.param("obj_type", str4);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            TiebaStatic.log(a);
         }
+        getWindow().setSoftInputMode(32);
+        GreyUtil.grey(this);
     }
 
-    public static void d(String str, long j, String str2, String str3, int i, String str4) {
+    public void a(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Long.valueOf(j), str2, str3, Integer.valueOf(i), str4}) == null) {
-            StatisticItem a = a(str, str3, j, str2);
-            a.param("obj_locate", i);
-            if (!StringUtils.isNull(str4)) {
-                a.param("obj_type", str4);
-            }
-            TiebaStatic.log(a);
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.a = aVar;
         }
     }
 
-    public static void c(long j, boolean z) {
-        int i;
+    @Override // android.app.Dialog
+    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            StatisticItem param = StatisticItem.make("c15289").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", j);
-            if (z) {
-                i = 1;
-            } else {
-                i = 2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                Rect rect = new Rect();
+                getWindow().getDecorView().getGlobalVisibleRect(rect);
+                if (!rect.contains((int) motionEvent.getX(), (int) motionEvent.getY()) && (aVar = this.a) != null) {
+                    aVar.onClick();
+                    return true;
+                }
+                return true;
             }
-            param.param("obj_type", i).eventStat();
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

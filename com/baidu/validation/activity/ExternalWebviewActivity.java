@@ -23,9 +23,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a3b;
-import com.baidu.tieba.b3b;
-import com.baidu.tieba.z2b;
+import com.baidu.tieba.xbb;
+import com.baidu.tieba.ybb;
+import com.baidu.tieba.zbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,8 +37,8 @@ import com.baidu.validation.view.ValidationLoadingView;
 import com.baidu.validation.view.ValidationTimeoutView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class ExternalWebviewActivity extends Activity implements z2b, View.OnClickListener {
+/* loaded from: classes9.dex */
+public class ExternalWebviewActivity extends Activity implements xbb, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WebView a;
@@ -51,7 +51,7 @@ public class ExternalWebviewActivity extends Activity implements z2b, View.OnCli
     public ValueCallback<Uri> h;
     public ValueCallback<Uri[]> i;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,12 +92,12 @@ public class ExternalWebviewActivity extends Activity implements z2b, View.OnCli
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
                 ValidationLog.e(ValidationLog.TAG, str2);
-                b3b a = b3b.a(str2);
+                zbb a = zbb.a(str2);
                 if (a == null) {
                     jsPromptResult.cancel();
                     return true;
                 }
-                BaseInterpreter a2 = a3b.b().a(a.b());
+                BaseInterpreter a2 = ybb.b().a(a.b());
                 if (a2 == null) {
                     jsPromptResult.cancel();
                     return true;
@@ -157,7 +157,7 @@ public class ExternalWebviewActivity extends Activity implements z2b, View.OnCli
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,7 +201,7 @@ public class ExternalWebviewActivity extends Activity implements z2b, View.OnCli
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -272,7 +272,7 @@ public class ExternalWebviewActivity extends Activity implements z2b, View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.z2b
+    @Override // com.baidu.tieba.xbb
     public void a(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
@@ -363,7 +363,7 @@ public class ExternalWebviewActivity extends Activity implements z2b, View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f092519) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09254d) {
             finish();
         }
     }
@@ -380,8 +380,8 @@ public class ExternalWebviewActivity extends Activity implements z2b, View.OnCli
             this.b = (ValidationLoadingView) findViewById(R.id.validation_loading_view);
             this.c = (ValidationTimeoutView) findViewById(R.id.validation_timeout_view);
             this.d = (TextView) findViewById(R.id.tv_title);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092519);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092535);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09254d);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092569);
             h();
             this.d.setText(com.baidu.validation.a.a.a(this.f));
             this.e.setOnClickListener(this);

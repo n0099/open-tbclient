@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.searchbox.live.imp.LiveUserSecurityDeviceInfoServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityDeviceInfoService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-@Service
 /* loaded from: classes5.dex */
-public final class e49 implements ef5 {
+public final class e49 extends pl1<LiveUserSecurityDeviceInfoService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,29 +26,15 @@ public final class e49 implements ef5 {
         }
     }
 
-    @Override // com.baidu.tieba.ef5
-    public xe5 a(String schema) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pl1
+    /* renamed from: a */
+    public LiveUserSecurityDeviceInfoService createService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, schema)) == null) {
-            Intrinsics.checkNotNullParameter(schema, "schema");
-            try {
-                if (StringsKt__StringsKt.contains$default((CharSequence) schema, (CharSequence) "tbtopicdetail", false, 2, (Object) null) || StringsKt__StringsKt.contains$default((CharSequence) schema, (CharSequence) "unidispatch/topicdetail", false, 2, (Object) null)) {
-                    String c = ix5.c(ly5.c(schema, "topic_id="), null);
-                    xe5 xe5Var = new xe5();
-                    xe5Var.c(c);
-                    xe5Var.d(true);
-                    return xe5Var;
-                }
-            } catch (Exception e) {
-                if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    e.printStackTrace();
-                } else {
-                    throw e;
-                }
-            }
-            return new xe5();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new LiveUserSecurityDeviceInfoServiceImpl();
         }
-        return (xe5) invokeL.objValue;
+        return (LiveUserSecurityDeviceInfoService) invokeV.objValue;
     }
 }

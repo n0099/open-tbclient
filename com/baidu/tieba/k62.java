@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextUtils;
+import android.graphics.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +9,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class k62 extends i52 {
+public class k62 extends b52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Join a;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public int e;
+    public int f;
 
     public k62() {
         Interceptable interceptable = $ic;
@@ -29,26 +33,39 @@ public class k62 extends i52 {
         }
     }
 
-    @Override // com.baidu.tieba.i52
-    public void a(j52 j52Var, Canvas canvas) {
-        Paint.Join join;
+    @Override // com.baidu.tieba.b52
+    public void a(c52 c52Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) && (join = this.a) != null) {
-            j52Var.c.setStrokeJoin(join);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, c52Var, canvas) == null) {
+            if (c52Var.a() == 0) {
+                c52Var.b(canvas.save());
+            } else {
+                canvas.restoreToCount(c52Var.a());
+                c52Var.b(canvas.save());
+            }
+            Matrix matrix = new Matrix();
+            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
+            canvas.concat(matrix);
         }
     }
 
-    @Override // com.baidu.tieba.i52
+    @Override // com.baidu.tieba.b52
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            String optString = jSONArray.optString(0);
-            if (TextUtils.equals(optString, "bevel")) {
-                this.a = Paint.Join.BEVEL;
-            } else if (TextUtils.equals(optString, "round")) {
-                this.a = Paint.Join.ROUND;
-            } else if (TextUtils.equals(optString, "miter")) {
-                this.a = Paint.Join.MITER;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 6) {
+                    this.a = (float) jSONArray.optDouble(0);
+                    this.b = (float) jSONArray.optDouble(1);
+                    this.c = (float) jSONArray.optDouble(2);
+                    this.d = (float) jSONArray.optDouble(3);
+                    this.e = mp3.g((float) jSONArray.optDouble(4));
+                    this.f = mp3.g((float) jSONArray.optDouble(5));
+                }
+            } catch (Exception e) {
+                if (fs1.a) {
+                    e.printStackTrace();
+                }
             }
         }
     }

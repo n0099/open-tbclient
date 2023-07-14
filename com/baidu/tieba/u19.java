@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
-import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
+import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,160 +18,32 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class u19 extends BaseAdapter {
+public class u19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public x19 b;
-    public List<Object> c;
-    public f d;
-    public View.OnClickListener e;
-    public View.OnClickListener f;
-    public View.OnClickListener g;
-    public i29<Void> h;
-    public i29<Integer> i;
+    public TbPageContext a;
+    public ArrayList<TransmitForumData> b;
+    public final CustomMessageListener c;
 
     /* loaded from: classes8.dex */
-    public interface f {
-        void callback();
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ u19 a;
 
-        public a(u19 u19Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(u19 u19Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u19Var};
+                Object[] objArr = {u19Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u19Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
-            }
-            this.a.h();
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u19 a;
-
-        public b(u19 u19Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u19Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u19Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            TailData c;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null || view2.getTag() == null || (c = ((w19) view2.getTag()).c()) == null || this.a.b.g()) {
-                return;
-            }
-            this.a.i(c.getId(), c.getContent(), c.getFontColor());
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u19 a;
-
-        public c(u19 u19Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u19Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u19Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            w19 w19Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && (w19Var = (w19) view2.getTag()) != null && w19Var.c() != null) {
-                this.a.b.e(w19Var.c().getId());
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements i29<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u19 a;
-
-        public d(u19 u19Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u19Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -182,68 +53,22 @@ public class u19 extends BaseAdapter {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.i29
-        /* renamed from: b */
-        public void a(boolean z, String str, Void r7) {
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, r7}) == null) {
-                if (z) {
-                    this.a.a.showToast(str);
-                    return;
-                }
-                u19 u19Var = this.a;
-                u19Var.l(u19Var.b.h());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ArrayList)) {
+                this.a.b.clear();
+                this.a.b.addAll((ArrayList) customResponsedMessage.getData());
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class e implements i29<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u19 a;
-
-        public e(u19 u19Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u19Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u19Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.i29
-        /* renamed from: b */
-        public void a(boolean z, String str, Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, num}) == null) {
-                if (z) {
-                    this.a.a.showToast(str);
-                    return;
-                }
-                TailData tailData = new TailData();
-                tailData.setId(num.intValue());
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001340, new k19(3, tailData)));
-            }
-        }
-    }
-
-    public u19(TbPageContext<?> tbPageContext, x19 x19Var, f fVar) {
+    public u19(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, x19Var, fVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -253,162 +78,49 @@ public class u19 extends BaseAdapter {
                 return;
             }
         }
-        this.e = new a(this);
-        this.f = new b(this);
-        this.g = new c(this);
-        this.h = new d(this);
-        this.i = new e(this);
+        this.b = new ArrayList<>();
+        this.c = new a(this, 2016563);
         this.a = tbPageContext;
-        this.b = x19Var;
-        this.c = new ArrayList();
-        this.b.m(this.h);
-        this.b.k(this.i);
-        this.d = fVar;
+        MessageManager.getInstance().registerListener(this.c);
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return this.c.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            Object obj = this.c.get(i);
-            if (obj instanceof TailData) {
-                return 0;
-            }
-            if (obj instanceof g19) {
-                return 1;
-            }
-            return -1;
-        }
-        return invokeI.intValue;
-    }
-
-    public final void l(List<TailData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.b.n(list);
-            j();
-        }
-    }
-
-    public final View f(View view2) {
-        InterceptResult invokeL;
-        View view3;
-        v19 v19Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 == null) {
-                v19Var = new v19();
-                view3 = v19Var.b(this.a.getPageActivity());
-                v19Var.c(this.e);
-                v19Var.a(this.a);
-            } else {
-                view3 = view2;
-                v19Var = (v19) view2.getTag();
-            }
-            v19Var.d(this.b.f());
-            return view3;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public final View g(Object obj, View view2) {
-        InterceptResult invokeLL;
-        View view3;
-        w19 w19Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, view2)) == null) {
-            if (obj != null && (obj instanceof TailData)) {
-                TailData tailData = (TailData) obj;
-                if (view2 == null) {
-                    w19Var = new w19();
-                    view3 = w19Var.b(this.a.getPageActivity());
-                    w19Var.h(this.f);
-                    w19Var.f(this.g);
-                    w19Var.a(this.a);
-                } else {
-                    view3 = view2;
-                    w19Var = (w19) view2.getTag();
-                }
-                w19Var.i(tailData);
-                w19Var.g(Boolean.valueOf(this.b.g()));
-                return view3;
-            }
-            return null;
-        }
-        return (View) invokeLL.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public List<TransmitForumData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    public final void h() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.a.getPageActivity(), this.b.h().isEmpty())));
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            k();
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            eu6.c().i();
         }
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (getItemViewType(i) == 0) {
-                return g(getItem(i), view2);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.c);
+        }
+    }
+
+    public void e(long j, String str, ShareItem shareItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, shareItem}) == null) {
+            if (j <= 0 && TextUtils.isEmpty(str)) {
+                return;
             }
-            if (getItemViewType(i) == 1) {
-                return f(view2);
-            }
-            return null;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    public final void i(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048585, this, i, str, str2) == null) {
-            this.a.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.a.getPageActivity(), i, str, str2)));
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            f fVar = this.d;
-            if (fVar != null) {
-                fVar.callback();
-            }
-            this.c.clear();
-            this.c.addAll(this.b.h());
-            if (!this.b.g() && this.b.h().size() < 3) {
-                this.c.add(new g19(this.b.f()));
-            }
+            SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.a.getPageActivity(), 24007);
+            CustomMessage customMessage = new CustomMessage(2002001, selectForumActivityConfig);
+            selectForumActivityConfig.setFrom(1);
+            selectForumActivityConfig.setForumList(this.b);
+            selectForumActivityConfig.setLiveId(j);
+            selectForumActivityConfig.setYyAnchorBdUid(str);
+            shareItem.q(true);
+            MessageManager.getInstance().sendMessage(customMessage);
         }
     }
 }

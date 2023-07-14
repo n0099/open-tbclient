@@ -1,56 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class tg9 implements xn {
-    public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.view.View;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+/* loaded from: classes8.dex */
+public interface tg9 {
+    void c(boolean z);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948180387, "Lcom/baidu/tieba/tg9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948180387, "Lcom/baidu/tieba/tg9;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
+    void d(View.OnLongClickListener onLongClickListener);
 
-    public tg9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void e(View.OnClickListener onClickListener);
 
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
+    void f(boolean z);
+
+    void k(View.OnClickListener onClickListener);
+
+    void l(int i);
+
+    void n(TbRichTextView.z zVar);
+
+    void o(String str);
+
+    void q(boolean z);
+
+    void r(ze9 ze9Var);
+
+    void setFromCDN(boolean z);
 }

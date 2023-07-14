@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.smallgame.sdk.permission.PermissionListener;
+import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import com.baidu.tieba.ah3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,96 +14,98 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes8.dex */
-public class xj2 implements V8Engine.JavaScriptExceptionDelegate {
+public class xj2 implements PermissionProxy {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public kj2 a;
-    public String b;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a implements oq3<yg3<ah3.e>> {
         public static /* synthetic */ Interceptable $ic;
-        public static final boolean d;
         public transient /* synthetic */ FieldHolder $fh;
-        public JSEvent a;
-        public String b;
-        public String c;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ PermissionListener c;
+        public final /* synthetic */ xj2 d;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-287329556, "Lcom/baidu/tieba/xj2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-287329556, "Lcom/baidu/tieba/xj2$a;");
-                    return;
-                }
-            }
-            d = ms1.a;
-        }
-
-        public a() {
+        public a(xj2 xj2Var, String str, String str2, PermissionListener permissionListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xj2Var, str, str2, permissionListener};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = new JSEvent("error");
+            this.d = xj2Var;
+            this.a = str;
+            this.b = str2;
+            this.c = permissionListener;
         }
 
-        public JSEvent a() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oq3
+        /* renamed from: b */
+        public void a(yg3<ah3.e> yg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("message", this.b);
-                    jSONObject.put("stack", this.c);
-                } catch (JSONException e) {
-                    if (d) {
-                        Log.e("V8Exception", Log.getStackTraceString(e));
-                    }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yg3Var) == null) {
+                if (tg3.h(yg3Var)) {
+                    this.d.b(this.a, this.b, this.c);
+                } else {
+                    this.c.onPermissionResult(this.a, 2);
                 }
-                if (jSONObject.length() > 0) {
-                    this.a.data = jSONObject;
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements y63 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PermissionListener a;
+        public final /* synthetic */ String b;
+
+        public b(xj2 xj2Var, PermissionListener permissionListener, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xj2Var, permissionListener, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return this.a;
             }
-            return (JSEvent) invokeV.objValue;
+            this.a = permissionListener;
+            this.b = str;
         }
 
-        public a b(String str) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.y63
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.b = str;
-                return this;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.onPermissionResult(this.b, 0);
             }
-            return (a) invokeL.objValue;
         }
 
-        public a c(String str) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.y63
+        public void b(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.c = str;
-                return this;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.onPermissionResult(this.b, 1);
             }
-            return (a) invokeL.objValue;
         }
     }
 
@@ -121,67 +122,79 @@ public class xj2 implements V8Engine.JavaScriptExceptionDelegate {
                 return;
             }
         }
-        boolean z = ms1.a;
+        a = fs1.a;
     }
 
-    public xj2(kj2 kj2Var) {
+    public xj2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {kj2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = "";
-        this.a = kj2Var;
     }
 
-    public final void a(String str, String str2) {
+    public final void b(@NonNull String str, @NonNull String str2, @NonNull PermissionListener permissionListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || this.a.m() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, permissionListener) == null) {
+            b bVar = new b(this, permissionListener, str);
+            x63.e(str2, new String[]{str2}, 2, ub3.K().w(), bVar);
         }
-        EventTarget m = this.a.m();
-        a aVar = new a();
-        aVar.b(str + "\n" + str2);
-        aVar.c("");
-        m.dispatchEvent(aVar.a());
     }
 
-    @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
-    @SuppressLint({"SwanDebugLog"})
-    public void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo) {
-        String str;
+    public final String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8ExceptionInfo) != null) || v8ExceptionInfo == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -1785599184) {
+                if (hashCode == -1352756132 && str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
+                    c = 1;
+                }
+            } else if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
+                c = 0;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    return null;
+                }
+                return PermissionRequest.RESOURCE_AUDIO_CAPTURE;
+            }
+            return PermissionRequest.RESOURCE_VIDEO_CAPTURE;
         }
-        String str2 = "";
-        if (TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
-            str = "";
-        } else {
-            str = v8ExceptionInfo.exceptionMsg;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.smallgame.sdk.permission.PermissionProxy
+    public void requestPermission(String str, PermissionListener permissionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, permissionListener) == null) {
+            if (a) {
+                Log.d("V8PermissionDelegate", "requestPermission : " + str);
+            }
+            if (permissionListener == null) {
+                if (a) {
+                    Log.e("V8PermissionDelegate", "PermissionListener can not be null.");
+                    return;
+                }
+                return;
+            }
+            String c = c(str);
+            vb3 M = vb3.M();
+            if (!TextUtils.isEmpty(c) && M != null && M.w() != null) {
+                M.e0().g(M.w(), str, new a(this, str, c, permissionListener));
+            } else {
+                permissionListener.onPermissionResult(str, 2);
+            }
         }
-        if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
-            str2 = v8ExceptionInfo.exceptionTrace;
-        }
-        Log.e("V8Exception", this.a.l0() + "msg: " + str + " ,stack: " + str2);
-        this.a.w().a(str);
-        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.b.equals(str)) {
-            return;
-        }
-        this.b = str;
-        a(str, str2);
-        nt1 j = kv2.j();
-        j.e(str + ParamableElem.DIVIDE_PARAM + str2);
-        wi3.b(v8ExceptionInfo);
-        kv2.i().r(v8ExceptionInfo);
     }
 }

@@ -28,7 +28,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.DescriptorKindFilter;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.DeserializationComponents;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.DeserializationContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DeserializedPackageMemberScope extends DeserializedMemberScope {
     public final PackageFragmentDescriptor packageDescriptor;
     public final FqName packageFqName;
@@ -67,9 +67,9 @@ public class DeserializedPackageMemberScope extends DeserializedMemberScope {
 
     @Override // kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors.DeserializedMemberScope, kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2101getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2103getContributedClassifier(Name name, LookupLocation lookupLocation) {
         recordLookup(name, lookupLocation);
-        return super.mo2101getContributedClassifier(name, lookupLocation);
+        return super.mo2103getContributedClassifier(name, lookupLocation);
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope

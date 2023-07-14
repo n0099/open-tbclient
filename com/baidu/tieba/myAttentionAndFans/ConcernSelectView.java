@@ -20,13 +20,13 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.FollowListSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e39;
+import com.baidu.tieba.i99;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ConcernSelectView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,14 +44,14 @@ public class ConcernSelectView extends FrameLayout {
     public g l;
     public int m;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface g {
         void a(int i);
 
         void b(boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class ConcernSelectView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class ConcernSelectView extends FrameLayout {
                 SkinManager.setViewTextColor(this.a.e, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.a.f, (int) R.color.CAM_X0107);
                 if (FollowListSwitch.isOn()) {
-                    this.a.d.setText(R.string.obfuscated_res_0x7f0f1335);
+                    this.a.d.setText(R.string.obfuscated_res_0x7f0f134b);
                 } else {
                     this.a.d.setText(R.string.obfuscated_res_0x7f0f02a0);
                 }
@@ -137,7 +137,7 @@ public class ConcernSelectView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,7 +178,7 @@ public class ConcernSelectView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -251,7 +251,7 @@ public class ConcernSelectView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -299,7 +299,7 @@ public class ConcernSelectView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -433,13 +433,13 @@ public class ConcernSelectView extends FrameLayout {
             if (childCount < 0) {
                 childCount = 0;
             }
-            e39 e39Var = new e39(view2, i, (((int) this.a.getResources().getDimension(R.dimen.tbds80)) + ((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070198))) * childCount);
+            i99 i99Var = new i99(view2, i, (((int) this.a.getResources().getDimension(R.dimen.tbds80)) + ((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070198))) * childCount);
             if (i == 0 && view2.getVisibility() != 0) {
                 view2.setVisibility(0);
             }
-            e39Var.setDuration(260L);
-            e39Var.setAnimationListener(new d(this, i, view2));
-            view2.startAnimation(e39Var);
+            i99Var.setDuration(260L);
+            i99Var.setAnimationListener(new d(this, i, view2));
+            view2.startAnimation(i99Var);
             ImageView imageView = this.c;
             if (imageView != null) {
                 if (imageView.getAnimation() != null && !this.c.getAnimation().hasEnded()) {
@@ -517,18 +517,18 @@ public class ConcernSelectView extends FrameLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0220, this);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a8e);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a8f);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091711);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0222, this);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a98);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a99);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091722);
             this.d = (TextView) findViewById(R.id.menu_title);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09027a);
             if (FollowListSwitch.isOn()) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f1335);
-                this.e.setText(R.string.obfuscated_res_0x7f0f1335);
+                this.d.setText(R.string.obfuscated_res_0x7f0f134b);
+                this.e.setText(R.string.obfuscated_res_0x7f0f134b);
             }
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09095a);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091177);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09095b);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091189);
             this.b.setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.f.setOnClickListener(new c(this));

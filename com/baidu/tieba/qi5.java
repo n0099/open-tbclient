@@ -1,40 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.SharedPreferences;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.utils.Constant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qi5 extends oi5 {
+public class qi5 implements ui5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qi5(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_at), 9, i);
+    public qi5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = R.drawable.icon_pure_post_at24;
-        this.h = R.drawable.icon_pure_post_more_at64;
-        this.i = false;
-        this.j = true;
-        this.k = true;
-        this.p = new int[]{16};
+    }
+
+    @Override // com.baidu.tieba.ui5
+    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+            jz9 n = jz9.n();
+            if (i == 3) {
+                n.v(downloadData);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
+            } else {
+                n.B(downloadData);
+            }
+            ri5.a(downloadData);
+            jz9.n().y(downloadData);
+        }
+    }
+
+    @Override // com.baidu.tieba.ui5
+    public void onFileDownloadSucceed(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) != null) || downloadData == null) {
+            return;
+        }
+        String[] tag = downloadData.getTag();
+        if (tag != null && tag.length == 3) {
+            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", tag[0], "is_detail", tag[2], "ref_type", tag[1]);
+        }
+        ri5.c(downloadData);
+        NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
+        jz9.n().y(downloadData);
+        if (downloadData.isNeedInvokeApk()) {
+            String str = downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
+            if (downloadData.getApkDownloadData() != null) {
+                rz4.c().a(downloadData.getApkDownloadData().getPackageName(), downloadData.getName(), Integer.toString(downloadData.getSource()), downloadData.getUrl());
+            }
+            UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), str);
+        }
+    }
+
+    @Override // com.baidu.tieba.ui5
+    public boolean onFileDownloaded(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            downloadData.setStatusMsg(null);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ui5
+    public boolean onPreDownload(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            downloadData.setStatusMsg(null);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ui5
+    public void onFileUpdateProgress(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, downloadData) != null) || downloadData == null) {
+            return;
+        }
+        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
+        long j = sharedPreferences.getLong(downloadData.getId(), 0L);
+        if (j <= 1 || (downloadData.getSize() > 1 && j != downloadData.getSize())) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putLong(downloadData.getId(), downloadData.getSize());
+            edit.commit();
+        }
+        jz9.n().C(downloadData);
+        jz9.n().y(downloadData);
     }
 }

@@ -1,551 +1,302 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aperf.bosuploader.BOSResponseEntity;
-import com.baidu.searchbox.aperf.bosuploader.BOSUploader;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.x3b;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.i3b;
+import com.baidu.tieba.t3b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class j3b {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile j3b e;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public File b;
-    public ExecutorService c;
+    public final k3b a;
 
-    /* loaded from: classes6.dex */
-    public class a implements k3b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ m3b b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ JSONObject e;
-        public final /* synthetic */ String f;
-
-        public a(j3b j3bVar, File file, m3b m3bVar, String str, String str2, JSONObject jSONObject, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j3bVar, file, m3bVar, str, str2, jSONObject, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = file;
-            this.b = m3bVar;
-            this.c = str;
-            this.d = str2;
-            this.e = jSONObject;
-            this.f = str3;
-        }
-
-        @Override // com.baidu.tieba.k3b
-        public void a(n3b n3bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, n3bVar) == null) {
-                if (n3bVar != null && n3bVar.c()) {
-                    if (j3b.d) {
-                        Log.d("VoyagerFileManager", "bos upload success");
-                    }
-                    if (this.a.exists()) {
-                        this.a.delete();
-                    }
-                    m3b m3bVar = this.b;
-                    if (m3bVar != null) {
-                        m3bVar.d(this.c, this.d, this.e);
-                    }
-                } else if (n3bVar != null) {
-                    int a = n3bVar.a();
-                    String b = n3bVar.b();
-                    if (j3b.d) {
-                        Log.d("VoyagerFileManager", "bos upload fail: error code = " + a + ", error message: " + b);
-                    }
-                    m3b m3bVar2 = this.b;
-                    if (m3bVar2 != null) {
-                        m3bVar2.c(this.f, a, b, this.e);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ File c;
-        public final /* synthetic */ k3b d;
-        public final /* synthetic */ j3b e;
-
-        public b(j3b j3bVar, String str, String str2, File file, k3b k3bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j3bVar, str, str2, file, k3bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = j3bVar;
-            this.a = str;
-            this.b = str2;
-            this.c = file;
-            this.d = k3bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.e.m(this.a, this.b, this.c, this.d);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833776, "Lcom/baidu/tieba/j3b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947833776, "Lcom/baidu/tieba/j3b;");
-                return;
-            }
-        }
-        d = AppConfig.isDebug();
-    }
-
-    public static j3b g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (j3b.class) {
-                    if (e == null) {
-                        e = new j3b();
-                    }
-                }
-            }
-            return e;
-        }
-        return (j3b) invokeV.objValue;
-    }
-
-    public ArrayList<File> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<File> arrayList = new ArrayList<>();
-            File[] listFiles = this.a.listFiles();
-            if (listFiles != null && listFiles.length > 0) {
-                return new ArrayList<>(Arrays.asList(listFiles));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public File h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public j3b() {
+    public j3b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        j();
-        this.c = new ThreadPoolExecutor(1, 1, 600000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        this.a = k3b.Q(context);
     }
 
-    public void c(q3b q3bVar, m3b m3bVar) {
+    public void A(List<y2b> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, q3bVar, m3bVar) == null) {
-            String j = q3bVar.j();
-            String a2 = q3bVar.a();
-            if (!TextUtils.isEmpty(j) && !TextUtils.isEmpty(a2)) {
-                File file = new File(this.a, j);
-                JSONObject c = q3bVar.c();
-                if (file.exists()) {
-                    if (d) {
-                        Log.d("VoyagerFileManager", "retry: " + j + " exists and upload");
-                    }
-                    k(j, a2, file, c, m3bVar);
-                    return;
-                }
-                d(q3bVar, m3bVar);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.a.Z(list);
         }
     }
 
-    public void d(q3b q3bVar, m3b m3bVar) {
-        File i;
+    public void B(a3b a3bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q3bVar, m3bVar) == null) {
-            String j = q3bVar.j();
-            String a2 = q3bVar.a();
-            if (!TextUtils.isEmpty(j) && !TextUtils.isEmpty(a2)) {
-                ArrayList<String> g = q3bVar.g();
-                JSONObject c = q3bVar.c();
-                if (c == null) {
-                    c = new JSONObject();
-                    q3bVar.n(c);
-                }
-                JSONObject jSONObject = c;
-                if (g != null && g.size() != 0) {
-                    if (!q3bVar.l() && g.size() == 1) {
-                        String str = g.get(0);
-                        if (TextUtils.isEmpty(str)) {
-                            m3bVar.a(j, jSONObject);
-                            return;
-                        }
-                        File file = new File(str);
-                        if (!file.exists()) {
-                            m3bVar.a(j, jSONObject);
-                            return;
-                        } else {
-                            i = new File(this.a, j);
-                            z3b.a(file, i);
-                        }
-                    } else {
-                        long e2 = q3bVar.e();
-                        if (e2 == 0) {
-                            e2 = h3b.f().d(a2);
-                        }
-                        i = i(j, g, e2, jSONObject);
-                    }
-                    File file2 = i;
-                    if (file2 != null && file2.exists()) {
-                        k(j, a2, file2, jSONObject, m3bVar);
-                        return;
-                    } else {
-                        m3bVar.b(j, jSONObject);
-                        return;
-                    }
-                }
-                m3bVar.a(j, jSONObject);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a3bVar) == null) {
+            this.a.a0(a3bVar);
         }
     }
 
-    public void e(String str, String str2, String str3, File file, String str4, boolean z, JSONObject jSONObject) {
+    public boolean D(List<u2b> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, file, str4, Boolean.valueOf(z), jSONObject}) == null) {
-            try {
-                JSONObject b2 = y3b.b(file, str4, str2, str3, z);
-                jSONObject.put(str, b2);
-                if (d) {
-                    Log.d("VoyagerFileManager", "generateMetaInfo path " + str + " fileMeta ：" + b2);
-                }
-            } catch (JSONException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            return this.a.c0(list);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void F(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.e0(str);
         }
     }
 
-    public File i(String str, ArrayList<String> arrayList, long j, JSONObject jSONObject) {
+    public void a(w3b w3bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, w3bVar) == null) {
+            this.a.a(w3bVar);
+        }
+    }
+
+    public void b(w3b w3bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, w3bVar) == null) {
+            this.a.b(w3bVar);
+        }
+    }
+
+    public boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            return this.a.x(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.a.z(str);
+        }
+    }
+
+    public HashMap<String, String> o(ArrayList<String> arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
+            return this.a.H(arrayList);
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public u2b p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+            return this.a.I(str);
+        }
+        return (u2b) invokeL.objValue;
+    }
+
+    public int u(w3b w3bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, w3bVar)) == null) {
+            return this.a.S(w3bVar);
+        }
+        return invokeL.intValue;
+    }
+
+    public Map<String, i3b.a> v(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
+            return this.a.T(i);
+        }
+        return (Map) invokeI.objValue;
+    }
+
+    public z2b w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
+            return this.a.U(str);
+        }
+        return (z2b) invokeL.objValue;
+    }
+
+    public void x(SparseArray<ArrayList> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, sparseArray) == null) {
+            this.a.V(sparseArray);
+        }
+    }
+
+    public void y(q2b q2bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, q2bVar) == null) {
+            this.a.W(q2bVar);
+        }
+    }
+
+    public void z(y2b y2bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, y2bVar) == null) {
+            this.a.Y(y2bVar);
+        }
+    }
+
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.b0();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a.m();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.a.n();
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.a.s();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.a.w();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.a.y();
+        }
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.a.J();
+        }
+        return invokeV.intValue;
+    }
+
+    public t3b.d s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.a.R();
+        }
+        return (t3b.d) invokeV.objValue;
+    }
+
+    public void E(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
+            this.a.d0(str, i, str2);
+        }
+    }
+
+    public int r(ArrayList<String> arrayList, boolean z, w3b w3bVar) {
         InterceptResult invokeCommon;
-        JSONObject jSONObject2;
-        String str2;
-        File file;
-        String str3;
-        Iterator<String> it;
-        File file2;
-        String str4;
-        boolean z;
-        String str5;
-        File file3;
-        String str6;
-        String str7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, arrayList, Long.valueOf(j), jSONObject})) == null) {
-            ArrayList arrayList2 = new ArrayList(arrayList.size());
-            if (jSONObject == null) {
-                jSONObject2 = new JSONObject();
-            } else {
-                jSONObject2 = jSONObject;
-            }
-            Iterator<String> it2 = arrayList.iterator();
-            long j2 = 0;
-            while (true) {
-                if (!it2.hasNext()) {
-                    str2 = "VoyagerFileManager";
-                    file = null;
-                    str3 = " not exist";
-                    break;
-                }
-                String next = it2.next();
-                if (!TextUtils.isEmpty(next)) {
-                    if (next.startsWith("external:")) {
-                        next = next.replace("external:", AppRuntime.getAppContext().getExternalFilesDir(null).getParent() + File.separatorChar);
-                    } else if (next.startsWith("internal:")) {
-                        next = next.replace("internal:", AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator);
-                    }
-                    String str8 = next;
-                    if (str8.contains("../")) {
-                        e(str8, "4", str8 + " error", null, null, true, jSONObject2);
-                    } else {
-                        File file4 = new File(str8);
-                        if (!file4.exists()) {
-                            e(str8, "1", str8 + " not exist", null, null, true, jSONObject2);
-                        } else {
-                            if (d) {
-                                Log.d("VoyagerFileManager", "path: " + str8);
-                            }
-                            if (file4.isFile()) {
-                                long length = file4.length() + j2;
-                                if (d) {
-                                    Log.d("VoyagerFileManager", "total file size: " + length);
-                                    Log.d("VoyagerFileManager", "max file size: " + j);
-                                }
-                                if (length > j) {
-                                    file = null;
-                                    e(str8, "3", str8 + " size exceed maxFileSize ", null, null, true, jSONObject2);
-                                    str3 = " not exist";
-                                    str2 = "VoyagerFileManager";
-                                    break;
-                                }
-                                file = null;
-                                StringBuilder sb = new StringBuilder(a4b.c(file4.getAbsolutePath().getBytes(), true));
-                                sb.append("_");
-                                sb.append(file4.getName());
-                                arrayList2.add(new x3b.a(file4, sb.toString()));
-                                file2 = file4;
-                                str4 = str8;
-                                it = it2;
-                                z = true;
-                                str3 = " not exist";
-                                e(str8, "0", str8 + " success", file2, sb.toString(), true, jSONObject2);
-                                if (d) {
-                                    Log.d("VoyagerFileManager", "zip name: " + ((Object) sb));
-                                }
-                                str5 = "VoyagerFileManager";
-                                j2 = length;
-                            } else {
-                                it = it2;
-                                file2 = file4;
-                                str4 = str8;
-                                file = null;
-                                str3 = " not exist";
-                                z = true;
-                                str5 = "VoyagerFileManager";
-                            }
-                            if (file2.isDirectory()) {
-                                ArrayList arrayList3 = new ArrayList();
-                                File file5 = file2;
-                                z3b.e(file5, arrayList3);
-                                if (arrayList3.size() != 0) {
-                                    boolean z2 = false;
-                                    Iterator it3 = arrayList3.iterator();
-                                    while (true) {
-                                        if (it3.hasNext()) {
-                                            String str9 = (String) it3.next();
-                                            if (!TextUtils.isEmpty(str9)) {
-                                                File file6 = new File(str9);
-                                                if (file6.exists()) {
-                                                    j2 += file6.length();
-                                                    if (j2 > j) {
-                                                        file3 = file5;
-                                                        str6 = str5;
-                                                        e(str4, "3", file5.getPath() + "size exceed maxFileSize ", null, null, true, jSONObject2);
-                                                        z2 = true;
-                                                        break;
-                                                    }
-                                                }
-                                                file5 = file5;
-                                                str5 = str5;
-                                            }
-                                        } else {
-                                            file3 = file5;
-                                            str6 = str5;
-                                            break;
-                                        }
-                                    }
-                                    if (z2) {
-                                        str2 = str6;
-                                        break;
-                                    }
-                                    File file7 = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "/store/");
-                                    String c = a4b.c(file3.getAbsolutePath().getBytes(), z);
-                                    File file8 = new File(file7, c + ".zip");
-                                    if (d) {
-                                        str7 = str6;
-                                        Log.d(str7, "inner path: " + file7.getAbsolutePath());
-                                        Log.d(str7, "inner path md5: " + c);
-                                        Log.d(str7, "inner zip out file: " + file8.getAbsolutePath());
-                                    } else {
-                                        str7 = str6;
-                                    }
-                                    if (!file7.exists()) {
-                                        file7.mkdir();
-                                    }
-                                    if (file8.exists()) {
-                                        file8.delete();
-                                    }
-                                    if (z3b.h(file3, file8.getAbsolutePath())) {
-                                        if (d) {
-                                            Log.d(str7, "inner zip out file: " + file8.getName());
-                                        }
-                                        arrayList2.add(new x3b.a(file8, file8.getName(), z));
-                                        e(str4, "0", "success", file8, file8.getPath(), false, jSONObject2);
-                                    } else {
-                                        StringBuilder sb2 = new StringBuilder();
-                                        String str10 = str4;
-                                        sb2.append(str10);
-                                        sb2.append("copy error");
-                                        e(str10, "2", sb2.toString(), null, null, false, jSONObject2);
-                                    }
-                                }
-                            }
-                            it2 = it;
-                        }
-                    }
-                }
-            }
-            File file9 = new File(this.b, "filemeta_" + str + ".log");
-            try {
-                file9.createNewFile();
-                z3b.g(jSONObject2.toString(), file9);
-            } catch (IOException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
-            if (file9.exists()) {
-                arrayList2.add(new x3b.a(file9, file9.getName(), true));
-            }
-            if (d) {
-                Log.d(str2, "start generate out zip file");
-            }
-            File file10 = new File(this.a, str);
-            try {
-                if (file10.exists()) {
-                    file10.delete();
-                }
-                file10.createNewFile();
-            } catch (IOException e3) {
-                if (d) {
-                    e3.printStackTrace();
-                }
-            }
-            if (arrayList2.size() > 0) {
-                x3b.a(file10, arrayList2);
-                File file11 = new File(file10.getAbsolutePath());
-                if (d) {
-                    Log.d(str2, "out put File: " + file11.getAbsolutePath());
-                }
-                return file11;
-            }
-            e(file10.getAbsolutePath(), "1", file10.getPath() + str3, null, null, true, jSONObject2);
-            return file;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{arrayList, Boolean.valueOf(z), w3bVar})) == null) {
+            w3bVar.M(10485760);
+            return this.a.K(arrayList, z, w3bVar);
         }
-        return (File) invokeCommon.objValue;
+        return invokeCommon.intValue;
     }
 
-    public final void j() {
+    public int t(ArrayList<String> arrayList, boolean z, w3b w3bVar) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            String str = AppRuntime.getAppContext().getApplicationInfo().dataDir + "/.voyager";
-            File file = new File(str, "/upload/");
-            this.a = file;
-            if (!file.exists()) {
-                this.a.mkdirs();
-            }
-            File file2 = new File(str, "/store/");
-            this.b = file2;
-            if (!file2.exists()) {
-                this.b.mkdirs();
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{arrayList, Boolean.valueOf(z), w3bVar})) == null) {
+            return this.a.K(arrayList, z, w3bVar);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public void G(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+            this.a.f0(str, str2);
         }
     }
 
-    public final void k(String str, String str2, File file, JSONObject jSONObject, m3b m3bVar) {
+    public void c(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, str, str2, file, jSONObject, m3bVar) == null) {
-            String str3 = str + ".zip";
-            String createObjectKey = BOSUploader.getInstance().createObjectKey(str2, str3);
-            if (d) {
-                Log.d("VoyagerFileManager", "bos object key is : " + createObjectKey);
-            }
-            l(str2, str3, file, new a(this, file, m3bVar, str3, createObjectKey, jSONObject, str));
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, str, z) == null) {
+            this.a.h(str, z);
         }
     }
 
-    public final void l(String str, String str2, File file, k3b k3bVar) {
+    public void d(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, file, k3bVar) == null) {
-            this.c.execute(new b(this, str, str2, file, k3bVar));
+        if (interceptable == null || interceptable.invokeLI(1048586, this, str, i) == null) {
+            this.a.k(str, i);
         }
     }
 
-    public final void m(@NonNull String str, @NonNull String str2, @NonNull File file, k3b k3bVar) {
+    public boolean g(w3b w3bVar, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048585, this, str, str2, file, k3bVar) == null) {
-            BOSResponseEntity uploadFileSync = BOSUploader.getInstance().uploadFileSync(str, str2, file);
-            n3b n3bVar = new n3b(uploadFileSync.isSuccess(), uploadFileSync.getErrorCode(), uploadFileSync.getMessage());
-            if (k3bVar != null) {
-                k3bVar.a(n3bVar);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, w3bVar, str)) == null) {
+            return this.a.o(w3bVar, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public int n(w3b w3bVar, w3b w3bVar2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, w3bVar, w3bVar2)) == null) {
+            return this.a.E(w3bVar, w3bVar2);
+        }
+        return invokeLL.intValue;
+    }
+
+    public void m(String str, int i, long j, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), jSONArray}) == null) {
+            this.a.B(str, i, j, jSONArray);
         }
     }
 }

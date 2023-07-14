@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.log.DefaultLog;
+import android.util.SparseIntArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.gg0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,77 +12,106 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class pca {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] c;
+    public static final int[] d;
+    public static final int[] e;
+    public static final int[] f;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseIntArray a;
+    public final int[] b;
 
-    /* loaded from: classes7.dex */
-    public static class a implements gg0.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vca a;
-
-        @Override // com.baidu.tieba.gg0.a
-        public void onProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            }
-        }
-
-        public a(vca vcaVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948058619, "Lcom/baidu/tieba/pca;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vcaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = vcaVar;
-        }
-
-        @Override // com.baidu.tieba.gg0.a
-        public void onResult(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
-                ew8 defaultLog = DefaultLog.getInstance();
-                defaultLog.c("write", "打开视频编辑页2，Ar下载:" + z + " " + str);
-                if (z) {
-                    this.a.a();
-                } else {
-                    this.a.b();
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948058619, "Lcom/baidu/tieba/pca;");
+                return;
             }
         }
+        c = new int[]{3, 8, 13};
+        d = new int[]{2, 12};
+        e = new int[]{20};
+        f = new int[]{3, 13, 23};
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public pca(String str, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return gg0.n();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeV.booleanValue;
+        this.b = iArr;
+        this.a = new SparseIntArray();
     }
 
-    public static void b(Context context, vca vcaVar) {
+    public void a(int i, int i2) {
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, vcaVar) == null) {
-            c(context);
-            gg0.p(new a(vcaVar));
+        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i2 >= 0 && (sparseIntArray = this.a) != null) {
+            sparseIntArray.append(i2, i);
         }
     }
 
-    public static void c(Context context) {
+    public int b(int i) {
+        InterceptResult invokeI;
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            new dh0(context).a("cover_style", FileHelper.CreateFileIfNotFound(".cover_style"));
-            FileHelper.makeDirectory(".stickers");
-            FileHelper.makeDirectory(".filters");
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 0 || (sparseIntArray = this.a) == null) {
+                return -1;
+            }
+            return sparseIntArray.get(i, -1);
+        }
+        return invokeI.intValue;
+    }
+
+    public void c(int i) {
+        SparseIntArray sparseIntArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (sparseIntArray = this.a) != null) {
+            sparseIntArray.delete(i);
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            SparseIntArray sparseIntArray = this.a;
+            if (sparseIntArray != null) {
+                sparseIntArray.clear();
+                int[] iArr = this.b;
+                if (iArr != null) {
+                    for (int i2 : iArr) {
+                        if (i2 >= 0) {
+                            this.a.append(i2 + i, i2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            e(0);
         }
     }
 }

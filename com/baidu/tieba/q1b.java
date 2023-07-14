@@ -1,80 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.security.MessageDigest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.ExperimentalCronetEngine;
+import com.baidu.turbonet.net.ICronetEngineBuilder;
+import com.baidu.turbonet.net.impl.CronetUrlRequestContext;
 /* loaded from: classes7.dex */
-public class q1b {
+public class q1b extends a1b {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040391, "Lcom/baidu/tieba/q1b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948040391, "Lcom/baidu/tieba/q1b;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q1b(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (int i = 0; i < bArr.length; i++) {
-                sb.append(a[(bArr[i] & 240) >>> 4]);
-                sb.append(a[bArr[i] & 15]);
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
+    @Override // com.baidu.tieba.a1b, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder a(String str) {
+        super.g(str);
+        return this;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                return c(str.getBytes("UTF-8"));
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
+    @Override // com.baidu.tieba.a1b, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder d(String str) {
+        super.y(str);
+        return this;
     }
 
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.a1b, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder e(String str) {
+        super.z(str);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.a1b, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder f(String str) {
+        super.B(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public ExperimentalCronetEngine b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bArr);
-                return a(messageDigest.digest());
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (r() == null) {
+                C(q());
             }
+            return new CronetUrlRequestContext(this);
         }
-        return (String) invokeL.objValue;
+        return (ExperimentalCronetEngine) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.a1b, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder c(boolean z, String str) {
+        super.l(z, str);
+        return this;
     }
 }

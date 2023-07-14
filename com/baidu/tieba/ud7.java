@@ -1,97 +1,44 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.RecommendPersonAttentionCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ud7 {
+public class ud7 extends vb7<RecommendPersonAttentionCardView, v77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g55 a;
-
-        public a(g55 g55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g55Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g55Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ud7(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static void a(Activity activity, TbPageContext<?> tbPageContext) {
-        int l;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lc7
+    /* renamed from: e */
+    public void b(@NonNull RecommendPersonAttentionCardView recommendPersonAttentionCardView, @NonNull v77 v77Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, activity, tbPageContext) == null) && activity != null && tbPageContext != null) {
-            View inflate = LayoutInflater.from(activity).inflate(R.layout.frs_general_tab_notify_dialog_layout, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.general_title);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.general_content_1);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.general_content_2);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.general_content_3);
-            TextView textView5 = (TextView) inflate.findViewById(R.id.general_btn);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.top_general_image);
-            g55 g55Var = new g55(activity);
-            g55Var.setContentView(inflate);
-            g55Var.setContentViewSize(2);
-            g55Var.setCanceledOnTouchOutside(true);
-            g55Var.setAutoNight(true);
-            g55Var.setCancelable(true);
-            int g = xi.g(activity, R.dimen.tbds31);
-            SkinManager.setBackgroundShapeDrawable(inflate, g, R.color.CAM_X0201, R.color.CAM_X0101);
-            tbImageView.setRadius(g);
-            tbImageView.setConrers(3);
-            tbImageView.setIsBitmapPic(true);
-            int g2 = xi.g(activity, R.dimen.tbds44);
-            if (UtilHelper.getRealScreenOrientation(activity) == 2) {
-                l = xi.j(activity);
-            } else {
-                l = xi.l(activity);
-            }
-            int i = l - (g2 * 2);
-            ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = (i * 556) / 988;
-            tbImageView.setLayoutParams(layoutParams);
-            SkinManager.setImageResource(tbImageView, R.drawable.frs_general_tab_notify_pic);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0302);
-            textView5.setOnClickListener(new a(g55Var));
-            g55Var.create(tbPageContext).show();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendPersonAttentionCardView, v77Var) == null) {
+            recommendPersonAttentionCardView.update(v77Var);
         }
     }
 }

@@ -1,79 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogDataManager;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class n75 {
+public class n75 implements zk1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final n75 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947955389, "Lcom/baidu/tieba/n75;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947955389, "Lcom/baidu/tieba/n75;");
-                return;
-            }
-        }
-        a = new n75();
-    }
 
     public n75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void a(String json) {
-        boolean z;
-        List entityList;
+    @Override // com.baidu.tieba.zk1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            String k = YunDialogDataManager.k();
-            xe<String> g = f55.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k);
-            if (g != null) {
-                String str = g.get(k);
-                if (str != null) {
-                    if (str.length() > 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (!z) {
-                        str = null;
-                    }
-                    if (str != null && (entityList = DataExt.toEntityList(str, DialogStrategiesData.class)) != null) {
-                        o75.b(entityList, DataExt.toEntityList(json, DialogStrategiesData.class));
-                    }
-                }
-                g.a(k, json);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new oz6());
+            arrayList.add(new pt7());
+            arrayList.add(new tt7());
+            arrayList.add(new xt7());
+            arrayList.add(new bu7());
+            arrayList.add(new fu7());
+            arrayList.add(new ju7());
+            arrayList.add(new nu7());
+            arrayList.add(new ru7());
+            arrayList.add(new p8a());
+            return arrayList;
         }
+        return invokeV.objValue;
     }
 }

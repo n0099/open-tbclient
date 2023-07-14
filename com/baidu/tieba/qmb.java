@@ -1,96 +1,76 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodecList;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.UnavailableException;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes7.dex */
 public class qmb {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public final /* synthetic */ InstallActivity b;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    int codecCount = MediaCodecList.getCodecCount();
-                    for (int i = 0; i < codecCount; i++) {
-                        String name = MediaCodecList.getCodecInfoAt(i).getName();
-                        if (name.contains("decoder") && (name.contains("avc") || name.contains("h264"))) {
-                            boolean unused = qmb.a = true;
-                        }
-                        if (name.contains("decoder") && (name.contains("hevc") || name.contains("h265"))) {
-                            boolean unused2 = qmb.b = true;
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948098051, "Lcom/baidu/tieba/qmb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948098051, "Lcom/baidu/tieba/qmb;");
+    public qmb(InstallActivity installActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new Thread(new a()).start();
+        this.b = installActivity;
+        this.a = false;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public void b(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            TLog.h("CodecCheckHelper", "CodecCheck isSupportH264HwDecode " + a);
-            return a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            synchronized (this.b) {
+                if (this.a) {
+                    return;
+                }
+                this.a = true;
+                this.b.d = com.google.ar.core.p.CANCELLED;
+                boolean z = exc instanceof UnavailableException;
+                this.b.j(exc);
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public void a(com.google.ar.core.p pVar) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            TLog.h("CodecCheckHelper", "CodecCheck isSupportH265HwDecode " + b);
-            return b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
+            synchronized (this.b) {
+                if (!this.a) {
+                    this.b.d = pVar;
+                    int ordinal = pVar.ordinal();
+                    if (ordinal != 0) {
+                        if (ordinal == 1) {
+                            this.b.j(new UnavailableUserDeclinedInstallationException());
+                        } else if (ordinal == 2) {
+                            z = this.b.g;
+                            if (!z) {
+                                this.b.i();
+                            }
+                            this.b.j(null);
+                        }
+                        this.a = true;
+                    }
+                }
+            }
         }
-        return invokeV.booleanValue;
     }
 }

@@ -4,8 +4,8 @@ public final class a {
 
     /* renamed from: com.kwad.sdk.utils.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0689a extends j {
-        public C0689a(int i, int i2, Object obj, int i3, boolean z) {
+    public static class C0694a extends j {
+        public C0694a(int i, int i2, Object obj, int i3, boolean z) {
             super(i, i2, obj, i3, z);
         }
 

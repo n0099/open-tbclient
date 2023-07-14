@@ -177,9 +177,9 @@ public class SlideableGridView extends LinearLayout {
     }
 
     public void addIndicator(Context context) {
-        this.mIndicator = new PointPageIndicator(context).setPointDrawableResId(com.baidu.tieba.R.drawable.common_menu_slide_indicator_normal, com.baidu.tieba.R.drawable.common_menu_slide_indicator_selected).setPointMargin((int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070248));
-        this.mIndicatorHeight[0] = (int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070246);
-        this.mIndicatorHeight[1] = (int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070247);
+        this.mIndicator = new PointPageIndicator(context).setPointDrawableResId(com.baidu.tieba.R.drawable.common_menu_slide_indicator_normal, com.baidu.tieba.R.drawable.common_menu_slide_indicator_selected).setPointMargin((int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07024c));
+        this.mIndicatorHeight[0] = (int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07024a);
+        this.mIndicatorHeight[1] = (int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07024b);
         addView(this.mIndicator, createIndicatorParams());
     }
 
@@ -214,7 +214,7 @@ public class SlideableGridView extends LinearLayout {
     }
 
     public int createIndicatorHeight() {
-        return (int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070246);
+        return (int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07024a);
     }
 
     public LinearLayout.LayoutParams createIndicatorParams() {

@@ -1,152 +1,257 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SpriteTypeWriterSwitch;
-import com.baidu.tieba.impersonal.components.uistate.MsgEvents;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
-import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tbadk.data.IconData;
+import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingActivity;
+import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingModel;
+import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingViewSettingView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.LinkedList;
+import protobuf.QueryUserInfos.DataRes;
+import protobuf.QueryUserInfos.IconInfo;
+import tbclient.PermissionList;
 /* loaded from: classes6.dex */
-public final class gq8 {
+public class gq8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final gq8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final PersonalTalkSettingActivity a;
+    public final NavigationBar b;
+    public final View c;
+    public final HeadImageView d;
+    public final TextView e;
+    public final UserIconBox f;
+    public final TextView g;
+    public ImageView h;
+    public TbSettingTextTipView i;
+    public TbSettingTextTipView j;
+    public TbSettingTextTipView k;
+    public RelativeLayout l;
+    public View m;
+    public PersonalTalkSettingViewSettingView n;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947802683, "Lcom/baidu/tieba/gq8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947802683, "Lcom/baidu/tieba/gq8;");
-                return;
-            }
-        }
-        a = new gq8();
-    }
-
-    public gq8() {
+    public gq8(PersonalTalkSettingActivity personalTalkSettingActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {personalTalkSettingActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = personalTalkSettingActivity;
+        personalTalkSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d0754);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091c0e);
+        this.c = findViewById;
+        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
+        this.b = navigationBar;
+        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f15d1));
+        this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f09215e);
+        this.n = personalTalkSettingViewSettingView;
+        personalTalkSettingViewSettingView.b.setSwitchStateChangeListener(this.a);
+        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092808);
+        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09227b);
+        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09227c);
+        this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09013d);
+        this.i.setOnClickListener(this.a);
+        this.j.setOnClickListener(this.a);
+        this.k.setOnClickListener(this.a);
+        this.l.setOnClickListener(this.a);
+        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091c4b);
+        this.d = headImageView;
+        headImageView.setIsRound(true);
+        this.d.setGodIconWidth(R.dimen.tbds47);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091035);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091033);
+        this.f = (UserIconBox) this.a.findViewById(R.id.user_icon_box);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0927e8);
+        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f09090e);
     }
 
-    public final t87<?> a(jr8 jr8Var, bq8<?> bq8Var, SpriteMsgProcessor.e eVar, boolean z) {
-        InterceptResult invokeCommon;
-        String str;
-        String str2;
-        String str3;
-        boolean z2;
+    /* JADX WARN: Removed duplicated region for block: B:27:0x008c  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x009a  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00a5  */
+    /* JADX WARN: Removed duplicated region for block: B:44:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void g(PersonalTalkSettingModel personalTalkSettingModel) {
+        String nameShow;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jr8Var, bq8Var, eVar, Boolean.valueOf(z)})) == null) {
-            Object f = bq8Var.f();
-            Class<?> cls = null;
-            if (f instanceof cq8) {
-                if (bq8Var.e().d()) {
-                    str3 = "text_right";
-                } else {
-                    str3 = "text_left";
-                }
-                tp8 tp8Var = new tp8(bq8Var, str3);
-                if (SpriteTypeWriterSwitch.Companion.isOn() && eVar.getType() == 3 && z && !bq8Var.e().d()) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                tp8Var.k(z2);
-                tp8Var.h(MsgEvents.a.b(jr8Var));
-                return tp8Var;
-            } else if (f instanceof yp8) {
-                return new sp8(bq8Var, "loading_left");
+        if ((interceptable == null || interceptable.invokeL(1048582, this, personalTalkSettingModel) == null) && personalTalkSettingModel != null && personalTalkSettingModel.g0() != null) {
+            DataRes g0 = personalTalkSettingModel.g0();
+            TextView textView = this.e;
+            String str = "";
+            if (StringUtils.isNull(personalTalkSettingModel.getNameShow())) {
+                nameShow = g0.name + "";
             } else {
-                if (f instanceof VoiceMsgContent) {
-                    if (bq8Var.e().d()) {
-                        str2 = "voice_right";
-                    } else {
-                        str2 = "voice_left";
-                    }
-                    up8 up8Var = new up8(bq8Var, str2);
-                    up8Var.g(MsgEvents.a.a());
-                    return up8Var;
-                } else if (f instanceof xp8) {
-                    if (bq8Var.e().d()) {
-                        str = "image_right";
-                    } else {
-                        str = "image_left";
-                    }
-                    return new rp8(bq8Var, str);
-                } else if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    return null;
+                nameShow = personalTalkSettingModel.getNameShow();
+            }
+            textView.setText(nameShow);
+            if (g0.sex.intValue() == 1) {
+                this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_boy, 0);
+            } else if (g0.sex.intValue() == 2) {
+                if (g0.iconInfo.size() > 0 && g0.iconInfo.get(0).name.equals(IconData.meizhi_icon_name)) {
+                    this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 } else {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("unknown msg content ");
-                    Object f2 = bq8Var.f();
-                    if (f2 != null) {
-                        cls = f2.getClass();
-                    }
-                    sb.append(cls);
-                    throw new IllegalStateException(sb.toString());
+                    this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_girl, 0);
                 }
+            } else {
+                i = 9;
+                if (personalTalkSettingModel.i0() != null) {
+                    str = fq8.a(personalTalkSettingModel.i0());
+                }
+                if (StringUtils.isNull(str)) {
+                    str = g0.intro;
+                }
+                this.g.setText(str);
+                if (this.f == null) {
+                    LinkedList linkedList = new LinkedList();
+                    for (IconInfo iconInfo : g0.iconInfo) {
+                        IconData iconData = new IconData();
+                        iconData.setIconName(iconInfo.name);
+                        iconData.setIcon(iconInfo.iconUrl);
+                        linkedList.add(iconData);
+                    }
+                    this.f.g(linkedList, i, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
+                    return;
+                }
+                return;
+            }
+            i = 8;
+            if (personalTalkSettingModel.i0() != null) {
+            }
+            if (StringUtils.isNull(str)) {
+            }
+            this.g.setText(str);
+            if (this.f == null) {
             }
         }
-        return (t87) invokeCommon.objValue;
     }
 
-    public final List<t87<?>> b(jr8 repo, List<? extends wp8> list, SpriteMsgProcessor.e loadType) {
-        InterceptResult invokeLLL;
+    public void a(PermissionList permissionList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, repo, list, loadType)) == null) {
-            Intrinsics.checkNotNullParameter(repo, "repo");
-            Intrinsics.checkNotNullParameter(list, "list");
-            Intrinsics.checkNotNullParameter(loadType, "loadType");
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            for (Object obj : list) {
-                int i2 = i + 1;
-                if (i < 0) {
-                    CollectionsKt__CollectionsKt.throwIndexOverflow();
-                }
-                wp8 wp8Var = (wp8) obj;
-                if (wp8Var instanceof bq8) {
-                    gq8 gq8Var = a;
-                    bq8<?> bq8Var = (bq8) wp8Var;
-                    boolean z = true;
-                    if (i != list.size() - 1) {
-                        z = false;
-                    }
-                    t87<?> a2 = gq8Var.a(repo, bq8Var, loadType, z);
-                    if (a2 != null) {
-                        arrayList.add(a2);
-                    }
-                } else if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    throw new IllegalStateException("unknown msg template " + wp8Var.getClass());
-                }
-                i = i2;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, permissionList) == null) && permissionList != null && this.n != null) {
+            StringBuilder sb = new StringBuilder();
+            if (permissionList.follow.intValue() == 1) {
+                sb.append("关注、");
             }
-            return arrayList;
+            if (permissionList.interact.intValue() == 1) {
+                sb.append("互动、");
+            }
+            if (permissionList.chat.intValue() == 1) {
+                sb.append("私信");
+                this.m.setVisibility(8);
+                this.n.a.setVisibility(8);
+                this.n.b.setVisibility(8);
+            } else {
+                this.n.a.setVisibility(0);
+                this.n.b.setVisibility(0);
+            }
+            if (!StringUtils.isNull(sb.toString()) && sb.length() > 0) {
+                sb.insert(0, "禁止");
+            } else {
+                sb.delete(0, sb.length());
+            }
+            String sb2 = sb.toString();
+            if (!StringUtils.isNull(sb2) && sb2.endsWith("、")) {
+                sb2 = sb2.substring(0, sb2.length() - 1);
+            }
+            this.k.setTip(sb2);
         }
-        return (List) invokeLLL.objValue;
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.n.a(z);
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.n.c(z);
+        }
+    }
+
+    public void f(BdSwitchView.b bVar) {
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) && (personalTalkSettingViewSettingView = this.n) != null) {
+            personalTalkSettingViewSettingView.setSwitchStateChangeListener(bVar);
+        }
+    }
+
+    public void c(PersonalTalkSettingModel personalTalkSettingModel) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, personalTalkSettingModel) == null) && personalTalkSettingModel != null && personalTalkSettingModel.g0() != null && (str = personalTalkSettingModel.g0().portrait) != null && str.length() > 0) {
+            this.d.setImageResource(0);
+            UtilHelper.showHeadImageViewBigV(this.d, personalTalkSettingModel.i0());
+            this.d.setTag(null);
+            this.d.setPageId(this.a.getUniqueId());
+            this.d.N(str, 12, false);
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a.getLayoutMode().k(this.c);
+            this.b.onChangeSkinType(this.a.getPageContext(), i);
+            d85 d = d85.d(this.e);
+            d.D(R.string.F_X02);
+            d.C(R.dimen.T_X04);
+            d.x(R.color.CAM_X0105);
+            d85 d2 = d85.d(this.g);
+            d2.D(R.string.F_X01);
+            d2.C(R.dimen.T_X08);
+            d2.x(R.color.CAM_X0109);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+        }
+    }
+
+    public void h(PersonalTalkSettingModel personalTalkSettingModel) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, personalTalkSettingModel) == null) && personalTalkSettingModel != null) {
+            a(personalTalkSettingModel.h0());
+            b(personalTalkSettingModel.isNotify());
+            if (dh8.a(String.valueOf(personalTalkSettingModel.getUid())) > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            e(z);
+            g(personalTalkSettingModel);
+            c(personalTalkSettingModel);
+        }
     }
 }

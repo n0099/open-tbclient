@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h05;
+import com.baidu.tieba.a55;
+import com.baidu.tieba.d55;
+import com.baidu.tieba.hca;
+import com.baidu.tieba.q05;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.s45;
-import com.baidu.tieba.v45;
-import com.baidu.tieba.w3a;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,8 +44,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TextView h;
     public View i;
     public TextView j;
-    public s45 k;
-    public v45 l;
+    public a55 k;
+    public d55 l;
     public ImageView m;
     public View n;
     public int o;
@@ -78,7 +78,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) || !xi.F()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) || !yi.G()) {
                 return;
             }
             if (view2 == this.a.b) {
@@ -131,28 +131,28 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.n = view2.findViewById(R.id.frs_list_item_u9_top_line);
         SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
         SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
-        h();
+        i();
     }
 
-    public void f(w3a w3aVar) {
+    public void g(hca hcaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, w3aVar) != null) || w3aVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hcaVar) != null) || hcaVar == null) {
             return;
         }
-        s45 c = w3aVar.c();
-        v45 d = w3aVar.d();
+        a55 c = hcaVar.c();
+        d55 d = hcaVar.d();
         this.k = c;
         this.l = d;
-        if (w3aVar.e()) {
+        if (hcaVar.e()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
-        s45 s45Var = this.k;
-        if (s45Var == null) {
+        a55 a55Var = this.k;
+        if (a55Var == null) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
-        } else if (StringUtils.isNull(s45Var.g())) {
+        } else if (StringUtils.isNull(a55Var.g())) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
         } else {
@@ -200,14 +200,14 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.c.setVisibility(8);
     }
 
-    public void g(int i) {
+    public void h(int i) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.o != i) {
             SkinManager.setBackgroundResource(this.m, R.drawable.icon_frs_news);
             SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
             SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
-            h05 layoutMode = this.a.getLayoutMode();
+            q05 layoutMode = this.a.getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -219,7 +219,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void h() {
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.b.setOnClickListener(this.p);

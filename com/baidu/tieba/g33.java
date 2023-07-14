@@ -1,87 +1,154 @@
 package com.baidu.tieba;
 
+import android.content.IntentFilter;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.swan.apps.network.NetworkBroadcastReceiver;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
-/* loaded from: classes5.dex */
-public class g33 extends RequestBody {
+import java.lang.ref.WeakReference;
+/* loaded from: classes6.dex */
+public class g33 extends wb3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final File a;
-    public final w33 b;
-    public final String c;
+    public NetworkBroadcastReceiver a;
+    public TelephonyManager b;
+    public a c;
 
-    public g33(File file, String str, w33 w33Var) {
+    /* loaded from: classes6.dex */
+    public class a extends PhoneStateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<CallbackHandler> a;
+        public String b;
+        public String c;
+        public final /* synthetic */ g33 d;
+
+        public a(g33 g33Var, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g33Var, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = g33Var;
+            this.c = "";
+            this.a = new WeakReference<>(callbackHandler);
+            this.b = str;
+        }
+
+        public void a(CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
+                this.a = new WeakReference<>(callbackHandler);
+                this.b = str;
+            }
+        }
+
+        @Override // android.telephony.PhoneStateListener
+        public void onDataConnectionStateChanged(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+                if (g33.d) {
+                    Log.d("PhoneStateListener", "——> onDataConnectionStateChanged: state " + i + " networkType " + i2);
+                }
+                if (2 == i) {
+                    String d = SwanAppNetworkUtils.d(i2, null);
+                    if (!TextUtils.isEmpty(d) && !d.equals(this.c)) {
+                        this.c = d;
+                        SwanAppNetworkUtils.k(this.d, this.a.get(), this.b);
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947742946, "Lcom/baidu/tieba/g33;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947742946, "Lcom/baidu/tieba/g33;");
+                return;
+            }
+        }
+        d = fs1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g33(vb3 vb3Var) {
+        super(vb3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, str, w33Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((vb3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = file;
-        this.c = str;
-        this.b = w33Var;
     }
 
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
-        InterceptResult invokeV;
+    public void a(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.length();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return MediaType.parse(this.c);
-        }
-        return (MediaType) invokeV.objValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-            Source source = null;
-            try {
-                source = Okio.source(this.a);
-                long j = 0;
-                while (true) {
-                    long read = source.read(bufferedSink.buffer(), 2048L);
-                    if (read != -1) {
-                        j += read;
-                        bufferedSink.flush();
-                        this.b.a(j);
-                    } else {
-                        return;
-                    }
-                }
-            } finally {
-                gs4.d(source);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
+            if (this.b == null) {
+                this.b = (TelephonyManager) getSystemService("phone");
+                a aVar = new a(this, callbackHandler, str);
+                this.c = aVar;
+                this.b.listen(aVar, 64);
+                return;
             }
+            a aVar2 = this.c;
+            if (aVar2 != null) {
+                aVar2.a(callbackHandler, str);
+            }
+        }
+    }
+
+    public void b(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str) == null) {
+            NetworkBroadcastReceiver networkBroadcastReceiver = this.a;
+            if (networkBroadcastReceiver == null) {
+                this.a = new NetworkBroadcastReceiver(callbackHandler, str);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
+                registerReceiver(this.a, intentFilter);
+            } else if (networkBroadcastReceiver != null) {
+                networkBroadcastReceiver.updateCallback(callbackHandler, str);
+            }
+            a(callbackHandler, str);
         }
     }
 }

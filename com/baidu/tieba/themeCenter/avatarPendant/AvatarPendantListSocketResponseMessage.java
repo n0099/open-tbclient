@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gaa;
-import com.baidu.tieba.iba;
+import com.baidu.tieba.xia;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,12 +18,12 @@ import tbclient.Error;
 import tbclient.GetPendantByCategory.DataRes;
 import tbclient.GetPendantByCategory.GetPendantByCategoryResIdl;
 import tbclient.GetPendantByCategory.ThemePendantInMain;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<gaa> mAvatarPendantList;
-    public iba mRecommand;
+    public List<xia> mAvatarPendantList;
+    public zja mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AvatarPendantListSocketResponseMessage() {
@@ -43,7 +43,7 @@ public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessa
         }
     }
 
-    public List<gaa> getAvatarPendantListList() {
+    public List<xia> getAvatarPendantListList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -52,13 +52,13 @@ public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessa
         return (List) invokeV.objValue;
     }
 
-    public iba getRecommand() {
+    public zja getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (iba) invokeV.objValue;
+        return (zja) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -81,17 +81,17 @@ public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessa
                 return getPendantByCategoryResIdl;
             }
             if (dataRes.recommend != null) {
-                iba ibaVar = new iba();
-                this.mRecommand = ibaVar;
-                ibaVar.d(getPendantByCategoryResIdl.data.recommend);
+                zja zjaVar = new zja();
+                this.mRecommand = zjaVar;
+                zjaVar.d(getPendantByCategoryResIdl.data.recommend);
             }
             if (getPendantByCategoryResIdl.data.pendant != null) {
                 this.mAvatarPendantList = new ArrayList();
                 for (ThemePendantInMain themePendantInMain : getPendantByCategoryResIdl.data.pendant) {
                     if (themePendantInMain != null && !StringUtils.isNull(themePendantInMain.pendant_category)) {
-                        gaa gaaVar = new gaa();
-                        gaaVar.c(themePendantInMain);
-                        this.mAvatarPendantList.add(gaaVar);
+                        xia xiaVar = new xia();
+                        xiaVar.c(themePendantInMain);
+                        this.mAvatarPendantList.add(xiaVar);
                     }
                 }
             }

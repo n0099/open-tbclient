@@ -1,257 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.media.ExifInterface;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.SelectImageHelper;
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.VideoMuxerData;
-import com.baidu.ugc.editvideo.muxer.VideoMuxer;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.editvideo.player.AudioPlayTrackData;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class ny5 {
+public class ny5<KEY> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<KEY> a;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(int i);
-
-        void b();
-
-        void c();
-
-        void d(String str);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements oxa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        @Override // com.baidu.tieba.oxa
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        public a(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        @Override // com.baidu.tieba.oxa
-        public void a(int i) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bVar = this.a) != null) {
-                bVar.a(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.oxa
-        public void e(String str) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (bVar = this.a) != null) {
-                bVar.d(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.oxa
-        public void f(String str) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (bVar = this.a) != null) {
-                bVar.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.oxa
-        public void b() {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.a) != null) {
-                bVar.b();
-            }
-        }
-
-        @Override // com.baidu.tieba.oxa
-        public void d() {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bVar = this.a) != null) {
-                bVar.c();
-            }
-        }
-    }
-
-    public static Bitmap a(Context context, Uri uri, int i) {
-        InterceptResult invokeLLI;
+    public ny5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, uri, i)) == null) {
-            try {
-                return BitmapHelper.subSampleBitmap(context, uri, i);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (Bitmap) invokeLLI.objValue;
+        this.a = new HashSet();
     }
 
-    public static Bitmap b(Context context, String str, int i) {
-        InterceptResult invokeLLI;
+    public static <T> ny5<T> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i)) == null) {
-            try {
-                return BitmapHelper.loadResizedBitmap(str, i, i);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new ny5<>();
         }
-        return (Bitmap) invokeLLI.objValue;
+        return (ny5) invokeV.objValue;
     }
 
-    public static Bitmap c(int i, Context context, Uri uri, String str, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), context, uri, str, Integer.valueOf(i2)})) == null) {
-            if (i == 12001) {
-                return e(i2);
-            }
-            if (!TextUtils.isEmpty(str)) {
-                return b(context, str, i2);
-            }
-            return a(context, uri, i2);
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static VideoMuxer d(lka lkaVar, b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, lkaVar, bVar)) == null) {
-            if (lkaVar == null) {
-                return null;
-            }
-            int f = lkaVar.f();
-            int e = lkaVar.e();
-            VideoMuxerData videoMuxerData = new VideoMuxerData();
-            videoMuxerData.setCompat(true);
-            videoMuxerData.setRecordConfigEncodeHevcVideo(true);
-            videoMuxerData.setCurrentEncodeHevcVideo(true);
-            ArrayList arrayList = new ArrayList();
-            if (lkaVar.c() != null) {
-                TbMultiMediaData tbMultiMediaData = (TbMultiMediaData) lkaVar.c().clone();
-                tbMultiMediaData.textureId = 0;
-                arrayList.add(tbMultiMediaData);
-                videoMuxerData.setPhotoDataList(arrayList);
-                videoMuxerData.setVideoPath(tbMultiMediaData.path);
-                videoMuxerData.setPreviewWidth(f);
-                videoMuxerData.setPreviewHeight(e);
-                videoMuxerData.setVideoRatio(lkaVar.g());
-                videoMuxerData.setOutWidth(f);
-                videoMuxerData.setOutHeight(e);
-                videoMuxerData.setOutBitRate(f * e * 6);
-            }
-            if (lkaVar.a() != null) {
-                videoMuxerData.setFilterValue(lkaVar.a());
-            }
-            if (lkaVar.b() != null) {
-                videoMuxerData.setCurrThemeEffect(lkaVar.b());
-            }
-            videoMuxerData.setUserNewAudioMixture(true);
-            if (lkaVar.d() != null) {
-                videoMuxerData.setMusicData(lkaVar.d());
-                ArrayList arrayList2 = new ArrayList();
-                AudioPlayTrackData audioPlayTrackData = new AudioPlayTrackData();
-                AudioPlayData audioPlayData = new AudioPlayData(lkaVar.d().localPath, 0, s1b.f(lkaVar.d().localPath), 1.0f);
-                ArrayList arrayList3 = new ArrayList();
-                audioPlayTrackData.mAudioPlayDataList = arrayList3;
-                arrayList3.add(audioPlayData);
-                arrayList2.add(audioPlayTrackData);
-                videoMuxerData.setAudioPlayTrackDataList(arrayList2);
-            }
-            videoMuxerData.setComposeNecessary(true);
-            VideoMuxer videoMuxer = new VideoMuxer();
-            videoMuxer.setListener(new a(bVar));
-            videoMuxer.startMuxer(videoMuxerData);
-            return videoMuxer;
-        }
-        return (VideoMuxer) invokeLL.objValue;
-    }
-
-    public static Bitmap e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            try {
-                int f = f(FileHelper.getFileDireciory(SelectImageHelper.TMP_IMAGE_NAME));
-                Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(SelectImageHelper.TMP_IMAGE_NAME, i);
-                if (f != 0 && subSampleBitmap != null) {
-                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, f);
-                }
-                return subSampleBitmap;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (Bitmap) invokeI.objValue;
-    }
-
-    public static int f(String str) {
+    public synchronized boolean a(@NonNull KEY key) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            try {
-                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
-                if (attributeInt != 3) {
-                    if (attributeInt != 6) {
-                        if (attributeInt != 8) {
-                            return 0;
-                        }
-                        return 270;
-                    }
-                    return 90;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
+            synchronized (this) {
+                if (this.a.contains(key)) {
+                    return false;
                 }
-                return 180;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return 0;
+                this.a.add(key);
+                return true;
             }
         }
-        return invokeL.intValue;
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean b(@NonNull KEY key) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key)) == null) {
+            synchronized (this) {
+                z = !this.a.contains(key);
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void d(@NonNull KEY key) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, key) == null) {
+            synchronized (this) {
+                this.a.remove(key);
+            }
+        }
     }
 }

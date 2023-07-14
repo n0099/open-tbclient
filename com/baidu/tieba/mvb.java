@@ -1,271 +1,119 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
-import java.util.Queue;
-import rx.exceptions.MissingBackpressureException;
-import rx.internal.operators.NotificationLite;
-/* loaded from: classes6.dex */
-public class mvb implements etb {
+import com.yy.transvod.player.log.TLog;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes7.dex */
+public class mvb {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
+    public static mvb b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Queue<Object> a;
-    public volatile Object b;
+    public ConcurrentHashMap<String, lvb> a;
 
-    static {
-        InterceptResult invokeClinit;
-        int i;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947987536, "Lcom/baidu/tieba/mvb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947987536, "Lcom/baidu/tieba/mvb;");
-                return;
-            }
-        }
-        if (lvb.c()) {
-            i = 16;
-        } else {
-            i = 128;
-        }
-        String property = System.getProperty("rx.ring-buffer.size");
-        if (property != null) {
-            try {
-                i = Integer.parseInt(property);
-            } catch (NumberFormatException e) {
-                PrintStream printStream = System.err;
-                printStream.println("Failed to set 'rx.buffer.size' with value " + property + " => " + e.getMessage());
-            }
-        }
-        c = i;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public mvb() {
-        this(new rvb(c), c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((Queue) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    public mvb(Queue<Object> queue, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {queue, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = queue;
-    }
-
-    public mvb(boolean z, int i) {
-        Queue<Object> mwbVar;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        if (z) {
-            mwbVar = new ewb<>(i);
-        } else {
-            mwbVar = new mwb<>(i);
-        }
-        this.a = mwbVar;
-    }
-
-    public static mvb a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (axb.b()) {
-                return new mvb(true, c);
-            }
-            return new mvb();
-        }
-        return (mvb) invokeV.objValue;
+        this.a = new ConcurrentHashMap<>();
     }
 
     public static mvb b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (axb.b()) {
-                return new mvb(false, c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (mvb.class) {
+                    if (b == null) {
+                        b = new mvb();
+                    }
+                }
             }
-            return new mvb();
+            return b;
         }
         return (mvb) invokeV.objValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public void a(String str, lvb lvbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Queue<Object> queue = this.a;
-            if (queue != null && !queue.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b == null) {
-            this.b = NotificationLite.b();
-        }
-    }
-
-    public Object h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                Queue<Object> queue = this.a;
-                if (queue == null) {
-                    return null;
-                }
-                Object peek = queue.peek();
-                Object obj = this.b;
-                if (peek == null && obj != null && queue.peek() == null) {
-                    peek = obj;
-                }
-                return peek;
-            }
-        }
-        return invokeV.objValue;
-    }
-
-    public Object i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                Queue<Object> queue = this.a;
-                if (queue == null) {
-                    return null;
-                }
-                Object poll = queue.poll();
-                Object obj = this.b;
-                if (poll == null && obj != null && queue.peek() == null) {
-                    this.b = null;
-                    poll = obj;
-                }
-                return poll;
-            }
-        }
-        return invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.etb
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.a == null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this) {
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.etb
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            j();
-        }
-    }
-
-    public Object c(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            return NotificationLite.e(obj);
-        }
-        return invokeL.objValue;
-    }
-
-    public boolean d(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            return NotificationLite.f(obj);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(Object obj) throws MissingBackpressureException {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            synchronized (this) {
-                Queue<Object> queue = this.a;
-                z = true;
-                z2 = false;
-                if (queue != null) {
-                    z2 = !queue.offer(NotificationLite.i(obj));
-                    z = false;
-                }
-            }
-            if (!z) {
-                if (!z2) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, lvbVar) == null) {
+            TLog.h("[VodPlayerManager]", "bindUniqueKeyForPlayer key:" + str + "-vodPlayer:" + lvbVar);
+            if (!TextUtils.isEmpty(str) && lvbVar != null) {
+                if (this.a.containsKey(str) && this.a.get(str) != null) {
+                    TLog.h("[VodPlayerManager]", "bindUniqueKeyForPlayer contain key and player");
                     return;
                 }
-                throw new MissingBackpressureException();
+                if (this.a.containsValue(lvbVar)) {
+                    Iterator<Map.Entry<String, lvb>> it = this.a.entrySet().iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        Map.Entry<String, lvb> next = it.next();
+                        if (lvbVar == next.getValue()) {
+                            this.a.remove(next.getKey());
+                            break;
+                        }
+                    }
+                }
+                this.a.put(str, lvbVar);
+                TLog.h("[VodPlayerManager]", "player bind suc, tastId:" + lvbVar.d());
+                return;
             }
-            throw new IllegalStateException("This instance has been unsubscribed and the queue is no longer usable.");
+            TLog.h("[VodPlayerManager]", "player or key is null");
+        }
+    }
+
+    public lvb c(String str, boolean z) {
+        InterceptResult invokeLZ;
+        evb f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
+            TLog.h("[VodPlayerManager]", "obtainPlayer key:" + str);
+            if (!TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                lvb lvbVar = this.a.get(str);
+                TLog.h("[VodPlayerManager]", "TaskID:" + lvbVar.d() + "-obtainPlayer vodPlayer:" + lvbVar);
+                if (z && (f = lvbVar.f()) != null) {
+                    f.onPlayerStateUpdate(lvbVar, 10, 0);
+                }
+                return lvbVar;
+            }
+            TLog.h("[VodPlayerManager]", "player is null");
+            return null;
+        }
+        return (lvb) invokeLZ.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            e(str, "");
+        }
+    }
+
+    public void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            TLog.h("[VodPlayerManager]", "removePlayerUniqueKey key:" + str + ", source:" + str2);
+            if (!TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                this.a.remove(str);
+            }
         }
     }
 }

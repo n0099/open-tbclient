@@ -4,13 +4,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
 /* loaded from: classes5.dex */
-public class as0 {
+public final class as0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @JvmField
     public String a;
+    @JvmField
     public String b;
-    public boolean c;
+    @JvmField
+    public String c;
+    @JvmField
+    public String d;
+    @JvmField
+    public String e;
+    @JvmField
+    public String f;
+    @JvmField
+    public String g;
 
     public as0() {
         Interceptable interceptable = $ic;
@@ -23,6 +35,17 @@ public class as0 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            this.c = null;
+            this.e = null;
+            this.f = null;
+            this.g = null;
         }
     }
 }

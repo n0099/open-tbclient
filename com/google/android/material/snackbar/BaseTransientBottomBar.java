@@ -358,7 +358,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
         @NonNull
         private Drawable createThemedBackground() {
-            float dimension = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070624);
+            float dimension = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07062d);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
             gradientDrawable.setCornerRadius(dimension);
@@ -390,7 +390,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
             z = false;
         }
         USE_OFFSET_API = z;
-        SNACKBAR_STYLE_ATTR = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04069b};
+        SNACKBAR_STYLE_ATTR = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04069c};
         TAG = BaseTransientBottomBar.class.getSimpleName();
         handler = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.1
             @Override // android.os.Handler.Callback
@@ -816,9 +816,9 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     @LayoutRes
     public int getSnackbarBaseLayoutResId() {
         if (hasSnackbarStyleAttr()) {
-            return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0643;
+            return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d064f;
         }
-        return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0248;
+        return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d024a;
     }
 
     @NonNull

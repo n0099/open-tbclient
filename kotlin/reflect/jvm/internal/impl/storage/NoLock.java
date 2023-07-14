@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.storage;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class NoLock implements Lock {
     public static final Lock INSTANCE = new NoLock();
 

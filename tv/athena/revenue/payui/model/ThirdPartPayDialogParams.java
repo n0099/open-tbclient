@@ -2,8 +2,8 @@ package tv.athena.revenue.payui.model;
 
 import android.app.Activity;
 import androidx.annotation.Keep;
-import com.baidu.tieba.jzb;
-import com.baidu.tieba.lzb;
+import com.baidu.tieba.g8c;
+import com.baidu.tieba.i8c;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import java.util.List;
 import java.util.Map;
@@ -17,8 +17,8 @@ public class ThirdPartPayDialogParams {
     public List<Object> payDiscountList;
     public String payWayDialogTitle;
     public double targetAmount;
-    public jzb thirdPartOrderRequest;
-    public lzb thirdPartToYYPayRequest;
+    public g8c thirdPartOrderRequest;
+    public i8c thirdPartToYYPayRequest;
     public AbsViewEventHandler viewEventListener;
 
     public String toString() {

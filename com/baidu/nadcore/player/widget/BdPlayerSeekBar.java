@@ -8,8 +8,8 @@ import android.widget.FrameLayout;
 import com.baidu.nadcore.player.widget.BdThumbSeekBarView;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e21;
-import com.baidu.tieba.iv0;
+import com.baidu.tieba.r21;
+import com.baidu.tieba.wv0;
 import kotlin.Metadata;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmOverloads;
@@ -21,7 +21,7 @@ public class BdPlayerSeekBar extends FrameLayout {
     public BdThumbSeekBarView a;
     public BdPlayerProgressView b;
     public BdPlayerProgressView c;
-    public iv0 d;
+    public wv0 d;
     @JvmField
     public boolean e;
 
@@ -45,7 +45,7 @@ public class BdPlayerSeekBar extends FrameLayout {
         public void a(BdThumbSeekBarView bdThumbSeekBarView) {
             BdPlayerSeekBar bdPlayerSeekBar = BdPlayerSeekBar.this;
             bdPlayerSeekBar.e = true;
-            iv0 seekBarListener = bdPlayerSeekBar.getSeekBarListener();
+            wv0 seekBarListener = bdPlayerSeekBar.getSeekBarListener();
             if (seekBarListener != null) {
                 seekBarListener.a(bdThumbSeekBarView);
             }
@@ -55,7 +55,7 @@ public class BdPlayerSeekBar extends FrameLayout {
         public void c(BdThumbSeekBarView bdThumbSeekBarView) {
             BdPlayerSeekBar bdPlayerSeekBar = BdPlayerSeekBar.this;
             bdPlayerSeekBar.e = false;
-            iv0 seekBarListener = bdPlayerSeekBar.getSeekBarListener();
+            wv0 seekBarListener = bdPlayerSeekBar.getSeekBarListener();
             if (seekBarListener != null) {
                 seekBarListener.c(BdPlayerSeekBar.this.getSeekBarView());
             }
@@ -64,7 +64,7 @@ public class BdPlayerSeekBar extends FrameLayout {
         @Override // com.baidu.nadcore.player.widget.BdThumbSeekBarView.b
         public void b(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z) {
             BdPlayerSeekBar.this.setPosition(i);
-            iv0 seekBarListener = BdPlayerSeekBar.this.getSeekBarListener();
+            wv0 seekBarListener = BdPlayerSeekBar.this.getSeekBarListener();
             if (seekBarListener != null) {
                 seekBarListener.b(bdThumbSeekBarView, i, z);
             }
@@ -87,14 +87,14 @@ public class BdPlayerSeekBar extends FrameLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.nad_bdvideoplayer_seek_bar_view, this);
         this.b = (BdPlayerProgressView) findViewById(R.id.nad_main_progress_text);
         this.c = (BdPlayerProgressView) findViewById(R.id.nad_main_duration_text);
-        BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.obfuscated_res_0x7f09168c);
+        BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.obfuscated_res_0x7f0916a0);
         this.a = bdThumbSeekBarView;
         if (bdThumbSeekBarView != null) {
             bdThumbSeekBarView.setOnSeekBarChangeListener(new a());
         }
     }
 
-    public final iv0 getSeekBarListener() {
+    public final wv0 getSeekBarListener() {
         return this.d;
     }
 
@@ -117,7 +117,7 @@ public class BdPlayerSeekBar extends FrameLayout {
         }
         if (this.c != null) {
             boolean z = false;
-            String b = e21.b(i, false);
+            String b = r21.b(i, false);
             if (b != null) {
                 if (b.length() == 0) {
                     z = true;
@@ -141,7 +141,7 @@ public class BdPlayerSeekBar extends FrameLayout {
                 z = true;
             }
         }
-        String b = e21.b(i, z);
+        String b = r21.b(i, z);
         BdPlayerProgressView bdPlayerProgressView = this.b;
         if (bdPlayerProgressView != null) {
             if (!(true ^ TextUtils.isEmpty(b))) {
@@ -153,8 +153,8 @@ public class BdPlayerSeekBar extends FrameLayout {
         }
     }
 
-    public final void setSeekBarListener(iv0 iv0Var) {
-        this.d = iv0Var;
+    public final void setSeekBarListener(wv0 wv0Var) {
+        this.d = wv0Var;
     }
 
     public final void setSeekBarView(BdThumbSeekBarView bdThumbSeekBarView) {

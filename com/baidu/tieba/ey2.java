@@ -1,197 +1,76 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ey2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final ey2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicBoolean a;
-    public final List<by2> b;
+    public UnitedSchemeEntity a;
+    public CallbackHandler b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends kx2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final /* synthetic */ ey2 b;
-
-        public b(ey2 ey2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ey2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ey2Var;
-            this.a = 0;
-        }
-
-        @Override // com.baidu.tieba.kx2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-                int i = this.a + 1;
-                this.a = i;
-                if (i == 1) {
-                    this.b.d(activity);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.kx2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                int i = this.a - 1;
-                this.a = i;
-                if (i == 0) {
-                    this.b.e(activity);
-                }
-            }
-        }
-
-        public /* synthetic */ b(ey2 ey2Var, a aVar) {
-            this(ey2Var);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947750603, "Lcom/baidu/tieba/ey2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947750603, "Lcom/baidu/tieba/ey2;");
-                return;
-            }
-        }
-        c = ms1.a;
-        d = new ey2();
-    }
-
-    public static ey2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d;
-        }
-        return (ey2) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ey2() {
-        List<by2> list;
+    public ey2(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {unitedSchemeEntity, callbackHandler};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicBoolean(false);
-        kl1<by2> kl1Var = new dy2().a;
-        if (kl1Var == null) {
-            list = null;
-        } else {
-            list = kl1Var.getList();
-        }
-        this.b = list;
+        this.a = unitedSchemeEntity;
+        this.b = callbackHandler;
     }
 
-    public void b(Context context) {
+    public static ey2 a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext instanceof Application) {
-                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, unitedSchemeEntity, callbackHandler)) == null) {
+            return new ey2(unitedSchemeEntity, callbackHandler);
         }
+        return (ey2) invokeLL.objValue;
     }
 
-    public void d(Activity activity) {
+    public void c(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            if (c) {
-                String curProcessName = ProcessUtils.getCurProcessName();
-                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
-            }
-            if (this.b != null) {
-                LifecycleProcessType current = LifecycleProcessType.getCurrent();
-                for (by2 by2Var : this.b) {
-                    if (current == by2Var.b()) {
-                        by2Var.a(true, activity);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            UnitedSchemeUtility.safeCallback(this.b, this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
         }
     }
 
-    public void e(Activity activity) {
+    public void b(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (c) {
-                String curProcessName = ProcessUtils.getCurProcessName();
-                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
-            }
-            if (this.b != null) {
-                LifecycleProcessType current = LifecycleProcessType.getCurrent();
-                for (by2 by2Var : this.b) {
-                    if (current == by2Var.b()) {
-                        by2Var.a(false, activity);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+            UnitedSchemeUtility.safeCallback(this.b, this.a, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a.result = UnitedSchemeUtility.wrapCallbackParams(i);
+        }
+    }
+
+    public void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            UnitedSchemeEntity unitedSchemeEntity = this.a;
+            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(this.b, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
         }
     }
 }

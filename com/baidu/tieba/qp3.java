@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.StatFs;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.StorageUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,292 +14,175 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
 /* loaded from: classes7.dex */
-public final class qp3 {
+public abstract class qp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    @SuppressLint({"StaticFieldLeak"})
+    public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract CharSequence a();
+
+    public abstract void c(CharSequence charSequence);
+
+    @TargetApi(11)
     /* loaded from: classes7.dex */
-    public static class a {
+    public static class a extends qp3 {
         public static /* synthetic */ Interceptable $ic;
+        public static ClipboardManager b;
+        public static ClipData c;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
 
-        public a(String str, boolean z, boolean z2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-482162696, "Lcom/baidu/tieba/qp3$a;")) == null) {
+                return;
             }
-            this.a = str;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948099477, "Lcom/baidu/tieba/qp3;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
                 $ic = interceptable;
             }
             if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948099477, "Lcom/baidu/tieba/qp3;");
+                classClinitInterceptable.invokePostClinit(-482162696, "Lcom/baidu/tieba/qp3$a;");
+            }
+        }
+
+        @SuppressLint({"ServiceCast"})
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            b = (ClipboardManager) qp3.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+        }
+
+        @Override // com.baidu.tieba.qp3
+        public CharSequence a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    c = b.getPrimaryClip();
+                } catch (Exception e) {
+                    if (fs1.a) {
+                        throw e;
+                    }
+                }
+                ClipData clipData = c;
+                if (clipData != null && clipData.getItemCount() > 0) {
+                    return c.getItemAt(0).getText();
+                }
+                return "";
+            }
+            return (CharSequence) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.qp3
+        public void c(CharSequence charSequence) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+                ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
+                c = newPlainText;
+                try {
+                    b.setPrimaryClip(newPlainText);
+                } catch (RuntimeException e) {
+                    if (fs1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends qp3 {
+        public static /* synthetic */ Interceptable $ic;
+        public static android.text.ClipboardManager b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-482162665, "Lcom/baidu/tieba/qp3$b;")) == null) {
                 return;
             }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-482162665, "Lcom/baidu/tieba/qp3$b;");
+            }
         }
-        a = ms1.a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            b = (android.text.ClipboardManager) qp3.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+        }
+
+        @Override // com.baidu.tieba.qp3
+        public CharSequence a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.getText();
+            }
+            return (CharSequence) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.qp3
+        public void c(CharSequence charSequence) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+                b.setText(charSequence);
+            }
+        }
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public qp3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b()) {
-                return (int) (new StatFs(Environment.getExternalStorageDirectory().getPath()).getTotalBytes() / 1024);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return -1;
         }
-        return invokeV.intValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return Environment.getExternalStorageState().equals("mounted");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static long c() {
-        InterceptResult invokeV;
-        long blockSize;
-        long availableBlocks;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b()) {
-                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                if (jo3.d()) {
-                    blockSize = statFs.getBlockSizeLong();
-                    availableBlocks = statFs.getAvailableBlocksLong();
-                } else {
-                    blockSize = statFs.getBlockSize();
-                    availableBlocks = statFs.getAvailableBlocks();
-                }
-                return availableBlocks * blockSize;
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:108:0x01d0  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static List<a> d() {
-        InterceptResult invokeV;
-        String path;
-        boolean z;
-        HashSet hashSet;
-        BufferedReader bufferedReader;
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            BufferedReader bufferedReader2 = null;
-            File externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null);
-            if (externalFilesDir == null) {
-                path = null;
-            } else {
-                path = externalFilesDir.getPath();
-            }
-            int i2 = 1;
-            boolean z2 = false;
-            boolean z3 = jo3.b() ? !Environment.isExternalStorageRemovable() : false;
-            String externalStorageState = Environment.getExternalStorageState();
-            if (!externalStorageState.equals("mounted") && !externalStorageState.equals("mounted_ro")) {
-                z = false;
-            } else {
-                z = true;
-            }
-            boolean equals = Environment.getExternalStorageState().equals("mounted_ro");
-            try {
-                try {
-                    hashSet = new HashSet();
-                    bufferedReader = new BufferedReader(new FileReader("/proc/mounts"));
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-                bufferedReader2 = null;
-            } catch (IOException e2) {
-                e = e2;
-                bufferedReader2 = null;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = null;
-            }
-            try {
-                if (a) {
-                    Log.d(StorageUtils.TAG, "/proc/mounts");
-                }
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    if (a) {
-                        Log.d(StorageUtils.TAG, readLine);
-                    }
-                    StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
-                    String nextToken = stringTokenizer.nextToken();
-                    String nextToken2 = stringTokenizer.nextToken();
-                    if (!hashSet.contains(nextToken2)) {
-                        stringTokenizer.nextToken();
-                        boolean contains = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
-                        if (!readLine.contains("vfat") && !readLine.contains("/mnt")) {
-                            if (e(nextToken, nextToken2)) {
-                                hashSet.add(nextToken2);
-                                if (f(nextToken2)) {
-                                    i = i2 + 1;
-                                    arrayList.add(new a(nextToken2, z2, contains, i2));
-                                    i2 = i;
-                                }
-                            }
-                            z2 = false;
-                        }
-                        if (nextToken2.equals(path)) {
-                            hashSet.add(path);
-                            hashMap.put(nextToken, new a(path, z3, contains, -1));
-                        } else if (readLine.contains("/dev/block/vold")) {
-                            if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
-                                hashSet.add(nextToken2);
-                                if (!hashMap.containsKey(nextToken)) {
-                                    i = i2 + 1;
-                                    hashMap.put(nextToken, new a(nextToken2, z2, contains, i2));
-                                    i2 = i;
-                                }
-                            }
-                        } else if (hashSet.contains(nextToken)) {
-                            Iterator it = hashMap.keySet().iterator();
-                            while (true) {
-                                if (it.hasNext()) {
-                                    str = (String) it.next();
-                                    if (TextUtils.equals(((a) hashMap.get(str)).a, nextToken)) {
-                                        break;
-                                    }
-                                } else {
-                                    str = null;
-                                    break;
-                                }
-                            }
-                            hashMap.remove(str);
-                            hashSet.add(nextToken2);
-                            if (!hashMap.containsKey(nextToken)) {
-                                hashMap.put(nextToken, new a(nextToken2, false, contains, i2));
-                                i2++;
-                            }
-                        }
-                        z2 = false;
-                    }
-                }
-                for (a aVar : hashMap.values()) {
-                    if (f(aVar.a)) {
-                        arrayList.add(aVar);
-                    }
-                }
-                if (!hashSet.contains(path) && z) {
-                    arrayList.add(0, new a(path, z3, equals, -1));
-                }
-                gs4.d(bufferedReader);
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                bufferedReader2 = bufferedReader;
-                if (a) {
-                    e.printStackTrace();
-                }
-                gs4.d(bufferedReader2);
-                if (arrayList.isEmpty()) {
-                }
-                return arrayList;
-            } catch (IOException e4) {
-                e = e4;
-                bufferedReader2 = bufferedReader;
-                if (a) {
-                    e.printStackTrace();
-                }
-                gs4.d(bufferedReader2);
-                if (arrayList.isEmpty()) {
-                }
-                return arrayList;
-            } catch (Throwable th3) {
-                th = th3;
-                bufferedReader2 = bufferedReader;
-                gs4.d(bufferedReader2);
-                throw th;
-            }
-            if (arrayList.isEmpty()) {
-                arrayList.add(new a(path, z3, equals, -1));
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static boolean e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (str == null || !str.contains("/dev/fuse") || str2 == null || str2.startsWith("/storage/emulated/legacy") || str2.contains("/Android/obb")) {
-                return false;
-            }
-            if (str2.startsWith("/storage/")) {
-                return true;
-            }
-            if (!jo3.e() || str2.startsWith("/mnt/") || str2.startsWith("/data/")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean f(String str) {
+    public static qp3 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                return new File(str).canRead();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            a = context.getApplicationContext();
+            if (co3.c()) {
+                return new a();
             }
-            return false;
+            return new b();
         }
-        return invokeL.booleanValue;
+        return (qp3) invokeL.objValue;
     }
 }

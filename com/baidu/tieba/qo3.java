@@ -1,24 +1,61 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
-public final class qo3 {
+public class qo3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<Integer> a;
-    public static final Set<Integer> b;
-    public static final Set<Integer> c;
+    public static final boolean a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+
+        public a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + qo3.b;
+                if (qo3.a) {
+                    Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + this.a);
+                }
+                yu2.b(str, this.a, this.b);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,140 +70,14 @@ public final class qo3 {
                 return;
             }
         }
-        a = new HashSet();
-        b = new HashSet();
-        c = new HashSet();
-        a.add(2);
-        a.add(3);
-        a.add(4);
-        a.add(5);
-        a.add(6);
-        b.add(7);
-        b.add(1);
-        c.addAll(a);
-        c.addAll(b);
+        a = fs1.a;
+        b = "aiapps_folder" + File.separator + "feed_back_record.txt";
     }
 
-    public static Date a() {
-        InterceptResult invokeV;
+    public static void c(@NonNull String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new Date();
+        if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
+            po3.k(new a(str, z), "record_feedback_ext_info");
         }
-        return (Date) invokeV.objValue;
-    }
-
-    public static String b(Date date, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, date, str)) == null) {
-            if (date == null) {
-                return "";
-            }
-            try {
-                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
-                }
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static Date c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                return new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(str);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-        }
-        return (Date) invokeLL.objValue;
-    }
-
-    public static Date d(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
-            Date date = null;
-            if (!TextUtils.isEmpty(str) && strArr != null) {
-                for (String str2 : strArr) {
-                    try {
-                        date = new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    if (date != null) {
-                        break;
-                    }
-                }
-            }
-            return date;
-        }
-        return (Date) invokeLL.objValue;
-    }
-
-    public static String e(Date date, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, date, str)) == null) {
-            if (date == null) {
-                return "";
-            }
-            try {
-                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
-                }
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String g(long j, String str) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65543, null, j, str)) == null) {
-            try {
-                return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(j));
-            } catch (NumberFormatException e) {
-                if (ms1.a) {
-                    e.printStackTrace();
-                    return "";
-                }
-                return "";
-            }
-        }
-        return (String) invokeJL.objValue;
-    }
-
-    public static boolean f(Long l, Long l2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, l, l2)) == null) {
-            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

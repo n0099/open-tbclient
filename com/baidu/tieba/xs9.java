@@ -1,84 +1,70 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GiftInfo;
 /* loaded from: classes8.dex */
-public class xs9 {
+public class xs9 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
 
-    public static int a(int i, ws9 ws9Var) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, ws9Var)) == null) {
-            if (i <= 0) {
-                return ws9Var.a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948311083, "Lcom/baidu/tieba/xs9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (ws9Var.c()) {
-                return i + ws9Var.b();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948311083, "Lcom/baidu/tieba/xs9;");
+                return;
             }
-            return i + ws9Var.b() + 1;
         }
-        return invokeIL.intValue;
+        c = BdUniqueId.gen();
     }
 
-    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull ws9 ws9Var, int i2, @Nullable T t, @Nullable ys9 ys9Var, @Nullable zs9 zs9Var) {
-        InterceptResult invokeCommon;
-        int i3;
+    public xs9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), ws9Var, Integer.valueOf(i2), t, ys9Var, zs9Var})) == null) {
-            if (ws9Var.a() != -1 && ws9Var.b() != -1) {
-                int a = a(i2, ws9Var);
-                if (ys9Var != null && t != null) {
-                    if (i <= i2) {
-                        if (zs9Var != 0) {
-                            zs9Var.a(i, a);
-                        }
-                        return false;
-                    }
-                    int i4 = i + 1;
-                    if (i4 < a) {
-                        if (zs9Var != 0) {
-                            zs9Var.a(i, a);
-                        }
-                        return false;
-                    }
-                    if (i > a) {
-                        i3 = i4;
-                    } else {
-                        i3 = a;
-                    }
-                    int i5 = du8.i(list);
-                    if (i3 >= i5 && (ys9Var.b() || i3 > i5)) {
-                        if (zs9Var != 0) {
-                            zs9Var.d(i, i3, i5, ys9Var, t);
-                        }
-                        return false;
-                    }
-                    ys9Var.a(i3);
-                    if (!ys9Var.b()) {
-                        du8.b(list, t, i3);
-                        if (zs9Var != 0) {
-                            zs9Var.c(i, i3, ys9Var, t);
-                            return true;
-                        }
-                        return true;
-                    } else if (zs9Var != 0) {
-                        zs9Var.e(i, i3, du8.d(list, i3), ys9Var, t);
-                        return true;
-                    } else {
-                        return true;
-                    }
-                } else if (zs9Var != 0) {
-                    zs9Var.a(i, a);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return false;
         }
-        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void c(GiftInfo giftInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, giftInfo) != null) || giftInfo == null) {
+            return;
+        }
+        this.a = giftInfo.icon;
+        this.b = giftInfo.num.intValue();
     }
 }

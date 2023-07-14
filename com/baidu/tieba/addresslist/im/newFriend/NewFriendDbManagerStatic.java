@@ -17,16 +17,16 @@ import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
 import com.baidu.tbadk.newFriends.ResponseNewFriendDataMessage;
 import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
+import com.baidu.tieba.ay5;
+import com.baidu.tieba.az5;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.fe8;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
-import com.baidu.tieba.j76;
-import com.baidu.tieba.k98;
 import com.baidu.tieba.mb;
-import com.baidu.tieba.r88;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.sx5;
-import com.baidu.tieba.ww5;
-import com.baidu.tieba.wx5;
+import com.baidu.tieba.md8;
+import com.baidu.tieba.n86;
+import com.baidu.tieba.wy5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,18 +47,18 @@ public class NewFriendDbManagerStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes5.dex */
-        public class a extends sx5<Void> {
+        public class a extends wy5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-            public final /* synthetic */ r88 b;
+            public final /* synthetic */ md8 b;
 
-            public a(l lVar, long j, r88 r88Var) {
+            public a(l lVar, long j, md8 md8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {lVar, Long.valueOf(j), r88Var};
+                    Object[] objArr = {lVar, Long.valueOf(j), md8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -69,18 +69,18 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j;
-                this.b = r88Var;
+                this.b = md8Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.sx5
+            @Override // com.baidu.tieba.wy5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (!j76.f().n(this.a)) {
-                        j76.f().l(this.b);
+                    if (!n86.f().n(this.a)) {
+                        n86.f().l(this.b);
                         return null;
                     }
                     return null;
@@ -125,14 +125,14 @@ public class NewFriendDbManagerStatic {
                 requestAddFriendMessage.setMessage(content);
                 requestAddFriendMessage.setSt_type(st_type);
                 MessageManager.getInstance().sendMessage(requestAddFriendMessage);
-                r88 r88Var = new r88();
-                r88Var.h(id);
-                r88Var.j(name);
-                r88Var.l(0);
-                r88Var.k(portrait);
-                r88Var.g(content);
-                r88Var.i(0);
-                wx5.c(new a(this, id, r88Var), null);
+                md8 md8Var = new md8();
+                md8Var.h(id);
+                md8Var.j(name);
+                md8Var.l(0);
+                md8Var.k(portrait);
+                md8Var.g(content);
+                md8Var.i(0);
+                az5.c(new a(this, id, md8Var), null);
             }
         }
     }
@@ -143,18 +143,18 @@ public class NewFriendDbManagerStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes5.dex */
-        public class a extends sx5<Void> {
+        public class a extends wy5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-            public final /* synthetic */ r88 b;
+            public final /* synthetic */ md8 b;
 
-            public a(o oVar, long j, r88 r88Var) {
+            public a(o oVar, long j, md8 md8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {oVar, Long.valueOf(j), r88Var};
+                    Object[] objArr = {oVar, Long.valueOf(j), md8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -165,23 +165,23 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j;
-                this.b = r88Var;
+                this.b = md8Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.sx5
+            @Override // com.baidu.tieba.wy5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    r88 e = j76.f().e(this.a);
+                    md8 e = n86.f().e(this.a);
                     if (e == null) {
                         return null;
                     }
                     this.b.j(e.d());
                     this.b.k(e.e());
-                    j76.f().l(this.b);
+                    n86.f().l(this.b);
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -189,7 +189,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes5.dex */
-        public class b implements ww5<Void> {
+        public class b implements ay5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -215,7 +215,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ww5
+            @Override // com.baidu.tieba.ay5
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
                 Interceptable interceptable = $ic;
@@ -228,7 +228,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes5.dex */
-        public class c extends sx5<Void> {
+        public class c extends wy5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -252,18 +252,18 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.sx5
+            @Override // com.baidu.tieba.wy5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (0 != this.a && j76.f().n(this.a)) {
-                        r88 r88Var = new r88();
-                        r88Var.h(this.a);
-                        r88Var.l(3);
-                        r88Var.i(0);
-                        j76.f().q(r88Var);
+                    if (0 != this.a && n86.f().n(this.a)) {
+                        md8 md8Var = new md8();
+                        md8Var.h(this.a);
+                        md8Var.l(3);
+                        md8Var.i(0);
+                        n86.f().q(md8Var);
                     }
                     return null;
                 }
@@ -272,7 +272,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes5.dex */
-        public class d implements ww5<Void> {
+        public class d implements ay5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -296,7 +296,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ww5
+            @Override // com.baidu.tieba.ay5
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
                 Interceptable interceptable = $ic;
@@ -336,18 +336,18 @@ public class NewFriendDbManagerStatic {
                 RequestAddFriendMessage requestAddFriendMessage = (RequestAddFriendMessage) responseAddFriendMessage.getOrginalMessage();
                 int error = responseAddFriendMessage.getError();
                 long friendId = responseAddFriendMessage.getFriendId();
-                r88 r88Var = new r88();
-                r88Var.h(friendId);
-                r88Var.i(0);
-                r88Var.g(requestAddFriendMessage.getMessage());
+                md8 md8Var = new md8();
+                md8Var.h(friendId);
+                md8Var.i(0);
+                md8Var.g(requestAddFriendMessage.getMessage());
                 if (error == 0) {
-                    r88Var.l(3);
-                    wx5.c(new a(this, friendId, r88Var), new b(this, friendId, requestAddFriendMessage));
+                    md8Var.l(3);
+                    az5.c(new a(this, friendId, md8Var), new b(this, friendId, requestAddFriendMessage));
                 } else if (error == 3100097) {
                     Message<?> orginalMessage = responseAddFriendMessage.getOrginalMessage();
                     if (orginalMessage instanceof RequestAddFriendMessage) {
                         long friendId2 = ((RequestAddFriendMessage) orginalMessage).getFriendId();
-                        wx5.c(new c(this, friendId2), new d(this, friendId2));
+                        az5.c(new c(this, friendId2), new d(this, friendId2));
                     }
                 }
             }
@@ -360,7 +360,7 @@ public class NewFriendDbManagerStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes5.dex */
-        public class a extends sx5<Void> {
+        public class a extends wy5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -384,7 +384,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.sx5
+            @Override // com.baidu.tieba.wy5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
@@ -393,8 +393,8 @@ public class NewFriendDbManagerStatic {
                     if (0 == this.a) {
                         return null;
                     }
-                    j76.f().b(this.a);
-                    k98.w().p(String.valueOf(this.a));
+                    n86.f().b(this.a);
+                    fe8.w().p(String.valueOf(this.a));
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -402,7 +402,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes5.dex */
-        public class b implements ww5<Void> {
+        public class b implements ay5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -426,7 +426,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ww5
+            @Override // com.baidu.tieba.ay5
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
                 Interceptable interceptable = $ic;
@@ -466,7 +466,7 @@ public class NewFriendDbManagerStatic {
                 int error = responseDeleteFriendMessage.getError();
                 long friendId = responseDeleteFriendMessage.getFriendId();
                 if (error == 0) {
-                    wx5.c(new a(this, friendId), new b(this, friendId));
+                    az5.c(new a(this, friendId), new b(this, friendId));
                 }
             }
         }
@@ -478,18 +478,18 @@ public class NewFriendDbManagerStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes5.dex */
-        public class a extends sx5<Void> {
+        public class a extends wy5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-            public final /* synthetic */ r88 b;
+            public final /* synthetic */ md8 b;
 
-            public a(q qVar, long j, r88 r88Var) {
+            public a(q qVar, long j, md8 md8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {qVar, Long.valueOf(j), r88Var};
+                    Object[] objArr = {qVar, Long.valueOf(j), md8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -500,24 +500,24 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j;
-                this.b = r88Var;
+                this.b = md8Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.sx5
+            @Override // com.baidu.tieba.wy5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
-                r88 e;
+                md8 e;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (0 == this.a || (e = j76.f().e(this.a)) == null) {
+                    if (0 == this.a || (e = n86.f().e(this.a)) == null) {
                         return null;
                     }
                     this.b.g(e.a());
                     this.b.j(e.d());
                     this.b.k(e.e());
-                    j76.f().l(this.b);
+                    n86.f().l(this.b);
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -525,7 +525,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes5.dex */
-        public class b implements ww5<Void> {
+        public class b implements ay5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -557,7 +557,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ww5
+            @Override // com.baidu.tieba.ay5
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
                 Interceptable interceptable = $ic;
@@ -568,7 +568,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes5.dex */
-        public class c extends sx5<Void> {
+        public class c extends wy5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -592,18 +592,18 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.sx5
+            @Override // com.baidu.tieba.wy5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (0 != this.a && j76.f().n(this.a)) {
-                        r88 r88Var = new r88();
-                        r88Var.h(this.a);
-                        r88Var.l(2);
-                        r88Var.i(0);
-                        j76.f().q(r88Var);
+                    if (0 != this.a && n86.f().n(this.a)) {
+                        md8 md8Var = new md8();
+                        md8Var.h(this.a);
+                        md8Var.l(2);
+                        md8Var.i(0);
+                        n86.f().q(md8Var);
                     }
                     return null;
                 }
@@ -612,7 +612,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes5.dex */
-        public class d implements ww5<Void> {
+        public class d implements ay5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -636,7 +636,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ww5
+            @Override // com.baidu.tieba.ay5
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
                 Interceptable interceptable = $ic;
@@ -679,17 +679,17 @@ public class NewFriendDbManagerStatic {
                 String portrait = responsePassFriendMessage.getPortrait();
                 String key = responsePassFriendMessage.getKey();
                 String quanpin = responsePassFriendMessage.getQuanpin();
-                r88 r88Var = new r88();
-                r88Var.h(friendId);
-                r88Var.l(2);
-                r88Var.i(0);
+                md8 md8Var = new md8();
+                md8Var.h(friendId);
+                md8Var.l(2);
+                md8Var.i(0);
                 if (error == 0) {
-                    wx5.c(new a(this, friendId, r88Var), new b(this, friendId, portrait, name, key, quanpin));
+                    az5.c(new a(this, friendId, md8Var), new b(this, friendId, portrait, name, key, quanpin));
                 } else if (error == 3100098) {
                     Message<?> orginalMessage = responsePassFriendMessage.getOrginalMessage();
                     if (orginalMessage instanceof RequestPassFriendMessage) {
                         long friendId2 = ((RequestPassFriendMessage) orginalMessage).getFriendId();
-                        wx5.c(new c(this, friendId2), new d(this, friendId2));
+                        az5.c(new c(this, friendId2), new d(this, friendId2));
                     }
                 }
             }
@@ -703,7 +703,7 @@ public class NewFriendDbManagerStatic {
         public int a;
 
         /* loaded from: classes5.dex */
-        public class a extends sx5<Void> {
+        public class a extends wy5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ r a;
@@ -727,13 +727,13 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.sx5
+            @Override // com.baidu.tieba.wy5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.a.a = j76.f().h();
+                    this.a.a = n86.f().h();
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -741,7 +741,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes5.dex */
-        public class b implements ww5<Void> {
+        public class b implements ay5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ r a;
@@ -765,7 +765,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ww5
+            @Override // com.baidu.tieba.ay5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -801,23 +801,23 @@ public class NewFriendDbManagerStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001175) {
-                wx5.c(new a(this), new b(this));
+                az5.c(new a(this), new b(this));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a extends sx5<Void> {
+    public class a extends wy5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r88 a;
+        public final /* synthetic */ md8 a;
 
-        public a(NewFriendDbManagerStatic newFriendDbManagerStatic, r88 r88Var) {
+        public a(NewFriendDbManagerStatic newFriendDbManagerStatic, md8 md8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, r88Var};
+                Object[] objArr = {newFriendDbManagerStatic, md8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -827,18 +827,18 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = r88Var;
+            this.a = md8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sx5
+        @Override // com.baidu.tieba.wy5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                j76.f().l(this.a);
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(j76.f().h(), true));
+                n86.f().l(this.a);
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(n86.f().h(), true));
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -846,7 +846,7 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements ww5<Void> {
+    public class b implements ay5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -867,7 +867,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ww5
+        @Override // com.baidu.tieba.ay5
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
             Interceptable interceptable = $ic;
@@ -878,17 +878,17 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class c extends sx5<Void> {
+    public class c extends wy5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r88 a;
+        public final /* synthetic */ md8 a;
 
-        public c(NewFriendDbManagerStatic newFriendDbManagerStatic, r88 r88Var) {
+        public c(NewFriendDbManagerStatic newFriendDbManagerStatic, md8 md8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, r88Var};
+                Object[] objArr = {newFriendDbManagerStatic, md8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -898,18 +898,18 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = r88Var;
+            this.a = md8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sx5
+        @Override // com.baidu.tieba.wy5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                j76.f().l(this.a);
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(j76.f().h(), true));
+                n86.f().l(this.a);
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(n86.f().h(), true));
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -917,19 +917,19 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements ww5<Void> {
+    public class d implements ay5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r88 a;
+        public final /* synthetic */ md8 a;
         public final /* synthetic */ String b;
         public final /* synthetic */ String c;
 
-        public d(NewFriendDbManagerStatic newFriendDbManagerStatic, r88 r88Var, String str, String str2) {
+        public d(NewFriendDbManagerStatic newFriendDbManagerStatic, md8 md8Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, r88Var, str, str2};
+                Object[] objArr = {newFriendDbManagerStatic, md8Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -939,13 +939,13 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = r88Var;
+            this.a = md8Var;
             this.b = str;
             this.c = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ww5
+        @Override // com.baidu.tieba.ay5
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
             Interceptable interceptable = $ic;
@@ -956,7 +956,7 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class e extends sx5<Void> {
+    public class e extends wy5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -980,13 +980,13 @@ public class NewFriendDbManagerStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sx5
+        @Override // com.baidu.tieba.wy5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                j76.f().b(this.a);
+                n86.f().b(this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -994,12 +994,12 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements ww5<Void> {
+    public class f implements ay5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ww5
+        @Override // com.baidu.tieba.ay5
         /* renamed from: a */
         public void onReturnDataInUI(Void r5) {
             Interceptable interceptable = $ic;
@@ -1025,17 +1025,17 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class g extends sx5<Void> {
+    public class g extends wy5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r88 a;
+        public final /* synthetic */ md8 a;
 
-        public g(NewFriendDbManagerStatic newFriendDbManagerStatic, r88 r88Var) {
+        public g(NewFriendDbManagerStatic newFriendDbManagerStatic, md8 md8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, r88Var};
+                Object[] objArr = {newFriendDbManagerStatic, md8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -1045,17 +1045,17 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = r88Var;
+            this.a = md8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sx5
+        @Override // com.baidu.tieba.wy5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                j76.f().l(this.a);
+                n86.f().l(this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -1063,7 +1063,7 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class h implements ww5<Void> {
+    public class h implements ay5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -1087,7 +1087,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ww5
+        @Override // com.baidu.tieba.ay5
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
             Interceptable interceptable = $ic;
@@ -1098,17 +1098,17 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class i extends sx5<Void> {
+    public class i extends wy5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r88 a;
+        public final /* synthetic */ md8 a;
 
-        public i(NewFriendDbManagerStatic newFriendDbManagerStatic, r88 r88Var) {
+        public i(NewFriendDbManagerStatic newFriendDbManagerStatic, md8 md8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, r88Var};
+                Object[] objArr = {newFriendDbManagerStatic, md8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -1118,17 +1118,17 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = r88Var;
+            this.a = md8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sx5
+        @Override // com.baidu.tieba.wy5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                j76.f().l(this.a);
+                n86.f().l(this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -1136,7 +1136,7 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class j implements ww5<Void> {
+    public class j implements ay5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -1160,7 +1160,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ww5
+        @Override // com.baidu.tieba.ay5
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
             Interceptable interceptable = $ic;
@@ -1215,17 +1215,17 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class m extends sx5<Void> {
+    public class m extends wy5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r88 a;
+        public final /* synthetic */ md8 a;
 
-        public m(NewFriendDbManagerStatic newFriendDbManagerStatic, r88 r88Var) {
+        public m(NewFriendDbManagerStatic newFriendDbManagerStatic, md8 md8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, r88Var};
+                Object[] objArr = {newFriendDbManagerStatic, md8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -1235,17 +1235,17 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = r88Var;
+            this.a = md8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sx5
+        @Override // com.baidu.tieba.wy5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                j76.f().l(this.a);
+                n86.f().l(this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -1253,7 +1253,7 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class n implements ww5<Void> {
+    public class n implements ay5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -1277,7 +1277,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ww5
+        @Override // com.baidu.tieba.ay5
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
             Interceptable interceptable = $ic;
@@ -1319,7 +1319,7 @@ public class NewFriendDbManagerStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
-            r95 p = r95.p();
+            da5 p = da5.p();
             p.Q("get_addresslist_switch" + ((String) customResponsedMessage.getData()));
         }
     }
@@ -1400,14 +1400,14 @@ public class NewFriendDbManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<r88> run(CustomMessage<Long> customMessage) {
+        public CustomResponsedMessage<md8> run(CustomMessage<Long> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null) {
                     return null;
                 }
-                return new ResponseNewFriendDataMessage(j76.f().e(customMessage.getData().longValue()));
+                return new ResponseNewFriendDataMessage(n86.f().e(customMessage.getData().longValue()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -1477,18 +1477,18 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                r88 r88Var = new r88();
+                md8 md8Var = new md8();
                 long optLong = optJSONObject.optLong("user_id");
                 String optString = optJSONObject.optString("user_name");
                 String optString2 = optJSONObject.optString("portrait");
                 String optString3 = optJSONObject.optString("message");
-                r88Var.l(3);
-                r88Var.g(optString3);
-                r88Var.h(optLong);
-                r88Var.i(1);
-                r88Var.j(optString);
-                r88Var.k(optString2);
-                wx5.c(new i(this, r88Var), new j(this, optLong));
+                md8Var.l(3);
+                md8Var.g(optString3);
+                md8Var.h(optLong);
+                md8Var.i(1);
+                md8Var.j(optString);
+                md8Var.k(optString2);
+                az5.c(new i(this, md8Var), new j(this, optLong));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1503,14 +1503,14 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                r88 r88Var = new r88();
-                r88Var.h(optJSONObject.optLong("user_id"));
-                r88Var.j(optJSONObject.optString("user_name"));
-                r88Var.k(optJSONObject.optString("portrait"));
-                r88Var.g(optJSONObject.optString("message"));
-                r88Var.i(0);
-                r88Var.l(1);
-                wx5.c(new a(this, r88Var), new b(this));
+                md8 md8Var = new md8();
+                md8Var.h(optJSONObject.optLong("user_id"));
+                md8Var.j(optJSONObject.optString("user_name"));
+                md8Var.k(optJSONObject.optString("portrait"));
+                md8Var.g(optJSONObject.optString("message"));
+                md8Var.i(0);
+                md8Var.l(1);
+                az5.c(new a(this, md8Var), new b(this));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1525,18 +1525,18 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                r88 r88Var = new r88();
+                md8 md8Var = new md8();
                 long optLong = optJSONObject.optLong("user_id");
                 String optString = optJSONObject.optString("user_name");
                 String optString2 = optJSONObject.optString("portrait");
                 String optString3 = optJSONObject.optString("message");
-                r88Var.l(2);
-                r88Var.g(optString3);
-                r88Var.h(optLong);
-                r88Var.i(1);
-                r88Var.j(optString);
-                r88Var.k(optString2);
-                wx5.c(new m(this, r88Var), new n(this, optLong));
+                md8Var.l(2);
+                md8Var.g(optString3);
+                md8Var.h(optLong);
+                md8Var.i(1);
+                md8Var.j(optString);
+                md8Var.k(optString2);
+                az5.c(new m(this, md8Var), new n(this, optLong));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1551,7 +1551,7 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                wx5.c(new e(this, optJSONObject.optLong("user_id")), new f(this));
+                az5.c(new e(this, optJSONObject.optLong("user_id")), new f(this));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1566,16 +1566,16 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                r88 r88Var = new r88();
-                r88Var.h(optJSONObject.optLong("user_id"));
-                r88Var.j(optJSONObject.optString("user_name"));
-                r88Var.k(optJSONObject.optString("portrait"));
-                r88Var.g(optJSONObject.optString("message"));
+                md8 md8Var = new md8();
+                md8Var.h(optJSONObject.optLong("user_id"));
+                md8Var.j(optJSONObject.optString("user_name"));
+                md8Var.k(optJSONObject.optString("portrait"));
+                md8Var.g(optJSONObject.optString("message"));
                 String optString = optJSONObject.optString("key");
                 String optString2 = optJSONObject.optString("pinyin");
-                r88Var.i(0);
-                r88Var.l(4);
-                wx5.c(new c(this, r88Var), new d(this, r88Var, optString, optString2));
+                md8Var.i(0);
+                md8Var.l(4);
+                az5.c(new c(this, md8Var), new d(this, md8Var, optString, optString2));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1590,23 +1590,23 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                r88 r88Var = new r88();
+                md8 md8Var = new md8();
                 long optLong = optJSONObject.optLong("user_id");
                 String optString = optJSONObject.optString("user_name");
                 String optString2 = optJSONObject.optString("portrait");
                 String optString3 = optJSONObject.optString("message");
                 int optInt = optJSONObject.optInt("type");
                 if (optInt == 1) {
-                    r88Var.l(3);
+                    md8Var.l(3);
                 } else if (optInt == 2) {
-                    r88Var.l(1);
+                    md8Var.l(1);
                 }
-                r88Var.g(optString3);
-                r88Var.h(optLong);
-                r88Var.i(1);
-                r88Var.j(optString);
-                r88Var.k(optString2);
-                wx5.c(new g(this, r88Var), new h(this, optLong));
+                md8Var.g(optString3);
+                md8Var.h(optLong);
+                md8Var.i(1);
+                md8Var.j(optString);
+                md8Var.k(optString2);
+                az5.c(new g(this, md8Var), new h(this, optLong));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

@@ -1,77 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ti9 extends kn<ij9, CardViewHolder<zj9>> {
+public class ti9 extends yca {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId j1;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public zj9 b;
+    public z35 g1;
+    public z35 h1;
+    public z35 i1;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ti9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948182309, "Lcom/baidu/tieba/ti9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948182309, "Lcom/baidu/tieba/ti9;");
                 return;
             }
         }
-        this.a = tbPageContext;
+        j1 = BdUniqueId.gen();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public CardViewHolder<zj9> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public ti9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new zj9(this.a);
-            return new CardViewHolder<>(this.b);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void u(boolean z) {
-        zj9 zj9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (zj9Var = this.b) != null) {
-            zj9Var.u(z);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ij9 ij9Var, CardViewHolder<zj9> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.yca, com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ij9Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(ij9Var);
-            return cardViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return j1;
         }
-        return (View) invokeCommon.objValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean z1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            z35 z35Var = this.g1;
+            if (z35Var != null && !StringUtils.isNull(z35Var.b)) {
+                return true;
+            }
+            z35 z35Var2 = this.h1;
+            if (z35Var2 != null && !StringUtils.isNull(z35Var2.b)) {
+                return true;
+            }
+            z35 z35Var3 = this.i1;
+            if (z35Var3 != null) {
+                return !StringUtils.isNull(z35Var3.b);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

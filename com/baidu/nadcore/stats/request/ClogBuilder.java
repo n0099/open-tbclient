@@ -11,33 +11,33 @@ import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.c31;
-import com.baidu.tieba.l51;
-import com.baidu.tieba.m51;
-import com.baidu.tieba.o51;
-import com.baidu.tieba.q51;
-import com.baidu.tieba.s51;
-import com.baidu.tieba.uk0;
-import com.baidu.tieba.w31;
-import com.baidu.tieba.x31;
+import com.baidu.tieba.h61;
+import com.baidu.tieba.i61;
+import com.baidu.tieba.l61;
+import com.baidu.tieba.n61;
+import com.baidu.tieba.p61;
+import com.baidu.tieba.s41;
+import com.baidu.tieba.t41;
+import com.baidu.tieba.xk0;
+import com.baidu.tieba.y31;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ClogBuilder extends w31 {
-    public final JSONObject c = c31.c(null);
+public class ClogBuilder extends s41 {
+    public final JSONObject c = y31.c(null);
 
     public ClogBuilder() {
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // com.baidu.tieba.u31, com.baidu.tieba.x31
+    @Override // com.baidu.tieba.q41, com.baidu.tieba.t41
     public void a() {
-        uk0 uk0Var = (uk0) ServiceManager.getService(uk0.a);
-        if (uk0Var != null) {
-            A(uk0Var.a(this.c.optString("extra_param")));
+        xk0 xk0Var = (xk0) ServiceManager.getService(xk0.a);
+        if (xk0Var != null) {
+            A(xk0Var.a(this.c.optString("extra_param")));
         }
         g();
     }
@@ -47,7 +47,7 @@ public class ClogBuilder extends w31 {
         return this.c;
     }
 
-    @Override // com.baidu.tieba.w31, com.baidu.tieba.x31
+    @Override // com.baidu.tieba.s41, com.baidu.tieba.t41
     public boolean isValid() {
         if (!TextUtils.isEmpty(this.c.optString("da_type"))) {
             return super.isValid();
@@ -65,6 +65,7 @@ public class ClogBuilder extends w31 {
         INSTALL_NOW_BUTTON("install_now_button"),
         INSTALL_LATER_BUTTON("install_later_button"),
         HOTAREA("hotarea"),
+        SHAKE("shake"),
         AD_NOTIFICATION_ITEM_CLICK("ad_notification_item_click"),
         AD_NOTIFICATION_BTN_CLICK("ad_notification_btn_click"),
         AD_NOTIFICATION_SHOW("ad_notification_show"),
@@ -98,6 +99,9 @@ public class ClogBuilder extends w31 {
         AD_LEAVE("leave"),
         AVATAR("avatar"),
         TITTLE("title"),
+        COUPON("coupon"),
+        ROTATION_POP("rotation"),
+        DAZZLE_DETAILS("dazzle_details"),
         INVALID("INVALID");
         
         public final String type;
@@ -181,6 +185,8 @@ public class ClogBuilder extends w31 {
         REWARD_COMPLETE_TASK("785"),
         REWARD_SHOW_TASK("786"),
         NON_AD_CLICK("8"),
+        SCHEDULED_DOWNLOAD_SUCCESS("714"),
+        SCHEDULED_REQUEST_RESULT("715"),
         PLACEHOLDER("-1");
         
         public final String type;
@@ -208,14 +214,20 @@ public class ClogBuilder extends w31 {
         DOWNLOAD_RECTIFY("DOWNLOAD_RECTIFY"),
         VIDEO_LIST("VIDEOLIST"),
         WELFAREPANEL("WELFAREPANEL"),
+        WELFAREROTATION("WELFAREROTATION"),
         WELFAREMAXLP("WELFAREMAXLP"),
         WELFARETAIL("WELFARETAIL"),
         WELFAREBIGCARD("WELFAREBIGCARD"),
+        WELFAREIMAGELP("WELFAREIMAGELP"),
+        WELFAREWEB("WELFAREWEB"),
         PAGE_VIDEO_IMMERSIVE_LP("IMMERSIVE_VIDEOADDETAIL"),
         NAVIDEO_POP("NAVIDEO_POP"),
         AD_DIALOG("AD_DIALOG"),
         MINI_PROGRAM("WXMnProgram"),
-        NAVIDEO_POP_WEB_PANEL("NAVIDEO_POP_WEB_PANEL"),
+        NAD_POP_WEB_PANEL("NAD_POP_WEB_PANEL"),
+        NAVIDEO_POP_DAZZLE("NAVIDEO_POP_DAZZLE"),
+        SCHEDULED_DOWNLOAD("SCHEDULEDDOWNLOAD"),
+        PAGE_ROTATION_POP("ROTATION_LOTTIE"),
         INVALID("INVALID");
         
         public final String type;
@@ -230,7 +242,7 @@ public class ClogBuilder extends w31 {
         return this;
     }
 
-    public ClogBuilder i(Area area) {
+    public ClogBuilder i(@NonNull Area area) {
         d("da_area", area.type);
         return this;
     }
@@ -320,40 +332,40 @@ public class ClogBuilder extends w31 {
         return this;
     }
 
-    @Override // com.baidu.tieba.u31, com.baidu.tieba.x31
-    public <T extends x31> T b(String str, String str2) {
+    @Override // com.baidu.tieba.q41, com.baidu.tieba.t41
+    public <T extends t41> T b(String str, String str2) {
         d(str, str2);
         return this;
     }
 
-    @Override // com.baidu.tieba.u31
-    public <T extends x31> T d(String str, Object obj) {
+    @Override // com.baidu.tieba.q41
+    public <T extends t41> T d(String str, Object obj) {
         if (TextUtils.isEmpty(str)) {
             return this;
         }
-        c31.f(this.c, str, obj);
+        y31.f(this.c, str, obj);
         return this;
     }
 
     public final void g() {
-        if (!m51.a) {
+        if (!i61.a) {
             return;
         }
-        s51 s51Var = (s51) l51.a().a(s51.class);
-        if (s51Var != null) {
-            s51Var.a(h());
+        p61 p61Var = (p61) h61.a().a(p61.class);
+        if (p61Var != null) {
+            p61Var.a(h());
         }
-        o51 o51Var = (o51) l51.a().a(o51.class);
-        if (o51Var != null) {
-            o51Var.a(h());
+        l61 l61Var = (l61) h61.a().a(l61.class);
+        if (l61Var != null) {
+            l61Var.a(h());
         }
-        q51 q51Var = (q51) l51.a().a(q51.class);
-        if (q51Var != null) {
-            q51Var.a(h());
+        n61 n61Var = (n61) h61.a().a(n61.class);
+        if (n61Var != null) {
+            n61Var.a(h());
         }
     }
 
-    @Override // com.baidu.tieba.w31, com.baidu.tieba.u31, com.baidu.tieba.x31
+    @Override // com.baidu.tieba.s41, com.baidu.tieba.q41, com.baidu.tieba.t41
     @NonNull
     public String toString() {
         super.toString();

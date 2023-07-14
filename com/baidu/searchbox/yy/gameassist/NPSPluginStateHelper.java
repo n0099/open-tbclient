@@ -18,11 +18,11 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.ToastService;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tieba.hg1;
-import com.baidu.tieba.jg1;
-import com.baidu.tieba.of1;
-import com.baidu.tieba.qf1;
-import com.baidu.tieba.rf1;
+import com.baidu.tieba.ag1;
+import com.baidu.tieba.cg1;
+import com.baidu.tieba.hf1;
+import com.baidu.tieba.jf1;
+import com.baidu.tieba.kf1;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.File;
 import java.lang.reflect.Method;
@@ -80,19 +80,19 @@ public final class NPSPluginStateHelper {
     }
 
     public final void downloadUpdatePackage() {
-        NPSPackageManager.getInstance().downloadUpdatePackage(GameAssistNPSPluginManager.GAMEASSIST_PKG_NAME, new of1() { // from class: com.baidu.searchbox.yy.gameassist.NPSPluginStateHelper$downloadUpdatePackage$1
-            @Override // com.baidu.tieba.of1
+        NPSPackageManager.getInstance().downloadUpdatePackage(GameAssistNPSPluginManager.GAMEASSIST_PKG_NAME, new hf1() { // from class: com.baidu.searchbox.yy.gameassist.NPSPluginStateHelper$downloadUpdatePackage$1
+            @Override // com.baidu.tieba.hf1
             public void onProgress(long j, long j2) {
             }
 
-            @Override // com.baidu.tieba.of1
+            @Override // com.baidu.tieba.hf1
             public void onResult(int i, String str) {
             }
-        }, new qf1() { // from class: com.baidu.searchbox.yy.gameassist.NPSPluginStateHelper$downloadUpdatePackage$2
-            @Override // com.baidu.tieba.qf1
-            public void checkAuthorization(IBundleInfo iBundleInfo, int i, rf1 rf1Var) {
-                if (rf1Var != null) {
-                    rf1Var.onResult(1);
+        }, new jf1() { // from class: com.baidu.searchbox.yy.gameassist.NPSPluginStateHelper$downloadUpdatePackage$2
+            @Override // com.baidu.tieba.jf1
+            public void checkAuthorization(IBundleInfo iBundleInfo, int i, kf1 kf1Var) {
+                if (kf1Var != null) {
+                    kf1Var.onResult(1);
                 }
             }
         }, 1);
@@ -174,9 +174,9 @@ public final class NPSPluginStateHelper {
             Method declaredMethod = bundle.getClass().getDeclaredMethod("bindProviders", PackageInfo.class);
             Intrinsics.checkExpressionValueIsNotNull(declaredMethod, "bundle.javaClass.getDecl… PackageInfo::class.java)");
             declaredMethod.setAccessible(true);
-            File d = hg1.d(context, "com.baidu.searchbox.yylive.gameassist.apk");
+            File d = ag1.d(context, "com.baidu.searchbox.yylive.gameassist.apk");
             Intrinsics.checkExpressionValueIsNotNull(d, "FileUtils.getBundleDest(…UFFIX}\"\n                )");
-            declaredMethod.invoke(bundle, jg1.a(d.getAbsolutePath(), 138));
+            declaredMethod.invoke(bundle, cg1.a(d.getAbsolutePath(), 138));
         } catch (Throwable th) {
             YalogKt.yalog(TAG, "ensureSubProcessProvider failed, " + Log.getStackTraceString(th));
         }

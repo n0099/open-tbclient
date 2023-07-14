@@ -1,5 +1,5 @@
 package com.kwad.components.ad.reward.i;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d {
     public static com.kwad.components.ad.reward.i.kwai.a iA() {
         return new com.kwad.components.ad.reward.i.kwai.a();

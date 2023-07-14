@@ -4,7 +4,7 @@ import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import com.kwad.sdk.core.response.model.TemplateConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static TemplateConfig fU() {
         SdkConfigData rZ = d.rZ();

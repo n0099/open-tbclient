@@ -7,12 +7,12 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.af5;
-import com.baidu.tieba.ax5;
-import com.baidu.tieba.ct5;
+import com.baidu.tieba.ey5;
+import com.baidu.tieba.gu5;
 import com.baidu.tieba.h9;
-import com.baidu.tieba.ng5;
-import com.baidu.tieba.se5;
+import com.baidu.tieba.kh5;
+import com.baidu.tieba.pf5;
+import com.baidu.tieba.xf5;
 /* loaded from: classes4.dex */
 public class InitAppSettingTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -28,8 +28,8 @@ public class InitAppSettingTask extends LaunchTask {
     private void initSettings() {
         long currentTimeMillis = System.currentTimeMillis();
         TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-        ax5.c();
-        ct5.b().r(System.currentTimeMillis() - currentTimeMillis);
+        ey5.c();
+        gu5.b().r(System.currentTimeMillis() - currentTimeMillis);
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -39,8 +39,8 @@ public class InitAppSettingTask extends LaunchTask {
         initSettings();
         TbadkCoreApplication.getInst().initSetting();
         long currentTimeMillis = System.currentTimeMillis();
-        se5.d().q();
-        ct5.b().y(System.currentTimeMillis() - currentTimeMillis);
+        pf5.d().q();
+        gu5.b().y(System.currentTimeMillis() - currentTimeMillis);
         h9.f().r(20);
         if (ProcessUtils.isMainProcess()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
@@ -50,18 +50,18 @@ public class InitAppSettingTask extends LaunchTask {
     public void loadLcsSwitchStratgy() {
         String loadString = TbadkSettings.getInst().loadString("lcs_switch_strategy", null);
         if (!TextUtils.isEmpty(loadString)) {
-            af5 af5Var = new af5();
-            af5Var.e(loadString);
-            ng5 a = ng5.a();
+            xf5 xf5Var = new xf5();
+            xf5Var.e(loadString);
+            kh5 a = kh5.a();
             boolean z = true;
-            if (af5Var.b() != 1) {
+            if (xf5Var.b() != 1) {
                 z = false;
             }
             a.i(z);
-            a.j(af5Var.c());
-            a.k(af5Var.d() * 1000);
-            if (af5Var.a() != null) {
-                a.l(af5Var.a());
+            a.j(xf5Var.c());
+            a.k(xf5Var.d() * 1000);
+            if (xf5Var.a() != null) {
+                a.l(xf5Var.a());
             }
         }
     }

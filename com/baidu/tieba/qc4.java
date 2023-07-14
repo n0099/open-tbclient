@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class qc4 {
+public class qc4 implements lt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public JSONObject d;
-    public rc4 e;
 
     public qc4() {
         Interceptable interceptable = $ic;
@@ -30,12 +27,11 @@ public class qc4 {
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lt1
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{ videoPath=" + this.a + " , query=" + this.b + " , title=" + this.c + ", extra=" + this.d + ", videoEditorParams=" + this.e + " }";
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            sc4.a(str);
         }
-        return (String) invokeV.objValue;
     }
 }

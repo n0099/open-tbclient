@@ -1,159 +1,202 @@
 package com.baidu.tieba;
 
+import android.graphics.drawable.Drawable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.nadcore.sweetsqlite.IntegerColumn;
-import com.baidu.nadcore.sweetsqlite.LongColumn;
-import com.baidu.nadcore.sweetsqlite.StringColumn;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class q31 extends j41 {
+public final class q31 {
     public static /* synthetic */ Interceptable $ic;
-    public static final b41 A;
-    public static final b41[] B;
-    public static final b41[][] C;
-    public static final b41[] D;
-    public static final b41 o;
-    public static final b41 p;
-    public static final b41 q;
-    public static final b41 r;
-    public static final b41 s;
-    public static final b41 t;
-    public static final b41 u;
-    public static final b41 v;
-    public static final b41 w;
-    public static final b41 x;
-    public static final b41 y;
-    public static final b41 z;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StringColumn a;
-    public final IntegerColumn b;
-    public final IntegerColumn c;
-    public final StringColumn d;
-    public final StringColumn e;
-    public final StringColumn f;
-    public final IntegerColumn g;
-    public final IntegerColumn h;
-    public final LongColumn i;
-    public final LongColumn j;
-    public final StringColumn k;
-    public final StringColumn l;
-    public final StringColumn m;
-    public final Column[] n;
+    public final String a;
+    public final String b;
+    public final boolean c;
+    public final int d;
+    public final String e;
+    public final int f;
+    public final Drawable g;
+    public final Drawable h;
+    public final Drawable i;
+    public final float j;
+    public final int k;
 
-    @Override // com.baidu.tieba.j41
-    public String g() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof q31) {
+                    q31 q31Var = (q31) obj;
+                    return Intrinsics.areEqual(this.a, q31Var.a) && Intrinsics.areEqual(this.b, q31Var.b) && this.c == q31Var.c && this.d == q31Var.d && Intrinsics.areEqual(this.e, q31Var.e) && this.f == q31Var.f && Intrinsics.areEqual(this.g, q31Var.g) && Intrinsics.areEqual(this.h, q31Var.h) && Intrinsics.areEqual(this.i, q31Var.i) && Float.compare(this.j, q31Var.j) == 0 && this.k == q31Var.k;
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "t_apk_info" : (String) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040794, "Lcom/baidu/tieba/q31;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.b;
+            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            boolean z = this.c;
+            int i = z;
+            if (z != 0) {
+                i = 1;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948040794, "Lcom/baidu/tieba/q31;");
-                return;
-            }
+            int i2 = (((hashCode2 + i) * 31) + this.d) * 31;
+            String str3 = this.e;
+            int hashCode3 = (((i2 + (str3 != null ? str3.hashCode() : 0)) * 31) + this.f) * 31;
+            Drawable drawable = this.g;
+            int hashCode4 = (hashCode3 + (drawable != null ? drawable.hashCode() : 0)) * 31;
+            Drawable drawable2 = this.h;
+            int hashCode5 = (hashCode4 + (drawable2 != null ? drawable2.hashCode() : 0)) * 31;
+            Drawable drawable3 = this.i;
+            return ((((hashCode5 + (drawable3 != null ? drawable3.hashCode() : 0)) * 31) + Float.floatToIntBits(this.j)) * 31) + this.k;
         }
-        o = j41.b(4, "key", "                   key", 0, 2);
-        p = j41.a(2, "task_id", "               task_id", 1);
-        q = j41.a(2, "status", "                status", 2);
-        r = j41.a(4, "package_name", "          package_name", 3);
-        s = j41.a(4, "url", "                   url", 4);
-        t = j41.a(4, "file", "                  file", 5);
-        u = j41.a(2, "progress", "              progress", 6);
-        v = j41.a(2, "v_progress", "            v_progress", 7);
-        w = j41.a(3, "start_download_time", "   start_download_time", 8);
-        x = j41.a(3, "finished_download_time", "finished_download_time", 9);
-        y = j41.a(4, "mt", "                    mt", 10);
-        z = j41.a(4, "ctrl", "                  ctrl", 11);
-        b41 a = j41.a(4, "extra", "                 extra", 12);
-        A = a;
-        b41 b41Var = o;
-        B = new b41[]{b41Var, p, q, r, s, t, u, v, w, x, y, z, a};
-        C = new b41[0];
-        D = new b41[]{b41Var};
+        return invokeV.intValue;
     }
 
-    public q31() {
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return "NadRichTextParams(type=" + this.a + ", mainText=" + this.b + ", isMainTextBold=" + this.c + ", mainTextColor=" + this.d + ", linkText=" + this.e + ", linkTextColor=" + this.f + ", linkIcon=" + this.g + ", downloadLinkIcon=" + this.h + ", downloadCompleteLinkIcon=" + this.i + ", singleLineDisplayWidth=" + this.j + ", maxLines=" + this.k + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public q31(String type, String mainText, boolean z, int i, String linkText, int i2, Drawable drawable, Drawable drawable2, Drawable drawable3, float f, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r3;
+            Object[] objArr = {type, mainText, Boolean.valueOf(z), Integer.valueOf(i), linkText, Integer.valueOf(i2), drawable, drawable2, drawable3, Float.valueOf(f), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new StringColumn(o);
-        this.b = new IntegerColumn(p);
-        this.c = new IntegerColumn(q);
-        this.d = new StringColumn(r);
-        this.e = new StringColumn(s);
-        this.f = new StringColumn(t);
-        this.g = new IntegerColumn(u);
-        this.h = new IntegerColumn(v);
-        this.i = new LongColumn(w);
-        this.j = new LongColumn(x);
-        this.k = new StringColumn(y);
-        this.l = new StringColumn(z);
-        StringColumn stringColumn = new StringColumn(A);
-        this.m = stringColumn;
-        this.n = new Column[]{this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l, stringColumn};
+        Intrinsics.checkNotNullParameter(type, "type");
+        Intrinsics.checkNotNullParameter(mainText, "mainText");
+        Intrinsics.checkNotNullParameter(linkText, "linkText");
+        this.a = type;
+        this.b = mainText;
+        this.c = z;
+        this.d = i;
+        this.e = linkText;
+        this.f = i2;
+        this.g = drawable;
+        this.h = drawable2;
+        this.i = drawable3;
+        this.j = f;
+        this.k = i3;
     }
 
-    @Override // com.baidu.tieba.j41
-    public Column[] c() {
+    public final Drawable a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.n;
+            return this.i;
         }
-        return (Column[]) invokeV.objValue;
+        return (Drawable) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j41
-    public b41[] d() {
+    public final Drawable b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return B;
+            return this.h;
         }
-        return (b41[]) invokeV.objValue;
+        return (Drawable) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j41
-    public b41[][] e() {
+    public final Drawable c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return C;
+            return this.g;
         }
-        return (b41[][]) invokeV.objValue;
+        return (Drawable) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j41
-    public b41[] f() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return D;
+            return this.e;
         }
-        return (b41[]) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final float h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.j;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,381 +1,441 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import androidx.constraintlayout.motion.widget.Key;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.apps.view.SwanAppLaunchCircleAnimationView;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.NullableCallbackHandler;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yz1 {
+public abstract class yz1 implements vz1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final JSONObject c;
+    public static final Pair<v32, JSONObject> d;
+    public static final Pair<v32, JSONObject> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AnimatorSet> a;
-    public SwanAppLaunchCircleAnimationView b;
+    @NonNull
+    public wz1 a;
+    @NonNull
+    public CallbackHandler b;
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ yz1 b;
-
-        /* renamed from: com.baidu.tieba.yz1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0544a implements Animator.AnimatorListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                }
-            }
-
-            public C0544a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeL(1048579, this, animator) != null) || this.a.a.isFinishing()) {
-                    return;
-                }
-                this.a.a.U().v();
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) || this.a.a.isFinishing()) {
-                    return;
-                }
-                this.a.a.U().a.setVisibility(8);
-                this.a.a.U().H();
-                this.a.a.getFloatLayer().g();
-            }
-        }
-
-        public a(yz1 yz1Var, SwanAppActivity swanAppActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yz1Var, swanAppActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yz1Var;
-            this.a = swanAppActivity;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                AnimatorSet animatorSet = new AnimatorSet();
-                animatorSet.play(this.b.d(this.a, 150L));
-                animatorSet.addListener(new C0544a(this));
-                animatorSet.start();
-                this.b.a.add(animatorSet);
-            }
-        }
+    public interface a {
+        v32 a(vb3 vb3Var, JSONObject jSONObject, @Nullable String str);
     }
 
     /* loaded from: classes8.dex */
-    public class b implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
+    public interface b {
+        v32 a(vb3 vb3Var);
+    }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
+    public abstract String h();
+
+    public abstract String j();
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        public b(yz1 yz1Var, SwanAppActivity swanAppActivity) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948347353, "Lcom/baidu/tieba/yz1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yz1Var, swanAppActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = swanAppActivity;
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) || this.a.isFinishing()) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948347353, "Lcom/baidu/tieba/yz1;");
                 return;
             }
-            this.a.U().a.setVisibility(8);
-            this.a.U().H();
-            this.a.getFloatLayer().g();
         }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, animator) != null) || this.a.isFinishing()) {
-                return;
-            }
-            this.a.U().v();
-        }
+        c = new JSONObject();
+        d = new Pair<>(v32.d(), c);
+        e = new Pair<>(v32.e(), c);
     }
 
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yz1 a;
-
-        public c(yz1 yz1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yz1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yz1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (AnimatorSet animatorSet : this.a.a) {
-                    animatorSet.removeAllListeners();
-                    animatorSet.cancel();
-                }
-                if (this.a.b != null) {
-                    this.a.b.i();
-                }
-                this.a.a.clear();
-            }
-        }
-    }
-
-    public yz1() {
+    public yz1(@NonNull wz1 wz1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wz1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new CopyOnWriteArrayList();
+        this.a = wz1Var;
+        this.b = wz1Var.e();
     }
 
-    public void n() {
+    @NonNull
+    public Pair<v32, JSONObject> s(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            bc3.M().post(new c(this));
-        }
-    }
-
-    public final void g(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, swanAppActivity) == null) {
-            bc3.M();
-            SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView = this.b;
-            if (swanAppLaunchCircleAnimationView != null) {
-                swanAppLaunchCircleAnimationView.setVisibility(4);
-                this.b.i();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                p("json str is empty", null, true);
+                return d;
             }
-            i(swanAppActivity);
+            try {
+                return new Pair<>(v32.f(), new JSONObject(str));
+            } catch (JSONException e2) {
+                p("json str parse fail", e2, true);
+                return e;
+            }
         }
+        return (Pair) invokeL.objValue;
     }
 
-    public final void h(SwanAppActivity swanAppActivity) {
+    @Nullable
+    public static JSONObject r(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, swanAppActivity) != null) || swanAppActivity.isFinishing() || swanAppActivity.U() == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return new JSONObject(str);
+            } catch (JSONException unused) {
+                return null;
+            }
         }
-        g(swanAppActivity);
+        return (JSONObject) invokeL.objValue;
     }
 
-    public final void i(SwanAppActivity swanAppActivity) {
+    @NonNull
+    @SuppressLint({"BDThrowableCheck"})
+    public static Pair<u32, JSONObject> t(JsObject jsObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, swanAppActivity) == null) {
-            wp3.a0(new a(this, swanAppActivity));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jsObject)) == null) {
+            if (jsObject == null) {
+                return new Pair<>(new v32(202, "parseParams(JsObject): jsObject cannot be null"), null);
+            }
+            int type = jsObject.getType();
+            int length = jsObject.length();
+            if (type != 9) {
+                String str = "parseParams(JsObject): jsObject cannot be " + JsObject.typeToString(type) + " ,length " + length;
+                jsObject.release();
+                return new Pair<>(new v32(202, str), null);
+            }
+            JSONObject jSONObject = new JSONObject();
+            for (int i = 0; i < length; i++) {
+                try {
+                    int propertyType = jsObject.getPropertyType(i);
+                    String propertyName = jsObject.getPropertyName(i);
+                    switch (propertyType) {
+                        case 1:
+                            jSONObject.put(propertyName, jsObject.toBoolean(i));
+                            break;
+                        case 2:
+                            jSONObject.put(propertyName, jsObject.toInteger(i));
+                            break;
+                        case 3:
+                            jSONObject.put(propertyName, jsObject.toLong(i));
+                            break;
+                        case 5:
+                            try {
+                                jSONObject.put(propertyName, jsObject.toDouble(i));
+                                break;
+                            } catch (JSONException unused) {
+                                break;
+                            }
+                        case 6:
+                            JsObject[] objectArray = jsObject.toObjectArray(i);
+                            if (objectArray == null) {
+                                break;
+                            } else {
+                                jSONObject.put(propertyName, v(objectArray));
+                                break;
+                            }
+                        case 7:
+                            jSONObject.put(propertyName, jsObject.toString(i));
+                            break;
+                        case 8:
+                            jSONObject.put(propertyName, jsObject.toJsFunction(i));
+                            break;
+                        case 9:
+                            jSONObject.put(propertyName, t(jsObject.toJsObject(i)).second);
+                            break;
+                        case 10:
+                            jSONObject.put(propertyName, jsObject.toJsArrayBuffer(i));
+                            break;
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    String str2 = "parseParams(JsObject): with exception " + e2.getMessage();
+                    jsObject.release();
+                    return new Pair<>(new v32(202, str2), null);
+                }
+            }
+            jsObject.release();
+            return new Pair<>(new v32(0), jSONObject);
         }
+        return (Pair) invokeL.objValue;
     }
 
-    public final ObjectAnimator d(SwanAppActivity swanAppActivity, long j) {
-        InterceptResult invokeLJ;
+    @NonNull
+    public static Pair<u32, JSONObject> u(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, swanAppActivity, j)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.U().a, Key.ALPHA, 1.0f, 0.0f);
-            ofFloat.setDuration(j);
-            return ofFloat;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new Pair<>(new v32(202, "parseParams(String): json string cannot be empty"), null);
+            }
+            try {
+                return new Pair<>(new v32(0), new JSONObject(str));
+            } catch (JSONException unused) {
+                return new Pair<>(new v32(202, "parseParams(String): with json exception "), null);
+            }
         }
-        return (ObjectAnimator) invokeLJ.objValue;
+        return (Pair) invokeL.objValue;
     }
 
-    public void l(SwanAppActivity swanAppActivity, int i) {
+    @NonNull
+    @SuppressLint({"BDThrowableCheck"})
+    public static JSONArray v(@NonNull JsObject[] jsObjectArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, swanAppActivity, i) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        h(swanAppActivity);
-                        return;
-                    } else {
-                        k(swanAppActivity, true);
-                        return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jsObjectArr)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (JsObject jsObject : jsObjectArr) {
+                if (jsObject == null) {
+                    jSONArray.put((Object) null);
+                } else {
+                    switch (jsObject.getType()) {
+                        case 0:
+                            jSONArray.put((Object) null);
+                            continue;
+                        case 1:
+                            jSONArray.put(jsObject.toBoolean(0));
+                            continue;
+                        case 2:
+                            jSONArray.put(jsObject.toInteger(0));
+                            continue;
+                        case 3:
+                            jSONArray.put(jsObject.toLong(0));
+                            continue;
+                        case 5:
+                            try {
+                                jSONArray.put(jsObject.toDouble(0));
+                                continue;
+                            } catch (JSONException unused) {
+                                jSONArray.put((Object) null);
+                                break;
+                            }
+                        case 6:
+                            JsObject[] objectArray = jsObject.toObjectArray(0);
+                            if (objectArray == null) {
+                                jSONArray.put((Object) null);
+                                continue;
+                            } else {
+                                jSONArray.put(v(objectArray));
+                                break;
+                            }
+                        case 7:
+                            jSONArray.put(jsObject.toString(0));
+                            continue;
+                        case 8:
+                            jSONArray.put(jsObject.toJsFunction(0));
+                            continue;
+                        case 9:
+                            jSONArray.put(t(jsObject).second);
+                            continue;
+                        case 10:
+                            jSONArray.put(jsObject.toJsArrayBuffer(0));
+                            continue;
+                        case 11:
+                            jSONArray.put((Object) null);
+                            continue;
+                        case 12:
+                            jSONArray.put((Object) null);
+                            continue;
                     }
                 }
-                k(swanAppActivity, false);
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vz1
+    @NonNull
+    public final wz1 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (wz1) invokeV.objValue;
+    }
+
+    @NonNull
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "API-" + h();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            vb3 b0 = vb3.b0();
+            if (b0 == null) {
+                return true;
+            }
+            return b0.n0();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vz1
+    @SuppressLint({"BDThrowableCheck"})
+    public final void d(@NonNull String str, @NonNull v32 v32Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, v32Var) == null) {
+            if (TextUtils.isEmpty(str)) {
+                p("callback is empty", null, true);
+            } else if (v32Var == null) {
+                p("api result is empty", null, true);
+            } else {
+                w(str, v32Var);
+            }
+        }
+    }
+
+    public void q(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) && o()) {
+            v82.j(j(), i(), str, z);
+        }
+    }
+
+    public v32 k(boolean z, @NonNull b bVar) {
+        InterceptResult invokeZL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048582, this, z, bVar)) == null) {
+            vb3 b0 = vb3.b0();
+            if (b0 == null) {
+                p("swan app is null", null, false);
+                return v32.j();
+            } else if (z && b0.w() == null) {
+                p("swan activity is null", null, true);
+                return v32.i();
+            } else {
+                return bVar.a(b0);
+            }
+        }
+        return (v32) invokeZL.objValue;
+    }
+
+    @UiThread
+    public final void w(@NonNull String str, @NonNull v32 v32Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, v32Var) == null) {
+            if (TextUtils.isEmpty(str) && !(this.b instanceof NullableCallbackHandler)) {
+                q("#realInvokeCallback check-fail callback=" + str, false);
                 return;
             }
-            h(swanAppActivity);
+            this.b.handleSchemeDispatchCallback(str, v32Var.a());
         }
     }
 
-    public final AnimatorSet e(SwanAppActivity swanAppActivity) {
-        InterceptResult invokeL;
+    public v32 l(String str, boolean z, a aVar) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.U().d, Key.TRANSLATION_X, -tp3.f(AppRuntime.getAppContext(), 9.5f), tp3.f(AppRuntime.getAppContext(), 9.5f));
-            ofFloat.setDuration(380L);
-            ofFloat.setRepeatMode(2);
-            ofFloat.setRepeatCount(-1);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.U().e, Key.TRANSLATION_X, 0.0f, -tp3.f(AppRuntime.getAppContext(), 19.0f));
-            ofFloat2.setDuration(380L);
-            ofFloat2.setRepeatMode(2);
-            ofFloat2.setRepeatCount(-1);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.play(ofFloat).with(ofFloat2);
-            return animatorSet;
-        }
-        return (AnimatorSet) invokeL.objValue;
-    }
-
-    public final AnimatorSet f(SwanAppActivity swanAppActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanAppActivity)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.U().d, Key.TRANSLATION_X, 0.0f, -tp3.f(AppRuntime.getAppContext(), 9.5f));
-            ofFloat.setDuration(240L);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.U().e, Key.ALPHA, 0.0f, 1.0f);
-            ofFloat2.setDuration(240L);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.play(ofFloat).with(ofFloat2);
-            return animatorSet;
-        }
-        return (AnimatorSet) invokeL.objValue;
-    }
-
-    public void j(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, swanAppActivity) == null) {
-            SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView = (SwanAppLaunchCircleAnimationView) swanAppActivity.findViewById(R.id.obfuscated_res_0x7f090001);
-            this.b = swanAppLaunchCircleAnimationView;
-            swanAppLaunchCircleAnimationView.h();
-            h53.o().F(new UbcFlowEvent("first_anim_start"));
-            ci3.d().i("first_anim_start");
-        }
-    }
-
-    public void m(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, swanAppActivity) == null) {
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.play(f(swanAppActivity)).before(e(swanAppActivity));
-            animatorSet.start();
-            h53.o().F(new UbcFlowEvent("first_anim_start"));
-            ci3.d().i("first_anim_start");
-            this.a.add(animatorSet);
-        }
-    }
-
-    public final void k(SwanAppActivity swanAppActivity, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, swanAppActivity, z) == null) {
-            AnimatorSet animatorSet = new AnimatorSet();
-            if (z) {
-                i = 100;
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Boolean.valueOf(z), aVar})) == null) {
+            vb3 b0 = vb3.b0();
+            String str2 = null;
+            if (b0 == null) {
+                p("swan app is null", null, false);
+                return new v32(1001, "swan app is null");
             }
-            animatorSet.play(d(swanAppActivity, 150L));
-            animatorSet.addListener(new b(this, swanAppActivity));
-            animatorSet.setStartDelay(i);
-            animatorSet.start();
-            this.a.add(animatorSet);
+            Pair<v32, JSONObject> s = s(str);
+            v32 v32Var = (v32) s.first;
+            if (!v32Var.isSuccess()) {
+                p("json str parse fail", null, true);
+                return v32Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (z) {
+                String optString = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    p("cb is empty", null, true);
+                    return new v32(202, "cb is empty");
+                }
+                str2 = optString;
+            }
+            return aVar.a(b0, jSONObject, str2);
+        }
+        return (v32) invokeCommon.objValue;
+    }
+
+    public v32 m(@Nullable String str, @NonNull xz1 xz1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, xz1Var)) == null) {
+            Pair<v32, JSONObject> s = s(str);
+            v32 v32Var = (v32) s.first;
+            if (!v32Var.isSuccess()) {
+                p("json str parse fail", null, true);
+                return v32Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                p("cb is empty", null, true);
+                return new v32(202, "cb is empty");
+            }
+            return xz1Var.f(jSONObject, optString, this);
+        }
+        return (v32) invokeLL.objValue;
+    }
+
+    public void p(String str, @Nullable Throwable th, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(1048587, this, str, th, z) == null) && o()) {
+            v82.e(j(), i(), str, th, z);
         }
     }
 }

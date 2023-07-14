@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.pb.data.ContriInfo;
-import com.baidu.tieba.vg;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -141,7 +141,7 @@ public class AddExperiencedModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
                 this.a.b = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                yg.a().postDelayed(this.a.c, 2000L);
+                zg.a().postDelayed(this.a.c, 2000L);
             }
         }
     }
@@ -170,11 +170,11 @@ public class AddExperiencedModel extends BdBaseModel {
         registerListener(this.d);
     }
 
-    public static boolean Z(String str) {
+    public static boolean a0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (vg.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str)) {
+            if (wg.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str)) {
                 return true;
             }
             return false;
@@ -182,7 +182,7 @@ public class AddExperiencedModel extends BdBaseModel {
         return invokeL.booleanValue;
     }
 
-    public void Y(String str, String str2) {
+    public void Z(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
@@ -195,7 +195,7 @@ public class AddExperiencedModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            yg.a().removeCallbacks(this.c);
+            zg.a().removeCallbacks(this.c);
         }
     }
 

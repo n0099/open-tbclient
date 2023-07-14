@@ -1,40 +1,111 @@
 package com.baidu.tieba;
 
-import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public interface srb {
-    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
+public class srb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static Object a;
+        public static Class<?> b;
+        public static Method c;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-421657175, "Lcom/baidu/tieba/srb$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-421657175, "Lcom/baidu/tieba/srb$a;");
+                    return;
+                }
+            }
+            try {
+                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+                b = cls;
+                a = cls.newInstance();
+                b.getMethod("getUDID", Context.class);
+                c = b.getMethod("getOAID", Context.class);
+                b.getMethod("getVAID", Context.class);
+                b.getMethod("getAAID", Context.class);
+            } catch (Throwable th) {
+                Log.e("XiaomiId", "xiaomi init error", th);
+            }
+        }
 
-    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
+        public static String a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                return b(context, c);
+            }
+            return (String) invokeL.objValue;
+        }
 
-    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
+        public static String b(Context context, Method method) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
+                Object obj = a;
+                if (obj != null && method != null) {
+                    try {
+                        Object invoke = method.invoke(obj, context);
+                        if (invoke != null) {
+                            return (String) invoke;
+                        }
+                        return null;
+                    } catch (Exception e) {
+                        Log.e("XiaomiId", "invoke method error", e);
+                        return null;
+                    }
+                }
+                return null;
+            }
+            return (String) invokeLL.objValue;
+        }
 
-    void onWebsocketError(WebSocket webSocket, Exception exc);
+        public static boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                if (b != null && a != null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
 
-    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, gsb gsbVar, nsb nsbVar) throws InvalidDataException;
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            return a.a(context.getApplicationContext());
+        }
+        return (String) invokeL.objValue;
+    }
 
-    osb onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, gsb gsbVar) throws InvalidDataException;
-
-    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, gsb gsbVar) throws InvalidDataException;
-
-    void onWebsocketMessage(WebSocket webSocket, String str);
-
-    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
-
-    void onWebsocketOpen(WebSocket webSocket, lsb lsbVar);
-
-    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
-
-    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
-
-    void onWriteDemand(WebSocket webSocket);
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.c();
+        }
+        return invokeV.booleanValue;
+    }
 }

@@ -13,7 +13,7 @@ import com.baidu.live.feed.search.holder.LiveSearchHotRankHeaderViewHolder;
 import com.baidu.live.feed.search.holder.LiveSearchHotRankItemViewHolder;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jb0;
+import com.baidu.tieba.kb0;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +73,7 @@ public final class LiveSearchHotRankAdapter extends RecyclerView.Adapter<Recycle
     public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
         super.onViewRecycled(viewHolder);
         if (viewHolder instanceof LiveSearchHotRankItemViewHolder) {
-            ((LiveSearchHotRankItemViewHolder) viewHolder).c();
+            ((LiveSearchHotRankItemViewHolder) viewHolder).d();
         }
     }
 
@@ -109,7 +109,7 @@ public final class LiveSearchHotRankAdapter extends RecyclerView.Adapter<Recycle
                 liveRoomEntity = null;
             }
             LiveSearchHotRankItemViewHolder liveSearchHotRankItemViewHolder = (LiveSearchHotRankItemViewHolder) viewHolder;
-            liveSearchHotRankItemViewHolder.a(liveRoomEntity);
+            liveSearchHotRankItemViewHolder.b(liveRoomEntity);
             liveSearchHotRankItemViewHolder.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.feed.search.adapter.LiveSearchHotRankAdapter$onBindViewHolder$1
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
@@ -131,7 +131,7 @@ public final class LiveSearchHotRankAdapter extends RecyclerView.Adapter<Recycle
                     if (context3 != null) {
                         context2 = context3.getApplicationContext();
                     }
-                    jb0.I(context2, i, liveRoomEntity);
+                    kb0.I(context2, i, liveRoomEntity);
                 }
             });
             if (liveRoomEntity != null && liveRoomEntity.needLogShow) {
@@ -142,7 +142,7 @@ public final class LiveSearchHotRankAdapter extends RecyclerView.Adapter<Recycle
                 if (context2 != null) {
                     context = context2.getApplicationContext();
                 }
-                jb0.J(context, i, liveRoomEntity);
+                kb0.J(context, i, liveRoomEntity);
             }
         }
     }
@@ -151,9 +151,9 @@ public final class LiveSearchHotRankAdapter extends RecyclerView.Adapter<Recycle
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         if (i != 0) {
             if (i != 2) {
-                return new LiveSearchHotRankItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cd, viewGroup, false));
+                return new LiveSearchHotRankItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05d9, viewGroup, false));
             }
-            return new LiveSearchHotRankBottomViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cc, viewGroup, false));
+            return new LiveSearchHotRankBottomViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05d8, viewGroup, false));
         }
         return new LiveSearchHotRankHeaderViewHolder(new ImageView(viewGroup.getContext()));
     }

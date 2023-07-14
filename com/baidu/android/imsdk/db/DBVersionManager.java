@@ -3011,6 +3011,67 @@ public class DBVersionManager {
         }
     }
 
+    /* loaded from: classes.dex */
+    public class Version79And80Handler implements VersionHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ DBVersionManager this$0;
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
+        public Version79And80Handler(DBVersionManager dBVersionManager) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dBVersionManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = dBVersionManager;
+        }
+
+        /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+                try {
+                    try {
+                        sQLiteDatabase.beginTransaction();
+                        sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_EMOJI);
+                        sQLiteDatabase.setTransactionSuccessful();
+                        if (!sQLiteDatabase.inTransaction()) {
+                            return;
+                        }
+                    } catch (Exception e) {
+                        LogUtils.e(DBVersionManager.TAG, "onUpgrade:78->79", e);
+                        if (!sQLiteDatabase.inTransaction()) {
+                            return;
+                        }
+                    }
+                    sQLiteDatabase.endTransaction();
+                } catch (Throwable th) {
+                    if (sQLiteDatabase.inTransaction()) {
+                        sQLiteDatabase.endTransaction();
+                    }
+                    throw th;
+                }
+            }
+        }
+    }
+
     public DBVersionManager(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -3063,10 +3124,10 @@ public class DBVersionManager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x00b4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x00b9, code lost:
         if (r5 == null) goto L8;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x00b7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x00bc, code lost:
         return r0;
      */
     /*
@@ -3109,6 +3170,7 @@ public class DBVersionManager {
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MEDIA_SESSION_MODE_QUERY_INDEX);
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MEDIA_MESSAGE_QUERY_MSGID_INDEX);
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_MESSAGE_TAG);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_EMOJI);
                     i = 0;
                     sQLiteDatabase.setTransactionSuccessful();
                     LogUtils.d(TAG, "create table ok");
@@ -3125,10 +3187,10 @@ public class DBVersionManager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x00c3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x00c8, code lost:
         if (r6 == null) goto L8;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x00c6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x00cb, code lost:
         return r0;
      */
     /*
@@ -3161,6 +3223,7 @@ public class DBVersionManager {
                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS media_message");
                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS media_draft_msg");
                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS message_tag");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS used_emoji");
                     Utility.clearCache(this.mContext);
                     SyncAllMessage.getInstance(this.mContext).clearCache();
                     Utility.writeIntData(this.mContext, Utility.getJumpToRecentKey(this.mContext), 1);
@@ -3488,6 +3551,10 @@ public class DBVersionManager {
             }
             if (i <= 78 && i2 >= 79) {
                 new Version78And79Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 79;
+            }
+            if (i <= 79 && i2 >= 80) {
+                new Version79And80Handler(this).onUpgrade(sQLiteDatabase, i, i2);
             }
             Cursor cursor = null;
             try {

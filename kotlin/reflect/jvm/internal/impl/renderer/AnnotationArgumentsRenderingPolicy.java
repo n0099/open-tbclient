@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.renderer;
 
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum AnnotationArgumentsRenderingPolicy {
     NO_ARGUMENTS(false, false, 3, null),
     UNLESS_EMPTY(true, false, 2, null),

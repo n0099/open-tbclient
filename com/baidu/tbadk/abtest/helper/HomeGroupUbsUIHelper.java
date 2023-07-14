@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l15;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yo9;
+import com.baidu.tieba.fv9;
+import com.baidu.tieba.t15;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,14 +76,14 @@ public final class HomeGroupUbsUIHelper {
             return;
         }
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-        marginLayoutParams.topMargin = xi.g(TbadkCoreApplication.getInst(), i2);
+        marginLayoutParams.topMargin = yi.g(TbadkCoreApplication.getInst(), i2);
         view2.setLayoutParams(marginLayoutParams);
     }
 
     public static void handleTextLineSpacingExtra(TextView textView, int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLII(65549, null, textView, i, i2) == null) && textView != null && Build.VERSION.SDK_INT >= 16) {
-            textView.setLineSpacing(xi.g(textView.getContext(), i2), textView.getLineSpacingMultiplier());
+            textView.setLineSpacing(yi.g(textView.getContext(), i2), textView.getLineSpacingMultiplier());
         }
     }
 
@@ -132,11 +132,11 @@ public final class HomeGroupUbsUIHelper {
         SkinManager.setBackgroundColor(view2, R.color.CAM_X0202);
     }
 
-    public static boolean isFromHotRankTab(l15 l15Var) {
+    public static boolean isFromHotRankTab(t15 t15Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, l15Var)) == null) {
-            if (l15Var != null && l15Var.getThreadData() != null && l15Var.getThreadData().isFromHotRankTab) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, t15Var)) == null) {
+            if (t15Var != null && t15Var.getThreadData() != null && t15Var.getThreadData().isFromHotRankTab) {
                 return true;
             }
             return false;
@@ -164,7 +164,7 @@ public final class HomeGroupUbsUIHelper {
             return;
         }
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
-        int wantWidthNumber = (getWantWidthNumber() * ((int) (((View.MeasureSpec.getSize(xi.s(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2)) - (dimensionPixelSize * 2)) / getTotalWidthNumber()))) + dimensionPixelSize;
+        int wantWidthNumber = (getWantWidthNumber() * ((int) (((View.MeasureSpec.getSize(yi.t(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2)) - (dimensionPixelSize * 2)) / getTotalWidthNumber()))) + dimensionPixelSize;
         MediaData mediaData = (MediaData) ListUtils.getItem(threadData.getMedias(), 0);
         if (mediaData != null && (i = mediaData.picWidth) > 0 && (i2 = mediaData.picHeight) > 0) {
             if (i == i2) {
@@ -190,7 +190,7 @@ public final class HomeGroupUbsUIHelper {
                 return iArr;
             }
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
-            int wantWidthNumber = (getWantWidthNumber() * ((int) (((View.MeasureSpec.getSize(xi.s(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2)) - (dimensionPixelSize * 2)) / getTotalWidthNumber()))) + dimensionPixelSize;
+            int wantWidthNumber = (getWantWidthNumber() * ((int) (((View.MeasureSpec.getSize(yi.t(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2)) - (dimensionPixelSize * 2)) / getTotalWidthNumber()))) + dimensionPixelSize;
             int i2 = mediaData.picWidth;
             if (i2 > 0 && (i = mediaData.picHeight) > 0) {
                 if (i2 == i) {
@@ -214,11 +214,11 @@ public final class HomeGroupUbsUIHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{layoutParams, layoutParams2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (layoutParams != null && layoutParams2 != null) {
-                int size = View.MeasureSpec.getSize(xi.s(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
+                int size = View.MeasureSpec.getSize(yi.t(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
                 int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
                 int wantWidthNumber = (getWantWidthNumber() * ((int) ((size - (dimensionPixelSize * 2)) / getTotalWidthNumber()))) + dimensionPixelSize;
-                layoutParams2.width = (xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44) * 2) + wantWidthNumber;
-                int g = ((wantWidthNumber * 4) / 3) + xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+                layoutParams2.width = (yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44) * 2) + wantWidthNumber;
+                int g = ((wantWidthNumber * 4) / 3) + yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
                 layoutParams2.height = g;
                 layoutParams.height = g;
                 return true;
@@ -228,15 +228,15 @@ public final class HomeGroupUbsUIHelper {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean handleVerticalVideoSize(ViewGroup.LayoutParams layoutParams, boolean z, yo9 yo9Var, int i, int i2) {
+    public static boolean handleVerticalVideoSize(ViewGroup.LayoutParams layoutParams, boolean z, fv9 fv9Var, int i, int i2) {
         InterceptResult invokeCommon;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{layoutParams, Boolean.valueOf(z), yo9Var, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{layoutParams, Boolean.valueOf(z), fv9Var, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             if (layoutParams == null) {
                 return z;
             }
-            int size = View.MeasureSpec.getSize(xi.s(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
+            int size = View.MeasureSpec.getSize(yi.t(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int wantWidthNumber = (getWantWidthNumber() * ((int) ((size - (dimensionPixelSize * 2)) / getTotalWidthNumber()))) + dimensionPixelSize;
             layoutParams.width = wantWidthNumber;
@@ -247,8 +247,8 @@ public final class HomeGroupUbsUIHelper {
             } else {
                 z2 = true;
             }
-            if (yo9Var != null) {
-                yo9Var.changeRenderViewMode(0);
+            if (fv9Var != null) {
+                fv9Var.changeRenderViewMode(0);
             }
             return z2;
         }

@@ -1,93 +1,48 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
 /* loaded from: classes5.dex */
-public class ec4 {
+public class ec4 extends cc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Comparator<ec4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ec4 ec4Var, ec4 ec4Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ec4Var, ec4Var2)) == null) {
-                return (int) (ec4Var.a - ec4Var2.a);
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public ec4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ec4(sc3 sc3Var) {
+        super(sc3Var, "/swanAPI/showShareMenu", "showShareMenu");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((sc3) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static long[] a(ec4 ec4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.cc4
+    public boolean k(@NonNull fc4 fc4Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ec4Var)) == null) {
-            if (ec4Var == null) {
-                return null;
-            }
-            return new long[]{ec4Var.a, ec4Var.b};
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, fc4Var, unitedSchemeEntity, callbackHandler)) == null) {
+            fc4Var.d();
+            j(unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (long[]) invokeL.objValue;
-    }
-
-    public boolean b(ec4 ec4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ec4Var)) == null) {
-            long j = this.a;
-            if (j <= ec4Var.b) {
-                long j2 = this.b;
-                long j3 = ec4Var.a;
-                if (j2 >= j3) {
-                    this.a = Math.min(j, j3);
-                    this.b = Math.max(this.b, ec4Var.b);
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 }

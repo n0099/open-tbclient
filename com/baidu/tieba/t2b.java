@@ -3,35 +3,25 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
-public final class t2b {
+/* loaded from: classes8.dex */
+public class t2b {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile s2b a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
-        InterceptResult invokeLLL;
+    public static synchronized s2b a() {
+        InterceptResult invokeV;
+        s2b s2bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (t2b.class) {
+                if (a == null) {
+                    a = new s2b();
+                }
+                s2bVar = a;
+            }
+            return s2bVar;
         }
-        return (byte[]) invokeLLL.objValue;
-    }
-
-    public static byte[] b(String str, String str2, byte[] bArr) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
-        }
-        return (byte[]) invokeLLL.objValue;
+        return (s2b) invokeV.objValue;
     }
 }

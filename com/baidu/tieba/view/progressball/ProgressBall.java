@@ -12,10 +12,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cja;
-import com.baidu.tieba.j06;
-import com.baidu.tieba.s2a;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.asa;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.dba;
+import com.baidu.tieba.n16;
 import com.baidu.tieba.tbadkcore.databinding.ProgressBallBinding;
 import com.baidu.tieba.view.progressball.ProgressBall;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public final class ProgressBall extends RelativeLayout {
     public int c;
     public final Path d;
     public int e;
-    public cja f;
+    public asa f;
     public ProgressBallBinding g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -101,7 +101,7 @@ public final class ProgressBall extends RelativeLayout {
         }
         this.a = "res:///";
         this.d = new Path();
-        this.f = new cja();
+        this.f = new asa();
         a();
     }
 
@@ -138,7 +138,7 @@ public final class ProgressBall extends RelativeLayout {
         }
     }
 
-    public final void b(cja data) {
+    public final void b(asa data) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -162,7 +162,7 @@ public final class ProgressBall extends RelativeLayout {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     progressBallBinding3 = null;
                 }
-                progressBallBinding3.b.setForegroundColor(s2a.a(SkinManager.getColor(R.color.CAM_X0611), 0.6f));
+                progressBallBinding3.b.setForegroundColor(dba.a(SkinManager.getColor(R.color.CAM_X0611), 0.6f));
                 ProgressBallBinding progressBallBinding4 = this.g;
                 if (progressBallBinding4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -182,7 +182,7 @@ public final class ProgressBall extends RelativeLayout {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     progressBallBinding6 = null;
                 }
-                progressBallBinding6.c.setPlaceHolderDrawable(j06.a.a());
+                progressBallBinding6.c.setPlaceHolderDrawable(n16.a.a());
                 ProgressBallBinding progressBallBinding7 = this.g;
                 if (progressBallBinding7 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -218,7 +218,7 @@ public final class ProgressBall extends RelativeLayout {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     progressBallBinding11 = null;
                 }
-                s75.d(progressBallBinding11.d).f(data.b());
+                d85.d(progressBallBinding11.d).f(data.b());
                 ProgressBallBinding progressBallBinding12 = this.g;
                 if (progressBallBinding12 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -250,7 +250,7 @@ public final class ProgressBall extends RelativeLayout {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     progressBallBinding15 = null;
                 }
-                s75 d = s75.d(progressBallBinding15.e);
+                d85 d = d85.d(progressBallBinding15.e);
                 d.D(R.string.F_X02);
                 d.x(R.color.CAM_X0101);
             }
@@ -285,7 +285,7 @@ public final class ProgressBall extends RelativeLayout {
             } else {
                 this.e = i;
             }
-            post(new Runnable() { // from class: com.baidu.tieba.bja
+            post(new Runnable() { // from class: com.baidu.tieba.zra
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

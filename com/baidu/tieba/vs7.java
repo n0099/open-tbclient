@@ -1,60 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.recyclerview.widget.DiffUtil;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import tbclient.ThemeElement;
 /* loaded from: classes8.dex */
-public final class vs7 extends DiffUtil.ItemCallback<VoiceRoomWrapper> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vs7 {
+    @Nullable
+    <T> T a(@NonNull LogicField logicField);
 
-    public vs7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(@NonNull ThemeElement themeElement);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
-    /* renamed from: a */
-    public boolean areContentsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, oldItem, newItem)) == null) {
-            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
-            Intrinsics.checkNotNullParameter(newItem, "newItem");
-            if (Intrinsics.areEqual(oldItem.getVoiceRoom().status, newItem.getVoiceRoom().status) && Intrinsics.areEqual(oldItem.getVoiceRoom().joined_num, newItem.getVoiceRoom().joined_num)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    void c(float f);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
-    /* renamed from: b */
-    public boolean areItemsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, oldItem, newItem)) == null) {
-            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
-            Intrinsics.checkNotNullParameter(newItem, "newItem");
-            return Intrinsics.areEqual(oldItem.getVoiceRoom().room_id, newItem.getVoiceRoom().room_id);
-        }
-        return invokeLL.booleanValue;
-    }
+    void d(int i, boolean z);
+
+    @NonNull
+    NavigationBar e();
+
+    void f(boolean z);
+
+    int g();
+
+    void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener);
+
+    void onChangeSkinType(int i);
 }

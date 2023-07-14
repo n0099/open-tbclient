@@ -9,7 +9,9 @@ import tbclient.ThreadInfo;
 public final class MatchCardInfo extends Message {
     public static final String DEFAULT_CARD_TITLE = "";
     public static final String DEFAULT_ICON_TEXT = "";
+    public static final String DEFAULT_MATCH_LINK = "";
     public static final String DEFAULT_NAME = "";
+    public static final String DEFAULT_SCHEDULE_LINK = "";
     public static final String DEFAULT_START_DESC = "";
     public static final String DEFAULT_TEAM_ICON_A = "";
     public static final String DEFAULT_TEAM_ICON_B = "";
@@ -19,8 +21,12 @@ public final class MatchCardInfo extends Message {
     public final String card_title;
     @ProtoField(tag = 13, type = Message.Datatype.STRING)
     public final String icon_text;
+    @ProtoField(tag = 15, type = Message.Datatype.STRING)
+    public final String match_link;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String name;
+    @ProtoField(tag = 16, type = Message.Datatype.STRING)
+    public final String schedule_link;
     @ProtoField(tag = 9, type = Message.Datatype.STRING)
     public final String start_desc;
     @ProtoField(tag = 2, type = Message.Datatype.UINT32)
@@ -33,6 +39,8 @@ public final class MatchCardInfo extends Message {
     public final String team_name_a;
     @ProtoField(tag = 6, type = Message.Datatype.STRING)
     public final String team_name_b;
+    @ProtoField(label = Message.Label.REPEATED, tag = 14)
+    public final List<MatchPlayerInfo> team_player_list;
     @ProtoField(tag = 10, type = Message.Datatype.INT64)
     public final Long team_score_a;
     @ProtoField(tag = 11, type = Message.Datatype.INT64)
@@ -46,18 +54,22 @@ public final class MatchCardInfo extends Message {
     public static final Long DEFAULT_TEAM_SCORE_A = 0L;
     public static final Long DEFAULT_TEAM_SCORE_B = 0L;
     public static final List<ThreadInfo> DEFAULT_THREAD_LIST = Collections.emptyList();
+    public static final List<MatchPlayerInfo> DEFAULT_TEAM_PLAYER_LIST = Collections.emptyList();
 
     /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<MatchCardInfo> {
         public String card_title;
         public String icon_text;
+        public String match_link;
         public String name;
+        public String schedule_link;
         public String start_desc;
         public Integer status;
         public String team_icon_a;
         public String team_icon_b;
         public String team_name_a;
         public String team_name_b;
+        public List<MatchPlayerInfo> team_player_list;
         public Long team_score_a;
         public Long team_score_b;
         public List<ThreadInfo> thread_list;
@@ -84,6 +96,9 @@ public final class MatchCardInfo extends Message {
             this.team_score_b = matchCardInfo.team_score_b;
             this.thread_list = Message.copyOf(matchCardInfo.thread_list);
             this.icon_text = matchCardInfo.icon_text;
+            this.team_player_list = Message.copyOf(matchCardInfo.team_player_list);
+            this.match_link = matchCardInfo.match_link;
+            this.schedule_link = matchCardInfo.schedule_link;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -171,9 +186,27 @@ public final class MatchCardInfo extends Message {
             String str8 = builder.icon_text;
             if (str8 == null) {
                 this.icon_text = "";
-                return;
             } else {
                 this.icon_text = str8;
+            }
+            List<MatchPlayerInfo> list2 = builder.team_player_list;
+            if (list2 == null) {
+                this.team_player_list = DEFAULT_TEAM_PLAYER_LIST;
+            } else {
+                this.team_player_list = Message.immutableCopyOf(list2);
+            }
+            String str9 = builder.match_link;
+            if (str9 == null) {
+                this.match_link = "";
+            } else {
+                this.match_link = str9;
+            }
+            String str10 = builder.schedule_link;
+            if (str10 == null) {
+                this.schedule_link = "";
+                return;
+            } else {
+                this.schedule_link = str10;
                 return;
             }
         }
@@ -190,5 +223,8 @@ public final class MatchCardInfo extends Message {
         this.team_score_b = builder.team_score_b;
         this.thread_list = Message.immutableCopyOf(builder.thread_list);
         this.icon_text = builder.icon_text;
+        this.team_player_list = Message.immutableCopyOf(builder.team_player_list);
+        this.match_link = builder.match_link;
+        this.schedule_link = builder.schedule_link;
     }
 }

@@ -1,25 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.core.util.Pair;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.browser.core.webview.offline.message.OfflineResourceReqMsg;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+@Service
 /* loaded from: classes7.dex */
-public final class nl6 extends BdAsyncTask<Void, Void, Map<String, ol6>> {
+public class nl6 extends ff {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.ff
+    public void changeSettingByType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ff
+    /* renamed from: getCrashKeys */
+    public String[] mo129getCrashKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ff
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ff
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ff
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "hybrid_net_proxy_no_encoding" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ff
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     public nl6() {
         Interceptable interceptable = $ic;
@@ -35,60 +83,15 @@ public final class nl6 extends BdAsyncTask<Void, Void, Map<String, ol6>> {
         }
     }
 
-    public static void c() {
+    public static boolean isOn() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            nl6 nl6Var = new nl6();
-            nl6Var.setPriority(4);
-            nl6Var.execute(new Void[0]);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public Map<String, ol6> doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            Set<String> q = fl6.n().q();
-            if (tm6.a(q)) {
-                vm6.b(fl6.n().m());
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (SwitchManager.getInstance().findType("hybrid_net_proxy_no_encoding") == 1) {
+                return true;
             }
-            HashMap hashMap = new HashMap();
-            for (String str : q) {
-                String p = fl6.n().p(str);
-                jl6 a = ml6.a(str, p);
-                if (a != null && a.c()) {
-                    hashMap.putAll(a.a());
-                    fl6.j(fl6.n().m(), p, str);
-                } else {
-                    fl6.n().h(str);
-                }
-            }
-            return hashMap;
+            return false;
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            OfflineResourceReqMsg offlineResourceReqMsg = new OfflineResourceReqMsg("0.0.0.0");
-            MessageManager.getInstance().sendMessage(offlineResourceReqMsg);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_type", "request webCacheInfo").param("obj_locate", "start").param(TiebaStatic.Params.OBJ_PARAM2, wm6.a(Pair.create("offline_version", offlineResourceReqMsg.getWebViewVersion()))));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: e */
-    public void onPostExecute(Map<String, ol6> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            gl6.e().j(map);
-            d();
-        }
+        return invokeV.booleanValue;
     }
 }

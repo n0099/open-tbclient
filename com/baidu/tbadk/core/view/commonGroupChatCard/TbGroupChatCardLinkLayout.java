@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j25;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.tbadkcore.databinding.TbGroupChatLinkCardLayoutBinding;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -300,7 +300,7 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final void c(j25 data) {
+    public final void c(r25 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -336,19 +336,19 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
         }
     }
 
-    public final void d(j25 j25Var) {
+    public final void d(r25 r25Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j25Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r25Var) == null) {
             TbGroupChatLinkCardLayoutBinding tbGroupChatLinkCardLayoutBinding = this.b;
             if (tbGroupChatLinkCardLayoutBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 tbGroupChatLinkCardLayoutBinding = null;
             }
-            tbGroupChatLinkCardLayoutBinding.h.N(j25Var.e, 10, false);
-            tbGroupChatLinkCardLayoutBinding.i.setText(j25Var.c);
+            tbGroupChatLinkCardLayoutBinding.h.N(r25Var.e, 10, false);
+            tbGroupChatLinkCardLayoutBinding.i.setText(r25Var.c);
             tbGroupChatLinkCardLayoutBinding.g.setVisibility(8);
-            CardLinkInfoData mCardLinkInfoData = j25Var.p;
+            CardLinkInfoData mCardLinkInfoData = r25Var.p;
             if (mCardLinkInfoData != null) {
                 Intrinsics.checkNotNullExpressionValue(mCardLinkInfoData, "mCardLinkInfoData");
                 String str = mCardLinkInfoData.content1;
@@ -435,18 +435,18 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 tbGroupChatLinkCardLayoutBinding = null;
             }
-            s75 d2 = s75.d(tbGroupChatLinkCardLayoutBinding.j);
+            d85 d2 = d85.d(tbGroupChatLinkCardLayoutBinding.j);
             d2.o(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
-            s75 d3 = s75.d(tbGroupChatLinkCardLayoutBinding.i);
+            d85 d3 = d85.d(tbGroupChatLinkCardLayoutBinding.i);
             d3.D(R.string.F_X01);
             d3.C(R.dimen.T_X07);
             d3.x(R.color.CAM_X0107);
-            s75 d4 = s75.d(tbGroupChatLinkCardLayoutBinding.d);
+            d85 d4 = d85.d(tbGroupChatLinkCardLayoutBinding.d);
             d4.D(R.string.F_X01);
             d4.C(R.dimen.T_X09);
             d4.x(R.color.CAM_X0109);
-            s75 d5 = s75.d(tbGroupChatLinkCardLayoutBinding.f);
+            d85 d5 = d85.d(tbGroupChatLinkCardLayoutBinding.f);
             d5.D(R.string.F_X01);
             d5.C(R.dimen.T_X09);
             d5.x(R.color.CAM_X0109);

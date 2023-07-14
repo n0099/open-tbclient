@@ -1,16 +1,60 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.WebGLImageLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class lm0 {
+public class lm0 extends eo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Exception a;
-    public String b;
-    public boolean c;
+    public List<a> a;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = "";
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(a.class.getSimpleName());
+                sb.append(" ## ");
+                sb.append(WebGLImageLoader.DATA_URL + this.c);
+                sb.append(" ## ");
+                sb.append("jsCallback:" + this.a);
+                sb.append(" ## ");
+                sb.append("action:" + this.b);
+                return sb.toString();
+            }
+            return (String) invokeV.objValue;
+        }
+    }
 
     public lm0() {
         Interceptable interceptable = $ic;
@@ -22,9 +66,7 @@ public class lm0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = false;
     }
 }

@@ -1,127 +1,102 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "ItemTabLogUtil")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
-public final class ya5 {
+public class ya5 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Drawable> a;
 
-    public static final int a(int i, int i2) {
-        InterceptResult invokeII;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            if (i != 1) {
-                return i != 2 ? -1 : 2;
-            } else if (i2 != 1) {
-                return i2 != 2 ? -1 : 3;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ya5(Drawable drawable) {
+        super(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Drawable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public final Drawable a() {
+        InterceptResult invokeV;
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.a;
+            if (weakReference != null) {
+                drawable = weakReference.get();
             } else {
-                return 4;
+                drawable = null;
             }
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.a = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
         }
-        return invokeII.intValue;
+        return (Drawable) invokeV.objValue;
     }
 
-    public static final int b(String name) {
-        InterceptResult invokeL;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, name)) == null) {
-            Intrinsics.checkNotNullParameter(name, "name");
-            if (Intrinsics.areEqual(ItemCardHelper.a, name)) {
-                return 1;
-            }
-            if (Intrinsics.areEqual(ItemCardHelper.b, name)) {
-                return 2;
-            }
-            return 9;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Drawable a = a();
+            canvas.save();
+            canvas.translate(f, (((i5 - i3) - a.getBounds().bottom) / 2) + i3);
+            a.draw(canvas);
+            canvas.restore();
         }
-        return invokeL.intValue;
     }
 
-    public static final void c(xa5 itemLogData) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, itemLogData) == null) {
-            Intrinsics.checkNotNullParameter(itemLogData, "itemLogData");
-            StatisticItem statisticItem = new StatisticItem();
-            boolean z = false;
-            switch (itemLogData.getType()) {
-                case 1:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_ALBUM_CLICK).param("obj_name", itemLogData.c()).param("obj_locate", itemLogData.d()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b()).param("uid", itemLogData.j());
-                    break;
-                case 2:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_TAG_CLICK).param("obj_name", itemLogData.c()).param("obj_locate", itemLogData.d()).param("fid", itemLogData.b());
-                    break;
-                case 3:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_RECOMMEND_CLICK).param("obj_name", itemLogData.c()).param("obj_locate", itemLogData.d()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b());
-                    break;
-                case 4:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_COMMENT_CLICK).param("obj_name", itemLogData.c()).param("obj_locate", itemLogData.d()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b());
-                    break;
-                case 5:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_SHOW).param("obj_name", itemLogData.c()).param("obj_source", itemLogData.g()).param("obj_locate", itemLogData.b()).param("obj_type", itemLogData.a());
-                    break;
-                case 6:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_RANKING).param("obj_name", itemLogData.c()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b());
-                    break;
-                case 7:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ORDER_DOWNLOAD_EXPORT).param("obj_name", itemLogData.c()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b()).param("uid", itemLogData.j()).param(TiebaStatic.Params.OBJ_PARAM2, itemLogData.a());
-                    break;
-                case 8:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ORDER_DOWNLOAD_CLICK).param("obj_name", itemLogData.c()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b()).param("uid", itemLogData.j()).param("obj_source", itemLogData.g()).param("obj_param1", itemLogData.a());
-                    String e = itemLogData.e();
-                    if (!((e == null || e.length() == 0) ? true : true)) {
-                        statisticItem.param("obj_locate", itemLogData.e());
-                        break;
-                    }
-                    break;
-                case 9:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_RECENT_UPDATE_SHOW).param("fid", itemLogData.b());
-                    break;
-                case 10:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_RECENT_UPDATE_CLICK).param("fid", itemLogData.b());
-                    break;
-                case 11:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_HOT_VIDEO_SHOW).param("fid", itemLogData.b()).param("obj_locate", itemLogData.d());
-                    break;
-                case 12:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_HOT_VIDEO_CLICK).param("fid", itemLogData.b()).param("obj_locate", itemLogData.d());
-                    String i = itemLogData.i();
-                    if (!((i == null || i.length() == 0) ? true : true)) {
-                        statisticItem.param("post_id", itemLogData.i());
-                        break;
-                    }
-                    break;
-                case 13:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_SHOW).param("fid", itemLogData.b()).param("obj_id", itemLogData.c()).param("uid", itemLogData.j());
-                    break;
-                case 14:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_CLICK).param("fid", itemLogData.b()).param("obj_id", itemLogData.c()).param("uid", itemLogData.j());
-                    break;
-                case 15:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_SHOW).param("obj_id", itemLogData.c()).param("fid", itemLogData.b()).param("obj_locate", itemLogData.d()).param("uid", itemLogData.j());
-                    break;
-                case 16:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_CLICK).param("obj_id", itemLogData.c()).param("fid", itemLogData.b()).param("obj_name", itemLogData.f()).param("obj_type", itemLogData.h());
-                    break;
-                case 17:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_SHOW).param("fid", itemLogData.b()).param("uid", itemLogData.j()).param("obj_id", itemLogData.c());
-                    break;
-                case 18:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_CLICK).param("fid", itemLogData.b()).param("uid", itemLogData.j()).param("obj_id", itemLogData.c());
-                    break;
-                case 19:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_IMG_CLICK).param("fid", itemLogData.b()).param("uid", itemLogData.j()).param("obj_id", itemLogData.c());
-                    break;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Rect bounds = getDrawable().getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                int i4 = (bounds.bottom - bounds.top) / 2;
+                int i5 = i3 / 4;
+                int i6 = i4 - i5;
+                int i7 = -(i4 + i5);
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                fontMetricsInt.bottom = i6;
+                fontMetricsInt.descent = i6;
             }
-            TiebaStatic.log(statisticItem);
+            return bounds.right;
         }
+        return invokeCommon.intValue;
     }
 }

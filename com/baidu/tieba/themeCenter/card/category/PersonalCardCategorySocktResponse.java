@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.card.category;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aba;
-import com.baidu.tieba.iba;
+import com.baidu.tieba.rja;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<aba> mCardCategoryList;
-    public iba mRecommand;
+    public List<rja> mCardCategoryList;
+    public zja mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardCategorySocktResponse() {
@@ -69,18 +69,18 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
                 this.hasMore = false;
             }
             if (getCardByCategoryResIdl.data.recommend != null) {
-                iba ibaVar = new iba();
-                this.mRecommand = ibaVar;
-                ibaVar.d(getCardByCategoryResIdl.data.recommend);
+                zja zjaVar = new zja();
+                this.mRecommand = zjaVar;
+                zjaVar.d(getCardByCategoryResIdl.data.recommend);
             }
             List<ThemeCardInMain> list = getCardByCategoryResIdl.data.cards;
             if (list != null && list.size() > 0) {
                 this.mCardCategoryList = new ArrayList();
                 for (ThemeCardInMain themeCardInMain : list) {
                     if (themeCardInMain != null) {
-                        aba abaVar = new aba();
-                        abaVar.c(themeCardInMain);
-                        this.mCardCategoryList.add(abaVar);
+                        rja rjaVar = new rja();
+                        rjaVar.c(themeCardInMain);
+                        this.mCardCategoryList.add(rjaVar);
                     }
                 }
             }
@@ -89,7 +89,7 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List<aba> getCardCategoryList() {
+    public List<rja> getCardCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -98,13 +98,13 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public iba getRecommand() {
+    public zja getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (iba) invokeV.objValue;
+        return (zja) invokeV.objValue;
     }
 
     public boolean isHasMore() {

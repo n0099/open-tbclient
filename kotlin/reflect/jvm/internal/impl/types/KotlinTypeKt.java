@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.types;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class KotlinTypeKt {
     public static final boolean isError(KotlinType kotlinType) {
         UnwrappedType unwrap = kotlinType.unwrap();

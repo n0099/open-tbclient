@@ -1,111 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+@Service
 /* loaded from: classes5.dex */
-public final class fs6 {
+public class fs6 implements dc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BdUniqueId a;
-    public final Object b;
-    public Object c;
 
-    public fs6(BdUniqueId id, Object tag) {
+    public fs6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {id, tag};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(id, "id");
-        Intrinsics.checkNotNullParameter(tag, "tag");
-        this.a = id;
-        this.b = tag;
     }
 
-    public fs6(TbPageContext<?> pageContext, Object tag) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext, tag};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        Intrinsics.checkNotNullParameter(tag, "tag");
-        BdUniqueId uniqueId = pageContext.getUniqueId();
-        Intrinsics.checkNotNullExpressionValue(uniqueId, "pageContext.uniqueId");
-        this.a = uniqueId;
-        this.b = tag;
-    }
-
-    public final void a(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            this.c = obj;
-        }
-    }
-
-    public final BdUniqueId b() {
+    @Override // com.baidu.tieba.dc7
+    @NonNull
+    public List<lc7<?, ?>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new nr6());
+            arrayList.add(new bs6());
+            arrayList.add(new pr6());
+            arrayList.add(new ds6());
+            arrayList.add(new cs6());
+            arrayList.add(new sr6());
+            arrayList.add(new gs6());
+            return arrayList;
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Object obj = this.c;
-            if (obj != null) {
-                i = obj.hashCode();
-            } else {
-                i = 0;
-            }
-            return (this.a.hashCode() * 31) + this.b.hashCode() + (i * 17);
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (obj == null || !(obj instanceof fs6)) {
-                return false;
-            }
-            fs6 fs6Var = (fs6) obj;
-            if (!Intrinsics.areEqual(this.a, fs6Var.a) || !Intrinsics.areEqual(fs6Var.b, this.b) || !Intrinsics.areEqual(fs6Var.c, this.c)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (List) invokeV.objValue;
     }
 }

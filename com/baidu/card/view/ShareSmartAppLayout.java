@@ -10,20 +10,20 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l15;
-import com.baidu.tieba.qo6;
-import com.baidu.tieba.qy;
+import com.baidu.tieba.ry;
+import com.baidu.tieba.t15;
+import com.baidu.tieba.up6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ShareSmartAppLayout extends LinearLayout implements qy<l15> {
+public class ShareSmartAppLayout extends LinearLayout implements ry<t15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AppletsCellView a;
-    public qo6<l15> b;
+    public up6<t15> b;
 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
@@ -71,19 +71,12 @@ public class ShareSmartAppLayout extends LinearLayout implements qy<l15> {
                 return;
             }
         }
-        b();
+        a();
     }
 
-    public void setSubClickListener(qo6<l15> qo6Var) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, qo6Var) == null) {
-            this.b = qo6Var;
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.share_smart_app_layout, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
@@ -91,15 +84,22 @@ public class ShareSmartAppLayout extends LinearLayout implements qy<l15> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qy
-    /* renamed from: c */
-    public void a(l15 l15Var) {
+    public void setSubClickListener(up6<t15> up6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l15Var) == null) {
-            if (l15Var != null && l15Var.getThreadData() != null && l15Var.getThreadData().getSmartApp() != null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, up6Var) == null) {
+            this.b = up6Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ry
+    /* renamed from: c */
+    public void b(t15 t15Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t15Var) == null) {
+            if (t15Var != null && t15Var.getThreadData() != null && t15Var.getThreadData().getSmartApp() != null) {
                 setVisibility(0);
-                ThreadData threadData = l15Var.getThreadData();
+                ThreadData threadData = t15Var.getThreadData();
                 this.a.setData(threadData.getSmartApp());
                 this.a.setForumId(String.valueOf(threadData.getFid()));
                 this.a.setFrom("frs_card");
@@ -109,12 +109,12 @@ public class ShareSmartAppLayout extends LinearLayout implements qy<l15> {
         }
     }
 
-    public qo6<l15> getSubClickListener() {
+    public up6<t15> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return (qo6) invokeV.objValue;
+        return (up6) invokeV.objValue;
     }
 }

@@ -1,90 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cv4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class rz4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile rz4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public cv4 b;
-    public WeakReference<WebView> c;
-
-    /* loaded from: classes7.dex */
-    public class a implements cv4.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rz4 a;
-
-        public a(rz4 rz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rz4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rz4Var;
-        }
-
-        @Override // com.baidu.tieba.cv4.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a.a)) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("resultCode", 1);
-                    this.a.d((WebView) this.a.c.get(), this.a.a, jSONObject);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final rz4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-444268513, "Lcom/baidu/tieba/rz4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-444268513, "Lcom/baidu/tieba/rz4$b;");
-                    return;
-                }
-            }
-            a = new rz4();
-        }
-    }
+    public HashMap<String, JSONObject> a;
 
     public rz4() {
         Interceptable interceptable = $ic;
@@ -99,59 +35,64 @@ public class rz4 {
                 return;
             }
         }
-        this.b = null;
+        this.a = new HashMap<>();
     }
 
-    public static rz4 e() {
+    public static rz4 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (rz4.class) {
+                    if (b == null) {
+                        b = new rz4();
+                    }
+                }
+            }
+            return b;
         }
         return (rz4) invokeV.objValue;
     }
 
-    public void g() {
-        cv4 cv4Var;
+    public void a(String str, String str2, String str3, String str4) {
+        HashMap<String, JSONObject> hashMap;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (cv4Var = this.b) == null) {
-            return;
-        }
-        if (cv4Var.d()) {
-            this.b.c();
-        }
-        WeakReference<WebView> weakReference = this.c;
-        if (weakReference != null) {
-            weakReference.clear();
-            this.c = null;
-        }
-        this.b = null;
-    }
-
-    public cv4 f(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView)) == null) {
-            this.c = new WeakReference<>(webView);
-            cv4 cv4Var = new cv4(TbadkCoreApplication.getInst(), new a(this));
-            this.b = cv4Var;
-            return cv4Var;
-        }
-        return (cv4) invokeL.objValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) && StringUtils.isNotNull(str) && (hashMap = this.a) != null && hashMap.get(str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("apkName", str2);
+                jSONObject.put("source", str3 + "");
+                jSONObject.put("apkUrl", str4);
+                this.a.put(str, jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public final void d(WebView webView, String str, JSONObject jSONObject) {
+    public void b(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, webView, str, jSONObject) != null) || webView == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
+            StatisticItem param = new StatisticItem(str).param("obj_source", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str3);
+            if (StringUtils.isNotNull(str4)) {
+                param.param(TiebaStatic.Params.OBJ_URL, str4);
+            }
+            TiebaStatic.log(param);
         }
-        webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
+    }
+
+    public void d(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
+            String g = un5.g(intent);
+            HashMap<String, JSONObject> hashMap = this.a;
+            if (hashMap != null && hashMap.get(g) != null) {
+                JSONObject jSONObject = this.a.get(g);
+                if (jSONObject != null) {
+                    b(TbadkCoreStatisticKey.INSTALL_APK_COMPLETION, jSONObject.optString("source"), jSONObject.optString("apkName"), jSONObject.optString("apkUrl"));
+                }
+                this.a.remove(g);
+            }
+        }
     }
 }

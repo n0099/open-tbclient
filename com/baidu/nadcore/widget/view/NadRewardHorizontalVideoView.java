@@ -7,9 +7,9 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uitemplate.HorizontalVideoTailView;
 import com.baidu.nadcore.widget.uitemplate.NadRewardOperateView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d31;
-import com.baidu.tieba.es0;
-import com.baidu.tieba.fs0;
+import com.baidu.tieba.ps0;
+import com.baidu.tieba.qs0;
+import com.baidu.tieba.z31;
 /* loaded from: classes3.dex */
 public class NadRewardHorizontalVideoView extends NadRewardVideoView {
     public HorizontalVideoTailView u;
@@ -18,18 +18,18 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
         super(context);
     }
 
-    public final void K(AdBaseModel adBaseModel) {
-        fs0 fs0Var;
+    public final void L(AdBaseModel adBaseModel) {
+        qs0 qs0Var;
         HorizontalVideoTailView horizontalVideoTailView = this.u;
-        if (horizontalVideoTailView != null && adBaseModel != null && (fs0Var = adBaseModel.i) != null && fs0Var.k) {
-            horizontalVideoTailView.setAdInfo(fs0Var);
+        if (horizontalVideoTailView != null && adBaseModel != null && (qs0Var = adBaseModel.i) != null && qs0Var.k) {
+            horizontalVideoTailView.setAdInfo(qs0Var);
         }
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView, com.baidu.nadcore.widget.view.NadRewardBaseView
     public void r(AdBaseModel adBaseModel) {
         super.r(adBaseModel);
-        K(adBaseModel);
+        L(adBaseModel);
     }
 
     public NadRewardHorizontalVideoView(Context context, AttributeSet attributeSet) {
@@ -37,10 +37,10 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView, com.baidu.nadcore.widget.view.NadRewardBaseView
-    public void m(LayoutInflater layoutInflater, es0 es0Var) {
+    public void m(LayoutInflater layoutInflater, ps0 ps0Var) {
         int i;
         Integer num;
-        if (es0Var != null && (num = (Integer) d31.b(es0Var.a, AdBaseModel.STYLE.VIDEO)) != null) {
+        if (ps0Var != null && (num = (Integer) z31.b(ps0Var.a, AdBaseModel.STYLE.VIDEO)) != null) {
             i = num.intValue();
         } else {
             i = R.layout.nad_reward_horizontal_video_view;
@@ -52,8 +52,8 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
         this(context, attributeSet, i, null);
     }
 
-    public NadRewardHorizontalVideoView(Context context, AttributeSet attributeSet, int i, es0 es0Var) {
-        super(context, attributeSet, i, es0Var);
+    public NadRewardHorizontalVideoView(Context context, AttributeSet attributeSet, int i, ps0 ps0Var) {
+        super(context, attributeSet, i, ps0Var);
         this.u = (HorizontalVideoTailView) findViewById(R.id.nad_horizontal_video_tail_frame_view);
     }
 

@@ -1,121 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.sxa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.Vector;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class rxa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public txa a;
-    public Timer b;
-    public TimerTask c;
-    public int d;
-    public Vector<Integer> e;
-    public long f;
-    public boolean g;
-    public boolean h;
-    public sxa i;
-    public int j;
-    public float k;
-    public long l;
-    public Vector<Integer> m;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final swa b;
+    @NonNull
+    public final EditorTools c;
+    @NonNull
+    public final lva d;
+    @NonNull
+    public final dya e;
+    @NonNull
+    public final hya f;
+    @NonNull
+    public final WriteData g;
 
-    /* loaded from: classes7.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rxa a;
-
-        public a(rxa rxaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rxaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rxaVar;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.h) {
-                    this.a.j();
-                } else {
-                    this.a.q();
-                }
-                rxa rxaVar = this.a;
-                rxaVar.h = rxaVar.l(rxaVar.j);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rxa a;
-
-        public b(rxa rxaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rxaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rxaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.g = false;
-            if (this.a.c != null) {
-                this.a.c.cancel();
-            }
-            if (this.a.b != null) {
-                this.a.b.purge();
-            }
-        }
-    }
-
-    public rxa() {
+    public rxa(@NonNull TbPageContext<?> tbPageContext, @NonNull swa swaVar, @NonNull EditorTools editorTools, @NonNull lva lvaVar, @NonNull dya dyaVar, @NonNull hya hyaVar, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, swaVar, editorTools, lvaVar, dyaVar, hyaVar, writeData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -125,164 +47,180 @@ public class rxa {
                 return;
             }
         }
-        this.d = 0;
-        this.e = new Vector<>();
-        this.g = false;
-        this.h = false;
-        this.i = new sxa();
-        this.j = 0;
-        this.k = 0.0f;
-        this.l = 0L;
-        this.m = new Vector<>();
-        this.b = new Timer();
+        this.a = tbPageContext;
+        this.b = swaVar;
+        this.c = editorTools;
+        this.d = lvaVar;
+        this.e = dyaVar;
+        this.f = hyaVar;
+        this.g = writeData;
     }
 
-    public final boolean l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int nextInt = new Random().nextInt(100);
-            if (i <= 0 || i > 100 || nextInt > i) {
-                return false;
-            }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d++;
-            this.i.a = k(this.m);
-            this.i.b = k(this.e);
-            this.i.c = this.m.size() + "";
-            this.i.f = Float.toString(t1b.a());
-            this.i.d = this.k;
-            h1b.b("report ar frame data");
-            pxa.a(String.valueOf(this.d), this.a, this.i);
-            q();
-        }
-    }
-
-    public final String k(List<Integer> list) {
+    public List<wwa<?>> a(List<sxa.a> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (m1b.e(list)) {
-                return "";
-            }
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            float f = 0.0f;
-            float f2 = 0.0f;
-            for (int i = 0; i < list.size(); i++) {
-                Integer num = list.get(i);
-                if (num != null) {
-                    f2 += num.intValue();
-                    jSONArray.put(num);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (sxa.a aVar : list) {
+                wwa<?> b = b(aVar);
+                if (b != null) {
+                    b.h(aVar.b, this.g);
+                    arrayList.add(b);
                 }
             }
-            float size = f2 / list.size();
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                Integer num2 = list.get(i2);
-                if (num2 != null) {
-                    f = (float) (f + Math.pow(num2.intValue() - size, 2.0d));
-                }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public wwa<?> b(sxa.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            if (aVar == null) {
+                return null;
             }
-            float size2 = f / list.size();
-            try {
-                jSONObject.put("avg", size);
-                jSONObject.put("vari", size2);
-                jSONObject.put("val", jSONArray.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
+            String str = aVar.a;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            switch (hashCode) {
+                case 3118:
+                    if (str.equals("c1")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 3119:
+                    if (str.equals("c2")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 3120:
+                    if (str.equals("c3")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 3121:
+                    if (str.equals("c4")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3122:
+                    if (str.equals("c5")) {
+                        c = '\r';
+                        break;
+                    }
+                    break;
+                case 3123:
+                    if (str.equals("c6")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case 3124:
+                    if (str.equals("c7")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3125:
+                    if (str.equals("c8")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case 3126:
+                    if (str.equals("c9")) {
+                        c = 14;
+                        break;
+                    }
+                    break;
+                default:
+                    switch (hashCode) {
+                        case 96706:
+                            if (str.equals("c10")) {
+                                c = 15;
+                                break;
+                            }
+                            break;
+                        case 96707:
+                            if (str.equals("c11")) {
+                                c = 6;
+                                break;
+                            }
+                            break;
+                        case 96708:
+                            if (str.equals("c12")) {
+                                c = '\t';
+                                break;
+                            }
+                            break;
+                        case 96709:
+                            if (str.equals("c13")) {
+                                c = '\n';
+                                break;
+                            }
+                            break;
+                        case 96710:
+                            if (str.equals("c14")) {
+                                c = 0;
+                                break;
+                            }
+                            break;
+                        case 96711:
+                            if (str.equals("c15")) {
+                                c = 1;
+                                break;
+                            }
+                            break;
+                        case 96712:
+                            if (str.equals("c16")) {
+                                c = '\b';
+                                break;
+                            }
+                            break;
+                    }
             }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = false;
-            Timer timer = this.b;
-            if (timer != null) {
-                timer.cancel();
-                this.b = null;
+            switch (c) {
+                case 0:
+                    return zxa.a(this.a);
+                case 1:
+                    return zxa.b(this.a);
+                case 2:
+                    return zxa.c(this.a, this.b, this.c, this.d, this.e);
+                case 3:
+                    return zxa.e(this.a);
+                case 4:
+                    return zxa.f(this.a);
+                case 5:
+                    return zxa.g(this.a);
+                case 6:
+                    return zxa.h(this.a, this.f);
+                case 7:
+                    return zxa.i(this.a);
+                case '\b':
+                    return zxa.j(this.a);
+                case '\t':
+                    return zxa.k(this.a);
+                case '\n':
+                    return zxa.l(this.a);
+                case 11:
+                    return zxa.m(this.a, this.b, this.c, this.f, this.d, this.e);
+                case '\f':
+                    return zxa.n(this.a, this.b, this.d, this.e);
+                case '\r':
+                    return zxa.o(this.a);
+                case 14:
+                    return zxa.p(this.a);
+                case 15:
+                    return zxa.q(this.a);
+                default:
+                    return null;
             }
-            TimerTask timerTask = this.c;
-            if (timerTask != null) {
-                timerTask.cancel();
-                this.c = null;
-            }
         }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.l = System.currentTimeMillis();
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f = 0L;
-            this.l = 0L;
-            this.e.clear();
-            this.m.clear();
-            this.i.a();
-            this.k = 0.0f;
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            h1b.b("stopTimer");
-            z1b.a().postDelayed(new b(this), 1000L);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !this.h || !this.g) {
-            return;
-        }
-        if (this.f <= 0) {
-            this.f = System.currentTimeMillis();
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        int i = (int) (currentTimeMillis - this.f);
-        if (i < 0) {
-            return;
-        }
-        this.e.add(Integer.valueOf(i));
-        this.f = currentTimeMillis;
-    }
-
-    public void o() {
-        int currentTimeMillis;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || !this.h || !this.g || this.l <= 0 || (currentTimeMillis = (int) (System.currentTimeMillis() - this.l)) < 0) {
-            return;
-        }
-        this.m.add(Integer.valueOf(currentTimeMillis));
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || this.g || this.b == null) {
-            return;
-        }
-        h1b.b("startTimer");
-        this.g = true;
-        this.c = new a(this);
-        this.b.purge();
-        this.b.schedule(this.c, 0L, 1000L);
+        return (wwa) invokeL.objValue;
     }
 }

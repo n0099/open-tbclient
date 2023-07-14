@@ -6,19 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.caverock.androidsvg.CSSParser;
-import com.caverock.androidsvg.PreserveAspectRatio;
-import com.caverock.androidsvg.SVG;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class x4b {
+public final class x4b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CSSParser.n a;
-    public PreserveAspectRatio b;
-    public String c;
-    public SVG.b d;
-    public String e;
-    public SVG.b f;
+    public y4b a;
 
     public x4b() {
         Interceptable interceptable = $ic;
@@ -33,135 +26,29 @@ public class x4b {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
+        this.a = new y4b();
     }
 
-    public boolean b() {
+    public final List<com.baidu.ubs.analytics.a.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CSSParser.n nVar = this.a;
-            if (nVar != null && nVar.f() > 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.a();
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b != null) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.b(i);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public final void c(com.baidu.ubs.analytics.a.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.c != null) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.a.c(aVar);
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.e != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.d != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public x4b(x4b x4bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x4bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        if (x4bVar == null) {
-            return;
-        }
-        this.a = x4bVar.a;
-        this.b = x4bVar.b;
-        this.d = x4bVar.d;
-        this.e = x4bVar.e;
-        this.f = x4bVar.f;
-    }
-
-    public x4b a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.a = new CSSParser(CSSParser.Source.RenderOptions).d(str);
-            return this;
-        }
-        return (x4b) invokeL.objValue;
-    }
-
-    public x4b h(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            this.f = new SVG.b(f, f2, f3, f4);
-            return this;
-        }
-        return (x4b) invokeCommon.objValue;
     }
 }

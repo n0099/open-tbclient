@@ -1,167 +1,105 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.TreeSet;
 /* loaded from: classes8.dex */
-public class wn5 implements vn5 {
+public class wn5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final TreeSet<ChatMsg> d;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final vn5 c;
+    public View attachedView;
+    public boolean isAttached;
+    public boolean isWrapStyle;
 
-    @Override // com.baidu.tieba.vn5
-    public void c(@NonNull Context context, long j, @Nullable ko5 ko5Var) {
+    public void onViewAttached() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Long.valueOf(j), ko5Var}) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.vn5
-    public void d(@NonNull Context context, long j, @NonNull fo5 fo5Var) {
+    public void onViewDettached() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j), fo5Var}) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.vn5
-    public void f(@NonNull go5 go5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, go5Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vn5
-    public void g(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull fo5 fo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), list, fo5Var}) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948276363, "Lcom/baidu/tieba/wn5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948276363, "Lcom/baidu/tieba/wn5;");
-                return;
-            }
-        }
-        d = new TreeSet<>(vn5.b);
-    }
-
-    public wn5(@NonNull vn5 vn5Var) {
+    public wn5(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vn5Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = vn5Var;
+        this.isWrapStyle = false;
+        this.attachedView = view2;
     }
 
-    @Override // com.baidu.tieba.vn5
-    public void b(long j) {
+    public void attachView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.c.b(j);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            attachView(view2, false);
         }
     }
 
-    @Override // com.baidu.tieba.vn5
-    public void h(@NonNull go5 go5Var) {
+    public void dettachView(View view2) {
+        View view3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, go5Var) == null) {
-            this.c.h(go5Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2 != null && (view3 = this.attachedView) != null && view3.getParent() != null && (view2 instanceof ViewGroup)) {
+            try {
+                onViewDettached();
+                ((ViewGroup) view2).removeView(this.attachedView);
+                this.isAttached = false;
+            } catch (Exception unused) {
+            }
         }
     }
 
-    @Override // com.baidu.tieba.vn5
-    public void a(@NonNull Context context, long j, long j2, int i, boolean z, boolean z2, @Nullable io5 io5Var, @NonNull ho5 ho5Var) {
+    public void setWrapStyle(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), io5Var, ho5Var}) == null) {
-            ho5Var.a(-1003, "", d);
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.isWrapStyle = z;
         }
     }
 
-    @Override // com.baidu.tieba.vn5
-    public void e(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull fo5 fo5Var) {
+    public void attachView(View view2, boolean z) {
+        View view3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), list, fo5Var}) == null) {
-            this.c.e(context, i, j, list, fo5Var);
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) != null) || view2 == null || (view3 = this.attachedView) == null || view3.getParent() != null) {
+            return;
         }
+        this.isAttached = true;
+        ao5.a(view2, this.isWrapStyle).a(view2, this.attachedView, z);
+        onViewAttached();
     }
 
-    @Override // com.baidu.tieba.vn5
-    public void j(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull eo5 eo5Var) {
+    public View getView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), list, eo5Var}) == null) {
-            eo5Var.a(i, j, list, -1003, "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.attachedView;
         }
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vn5
-    public void m(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull eo5 eo5Var) {
+    public boolean isViewAttached() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), list, eo5Var}) == null) {
-            eo5Var.a(i, j, list, -1003, "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.isAttached;
         }
-    }
-
-    @Override // com.baidu.tieba.vn5
-    public void i(@NonNull Context context, long j, @NonNull co5 co5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Long.valueOf(j), co5Var}) == null) {
-            co5Var.a(j, -1003, "", null);
-        }
-    }
-
-    @Override // com.baidu.tieba.vn5
-    public void l(@NonNull Context context, long j, @NonNull fo5 fo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, Long.valueOf(j), fo5Var}) == null) {
-            this.c.l(context, j, fo5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.vn5
-    public void n(@NonNull Context context, long j, @NonNull do5 do5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{context, Long.valueOf(j), do5Var}) == null) {
-            this.c.n(context, j, do5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.vn5
-    public void k(@NonNull Context context, long j, @NonNull ChatMsg chatMsg, @NonNull jo5 jo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{context, Long.valueOf(j), chatMsg, jo5Var}) == null) {
-            jo5Var.onSendMessageResult(-1003, null);
-        }
+        return invokeV.booleanValue;
     }
 }

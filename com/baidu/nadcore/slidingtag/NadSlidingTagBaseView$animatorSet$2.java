@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
-import android.content.Context;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
@@ -12,7 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.g61;
 import kotlin.Metadata;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.functions.Function0;
@@ -21,14 +19,12 @@ import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Landroid/animation/AnimatorSet;", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements Function0<AnimatorSet> {
-    public final /* synthetic */ Context $context;
     public final /* synthetic */ NadSlidingTagBaseView this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadSlidingTagBaseView$animatorSet$2(NadSlidingTagBaseView nadSlidingTagBaseView, Context context) {
+    public NadSlidingTagBaseView$animatorSet$2(NadSlidingTagBaseView nadSlidingTagBaseView) {
         super(0);
         this.this$0 = nadSlidingTagBaseView;
-        this.$context = context;
     }
 
     /* loaded from: classes3.dex */
@@ -41,7 +37,7 @@ public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                NadSlidingTagBaseView$animatorSet$2.this.this$0.u(valueAnimator);
+                NadSlidingTagBaseView$animatorSet$2.this.this$0.t(valueAnimator);
             }
         }
 
@@ -49,7 +45,8 @@ public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        public void onAnimationEnd(Animator animation) {
+            Intrinsics.checkNotNullParameter(animation, "animation");
             TextView textView = (TextView) CollectionsKt___CollectionsKt.getOrNull(NadSlidingTagBaseView$animatorSet$2.this.this$0.getTvList(), NadSlidingTagBaseView$animatorSet$2.this.this$0.getCurrentIdx());
             if (textView != null) {
                 NadSlidingTagBaseView$animatorSet$2.this.this$0.getLinear().removeView(textView);
@@ -60,7 +57,7 @@ public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements
         public void onAnimationStart(Animator animation) {
             int i;
             int i2;
-            int a2;
+            int yBiasWithoutIcon;
             Intrinsics.checkNotNullParameter(animation, "animation");
             if (NadSlidingTagBaseView$animatorSet$2.this.this$0.getWidthMap().get(Integer.valueOf(NadSlidingTagBaseView$animatorSet$2.this.this$0.getCurrentIdx())) != null) {
                 NadSlidingTagBaseView nadSlidingTagBaseView = NadSlidingTagBaseView$animatorSet$2.this.this$0;
@@ -101,11 +98,11 @@ public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements
                     NadSlidingTagBaseView nadSlidingTagBaseView5 = NadSlidingTagBaseView$animatorSet$2.this.this$0;
                     float y = ((TextView) childAt).getY();
                     if (NadSlidingTagBaseView$animatorSet$2.this.this$0.getLinear().getChildAt(0) instanceof AdImageView) {
-                        a2 = NadSlidingTagBaseView$animatorSet$2.this.this$0.m;
+                        yBiasWithoutIcon = NadSlidingTagBaseView$animatorSet$2.this.this$0.getYBias();
                     } else {
-                        a2 = g61.c.a(NadSlidingTagBaseView$animatorSet$2.this.$context, 8.0f);
+                        yBiasWithoutIcon = NadSlidingTagBaseView$animatorSet$2.this.this$0.getYBiasWithoutIcon();
                     }
-                    nadSlidingTagBaseView5.setOriginalY(y + a2);
+                    nadSlidingTagBaseView5.setOriginalY(y + yBiasWithoutIcon);
                     return;
                 }
             }
@@ -118,14 +115,15 @@ public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
+        public void onAnimationStart(Animator animation) {
+            Intrinsics.checkNotNullParameter(animation, "animation");
             NadSlidingTagBaseView nadSlidingTagBaseView = NadSlidingTagBaseView$animatorSet$2.this.this$0;
             nadSlidingTagBaseView.setCurrentIdx(nadSlidingTagBaseView.getNextIndex());
             TextView textView = (TextView) CollectionsKt___CollectionsKt.getOrNull(NadSlidingTagBaseView$animatorSet$2.this.this$0.getTvList(), NadSlidingTagBaseView$animatorSet$2.this.this$0.getCurrentIdx());
             if (textView != null) {
                 LinearLayout linear = NadSlidingTagBaseView$animatorSet$2.this.this$0.getLinear();
-                NadSlidingTagBaseView$animatorSet$2.this.this$0.s(textView);
-                linear.addView(textView, NadSlidingTagBaseView$animatorSet$2.this.this$0.r());
+                NadSlidingTagBaseView$animatorSet$2.this.this$0.r(textView);
+                linear.addView(textView, NadSlidingTagBaseView$animatorSet$2.this.this$0.q());
             }
         }
     }
@@ -147,11 +145,12 @@ public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        public void onAnimationEnd(Animator animation) {
             boolean z;
+            Intrinsics.checkNotNullParameter(animation, "animation");
             z = this.b.this$0.h;
             if (z) {
-                this.b.this$0.q();
+                this.b.this$0.p();
                 this.b.this$0.h = false;
                 return;
             }
@@ -166,7 +165,7 @@ public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-            NadSlidingTagBaseView$animatorSet$2.this.this$0.w(valueAnimator);
+            NadSlidingTagBaseView$animatorSet$2.this.this$0.v(valueAnimator);
         }
     }
 
@@ -177,7 +176,7 @@ public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-            NadSlidingTagBaseView$animatorSet$2.this.this$0.t(valueAnimator);
+            NadSlidingTagBaseView$animatorSet$2.this.this$0.s(valueAnimator);
         }
     }
 
@@ -188,7 +187,7 @@ public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-            NadSlidingTagBaseView$animatorSet$2.this.this$0.v(valueAnimator);
+            NadSlidingTagBaseView$animatorSet$2.this.this$0.u(valueAnimator);
         }
     }
 
@@ -199,7 +198,7 @@ public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-            NadSlidingTagBaseView$animatorSet$2.this.this$0.t(valueAnimator);
+            NadSlidingTagBaseView$animatorSet$2.this.this$0.s(valueAnimator);
         }
     }
 

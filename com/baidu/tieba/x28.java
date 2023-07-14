@@ -1,21 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface x28 {
-    void J(String str, String str2, int i);
+public class x28 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b();
+    public static boolean a(long j, String str) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65536, null, j, str)) == null) {
+            if (StringUtils.isNull(str) || j == da5.p().r(str, 0L)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeJL.booleanValue;
+    }
 
-    boolean d();
+    public static void c(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65538, null, str, j) == null) {
+            da5.p().H(da5.t(str), j);
+        }
+    }
 
-    void destory();
-
-    void f(BdUniqueId bdUniqueId);
-
-    void refresh();
-
-    List<ThreadData> u();
+    public static boolean b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            if (System.currentTimeMillis() - da5.p().r(da5.t("key_new_hot_tip_dismiss_time"), 0L) >= j) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
 }

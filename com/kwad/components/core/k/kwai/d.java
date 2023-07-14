@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d implements com.kwad.sdk.core.b {
     public long Iw;
     public long photoId;

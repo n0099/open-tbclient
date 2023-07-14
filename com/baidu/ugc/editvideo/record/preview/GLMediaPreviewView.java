@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.qh0;
-import com.baidu.tieba.w1b;
-import com.baidu.tieba.z1b;
+import com.baidu.tieba.rh0;
+import com.baidu.tieba.uab;
+import com.baidu.tieba.xab;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.processor.AEffectProcessor;
 import com.baidu.ugc.editvideo.record.processor.IEffectProcessor;
@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GLMediaPreviewView extends MediaPreviewView implements EffectChangeObserver, MediaTrackChangeObserver, OnDrawUpdateTextureListener {
     public boolean mAdjustToFill;
     public boolean mCanMeasure;
@@ -46,7 +46,7 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
     public MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface ScaleType {
         public static final int FILL_PARENT = 0;
         public static final int FIT_PARENT = 1;
@@ -161,7 +161,7 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public qh0 getVlogCore() {
+    public rh0 getVlogCore() {
         return this.mRenderer.getVlogEdit();
     }
 
@@ -304,11 +304,11 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                         PointF pointF2 = new PointF(this.mLastDownX1, this.mLastDownY1);
                         PointF pointF3 = new PointF(realX, realY);
                         PointF pointF4 = new PointF(realX2, realY2);
-                        if (w1b.c(pointF, pointF3) + w1b.c(pointF2, pointF4) >= 5.0f) {
-                            PointF d = w1b.d(pointF2, pointF);
-                            PointF d2 = w1b.d(pointF4, pointF3);
-                            float a = w1b.a(d, d2);
-                            float e = w1b.e(d, d2);
+                        if (uab.c(pointF, pointF3) + uab.c(pointF2, pointF4) >= 5.0f) {
+                            PointF d = uab.d(pointF2, pointF);
+                            PointF d2 = uab.d(pointF4, pointF3);
+                            float a = uab.a(d, d2);
+                            float e = uab.e(d, d2);
                             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter = this.multiMediaDataSourceViewAdapter;
                             if (multiMediaDataSourceViewAdapter != null) {
                                 multiMediaDataSourceViewAdapter.onTouchMove(0.0f, 0.0f, e, a);
@@ -322,10 +322,10 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                         if (stickerCenterPoint != null) {
                             PointF pointF5 = new PointF(this.mLastDownX, this.mLastDownY);
                             PointF pointF6 = new PointF(realX, realY);
-                            PointF d3 = w1b.d(stickerCenterPoint, pointF5);
-                            PointF d4 = w1b.d(stickerCenterPoint, pointF6);
-                            float a2 = w1b.a(d3, d4);
-                            float e2 = w1b.e(d3, d4);
+                            PointF d3 = uab.d(stickerCenterPoint, pointF5);
+                            PointF d4 = uab.d(stickerCenterPoint, pointF6);
+                            float a2 = uab.a(d3, d4);
+                            float e2 = uab.e(d3, d4);
                             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter3 = this.multiMediaDataSourceViewAdapter;
                             if (multiMediaDataSourceViewAdapter3 != null) {
                                 multiMediaDataSourceViewAdapter3.onTouchMove(realX - this.mLastDownX, realY - this.mLastDownY, e2, a2);
@@ -409,7 +409,7 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                 iEffectProcessor.setPreviewSize(i, i2);
             }
         }
-        z1b.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.preview.GLMediaPreviewView.4
+        xab.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.preview.GLMediaPreviewView.4
             @Override // java.lang.Runnable
             public void run() {
                 GLMediaPreviewView.this.mVideoWidth = i;

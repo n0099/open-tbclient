@@ -5,36 +5,36 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.fs5;
-import com.baidu.tieba.iba;
-import com.baidu.tieba.laa;
-import com.baidu.tieba.maa;
-import com.baidu.tieba.naa;
+import com.baidu.tieba.cja;
+import com.baidu.tieba.dja;
+import com.baidu.tieba.eja;
+import com.baidu.tieba.jt5;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundGroupModel b;
-    public maa c;
-    public naa d;
+    public dja c;
+    public eja d;
     public BackgroundGroupModel.c e;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.cs5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.gt5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "b007" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements BackgroundGroupModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,9 +59,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, iba ibaVar, List<laa> list) {
+        public void a(int i, String str, zja zjaVar, List<cja> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, ibaVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, zjaVar, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.c.d());
                 this.a.c.i();
@@ -70,7 +70,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     this.a.c.j();
                     return;
                 }
-                this.a.c.k(ibaVar, list, this.a.b.d0());
+                this.a.c.k(zjaVar, list, this.a.b.e0());
             }
         }
     }
@@ -92,17 +92,17 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public fs5 getPageStayDurationItem() {
+    public jt5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            fs5 pageStayDurationItem = super.getPageStayDurationItem();
+            jt5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (fs5) invokeV.objValue;
+        return (jt5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -115,15 +115,15 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        maa maaVar;
+        dja djaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (maaVar = this.c) != null) {
-            showLoadingView(maaVar.d());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (djaVar = this.c) != null) {
+            showLoadingView(djaVar.d());
             this.b.loadData();
         }
     }
 
-    public int z1() {
+    public int w1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -137,9 +137,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            maa maaVar = this.c;
-            if (maaVar != null) {
-                maaVar.f();
+            dja djaVar = this.c;
+            if (djaVar != null) {
+                djaVar.f();
             }
         }
     }
@@ -153,13 +153,13 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             this.a = getPageContext();
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.b = backgroundGroupModel;
-            backgroundGroupModel.g0(this.e);
-            naa naaVar = new naa(this.a, this.b.getUniqueId());
-            this.d = naaVar;
-            naaVar.c(1);
-            maa maaVar = new maa(this, this.d);
-            this.c = maaVar;
-            maaVar.e();
+            backgroundGroupModel.h0(this.e);
+            eja ejaVar = new eja(this.a, this.b.getUniqueId());
+            this.d = ejaVar;
+            ejaVar.c(1);
+            dja djaVar = new dja(this, this.d);
+            this.c = djaVar;
+            djaVar.e();
             showLoadingView(this.c.d());
             this.b.loadData();
         }

@@ -1,24 +1,24 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.dtb;
-import com.baidu.tieba.jtb;
-import com.baidu.tieba.zsb;
+import com.baidu.tieba.a2c;
+import com.baidu.tieba.g2c;
+import com.baidu.tieba.w1c;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements zsb {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements w1c {
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
     public static final int NO_REQUEST_HAS_VALUE = 1;
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
-    public final dtb<? super T> child;
+    public final a2c<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(dtb<? super T> dtbVar) {
-        this.child = dtbVar;
+    public SingleDelayedProducer(a2c<? super T> a2cVar) {
+        this.child = a2cVar;
     }
 
-    @Override // com.baidu.tieba.zsb
+    @Override // com.baidu.tieba.w1c
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
@@ -56,18 +56,18 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements zsb
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(dtb<? super T> dtbVar, T t) {
-        if (dtbVar.isUnsubscribed()) {
+    public static <T> void emit(a2c<? super T> a2cVar, T t) {
+        if (a2cVar.isUnsubscribed()) {
             return;
         }
         try {
-            dtbVar.onNext(t);
-            if (dtbVar.isUnsubscribed()) {
+            a2cVar.onNext(t);
+            if (a2cVar.isUnsubscribed()) {
                 return;
             }
-            dtbVar.onCompleted();
+            a2cVar.onCompleted();
         } catch (Throwable th) {
-            jtb.g(th, dtbVar, t);
+            g2c.g(th, a2cVar, t);
         }
     }
 }

@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 import javax.net.ssl.SSLContext;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BdNetTask implements INoProGuard {
     public static final boolean DEBUG = false;
     public static final String LOG_TAG = "BdNetTask";
@@ -41,7 +41,7 @@ public class BdNetTask implements INoProGuard {
     public static final Map<String, String> NULL_ARRAY = Collections.emptyMap();
     public static Vector<BdNetTask> sTaskPool = new Vector<>();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends AsyncTask<HttpURLConnection, Void, Void> {
         public a() {
         }
@@ -74,7 +74,7 @@ public class BdNetTask implements INoProGuard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum b {
         PRIORITY_HIGHER,
         PRIORITY_NORMAL,

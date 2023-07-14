@@ -15,16 +15,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fd1;
-import com.baidu.tieba.fs0;
-import com.baidu.tieba.xj0;
+import com.baidu.tieba.ak0;
+import com.baidu.tieba.qs0;
+import com.baidu.tieba.xc1;
 /* loaded from: classes3.dex */
 public class SimpleAdInfoView extends FrameLayout {
     public TextView a;
     public TextView b;
     public TextView c;
     public TextView d;
-    public fs0 e;
+    public qs0 e;
     public c f;
     public View.OnClickListener g;
     public int h;
@@ -48,7 +48,7 @@ public class SimpleAdInfoView extends FrameLayout {
             int id = view2.getId();
             String str2 = "";
             if (id == R.id.nad_app_privacy) {
-                fs0.b bVar = SimpleAdInfoView.this.e.g;
+                qs0.b bVar = SimpleAdInfoView.this.e.g;
                 if (bVar != null) {
                     str2 = bVar.b;
                     str = ClogBuilder.Area.APP_PRIVACY.type;
@@ -56,7 +56,7 @@ public class SimpleAdInfoView extends FrameLayout {
                 str = "";
             } else {
                 if (id == R.id.nad_app_permission) {
-                    fs0.a aVar = SimpleAdInfoView.this.e.h;
+                    qs0.a aVar = SimpleAdInfoView.this.e.h;
                     if (aVar != null) {
                         str2 = aVar.b;
                         str = ClogBuilder.Area.APP_PERMISSION.type;
@@ -70,7 +70,7 @@ public class SimpleAdInfoView extends FrameLayout {
                 }
                 str = "";
             }
-            xj0.c(str2, SimpleAdInfoView.this.getContext());
+            ak0.c(str2, SimpleAdInfoView.this.getContext());
             c cVar = SimpleAdInfoView.this.f;
             if (cVar != null) {
                 cVar.a(str);
@@ -117,7 +117,7 @@ public class SimpleAdInfoView extends FrameLayout {
         if (attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, fd1.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, xc1.SimpleAdInfoView);
         this.h = obtainStyledAttributes.getResourceId(0, -1);
         obtainStyledAttributes.recycle();
     }
@@ -172,12 +172,12 @@ public class SimpleAdInfoView extends FrameLayout {
         return this.h;
     }
 
-    public void setAdInfo(fs0 fs0Var) {
-        if (fs0Var != null && fs0Var.k) {
-            this.e = fs0Var;
+    public void setAdInfo(qs0 qs0Var) {
+        if (qs0Var != null && qs0Var.k) {
+            this.e = qs0Var;
             if (this.a != null) {
-                if (!TextUtils.isEmpty(fs0Var.f)) {
-                    this.a.setText(fs0Var.f);
+                if (!TextUtils.isEmpty(qs0Var.f)) {
+                    this.a.setText(qs0Var.f);
                     this.a.setVisibility(0);
                     b(this.a);
                 } else {
@@ -185,8 +185,8 @@ public class SimpleAdInfoView extends FrameLayout {
                 }
             }
             if (this.b != null) {
-                if (!TextUtils.isEmpty(fs0Var.d)) {
-                    this.b.setText(fs0Var.d);
+                if (!TextUtils.isEmpty(qs0Var.d)) {
+                    this.b.setText(qs0Var.d);
                     this.b.setVisibility(0);
                     b(this.b);
                 } else {
@@ -194,18 +194,18 @@ public class SimpleAdInfoView extends FrameLayout {
                 }
             }
             if (this.c != null) {
-                fs0.b bVar = fs0Var.g;
-                if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(fs0Var.g.a)) {
-                    this.c.setText(fs0Var.g.a);
+                qs0.b bVar = qs0Var.g;
+                if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(qs0Var.g.a)) {
+                    this.c.setText(qs0Var.g.a);
                     this.c.setVisibility(0);
                 } else {
                     this.c.setVisibility(8);
                 }
             }
             if (this.d != null) {
-                fs0.a aVar = fs0Var.h;
-                if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(fs0Var.h.a)) {
-                    this.d.setText(fs0Var.h.a);
+                qs0.a aVar = qs0Var.h;
+                if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(qs0Var.h.a)) {
+                    this.d.setText(qs0Var.h.a);
                     this.d.setVisibility(0);
                     return;
                 }
@@ -215,5 +215,25 @@ public class SimpleAdInfoView extends FrameLayout {
             return;
         }
         this.e = null;
+    }
+
+    public void setFontSize(int i, int i2, int i3, int i4) {
+        TextView textView = this.a;
+        if (textView != null) {
+            textView.setTextSize(i);
+        }
+        TextView textView2 = this.b;
+        if (textView2 != null) {
+            textView2.setTextSize(i2);
+        }
+        TextView textView3 = this.d;
+        if (textView3 != null) {
+            textView3.setTextSize(i3);
+        }
+        TextView textView4 = this.c;
+        if (textView4 != null) {
+            textView4.setTextSize(i4);
+        }
+        requestLayout();
     }
 }

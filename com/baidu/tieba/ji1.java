@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class ji1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static ji1 b;
+public class ji1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +31,9 @@ public final class ji1 {
                 return;
             }
         }
-        b = new ji1();
+        if (jh1.a() != 1) {
+            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
+        }
     }
 
     public ji1() {
@@ -46,28 +50,59 @@ public final class ji1 {
         }
     }
 
-    public static ji1 a() {
-        InterceptResult invokeV;
+    public void a(eh1 eh1Var, dh1 dh1Var, ch1 ch1Var) {
+        DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (ji1) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            this.a = activity.getTaskId();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, eh1Var, dh1Var, ch1Var) == null) {
+            try {
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
+                for (Map.Entry<String, String> entry : eh1Var.c().entrySet()) {
+                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                }
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setUseCaches(false);
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.setReadTimeout(5000);
+                StringBuilder sb = new StringBuilder();
+                for (Map.Entry<String, String> entry2 : dh1Var.c().entrySet()) {
+                    String encode = URLEncoder.encode(entry2.getValue(), "utf-8");
+                    sb.append(entry2.getKey());
+                    sb.append("=");
+                    sb.append(encode);
+                    sb.append("&");
+                }
+                byte[] bytes = sb.toString().getBytes();
+                httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
+                httpURLConnection.connect();
+                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                try {
+                    dataOutputStream.write(bytes);
+                    dataOutputStream.flush();
+                    int responseCode = httpURLConnection.getResponseCode();
+                    if (ch1Var != null) {
+                        if (responseCode >= 200 && responseCode <= 299) {
+                            ch1Var.c(null);
+                        } else {
+                            ch1Var.a(null, 119501, null);
+                        }
+                    }
+                    si1.a(dataOutputStream);
+                } catch (Throwable unused) {
+                    if (ch1Var != null) {
+                        try {
+                            ch1Var.a(null, 119501, null);
+                        } catch (Throwable th) {
+                            si1.a(dataOutputStream);
+                            throw th;
+                        }
+                    }
+                    si1.a(dataOutputStream);
+                }
+            } catch (Throwable unused2) {
+                dataOutputStream = null;
+            }
         }
     }
 }

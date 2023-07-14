@@ -6,7 +6,7 @@ import com.kwad.components.core.c.a.a;
 import com.kwad.components.core.widget.d;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends Presenter {
     public int Gd;
 
@@ -24,7 +24,7 @@ public final class a extends Presenter {
             public final void onClick(View view2) {
                 if (com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(eVar.adTemplate))) {
                     if (eVar.DV != null) {
-                        eVar.DV.m(new a.C0641a(a.this.getActivity()).aj(false).ak(false).L(eVar.adTemplate).am(false));
+                        eVar.DV.m(new a.C0646a(a.this.getActivity()).aj(false).ak(false).L(eVar.adTemplate).am(false));
                         return;
                     }
                     return;

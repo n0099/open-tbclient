@@ -1,16 +1,30 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface eg1 {
+public class eg1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
 
-    /* loaded from: classes5.dex */
-    public interface a {
+    public eg1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = -1L;
+        this.b = -1L;
     }
-
-    void a(String str);
-
-    String b(Activity activity, String str, a aVar);
-
-    void c(String str, String str2, int i);
 }

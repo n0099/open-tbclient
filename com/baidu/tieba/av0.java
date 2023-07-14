@@ -1,66 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthParser")
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
 /* loaded from: classes5.dex */
-public final class av0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface av0 extends wu0, yu0 {
+    public static final a a = rc1.a;
 
-    public static final yu0 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null) {
-                try {
-                    JSONArray optJSONArray = new JSONObject(str).optJSONArray("hosts");
-                    if (optJSONArray == null) {
-                        return null;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            String host = optJSONObject.optString("host");
-                            String optString = optJSONObject.optString("auth");
-                            Intrinsics.checkNotNullExpressionValue(host, "host");
-                            arrayList.add(new xu0(host, b(optString)));
-                        }
-                    }
-                    return new yu0(arrayList);
-                } catch (Exception e) {
-                    ol0.a("AuthParser", e.getMessage());
-                }
-            }
-            return null;
-        }
-        return (yu0) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        av0 a(Context context, int i);
+
+        av0 b(Context context, int i, @Nullable bv0 bv0Var);
     }
 
-    public static final zu0 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            List split$default = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{"_"}, false, 0, 6, (Object) null);
-            if (split$default.size() < 4) {
-                return null;
-            }
-            return new zu0(BdVideoSeries.parseIntSafe((String) split$default.get(0), 0), BdVideoSeries.parseIntSafe((String) split$default.get(1), 0), BdVideoSeries.parseIntSafe((String) split$default.get(2), 0), BdVideoSeries.parseIntSafe((String) split$default.get(3), 0));
-        }
-        return (zu0) invokeL.objValue;
-    }
+    void a(xu0 xu0Var);
+
+    void attachToContainer(@NonNull ViewGroup viewGroup);
+
+    void c(@NonNull ms0 ms0Var);
+
+    void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy);
+
+    void release();
 }

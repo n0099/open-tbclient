@@ -1,200 +1,197 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.xkb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.Message;
-import com.squareup.wire2.Message.a;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.WireField;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.List;
-import java.util.Map;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import com.kwad.sdk.api.KsVideoPlayConfig;
 /* loaded from: classes7.dex */
-public final class pjb<M extends Message<M, B>, B extends Message.a<M, B>> {
+public abstract class pjb<A extends xkb> extends ReporterPidLoader<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WireField.Label a;
-    public final String b;
-    public final int c;
-    public final String d;
-    public final String e;
-    public final boolean f;
-    public final Field g;
-    public final Field h;
-    public final Method i;
-    public ProtoAdapter<?> j;
-    public ProtoAdapter<?> k;
-    public ProtoAdapter<Object> l;
+    public ModuleConfigKs e;
 
-    public pjb(WireField wireField, Field field, Class<B> cls) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public pjb(FunAdType funAdType, Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        this(funAdType, pid, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wireField, field, cls};
+            Object[] objArr = {funAdType, pid, moduleConfigKs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = wireField.label();
-        this.b = field.getName();
-        this.c = wireField.tag();
-        this.d = wireField.keyAdapter();
-        this.e = wireField.adapter();
-        this.f = wireField.redacted();
-        this.g = field;
-        this.h = c(cls, this.b);
-        this.i = d(cls, this.b, field.getType());
+        this.e = moduleConfigKs;
     }
 
-    public static Field c(Class<?> cls, String str) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public pjb(FunAdType funAdType, Ssp.Pid pid, boolean z) {
+        this(funAdType, pid, z, false);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
-            try {
-                return cls.getField(str);
-            } catch (NoSuchFieldException unused) {
-                throw new AssertionError("No builder field " + cls.getName() + "." + str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (Field) invokeLL.objValue;
     }
 
-    public void j(B b, Object obj) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public pjb(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2) {
+        this(funAdType, pid, z, z2, false);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, b, obj) == null) {
-            if (this.a.isRepeated()) {
-                ((List) e(b)).add(obj);
-            } else if (!this.d.isEmpty()) {
-                ((Map) e(b)).putAll((Map) obj);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pjb(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2, boolean z3) {
+        super(funAdType, pid, z, z2, z3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
+    public AdReporter<A> createAdReporter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new mjb(this.mPid) : (AdReporter) invokeV.objValue;
+    }
+
+    public KsVideoPlayConfig e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            KsVideoPlayConfig.Builder showLandscape = new KsVideoPlayConfig.Builder().showLandscape(this.mPid.isHorizontal);
+            ModuleConfigKs moduleConfigKs = this.e;
+            return showLandscape.videoSoundEnable(moduleConfigKs == null || moduleConfigKs.ksVideoSoundEnable).build();
+        }
+        return (KsVideoPlayConfig) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public double getAdBiddingPrices(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return ((xkb) obj).a() / 100.0d;
+        }
+        return invokeL.doubleValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x005e, code lost:
+        if (r6.equals(com.fun.ad.sdk.FunAdSdk.PLATFORM_CSJ) == false) goto L31;
+     */
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void setAdBiddingResult(Object obj, String str, double d, double d2, boolean z, int i) {
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{obj, str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            xkb xkbVar = (xkb) obj;
+            double d3 = d * 100.0d;
+            double d4 = d2 * 100.0d;
+            if (z) {
+                xkbVar.c((long) d3, (long) d4);
+                return;
+            }
+            int i4 = (int) (d3 + 100.0d);
+            char c = 0;
+            if (i == 5) {
+                i2 = 0;
             } else {
-                h(b, obj);
+                i2 = 2;
             }
-        }
-    }
-
-    public static Method d(Class<?> cls, String str, Class<?> cls2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, cls2)) == null) {
-            try {
-                return cls.getMethod(str, cls2);
-            } catch (NoSuchMethodException unused) {
-                throw new AssertionError("No builder method " + cls.getName() + "." + str + "(" + cls2.getName() + SmallTailInfo.EMOTION_SUFFIX);
+            if (FunAdSdk.PLATFORM_KS.equals(str)) {
+                i3 = 1;
+            } else {
+                i3 = 2;
             }
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public ProtoAdapter<Object> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ProtoAdapter<Object> protoAdapter = this.l;
-            if (protoAdapter != null) {
-                return protoAdapter;
-            }
-            if (f()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(g(), i());
-                this.l = newMapAdapter;
-                return newMapAdapter;
-            }
-            ProtoAdapter<?> withLabel = i().withLabel(this.a);
-            this.l = withLabel;
-            return withLabel;
-        }
-        return (ProtoAdapter) invokeV.objValue;
-    }
-
-    public Object b(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m)) == null) {
-            try {
-                return this.g.get(m);
-            } catch (IllegalAccessException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    public Object e(B b) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b)) == null) {
-            try {
-                return this.h.get(b);
-            } catch (IllegalAccessException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return !this.d.isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ProtoAdapter<?> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ProtoAdapter<?> protoAdapter = this.k;
-            if (protoAdapter != null) {
-                return protoAdapter;
-            }
-            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.d);
-            this.k = protoAdapter2;
-            return protoAdapter2;
-        }
-        return (ProtoAdapter) invokeV.objValue;
-    }
-
-    public ProtoAdapter<?> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ProtoAdapter<?> protoAdapter = this.j;
-            if (protoAdapter != null) {
-                return protoAdapter;
-            }
-            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.e);
-            this.j = protoAdapter2;
-            return protoAdapter2;
-        }
-        return (ProtoAdapter) invokeV.objValue;
-    }
-
-    public void h(B b, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, b, obj) == null) {
-            try {
-                if (this.a.isOneOf()) {
-                    this.i.invoke(b, obj);
+            str.hashCode();
+            int hashCode = str.hashCode();
+            String str2 = "baidu";
+            if (hashCode != 98810) {
+                if (hashCode != 102199) {
+                    if (hashCode == 93498907 && str.equals("baidu")) {
+                        c = 2;
+                    }
+                    c = 65535;
                 } else {
-                    this.h.set(b, obj);
+                    if (str.equals(FunAdSdk.PLATFORM_GDT)) {
+                        c = 1;
+                    }
+                    c = 65535;
                 }
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new AssertionError(e);
             }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        str2 = "other";
+                    }
+                } else {
+                    str2 = "guangdiantong";
+                }
+            } else {
+                str2 = "chuanshanjia";
+            }
+            xkbVar.b(i4, i2, i3, str2);
         }
     }
 }

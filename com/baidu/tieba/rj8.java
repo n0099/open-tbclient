@@ -1,59 +1,19 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.view.BdTopToast;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 /* loaded from: classes7.dex */
-public class rj8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface rj8 {
+    RelativeLayout a();
 
-    public static void a(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, activity) != null) || activity == null) {
-            return;
-        }
-        View findViewById = activity.findViewById(16908290);
-        if (!(findViewById instanceof ViewGroup)) {
-            return;
-        }
-        BdTopToast bdTopToast = new BdTopToast(activity, 3000);
-        bdTopToast.h(true);
-        bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.chat_msg_gone_top_excellent_tips));
-        bdTopToast.i((ViewGroup) findViewById);
-    }
+    void b(int i, @NonNull ik8 ik8Var);
 
-    public static void b(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, activity) != null) || activity == null) {
-            return;
-        }
-        View findViewById = activity.findViewById(16908290);
-        if (!(findViewById instanceof ViewGroup)) {
-            return;
-        }
-        BdTopToast bdTopToast = new BdTopToast(activity, 3000);
-        bdTopToast.h(true);
-        bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.add_group_success_toast));
-        bdTopToast.i((ViewGroup) findViewById);
-    }
+    RecyclerView c();
 
-    public static void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
-            return;
-        }
-        View findViewById = activity.findViewById(16908290);
-        if (!(findViewById instanceof ViewGroup)) {
-            return;
-        }
-        BdTopToast bdTopToast = new BdTopToast(activity, 3000);
-        bdTopToast.h(true);
-        bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.delete_group_success_toast));
-        bdTopToast.i((ViewGroup) findViewById);
-    }
+    ImageView d();
+
+    TextView e();
 }

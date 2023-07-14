@@ -10,12 +10,12 @@ import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.d5a;
-import com.baidu.tieba.e5a;
-import com.baidu.tieba.f5a;
-import com.baidu.tieba.h5a;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.pda;
+import com.baidu.tieba.qda;
 import com.baidu.tieba.quickWebView.SingleQuickWebViewBridge;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.sda;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,13 +33,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class SingleQuickWebViewBridge_Proxy extends d5a {
+public class SingleQuickWebViewBridge_Proxy extends oda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SingleQuickWebViewBridge mJsBridge;
 
-    @Override // com.baidu.tieba.d5a
-    public f5a dispatch(h5a h5aVar, f5a f5aVar) {
+    @Override // com.baidu.tieba.oda
+    public qda dispatch(sda sdaVar, qda qdaVar) {
         InterceptResult invokeLL;
         int i;
         int i2;
@@ -49,913 +49,923 @@ public class SingleQuickWebViewBridge_Proxy extends d5a {
         int i6;
         int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, h5aVar, f5aVar)) == null) {
-            f5a f5aVar2 = f5aVar == null ? new f5a() : f5aVar;
-            String b = h5aVar.b();
-            JSONObject e = h5aVar.e();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sdaVar, qdaVar)) == null) {
+            qda qdaVar2 = qdaVar == null ? new qda() : qdaVar;
+            String b = sdaVar.b();
+            JSONObject e = sdaVar.e();
             if (b.equals("account/startLoginModule")) {
-                f5aVar2.s(true);
-                f5a startLoginModule = this.mJsBridge.startLoginModule(e.optString("cssUrl"));
+                qdaVar2.s(true);
+                qda startLoginModule = this.mJsBridge.startLoginModule(e.optString("cssUrl"));
                 if (startLoginModule != null) {
-                    f5aVar2.y(startLoginModule.f());
-                    f5aVar2.u(startLoginModule.b());
-                    f5aVar2.o(startLoginModule.a());
-                    f5aVar2.x(startLoginModule.e());
+                    qdaVar2.y(startLoginModule.f());
+                    qdaVar2.u(startLoginModule.b());
+                    qdaVar2.o(startLoginModule.a());
+                    qdaVar2.x(startLoginModule.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("account/authState")) {
-                f5aVar2.s(true);
-                f5a checkAuthState = this.mJsBridge.checkAuthState(e.optString("scene"));
+                qdaVar2.s(true);
+                qda checkAuthState = this.mJsBridge.checkAuthState(e.optString("scene"));
                 if (checkAuthState != null) {
-                    f5aVar2.y(checkAuthState.f());
-                    f5aVar2.u(checkAuthState.b());
-                    f5aVar2.o(checkAuthState.a());
-                    f5aVar2.x(checkAuthState.e());
+                    qdaVar2.y(checkAuthState.f());
+                    qdaVar2.u(checkAuthState.b());
+                    qdaVar2.o(checkAuthState.a());
+                    qdaVar2.x(checkAuthState.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("account/commonLogin")) {
-                f5aVar2.s(true);
-                f5a startAllLoginModule = this.mJsBridge.startAllLoginModule(e.optString("type"), e.optString("addObserverNotify"), e.optString("activityId"), e.optString("cssUrl"));
+                qdaVar2.s(true);
+                qda startAllLoginModule = this.mJsBridge.startAllLoginModule(e.optString("type"), e.optString("addObserverNotify"), e.optString("activityId"), e.optString("cssUrl"));
                 this.mNotificationNameList.add("commonLogin");
                 if (startAllLoginModule != null) {
-                    f5aVar2.y(startAllLoginModule.f());
-                    f5aVar2.u(startAllLoginModule.b());
-                    f5aVar2.o(startAllLoginModule.a());
-                    f5aVar2.x(startAllLoginModule.e());
-                    if (!f5aVar2.h()) {
-                        f5aVar2.n(false);
-                        addObserver("commonLogin", f5aVar2, false);
+                    qdaVar2.y(startAllLoginModule.f());
+                    qdaVar2.u(startAllLoginModule.b());
+                    qdaVar2.o(startAllLoginModule.a());
+                    qdaVar2.x(startAllLoginModule.e());
+                    if (!qdaVar2.h()) {
+                        qdaVar2.n(false);
+                        addObserver("commonLogin", qdaVar2, false);
                     }
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("account/realNameAuth")) {
-                f5aVar2.s(true);
-                f5a realNameAuth = this.mJsBridge.realNameAuth(e.optString("scene"), e.optBoolean("needCbKey"), e.optString("customRealNameUrl"), e.optInt(BindVerifyActivity.KEY_REAL_NAME_LEVEL));
+                qdaVar2.s(true);
+                qda realNameAuth = this.mJsBridge.realNameAuth(e.optString("scene"), e.optBoolean("needCbKey"), e.optString("customRealNameUrl"), e.optInt(BindVerifyActivity.KEY_REAL_NAME_LEVEL));
                 this.mNotificationNameList.add("realNameAuthResult");
                 if (realNameAuth != null) {
-                    f5aVar2.y(realNameAuth.f());
-                    f5aVar2.u(realNameAuth.b());
-                    f5aVar2.o(realNameAuth.a());
-                    f5aVar2.x(realNameAuth.e());
-                    if (!f5aVar2.h()) {
-                        f5aVar2.n(false);
-                        addObserver("realNameAuthResult", f5aVar2, false);
+                    qdaVar2.y(realNameAuth.f());
+                    qdaVar2.u(realNameAuth.b());
+                    qdaVar2.o(realNameAuth.a());
+                    qdaVar2.x(realNameAuth.e());
+                    if (!qdaVar2.h()) {
+                        qdaVar2.n(false);
+                        addObserver("realNameAuthResult", qdaVar2, false);
                     }
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/finishThisPage")) {
-                f5aVar2.s(true);
-                f5a finishPage = this.mJsBridge.finishPage(e.optString("nextPage"), e.optString("source"));
+                qdaVar2.s(true);
+                qda finishPage = this.mJsBridge.finishPage(e.optString("nextPage"), e.optString("source"));
                 if (finishPage != null) {
-                    f5aVar2.y(finishPage.f());
-                    f5aVar2.u(finishPage.b());
-                    f5aVar2.o(finishPage.a());
-                    f5aVar2.x(finishPage.e());
+                    qdaVar2.y(finishPage.f());
+                    qdaVar2.u(finishPage.b());
+                    qdaVar2.o(finishPage.a());
+                    qdaVar2.x(finishPage.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("toast/toastPopupView")) {
-                f5aVar2.s(true);
-                f5a showLowerHairHint = this.mJsBridge.showLowerHairHint(e.optInt("showType"), e.optInt("aheadType"), e.optString("message"), e.optString("btnText"), e.optInt("toastDuration"), e.optString("schema"), e.optString("token"), e.optDouble(NativeConstants.OPACITY), e.optString("imgUrl"), e.optString("url"), e.optInt("missionId"), e.optString("btnColor"), e.optString("messageColor"), e.optString("btnTextColor"), e.optInt("status"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
+                qdaVar2.s(true);
+                qda showLowerHairHint = this.mJsBridge.showLowerHairHint(e.optInt("showType"), e.optInt("aheadType"), e.optString("message"), e.optString("btnText"), e.optInt("toastDuration"), e.optString("schema"), e.optString("token"), e.optDouble(NativeConstants.OPACITY), e.optString("imgUrl"), e.optString("url"), e.optInt("missionId"), e.optString("btnColor"), e.optString("messageColor"), e.optString("btnTextColor"), e.optInt("status"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
                 if (showLowerHairHint != null) {
-                    f5aVar2.y(showLowerHairHint.f());
-                    f5aVar2.u(showLowerHairHint.b());
-                    f5aVar2.o(showLowerHairHint.a());
-                    f5aVar2.x(showLowerHairHint.e());
+                    qdaVar2.y(showLowerHairHint.f());
+                    qdaVar2.u(showLowerHairHint.b());
+                    qdaVar2.o(showLowerHairHint.a());
+                    qdaVar2.x(showLowerHairHint.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("subscription/gamePush")) {
-                f5aVar2.s(true);
-                f5a gamePush = this.mJsBridge.gamePush(e.optString("gameId"), e.optString("gameName"), e.optString("gameTime"), e.optString("gameType"));
+                qdaVar2.s(true);
+                qda gamePush = this.mJsBridge.gamePush(e.optString("gameId"), e.optString("gameName"), e.optString("gameTime"), e.optString("gameType"));
                 if (gamePush != null) {
-                    f5aVar2.y(gamePush.f());
-                    f5aVar2.u(gamePush.b());
-                    f5aVar2.o(gamePush.a());
-                    f5aVar2.x(gamePush.e());
+                    qdaVar2.y(gamePush.f());
+                    qdaVar2.u(gamePush.b());
+                    qdaVar2.o(gamePush.a());
+                    qdaVar2.x(gamePush.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("subscription/gamePushStatus")) {
-                f5aVar2.s(true);
-                f5a handleGamePushStatus = this.mJsBridge.handleGamePushStatus();
+                qdaVar2.s(true);
+                qda handleGamePushStatus = this.mJsBridge.handleGamePushStatus();
                 if (handleGamePushStatus != null) {
-                    f5aVar2.y(handleGamePushStatus.f());
-                    f5aVar2.u(handleGamePushStatus.b());
-                    f5aVar2.o(handleGamePushStatus.a());
-                    f5aVar2.x(handleGamePushStatus.e());
+                    qdaVar2.y(handleGamePushStatus.f());
+                    qdaVar2.u(handleGamePushStatus.b());
+                    qdaVar2.o(handleGamePushStatus.a());
+                    qdaVar2.x(handleGamePushStatus.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/forumRulesEditPage")) {
-                f5aVar2.s(true);
-                f5a jumpForumRulesEditPage = this.mJsBridge.jumpForumRulesEditPage(e.optString("forum_id"), e.optString("forum_name"));
+                qdaVar2.s(true);
+                qda jumpForumRulesEditPage = this.mJsBridge.jumpForumRulesEditPage(e.optString("forum_id"), e.optString("forum_name"));
                 if (jumpForumRulesEditPage != null) {
-                    f5aVar2.y(jumpForumRulesEditPage.f());
-                    f5aVar2.u(jumpForumRulesEditPage.b());
-                    f5aVar2.o(jumpForumRulesEditPage.a());
-                    f5aVar2.x(jumpForumRulesEditPage.e());
+                    qdaVar2.y(jumpForumRulesEditPage.f());
+                    qdaVar2.u(jumpForumRulesEditPage.b());
+                    qdaVar2.o(jumpForumRulesEditPage.a());
+                    qdaVar2.x(jumpForumRulesEditPage.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/goToBarDetail")) {
-                f5aVar2.s(true);
-                f5a handleGoToBarDetail = this.mJsBridge.handleGoToBarDetail(e.optString("forumId"), e.optInt("selectHostTab"));
+                qdaVar2.s(true);
+                qda handleGoToBarDetail = this.mJsBridge.handleGoToBarDetail(e.optString("forumId"), e.optInt("selectHostTab"));
                 if (handleGoToBarDetail != null) {
-                    f5aVar2.y(handleGoToBarDetail.f());
-                    f5aVar2.u(handleGoToBarDetail.b());
-                    f5aVar2.o(handleGoToBarDetail.a());
-                    f5aVar2.x(handleGoToBarDetail.e());
+                    qdaVar2.y(handleGoToBarDetail.f());
+                    qdaVar2.u(handleGoToBarDetail.b());
+                    qdaVar2.o(handleGoToBarDetail.a());
+                    qdaVar2.x(handleGoToBarDetail.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/saveImage")) {
-                f5aVar2.s(true);
-                f5a handleSaveImage = this.mJsBridge.handleSaveImage(e.optString("imgUrl"));
+                qdaVar2.s(true);
+                qda handleSaveImage = this.mJsBridge.handleSaveImage(e.optString("imgUrl"));
                 this.mNotificationNameList.add("saveImageSuccess");
                 if (handleSaveImage != null) {
-                    f5aVar2.y(handleSaveImage.f());
-                    f5aVar2.u(handleSaveImage.b());
-                    f5aVar2.o(handleSaveImage.a());
-                    f5aVar2.x(handleSaveImage.e());
-                    if (!f5aVar2.h()) {
-                        f5aVar2.n(false);
-                        addObserver("saveImageSuccess", f5aVar2, false);
+                    qdaVar2.y(handleSaveImage.f());
+                    qdaVar2.u(handleSaveImage.b());
+                    qdaVar2.o(handleSaveImage.a());
+                    qdaVar2.x(handleSaveImage.e());
+                    if (!qdaVar2.h()) {
+                        qdaVar2.n(false);
+                        addObserver("saveImageSuccess", qdaVar2, false);
                     }
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/orderGameApk")) {
-                f5aVar2.s(true);
-                f5a orderGameApk = this.mJsBridge.orderGameApk(e.optString("id"), e.optString("name"));
+                qdaVar2.s(true);
+                qda orderGameApk = this.mJsBridge.orderGameApk(e.optString("id"), e.optString("name"));
                 this.mNotificationNameList.add("orderGameApkResult");
                 if (orderGameApk != null) {
-                    f5aVar2.y(orderGameApk.f());
-                    f5aVar2.u(orderGameApk.b());
-                    f5aVar2.o(orderGameApk.a());
-                    f5aVar2.x(orderGameApk.e());
-                    if (!f5aVar2.h()) {
-                        f5aVar2.n(false);
-                        addObserver("orderGameApkResult", f5aVar2, false);
+                    qdaVar2.y(orderGameApk.f());
+                    qdaVar2.u(orderGameApk.b());
+                    qdaVar2.o(orderGameApk.a());
+                    qdaVar2.x(orderGameApk.e());
+                    if (!qdaVar2.h()) {
+                        qdaVar2.n(false);
+                        addObserver("orderGameApkResult", qdaVar2, false);
                     }
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/goToPhotoAlbum")) {
-                f5aVar2.s(true);
-                f5a handleGetPhotoAlbum = this.mJsBridge.handleGetPhotoAlbum();
+                qdaVar2.s(true);
+                qda handleGetPhotoAlbum = this.mJsBridge.handleGetPhotoAlbum();
                 this.mNotificationNameList.add("GetPhotoAlbum");
                 if (handleGetPhotoAlbum != null) {
-                    f5aVar2.y(handleGetPhotoAlbum.f());
-                    f5aVar2.u(handleGetPhotoAlbum.b());
-                    f5aVar2.o(handleGetPhotoAlbum.a());
-                    f5aVar2.x(handleGetPhotoAlbum.e());
-                    if (!f5aVar2.h()) {
-                        f5aVar2.n(false);
-                        addObserver("GetPhotoAlbum", f5aVar2, false);
+                    qdaVar2.y(handleGetPhotoAlbum.f());
+                    qdaVar2.u(handleGetPhotoAlbum.b());
+                    qdaVar2.o(handleGetPhotoAlbum.a());
+                    qdaVar2.x(handleGetPhotoAlbum.e());
+                    if (!qdaVar2.h()) {
+                        qdaVar2.n(false);
+                        addObserver("GetPhotoAlbum", qdaVar2, false);
                     }
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("host/preheatWeb")) {
-                f5aVar2.s(true);
+                qdaVar2.s(true);
                 ArrayList<String> arrayList = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList, e.optJSONArray("urlList"));
-                f5a preheatWeb = this.mJsBridge.preheatWeb(arrayList);
+                qda preheatWeb = this.mJsBridge.preheatWeb(arrayList);
                 if (preheatWeb != null) {
-                    f5aVar2.y(preheatWeb.f());
-                    f5aVar2.u(preheatWeb.b());
-                    f5aVar2.o(preheatWeb.a());
-                    f5aVar2.x(preheatWeb.e());
+                    qdaVar2.y(preheatWeb.f());
+                    qdaVar2.u(preheatWeb.b());
+                    qdaVar2.o(preheatWeb.a());
+                    qdaVar2.x(preheatWeb.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("payment/openMXDYab")) {
-                f5aVar2.s(true);
-                f5a openMXDYab = this.mJsBridge.openMXDYab(e.optString(PushConstants.PARAMS));
+                qdaVar2.s(true);
+                qda openMXDYab = this.mJsBridge.openMXDYab(e.optString(PushConstants.PARAMS));
                 if (openMXDYab != null) {
-                    f5aVar2.y(openMXDYab.f());
-                    f5aVar2.u(openMXDYab.b());
-                    f5aVar2.o(openMXDYab.a());
-                    f5aVar2.x(openMXDYab.e());
+                    qdaVar2.y(openMXDYab.f());
+                    qdaVar2.u(openMXDYab.b());
+                    qdaVar2.o(openMXDYab.a());
+                    qdaVar2.x(openMXDYab.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/portal")) {
-                f5aVar2.s(true);
-                f5a handlePortal = this.mJsBridge.handlePortal(e.optString("page"), e.optString("refre"), e.optString("pageParams"));
+                qdaVar2.s(true);
+                qda handlePortal = this.mJsBridge.handlePortal(e.optString("page"), e.optString("refre"), e.optString("pageParams"));
                 if (handlePortal != null) {
-                    f5aVar2.y(handlePortal.f());
-                    f5aVar2.u(handlePortal.b());
-                    f5aVar2.o(handlePortal.a());
-                    f5aVar2.x(handlePortal.e());
+                    qdaVar2.y(handlePortal.f());
+                    qdaVar2.u(handlePortal.b());
+                    qdaVar2.o(handlePortal.a());
+                    qdaVar2.x(handlePortal.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/selectPhotoAlbum")) {
-                f5aVar2.s(true);
+                qdaVar2.s(true);
                 int optInt = e.optInt("maxPhotoNum");
                 ArrayList<JSONObject> arrayList2 = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList2, e.optJSONArray("imageArray"));
-                f5a selectPhotoAlbum = this.mJsBridge.selectPhotoAlbum(optInt, arrayList2);
+                qda selectPhotoAlbum = this.mJsBridge.selectPhotoAlbum(optInt, arrayList2);
                 this.mNotificationNameList.add("selectPhotoAlbum");
                 if (selectPhotoAlbum != null) {
-                    f5aVar2.y(selectPhotoAlbum.f());
-                    f5aVar2.u(selectPhotoAlbum.b());
-                    f5aVar2.o(selectPhotoAlbum.a());
-                    f5aVar2.x(selectPhotoAlbum.e());
-                    if (!f5aVar2.h()) {
-                        f5aVar2.n(false);
-                        addObserver("selectPhotoAlbum", f5aVar2, false);
+                    qdaVar2.y(selectPhotoAlbum.f());
+                    qdaVar2.u(selectPhotoAlbum.b());
+                    qdaVar2.o(selectPhotoAlbum.a());
+                    qdaVar2.x(selectPhotoAlbum.e());
+                    if (!qdaVar2.h()) {
+                        qdaVar2.n(false);
+                        addObserver("selectPhotoAlbum", qdaVar2, false);
                     }
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("subscription/notifyNativeRefresh")) {
-                f5aVar2.s(true);
-                f5a operateNotifyDataChanged = this.mJsBridge.operateNotifyDataChanged(e.optString("key"), e.optString("data"));
+                qdaVar2.s(true);
+                qda operateNotifyDataChanged = this.mJsBridge.operateNotifyDataChanged(e.optString("key"), e.optString("data"), e.optBoolean("isNotifyH5"));
                 if (operateNotifyDataChanged != null) {
-                    f5aVar2.y(operateNotifyDataChanged.f());
-                    f5aVar2.u(operateNotifyDataChanged.b());
-                    f5aVar2.o(operateNotifyDataChanged.a());
-                    f5aVar2.x(operateNotifyDataChanged.e());
+                    qdaVar2.y(operateNotifyDataChanged.f());
+                    qdaVar2.u(operateNotifyDataChanged.b());
+                    qdaVar2.o(operateNotifyDataChanged.a());
+                    qdaVar2.x(operateNotifyDataChanged.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("subscription/getViewPosition")) {
-                f5aVar2.s(true);
-                f5a viewPosition = this.mJsBridge.getViewPosition(e.optString("viewId"), e.optString("data"));
+                qdaVar2.s(true);
+                qda viewPosition = this.mJsBridge.getViewPosition(e.optString("viewId"), e.optString("data"));
                 if (viewPosition != null) {
-                    f5aVar2.y(viewPosition.f());
-                    f5aVar2.u(viewPosition.b());
-                    f5aVar2.o(viewPosition.a());
-                    f5aVar2.x(viewPosition.e());
+                    qdaVar2.y(viewPosition.f());
+                    qdaVar2.u(viewPosition.b());
+                    qdaVar2.o(viewPosition.a());
+                    qdaVar2.x(viewPosition.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/goToSelectPrivateMsgPage")) {
-                f5aVar2.s(true);
+                qdaVar2.s(true);
                 String optString = e.optString("portrait");
                 ArrayList<JSONObject> arrayList3 = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList3, e.optJSONArray("msgArray"));
-                f5a selectPrivateMsg = this.mJsBridge.selectPrivateMsg(optString, arrayList3);
+                qda selectPrivateMsg = this.mJsBridge.selectPrivateMsg(optString, arrayList3);
                 this.mNotificationNameList.add("goToSelectPrivateMsgPage");
                 if (selectPrivateMsg != null) {
-                    f5aVar2.y(selectPrivateMsg.f());
-                    f5aVar2.u(selectPrivateMsg.b());
-                    f5aVar2.o(selectPrivateMsg.a());
-                    f5aVar2.x(selectPrivateMsg.e());
-                    if (!f5aVar2.h()) {
-                        f5aVar2.n(false);
-                        addObserver("goToSelectPrivateMsgPage", f5aVar2, false);
+                    qdaVar2.y(selectPrivateMsg.f());
+                    qdaVar2.u(selectPrivateMsg.b());
+                    qdaVar2.o(selectPrivateMsg.a());
+                    qdaVar2.x(selectPrivateMsg.e());
+                    if (!qdaVar2.h()) {
+                        qdaVar2.n(false);
+                        addObserver("goToSelectPrivateMsgPage", qdaVar2, false);
                     }
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/goToReportThreadPage")) {
-                f5aVar2.s(true);
+                qdaVar2.s(true);
                 String optString2 = e.optString("portrait");
                 ArrayList<String> arrayList4 = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList4, e.optJSONArray("threadArray"));
-                f5a reportUserTheme = this.mJsBridge.reportUserTheme(optString2, arrayList4);
+                qda reportUserTheme = this.mJsBridge.reportUserTheme(optString2, arrayList4);
                 this.mNotificationNameList.add("goToReportThreadPage");
                 if (reportUserTheme != null) {
-                    f5aVar2.y(reportUserTheme.f());
-                    f5aVar2.u(reportUserTheme.b());
-                    f5aVar2.o(reportUserTheme.a());
-                    f5aVar2.x(reportUserTheme.e());
-                    if (!f5aVar2.h()) {
-                        f5aVar2.n(false);
-                        addObserver("goToReportThreadPage", f5aVar2, false);
+                    qdaVar2.y(reportUserTheme.f());
+                    qdaVar2.u(reportUserTheme.b());
+                    qdaVar2.o(reportUserTheme.a());
+                    qdaVar2.x(reportUserTheme.e());
+                    if (!qdaVar2.h()) {
+                        qdaVar2.n(false);
+                        addObserver("goToReportThreadPage", qdaVar2, false);
                     }
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/playSound")) {
-                f5aVar2.s(true);
-                f5a playSound = this.mJsBridge.playSound(e.optString("soundUrl"));
+                qdaVar2.s(true);
+                qda playSound = this.mJsBridge.playSound(e.optString("soundUrl"));
                 if (playSound != null) {
-                    f5aVar2.y(playSound.f());
-                    f5aVar2.u(playSound.b());
-                    f5aVar2.o(playSound.a());
-                    f5aVar2.x(playSound.e());
+                    qdaVar2.y(playSound.f());
+                    qdaVar2.u(playSound.b());
+                    qdaVar2.o(playSound.a());
+                    qdaVar2.x(playSound.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/playVibrate")) {
-                f5aVar2.s(true);
-                f5a playVibrate = this.mJsBridge.playVibrate();
+                qdaVar2.s(true);
+                qda playVibrate = this.mJsBridge.playVibrate();
                 if (playVibrate != null) {
-                    f5aVar2.y(playVibrate.f());
-                    f5aVar2.u(playVibrate.b());
-                    f5aVar2.o(playVibrate.a());
-                    f5aVar2.x(playVibrate.e());
+                    qdaVar2.y(playVibrate.f());
+                    qdaVar2.u(playVibrate.b());
+                    qdaVar2.o(playVibrate.a());
+                    qdaVar2.x(playVibrate.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
+            } else if (b.equals("log/LocalYaLog")) {
+                qdaVar2.s(true);
+                qda localYaLog = this.mJsBridge.localYaLog(e.optString("tag"), e.optString("logInfo"));
+                if (localYaLog != null) {
+                    qdaVar2.y(localYaLog.f());
+                    qdaVar2.u(localYaLog.b());
+                    qdaVar2.o(localYaLog.a());
+                    qdaVar2.x(localYaLog.e());
+                }
+                qdaVar2.z(0);
             } else if (b.equals("account/loadThirdPartyLogin")) {
-                f5aVar2.s(true);
-                f5a jumpLoginActivity = this.mJsBridge.jumpLoginActivity(e.optInt("socialType"), e.optString("activityId"));
+                qdaVar2.s(true);
+                qda jumpLoginActivity = this.mJsBridge.jumpLoginActivity(e.optInt("socialType"), e.optString("activityId"));
                 if (jumpLoginActivity != null) {
-                    f5aVar2.y(jumpLoginActivity.f());
-                    f5aVar2.u(jumpLoginActivity.b());
-                    f5aVar2.o(jumpLoginActivity.a());
-                    f5aVar2.x(jumpLoginActivity.e());
+                    qdaVar2.y(jumpLoginActivity.f());
+                    qdaVar2.u(jumpLoginActivity.b());
+                    qdaVar2.o(jumpLoginActivity.a());
+                    qdaVar2.x(jumpLoginActivity.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/startLoadTimeInterval")) {
-                f5aVar2.s(true);
-                f5a startLoadTimeInterval = this.mJsBridge.getStartLoadTimeInterval();
+                qdaVar2.s(true);
+                qda startLoadTimeInterval = this.mJsBridge.getStartLoadTimeInterval();
                 if (startLoadTimeInterval != null) {
-                    f5aVar2.y(startLoadTimeInterval.f());
-                    f5aVar2.u(startLoadTimeInterval.b());
-                    f5aVar2.o(startLoadTimeInterval.a());
-                    f5aVar2.x(startLoadTimeInterval.e());
+                    qdaVar2.y(startLoadTimeInterval.f());
+                    qdaVar2.u(startLoadTimeInterval.b());
+                    qdaVar2.o(startLoadTimeInterval.a());
+                    qdaVar2.x(startLoadTimeInterval.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("device/getZid")) {
-                f5aVar2.s(true);
-                f5a zid = this.mJsBridge.getZid();
+                qdaVar2.s(true);
+                qda zid = this.mJsBridge.getZid();
                 if (zid != null) {
-                    f5aVar2.y(zid.f());
-                    f5aVar2.u(zid.b());
-                    f5aVar2.o(zid.a());
-                    f5aVar2.x(zid.e());
+                    qdaVar2.y(zid.f());
+                    qdaVar2.u(zid.b());
+                    qdaVar2.o(zid.a());
+                    qdaVar2.x(zid.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("device/getHdid")) {
-                f5aVar2.s(true);
-                f5a hdid = this.mJsBridge.getHdid();
+                qdaVar2.s(true);
+                qda hdid = this.mJsBridge.getHdid();
                 if (hdid != null) {
-                    f5aVar2.y(hdid.f());
-                    f5aVar2.u(hdid.b());
-                    f5aVar2.o(hdid.a());
-                    f5aVar2.x(hdid.e());
+                    qdaVar2.y(hdid.f());
+                    qdaVar2.u(hdid.b());
+                    qdaVar2.o(hdid.a());
+                    qdaVar2.x(hdid.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("share/registerShareDataNew")) {
-                f5aVar2.s(true);
-                f5a shareInfo = this.mJsBridge.setShareInfo(e.optString("title"), e.optString("desc"), e.optString("img"), e.optString("url"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optString("isShowMoreForum"), e.optInt("shareimg"), e.optString("extdata"));
+                qdaVar2.s(true);
+                qda shareInfo = this.mJsBridge.setShareInfo(e.optString("title"), e.optString("desc"), e.optString("img"), e.optString("url"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optString("isShowMoreForum"), e.optInt("shareimg"), e.optString("extdata"));
                 if (shareInfo != null) {
-                    f5aVar2.y(shareInfo.f());
-                    f5aVar2.u(shareInfo.b());
-                    f5aVar2.o(shareInfo.a());
-                    f5aVar2.x(shareInfo.e());
+                    qdaVar2.y(shareInfo.f());
+                    qdaVar2.u(shareInfo.b());
+                    qdaVar2.o(shareInfo.a());
+                    qdaVar2.x(shareInfo.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("share/share")) {
-                f5aVar2.s(true);
-                f5a share = this.mJsBridge.share(e.optInt("channel"), e.optInt("shareImg"), e.optString("img"), e.optString("isShowMoreForum"), e.optString("url"), e.optString("title"), e.optString("desc"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optInt("weixinDisable"), e.optString("extData"), e.optInt("source"), e.optString("topicId"), e.optString("disableSafari"), e.optLong("roomId"), e.optInt("filterRooms"), e.optInt("roomMemberCount"), e.optLong("fid"), e.optString("forumName"), e.optString("onlyThirdShare"), e.optString("addObserverNotify"), e.optString("panelTitle"), e.optJSONObject("shareIMCard"));
+                qdaVar2.s(true);
+                qda share = this.mJsBridge.share(e.optInt("channel"), e.optInt("shareImg"), e.optString("img"), e.optString("isShowMoreForum"), e.optString("url"), e.optString("title"), e.optString("desc"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optInt("weixinDisable"), e.optString("extData"), e.optInt("source"), e.optString("topicId"), e.optString("disableSafari"), e.optLong("roomId"), e.optInt("filterRooms"), e.optInt("roomMemberCount"), e.optLong("fid"), e.optString("forumName"), e.optString("onlyThirdShare"), e.optString("addObserverNotify"), e.optString("panelTitle"), e.optJSONObject("shareIMCard"));
                 this.mNotificationNameList.add(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION);
                 if (share != null) {
-                    f5aVar2.y(share.f());
-                    f5aVar2.u(share.b());
-                    f5aVar2.o(share.a());
-                    f5aVar2.x(share.e());
-                    if (!f5aVar2.h()) {
+                    qdaVar2.y(share.f());
+                    qdaVar2.u(share.b());
+                    qdaVar2.o(share.a());
+                    qdaVar2.x(share.e());
+                    if (!qdaVar2.h()) {
                         i7 = 0;
-                        f5aVar2.n(false);
-                        addObserver(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION, f5aVar2, false);
-                        f5aVar2.z(i7);
+                        qdaVar2.n(false);
+                        addObserver(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION, qdaVar2, false);
+                        qdaVar2.z(i7);
                     }
                 }
                 i7 = 0;
-                f5aVar2.z(i7);
+                qdaVar2.z(i7);
             } else if (b.equals("clipper/getClipperInformation")) {
-                f5aVar2.s(true);
-                f5a clipperInformation = this.mJsBridge.getClipperInformation();
+                qdaVar2.s(true);
+                qda clipperInformation = this.mJsBridge.getClipperInformation();
                 if (clipperInformation != null) {
-                    f5aVar2.y(clipperInformation.f());
-                    f5aVar2.u(clipperInformation.b());
-                    f5aVar2.o(clipperInformation.a());
-                    f5aVar2.x(clipperInformation.e());
+                    qdaVar2.y(clipperInformation.f());
+                    qdaVar2.u(clipperInformation.b());
+                    qdaVar2.o(clipperInformation.a());
+                    qdaVar2.x(clipperInformation.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("clipper/setClipperInformation")) {
-                f5aVar2.s(true);
-                f5a clipperInformation2 = this.mJsBridge.setClipperInformation(e.optString("txt"));
+                qdaVar2.s(true);
+                qda clipperInformation2 = this.mJsBridge.setClipperInformation(e.optString("txt"));
                 if (clipperInformation2 != null) {
-                    f5aVar2.y(clipperInformation2.f());
-                    f5aVar2.u(clipperInformation2.b());
-                    f5aVar2.o(clipperInformation2.a());
-                    f5aVar2.x(clipperInformation2.e());
+                    qdaVar2.y(clipperInformation2.f());
+                    qdaVar2.u(clipperInformation2.b());
+                    qdaVar2.o(clipperInformation2.a());
+                    qdaVar2.x(clipperInformation2.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/goToEditPost")) {
-                f5aVar2.s(true);
-                f5a goToEditPost = this.mJsBridge.goToEditPost(e.optString("pos"), e.optString("tid"), e.optString("floorId"), e.optString("postId"), e.optString("content"), e.optString("fid"), e.optString("fname"));
+                qdaVar2.s(true);
+                qda goToEditPost = this.mJsBridge.goToEditPost(e.optString("pos"), e.optString("tid"), e.optString("floorId"), e.optString("postId"), e.optString("content"), e.optString("fid"), e.optString("fname"));
                 if (goToEditPost != null) {
-                    f5aVar2.y(goToEditPost.f());
-                    f5aVar2.u(goToEditPost.b());
-                    f5aVar2.o(goToEditPost.a());
-                    f5aVar2.x(goToEditPost.e());
+                    qdaVar2.y(goToEditPost.f());
+                    qdaVar2.u(goToEditPost.b());
+                    qdaVar2.o(goToEditPost.a());
+                    qdaVar2.x(goToEditPost.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("activity/updateSearchForumInfo")) {
-                f5aVar2.s(true);
-                f5a updateSearchForumInfo = this.mJsBridge.updateSearchForumInfo(e.optString("forumParams"));
+                qdaVar2.s(true);
+                qda updateSearchForumInfo = this.mJsBridge.updateSearchForumInfo(e.optString("forumParams"));
                 if (updateSearchForumInfo != null) {
-                    f5aVar2.y(updateSearchForumInfo.f());
-                    f5aVar2.u(updateSearchForumInfo.b());
-                    f5aVar2.o(updateSearchForumInfo.a());
-                    f5aVar2.x(updateSearchForumInfo.e());
+                    qdaVar2.y(updateSearchForumInfo.f());
+                    qdaVar2.u(updateSearchForumInfo.b());
+                    qdaVar2.o(updateSearchForumInfo.a());
+                    qdaVar2.x(updateSearchForumInfo.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("activity/personlizedSwitchChange")) {
-                f5aVar2.s(true);
-                f5a personlizedSwitchChange = this.mJsBridge.personlizedSwitchChange(e.optString("personlizedSwitchStatus"));
+                qdaVar2.s(true);
+                qda personlizedSwitchChange = this.mJsBridge.personlizedSwitchChange(e.optString("personlizedSwitchStatus"));
                 if (personlizedSwitchChange != null) {
-                    f5aVar2.y(personlizedSwitchChange.f());
-                    f5aVar2.u(personlizedSwitchChange.b());
-                    f5aVar2.o(personlizedSwitchChange.a());
-                    f5aVar2.x(personlizedSwitchChange.e());
+                    qdaVar2.y(personlizedSwitchChange.f());
+                    qdaVar2.u(personlizedSwitchChange.b());
+                    qdaVar2.o(personlizedSwitchChange.a());
+                    qdaVar2.x(personlizedSwitchChange.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("activity/updateTailStyle")) {
-                f5aVar2.s(true);
-                f5a updateTailStyle = this.mJsBridge.updateTailStyle(e.optInt("type"), e.optString("tailId"));
+                qdaVar2.s(true);
+                qda updateTailStyle = this.mJsBridge.updateTailStyle(e.optInt("type"), e.optString("tailId"));
                 if (updateTailStyle != null) {
-                    f5aVar2.y(updateTailStyle.f());
-                    f5aVar2.u(updateTailStyle.b());
-                    f5aVar2.o(updateTailStyle.a());
-                    f5aVar2.x(updateTailStyle.e());
+                    qdaVar2.y(updateTailStyle.f());
+                    qdaVar2.u(updateTailStyle.b());
+                    qdaVar2.o(updateTailStyle.a());
+                    qdaVar2.x(updateTailStyle.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/videoImmersivePage")) {
-                f5aVar2.s(true);
-                f5a goToVideoImmersivePage = this.mJsBridge.goToVideoImmersivePage(e.optString("threadId"), e.optString("postId"), e.optString("title"), e.optString(TbEnum.SystemMessage.KEY_USER_NAME), e.optString("nickName"), e.optString("portrait"), e.optString("thumbnailUrl"), e.optString("videoUrl"), e.optString("videoWidth"), e.optString("videoHeight"), e.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), e.optString("postNum"), e.optString("agreeNum"), e.optString("shareNum"), e.optString("forumId"), e.optString("forumName"), e.optString("showComment"));
+                qdaVar2.s(true);
+                qda goToVideoImmersivePage = this.mJsBridge.goToVideoImmersivePage(e.optString("threadId"), e.optString("postId"), e.optString("title"), e.optString(TbEnum.SystemMessage.KEY_USER_NAME), e.optString("nickName"), e.optString("portrait"), e.optString("thumbnailUrl"), e.optString("videoUrl"), e.optString("videoWidth"), e.optString("videoHeight"), e.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), e.optString("postNum"), e.optString("agreeNum"), e.optString("shareNum"), e.optString("forumId"), e.optString("forumName"), e.optString("showComment"));
                 if (goToVideoImmersivePage != null) {
-                    f5aVar2.y(goToVideoImmersivePage.f());
-                    f5aVar2.u(goToVideoImmersivePage.b());
-                    f5aVar2.o(goToVideoImmersivePage.a());
-                    f5aVar2.x(goToVideoImmersivePage.e());
+                    qdaVar2.y(goToVideoImmersivePage.f());
+                    qdaVar2.u(goToVideoImmersivePage.b());
+                    qdaVar2.o(goToVideoImmersivePage.a());
+                    qdaVar2.x(goToVideoImmersivePage.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/jumpToVideo")) {
-                f5aVar2.s(true);
-                f5a jumpToVideo = this.mJsBridge.jumpToVideo(e.optString("videoTopic"), e.optString("videoTopicID"), e.optString("isVideo"));
+                qdaVar2.s(true);
+                qda jumpToVideo = this.mJsBridge.jumpToVideo(e.optString("videoTopic"), e.optString("videoTopicID"), e.optString("isVideo"));
                 if (jumpToVideo != null) {
-                    f5aVar2.y(jumpToVideo.f());
-                    f5aVar2.u(jumpToVideo.b());
-                    f5aVar2.o(jumpToVideo.a());
-                    f5aVar2.x(jumpToVideo.e());
+                    qdaVar2.y(jumpToVideo.f());
+                    qdaVar2.u(jumpToVideo.b());
+                    qdaVar2.o(jumpToVideo.a());
+                    qdaVar2.x(jumpToVideo.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/closeNativeMask")) {
-                f5aVar2.s(true);
-                f5a closeNativeMask = this.mJsBridge.closeNativeMask(e.optInt("result"));
+                qdaVar2.s(true);
+                qda closeNativeMask = this.mJsBridge.closeNativeMask(e.optInt("result"));
                 if (closeNativeMask != null) {
-                    f5aVar2.y(closeNativeMask.f());
-                    f5aVar2.u(closeNativeMask.b());
-                    f5aVar2.o(closeNativeMask.a());
-                    f5aVar2.x(closeNativeMask.e());
+                    qdaVar2.y(closeNativeMask.f());
+                    qdaVar2.u(closeNativeMask.b());
+                    qdaVar2.o(closeNativeMask.a());
+                    qdaVar2.x(closeNativeMask.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("activity/oneKeyDeletion")) {
-                f5aVar2.s(true);
-                f5a oneKeyDeletion = this.mJsBridge.toOneKeyDeletion();
+                qdaVar2.s(true);
+                qda oneKeyDeletion = this.mJsBridge.toOneKeyDeletion();
                 if (oneKeyDeletion != null) {
-                    f5aVar2.y(oneKeyDeletion.f());
-                    f5aVar2.u(oneKeyDeletion.b());
-                    f5aVar2.o(oneKeyDeletion.a());
-                    f5aVar2.x(oneKeyDeletion.e());
+                    qdaVar2.y(oneKeyDeletion.f());
+                    qdaVar2.u(oneKeyDeletion.b());
+                    qdaVar2.o(oneKeyDeletion.a());
+                    qdaVar2.x(oneKeyDeletion.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/checkAppInstall")) {
-                f5aVar2.s(true);
-                f5a checkAppInstall = this.mJsBridge.checkAppInstall(e.optString("pkgName"));
+                qdaVar2.s(true);
+                qda checkAppInstall = this.mJsBridge.checkAppInstall(e.optString("pkgName"));
                 if (checkAppInstall != null) {
-                    f5aVar2.y(checkAppInstall.f());
-                    f5aVar2.u(checkAppInstall.b());
-                    f5aVar2.o(checkAppInstall.a());
-                    f5aVar2.x(checkAppInstall.e());
+                    qdaVar2.y(checkAppInstall.f());
+                    qdaVar2.u(checkAppInstall.b());
+                    qdaVar2.o(checkAppInstall.a());
+                    qdaVar2.x(checkAppInstall.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/disableSlideBack")) {
-                f5aVar2.s(true);
-                f5a disableBack = this.mJsBridge.disableBack(e.optInt(PackageTable.DISABLE));
+                qdaVar2.s(true);
+                qda disableBack = this.mJsBridge.disableBack(e.optInt(PackageTable.DISABLE));
                 if (disableBack != null) {
-                    f5aVar2.y(disableBack.f());
-                    f5aVar2.u(disableBack.b());
-                    f5aVar2.o(disableBack.a());
-                    f5aVar2.x(disableBack.e());
+                    qdaVar2.y(disableBack.f());
+                    qdaVar2.u(disableBack.b());
+                    qdaVar2.o(disableBack.a());
+                    qdaVar2.x(disableBack.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/startApp")) {
-                f5aVar2.s(true);
-                f5a startApp = this.mJsBridge.startApp(e.optString("pkgName"), e.optString("schema"));
+                qdaVar2.s(true);
+                qda startApp = this.mJsBridge.startApp(e.optString("pkgName"), e.optString("schema"));
                 if (startApp != null) {
-                    f5aVar2.y(startApp.f());
-                    f5aVar2.u(startApp.b());
-                    f5aVar2.o(startApp.a());
-                    f5aVar2.x(startApp.e());
+                    qdaVar2.y(startApp.f());
+                    qdaVar2.u(startApp.b());
+                    qdaVar2.o(startApp.a());
+                    qdaVar2.x(startApp.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/hasNotificationPermission")) {
-                f5aVar2.s(true);
-                f5a hasNotificationPermission = this.mJsBridge.hasNotificationPermission();
+                qdaVar2.s(true);
+                qda hasNotificationPermission = this.mJsBridge.hasNotificationPermission();
                 if (hasNotificationPermission != null) {
-                    f5aVar2.y(hasNotificationPermission.f());
-                    f5aVar2.u(hasNotificationPermission.b());
-                    f5aVar2.o(hasNotificationPermission.a());
-                    f5aVar2.x(hasNotificationPermission.e());
+                    qdaVar2.y(hasNotificationPermission.f());
+                    qdaVar2.u(hasNotificationPermission.b());
+                    qdaVar2.o(hasNotificationPermission.a());
+                    qdaVar2.x(hasNotificationPermission.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/goToNotificationSetting")) {
-                f5aVar2.s(true);
-                f5a goToNotificationSetting = this.mJsBridge.goToNotificationSetting();
+                qdaVar2.s(true);
+                qda goToNotificationSetting = this.mJsBridge.goToNotificationSetting();
                 if (goToNotificationSetting != null) {
-                    f5aVar2.y(goToNotificationSetting.f());
-                    f5aVar2.u(goToNotificationSetting.b());
-                    f5aVar2.o(goToNotificationSetting.a());
-                    f5aVar2.x(goToNotificationSetting.e());
+                    qdaVar2.y(goToNotificationSetting.f());
+                    qdaVar2.u(goToNotificationSetting.b());
+                    qdaVar2.o(goToNotificationSetting.a());
+                    qdaVar2.x(goToNotificationSetting.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/downloadGameApk")) {
-                f5aVar2.s(true);
-                f5a startDownloadGameApk = this.mJsBridge.startDownloadGameApk(e.optString("gameUrl"), e.optString("gameId"), e.optString("apkName"), e.optString("apkIcon"), e.optString("forumName"), e.optString("apkVersion"), e.optString("developerName"), e.optString("privacyUrl"), e.optString("authorityUrl"), e.optString("packageSize"), e.optInt(PushService.APP_VERSION_CODE), e.optString("pkgName"), e.optInt("source"), e.optString("extInfo"));
+                qdaVar2.s(true);
+                qda startDownloadGameApk = this.mJsBridge.startDownloadGameApk(e.optString("gameUrl"), e.optString("gameId"), e.optString("apkName"), e.optString("apkIcon"), e.optString("forumName"), e.optString("apkVersion"), e.optString("developerName"), e.optString("privacyUrl"), e.optString("authorityUrl"), e.optString("packageSize"), e.optInt(PushService.APP_VERSION_CODE), e.optString("pkgName"), e.optInt("source"), e.optString("extInfo"));
                 if (startDownloadGameApk != null) {
-                    f5aVar2.y(startDownloadGameApk.f());
-                    f5aVar2.u(startDownloadGameApk.b());
-                    f5aVar2.o(startDownloadGameApk.a());
-                    f5aVar2.x(startDownloadGameApk.e());
+                    qdaVar2.y(startDownloadGameApk.f());
+                    qdaVar2.u(startDownloadGameApk.b());
+                    qdaVar2.o(startDownloadGameApk.a());
+                    qdaVar2.x(startDownloadGameApk.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/checkInstallGameApk")) {
-                f5aVar2.s(true);
-                f5a checkInstallGameApk = this.mJsBridge.checkInstallGameApk(e.optString("pkgName"));
+                qdaVar2.s(true);
+                qda checkInstallGameApk = this.mJsBridge.checkInstallGameApk(e.optString("pkgName"));
                 if (checkInstallGameApk != null) {
-                    f5aVar2.y(checkInstallGameApk.f());
-                    f5aVar2.u(checkInstallGameApk.b());
-                    f5aVar2.o(checkInstallGameApk.a());
-                    f5aVar2.x(checkInstallGameApk.e());
+                    qdaVar2.y(checkInstallGameApk.f());
+                    qdaVar2.u(checkInstallGameApk.b());
+                    qdaVar2.o(checkInstallGameApk.a());
+                    qdaVar2.x(checkInstallGameApk.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("account/startDownloadCss")) {
-                f5aVar2.s(true);
-                f5a startDownloadCss = this.mJsBridge.startDownloadCss(e.optString(TTDownloadField.TT_DOWNLOAD_URL));
+                qdaVar2.s(true);
+                qda startDownloadCss = this.mJsBridge.startDownloadCss(e.optString(TTDownloadField.TT_DOWNLOAD_URL));
                 if (startDownloadCss != null) {
-                    f5aVar2.y(startDownloadCss.f());
-                    f5aVar2.u(startDownloadCss.b());
-                    f5aVar2.o(startDownloadCss.a());
-                    f5aVar2.x(startDownloadCss.e());
+                    qdaVar2.y(startDownloadCss.f());
+                    qdaVar2.u(startDownloadCss.b());
+                    qdaVar2.o(startDownloadCss.a());
+                    qdaVar2.x(startDownloadCss.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("navigationBar/isDisableGoBack")) {
-                f5aVar2.s(true);
-                f5a disableGoBack = this.mJsBridge.setDisableGoBack();
+                qdaVar2.s(true);
+                qda disableGoBack = this.mJsBridge.setDisableGoBack();
                 if (disableGoBack != null) {
-                    f5aVar2.y(disableGoBack.f());
-                    f5aVar2.u(disableGoBack.b());
-                    f5aVar2.o(disableGoBack.a());
-                    f5aVar2.x(disableGoBack.e());
+                    qdaVar2.y(disableGoBack.f());
+                    qdaVar2.u(disableGoBack.b());
+                    qdaVar2.o(disableGoBack.a());
+                    qdaVar2.x(disableGoBack.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("device/getSupplementInfo")) {
-                f5aVar2.s(true);
-                f5a supplementInfo = this.mJsBridge.getSupplementInfo();
+                qdaVar2.s(true);
+                qda supplementInfo = this.mJsBridge.getSupplementInfo();
                 if (supplementInfo != null) {
-                    f5aVar2.y(supplementInfo.f());
-                    f5aVar2.u(supplementInfo.b());
-                    f5aVar2.o(supplementInfo.a());
-                    f5aVar2.x(supplementInfo.e());
+                    qdaVar2.y(supplementInfo.f());
+                    qdaVar2.u(supplementInfo.b());
+                    qdaVar2.o(supplementInfo.a());
+                    qdaVar2.x(supplementInfo.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("device/deviceMotion")) {
-                f5aVar2.s(true);
-                f5a deviceGyroscopeParams = this.mJsBridge.deviceGyroscopeParams(e.optString("interval"), e.optString("type"));
+                qdaVar2.s(true);
+                qda deviceGyroscopeParams = this.mJsBridge.deviceGyroscopeParams(e.optString("interval"), e.optString("type"));
                 this.mNotificationNameList.add("deviceMotion");
                 if (deviceGyroscopeParams != null) {
-                    f5aVar2.y(deviceGyroscopeParams.f());
-                    f5aVar2.u(deviceGyroscopeParams.b());
-                    f5aVar2.o(deviceGyroscopeParams.a());
-                    f5aVar2.x(deviceGyroscopeParams.e());
-                    if (!f5aVar2.h()) {
+                    qdaVar2.y(deviceGyroscopeParams.f());
+                    qdaVar2.u(deviceGyroscopeParams.b());
+                    qdaVar2.o(deviceGyroscopeParams.a());
+                    qdaVar2.x(deviceGyroscopeParams.e());
+                    if (!qdaVar2.h()) {
                         i6 = 0;
-                        f5aVar2.n(false);
-                        addObserver("deviceMotion", f5aVar2, false);
-                        f5aVar2.z(i6);
+                        qdaVar2.n(false);
+                        addObserver("deviceMotion", qdaVar2, false);
+                        qdaVar2.z(i6);
                     }
                 }
                 i6 = 0;
-                f5aVar2.z(i6);
+                qdaVar2.z(i6);
             } else if (b.equals("device/deviceRefreshRate")) {
-                f5aVar2.s(true);
-                f5a deviceRefreshRateParams = this.mJsBridge.deviceRefreshRateParams(e.optString("type"));
+                qdaVar2.s(true);
+                qda deviceRefreshRateParams = this.mJsBridge.deviceRefreshRateParams(e.optString("type"));
                 this.mNotificationNameList.add("deviceRefreshRate");
                 if (deviceRefreshRateParams != null) {
-                    f5aVar2.y(deviceRefreshRateParams.f());
-                    f5aVar2.u(deviceRefreshRateParams.b());
-                    f5aVar2.o(deviceRefreshRateParams.a());
-                    f5aVar2.x(deviceRefreshRateParams.e());
-                    if (!f5aVar2.h()) {
+                    qdaVar2.y(deviceRefreshRateParams.f());
+                    qdaVar2.u(deviceRefreshRateParams.b());
+                    qdaVar2.o(deviceRefreshRateParams.a());
+                    qdaVar2.x(deviceRefreshRateParams.e());
+                    if (!qdaVar2.h()) {
                         i5 = 0;
-                        f5aVar2.n(false);
-                        addObserver("deviceRefreshRate", f5aVar2, false);
-                        f5aVar2.z(i5);
+                        qdaVar2.n(false);
+                        addObserver("deviceRefreshRate", qdaVar2, false);
+                        qdaVar2.z(i5);
                     }
                 }
                 i5 = 0;
-                f5aVar2.z(i5);
+                qdaVar2.z(i5);
             } else if (b.equals("device/getDeviceInfo")) {
-                f5aVar2.s(true);
-                f5a deviceInfo = this.mJsBridge.getDeviceInfo();
+                qdaVar2.s(true);
+                qda deviceInfo = this.mJsBridge.getDeviceInfo();
                 if (deviceInfo != null) {
-                    f5aVar2.y(deviceInfo.f());
-                    f5aVar2.u(deviceInfo.b());
-                    f5aVar2.o(deviceInfo.a());
-                    f5aVar2.x(deviceInfo.e());
+                    qdaVar2.y(deviceInfo.f());
+                    qdaVar2.u(deviceInfo.b());
+                    qdaVar2.o(deviceInfo.a());
+                    qdaVar2.x(deviceInfo.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("activity/completeTask")) {
-                f5aVar2.s(true);
-                f5a sendCompleteTaskReqMsg = this.mJsBridge.sendCompleteTaskReqMsg(e.optString("activityId"), e.optString("missionId"));
+                qdaVar2.s(true);
+                qda sendCompleteTaskReqMsg = this.mJsBridge.sendCompleteTaskReqMsg(e.optString("activityId"), e.optString("missionId"));
                 if (sendCompleteTaskReqMsg != null) {
-                    f5aVar2.y(sendCompleteTaskReqMsg.f());
-                    f5aVar2.u(sendCompleteTaskReqMsg.b());
-                    f5aVar2.o(sendCompleteTaskReqMsg.a());
-                    f5aVar2.x(sendCompleteTaskReqMsg.e());
+                    qdaVar2.y(sendCompleteTaskReqMsg.f());
+                    qdaVar2.u(sendCompleteTaskReqMsg.b());
+                    qdaVar2.o(sendCompleteTaskReqMsg.a());
+                    qdaVar2.x(sendCompleteTaskReqMsg.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("toast/showTipToast")) {
-                f5aVar2.s(true);
-                f5a showTipToast = this.mJsBridge.showTipToast(e.optString("content"), e.optString(GameAssistConstKt.KEY_LINKURL), e.optString("key"), e.optInt("maxTimes"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
+                qdaVar2.s(true);
+                qda showTipToast = this.mJsBridge.showTipToast(e.optString("content"), e.optString(GameAssistConstKt.KEY_LINKURL), e.optString("key"), e.optInt("maxTimes"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
                 if (showTipToast != null) {
-                    f5aVar2.y(showTipToast.f());
-                    f5aVar2.u(showTipToast.b());
-                    f5aVar2.o(showTipToast.a());
-                    f5aVar2.x(showTipToast.e());
+                    qdaVar2.y(showTipToast.f());
+                    qdaVar2.u(showTipToast.b());
+                    qdaVar2.o(showTipToast.a());
+                    qdaVar2.x(showTipToast.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("toast/getModalData")) {
-                f5aVar2.s(true);
-                f5a getModalData = this.mJsBridge.getGetModalData(e.optString("url"));
+                qdaVar2.s(true);
+                qda getModalData = this.mJsBridge.getGetModalData(e.optString("url"));
                 if (getModalData != null) {
-                    f5aVar2.y(getModalData.f());
-                    f5aVar2.u(getModalData.b());
-                    f5aVar2.o(getModalData.a());
-                    f5aVar2.x(getModalData.e());
+                    qdaVar2.y(getModalData.f());
+                    qdaVar2.u(getModalData.b());
+                    qdaVar2.o(getModalData.a());
+                    qdaVar2.x(getModalData.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/openThirdPartyApp")) {
-                f5aVar2.s(true);
-                f5a openThirdPartApp = this.mJsBridge.openThirdPartApp(e.optInt("type"), e.optString("data"));
+                qdaVar2.s(true);
+                qda openThirdPartApp = this.mJsBridge.openThirdPartApp(e.optInt("type"), e.optString("data"));
                 if (openThirdPartApp != null) {
-                    f5aVar2.y(openThirdPartApp.f());
-                    f5aVar2.u(openThirdPartApp.b());
-                    f5aVar2.o(openThirdPartApp.a());
-                    f5aVar2.x(openThirdPartApp.e());
+                    qdaVar2.y(openThirdPartApp.f());
+                    qdaVar2.u(openThirdPartApp.b());
+                    qdaVar2.o(openThirdPartApp.a());
+                    qdaVar2.x(openThirdPartApp.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/jumpToHTMLPage")) {
-                f5aVar2.s(true);
-                f5a jumpToHtmlPage = this.mJsBridge.jumpToHtmlPage(e.optString("url"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
+                qdaVar2.s(true);
+                qda jumpToHtmlPage = this.mJsBridge.jumpToHtmlPage(e.optString("url"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
                 if (jumpToHtmlPage != null) {
-                    f5aVar2.y(jumpToHtmlPage.f());
-                    f5aVar2.u(jumpToHtmlPage.b());
-                    f5aVar2.o(jumpToHtmlPage.a());
-                    f5aVar2.x(jumpToHtmlPage.e());
+                    qdaVar2.y(jumpToHtmlPage.f());
+                    qdaVar2.u(jumpToHtmlPage.b());
+                    qdaVar2.o(jumpToHtmlPage.a());
+                    qdaVar2.x(jumpToHtmlPage.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("hybridDebug/getOfflineUserInfo")) {
-                f5aVar2.s(true);
-                f5a offlineUserInfo = this.mJsBridge.getOfflineUserInfo();
+                qdaVar2.s(true);
+                qda offlineUserInfo = this.mJsBridge.getOfflineUserInfo();
                 if (offlineUserInfo != null) {
-                    f5aVar2.y(offlineUserInfo.f());
-                    f5aVar2.u(offlineUserInfo.b());
-                    f5aVar2.o(offlineUserInfo.a());
-                    f5aVar2.x(offlineUserInfo.e());
+                    qdaVar2.y(offlineUserInfo.f());
+                    qdaVar2.u(offlineUserInfo.b());
+                    qdaVar2.o(offlineUserInfo.a());
+                    qdaVar2.x(offlineUserInfo.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("hybridDebug/deleteOfflineBundle")) {
-                f5aVar2.s(true);
-                f5a deleteOfflineBundle = this.mJsBridge.deleteOfflineBundle();
+                qdaVar2.s(true);
+                qda deleteOfflineBundle = this.mJsBridge.deleteOfflineBundle();
                 if (deleteOfflineBundle != null) {
-                    f5aVar2.y(deleteOfflineBundle.f());
-                    f5aVar2.u(deleteOfflineBundle.b());
-                    f5aVar2.o(deleteOfflineBundle.a());
-                    f5aVar2.x(deleteOfflineBundle.e());
+                    qdaVar2.y(deleteOfflineBundle.f());
+                    qdaVar2.u(deleteOfflineBundle.b());
+                    qdaVar2.o(deleteOfflineBundle.a());
+                    qdaVar2.x(deleteOfflineBundle.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("hybridDebug/updateOfflineBundle")) {
-                f5aVar2.s(true);
-                f5a updateOfflineBundle = this.mJsBridge.updateOfflineBundle();
+                qdaVar2.s(true);
+                qda updateOfflineBundle = this.mJsBridge.updateOfflineBundle();
                 if (updateOfflineBundle != null) {
-                    f5aVar2.y(updateOfflineBundle.f());
-                    f5aVar2.u(updateOfflineBundle.b());
-                    f5aVar2.o(updateOfflineBundle.a());
-                    f5aVar2.x(updateOfflineBundle.e());
+                    qdaVar2.y(updateOfflineBundle.f());
+                    qdaVar2.u(updateOfflineBundle.b());
+                    qdaVar2.o(updateOfflineBundle.a());
+                    qdaVar2.x(updateOfflineBundle.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("hybridDebug/switchOfflineInterface")) {
-                f5aVar2.s(true);
-                f5a switchOfflineInterface = this.mJsBridge.switchOfflineInterface(e.optString("host"));
+                qdaVar2.s(true);
+                qda switchOfflineInterface = this.mJsBridge.switchOfflineInterface(e.optString("host"));
                 if (switchOfflineInterface != null) {
-                    f5aVar2.y(switchOfflineInterface.f());
-                    f5aVar2.u(switchOfflineInterface.b());
-                    f5aVar2.o(switchOfflineInterface.a());
-                    f5aVar2.x(switchOfflineInterface.e());
+                    qdaVar2.y(switchOfflineInterface.f());
+                    qdaVar2.u(switchOfflineInterface.b());
+                    qdaVar2.o(switchOfflineInterface.a());
+                    qdaVar2.x(switchOfflineInterface.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("hybridDebug/switchOfflineBundleStatus")) {
-                f5aVar2.s(true);
-                f5a switchOfflineBundleStatus = this.mJsBridge.switchOfflineBundleStatus(e.optInt("isOn"));
+                qdaVar2.s(true);
+                qda switchOfflineBundleStatus = this.mJsBridge.switchOfflineBundleStatus(e.optInt("isOn"));
                 if (switchOfflineBundleStatus != null) {
-                    f5aVar2.y(switchOfflineBundleStatus.f());
-                    f5aVar2.u(switchOfflineBundleStatus.b());
-                    f5aVar2.o(switchOfflineBundleStatus.a());
-                    f5aVar2.x(switchOfflineBundleStatus.e());
+                    qdaVar2.y(switchOfflineBundleStatus.f());
+                    qdaVar2.u(switchOfflineBundleStatus.b());
+                    qdaVar2.o(switchOfflineBundleStatus.a());
+                    qdaVar2.x(switchOfflineBundleStatus.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("activity/finishTestAnswer")) {
-                f5aVar2.s(true);
-                f5a finishTestAnswer = this.mJsBridge.finishTestAnswer(e.optLong("testId"));
+                qdaVar2.s(true);
+                qda finishTestAnswer = this.mJsBridge.finishTestAnswer(e.optLong("testId"));
                 if (finishTestAnswer != null) {
-                    f5aVar2.y(finishTestAnswer.f());
-                    f5aVar2.u(finishTestAnswer.b());
-                    f5aVar2.o(finishTestAnswer.a());
-                    f5aVar2.x(finishTestAnswer.e());
+                    qdaVar2.y(finishTestAnswer.f());
+                    qdaVar2.u(finishTestAnswer.b());
+                    qdaVar2.o(finishTestAnswer.a());
+                    qdaVar2.x(finishTestAnswer.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("hybridDebug/switchUrlHost")) {
-                f5aVar2.s(true);
+                qdaVar2.s(true);
                 ArrayList<JSONObject> arrayList5 = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList5, e.optJSONArray("hostArr"));
-                f5a switchUrlHost = this.mJsBridge.switchUrlHost(arrayList5);
+                qda switchUrlHost = this.mJsBridge.switchUrlHost(arrayList5);
                 if (switchUrlHost != null) {
-                    f5aVar2.y(switchUrlHost.f());
-                    f5aVar2.u(switchUrlHost.b());
-                    f5aVar2.o(switchUrlHost.a());
-                    f5aVar2.x(switchUrlHost.e());
+                    qdaVar2.y(switchUrlHost.f());
+                    qdaVar2.u(switchUrlHost.b());
+                    qdaVar2.o(switchUrlHost.a());
+                    qdaVar2.x(switchUrlHost.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/getAppStorage")) {
-                f5aVar2.s(true);
-                f5a appStorage = this.mJsBridge.getAppStorage(e.optString("key"));
+                qdaVar2.s(true);
+                qda appStorage = this.mJsBridge.getAppStorage(e.optString("key"));
                 if (appStorage != null) {
-                    f5aVar2.y(appStorage.f());
-                    f5aVar2.u(appStorage.b());
-                    f5aVar2.o(appStorage.a());
-                    f5aVar2.x(appStorage.e());
+                    qdaVar2.y(appStorage.f());
+                    qdaVar2.u(appStorage.b());
+                    qdaVar2.o(appStorage.a());
+                    qdaVar2.x(appStorage.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/putAppStorage")) {
-                f5aVar2.s(true);
-                f5a putAppStorage = this.mJsBridge.putAppStorage(e.optString("key"), e.optString("data"));
+                qdaVar2.s(true);
+                qda putAppStorage = this.mJsBridge.putAppStorage(e.optString("key"), e.optString("data"));
                 if (putAppStorage != null) {
-                    f5aVar2.y(putAppStorage.f());
-                    f5aVar2.u(putAppStorage.b());
-                    f5aVar2.o(putAppStorage.a());
-                    f5aVar2.x(putAppStorage.e());
+                    qdaVar2.y(putAppStorage.f());
+                    qdaVar2.u(putAppStorage.b());
+                    qdaVar2.o(putAppStorage.a());
+                    qdaVar2.x(putAppStorage.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/getHistoryForumData")) {
-                f5aVar2.s(true);
-                f5a historyForumData = this.mJsBridge.getHistoryForumData();
+                qdaVar2.s(true);
+                qda historyForumData = this.mJsBridge.getHistoryForumData();
                 if (historyForumData != null) {
-                    f5aVar2.y(historyForumData.f());
-                    f5aVar2.u(historyForumData.b());
-                    f5aVar2.o(historyForumData.a());
-                    f5aVar2.x(historyForumData.e());
+                    qdaVar2.y(historyForumData.f());
+                    qdaVar2.u(historyForumData.b());
+                    qdaVar2.o(historyForumData.a());
+                    qdaVar2.x(historyForumData.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("activity/worldCupRaiseSuccess")) {
-                f5aVar2.s(true);
-                f5a worldCupRaiseSuccess = this.mJsBridge.worldCupRaiseSuccess(e.optString("portrait"), e.optString("flagUrl"));
+                qdaVar2.s(true);
+                qda worldCupRaiseSuccess = this.mJsBridge.worldCupRaiseSuccess(e.optString("portrait"), e.optString("flagUrl"));
                 if (worldCupRaiseSuccess != null) {
-                    f5aVar2.y(worldCupRaiseSuccess.f());
-                    f5aVar2.u(worldCupRaiseSuccess.b());
-                    f5aVar2.o(worldCupRaiseSuccess.a());
-                    f5aVar2.x(worldCupRaiseSuccess.e());
+                    qdaVar2.y(worldCupRaiseSuccess.f());
+                    qdaVar2.u(worldCupRaiseSuccess.b());
+                    qdaVar2.o(worldCupRaiseSuccess.a());
+                    qdaVar2.x(worldCupRaiseSuccess.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("account/getAlipayUserId")) {
-                f5aVar2.s(true);
-                f5a alipayUserId = this.mJsBridge.getAlipayUserId();
+                qdaVar2.s(true);
+                qda alipayUserId = this.mJsBridge.getAlipayUserId();
                 this.mNotificationNameList.add("aliAuthResult");
                 if (alipayUserId != null) {
-                    f5aVar2.y(alipayUserId.f());
-                    f5aVar2.u(alipayUserId.b());
-                    f5aVar2.o(alipayUserId.a());
-                    f5aVar2.x(alipayUserId.e());
-                    if (!f5aVar2.h()) {
+                    qdaVar2.y(alipayUserId.f());
+                    qdaVar2.u(alipayUserId.b());
+                    qdaVar2.o(alipayUserId.a());
+                    qdaVar2.x(alipayUserId.e());
+                    if (!qdaVar2.h()) {
                         i4 = 0;
-                        f5aVar2.n(false);
-                        addObserver("aliAuthResult", f5aVar2, false);
-                        f5aVar2.z(i4);
+                        qdaVar2.n(false);
+                        addObserver("aliAuthResult", qdaVar2, false);
+                        qdaVar2.z(i4);
                     }
                 }
                 i4 = 0;
-                f5aVar2.z(i4);
+                qdaVar2.z(i4);
             } else if (b.equals("system/getFileDownloadStatus")) {
-                f5aVar2.s(true);
-                f5a fileDownloadStatus = this.mJsBridge.getFileDownloadStatus(e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
+                qdaVar2.s(true);
+                qda fileDownloadStatus = this.mJsBridge.getFileDownloadStatus(e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
                 if (fileDownloadStatus != null) {
-                    f5aVar2.y(fileDownloadStatus.f());
-                    f5aVar2.u(fileDownloadStatus.b());
-                    f5aVar2.o(fileDownloadStatus.a());
-                    f5aVar2.x(fileDownloadStatus.e());
+                    qdaVar2.y(fileDownloadStatus.f());
+                    qdaVar2.u(fileDownloadStatus.b());
+                    qdaVar2.o(fileDownloadStatus.a());
+                    qdaVar2.x(fileDownloadStatus.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/getFileDownloadProgress")) {
-                f5aVar2.s(true);
-                f5a fileDownloadProgress = this.mJsBridge.getFileDownloadProgress(e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
+                qdaVar2.s(true);
+                qda fileDownloadProgress = this.mJsBridge.getFileDownloadProgress(e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
                 if (fileDownloadProgress != null) {
-                    f5aVar2.y(fileDownloadProgress.f());
-                    f5aVar2.u(fileDownloadProgress.b());
-                    f5aVar2.o(fileDownloadProgress.a());
-                    f5aVar2.x(fileDownloadProgress.e());
+                    qdaVar2.y(fileDownloadProgress.f());
+                    qdaVar2.u(fileDownloadProgress.b());
+                    qdaVar2.o(fileDownloadProgress.a());
+                    qdaVar2.x(fileDownloadProgress.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/fileDownloadPause")) {
-                f5aVar2.s(true);
-                f5a fileDownloadPause = this.mJsBridge.fileDownloadPause(e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
+                qdaVar2.s(true);
+                qda fileDownloadPause = this.mJsBridge.fileDownloadPause(e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
                 if (fileDownloadPause != null) {
-                    f5aVar2.y(fileDownloadPause.f());
-                    f5aVar2.u(fileDownloadPause.b());
-                    f5aVar2.o(fileDownloadPause.a());
-                    f5aVar2.x(fileDownloadPause.e());
+                    qdaVar2.y(fileDownloadPause.f());
+                    qdaVar2.u(fileDownloadPause.b());
+                    qdaVar2.o(fileDownloadPause.a());
+                    qdaVar2.x(fileDownloadPause.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/fileDownloadDelete")) {
-                f5aVar2.s(true);
-                f5a fileDownloadDelete = this.mJsBridge.fileDownloadDelete(e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
+                qdaVar2.s(true);
+                qda fileDownloadDelete = this.mJsBridge.fileDownloadDelete(e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
                 if (fileDownloadDelete != null) {
-                    f5aVar2.y(fileDownloadDelete.f());
-                    f5aVar2.u(fileDownloadDelete.b());
-                    f5aVar2.o(fileDownloadDelete.a());
-                    f5aVar2.x(fileDownloadDelete.e());
+                    qdaVar2.y(fileDownloadDelete.f());
+                    qdaVar2.u(fileDownloadDelete.b());
+                    qdaVar2.o(fileDownloadDelete.a());
+                    qdaVar2.x(fileDownloadDelete.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/installGameApk")) {
-                f5aVar2.s(true);
-                f5a installGameApk = this.mJsBridge.installGameApk(e.optString("apkName"), e.optString("pkgName"), e.optString("apkUrl"), e.optString("apkVersion"), e.optInt("source"), e.optString("extInfo"));
+                qdaVar2.s(true);
+                qda installGameApk = this.mJsBridge.installGameApk(e.optString("apkName"), e.optString("pkgName"), e.optString("apkUrl"), e.optString("apkVersion"), e.optInt("source"), e.optString("extInfo"));
                 if (installGameApk != null) {
-                    f5aVar2.y(installGameApk.f());
-                    f5aVar2.u(installGameApk.b());
-                    f5aVar2.o(installGameApk.a());
-                    f5aVar2.x(installGameApk.e());
+                    qdaVar2.y(installGameApk.f());
+                    qdaVar2.u(installGameApk.b());
+                    qdaVar2.o(installGameApk.a());
+                    qdaVar2.x(installGameApk.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/launchApk")) {
-                f5aVar2.s(true);
-                f5a launchApk = this.mJsBridge.launchApk(e.optString("pkgName"), e.optString("apkName"), e.optString("apkUrl"), e.optInt("source"), e.optString("extInfo"));
+                qdaVar2.s(true);
+                qda launchApk = this.mJsBridge.launchApk(e.optString("pkgName"), e.optString("apkName"), e.optString("apkUrl"), e.optInt("source"), e.optString("extInfo"));
                 if (launchApk != null) {
-                    f5aVar2.y(launchApk.f());
-                    f5aVar2.u(launchApk.b());
-                    f5aVar2.o(launchApk.a());
-                    f5aVar2.x(launchApk.e());
+                    qdaVar2.y(launchApk.f());
+                    qdaVar2.u(launchApk.b());
+                    qdaVar2.o(launchApk.a());
+                    qdaVar2.x(launchApk.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/wakeKeyboard")) {
-                f5aVar2.s(true);
-                f5a wakeKeyboard = this.mJsBridge.wakeKeyboard();
+                qdaVar2.s(true);
+                qda wakeKeyboard = this.mJsBridge.wakeKeyboard(e.optString("postType"), e.optBoolean("showInputContainer"), e.optBoolean("showReplyContainer"), e.optBoolean("showStarContainer"), e.optBoolean("showEmotion"), e.optBoolean("showDIYEmotion"), e.optBoolean("showAt"), e.optJSONObject("topViewData"), e.optBoolean("show"));
                 if (wakeKeyboard != null) {
-                    f5aVar2.y(wakeKeyboard.f());
-                    f5aVar2.u(wakeKeyboard.b());
-                    f5aVar2.o(wakeKeyboard.a());
-                    f5aVar2.x(wakeKeyboard.e());
+                    qdaVar2.y(wakeKeyboard.f());
+                    qdaVar2.u(wakeKeyboard.b());
+                    qdaVar2.o(wakeKeyboard.a());
+                    qdaVar2.x(wakeKeyboard.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/replyPost")) {
-                f5aVar2.s(true);
-                f5a replyPost = this.mJsBridge.replyPost(e.optString("tid"));
+                qdaVar2.s(true);
+                qda replyPost = this.mJsBridge.replyPost(e.optString("tid"));
                 this.mNotificationNameList.add("replyPostResult");
                 if (replyPost != null) {
-                    f5aVar2.y(replyPost.f());
-                    f5aVar2.u(replyPost.b());
-                    f5aVar2.o(replyPost.a());
-                    f5aVar2.x(replyPost.e());
-                    if (!f5aVar2.h()) {
+                    qdaVar2.y(replyPost.f());
+                    qdaVar2.u(replyPost.b());
+                    qdaVar2.o(replyPost.a());
+                    qdaVar2.x(replyPost.e());
+                    if (!qdaVar2.h()) {
                         i3 = 0;
-                        f5aVar2.n(false);
-                        addObserver("replyPostResult", f5aVar2, false);
-                        f5aVar2.z(i3);
+                        qdaVar2.n(false);
+                        addObserver("replyPostResult", qdaVar2, false);
+                        qdaVar2.z(i3);
                     }
                 }
                 i3 = 0;
-                f5aVar2.z(i3);
+                qdaVar2.z(i3);
             } else if (b.equals("hybrid/nativeNetworkProxy")) {
-                f5aVar2.s(true);
-                f5a nativeNetworkProxy = this.mJsBridge.nativeNetworkProxy(e.optString("path"), e.optString("host"), e.optString("type"), e.optJSONObject("data"));
+                qdaVar2.s(true);
+                qda nativeNetworkProxy = this.mJsBridge.nativeNetworkProxy(e.optString("path"), e.optString("host"), e.optString("type"), e.optJSONObject("data"), e.optInt("needBduss"), e.optInt("needTbs"));
                 this.mNotificationNameList.add("nativeNetworkProxyResult");
                 if (nativeNetworkProxy != null) {
-                    f5aVar2.y(nativeNetworkProxy.f());
-                    f5aVar2.u(nativeNetworkProxy.b());
-                    f5aVar2.o(nativeNetworkProxy.a());
-                    f5aVar2.x(nativeNetworkProxy.e());
-                    if (!f5aVar2.h()) {
+                    qdaVar2.y(nativeNetworkProxy.f());
+                    qdaVar2.u(nativeNetworkProxy.b());
+                    qdaVar2.o(nativeNetworkProxy.a());
+                    qdaVar2.x(nativeNetworkProxy.e());
+                    if (!qdaVar2.h()) {
                         i2 = 0;
-                        f5aVar2.n(false);
-                        addObserver("nativeNetworkProxyResult", f5aVar2, false);
-                        f5aVar2.z(i2);
+                        qdaVar2.n(false);
+                        addObserver("nativeNetworkProxyResult", qdaVar2, false);
+                        qdaVar2.z(i2);
                     }
                 }
                 i2 = 0;
-                f5aVar2.z(i2);
+                qdaVar2.z(i2);
             } else if (b.equals("hybrid/requestByNativeNew")) {
-                f5aVar2.s(true);
-                f5a requestByNative = this.mJsBridge.requestByNative(e.optString("url"), e.optString("type"), e.optString("module"), e.optJSONObject("data"));
+                qdaVar2.s(true);
+                qda requestByNative = this.mJsBridge.requestByNative(e.optString("url"), e.optString("type"), e.optString("module"), e.optJSONObject("data"));
                 this.mNotificationNameList.add("RequestByNativeToH5");
                 if (requestByNative != null) {
-                    f5aVar2.y(requestByNative.f());
-                    f5aVar2.u(requestByNative.b());
-                    f5aVar2.o(requestByNative.a());
-                    f5aVar2.x(requestByNative.e());
-                    if (!f5aVar2.h()) {
+                    qdaVar2.y(requestByNative.f());
+                    qdaVar2.u(requestByNative.b());
+                    qdaVar2.o(requestByNative.a());
+                    qdaVar2.x(requestByNative.e());
+                    if (!qdaVar2.h()) {
                         i = 0;
-                        f5aVar2.n(false);
-                        addObserver("RequestByNativeToH5", f5aVar2, false);
-                        f5aVar2.z(i);
+                        qdaVar2.n(false);
+                        addObserver("RequestByNativeToH5", qdaVar2, false);
+                        qdaVar2.z(i);
                     }
                 }
                 i = 0;
-                f5aVar2.z(i);
+                qdaVar2.z(i);
             }
-            return f5aVar2;
+            return qdaVar2;
         }
-        return (f5a) invokeLL.objValue;
+        return (qda) invokeLL.objValue;
     }
 
     public SingleQuickWebViewBridge_Proxy(SingleQuickWebViewBridge singleQuickWebViewBridge) {
@@ -982,6 +992,7 @@ public class SingleQuickWebViewBridge_Proxy extends d5a {
         this.mNotificationNameList.add("saveImageSuccess");
         this.mNotificationNameList.add("orderGameApkResult");
         this.mNotificationNameList.add("GetPhotoAlbum");
+        this.mNotificationNameList.add("tbPayResult");
         this.mNotificationNameList.add("selectPhotoAlbum");
         this.mNotificationNameList.add("goToSelectPrivateMsgPage");
         this.mNotificationNameList.add("goToReportThreadPage");
@@ -1009,94 +1020,96 @@ public class SingleQuickWebViewBridge_Proxy extends d5a {
         this.mNotificationNameList.add("RequestByNativeToH5");
     }
 
-    @Override // com.baidu.tieba.d5a
-    public List<f5a> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.oda
+    public List<qda> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, hashMap)) == null) {
-            f5a f5aVar = null;
-            if (wi.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
+            qda qdaVar = null;
+            if (xi.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("commonLogin")) {
-                f5aVar = this.mJsBridge.newThirdPartyLoginResultToH5(hashMap);
+                qdaVar = this.mJsBridge.newThirdPartyLoginResultToH5(hashMap);
             } else if (str.equals("realNameAuthResult")) {
-                f5aVar = this.mJsBridge.realNameAuthResult(hashMap);
+                qdaVar = this.mJsBridge.realNameAuthResult(hashMap);
             } else if (str.equals("saveImageSuccess")) {
-                f5aVar = this.mJsBridge.saveImageSuccess(hashMap);
+                qdaVar = this.mJsBridge.saveImageSuccess(hashMap);
             } else if (str.equals("orderGameApkResult")) {
-                f5aVar = this.mJsBridge.orderGameApkResult(hashMap);
+                qdaVar = this.mJsBridge.orderGameApkResult(hashMap);
             } else if (str.equals("GetPhotoAlbum")) {
-                f5aVar = this.mJsBridge.getPhotoAlbumResult(hashMap);
+                qdaVar = this.mJsBridge.getPhotoAlbumResult(hashMap);
+            } else if (str.equals("tbPayResult")) {
+                qdaVar = this.mJsBridge.tbPayResult(hashMap);
             } else if (str.equals("selectPhotoAlbum")) {
-                f5aVar = this.mJsBridge.getSelectPhotoAlbumResult(hashMap);
+                qdaVar = this.mJsBridge.getSelectPhotoAlbumResult(hashMap);
             } else if (str.equals("goToSelectPrivateMsgPage")) {
-                f5aVar = this.mJsBridge.getSelectPrivateImResult(hashMap);
+                qdaVar = this.mJsBridge.getSelectPrivateImResult(hashMap);
             } else if (str.equals("goToReportThreadPage")) {
-                f5aVar = this.mJsBridge.getToReportThemePage(hashMap);
+                qdaVar = this.mJsBridge.getToReportThemePage(hashMap);
             } else if (str.equals("getPageLeaveTime")) {
-                f5aVar = this.mJsBridge.springFestivalTimeToH5(hashMap);
+                qdaVar = this.mJsBridge.springFestivalTimeToH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.CHANGE_SKIN_TYPE)) {
-                f5aVar = this.mJsBridge.changeSkinTypeInH5(hashMap);
+                qdaVar = this.mJsBridge.changeSkinTypeInH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.OPEN_VIP_SUCCESS)) {
-                f5aVar = this.mJsBridge.openVipSuccessInH5(hashMap);
+                qdaVar = this.mJsBridge.openVipSuccessInH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.REFRESH_TAIL)) {
-                f5aVar = this.mJsBridge.refreshTailInH5(hashMap);
+                qdaVar = this.mJsBridge.refreshTailInH5(hashMap);
             } else if (str.equals("writePostSuccess")) {
-                f5aVar = this.mJsBridge.writePostSuccess(hashMap);
+                qdaVar = this.mJsBridge.writePostSuccess(hashMap);
             } else if (str.equals(CommonTbJsBridge.CHANGE_POST_WALL)) {
-                f5aVar = this.mJsBridge.postWriteWallData(hashMap);
+                qdaVar = this.mJsBridge.postWriteWallData(hashMap);
             } else if (str.equals(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION)) {
-                f5aVar = this.mJsBridge.shareSuccessNotification(hashMap);
+                qdaVar = this.mJsBridge.shareSuccessNotification(hashMap);
             } else if (str.equals(CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN)) {
-                f5aVar = this.mJsBridge.thirdPartyLoginResultToH5(hashMap);
+                qdaVar = this.mJsBridge.thirdPartyLoginResultToH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.LOGIN_RESULT_TO_H5)) {
-                f5aVar = this.mJsBridge.onUserLoginChanged(hashMap);
+                qdaVar = this.mJsBridge.onUserLoginChanged(hashMap);
             } else if (str.equals(SearchJsBridge.METHOD_SET_SEARCH_HISTORY)) {
-                f5aVar = this.mJsBridge.setSearchHistory(hashMap);
+                qdaVar = this.mJsBridge.setSearchHistory(hashMap);
             } else if (str.equals(CommonTbJsBridge.RE_SHOW)) {
-                f5aVar = this.mJsBridge.reShow(hashMap);
+                qdaVar = this.mJsBridge.reShow(hashMap);
             } else if (str.equals(CommonTbJsBridge.RE_HIDE)) {
-                f5aVar = this.mJsBridge.reHide(hashMap);
+                qdaVar = this.mJsBridge.reHide(hashMap);
             } else if (str.equals(CommonTbJsBridge.CLICK_GO_BACK_TO_H5)) {
-                f5aVar = this.mJsBridge.dealClickGoBackToH5(hashMap);
+                qdaVar = this.mJsBridge.dealClickGoBackToH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.GO_BACK_FROM_NATIVE)) {
-                f5aVar = this.mJsBridge.dealGoBackFromNative(hashMap);
+                qdaVar = this.mJsBridge.dealGoBackFromNative(hashMap);
             } else if (str.equals("deviceMotion")) {
-                f5aVar = this.mJsBridge.deviceMotion(hashMap);
+                qdaVar = this.mJsBridge.deviceMotion(hashMap);
             } else if (str.equals("deviceRefreshRate")) {
-                f5aVar = this.mJsBridge.deviceRefreshRate(hashMap);
+                qdaVar = this.mJsBridge.deviceRefreshRate(hashMap);
             } else if (str.equals("aliAuthResult")) {
-                f5aVar = this.mJsBridge.notifyAliAuthResult(hashMap);
+                qdaVar = this.mJsBridge.notifyAliAuthResult(hashMap);
             } else if (str.equals(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_RESULT)) {
-                f5aVar = this.mJsBridge.notifyFileDownloadStatusResult(hashMap);
+                qdaVar = this.mJsBridge.notifyFileDownloadStatusResult(hashMap);
             } else if (str.equals(CommonTbJsBridge.INSTALL_APK_RESULT)) {
-                f5aVar = this.mJsBridge.notifyApkInstallResult(hashMap);
+                qdaVar = this.mJsBridge.notifyApkInstallResult(hashMap);
             } else if (str.equals("replyPostResult")) {
-                f5aVar = this.mJsBridge.replyPostResult(hashMap);
+                qdaVar = this.mJsBridge.replyPostResult(hashMap);
             } else if (str.equals("nativeNetworkProxyResult")) {
-                f5aVar = this.mJsBridge.nativeNetworkProxy(hashMap);
+                qdaVar = this.mJsBridge.nativeNetworkProxy(hashMap);
             } else if (str.equals("RequestByNativeToH5")) {
-                f5aVar = this.mJsBridge.requestByNativeToH5(hashMap);
+                qdaVar = this.mJsBridge.requestByNativeToH5(hashMap);
             }
-            if (f5aVar != null) {
-                f5aVar.z(0);
+            if (qdaVar != null) {
+                qdaVar.z(0);
             }
-            List<e5a> list = this.mAsyncCallBackMethodList.get(str);
-            if (f5aVar != null && list != null) {
-                Iterator<e5a> it = list.iterator();
-                if (!wi.isEmpty(f5aVar.e())) {
+            List<pda> list = this.mAsyncCallBackMethodList.get(str);
+            if (qdaVar != null && list != null) {
+                Iterator<pda> it = list.iterator();
+                if (!xi.isEmpty(qdaVar.e())) {
                     while (it.hasNext()) {
-                        e5a next = it.next();
-                        if (next.b().equals(f5aVar.e())) {
-                            f5a f5aVar2 = new f5a();
-                            f5aVar2.w(next.a());
-                            f5aVar2.y(f5aVar.f());
-                            f5aVar2.u(f5aVar.b());
-                            f5aVar2.o(f5aVar.a());
-                            f5aVar2.A(f5aVar.l());
-                            arrayList.add(f5aVar2);
+                        pda next = it.next();
+                        if (next.b().equals(qdaVar.e())) {
+                            qda qdaVar2 = new qda();
+                            qdaVar2.w(next.a());
+                            qdaVar2.y(qdaVar.f());
+                            qdaVar2.u(qdaVar.b());
+                            qdaVar2.o(qdaVar.a());
+                            qdaVar2.A(qdaVar.l());
+                            arrayList.add(qdaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -1104,14 +1117,14 @@ public class SingleQuickWebViewBridge_Proxy extends d5a {
                     }
                 } else {
                     while (it.hasNext()) {
-                        e5a next2 = it.next();
-                        f5a f5aVar3 = new f5a();
-                        f5aVar3.w(next2.a());
-                        f5aVar3.y(f5aVar.f());
-                        f5aVar3.u(f5aVar.b());
-                        f5aVar3.o(f5aVar.a());
-                        f5aVar3.A(f5aVar.l());
-                        arrayList.add(f5aVar3);
+                        pda next2 = it.next();
+                        qda qdaVar3 = new qda();
+                        qdaVar3.w(next2.a());
+                        qdaVar3.y(qdaVar.f());
+                        qdaVar3.u(qdaVar.b());
+                        qdaVar3.o(qdaVar.a());
+                        qdaVar3.A(qdaVar.l());
+                        arrayList.add(qdaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

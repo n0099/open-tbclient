@@ -1,108 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.http.HttpClientWrap;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class pv4 {
+public class pv4 extends ov4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public String e;
-    public final Map<String, String> f;
-    public final List<uv4> g;
 
-    public pv4(String str, String str2, String str3) {
+    @Override // com.baidu.tieba.nv4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "d" : (String) invokeV.objValue;
+    }
+
+    public pv4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = new LinkedHashMap();
-        this.g = new ArrayList();
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
-            a();
-            b();
-            c();
-            return;
-        }
-        this.d = false;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.add(new aw4());
-            this.g.add(new yv4());
-            this.g.add(new wv4());
-            this.g.add(new bw4());
-            this.g.add(new zv4());
-            this.g.add(new cw4());
-            this.g.add(new xv4());
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || StringUtils.isNull(this.b)) {
-            return;
-        }
-        String valueOf = String.valueOf(this.b.charAt(0));
-        String[] split = this.b.split("@");
-        for (uv4 uv4Var : this.g) {
-            if (valueOf.equals(uv4Var.b())) {
-                String a = uv4Var.a(split, this.f);
-                this.e = a;
-                if (!StringUtils.isNull(a)) {
-                    this.d = true;
-                    return;
-                }
-                return;
             }
         }
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.nv4
+    public String a(String[] strArr, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f.put("@d", BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
-            this.f.put("@n", BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
-            this.f.put("@v", BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
-            this.f.put("@rid", HttpClientWrap.f);
-            this.f.put("@sid", TiebaStatic.Params.WISE_SAMPLE_ID);
-            this.f.put("@c", TiebaStatic.Params.QD);
-            this.f.put("@p", "obj_source");
-            this.f.put("@eq", TiebaStatic.Params.EQID);
-            this.f.put("@1p", "obj_param1");
-            this.f.put("@2p", TiebaStatic.Params.OBJ_PARAM2);
-            this.f.put("@m", "obj_name");
-            this.f.put("@re", "refer");
-            this.f.put("@lo", "obj_locate");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                String substring = strArr[0].substring(1);
+                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/pb");
+                sb.append("?ori_ugc_tid=");
+                sb.append(substring);
+                c(strArr, sb, map, 1);
+                return sb.toString();
+            }
+            return null;
         }
+        return (String) invokeLL.objValue;
     }
 }

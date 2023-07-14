@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ra5;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.jb5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ra5 o;
+    public jb5 o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorMessageButton(Context context) {
@@ -87,13 +87,13 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ra5 ra5Var = new ra5();
-            this.o = ra5Var;
-            ra5Var.r(R.color.CAM_X0903);
-            this.o.g(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
-            this.o.v(R.drawable.icon_mask_messageline, TBSpecificationButtonConfig.IconType.WEBP);
-            this.o.p(TBSpecificationButtonConfig.WebpType.PURE);
-            this.o.h(R.color.CAM_X0304);
+            jb5 jb5Var = new jb5();
+            this.o = jb5Var;
+            jb5Var.s(R.color.CAM_X0903);
+            this.o.h(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
+            this.o.w(R.drawable.icon_mask_messageline, TBSpecificationButtonConfig.IconType.WEBP);
+            this.o.q(TBSpecificationButtonConfig.WebpType.PURE);
+            this.o.i(R.color.CAM_X0304);
             setConfig(this.o);
         }
     }

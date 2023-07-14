@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.impersonal.databinding.ActivityPersonalChatBinding;
-import com.baidu.tieba.ip8;
-import com.baidu.tieba.l1b;
-import com.baidu.tieba.uw5;
+import com.baidu.tieba.jab;
+import com.baidu.tieba.jv8;
+import com.baidu.tieba.yx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         c = new a(null);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.cs5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.gt5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,13 +99,14 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
             }
         }
 
-        public final void a(Context context, String str, String str2) {
+        public final void a(Context context, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, str2) == null) {
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, str3) == null) {
                 Intrinsics.checkNotNullParameter(context, "context");
                 Intent intent = new Intent(context, PersonalChatActivity.class);
                 intent.putExtra("key_sprite_talk_type", str);
                 intent.putExtra("key_sprite_talk_prologue", str2);
+                intent.putExtra("key_sprite_params_forumId", str3);
                 context.startActivity(intent);
             }
         }
@@ -160,7 +161,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     VoiceManager voiceManager = new VoiceManager();
                     PersonalChatActivity personalChatActivity = this.this$0;
-                    VoiceManager.setIsUseMediaPlayer(true);
+                    voiceManager.setIsUseMediaPlayer(true);
                     VoiceManager.setIsNeedBlackScreen(false);
                     voiceManager.onCreate(personalChatActivity.getPageContext());
                     voiceManager.setSpeakerphoneOn(!TbadkCoreApplication.getInst().isHeadsetModeOn());
@@ -192,7 +193,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            VoiceManager.setIsUseMediaPlayer(false);
+            u1().setIsUseMediaPlayer(false);
             VoiceManager.setIsNeedBlackScreen(true);
             y0().onDestory(getPageContext());
         }
@@ -370,7 +371,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
             if (bundle == null) {
                 PersonalChatFragment personalChatFragment = new PersonalChatFragment();
                 personalChatFragment.setArguments(getIntent().getExtras());
-                uw5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f0906ad, personalChatFragment);
+                yx5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f0906af, personalChatFragment);
             }
             adjustResizeForSoftInput();
             addGlobalLayoutListener();
@@ -384,8 +385,8 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
                 str = "0";
             }
             boolean z = false;
-            int b = l1b.b(str, 0);
-            ip8.b((b == 1 || b == 2) ? true : true);
+            int b = jab.b(str, 0);
+            jv8.b((b == 1 || b == 2) ? true : true);
         }
     }
 

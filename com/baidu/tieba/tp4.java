@@ -1,18 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.util.AttributeSet;
-import android.view.View;
+import androidx.annotation.AnimRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class tp4 extends sp4 {
+public abstract class tp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract tp4 a(@IdRes int i, Fragment fragment);
+
+    public abstract tp4 b(@IdRes int i, Fragment fragment, @Nullable String str);
+
+    public abstract tp4 c(Fragment fragment, String str);
+
+    public abstract tp4 d(@Nullable String str);
+
+    public abstract int e();
+
+    public abstract int f();
+
+    public abstract tp4 g(Fragment fragment);
+
+    public abstract tp4 h(Fragment fragment);
+
+    public abstract tp4 i(@AnimRes int i, @AnimRes int i2);
+
+    public abstract tp4 j(Fragment fragment);
 
     public tp4() {
         Interceptable interceptable = $ic;
@@ -26,19 +45,5 @@ public abstract class tp4 extends sp4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // android.app.Activity, android.view.LayoutInflater.Factory2
-    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
-            View g = g(view2, str, context, attributeSet);
-            if (g == null && Build.VERSION.SDK_INT >= 11) {
-                return super.onCreateView(view2, str, context, attributeSet);
-            }
-            return g;
-        }
-        return (View) invokeLLLL.objValue;
     }
 }

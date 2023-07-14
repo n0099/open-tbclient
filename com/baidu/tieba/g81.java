@@ -1,14 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
-public interface g81 {
-    @Nullable
-    Intent a();
+import android.content.Context;
+import android.os.Process;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class g81 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    String[] b();
-
-    int getMode();
+    public static int a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (str != null) {
+                return context.checkPermission(str, Process.myPid(), Process.myUid());
+            }
+            throw new IllegalArgumentException("permission is null");
+        }
+        return invokeLL.intValue;
+    }
 }

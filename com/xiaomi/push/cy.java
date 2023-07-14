@@ -94,11 +94,11 @@ public abstract class cy {
             try {
                 ArrayList<String> arrayList = new ArrayList<>();
                 if (z) {
-                    cq m340a = cu.a().m340a(str);
-                    if (m340a != null) {
-                        arrayList = m340a.a(str);
+                    cq m342a = cu.a().m342a(str);
+                    if (m342a != null) {
+                        arrayList = m342a.a(str);
                     }
-                    cqVar = m340a;
+                    cqVar = m342a;
                 } else {
                     cqVar = null;
                 }
@@ -116,7 +116,7 @@ public abstract class cy {
                         iOException = e;
                         str2 = str4;
                     }
-                    if (!cxVar.m349a(context, next, (List<bh>) arrayList2)) {
+                    if (!cxVar.m351a(context, next, (List<bh>) arrayList2)) {
                         return str4;
                     }
                     String a2 = cxVar.a(context, next, (List<bh>) arrayList2);

@@ -1,53 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Looper;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.UploadDataProvider;
+import com.baidu.turbonet.net.UploadDataSink;
+import java.io.IOException;
+import java.net.HttpRetryException;
+import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
-public class f2b {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "UnionIDHelper";
-    public static boolean c;
-    public static f2b d;
+public final class f2b extends j2b {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final h2b d;
+    public final k2b e;
+    public final ByteBuffer f;
+    public final UploadDataProvider g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947713651, "Lcom/baidu/tieba/f2b;")) == null) {
-            return;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // com.baidu.tieba.j2b
+    public void e() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947713651, "Lcom/baidu/tieba/f2b;");
+    }
+
+    @Override // com.baidu.tieba.j2b
+    public void g() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements n2b {
+    public class b extends UploadDataProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e2b a;
+        public final /* synthetic */ f2b a;
 
-        public a(f2b f2bVar, e2b e2bVar) {
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return -1L;
+            }
+            return invokeV.longValue;
+        }
+
+        public b(f2b f2bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {f2bVar, e2bVar};
+                Object[] objArr = {f2bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,91 +75,153 @@ public class f2b {
                     return;
                 }
             }
-            this.a = e2bVar;
+            this.a = f2bVar;
         }
 
-        @Override // com.baidu.tieba.n2b
-        public void a(o2b o2bVar) {
-            d2b d2bVar;
-            boolean z;
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public void c(UploadDataSink uploadDataSink) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, o2bVar) == null) {
-                if (f2b.c) {
-                    String str = f2b.b;
-                    Log.d(str, "异步回调 结果:" + o2bVar);
-                    String str2 = f2b.b;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("异步回调 (listener != null):");
-                    if (this.a != null) {
-                        z = true;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
+                uploadDataSink.b(new HttpRetryException("Cannot retry streamed Http body", -1));
+            }
+        }
+
+        public /* synthetic */ b(f2b f2bVar, a aVar) {
+            this(f2bVar);
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
+                if (byteBuffer.remaining() >= this.a.f.remaining()) {
+                    byteBuffer.put(this.a.f);
+                    this.a.f.clear();
+                    uploadDataSink.a(this.a.h);
+                    if (!this.a.h) {
+                        this.a.e.quit();
+                        return;
+                    } else if (this.a.i) {
+                        this.a.e.quit();
+                        return;
                     } else {
-                        z = false;
+                        return;
                     }
-                    sb.append(z);
-                    Log.d(str2, sb.toString());
                 }
-                e2b e2bVar = this.a;
-                if (e2bVar != null) {
-                    if (o2bVar == null) {
-                        d2bVar = null;
-                    } else {
-                        d2bVar = new d2b(o2bVar.c(), o2bVar.isSupport(), o2bVar.getOAID(), o2bVar.getAAID(), o2bVar.getVAID(), o2bVar.getStatusCode());
-                    }
-                    e2bVar.a(0, d2bVar);
-                }
+                int limit = this.a.f.limit();
+                this.a.f.limit(this.a.f.position() + byteBuffer.remaining());
+                byteBuffer.put(this.a.f);
+                this.a.f.limit(limit);
+                uploadDataSink.a(false);
             }
         }
     }
 
-    public f2b(Context context) {
+    public f2b(h2b h2bVar, int i, k2b k2bVar, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {h2bVar, Integer.valueOf(i), k2bVar, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.g = new b(this, null);
+        if (h2bVar != null) {
+            if (i > 0) {
+                this.f = ByteBuffer.allocate(i);
+                this.d = h2bVar;
+                this.e = k2bVar;
+                this.i = z;
+                this.j = z2;
+                return;
+            }
+            throw new IllegalArgumentException("chunkLength should be greater than 0");
+        }
+        throw null;
     }
 
-    public static f2b c(Context context) {
-        InterceptResult invokeL;
+    @Override // java.io.OutputStream
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (d == null) {
-                synchronized (f2b.class) {
-                    if (d == null) {
-                        d = new f2b(context);
-                        h2b.c(context);
-                    }
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            m();
+            this.f.put((byte) i);
+        }
+    }
+
+    @Override // com.baidu.tieba.j2b, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.close();
+            if (!this.h) {
+                this.h = true;
+                this.f.flip();
+                if (this.i) {
+                    this.e.b(this.d.getReadTimeout());
                 }
             }
-            return d;
-        }
-        return (f2b) invokeL.objValue;
-    }
-
-    public void e(e2b e2bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2bVar) == null) {
-            g2b g2bVar = new g2b();
-            g2bVar.b(1);
-            g2bVar.a(false);
-            d(g2bVar, e2bVar, Looper.getMainLooper());
         }
     }
 
-    public void d(g2b g2bVar, e2b e2bVar, Looper looper) {
+    @Override // com.baidu.tieba.j2b
+    public UploadDataProvider f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, g2bVar, e2bVar, looper) == null) {
-            l2b.o().i(this.a, looper, new a(this, e2bVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return (UploadDataProvider) invokeV.objValue;
+    }
+
+    @Override // java.io.OutputStream, java.io.Flushable
+    public void flush() throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.j && this.f.position() > 0) {
+            n();
+        }
+    }
+
+    public final void m() throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.f.hasRemaining()) {
+            n();
+        }
+    }
+
+    public final void n() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            c();
+            this.f.flip();
+            this.e.b(this.d.getReadTimeout());
+            a();
+        }
+    }
+
+    @Override // java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2) == null) {
+            c();
+            if (bArr.length - i >= i2 && i >= 0 && i2 >= 0) {
+                int i3 = i2;
+                while (i3 > 0) {
+                    int min = Math.min(i3, this.f.remaining());
+                    this.f.put(bArr, (i + i2) - i3, min);
+                    i3 -= min;
+                    m();
+                }
+                return;
+            }
+            throw new IndexOutOfBoundsException();
         }
     }
 }

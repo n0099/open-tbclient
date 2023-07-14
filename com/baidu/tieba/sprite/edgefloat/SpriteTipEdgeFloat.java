@@ -5,7 +5,7 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.jz9;
+import com.baidu.tieba.l7a;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -181,14 +181,14 @@ public final class SpriteTipEdgeFloat {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    jz9 jz9Var = new jz9(this.$activity);
-                    jz9Var.M(this.this$0.c());
-                    jz9Var.y(this.$gravity);
-                    jz9Var.I(this.$startX);
-                    jz9Var.J(this.$startY);
-                    jz9Var.d(this.$canDrag);
-                    jz9Var.D(this.$pageSupportList);
-                    return jz9Var.c();
+                    l7a l7aVar = new l7a(this.$activity);
+                    l7aVar.M(this.this$0.c());
+                    l7aVar.y(this.$gravity);
+                    l7aVar.I(this.$startX);
+                    l7aVar.J(this.$startY);
+                    l7aVar.d(this.$canDrag);
+                    l7aVar.D(this.$pageSupportList);
+                    return l7aVar.c();
                 }
                 return (EdgeFloat) invokeV.objValue;
             }
@@ -216,7 +216,7 @@ public final class SpriteTipEdgeFloat {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c().e();
+            c().f();
         }
     }
 
@@ -240,13 +240,6 @@ public final class SpriteTipEdgeFloat {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             EdgeFloatLifecycle.b.a().l(b());
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b().D();
         }
     }
 }

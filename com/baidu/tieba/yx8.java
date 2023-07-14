@@ -1,16 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.AbConfigService;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yx8 extends wl1<AbConfigService> {
+public abstract class yx8<SdkMsg extends ChatMsg, T> implements by8<SdkMsg, cw8<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract int c();
+
+    public abstract SdkMsg e(T t);
+
+    public abstract T g(SdkMsg sdkmsg);
 
     public yx8() {
         Interceptable interceptable = $ic;
@@ -27,14 +42,83 @@ public class yx8 extends wl1<AbConfigService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wl1
-    /* renamed from: a */
-    public AbConfigService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.by8
+    /* renamed from: d */
+    public SdkMsg b(cw8<T> msg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new zx8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            SdkMsg e = e(msg.f());
+            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.m.a())));
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", c());
+            jSONObject.put("from", "android");
+            e.setContentExtra(jSONObject.toString());
+            return e;
         }
-        return (AbConfigService) invokeV.objValue;
+        return (SdkMsg) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.by8
+    /* renamed from: f */
+    public cw8<T> a(SdkMsg msg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            cw8<T> cw8Var = new cw8<>();
+            cw8Var.i(g(msg));
+            cw8Var.c(msg.getMsgId());
+            String msgKey = msg.getMsgKey();
+            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
+            cw8Var.d(msgKey);
+            cw8Var.e().l(msg.getContacterUk());
+            cw8Var.e().k(jab.c(msg.getSenderUid(), 0L));
+            cw8Var.e().i(msg.getStatus());
+            cw8Var.j(msg);
+            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
+            cw8Var.e().h(isSelf);
+            if (!isSelf) {
+                cw8Var.e().g(TbSingleton.getInstance().getFunnySpriteAvatar());
+                cw8Var.e().f(TbSingleton.getInstance().getFunnySpriteName());
+            } else {
+                cw8Var.e().g(TbadkCoreApplication.getCurrentPortrait());
+                cw8Var.e().f(TbadkCoreApplication.getCurrentAccountNameShow());
+            }
+            if (!StringUtils.isNull(msg.getContentExtra())) {
+                try {
+                    JSONObject jSONObject = new JSONObject(msg.getContentExtra());
+                    cw8Var.e().j(jSONObject.optInt("type"));
+                    cw8Var.e().e(jSONObject.optString("from"));
+                } catch (JSONException e) {
+                    if (!TbadkApplication.getInst().isDebugMode()) {
+                        e.printStackTrace();
+                    } else {
+                        throw e;
+                    }
+                }
+            }
+            String msgContent = msg.getMsgContent();
+            if (msgContent == null) {
+                msgContent = "";
+            } else {
+                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
+            }
+            if (!xi.isEmpty(msgContent)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(msgContent);
+                    bw8 g = cw8Var.g();
+                    String optString = jSONObject2.optString("origin_msg_key");
+                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
+                    g.b(optString);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            }
+            return cw8Var;
+        }
+        return (cw8) invokeL.objValue;
     }
 }

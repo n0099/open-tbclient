@@ -1,117 +1,86 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Environment;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class e4a {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] c;
-    public static final int[] d;
-    public static final int[] e;
-    public static final int[] f;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseIntArray a;
-    public final int[] b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685751, "Lcom/baidu/tieba/e4a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947685751, "Lcom/baidu/tieba/e4a;");
-                return;
+            int lastIndexOf = str.lastIndexOf(File.separator);
+            if (lastIndexOf == -1) {
+                return "";
             }
+            return str.substring(0, lastIndexOf);
         }
-        c = new int[]{3, 8, 13};
-        d = new int[]{2, 12};
-        e = new int[]{20};
-        f = new int[]{3, 13, 23};
+        return (String) invokeL.objValue;
     }
 
-    public e4a(String str, int[] iArr) {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, iArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                return Environment.getExternalStorageDirectory() + File.separator + "tieba/Logs/";
+            } catch (Exception e) {
+                BdLog.e(Log.getStackTraceString(e));
+                return null;
             }
         }
-        this.b = iArr;
-        this.a = new SparseIntArray();
+        return (String) invokeV.objValue;
     }
 
-    public void a(int i, int i2) {
-        SparseIntArray sparseIntArray;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i2 >= 0 && (sparseIntArray = this.a) != null) {
-            sparseIntArray.append(i2, i);
-        }
-    }
-
-    public int b(int i) {
-        InterceptResult invokeI;
-        SparseIntArray sparseIntArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0 || (sparseIntArray = this.a) == null) {
-                return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String path = Environment.getExternalStorageDirectory().getPath();
+            int length = path.length() - 1;
+            if (length > 0 && !path.substring(length).equals(File.separator)) {
+                return path + File.separator;
             }
-            return sparseIntArray.get(i, -1);
+            return path;
         }
-        return invokeI.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void c(int i) {
-        SparseIntArray sparseIntArray;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (sparseIntArray = this.a) != null) {
-            sparseIntArray.delete(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d() + "tieba/Logs/";
         }
+        return (String) invokeV.objValue;
     }
 
-    public void e(int i) {
+    public static boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (i < 0) {
-                i = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String a = a(str);
+            if (TextUtils.isEmpty(a)) {
+                return false;
             }
-            SparseIntArray sparseIntArray = this.a;
-            if (sparseIntArray != null) {
-                sparseIntArray.clear();
-                int[] iArr = this.b;
-                if (iArr != null) {
-                    for (int i2 : iArr) {
-                        if (i2 >= 0) {
-                            this.a.append(i2 + i, i2);
-                        }
-                    }
-                }
+            File file = new File(a);
+            if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
+                return false;
             }
+            return true;
         }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e(0);
-        }
+        return invokeL.booleanValue;
     }
 }

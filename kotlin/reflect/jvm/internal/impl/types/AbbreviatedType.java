@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.types;
 import kotlin.TypeCastException;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class AbbreviatedType extends DelegatingSimpleType {
     public final SimpleType abbreviation;
     public final SimpleType delegate;

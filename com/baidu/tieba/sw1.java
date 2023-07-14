@@ -1,10 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import java.util.List;
+import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes7.dex */
 public interface sw1 {
-    @Nullable
-    List<ContentValues> a();
+    void a(String str);
+
+    void b();
+
+    void c(String str);
+
+    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable sw2 sw2Var);
+
+    void e(String str);
+
+    void f(String str);
 }

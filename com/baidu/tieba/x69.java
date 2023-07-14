@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelbase.BaseResp;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class x69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public BaseResp b;
 
     public x69() {
         Interceptable interceptable = $ic;
@@ -24,6 +22,14 @@ public class x69 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            jSONObject.optString("error_code");
+            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
         }
     }
 }

@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import java.util.Map;
+import android.content.Context;
+import android.net.Uri;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface aw2 {
-    void a(zc3 zc3Var);
 
-    @Nullable
-    Map<String, Object> b(@NonNull d02 d02Var);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
 
-    @Nullable
-    Map<String, Object> c(@NonNull d02 d02Var);
+        void b();
+    }
 
-    @Nullable
-    Map<Class, Object> d();
+    void a(Context context, JSONObject jSONObject, a aVar);
+
+    void b(Context context, String str, Uri uri);
 }

@@ -1,19 +1,22 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.LoginPassV6Switch;
-import com.baidu.tbadk.switchs.LowVersionLoginPassV6Switch;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryReadMessage;
+import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryReadMessage;
+import com.baidu.tieba.ye;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class p29 {
+public class p29 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,44 +34,42 @@ public class p29 {
         }
     }
 
-    public void a(String str) {
+    public static final List<String> a(List<ye.b<String>> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void b(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("config");
-            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("switch")) != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                    if (jSONObject2 != null) {
-                        String optString = jSONObject2.optString("name");
-                        Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
-                        if (LoginPassV6Switch.KEY.equals(optString)) {
-                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                            hc5.a();
-                        }
-                        if (TextUtils.equals(LowVersionLoginPassV6Switch.KEY, optString)) {
-                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                            hc5.a();
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            LinkedList linkedList = new LinkedList();
+            if (list != null) {
+                for (ye.b<String> bVar : list) {
+                    String str = bVar.a;
+                    if (!TextUtils.isEmpty(str)) {
+                        linkedList.add(str);
                     }
                 }
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            return linkedList;
         }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                o55.e();
+                List<String> a = a(ej.b(o55.g("tb.searchperson_history", currentAccount)));
+                ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
+                responseSearchPersonHistoryReadMessage.datas.addAll(a);
+                return responseSearchPersonHistoryReadMessage;
+            }
+            return null;
+        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

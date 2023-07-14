@@ -23,6 +23,7 @@ public class GroupChatRoomPojo extends OrmObject {
     public long i;
     public int j;
     public int k;
+    public long l;
 
     public GroupChatRoomPojo() {
         Interceptable interceptable = $ic;
@@ -38,7 +39,7 @@ public class GroupChatRoomPojo extends OrmObject {
         }
     }
 
-    public int U() {
+    public int V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -47,7 +48,7 @@ public class GroupChatRoomPojo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public int V() {
+    public int W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -92,10 +93,19 @@ public class GroupChatRoomPojo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public long getLatestMsgId() {
+    public long getLastExitChatRoomTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.l;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getLatestMsgId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.f;
         }
         return invokeV.longValue;
@@ -104,7 +114,7 @@ public class GroupChatRoomPojo extends OrmObject {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.d;
         }
         return (String) invokeV.objValue;
@@ -113,7 +123,7 @@ public class GroupChatRoomPojo extends OrmObject {
     public long getRoomId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.a;
         }
         return invokeV.longValue;
@@ -122,7 +132,7 @@ public class GroupChatRoomPojo extends OrmObject {
     public long getTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.g;
         }
         return invokeV.longValue;
@@ -131,13 +141,13 @@ public class GroupChatRoomPojo extends OrmObject {
     public long getTopTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.i;
         }
         return invokeV.longValue;
     }
 
-    public void W(long j) {
+    public void X(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             this.f = j;
@@ -146,70 +156,77 @@ public class GroupChatRoomPojo extends OrmObject {
 
     public void setAvatar(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.e = str;
         }
     }
 
     public void setDeleteTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
             this.h = j;
         }
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.b = str;
         }
     }
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.c = str;
         }
     }
 
     public void setIsSubscribe(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.j = i;
+        }
+    }
+
+    public void setLastExitChatRoomTime(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.l = j;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             this.d = str;
         }
     }
 
     public void setNoDisturb(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             this.k = i;
         }
     }
 
     public void setRoomId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
             this.a = j;
         }
     }
 
     public void setTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
             this.g = j;
         }
     }
 
     public void setTopTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
             this.i = j;
         }
     }

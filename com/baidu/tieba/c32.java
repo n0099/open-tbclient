@@ -1,115 +1,116 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.StandardCharsets;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c32 extends b32 {
+public class c32 extends u22 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.f02
+    @Override // com.baidu.tieba.yz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CalcMD5Api" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LogApi" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ c32 c;
-
-        public a(c32 c32Var, String str, String str2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947623751, "Lcom/baidu/tieba/c32;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c32Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = c32Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                byte[] bytes = this.a.getBytes(StandardCharsets.UTF_8);
-                if (bytes.length > 3145728) {
-                    this.c.d(this.b, new c42(202, "Data Too Large."));
-                    return;
-                }
-                String d = is4.d(bytes, false);
-                if (TextUtils.isEmpty(d)) {
-                    this.c.d(this.b, new c42(1001, "Execute Fail."));
-                    return;
-                }
-                c42 c42Var = new c42(0);
-                c42Var.g("result", d);
-                this.c.d(this.b, c42Var);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947623751, "Lcom/baidu/tieba/c32;");
+                return;
             }
         }
+        f = fs1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c32(@NonNull d02 d02Var) {
-        super(d02Var);
+    public c32(@NonNull wz1 wz1Var) {
+        super(wz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d02Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {wz1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d02) newInitContext.callArgs[0]);
+                super((wz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public c42 x(String str) {
+    public static String z(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
+            if (obj instanceof String) {
+                String str = (String) obj;
+                if (!TextUtils.isEmpty(str)) {
+                    return str;
+                }
+                return "log info is invalid";
+            } else if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                if (jSONObject.length() != 0) {
+                    return jSONObject.toString();
+                }
+                return "log info is invalid";
+            } else {
+                return "log info is invalid";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void x(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || str == null || str.length() <= 3145728) {
+            return;
+        }
+        throw new IllegalArgumentException("params过大，len=" + str.length() + "\n" + str.substring(0, 204800));
+    }
+
+    public v32 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#calcMD5", false);
-            Pair<c42, JSONObject> s = s(str);
-            c42 c42Var = (c42) s.first;
-            if (!c42Var.isSuccess()) {
-                return c42Var;
+            if (f) {
+                Log.d("LogApi", "start logToFile action, params = " + str);
+                x(str);
+            }
+            Pair<v32, JSONObject> s = s(str);
+            if (!((v32) s.first).isSuccess()) {
+                return (v32) s.first;
             }
             JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("data");
-            if (TextUtils.isEmpty(optString)) {
-                return new c42(202, "Empty Data.");
-            }
-            wo3.k(new a(this, optString, jSONObject.optString("cb")), "CalcMD5Api");
-            return c42.f();
+            v82.k(jSONObject.optString("tag", "logToFile-swanjsLog"), z(jSONObject.opt("data")));
+            return v32.f();
         }
-        return (c42) invokeL.objValue;
+        return (v32) invokeL.objValue;
     }
 }

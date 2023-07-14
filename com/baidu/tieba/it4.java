@@ -2,286 +2,231 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hh3;
-import com.baidu.tieba.kt4;
-import com.baidu.tieba.nu2;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes6.dex */
-public class it4 extends ht4 {
+public final class it4 extends GestureDetector.SimpleOnGestureListener {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public kt4 z;
-
-    @Override // com.baidu.tieba.ht4
-    public void B0(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ht4
-    public void C0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.nu2
-    public void N(ZeusPluginFactory.Invoker invoker) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, invoker) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ht4, com.baidu.tieba.nu2
-    public void T() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ht4, com.baidu.tieba.nu2
-    public void a0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.nu2
-    public ZeusPluginFactory.Invoker e0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (ZeusPluginFactory.Invoker) invokeV.objValue;
-    }
+    public final Context a;
+    public final GestureDetector b;
+    public jt4 c;
+    public MediaGestureMode d;
+    public int e;
 
     /* loaded from: classes6.dex */
-    public class a implements kt4.b {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ it4 a;
 
-        public a(it4 it4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {it4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-707472029, "Lcom/baidu/tieba/it4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-707472029, "Lcom/baidu/tieba/it4$a;");
                     return;
                 }
             }
-            this.a = it4Var;
-        }
-
-        @Override // com.baidu.tieba.kt4.b
-        public void a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-                this.a.y0();
+            int[] iArr = new int[MediaGestureMode.values().length];
+            a = iArr;
+            try {
+                iArr[MediaGestureMode.VOLUME.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[MediaGestureMode.BRIGHTNESS.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[MediaGestureMode.FAST_FORWARD.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements vq3<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ it4 a;
-
-        public b(it4 it4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947865024, "Lcom/baidu/tieba/it4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {it4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = it4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vq3
-        /* renamed from: b */
-        public void a(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, num) == null) {
-                if (num.intValue() == 2) {
-                    if (ht4.x) {
-                        Log.d("SwanInlineLiveWidget", this.a.f + "-" + hashCode() + " authorize deny => onError 0");
-                    }
-                    nu2.a aVar = this.a.i;
-                    if (aVar != null) {
-                        aVar.onError(0);
-                        return;
-                    }
-                    return;
-                }
-                if (ht4.x) {
-                    Log.d("SwanInlineLiveWidget", this.a.f + "-" + hashCode() + " real do prepareAsync");
-                }
-                it4.super.prepareAsync();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947865024, "Lcom/baidu/tieba/it4;");
+                return;
             }
         }
+        f = fs1.a;
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements vq3<fh3<hh3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vq3 a;
-        public final /* synthetic */ it4 b;
-
-        public c(it4 it4Var, vq3 vq3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {it4Var, vq3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = it4Var;
-            this.a = vq3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vq3
-        /* renamed from: b */
-        public void a(fh3<hh3.e> fh3Var) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fh3Var) == null) {
-                boolean h = ah3.h(fh3Var);
-                if (ht4.x) {
-                    Log.d("SwanInlineLiveWidget", this.b.f + "-" + hashCode() + " authorize: " + h);
-                }
-                it4 it4Var = this.b;
-                if (h) {
-                    i = 1;
-                } else {
-                    i = 2;
-                }
-                it4Var.A = i;
-                this.a.a(Integer.valueOf(this.b.A));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public it4(ZeusPluginFactory.Invoker invoker, String str) {
-        super(invoker, str);
+    public it4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {invoker, str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ZeusPluginFactory.Invoker) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.A = 0;
-        kt4 kt4Var = new kt4();
-        this.z = kt4Var;
-        kt4Var.e(this.c);
-        this.z.f(new a(this));
+        this.d = MediaGestureMode.INTI;
+        this.a = context;
+        this.b = new GestureDetector(context, this);
     }
 
-    public final void L0(@NonNull Context context, @NonNull vq3<Integer> vq3Var) {
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+    public boolean onDoubleTap(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, vq3Var) == null) {
-            if (ht4.x) {
-                Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " start authorize");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onDoubleTap:" + motionEvent);
             }
-            cc3 b0 = cc3.b0();
-            if (b0 == null) {
-                if (!ht4.x) {
-                    vq3Var.a(0);
-                    return;
+            jt4 jt4Var = this.c;
+            if (jt4Var != null) {
+                return jt4Var.onDoubleTap(motionEvent);
+            }
+            return super.onDoubleTap(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onDown(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onDown:" + motionEvent);
+            }
+            this.d = MediaGestureMode.INTI;
+            jt4 jt4Var = this.c;
+            if (jt4Var != null) {
+                return jt4Var.onDown(motionEvent);
+            }
+            return super.onDown(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onSingleTapUp:" + motionEvent);
+            }
+            jt4 jt4Var = this.c;
+            if (jt4Var != null) {
+                return jt4Var.a(motionEvent);
+            }
+            return super.onSingleTapUp(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean a(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        jt4 jt4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 1 && (jt4Var = this.c) != null) {
+                jt4Var.b(motionEvent, this.d);
+            }
+            return this.b.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void d(jt4 jt4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jt4Var) == null) {
+            this.c = jt4Var;
+        }
+    }
+
+    public final MediaGestureMode b(MediaGestureMode mediaGestureMode, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mediaGestureMode, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            if (mediaGestureMode == MediaGestureMode.INTI) {
+                if (Math.abs(f3) - Math.abs(f4) > 3.0f) {
+                    mediaGestureMode = MediaGestureMode.FAST_FORWARD;
+                    if (f) {
+                        Log.d("MediaGestureDetector", "horizontal slide");
+                    }
+                } else if (f2 <= this.e / 2) {
+                    mediaGestureMode = MediaGestureMode.BRIGHTNESS;
+                    if (f) {
+                        Log.d("MediaGestureDetector", "brightness slide");
+                    }
+                } else {
+                    mediaGestureMode = MediaGestureMode.VOLUME;
+                    if (f) {
+                        Log.d("MediaGestureDetector", "volume slide");
+                    }
                 }
-                throw new RuntimeException("inline live authorize: swan app is null");
-            } else if (b83.r()) {
-                this.A = 1;
-                if (ht4.x) {
-                    Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " authorize debug: true");
+            }
+            return mediaGestureMode;
+        }
+        return (MediaGestureMode) invokeCommon.objValue;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onScroll:" + motionEvent + " e2:" + motionEvent2 + " distanceX:" + f2 + " distanceY:" + f3);
+            }
+            if (this.c == null) {
+                return super.onScroll(motionEvent, motionEvent2, f2, f3);
+            }
+            MediaGestureMode b = b(this.d, motionEvent.getX(), f2, f3);
+            this.d = b;
+            int i = a.a[b.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return false;
+                    }
+                    return this.c.d(motionEvent, motionEvent2, f2, f3);
                 }
-                vq3Var.a(Integer.valueOf(this.A));
-            } else {
-                b0.e0().g(context, "mapp_i_live_player", new c(this, vq3Var));
+                return this.c.e(motionEvent, motionEvent2, f2, f3);
             }
+            return this.c.c(motionEvent, motionEvent2, f2, f3);
         }
-    }
-
-    @Override // com.baidu.tieba.ht4, com.baidu.tieba.nu2
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.A;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ht4, com.baidu.tieba.nu2
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.release();
-            kt4 kt4Var = this.z;
-            if (kt4Var != null) {
-                kt4Var.g();
-                this.z = null;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ht4, com.baidu.tieba.nu2
-    public boolean prepareAsync() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (ht4.x) {
-                Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " start prepareAsync");
-            }
-            L0(this.c, new b(this));
-            return true;
-        }
-        return invokeV.booleanValue;
+        return invokeCommon.booleanValue;
     }
 }

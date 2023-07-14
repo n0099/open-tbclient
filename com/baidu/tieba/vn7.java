@@ -1,35 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes8.dex */
-public final class vn7 extends iq9 {
+public class vn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public BarImageView b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public EntelechyUserLikeButton f;
+    public View g;
 
-    @Override // com.baidu.tieba.mq9
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "forum_sign" : (String) invokeV.objValue;
-    }
-
-    public vn7() {
+    public vn7(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = view2;
+        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c72);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c75);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c73);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c74);
+        this.f = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090c70);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090c71);
     }
 }

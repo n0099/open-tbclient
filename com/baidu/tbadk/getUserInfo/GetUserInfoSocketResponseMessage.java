@@ -5,8 +5,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.al5;
-import com.baidu.tieba.zk5;
+import com.baidu.tieba.yl5;
+import com.baidu.tieba.zl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import tbclient.GetUserInfo.GetUserInfoResIdl;
 public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zk5 mData;
+    public yl5 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoSocketResponseMessage() {
@@ -39,13 +39,13 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         }
     }
 
-    public zk5 getData() {
+    public yl5 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mData;
         }
-        return (zk5) invokeV.objValue;
+        return (yl5) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,9 +54,9 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            zk5 zk5Var = this.mData;
-            if (zk5Var != null && zk5Var.a() != null) {
-                al5.d().i(this.mData.a());
+            yl5 yl5Var = this.mData;
+            if (yl5Var != null && yl5Var.a() != null) {
+                zl5.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }
@@ -82,9 +82,9 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
             if (getError() != 0) {
                 return getUserInfoResIdl;
             }
-            zk5 zk5Var = new zk5();
-            this.mData = zk5Var;
-            zk5Var.b(getUserInfoResIdl.data);
+            yl5 yl5Var = new yl5();
+            this.mData = yl5Var;
+            yl5Var.b(getUserInfoResIdl.data);
             return getUserInfoResIdl;
         }
         return invokeIL.objValue;

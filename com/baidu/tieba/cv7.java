@@ -1,30 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.text.TextUtils;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import android.content.Intent;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.MtjConfig;
-import com.baidu.mobstat.StatService;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.caa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cv7 implements caa.a {
+public abstract class cv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public hv7 a;
+    public Intent b;
+    public int c;
+    public a d;
 
-    public cv7() {
+    /* loaded from: classes5.dex */
+    public interface a {
+        void onStateChanged(int i);
+    }
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public cv7(hv7 hv7Var, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hv7Var, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,46 +42,30 @@ public class cv7 implements caa.a {
                 return;
             }
         }
-        String version = TbConfig.getVersion();
-        if (!TextUtils.isEmpty(version)) {
-            StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
-        }
-        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-        if (!TextUtils.isEmpty(lastCachedOid)) {
-            StatService.setOaid(TbadkCoreApplication.getInst(), lastCachedOid);
-        }
-    }
-
-    @Override // com.baidu.tieba.caa.a
-    public void a(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            StatService.enableAppList(application, false);
+        this.c = 0;
+        this.a = hv7Var;
+        this.b = intent;
+        fv7 c = ev7.d().c(this.b.getStringExtra("info_forum_name_text"));
+        c.b();
+        c.a();
+        if (c.c()) {
+            ((RelativeLayout.LayoutParams) this.a.g.getLayoutParams()).topMargin = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
     }
 
-    @Override // com.baidu.tieba.caa.a
-    public void b(Context context) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
-            StatService.autoTrace(context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.caa.a
-    public void c(Context context, WebView webView, WebChromeClient webChromeClient) {
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, webView, webChromeClient) == null) {
-            StatService.trackWebView(context, webView, webChromeClient);
-        }
-    }
-
-    @Override // com.baidu.tieba.caa.a
-    public void d(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) {
-            StatService.setAppChannel(context, str, z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.d = aVar;
         }
     }
 }

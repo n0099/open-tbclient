@@ -4,10 +4,12 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.chatmessage.IMediaContactorSettingListener;
+import com.baidu.android.imsdk.chatuser.db.ChatUserDBManager;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.media.db.MediaMessageDBManager;
+import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
@@ -133,7 +135,7 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
                     jSONObject.put("contacter_type", this.mContactorType);
                 }
                 if (this.mContactorPauid > 0) {
-                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.mContactorPauid);
+                    jSONObject.put("contacter_pa_uid", this.mContactorPauid);
                 }
                 if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
@@ -180,20 +182,38 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
                 i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
-            if (i2 == 0 && ((i3 = this.mOperation) == 1 || i3 == 2)) {
-                long currentTimeMillis = System.currentTimeMillis() / 1000;
-                if (this.mOperation == 2) {
-                    i4 = 1;
+            if (i2 == 0) {
+                int i5 = this.mOperation;
+                if (i5 != 1 && i5 != 2) {
+                    if (i5 == 6 || i5 == 5) {
+                        if (this.mOperation == 6) {
+                            i4 = 1;
+                        } else {
+                            i4 = 0;
+                        }
+                        if (this.mContactorType == 1) {
+                            MediaMessageDBManager.getInstance(this.mContext).updateChatSessionDisturbBybduid(0, this.mContacter, i4);
+                            ChatUserDBManager.getInstance(this.mContext).updateDisturbByBduid(this.mContacter, i4);
+                        } else if (this.mContactorPauid > 0) {
+                            MediaMessageDBManager.getInstance(this.mContext).updateChatSessionDisturb(0, this.mContactorPauid, i4);
+                            PaInfoDBManager.getInstance(this.mContext).updateDisturb(this.mContactorPauid, i4);
+                        }
+                    }
                 } else {
-                    i4 = 0;
-                }
-                int i5 = this.mContactorType;
-                if (i5 == 2) {
-                    GroupInfoDAOImpl.updateGroupMarkTop(this.mContext, this.mContacter, i4, currentTimeMillis);
-                } else if (i5 == 1) {
-                    MediaMessageDBManager.getInstance(this.mContext).updateChatSessionMarkTopBybduid(0, this.mContacter, i4, currentTimeMillis);
-                } else if (this.mContactorPauid > 0) {
-                    MediaMessageDBManager.getInstance(this.mContext).updateChatSessionMarkTop(0, this.mContactorPauid, i4, currentTimeMillis);
+                    long currentTimeMillis = System.currentTimeMillis() / 1000;
+                    if (this.mOperation == 2) {
+                        i3 = 1;
+                    } else {
+                        i3 = 0;
+                    }
+                    int i6 = this.mContactorType;
+                    if (i6 == 2) {
+                        GroupInfoDAOImpl.updateGroupMarkTop(this.mContext, this.mContacter, i3, currentTimeMillis);
+                    } else if (i6 == 1) {
+                        MediaMessageDBManager.getInstance(this.mContext).updateChatSessionMarkTopBybduid(0, this.mContacter, i3, currentTimeMillis);
+                    } else if (this.mContactorPauid > 0) {
+                        MediaMessageDBManager.getInstance(this.mContext).updateChatSessionMarkTop(0, this.mContactorPauid, i3, currentTimeMillis);
+                    }
                 }
             }
             IMediaContactorSettingListener iMediaContactorSettingListener = (IMediaContactorSettingListener) ListenerManager.getInstance().removeListener(this.mKey);

@@ -1,30 +1,58 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
-import com.baidu.tieba.me5;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.w55;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tieba.ica;
+import com.baidu.tieba.square.ForumSquareActivity;
+import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public class u9a extends w55 {
+public class u9a extends wo6<d9a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity c;
-    public LiveRemindRecommendData d;
-    public Map<String, Object> e;
-    public me5 f;
+    public View i;
+    public BarImageView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public TBSpecificationBtn o;
+    public String p;
+    public String q;
+    public d9a r;
+    public LikeModel s;
+    public ica t;
+    public boolean u;
+
+    @Override // com.baidu.tieba.wo6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d08d9 : invokeV.intValue;
+    }
 
     /* loaded from: classes8.dex */
-    public class a implements me5.h {
+    public class a extends k9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ u9a a;
@@ -47,100 +75,283 @@ public class u9a extends w55 {
             this.a = u9aVar;
         }
 
-        @Override // com.baidu.tieba.me5.h
-        public void dismiss() {
+        @Override // com.baidu.tieba.k9
+        public void c(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                this.a.u = false;
+                if (this.a.s.getErrorCode() == 22) {
+                    yi.R(this.a.b.getPageActivity(), this.a.b.getString(R.string.had_liked_forum));
+                } else if (obj == null) {
+                } else {
+                    if (this.a.s.getErrorCode() != 0) {
+                        yi.R(this.a.b.getPageActivity(), this.a.s.getErrorString());
+                    } else {
+                        this.a.z(true);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements ica.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u9a a;
+
+        public b(u9a u9aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u9aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u9aVar;
+        }
+
+        @Override // com.baidu.tieba.ica.a
+        public void a(String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
+                this.a.u = false;
+            }
+        }
+
+        @Override // com.baidu.tieba.ica.a
+        public void b(String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+                this.a.u = false;
+                this.a.z(false);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u9a(MainTabActivity mainTabActivity, e7a e7aVar) {
-        super(mainTabActivity);
+    public u9a(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, e7aVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = mainTabActivity;
+        this.u = false;
+        this.p = TbadkCoreApplication.getInst().getString(R.string.forum_member_num);
+        this.q = TbadkCoreApplication.getInst().getString(R.string.forum_post_num);
+        View h = h();
+        this.i = h;
+        this.j = (BarImageView) h.findViewById(R.id.obfuscated_res_0x7f090348);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090355);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090872);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091714);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091cf2);
+        this.o = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f090bd8);
     }
 
-    @Override // com.baidu.tieba.w55
-    public void b() {
-        me5 me5Var;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        StatisticItem statisticItem;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (me5Var = this.f) != null) {
-            me5Var.t();
+        if ((interceptable != null && interceptable.invokeL(1048580, this, view2) != null) || this.r == null) {
+            return;
+        }
+        if (this.i == view2) {
+            x();
+            up6<T> up6Var = this.e;
+            if (up6Var != 0) {
+                up6Var.a(view2, this.r);
+            }
+        } else if (this.o == view2) {
+            if (this.b.getPageActivity() instanceof ForumSquareActivity) {
+                String className = ((ForumSquareActivity) this.b.getPageActivity()).u1().getClassName();
+                if (!"推荐".equals(className)) {
+                    statisticItem = new StatisticItem("c13653");
+                    statisticItem.param("resource_id", className);
+                } else {
+                    statisticItem = new StatisticItem("c13644");
+                    statisticItem.param("obj_locate", 3);
+                }
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem.param("fid", this.r.a);
+                if (this.r.h()) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_TO, i);
+                TiebaStatic.log(statisticItem);
+            }
+            if (this.r.h()) {
+                u();
+            } else {
+                t();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.w55
-    public void e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wo6
+    /* renamed from: y */
+    public void i(d9a d9aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = ne5.d(null, this.c.getPageContext(), this.e, 0L, 4000L, new a(this));
-            f95.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d9aVar) != null) || d9aVar == null) {
+            return;
+        }
+        this.r = d9aVar;
+        this.j.setShowOval(true);
+        this.j.setShowOuterBorder(false);
+        this.j.setShowInnerBorder(true);
+        this.j.setStrokeWith(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        this.j.setStrokeColorResId(R.color.CAM_X0401);
+        this.j.N(d9aVar.c(), 10, false);
+        String e = d9aVar.e();
+        if (xi.isEmpty(e)) {
+            e = "";
+        }
+        this.k.setText(e);
+        this.m.setText(this.p + " " + StringHelper.numberUniformFormatExtra(d9aVar.f()));
+        this.n.setText(this.q + " " + StringHelper.numberUniformFormatExtra((long) d9aVar.g()));
+        A(d9aVar.getRecomReason());
+        z(this.r.h());
+        this.i.setOnClickListener(this);
+        this.o.setOnClickListener(this);
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public final void A(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (xi.isEmpty(str)) {
+                if (this.l.getVisibility() != 8) {
+                    this.l.setVisibility(8);
+                    if (this.k.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                        ((ViewGroup.MarginLayoutParams) this.k.getLayoutParams()).topMargin = yi.g(this.b.getPageActivity(), R.dimen.tbds47);
+                        this.k.requestLayout();
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            if (this.l.getVisibility() != 0) {
+                this.l.setVisibility(0);
+                if (this.k.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ((ViewGroup.MarginLayoutParams) this.k.getLayoutParams()).topMargin = yi.g(this.b.getPageActivity(), R.dimen.tbds24);
+                    this.k.requestLayout();
+                }
+            }
+            this.l.setText(str);
         }
     }
 
-    @Override // com.baidu.tieba.w55
-    public void d(w55.a aVar) {
+    @Override // com.baidu.tieba.wo6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (d65.j()) {
-                aVar.callback(false);
-                return;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
+            this.o.k();
+            SkinManager.setBackgroundColor(h(), R.color.CAM_X0205);
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.u) {
+            return;
+        }
+        if (!yi.G()) {
+            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0e1f));
+            return;
+        }
+        d9a d9aVar = this.r;
+        if (d9aVar == null || StringUtils.isNull(d9aVar.e()) || this.r.d() <= 0 || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+            return;
+        }
+        if (this.s == null) {
+            LikeModel likeModel = new LikeModel(this.b);
+            this.s = likeModel;
+            likeModel.setLoadDataCallBack(new a(this));
+        }
+        if (xi.isForumName(this.r.e())) {
+            this.u = true;
+            this.s.j0();
+            this.s.n0(this.r.e(), String.valueOf(this.r.d()));
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.u) {
+            return;
+        }
+        if (!yi.G()) {
+            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0e1f));
+            return;
+        }
+        d9a d9aVar = this.r;
+        if (d9aVar == null || StringUtils.isNull(d9aVar.e()) || this.r.d() <= 0 || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+            return;
+        }
+        if (this.t == null) {
+            ica icaVar = new ica();
+            this.t = icaVar;
+            icaVar.b(new b(this));
+        }
+        this.u = true;
+        this.t.c(this.r.e(), this.r.d());
+    }
+
+    public final void x() {
+        d9a d9aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (d9aVar = this.r) == null) {
+            return;
+        }
+        String e = d9aVar.e();
+        if (!xi.isForumName(e)) {
+            return;
+        }
+        this.b.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.b.getPageActivity()).createNormalCfg(e, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            if (!z) {
+                hb5 hb5Var = new hb5();
+                hb5Var.u(R.color.CAM_X0302);
+                this.o.setConfig(hb5Var);
+                this.o.setText(TbadkCoreApplication.getInst().getString(R.string.forum_doLike));
+            } else {
+                hb5 hb5Var2 = new hb5();
+                hb5Var2.w(R.color.CAM_X0109);
+                this.o.setConfig(hb5Var2);
+                this.o.setText(TbadkCoreApplication.getInst().getString(R.string.forum_isLiked));
             }
-            LiveRemindRecommendData c = e95.a().c(0);
-            this.d = c;
-            if (c != null && f95.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
-                this.e = new HashMap();
-                int i = 3;
-                if (this.d.getRemindType() != 1) {
-                    if (this.d.getRemindType() == 2) {
-                        i = 4;
-                    } else if (this.d.getRemindType() == 3) {
-                        i = 2;
-                    } else {
-                        i = 0;
-                    }
-                }
-                this.e.put("view_top_params_key_image_url", this.d.getLiveIconSrc());
-                this.e.put("view_top_params_key_schema", this.d.getLiveIconScheme());
-                this.e.put("view_top_params_user_name", this.d.getUserName());
-                this.e.put("view_top_params_key_desc", this.d.getDesc());
-                this.e.put("view_top_params_room_id", this.d.getRoomId());
-                this.e.put("view_top_params_btn_text", this.d.getBtnText());
-                this.e.put("view_top_params_key_title", this.d.getTitle());
-                this.e.put("view_top_params_key_nid", this.d.getFeedId());
-                this.e.put("view_top_params_key_yyext", this.d.getYyExtData());
-                this.e.put("view_top_params_key_type", Integer.valueOf(i));
-                this.e.put("view_top_params_is_breathe", Boolean.FALSE);
-                if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !zf5.j()) {
-                    if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !zf5.j()) {
-                        aVar.callback(true);
-                        return;
-                    } else {
-                        aVar.callback(false);
-                        return;
-                    }
-                }
-                aVar.callback(false);
-                return;
-            }
-            aVar.callback(false);
+            this.r.k(z);
         }
     }
 }

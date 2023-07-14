@@ -1,338 +1,451 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.aop.annotation.DebugTrace;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.dns.DnsHelper;
-import com.baidu.searchbox.dns.util.DnsUtil;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.IClientIPProvider;
-import com.baidu.searchbox.http.IHttpContext;
-import com.baidu.searchbox.http.IHttpDns;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.http.model.MultipleConnectParams;
-import com.baidu.searchbox.http.model.PreConnectParams;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
-import com.baidu.searchbox.http.statistics.NetworkStat;
-import com.baidu.tbadk.TbDomainConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
+import com.baidu.tieba.quickWebView.message.QuickWebViewHttpReqMsg;
+import com.baidu.tieba.quickWebView.message.QuickWebViewHttpResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import okhttp3.EventListener;
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.internal.WrappedEventListener;
-import org.json.JSONObject;
-@Singleton
-@Service
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeSet;
 /* loaded from: classes7.dex */
-public class qx9 implements IHttpContext {
+public class qx9 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean c;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public Context b;
+    public final WebView a;
+    public BdUniqueId b;
+    public lda c;
+    public Map<String, Boolean> d;
+    public Map<String, String> e;
+    public Map<String, String> f;
+    public String g;
+    public HttpMessageListener h;
 
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpRequest)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    /* loaded from: classes7.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qx9 a;
 
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public List<HttpUrl> getBrAllowlist() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public IClientIPProvider getClientIPProvider() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (IClientIPProvider) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public CookieManager getCookieManager(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return null;
-        }
-        return (CookieManager) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public EventListener getEventListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (EventListener) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public int getFallbackConnectDelayMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public MultipleConnectParams getMultipleConnectParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
-        }
-        return (MultipleConnectParams) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public NetworkStat<Request> getNewNetworkStat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return null;
-        }
-        return (NetworkStat) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public String getSimOperator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public boolean isBrAllowlistEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public boolean isNeedAuthenticateHeader4Tunnel(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public boolean isOldHttpUseTurbonet(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, str, i)) == null) {
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public boolean isRttLogEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public boolean ok4URLConnectionEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public boolean okHttpPreConnectEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948107351, "Lcom/baidu/tieba/qx9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qx9 qx9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qx9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948107351, "Lcom/baidu/tieba/qx9;");
+            this.a = qx9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: boolean */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Removed duplicated region for block: B:27:0x0098  */
+        /* JADX WARN: Removed duplicated region for block: B:39:0x0188  */
+        /* JADX WARN: Removed duplicated region for block: B:40:0x018b  */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            String str;
+            String str2;
+            String str3;
+            int i;
+            boolean z;
+            int i2;
+            String str4;
+            String str5;
+            String p;
+            StringBuilder sb;
+            String str6;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof QuickWebViewHttpResMsg)) {
                 return;
             }
+            QuickWebViewHttpResMsg quickWebViewHttpResMsg = (QuickWebViewHttpResMsg) httpResponsedMessage;
+            int i3 = 0;
+            String str7 = null;
+            if (!(quickWebViewHttpResMsg.getOrginalMessage() instanceof QuickWebViewHttpReqMsg)) {
+                str = "";
+                str2 = null;
+                str3 = null;
+                i = 0;
+            } else {
+                QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = (QuickWebViewHttpReqMsg) quickWebViewHttpResMsg.getOrginalMessage();
+                boolean z2 = quickWebViewHttpReqMsg.isFromRequestByNative;
+                if (StringUtils.isNull(quickWebViewHttpReqMsg.url)) {
+                    str = "";
+                    str2 = null;
+                    str3 = null;
+                    i = z2;
+                } else {
+                    String str8 = quickWebViewHttpReqMsg.url;
+                    str = quickWebViewHttpReqMsg.module;
+                    str3 = quickWebViewHttpReqMsg.urlSign;
+                    String str9 = quickWebViewHttpReqMsg.jsCallbackMethod;
+                    if (TextUtils.isEmpty(str9) && z2 == 0) {
+                        str9 = (String) this.a.e.remove(str3);
+                        i3 = 1;
+                    }
+                    z = ((Boolean) this.a.d.remove(str3)).booleanValue();
+                    str7 = str9;
+                    str2 = str8;
+                    i2 = z2;
+                    if (!quickWebViewHttpResMsg.isSuccess() && !TextUtils.isEmpty(quickWebViewHttpResMsg.getResult())) {
+                        str5 = quickWebViewHttpResMsg.getResult();
+                        str4 = BasicPushStatus.SUCCESS_CODE;
+                    } else {
+                        str4 = quickWebViewHttpResMsg.getError() + "";
+                        str5 = "\"\"";
+                    }
+                    p = rx9.n().p(str);
+                    if (p == null) {
+                        p = "0.0.0.0";
+                    }
+                    sb = new StringBuilder();
+                    sb.append("{");
+                    sb.append("\"status\":");
+                    sb.append("\"");
+                    sb.append(str4);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"data\":");
+                    sb.append(str5);
+                    sb.append(",");
+                    sb.append("\"cache_version\":");
+                    sb.append("\"");
+                    sb.append(p);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"cache\":");
+                    sb.append("\"");
+                    sb.append(i3);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"fromPreRequest\":");
+                    sb.append("\"");
+                    sb.append(i2 ^ 1);
+                    sb.append("\"");
+                    sb.append("}");
+                    Log.d("QuickWebViewHttpProxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
+                    if (i2 != 0 && !z) {
+                        if (StringUtils.isNull(str7)) {
+                            Log.d("QuickWebViewHttpProxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），缓存请求结果：url=" + str2);
+                            this.a.f.put(str3, sb.toString());
+                            return;
+                        }
+                        Log.d("QuickWebViewHttpProxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），开始回调js函数(" + str7 + ")：url=" + str2);
+                        this.a.l(str7, sb.toString());
+                        return;
+                    }
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("请求完成：");
+                    if (i2 == 0) {
+                        str6 = "端能力";
+                    } else {
+                        str6 = "预请求";
+                    }
+                    sb2.append(str6);
+                    sb2.append("-收到网络请求结果（");
+                    sb2.append(httpResponsedMessage.getStatusCode());
+                    sb2.append("），开始回调端能力：url=");
+                    sb2.append(str2);
+                    Log.d("QuickWebViewHttpProxy", sb2.toString());
+                    this.a.i(str2, sb.toString());
+                }
+            }
+            z = false;
+            i2 = i;
+            if (!quickWebViewHttpResMsg.isSuccess()) {
+            }
+            str4 = quickWebViewHttpResMsg.getError() + "";
+            str5 = "\"\"";
+            p = rx9.n().p(str);
+            if (p == null) {
+            }
+            sb = new StringBuilder();
+            sb.append("{");
+            sb.append("\"status\":");
+            sb.append("\"");
+            sb.append(str4);
+            sb.append("\"");
+            sb.append(",");
+            sb.append("\"data\":");
+            sb.append(str5);
+            sb.append(",");
+            sb.append("\"cache_version\":");
+            sb.append("\"");
+            sb.append(p);
+            sb.append("\"");
+            sb.append(",");
+            sb.append("\"cache\":");
+            sb.append("\"");
+            sb.append(i3);
+            sb.append("\"");
+            sb.append(",");
+            sb.append("\"fromPreRequest\":");
+            sb.append("\"");
+            sb.append(i2 ^ 1);
+            sb.append("\"");
+            sb.append("}");
+            Log.d("QuickWebViewHttpProxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
+            if (i2 != 0) {
+            }
+            StringBuilder sb22 = new StringBuilder();
+            sb22.append("请求完成：");
+            if (i2 == 0) {
+            }
+            sb22.append(str6);
+            sb22.append("-收到网络请求结果（");
+            sb22.append(httpResponsedMessage.getStatusCode());
+            sb22.append("），开始回调端能力：url=");
+            sb22.append(str2);
+            Log.d("QuickWebViewHttpProxy", sb22.toString());
+            this.a.i(str2, sb.toString());
         }
-        c = AppConfig.isDebug();
-        d = qx9.class.getSimpleName();
     }
 
-    @DebugTrace
-    public qx9() {
+    public qx9(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = AppRuntime.getAppContext();
+        this.d = new HashMap();
+        this.e = new HashMap();
+        this.f = new HashMap();
+        this.h = new a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
+        this.a = webView;
+        this.g = webView.getSettings().getUserAgentString();
+        BdUniqueId gen = BdUniqueId.gen();
+        this.b = gen;
+        this.h.setTag(gen);
+        this.h.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.h);
     }
 
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public IHttpDns getNewCloneHttpDns(HttpRequest httpRequest) {
+    public void n(lda ldaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ldaVar) == null) {
+            this.c = ldaVar;
+        }
+    }
+
+    public void k(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048581, this, quickWebViewBridgeData, str, z) == null) {
+            Log.d("QuickWebViewHttpProxy", "端能力请求：" + quickWebViewBridgeData.url);
+            f(quickWebViewBridgeData, str, z);
+        }
+    }
+
+    public final void f(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, quickWebViewBridgeData, str, z) == null) && quickWebViewBridgeData != null && !StringUtils.isNull(quickWebViewBridgeData.url) && !StringUtils.isNull(quickWebViewBridgeData.type)) {
+            String g = g(quickWebViewBridgeData.url);
+            String remove = this.f.remove(g);
+            if (!TextUtils.isEmpty(remove) && str != null) {
+                Log.d("QuickWebViewHttpProxy", "请求完成：命中预请求缓存-执行js回调，url=" + quickWebViewBridgeData.url);
+                l(str, remove);
+            } else if (!TextUtils.isEmpty(remove) && z) {
+                Log.d("QuickWebViewHttpProxy", "请求完成：命中预请求缓存-执行端能力回调，url=" + quickWebViewBridgeData.url);
+                i(quickWebViewBridgeData.url, remove);
+            } else {
+                if (this.d.containsKey(g)) {
+                    if (!TextUtils.isEmpty(str)) {
+                        Log.d("QuickWebViewHttpProxy", "加入等待队列：重复的请求-js回调函数-等待网络结果完成后回调，url=" + quickWebViewBridgeData.url);
+                        this.e.put(g, str);
+                        return;
+                    } else if (z) {
+                        Log.d("QuickWebViewHttpProxy", "加入等待队列：重复的请求-端能力-等待网络结果完成后回调，url=" + quickWebViewBridgeData.url);
+                        this.d.put(g, Boolean.TRUE);
+                        return;
+                    }
+                }
+                StringBuilder sb = new StringBuilder();
+                if (z) {
+                    str2 = "端能力";
+                } else {
+                    str2 = "预请求";
+                }
+                sb.append(str2);
+                sb.append("-正在发起网络请求：");
+                sb.append(quickWebViewBridgeData.url);
+                Log.d("QuickWebViewHttpProxy", sb.toString());
+                this.d.put(g, Boolean.valueOf(z));
+                m(quickWebViewBridgeData, str, z, g);
+            }
+        }
+    }
+
+    public final String g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, httpRequest)) == null) {
-            if (c) {
-                String str = d;
-                Log.i(str, "baidunetwork HttpContext getNewCloneHttpDns httpRequest:" + httpRequest);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            if (httpRequest == null) {
-                return null;
-            }
-            IHttpDns httpDns = HttpManager.getDefault(this.b).getHttpDns();
-            if (!(httpDns instanceof nx9)) {
-                return null;
-            }
-            return new nx9(((nx9) httpDns).a(), true);
-        }
-        return (IHttpDns) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public IHttpDns getNewHttpDns() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (c) {
-                Log.i(d, "baidunetwork HttpContext getNewHttpDns!");
-            }
-            DnsHelper dnsHelper = new DnsHelper(this.b, true);
-            dnsHelper.setHttpDnsConfig(new DnsHelper.DnsConfig(true, true, true, null));
-            return new nx9(dnsHelper, false);
-        }
-        return (IHttpDns) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            synchronized (this) {
-                if (this.a) {
-                    return;
+            try {
+                Uri parse = Uri.parse(str);
+                String str2 = parse.getScheme() + "://" + parse.getAuthority() + parse.getPath();
+                TreeSet<String> treeSet = new TreeSet(parse.getQueryParameterNames());
+                StringBuilder sb = new StringBuilder();
+                boolean z = true;
+                for (String str3 : treeSet) {
+                    if (z) {
+                        z = false;
+                        sb.append("?");
+                        sb.append(str3);
+                        sb.append("=");
+                        sb.append(parse.getQueryParameter(str3));
+                    } else {
+                        sb.append("&");
+                        sb.append(str3);
+                        sb.append("=");
+                        sb.append(parse.getQueryParameter(str3));
+                    }
                 }
-                this.a = true;
-                if (c) {
-                    Log.i(d, "baidunetwork HttpContext init!");
-                }
-                WrappedEventListener.setGlobalEventListener(fy9.f());
-                DnsUtil.initNetworkStackType();
-                OkHttpClient.setDefaultFallbackConnectDealyMs(300);
-                xx9.d();
+                return fj.c(str2 + ((Object) sb));
+            } catch (Exception unused) {
+                return str;
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public PreConnectParams getPreConnectParams() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return new PreConnectParams.Builder().setPreConnectEnabled(true).setPreConnectUrlsAllowlist(Collections.singletonList(TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS)).setMaxPreConnectNum(20).setMaxSingleHostPreConnectNum(3).setPreConnectDelayTimeMs(5000).setPreConnectPeriodTimeMs(31000).setPreConnectDelayUrlsWithNum(new ArrayList()).setPreConnectNoDelayUrlsWithNum(new ArrayList()).build();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+            MessageManager.getInstance().removeMessage(this.b);
+            this.d.clear();
+            this.d = null;
+            this.e.clear();
+            this.e = null;
+            this.f.clear();
+            this.f = null;
         }
-        return (PreConnectParams) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public void prefetchDnsResult(String str) {
+    public final void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                vx9.a = true;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("result", str2);
+            linkedHashMap.put("NotificationKey", str);
+            this.c.i(this.a, "RequestByNativeToH5", linkedHashMap);
+        }
+    }
+
+    public void j(QuickWebViewBridgeData quickWebViewBridgeData, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, quickWebViewBridgeData, str) == null) {
+            Log.d("QuickWebViewHttpProxy", "预请求：" + quickWebViewBridgeData.url);
+            f(quickWebViewBridgeData, str, false);
+        }
+    }
+
+    public final void l(String str, String str2) {
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && (webView = this.a) != null) {
+            webView.loadUrl("javascript:window." + str + "('" + str2 + "')");
+        }
+    }
+
+    public final void m(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{quickWebViewBridgeData, str, Boolean.valueOf(z), str2}) == null) {
+            QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = new QuickWebViewHttpReqMsg();
+            quickWebViewHttpReqMsg.url = quickWebViewBridgeData.url;
+            quickWebViewHttpReqMsg.urlSign = str2;
+            quickWebViewHttpReqMsg.module = quickWebViewBridgeData.module;
+            quickWebViewHttpReqMsg.begin = quickWebViewBridgeData.begin;
+            quickWebViewHttpReqMsg.jsCallbackMethod = str;
+            quickWebViewHttpReqMsg.setTag(this.b);
+            quickWebViewHttpReqMsg.isFromRequestByNative = z;
+            CookieSyncManager.createInstance(this.a.getContext());
+            String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
+            if (!TextUtils.isEmpty(cookie)) {
+                HashMap<String, String> headers = quickWebViewHttpReqMsg.getHeaders();
+                if (headers != null) {
+                    String str3 = headers.get("Cookie");
+                    if (!TextUtils.isEmpty(str3)) {
+                        if (str3.endsWith(ParamableElem.DIVIDE_PARAM)) {
+                            cookie = str3 + cookie;
+                        } else {
+                            cookie = str3 + ParamableElem.DIVIDE_PARAM + cookie;
+                        }
+                    }
+                    quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
+                } else {
+                    quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
+                }
+            }
+            quickWebViewHttpReqMsg.setUserAgent(this.g);
+            quickWebViewHttpReqMsg.addCookie("cache_version", rx9.n().p(quickWebViewBridgeData.module));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, quickWebViewBridgeData.url);
+            tbHttpMessageTask.setResponsedClass(QuickWebViewHttpResMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setPriority(4);
+            if (quickWebViewBridgeData.type.toLowerCase().equals(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND)) {
+                Map<String, String> map = quickWebViewBridgeData.data;
+                if (map != null && !map.isEmpty()) {
+                    for (Map.Entry<String, String> entry : quickWebViewBridgeData.data.entrySet()) {
+                        quickWebViewHttpReqMsg.addParam(entry.getKey(), entry.getValue());
+                    }
+                }
+                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
             } else {
-                ((nx9) HttpManager.getDefault(this.b).getHttpDns()).a().forceUpdateDomain(str);
+                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public void uploadIllegalUrlBy850(JSONObject jSONObject) {
-        UBCManager uBCManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, jSONObject) == null) && jSONObject != null && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
-            uBCManager.onEvent("850", jSONObject);
-        }
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpContext
-    public void setNetworkInfoRecord(NetworkInfoRecord networkInfoRecord) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, networkInfoRecord) == null) {
-            if (c) {
-                String str = d;
-                Log.i(str, "baidu_networksetNetworkInfoRecord networkInfoRecord:" + networkInfoRecord);
-            }
-            HttpManager.getDefault(this.b).setNetworkStat(null);
+            MessageManager.getInstance().sendMessage(quickWebViewHttpReqMsg, tbHttpMessageTask);
         }
     }
 }

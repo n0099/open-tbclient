@@ -3,7 +3,7 @@ package com.kwad.components.core.internal.api;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.core.config.d;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KSAdVideoPlayConfigImpl implements KsAdVideoPlayConfig, Serializable {
     public static final long serialVersionUID = -154151744722615768L;
     public boolean hasNoCache;

@@ -18,10 +18,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b26;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.f36;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,8 +46,8 @@ public class ExpandableTextView extends RelativeLayout {
     public e l;
     public boolean m;
     public ViewTreeObserver.OnGlobalLayoutListener n;
-    public b26 o;
-    public b26 p;
+    public f36 o;
+    public f36 p;
     public View.OnClickListener q;
 
     /* loaded from: classes8.dex */
@@ -161,10 +161,10 @@ public class ExpandableTextView extends RelativeLayout {
     }
 
     /* loaded from: classes8.dex */
-    public class b extends b26 {
+    public class b extends f36 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ExpandableTextView j;
+        public final /* synthetic */ ExpandableTextView l;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ExpandableTextView expandableTextView, int i, String str) {
@@ -185,24 +185,24 @@ public class ExpandableTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.j = expandableTextView;
+            this.l = expandableTextView;
         }
 
-        @Override // com.baidu.tieba.b26, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.f36, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.j.q();
+            this.l.q();
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c extends b26 {
+    public class c extends f36 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ExpandableTextView j;
+        public final /* synthetic */ ExpandableTextView l;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(ExpandableTextView expandableTextView, int i, String str) {
@@ -223,16 +223,16 @@ public class ExpandableTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.j = expandableTextView;
+            this.l = expandableTextView;
         }
 
-        @Override // com.baidu.tieba.b26, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.f36, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.j.r();
+            this.l.r();
         }
     }
 
@@ -484,7 +484,7 @@ public class ExpandableTextView extends RelativeLayout {
     public void setHasDown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            s75.d(this.g).B(R.array.S_O_X001);
+            d85.d(this.g).B(R.array.S_O_X001);
         }
     }
 
@@ -500,9 +500,9 @@ public class ExpandableTextView extends RelativeLayout {
             TextView textView = (TextView) findViewById(R.id.expandable_view_title_up);
             this.h = textView;
             textView.setOnClickListener(this.q);
-            xi.g(context, R.dimen.tbfontsize42);
+            yi.g(context, R.dimen.tbfontsize42);
             this.k = R.color.CAM_X0101;
-            xi.g(context, R.dimen.tbds6);
+            yi.g(context, R.dimen.tbds6);
         }
     }
 

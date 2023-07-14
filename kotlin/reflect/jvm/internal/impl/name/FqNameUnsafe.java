@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 import kotlin.collections.ArraysKt___ArraysKt;
 import kotlin.jvm.functions.Function1;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FqNameUnsafe {
     public static final Name ROOT_NAME = Name.special("<root>");
     public static final Pattern SPLIT_BY_DOTS = Pattern.compile("\\.");

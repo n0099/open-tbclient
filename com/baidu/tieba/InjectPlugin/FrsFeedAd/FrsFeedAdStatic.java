@@ -6,19 +6,19 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.a46;
 import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.d46;
-import com.baidu.tieba.e46;
-import com.baidu.tieba.f46;
-import com.baidu.tieba.g46;
-import com.baidu.tieba.h46;
-import com.baidu.tieba.js9;
-import com.baidu.tieba.m46;
-import com.baidu.tieba.r66;
-import com.baidu.tieba.xn;
-import com.baidu.tieba.y36;
-import com.baidu.tieba.z36;
+import com.baidu.tieba.c56;
+import com.baidu.tieba.d56;
+import com.baidu.tieba.e56;
+import com.baidu.tieba.h56;
+import com.baidu.tieba.i56;
+import com.baidu.tieba.j56;
+import com.baidu.tieba.k56;
+import com.baidu.tieba.l56;
+import com.baidu.tieba.q56;
+import com.baidu.tieba.qy9;
+import com.baidu.tieba.v76;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,12 +28,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsFeedAdStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,51 +59,51 @@ public class FrsFeedAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            m46 m46Var;
-            e46 c;
+            q56 q56Var;
+            i56 c;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof m46) || (c = (m46Var = (m46) customResponsedMessage.getData()).c()) == null || !(c instanceof js9)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof q56) || (c = (q56Var = (q56) customResponsedMessage.getData()).c()) == null || !(c instanceof qy9)) {
                 return;
             }
-            js9 js9Var = (js9) c;
-            d46 d1 = c.d1(1);
+            qy9 qy9Var = (qy9) c;
+            h56 d1 = c.d1(1);
             if (d1 == null) {
-                g46 a = h46.b().a(1);
+                k56 a = l56.b().a(1);
                 if (a == null) {
                     return;
                 }
                 d1 = a.a();
                 c.A0(1, d1);
-                d1.f(new f46(js9Var), m46Var.i());
+                d1.f(new j56(qy9Var), q56Var.i());
             }
-            if (!(d1 instanceof a46)) {
+            if (!(d1 instanceof e56)) {
                 return;
             }
-            a46 a46Var = (a46) d1;
-            if (m46Var.a() == 1) {
-                List list = (List) m46Var.f();
-                y36.b(a46Var.d());
-                for (BdUniqueId bdUniqueId : y36.c()) {
-                    FrsFeedAdAdapter frsFeedAdAdapter = new FrsFeedAdAdapter(js9Var, bdUniqueId);
-                    frsFeedAdAdapter.setPageContext(js9Var.t());
+            e56 e56Var = (e56) d1;
+            if (q56Var.a() == 1) {
+                List list = (List) q56Var.f();
+                c56.b(e56Var.d());
+                for (BdUniqueId bdUniqueId : c56.c()) {
+                    FrsFeedAdAdapter frsFeedAdAdapter = new FrsFeedAdAdapter(qy9Var, bdUniqueId);
+                    frsFeedAdAdapter.setPageContext(qy9Var.t());
                     list.add(frsFeedAdAdapter);
                 }
-            } else if (m46Var.a() == 2) {
-                a46Var.k(m46Var.d());
-            } else if (m46Var.a() == 3) {
-                List<xn> o = m46Var.o();
-                List<z36> d = FrsFeedAdStatic.d(o);
-                if (m46Var.q()) {
-                    a46Var.o(d, FrsFeedAdStatic.d(m46Var.l()), m46Var.p(), m46Var.e());
+            } else if (q56Var.a() == 2) {
+                e56Var.k(q56Var.d());
+            } else if (q56Var.a() == 3) {
+                List<yn> o = q56Var.o();
+                List<d56> d = FrsFeedAdStatic.d(o);
+                if (q56Var.q()) {
+                    e56Var.o(d, FrsFeedAdStatic.d(q56Var.l()), q56Var.p(), q56Var.e());
                 } else {
-                    a46Var.i(d, m46Var.e());
+                    e56Var.i(d, q56Var.e());
                 }
                 o.clear();
-                o.addAll(FrsFeedAdStatic.c(d, m46Var.i()));
-            } else if (m46Var.a() == 4) {
-                a46Var.a(m46Var.n());
-            } else if (m46Var.a() == 5) {
-                a46Var.e(FrsFeedAdStatic.d(m46Var.o()), m46Var.h(), m46Var.g(), m46Var.m(), m46Var.j(), m46Var.r(), m46Var.k());
+                o.addAll(FrsFeedAdStatic.c(d, q56Var.i()));
+            } else if (q56Var.a() == 4) {
+                e56Var.a(q56Var.n());
+            } else if (q56Var.a() == 5) {
+                e56Var.e(FrsFeedAdStatic.d(q56Var.o()), q56Var.h(), q56Var.g(), q56Var.m(), q56Var.j(), q56Var.r(), q56Var.k());
             }
         }
     }
@@ -138,25 +138,25 @@ public class FrsFeedAdStatic {
         }
     }
 
-    public static List<xn> c(List<z36> list, String str) {
+    public static List<yn> c(List<d56> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, str)) == null) {
             if (list != null && !list.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
                 boolean z = false;
-                for (z36 z36Var : list) {
-                    if (z36Var.c() == 3) {
-                        y36 y36Var = new y36();
-                        y36Var.f(z36Var.a());
-                        y36Var.h(z36Var.b());
-                        arrayList.add(y36Var);
+                for (d56 d56Var : list) {
+                    if (d56Var.c() == 3) {
+                        c56 c56Var = new c56();
+                        c56Var.f(d56Var.a());
+                        c56Var.g(d56Var.b());
+                        arrayList.add(c56Var);
                         if (!z) {
                             z = true;
                             e(str, arrayList);
                         }
-                    } else if (z36Var.a() instanceof xn) {
-                        arrayList.add((xn) z36Var.a());
+                    } else if (d56Var.a() instanceof yn) {
+                        arrayList.add((yn) d56Var.a());
                     }
                 }
                 return arrayList;
@@ -166,48 +166,48 @@ public class FrsFeedAdStatic {
         return (List) invokeLL.objValue;
     }
 
-    public static List<z36> d(List<xn> list) {
+    public static List<d56> d(List<yn> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (xn xnVar : list) {
-                z36 z36Var = new z36();
-                if (xnVar instanceof ThreadData) {
-                    ThreadData threadData = (ThreadData) xnVar;
+            for (yn ynVar : list) {
+                d56 d56Var = new d56();
+                if (ynVar instanceof ThreadData) {
+                    ThreadData threadData = (ThreadData) ynVar;
                     if (threadData.getIs_top() == 1) {
-                        z36Var.f(1);
+                        d56Var.f(1);
                     } else if (threadData.getIs_top() == 0) {
-                        z36Var.f(2);
+                        d56Var.f(2);
                     } else {
-                        z36Var.f(4);
+                        d56Var.f(4);
                     }
-                    z36Var.d(xnVar);
-                } else if (xnVar instanceof y36) {
-                    z36Var.f(3);
-                    y36 y36Var = (y36) xnVar;
-                    z36Var.e(y36Var.d());
-                    z36Var.d(y36Var.a());
+                    d56Var.d(ynVar);
+                } else if (ynVar instanceof c56) {
+                    d56Var.f(3);
+                    c56 c56Var = (c56) ynVar;
+                    d56Var.e(c56Var.d());
+                    d56Var.d(c56Var.a());
                 } else {
-                    z36Var.f(4);
-                    z36Var.d(xnVar);
+                    d56Var.f(4);
+                    d56Var.d(ynVar);
                 }
-                arrayList.add(z36Var);
+                arrayList.add(d56Var);
             }
             return arrayList;
         }
         return (List) invokeL.objValue;
     }
 
-    public static void e(String str, List<xn> list) {
+    public static void e(String str, List<yn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, str, list) == null) {
             if ("frs_hot_tab".equals(str)) {
-                if (r66.i().p(AbsDataRecorder.Scene.FRS_HOT)) {
-                    r66.i().n(list, -1, 3);
+                if (v76.i().p(AbsDataRecorder.Scene.FRS_HOT)) {
+                    v76.i().n(list, -1, 3);
                 }
-            } else if ("frs_new_tab".equals(str) && r66.i().p(AbsDataRecorder.Scene.FRS_NEW)) {
-                r66.i().n(list, -1, 2);
+            } else if ("frs_new_tab".equals(str) && v76.i().p(AbsDataRecorder.Scene.FRS_NEW)) {
+                v76.i().n(list, -1, 2);
             }
         }
     }

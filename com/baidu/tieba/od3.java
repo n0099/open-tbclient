@@ -1,45 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.os.Bundle;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.yy.gslbsdk.db.DelayTB;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class od3 extends zd3 {
+public class od3 extends sd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public interface b {
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements b {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ Uri b;
+        public final /* synthetic */ Context a;
 
-        public a(od3 od3Var, Activity activity, Uri uri, String str, CallbackHandler callbackHandler, String str2) {
+        public a(od3 od3Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {od3Var, activity, uri, str, callbackHandler, str2};
+                Object[] objArr = {od3Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,19 +41,28 @@ public class od3 extends zd3 {
                     return;
                 }
             }
-            this.a = activity;
-            this.b = uri;
+            this.a = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("bundle_key_preload_preload_scene", "5");
+                t83.k(this.a, bundle);
+            }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public od3(zc3 zc3Var) {
-        super(zc3Var, "/swanAPI/file/openDocument");
+    public od3(sc3 sc3Var) {
+        super(sc3Var, "/swanAPI/preloadSwanCore");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zc3Var};
+            Object[] objArr = {sc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,100 +76,35 @@ public class od3 extends zd3 {
         }
     }
 
-    @Override // com.baidu.tieba.zd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
+    @Override // com.baidu.tieba.sd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
         InterceptResult invokeLLLL;
-        Uri uri;
+        int optInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
-            if (cc3Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                return false;
-            } else if (cc3Var.n0()) {
-                if (zd3.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                return false;
-            } else {
-                JSONObject a2 = zd3.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
-                    return false;
-                }
-                String optString = a2.optString("filePath");
-                if (TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal filePath");
-                    return false;
-                }
-                String g0 = cc3.g0();
-                if (TextUtils.isEmpty(g0)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
-                    return false;
-                }
-                String M = kj3.M(optString, g0);
-                if (TextUtils.isEmpty(M)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal realFilePath");
-                    return false;
-                }
-                String optString2 = a2.optString("fileType");
-                String t = gs4.t(M);
-                if (TextUtils.isEmpty(t)) {
-                    if (TextUtils.isEmpty(optString2)) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file ext");
-                        return false;
-                    }
-                } else {
-                    optString2 = t;
-                }
-                String b2 = to3.b(optString2);
-                if (TextUtils.isEmpty(b2)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file mimeType");
-                    return false;
-                }
-                Uri parse = Uri.parse(M);
-                if (parse == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal Uri path");
-                    return false;
-                }
-                if (parse.getScheme() == null) {
-                    uri = Uri.fromFile(new File(M));
-                } else {
-                    uri = parse;
-                }
-                SwanAppActivity w = cc3Var.w();
-                if (w == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal activity == null");
-                    return false;
-                } else if (!to3.a(b2)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support this mimeType=" + b2);
-                    return false;
-                } else {
-                    String optString3 = a2.optString("cb");
-                    ow1 r = jv2.r();
-                    if (!r.b(w, b2)) {
-                        if (TextUtils.isEmpty(optString3)) {
-                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + b2);
-                            return false;
-                        }
-                        j(w, b2, uri, optString3, callbackHandler);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        return true;
-                    }
-                    r.c(w, uri, b2);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    callbackHandler.handleSchemeDispatchCallback(optString3, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                    return true;
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
+            if (sd3.b) {
+                Log.d("PreloadSwanCoreAction", "handle entity: " + unitedSchemeEntity.toString());
             }
+            if (!ProcessUtils.isMainProcess()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal process");
+                return false;
+            }
+            JSONObject a2 = sd3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                optInt = 0;
+            } else {
+                optInt = a2.optInt(DelayTB.DELAY, 0);
+            }
+            if (optInt < 0) {
+                optInt = 0;
+            }
+            if (sd3.b) {
+                Log.d("PreloadSwanCoreAction", "delay: " + optInt);
+            }
+            pp3.b0(new a(this, context), optInt);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
         }
         return invokeLLLL.booleanValue;
-    }
-
-    public final void j(Activity activity, String str, Uri uri, String str2, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, uri, str2, callbackHandler) == null) {
-            jv2.r().a(activity, str, new a(this, activity, uri, str, callbackHandler, str2));
-        }
     }
 }

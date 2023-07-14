@@ -1,212 +1,56 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
+import com.baidu.tieba.frs.accelerator.TornadoNodeInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class bk7 extends BaseAdapter {
+public class bk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fk7 a;
-    public boolean b;
 
-    public abstract int b();
-
-    public abstract Object c(int i);
-
-    public abstract int d();
-
-    public abstract long e(int i);
-
-    public abstract View g(int i, View view2, ViewGroup viewGroup);
-
-    public abstract void j(int i);
-
-    public bk7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = true;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (h()) {
-                return 2;
-            }
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            fk7 fk7Var = this.a;
-            if (fk7Var != null && fk7Var.b() && b() - 1 > this.a.getArrowIndex()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final View a(View view2) {
+    public static Map<Integer, PkgNameAndNodeInfoData> a(List<TornadoNodeInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            fk7 fk7Var = this.a;
-            if (fk7Var == null) {
-                return view2;
-            }
-            if (view2 == null || view2 != fk7Var.getArrowView()) {
-                view2 = this.a.getArrowView();
-                if (view2.getLayoutParams() == null) {
-                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, d()));
-                }
-            }
-            this.a.a(view2);
-            return view2;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            fk7 fk7Var = this.a;
-            if (fk7Var != null && fk7Var.b()) {
-                int arrowIndex = this.a.getArrowIndex();
-                if (i < arrowIndex) {
-                    return i;
-                }
-                if (i == arrowIndex) {
-                    return -1;
-                }
-                return i - 1;
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (h()) {
-                int f = f(i);
-                if (f >= 0) {
-                    return c(f);
-                }
-                return c(i);
-            }
-            return c(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (h()) {
-                int f = f(i);
-                if (f >= 0) {
-                    return e(f);
-                }
-                return e(i);
-            }
-            return e(i);
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        int arrowIndex;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            if (!h() || (arrowIndex = this.a.getArrowIndex()) <= 0 || i != arrowIndex) {
-                return 0;
-            }
-            return 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public void i(fk7 fk7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, fk7Var) == null) {
-            this.a = fk7Var;
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        int b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (h()) {
-                if (this.b) {
-                    b = this.a.getArrowIndex();
-                } else {
-                    fk7 fk7Var = this.a;
-                    if (fk7Var != null && fk7Var.b()) {
-                        b = b();
-                    } else {
-                        return b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                HashMap hashMap = new HashMap();
+                int i = 0;
+                for (int i2 = 0; i2 < list.size(); i2++) {
+                    for (int i3 = 0; i3 < list.get(i2).getNodeInfoList().size(); i3++) {
+                        hashMap.put(Integer.valueOf(i), new PkgNameAndNodeInfoData(list.get(i2).getPackageName(), list.get(i2).getNodeInfoList().get(i3), list.get(i2).getGameId()));
+                        i++;
                     }
                 }
-                return b + 1;
+                return hashMap;
             }
-            return b();
+            return null;
         }
-        return invokeV.intValue;
+        return (Map) invokeL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public static String[] b(List<TornadoNodeInfo> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
-            if (getItemViewType(i) == 0) {
-                return g(f(i), view2, viewGroup);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
+            if (!ListUtils.isEmpty(list) && i > 0) {
+                String[] strArr = new String[i];
+                int i2 = 0;
+                for (int i3 = 0; i3 < list.size(); i3++) {
+                    for (int i4 = 0; i4 < list.get(i3).getNodeInfoList().size(); i4++) {
+                        strArr[i2] = list.get(i3).getNodeInfoList().get(i4).getNodeName();
+                        i2++;
+                    }
+                }
+                return strArr;
             }
-            return a(view2);
+            return null;
         }
-        return (View) invokeILL.objValue;
+        return (String[]) invokeLI.objValue;
     }
 }

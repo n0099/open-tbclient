@@ -1,23 +1,38 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
-import com.baidu.tbadk.coreExtra.data.CombineDownload;
-import com.baidu.tbadk.coreExtra.data.VersionData;
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class v65 extends n65 {
+public abstract class v65 extends w65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public TBAlertBuilder b;
+
+    public abstract void b(TBAlertBuilder tBAlertBuilder);
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
 
     public v65() {
         Interceptable interceptable = $ic;
@@ -33,17 +48,61 @@ public class v65 extends n65 {
         }
     }
 
-    @Override // com.baidu.tieba.n65
-    public void a(@NonNull Context context, @NonNull f65 f65Var) {
-        JSONObject syncJson;
+    public final Activity getActivity() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, f65Var) != null) || (syncJson = TbSingleton.getInstance().getSyncJson()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
-        VersionData versionData = new VersionData();
-        versionData.parserJson(syncJson.optJSONObject("version"));
-        CombineDownload combineDownload = new CombineDownload();
-        combineDownload.parserJson(syncJson.optJSONObject("combine_download"));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), versionData, combineDownload)));
+        return (Activity) invokeV.objValue;
+    }
+
+    public static final void e(v65 this$0, DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, dialogInterface) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c();
+        }
+    }
+
+    @Override // com.baidu.tieba.w65
+    public void a(Context context, o65 data) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (!(context instanceof Activity)) {
+                activity = TbadkApplication.getInst().getCurrentActivity();
+            } else {
+                activity = (Activity) context;
+            }
+            this.a = activity;
+            if (activity == null) {
+                c();
+                h29 yunDialogLog = YunDialogLog.getInstance();
+                yunDialogLog.c("YunDialogManager", "云弹窗 " + data.a("yun_dialogName") + " 展示失败：当前 activity 为空");
+                return;
+            }
+            Intrinsics.checkNotNull(activity);
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
+            this.b = tBAlertBuilder;
+            if (tBAlertBuilder != null) {
+                tBAlertBuilder.s(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.r65
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.content.DialogInterface.OnDismissListener
+                    public final void onDismiss(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                            v65.e(v65.this, dialogInterface);
+                        }
+                    }
+                });
+                b(tBAlertBuilder);
+                d();
+            }
+        }
     }
 }

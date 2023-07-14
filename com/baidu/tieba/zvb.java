@@ -1,64 +1,137 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class zvb<E> extends xvb<E> {
+public class zvb {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedQueueNode<E> producerNode;
+    public TreeMap<String, String> a;
+    public TreeMap<String, String> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948374819, "Lcom/baidu/tieba/zvb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948374819, "Lcom/baidu/tieba/zvb;");
-                return;
-            }
-        }
-        a = axb.a(zvb.class, "producerNode");
-    }
-
-    public zvb() {
+    public zvb(TreeMap<String, String> treeMap, TreeMap<String, String> treeMap2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {treeMap, treeMap2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = treeMap;
+        this.b = treeMap2;
     }
 
-    public final LinkedQueueNode<E> a() {
-        InterceptResult invokeV;
+    public static zvb a(String str) {
+        InterceptResult invokeL;
+        TreeMap<String, String> treeMap;
+        TreeMap<String, String> treeMap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (LinkedQueueNode) axb.a.f(this, a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            TreeMap<String, String> treeMap3 = null;
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("mText");
+                if (optString != null && !optString.isEmpty()) {
+                    treeMap2 = c(optString);
+                } else {
+                    treeMap2 = null;
+                }
+                try {
+                    String optString2 = jSONObject.optString("mImages");
+                    if (optString2 != null && !optString2.isEmpty()) {
+                        treeMap3 = c(optString2);
+                    }
+                } catch (JSONException e) {
+                    treeMap = treeMap2;
+                    e = e;
+                    e.printStackTrace();
+                    treeMap2 = treeMap;
+                    return new zvb(treeMap2, treeMap3);
+                }
+            } catch (JSONException e2) {
+                e = e2;
+                treeMap = null;
+            }
+            return new zvb(treeMap2, treeMap3);
         }
-        return (LinkedQueueNode) invokeV.objValue;
+        return (zvb) invokeL.objValue;
     }
 
-    public final void b(LinkedQueueNode<E> linkedQueueNode) {
+    public static String b(TreeMap<String, String> treeMap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
-            this.producerNode = linkedQueueNode;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, treeMap)) == null) {
+            if (treeMap != null && !treeMap.isEmpty()) {
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry<String, String> entry : treeMap.entrySet()) {
+                    try {
+                        jSONObject.put(entry.getKey(), entry.getValue());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return jSONObject.toString();
+            }
+            return "";
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static TreeMap<String, String> c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                TreeMap<String, String> treeMap = new TreeMap<>();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        treeMap.put(next, (String) jSONObject.get(next));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return treeMap;
+            }
+            return null;
+        }
+        return (TreeMap) invokeL.objValue;
+    }
+
+    public static String d(zvb zvbVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, zvbVar)) == null) {
+            if (zvbVar == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("mText", b(zvbVar.a));
+                jSONObject.put("mImages", b(zvbVar.b));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

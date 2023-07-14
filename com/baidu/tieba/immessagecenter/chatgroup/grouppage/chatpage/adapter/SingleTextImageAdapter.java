@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eg8;
-import com.baidu.tieba.eh8;
+import com.baidu.tieba.el8;
+import com.baidu.tieba.em8;
+import com.baidu.tieba.hc8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SingleTextImageMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.view.TextGenImageView;
-import com.baidu.tieba.m78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
-    public m78 m;
+    public hc8 m;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     public boolean X() {
@@ -89,7 +89,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void b(@Nullable View.OnLongClickListener onLongClickListener) {
+        public void c(@Nullable View.OnLongClickListener onLongClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onLongClickListener) == null) {
                 View view2 = this.a;
@@ -104,7 +104,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void a(@Nullable View.OnClickListener onClickListener) {
+        public void b(@Nullable View.OnClickListener onClickListener) {
             TextGenImageView textGenImageView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) && (textGenImageView = this.b) != null) {
@@ -112,7 +112,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
             }
         }
 
-        public void f(View view2) {
+        public void g(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
                 this.a = view2;
@@ -121,46 +121,52 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
     }
 
     /* loaded from: classes6.dex */
-    public class a implements eg8 {
+    public class a implements el8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ SingleTextImageMsg b;
-        public final /* synthetic */ SingleTextImageAdapter c;
+        public final /* synthetic */ TextGenImageView b;
+        public final /* synthetic */ SingleTextImageMsg c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ SingleTextImageAdapter e;
 
-        public a(SingleTextImageAdapter singleTextImageAdapter, ViewGroup viewGroup, SingleTextImageMsg singleTextImageMsg) {
+        public a(SingleTextImageAdapter singleTextImageAdapter, ViewGroup viewGroup, TextGenImageView textGenImageView, SingleTextImageMsg singleTextImageMsg, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleTextImageAdapter, viewGroup, singleTextImageMsg};
+                Object[] objArr = {singleTextImageAdapter, viewGroup, textGenImageView, singleTextImageMsg, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = singleTextImageAdapter;
+            this.e = singleTextImageAdapter;
             this.a = viewGroup;
-            this.b = singleTextImageMsg;
+            this.b = textGenImageView;
+            this.c = singleTextImageMsg;
+            this.d = i;
         }
 
-        @Override // com.baidu.tieba.eg8
+        @Override // com.baidu.tieba.el8
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
                 this.a.setBackground(drawable);
+                em8.o(false, this.b.getTextView(), this.c, this.d);
             }
         }
 
-        @Override // com.baidu.tieba.eg8
+        @Override // com.baidu.tieba.el8
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.c.g0(this.a, this.b);
+                this.e.g0(this.a, this.c);
+                em8.o(true, this.b.getTextView(), this.c, this.d);
             }
         }
     }
@@ -194,7 +200,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090e6c) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090e7b) {
                 this.b.a0(view2.getContext(), this.a);
             }
         }
@@ -238,7 +244,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
             Holder holder = new Holder(Z(viewGroup.getContext()));
-            holder.f(viewGroup);
+            holder.g(viewGroup);
             return holder;
         }
         return (Holder) invokeL.objValue;
@@ -253,7 +259,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
             Holder holder = new Holder(Z(viewGroup.getContext()));
-            holder.f(viewGroup);
+            holder.g(viewGroup);
             return holder;
         }
         return (Holder) invokeL.objValue;
@@ -264,7 +270,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
             TextGenImageView textGenImageView = new TextGenImageView(context);
-            textGenImageView.setId(R.id.obfuscated_res_0x7f090e91);
+            textGenImageView.setId(R.id.obfuscated_res_0x7f090ea0);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -290,9 +296,9 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
             if (StringUtils.isNull(str)) {
                 return;
             }
-            m78 m78Var = new m78(this.mContext, str, forumId, this.l, roomId, false);
-            this.m = m78Var;
-            m78Var.execute(new String[0]);
+            hc8 hc8Var = new hc8(this.mContext, str, forumId, this.l, roomId, false);
+            this.m = hc8Var;
+            hc8Var.execute(new String[0]);
             e0(roomId, forumId, this.l);
         }
     }
@@ -303,11 +309,12 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
     public void T(int i, @NonNull ViewGroup viewGroup, @NonNull T t, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), viewGroup, t, holder, list, Integer.valueOf(i2)}) == null) {
-            eh8.r(this.mType, t, viewGroup, new a(this, viewGroup, t));
-            holder.b.b(holder, t, i2);
+            TextGenImageView textGenImageView = holder.b;
+            textGenImageView.b(holder, t, i2);
+            em8.t(this.mType, t, viewGroup, new a(this, viewGroup, textGenImageView, t, i2));
             CommonMsgField commonMsgField = t.getCommonMsgField();
             f0(commonMsgField.getRoomId(), commonMsgField.getForumId(), this.l);
-            holder.a(new b(this, t));
+            holder.b(new b(this, t));
         }
     }
 

@@ -16,7 +16,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.resolve.OverridingUtil;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeChecker;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DescriptorEquivalenceForOverrides {
     public static final DescriptorEquivalenceForOverrides INSTANCE = new DescriptorEquivalenceForOverrides();
 
@@ -127,12 +127,12 @@ public final class DescriptorEquivalenceForOverrides {
                 if (Intrinsics.areEqual(typeConstructor, typeConstructor2)) {
                     return true;
                 }
-                ClassifierDescriptor mo2099getDeclarationDescriptor = typeConstructor.mo2099getDeclarationDescriptor();
-                ClassifierDescriptor mo2099getDeclarationDescriptor2 = typeConstructor2.mo2099getDeclarationDescriptor();
-                if (!(mo2099getDeclarationDescriptor instanceof TypeParameterDescriptor) || !(mo2099getDeclarationDescriptor2 instanceof TypeParameterDescriptor)) {
+                ClassifierDescriptor mo2101getDeclarationDescriptor = typeConstructor.mo2101getDeclarationDescriptor();
+                ClassifierDescriptor mo2101getDeclarationDescriptor2 = typeConstructor2.mo2101getDeclarationDescriptor();
+                if (!(mo2101getDeclarationDescriptor instanceof TypeParameterDescriptor) || !(mo2101getDeclarationDescriptor2 instanceof TypeParameterDescriptor)) {
                     return false;
                 }
-                areTypeParametersEquivalent = DescriptorEquivalenceForOverrides.INSTANCE.areTypeParametersEquivalent((TypeParameterDescriptor) mo2099getDeclarationDescriptor, (TypeParameterDescriptor) mo2099getDeclarationDescriptor2, z, new Function2<DeclarationDescriptor, DeclarationDescriptor, Boolean>() { // from class: kotlin.reflect.jvm.internal.impl.resolve.DescriptorEquivalenceForOverrides$areCallableDescriptorsEquivalent$overridingUtil$1.1
+                areTypeParametersEquivalent = DescriptorEquivalenceForOverrides.INSTANCE.areTypeParametersEquivalent((TypeParameterDescriptor) mo2101getDeclarationDescriptor, (TypeParameterDescriptor) mo2101getDeclarationDescriptor2, z, new Function2<DeclarationDescriptor, DeclarationDescriptor, Boolean>() { // from class: kotlin.reflect.jvm.internal.impl.resolve.DescriptorEquivalenceForOverrides$areCallableDescriptorsEquivalent$overridingUtil$1.1
                     {
                         super(2);
                     }

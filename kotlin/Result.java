@@ -19,23 +19,23 @@ public final class Result<T> implements Serializable {
     public final Object value;
 
     /* renamed from: box-impl  reason: not valid java name */
-    public static final /* synthetic */ Result m843boximpl(Object obj) {
+    public static final /* synthetic */ Result m845boximpl(Object obj) {
         return new Result(obj);
     }
 
     @PublishedApi
     /* renamed from: constructor-impl  reason: not valid java name */
-    public static <T> Object m844constructorimpl(Object obj) {
+    public static <T> Object m846constructorimpl(Object obj) {
         return obj;
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
-    public static boolean m845equalsimpl(Object obj, Object obj2) {
-        return (obj2 instanceof Result) && Intrinsics.areEqual(obj, ((Result) obj2).m853unboximpl());
+    public static boolean m847equalsimpl(Object obj, Object obj2) {
+        return (obj2 instanceof Result) && Intrinsics.areEqual(obj, ((Result) obj2).m855unboximpl());
     }
 
     /* renamed from: equals-impl0  reason: not valid java name */
-    public static final boolean m846equalsimpl0(Object obj, Object obj2) {
+    public static final boolean m848equalsimpl0(Object obj, Object obj2) {
         return Intrinsics.areEqual(obj, obj2);
     }
 
@@ -44,7 +44,7 @@ public final class Result<T> implements Serializable {
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
-    public static int m849hashCodeimpl(Object obj) {
+    public static int m851hashCodeimpl(Object obj) {
         if (obj == null) {
             return 0;
         }
@@ -52,15 +52,15 @@ public final class Result<T> implements Serializable {
     }
 
     public boolean equals(Object obj) {
-        return m845equalsimpl(this.value, obj);
+        return m847equalsimpl(this.value, obj);
     }
 
     public int hashCode() {
-        return m849hashCodeimpl(this.value);
+        return m851hashCodeimpl(this.value);
     }
 
     /* renamed from: unbox-impl  reason: not valid java name */
-    public final /* synthetic */ Object m853unboximpl() {
+    public final /* synthetic */ Object m855unboximpl() {
         return this.value;
     }
 
@@ -78,13 +78,13 @@ public final class Result<T> implements Serializable {
         @JvmName(name = SmsLoginView.f.l)
         private final <T> Object failure(Throwable exception) {
             Intrinsics.checkNotNullParameter(exception, "exception");
-            return Result.m844constructorimpl(ResultKt.createFailure(exception));
+            return Result.m846constructorimpl(ResultKt.createFailure(exception));
         }
 
         @InlineOnly
         @JvmName(name = "success")
         private final <T> Object success(T t) {
-            return Result.m844constructorimpl(t);
+            return Result.m846constructorimpl(t);
         }
     }
 
@@ -123,7 +123,7 @@ public final class Result<T> implements Serializable {
     }
 
     /* renamed from: exceptionOrNull-impl  reason: not valid java name */
-    public static final Throwable m847exceptionOrNullimpl(Object obj) {
+    public static final Throwable m849exceptionOrNullimpl(Object obj) {
         if (obj instanceof Failure) {
             return ((Failure) obj).exception;
         }
@@ -134,25 +134,25 @@ public final class Result<T> implements Serializable {
     /* JADX WARN: Multi-variable type inference failed */
     @InlineOnly
     /* renamed from: getOrNull-impl  reason: not valid java name */
-    public static final T m848getOrNullimpl(Object obj) {
-        if (m850isFailureimpl(obj)) {
+    public static final T m850getOrNullimpl(Object obj) {
+        if (m852isFailureimpl(obj)) {
             return null;
         }
         return obj;
     }
 
     /* renamed from: isFailure-impl  reason: not valid java name */
-    public static final boolean m850isFailureimpl(Object obj) {
+    public static final boolean m852isFailureimpl(Object obj) {
         return obj instanceof Failure;
     }
 
     /* renamed from: isSuccess-impl  reason: not valid java name */
-    public static final boolean m851isSuccessimpl(Object obj) {
+    public static final boolean m853isSuccessimpl(Object obj) {
         return !(obj instanceof Failure);
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static String m852toStringimpl(Object obj) {
+    public static String m854toStringimpl(Object obj) {
         if (obj instanceof Failure) {
             return ((Failure) obj).toString();
         }
@@ -160,6 +160,6 @@ public final class Result<T> implements Serializable {
     }
 
     public String toString() {
-        return m852toStringimpl(this.value);
+        return m854toStringimpl(this.value);
     }
 }

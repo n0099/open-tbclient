@@ -1,97 +1,80 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.util.RemoveViewNPE;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.sw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class lw5 {
+public class lw5 extends wn5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final lw5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public NoDataView a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957311, "Lcom/baidu/tieba/lw5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947957311, "Lcom/baidu/tieba/lw5;");
-                return;
-            }
-        }
-        a = new lw5();
-    }
-
-    public lw5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lw5(Context context) {
+        super(new NoDataView(context));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = (NoDataView) getView();
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.f(r9.a(getView().getContext()), i);
         }
     }
 
-    @JvmStatic
-    public static final void a(BdRecyclerView viewGroup, int i, NullPointerException e) {
-        qw5 qw5Var;
+    public void b(sw5.a aVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, viewGroup, i, e) == null) {
-            Intrinsics.checkNotNullParameter(viewGroup, "viewGroup");
-            Intrinsics.checkNotNullParameter(e, "e");
-            View childAt = viewGroup.getChildAt(i);
-            Intrinsics.checkNotNullExpressionValue(childAt, "viewGroup.getChildAt(index)");
-            if (childAt instanceof ViewGroup) {
-                qw5Var = a.b((ViewGroup) childAt);
-            } else {
-                qw5Var = null;
-            }
-            if (qw5Var != null) {
-                String str = "BdRecyclerView removeViewAt() NPE at index: " + i + ", the out parent is: [class: " + childAt.getClass().getSimpleName() + ", id: " + childAt.getId() + "], internal parent is: [class: " + qw5Var.b().getClass().getSimpleName() + ", id: " + qw5Var.b().getId() + "], child index is: " + qw5Var.a();
-                Throwable initCause = new RemoveViewNPE().initCause(new Throwable(str, e));
-                BdLog.detailException(initCause);
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", str));
-                initCause.printStackTrace();
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) || aVar == null) {
+            return;
         }
-    }
-
-    public final qw5 b(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if (childAt instanceof ViewGroup) {
-                    b((ViewGroup) childAt);
-                } else if (childAt == null) {
-                    return new qw5(viewGroup, i);
-                }
-            }
-            return null;
+        this.a.setVisibility(0);
+        NoDataViewFactory.d.a aVar2 = new NoDataViewFactory.d.a();
+        aVar2.i(NoDataViewFactory.ImgType.LOCAL);
+        aVar2.h(aVar.c);
+        aVar2.j(aVar.g);
+        this.a.setImgOption(aVar2.f());
+        if (aVar.b && !TextUtils.isEmpty(aVar.a)) {
+            str = aVar.a;
+        } else {
+            str = aVar.d;
         }
-        return (qw5) invokeL.objValue;
+        NoDataViewFactory.e.a aVar3 = new NoDataViewFactory.e.a();
+        aVar3.g(str);
+        this.a.setTextOption(aVar3.f());
+        if (aVar.f && !TextUtils.isEmpty(aVar.e)) {
+            String str2 = aVar.e;
+            View.OnClickListener onClickListener = aVar.h;
+            NoDataViewFactory.c.a aVar4 = new NoDataViewFactory.c.a();
+            aVar4.f(new NoDataViewFactory.b(str2, onClickListener));
+            this.a.setButtonOption(aVar4.e());
+        } else {
+            this.a.setButtonOption(null);
+        }
+        a(TbadkCoreApplication.getInst().getSkinType());
     }
 }

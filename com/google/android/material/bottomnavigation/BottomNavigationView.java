@@ -44,7 +44,7 @@ import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes9.dex */
 public class BottomNavigationView extends FrameLayout {
-    public static final int DEF_STYLE_RES = 2131755845;
+    public static final int DEF_STYLE_RES = 2131755846;
     public static final int MENU_PRESENTER_ID = 1;
     @Nullable
     public ColorStateList itemRippleColor;
@@ -79,7 +79,7 @@ public class BottomNavigationView extends FrameLayout {
     private void addCompatibilityTopDivider(Context context) {
         View view2 = new View(context);
         view2.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606ee));
-        view2.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a9)));
+        view2.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702af)));
         addView(view2);
     }
 
@@ -261,14 +261,14 @@ public class BottomNavigationView extends FrameLayout {
         this.menuView.setPresenter(this.presenter);
         this.menu.addMenuPresenter(this.presenter);
         this.presenter.initForMenu(getContext(), this.menu);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.BottomNavigationView, i, R.style.obfuscated_res_0x7f100345, 8, 7);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.BottomNavigationView, i, R.style.obfuscated_res_0x7f100346, 8, 7);
         if (obtainTintedStyledAttributes.hasValue(5)) {
             this.menuView.setIconTintList(obtainTintedStyledAttributes.getColorStateList(5));
         } else {
             BottomNavigationMenuView bottomNavigationMenuView = this.menuView;
             bottomNavigationMenuView.setIconTintList(bottomNavigationMenuView.createDefaultColorStateList(16842808));
         }
-        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a5)));
+        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ab)));
         if (obtainTintedStyledAttributes.hasValue(8)) {
             setItemTextAppearanceInactive(obtainTintedStyledAttributes.getResourceId(8, 0));
         }

@@ -1,215 +1,150 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
+import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class lz4 {
+public final class lz4 extends AbsJsInterface {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, List<c>> a;
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(String str);
-
-        String getKey();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947960163, "Lcom/baidu/tieba/lz4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947960163, "Lcom/baidu/tieba/lz4;");
-                return;
-            }
-        }
-        b = new a(null);
-    }
-
-    public /* synthetic */ lz4(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    @JvmStatic
-    public static final lz4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a() : (lz4) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final lz4 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
-            }
-            return (lz4) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final lz4 b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-616043419, "Lcom/baidu/tieba/lz4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-616043419, "Lcom/baidu/tieba/lz4$b;");
-                    return;
-                }
-            }
-            a = new b();
-            b = new lz4(null);
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public final lz4 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
-            }
-            return (lz4) invokeV.objValue;
-        }
-    }
+    public mz4 a;
 
     public lz4() {
-        List<c> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
-        kz4 kz4Var = new kz4();
-        kl1<c> kl1Var = kz4Var.a;
-        if (kl1Var != null) {
-            list = kl1Var.getList();
-        } else {
-            list = null;
-        }
-        if (!ListUtils.isEmpty(list)) {
-            for (c inject : kz4Var.a.getList()) {
-                Intrinsics.checkNotNullExpressionValue(inject, "inject");
-                c(inject);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void b(String key, String data) {
-        List<c> list;
+    @Override // com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface
+    public void deAttachWebView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, key, data) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (!TextUtils.isEmpty(key) && (list = this.a.get(key)) != null) {
-                for (c cVar : list) {
-                    cVar.a(data);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.deAttachWebView();
+            mz4 mz4Var = this.a;
+            if (mz4Var != null) {
+                mz4Var.e();
+                this.a = null;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface
+    public void attachWebView(@Nullable WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, webView) == null) {
+            super.attachWebView(webView);
+            if (this.a == null) {
+                this.a = new mz4();
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public void reportData(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            h29 hybridLog = HybridLog.getInstance();
+            hybridLog.c("TbChannelJsInterfaceNew", "reportData:" + str);
+            mz4 mz4Var = this.a;
+            if (mz4Var != null) {
+                mz4Var.g(str, 2);
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public String getInitData() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = "";
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (this.mWebView != null && (this.mWebView.getParent() instanceof TbWebView)) {
+                    str = ((TbWebView) this.mWebView.getParent()).getUrl();
+                    Map<String, kk6<Object>> bizData = ((TbWebView) this.mWebView.getParent()).getBizData();
+                    if (!xn6.b(bizData)) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        for (Map.Entry<String, kk6<Object>> entry : bizData.entrySet()) {
+                            try {
+                                kk6<Object> value = entry.getValue();
+                                if (!TextUtils.isEmpty(entry.getKey()) && value != null) {
+                                    jSONObject2.put(entry.getKey(), value.call());
+                                }
+                            } catch (Exception e) {
+                                BdLog.e(e);
+                            }
+                        }
+                        jSONObject.put("bizData", jSONObject2);
+                    }
                 }
+            } catch (Exception e2) {
+                BdLog.e(e2);
             }
+            try {
+                if (this.a != null) {
+                    jSONObject.put("perfData", this.a.c(this.mWebView));
+                }
+            } catch (Exception e3) {
+                BdLog.e(e3);
+            }
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("cuid", TbadkCoreApplication.getInst().getCuid());
+                jSONObject3.put("clientType", "2");
+                jSONObject3.put("clientVersion", TbConfig.getVersion());
+                jSONObject3.put("skin", SkinManager.getCurrentSkinTypeString());
+                if (TbadkCoreApplication.isLogin()) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject3.put("isLogin", i);
+                jSONObject3.put("hybrid", "new");
+                if (this.mWebView != null) {
+                    jSONObject3.put("webviewId", this.mWebView.toString());
+                }
+                Map<String, String> baseData = ((TbWebView) this.mWebView.getParent()).getBaseData();
+                if (!xn6.b(baseData)) {
+                    for (Map.Entry<String, String> entry2 : baseData.entrySet()) {
+                        if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
+                            jSONObject3.put(entry2.getKey(), entry2.getValue());
+                        }
+                    }
+                }
+                jSONObject.put("baseData", jSONObject3);
+            } catch (Exception e4) {
+                BdLog.e(e4);
+            }
+            h29 hybridLog = HybridLog.getInstance();
+            hybridLog.c("TbChannelJsInterfaceNew", str + " getInitData:" + jSONObject);
+            return jSONObject.toString();
         }
-    }
-
-    public final void c(c listener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listener) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            String key = listener.getKey();
-            if (TextUtils.isEmpty(key)) {
-                return;
-            }
-            List<c> list = this.a.get(key);
-            if (list == null) {
-                list = new ArrayList<>();
-                this.a.put(key, list);
-            }
-            list.add(listener);
-        }
-    }
-
-    public final void d(c listener) {
-        List<c> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listener) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            String key = listener.getKey();
-            if (!TextUtils.isEmpty(key) && (list = this.a.get(key)) != null) {
-                list.remove(listener);
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

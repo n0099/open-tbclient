@@ -1,20 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.abtest.MemoryThreadOptSwitch;
-import com.baidu.tbadk.switchs.CsjInitSwitch;
-import com.baidu.tbadk.switchs.GdtInitSwitch;
-import com.baidu.tbadk.switchs.KsInitSwitch;
-import com.baidu.tbadk.switchs.PicCaptureModeSwitch;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tieba.jf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ff implements gl1 {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class ff {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int DEF_CRASHTIME_LIMIT = 10;
+    public static final int OFF_TYPE = 0;
+    public static final int ON_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
+    public int mDefaultType;
+    public String[] mKey;
+    public int mMaxCrashTimes;
+    public String mName;
+    public int mOffType;
+    public jf.a mSwitchListener;
+
+    public abstract void changeSettingByType(int i);
+
+    /* renamed from: getCrashKeys */
+    public abstract String[] mo129getCrashKeys();
+
+    public abstract int getDefaultType();
+
+    public abstract int getMaxCrashTimes();
+
+    public abstract String getName();
+
+    public abstract int getOffType();
+
+    public String[] getSwitchLibs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements jf.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ff a;
+
+        public a(ff ffVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ffVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ffVar;
+        }
+
+        @Override // com.baidu.tieba.jf.a
+        public void a(String str, int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+                this.a.changeSettingByType(i);
+            }
+        }
+    }
 
     public ff() {
         Interceptable interceptable = $ic;
@@ -26,30 +87,35 @@ public class ff implements gl1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.mDefaultType = 0;
+        this.mOffType = 1;
+        this.mMaxCrashTimes = 10;
+        this.mSwitchListener = new a(this);
+        initData();
+        addToManager();
+    }
+
+    public void addToManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            jf jfVar = new jf(this.mName, this.mDefaultType, this.mSwitchListener);
+            jfVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
+            jfVar.j(getSwitchLibs());
+            SwitchManager.getInstance().addSwitchData(jfVar);
         }
     }
 
-    @Override // com.baidu.tieba.gl1
-    public Object get() {
-        InterceptResult invokeV;
+    public void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new MemoryThreadOptSwitch());
-            arrayList.add(new pk5());
-            arrayList.add(new CsjInitSwitch());
-            arrayList.add(new GdtInitSwitch());
-            arrayList.add(new KsInitSwitch());
-            arrayList.add(new PicCaptureModeSwitch());
-            arrayList.add(new ik6());
-            arrayList.add(new jk6());
-            arrayList.add(new tp6());
-            arrayList.add(new r28());
-            arrayList.add(new dp8());
-            arrayList.add(new ep8());
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.mName = getName();
+            this.mKey = mo129getCrashKeys();
+            this.mDefaultType = getDefaultType();
+            this.mOffType = getOffType();
+            this.mMaxCrashTimes = getMaxCrashTimes();
         }
-        return invokeV.objValue;
     }
 }

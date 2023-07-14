@@ -1,59 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nd4 extends ej3 {
+public class nd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int k;
-    public String l;
-    public int m;
-    public int n;
-    public long o;
 
-    public nd4() {
+    public static void a(dj2 dj2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeLL(65536, null, dj2Var, str) == null) && dj2Var != null && dj2Var.m().hasEventListener("deviceOrientationChange")) {
+            JSEvent jSEvent = new JSEvent("deviceOrientationChange");
+            jSEvent.data = new pd4(str);
+            dj2Var.dispatchEvent(jSEvent);
         }
-    }
-
-    @Override // com.baidu.tieba.ej3
-    public JSONObject f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
-            try {
-                this.h.put("stage", this.k);
-                this.h.put(StatConstants.KEY_EXT_ERR_MSG, this.l);
-                this.h.put("netStatus", this.m);
-                this.h.put(DownloadStatisticConstants.UBC_PAGE_VALUE_TOUCH, this.n);
-                this.h.put("stuck_interval", this.o);
-            } catch (JSONException e) {
-                if (ej3.j) {
-                    e.printStackTrace();
-                }
-            }
-            return super.f();
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

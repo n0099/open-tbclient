@@ -473,7 +473,7 @@ public class BusinessMessageDBManager extends DBBase {
         return invokeL.longValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00b3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00ae, code lost:
         if (r0.isClosed() == false) goto L34;
      */
     /*
@@ -497,7 +497,7 @@ public class BusinessMessageDBManager extends DBBase {
                 try {
                     String str2 = "SELECT * FROM busisession WHERE business = " + i;
                     if (!TextUtils.isEmpty(str)) {
-                        str2 = str2 + " AND " + str;
+                        str2 = str2 + str;
                     }
                     String str3 = str2 + " LIMIT " + Math.abs(i2);
                     LogUtils.d(TAG, "sql = " + str3);
@@ -1139,23 +1139,26 @@ public class BusinessMessageDBManager extends DBBase {
         }
     }
 
-    public List<ChatSession> getBusinessChatSessions(int i, int i2, long j, long j2, boolean z) {
+    public List<ChatSession> getBusinessChatSessions(int i, int i2, long j, long j2, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (i2 == 0) {
                 return null;
             }
             StringBuilder sb = new StringBuilder();
             if (j2 > 0) {
+                sb.append(" AND ");
                 sb.append("last_msg_time");
                 sb.append(" > ");
                 sb.append(j2 - j);
-                sb.append(" AND ");
             }
-            sb.append(TableDefine.BusiSessionColumns.COLUMN_LAST_ASK_UK);
-            sb.append(" = ");
-            sb.append(AccountManager.getUK(this.mContext));
+            if (z2) {
+                sb.append(" AND ");
+                sb.append(TableDefine.BusiSessionColumns.COLUMN_LAST_ASK_UK);
+                sb.append(" = ");
+                sb.append(AccountManager.getUK(this.mContext));
+            }
             if (z) {
                 sb.append(" AND ");
                 sb.append("new_msg_sum");

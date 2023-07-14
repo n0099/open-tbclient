@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.message.GameLaunchMessage;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,28 +13,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class oj9 extends BaseCardInfo implements xn {
+public class oj9 {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
+    public static volatile oj9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ej9> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948034315, "Lcom/baidu/tieba/oj9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948034315, "Lcom/baidu/tieba/oj9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948034315, "Lcom/baidu/tieba/oj9;")) == null) {
+            return;
         }
-        b = BdUniqueId.gen();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948034315, "Lcom/baidu/tieba/oj9;");
+        }
     }
 
     public oj9() {
@@ -48,29 +49,74 @@ public class oj9 extends BaseCardInfo implements xn {
         }
     }
 
-    public List<ej9> c() {
+    public static oj9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (oj9.class) {
+                    if (a == null) {
+                        a = new oj9();
+                    }
+                }
+            }
+            return a;
         }
-        return (List) invokeV.objValue;
+        return (oj9) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str != null && str.contains("bookcover:")) {
+                return true;
+            }
+            return false;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void d(List<ej9> list) {
+    public final boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return str.contains("xiaoying.tv");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean b(String str) {
+        InterceptResult invokeL;
+        Map<String, String> paramPair;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || (paramPair = UrlManager.getParamPair(UrlManager.getParamStr(str))) == null) {
+                return false;
+            }
+            String str2 = paramPair.get("url");
+            if (!TextUtils.isEmpty(str2)) {
+                return b(xi.getUrlDecode(str2));
+            }
+            return "1".equals(paramPair.get("tbgametype"));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(TbPageContext tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, str) != null) || tbPageContext == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (b(str)) {
+            MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
+        } else if (d(str)) {
+            UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, new String[]{str}, true);
+        } else {
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
     }
 }

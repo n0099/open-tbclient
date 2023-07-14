@@ -1,228 +1,119 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.ru2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-import java.util.Date;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class c92 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947629517, "Lcom/baidu/tieba/c92;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947629517, "Lcom/baidu/tieba/c92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947629517, "Lcom/baidu/tieba/c92;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947629517, "Lcom/baidu/tieba/c92;");
-        }
+        a = "__localDebug__" + File.separator + "master.js";
+        b = "__localDebug__" + File.separator + "main.js";
+        c = "__localDebug__" + File.separator + "slave.js";
     }
 
-    public static String a(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
+    public static ru2.g a(sw2 sw2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2;
-            }
-            return PreferencesUtil.LEFT_MOUNT + str + "] " + str2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sw2Var)) == null) {
+            File d = d();
+            e92.e().f("unzipstart");
+            ru2.M(b(), d, sw2Var);
+            e92.e().f("unzipend");
+            ru2.g gVar = new ru2.g();
+            File file = new File(d, "app.json");
+            SwanAppConfigData b2 = hc3.b(d.getAbsolutePath());
+            gVar.a = d.getPath() + File.separator;
+            gVar.b = b2;
+            v82.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
-        return (String) invokeLL.objValue;
+        return (ru2.g) invokeL.objValue;
     }
 
-    public static void b(String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, objArr) == null) && ms1.a && objArr != null) {
-            StringBuilder sb = new StringBuilder();
-            for (Object obj : objArr) {
-                if (obj != null) {
-                    sb.append(obj.toString());
-                }
-            }
-            Log.d(str, sb.toString());
-        }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            m("error", str, str2);
-            jv2.p0().e(str, str2);
-            if (ms1.a) {
-                Log.e(str, str2);
-            }
-        }
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            m("info", str, str2);
-            jv2.p0().i(str, str2);
-            if (ms1.a) {
-                Log.i(str, str2);
-            }
-        }
-    }
-
-    public static void k(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
-            jv2.p0().i(str, str2);
-            if (ms1.a) {
-                Log.i(str, str2);
-            }
-        }
-    }
-
-    public static void o(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) {
-            m("warn", str, str2);
-            jv2.p0().w(str, str2);
-            if (ms1.a) {
-                Log.w(str, str2);
-            }
-        }
-    }
-
-    public static void d(String str, String str2, Throwable th) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
-            if (th != null) {
-                str3 = "Exception:" + th.getMessage() + "\n" + str2;
-            } else {
-                str3 = str2;
-            }
-            m("error", str, str3);
-            jv2.p0().e(str, str2, th);
-            if (ms1.a) {
-                Log.e(str, str2, th);
-            }
-        }
-    }
-
-    public static void e(String str, String str2, String str3, @Nullable Throwable th, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, th, Boolean.valueOf(z)}) == null) {
-            String a2 = a(str2, str3);
-            jv2.p0().e(str, a2, th);
-            if (z) {
-                m("error", str, a2);
-            }
-        }
-    }
-
-    public static void p(String str, String str2, String str3, @Nullable Throwable th, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{str, str2, str3, th, Boolean.valueOf(z)}) == null) {
-            String a2 = a(str2, str3);
-            jv2.p0().w(str, a2, th);
-            if (z) {
-                m("warn", str, a2);
-            }
-        }
-    }
-
-    public static boolean f() {
+    public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new File(c(), "local_debug.swan");
         }
-        return invokeV.booleanValue;
+        return (File) invokeV.objValue;
     }
 
-    public static int h() {
+    public static File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (stackTrace != null && stackTrace.length > 5) {
-                return stackTrace[5].getLineNumber();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug_zip");
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            return -1;
+            return file;
         }
-        return invokeV.intValue;
+        return (File) invokeV.objValue;
     }
 
-    public static String g() {
+    public static File d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (stackTrace != null && stackTrace.length > 5) {
-                return stackTrace[5].getFileName();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug");
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0186);
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return d() + File.separator + a;
         }
         return (String) invokeV.objValue;
     }
 
-    public static void j(String str, String str2, String str3, boolean z) {
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
-            String a2 = a(str2, str3);
-            jv2.p0().i(str, a2);
-            if (z) {
-                m("info", str, a2);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d() + File.separator + c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void l(String str, String str2, Throwable th) {
+    public static boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, str, str2, th) == null) {
-            jv2.p0().e(str, str2, th);
-            if (ms1.a) {
-                Log.e(str, str2, th);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists();
         }
-    }
-
-    public static void m(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65549, null, str, str2, str3) == null) && a && !TextUtils.isEmpty(str3)) {
-            StringBuilder sb = new StringBuilder();
-            String b = qo3.b(new Date(), "yyyy-MM-dd HH:mm:ss");
-            String g = g();
-            int h = h();
-            sb.append(b);
-            sb.append(GlideException.IndentedAppendable.INDENT);
-            sb.append(g);
-            sb.append(GlideException.IndentedAppendable.INDENT);
-            sb.append("line:");
-            sb.append(h);
-            sb.append("\n");
-            sb.append("module:");
-            sb.append(str2);
-            sb.append("\n");
-            sb.append(str3);
-            px2.T().q().d0(str, sb.toString());
-        }
-    }
-
-    public static void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
-            a = z;
-        }
+        return invokeV.booleanValue;
     }
 }

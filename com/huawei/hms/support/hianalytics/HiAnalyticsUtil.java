@@ -146,6 +146,32 @@ public class HiAnalyticsUtil {
         return (Map) invokeL.objValue;
     }
 
+    public Map<String, String> getMapFromRequestHeader(RequestHeader requestHeader) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestHeader)) == null) {
+            HashMap hashMap = new HashMap();
+            if (requestHeader == null) {
+                return hashMap;
+            }
+            hashMap.put("transId", requestHeader.getTransactionId());
+            hashMap.put("appid", requestHeader.getActualAppID());
+            hashMap.put("service", requestHeader.getSrvName());
+            String apiName = requestHeader.getApiName();
+            if (!TextUtils.isEmpty(apiName)) {
+                String[] split = apiName.split("\\.");
+                if (split.length >= 2) {
+                    hashMap.put("apiName", split[1]);
+                }
+            }
+            hashMap.put("package", requestHeader.getPkgName());
+            hashMap.put("callTime", String.valueOf(System.currentTimeMillis()));
+            hashMap.put(HiAnalyticsConstant.HaKey.BI_KEY_BASE_VERSION, "6.5.0.300");
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
     public static Map<String, String> getMapFromRequestHeader(ResponseHeader responseHeader) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -205,32 +231,6 @@ public class HiAnalyticsUtil {
             hashMap.put("appid", requestHeader.getActualAppID());
             hashMap.put("service", requestHeader.getSrvName());
             hashMap.put("apiName", requestHeader.getApiName());
-            hashMap.put("package", requestHeader.getPkgName());
-            hashMap.put("callTime", String.valueOf(System.currentTimeMillis()));
-            hashMap.put(HiAnalyticsConstant.HaKey.BI_KEY_BASE_VERSION, "6.5.0.300");
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public Map<String, String> getMapFromRequestHeader(RequestHeader requestHeader) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestHeader)) == null) {
-            HashMap hashMap = new HashMap();
-            if (requestHeader == null) {
-                return hashMap;
-            }
-            hashMap.put("transId", requestHeader.getTransactionId());
-            hashMap.put("appid", requestHeader.getActualAppID());
-            hashMap.put("service", requestHeader.getSrvName());
-            String apiName = requestHeader.getApiName();
-            if (!TextUtils.isEmpty(apiName)) {
-                String[] split = apiName.split("\\.");
-                if (split.length >= 2) {
-                    hashMap.put("apiName", split[1]);
-                }
-            }
             hashMap.put("package", requestHeader.getPkgName());
             hashMap.put("callTime", String.valueOf(System.currentTimeMillis()));
             hashMap.put(HiAnalyticsConstant.HaKey.BI_KEY_BASE_VERSION, "6.5.0.300");

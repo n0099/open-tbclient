@@ -1,5 +1,5 @@
 package com.kwad.components.ad.reward.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements a {
     @Override // com.kwad.components.ad.reward.d.a
     public void bB() {

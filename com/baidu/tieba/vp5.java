@@ -1,46 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.tbadk.mutiprocess.DataType;
-import com.baidu.tbadk.mutiprocess.ParcelableEvent;
-import com.baidu.tbadk.mutiprocess.SerializableEvent;
-import com.baidu.tbadk.mutiprocess.StickyEvent;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class vp5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vp5 {
+    public static final a a = a.a;
 
-    public vp5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    tu6 a();
+
+    String b();
+
+    String c();
+
+    String d();
+
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
+        public static final ServiceReference b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-338957359, "Lcom/baidu/tieba/vp5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-338957359, "Lcom/baidu/tieba/vp5$a;");
+                    return;
+                }
+            }
+            a = new a();
+            b = new ServiceReference("module_home", "SpriteResourceService");
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
-    }
 
-    public void a(Intent intent, lp5 lp5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, intent, lp5Var) == null) {
-            if (lp5Var instanceof StickyEvent) {
-                intent.putExtra("value_type", DataType.ORM.ordinal());
-                intent.putExtra("value", (StickyEvent) lp5Var);
-            } else if (lp5Var instanceof ParcelableEvent) {
-                intent.putExtra("value_type", DataType.PARCELABLE.ordinal());
-                intent.putExtra("value", (ParcelableEvent) lp5Var);
-            } else if (lp5Var instanceof SerializableEvent) {
-                intent.putExtra("value_type", DataType.SERIALIZABLE.ordinal());
-                intent.putExtra("value", (SerializableEvent) lp5Var);
+        public final vp5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Object service = ServiceManager.getService(b);
+                Intrinsics.checkNotNullExpressionValue(service, "getService(SERVICE_REFERENCE)");
+                return (vp5) service;
             }
+            return (vp5) invokeV.objValue;
         }
     }
 }

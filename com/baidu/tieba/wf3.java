@@ -1,87 +1,68 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.tieba.tw2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes8.dex */
-public class wf3 extends zd3 {
+public class wf3 extends UnitedSchemeBaseInterceptor {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
+
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
+    public String getInterceptorName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "aiapps_launch_interceptor" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public class a implements kj4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ cc3 c;
-        public final /* synthetic */ wf3 d;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Uri b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ wf3 e;
 
-        /* renamed from: com.baidu.tieba.wf3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC0507a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Bitmap a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0507a(a aVar, Bitmap bitmap) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bitmap};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = bitmap;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.b;
-                    aVar.d.o(this.a, aVar.a, aVar.b, aVar.c);
-                }
-            }
-        }
-
-        public a(wf3 wf3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
+        public a(wf3 wf3Var, String str, Uri uri, String str2, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wf3Var, unitedSchemeEntity, callbackHandler, cc3Var};
+                Object[] objArr = {wf3Var, str, uri, str2, unitedSchemeEntity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -91,170 +72,273 @@ public class wf3 extends zd3 {
                     return;
                 }
             }
-            this.d = wf3Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = cc3Var;
+            this.e = wf3Var;
+            this.a = str;
+            this.b = uri;
+            this.c = str2;
+            this.d = unitedSchemeEntity;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.kj4
+        public void a(@Nullable Map<String, String> map) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bitmap y = tp3.y();
-                if (y == null) {
-                    this.d.n(this.a, this.b, "can't get screenshot");
-                } else {
-                    wo3.k(new RunnableC0507a(this, y), "savescreenshot");
-                }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, map) != null) || map == null) {
+                return;
+            }
+            this.e.e(this.b, map.get(this.a), this.c, this.d);
+        }
+
+        @Override // com.baidu.tieba.kj4
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && wf3.a) {
+                Log.e("SwanLaunchInterceptor", "getOpenBundleId", exc);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wf3(zc3 zc3Var) {
-        super(zc3Var, "/swanAPI/getScreenshot");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948268613, "Lcom/baidu/tieba/wf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948268613, "Lcom/baidu/tieba/wf3;");
                 return;
             }
         }
+        a = fs1.a;
+        HashSet hashSet = new HashSet();
+        b = hashSet;
+        hashSet.add("_baiduboxapp");
+        b.add(WebChromeClient.KEY_ARG_CALLBACK);
+        b.add("upgrade");
+        b.add("_naExtParams");
     }
 
-    @Override // com.baidu.tieba.zd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
-        InterceptResult invokeLLLL;
+    public wf3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
-            if (cc3Var == null) {
-                c92.c("Screenshot", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final String c(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
+            if (uri == null) {
+                return "";
+            }
+            HashSet hashSet = new HashSet();
+            hashSet.add("_naExtParams");
+            return np3.m(uri, hashSet);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String d(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
+            return np3.i(uri.getEncodedQuery(), b);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:62:0x023f  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x024d  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void e(Uri uri, String str, String str2, UnitedSchemeEntity unitedSchemeEntity) {
+        String str3;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, str, str2, unitedSchemeEntity) == null) {
+            String d = d(uri);
+            if (a) {
+                Log.d("SwanLaunchInterceptor", "query: " + d);
+            }
+            String n = np3.n(str, uri, true);
+            if (a) {
+                Log.d("SwanLaunchInterceptor", "pagePath: " + n);
+            }
+            String h = SwanLauncher.h();
+            ub3.K().q().W().J0(h);
+            String uri2 = uri.toString();
+            String queryParameter = uri.getQueryParameter("_naExtParams");
+            if (!TextUtils.isEmpty(queryParameter)) {
+                uri2 = c(uri);
+            }
+            tw2.a aVar = (tw2.a) ((tw2.a) ((tw2.a) new tw2.a().v0(str)).K0(uri2)).J0(h);
+            if (!TextUtils.isEmpty(n) && !TextUtils.isEmpty(d)) {
+                aVar.R0(n + "?" + d);
+            } else if (!TextUtils.isEmpty(n)) {
+                aVar.R0(n);
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str3 = "_naExtParams";
+            } else {
+                try {
+                    JSONObject jSONObject = new JSONObject(str2);
+                    if (a) {
+                        j = System.nanoTime();
+                    } else {
+                        j = 0;
+                    }
+                    th3.h(jSONObject, str);
+                    if (a) {
+                        Log.d("SwanLaunchInterceptor", "SwanAppStabilityConfig#parseConfig 耗时(ns): " + (System.nanoTime() - j));
+                    }
+                    aVar.I0(jSONObject.optString("from"));
+                    aVar.P0(jSONObject.optString("notinhis"));
+                    aVar.X0(jSONObject.optString("subscribeWithoutClick"));
+                    JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+                    aVar.r0("srcAppId", jSONObject.optString("srcAppId"));
+                    if (vb3.b0() == null) {
+                        str3 = "_naExtParams";
+                    } else {
+                        String O = vb3.b0().O();
+                        aVar.r0("srcAppKey", O);
+                        int type = vb3.b0().W().getType();
+                        str3 = "_naExtParams";
+                        try {
+                            aVar.q0("srcPkgType", type);
+                            if (a) {
+                                Log.d("SwanLaunchInterceptor", "srcAppKey = " + O + "  ,srcPkgType = " + type);
+                            }
+                        } catch (JSONException e) {
+                            e = e;
+                            if (a) {
+                                Log.d("SwanLaunchInterceptor", "getLaunchFrom failed: " + Log.getStackTraceString(e));
+                            }
+                            aVar.z("tool_ip", unitedSchemeEntity.getParam("tip"));
+                            aVar.z("tool_port", unitedSchemeEntity.getParam("tport"));
+                            aVar.z("projectId", unitedSchemeEntity.getParam("projectId"));
+                            aVar.z("fromHost", unitedSchemeEntity.getParam("fromHost"));
+                            aVar.z("spuId", unitedSchemeEntity.getParam("spuId"));
+                            aVar.z("contentId", unitedSchemeEntity.getParam("contentId"));
+                            Bundle bundle = null;
+                            if (!TextUtils.isEmpty(queryParameter)) {
+                            }
+                            if (a) {
+                            }
+                            SwanLauncher.j().n(aVar, bundle);
+                        }
+                    }
+                    if (!jSONObject.isNull(PrefetchEvent.EVENT_DATA_EXTRA_DATA)) {
+                        aVar.r0(PrefetchEvent.EVENT_DATA_EXTRA_DATA, jSONObject.optString(PrefetchEvent.EVENT_DATA_EXTRA_DATA));
+                    }
+                    aVar.r0("srcAppPage", jSONObject.optString("srcAppPage"));
+                    JSONObject b2 = yr4.b(aVar.T(), jSONObject.optJSONObject("ubc"));
+                    if (b2 != null) {
+                        aVar.r0("ubc", b2.toString());
+                    }
+                    if (optJSONObject != null) {
+                        aVar.y0(optJSONObject.optString("clkid"));
+                        aVar.r0("aiapp_abtest_info", optJSONObject.optString("aiapp_abtest_info"));
+                        aVar.r0(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, optJSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT));
+                        aVar.q0("click_time", optJSONObject.optLong("click", -1L));
+                    }
+                    String optString = jSONObject.optString("veloce");
+                    if (!TextUtils.isEmpty(optString)) {
+                        long optLong = new JSONObject(optString).optLong(LaunchedTaskSpeedStats.KEY_START_TIME);
+                        if (optLong > 0) {
+                            aVar.x("veloce_start_time", optLong);
+                        }
+                    }
+                } catch (JSONException e2) {
+                    e = e2;
+                    str3 = "_naExtParams";
+                }
+            }
+            aVar.z("tool_ip", unitedSchemeEntity.getParam("tip"));
+            aVar.z("tool_port", unitedSchemeEntity.getParam("tport"));
+            aVar.z("projectId", unitedSchemeEntity.getParam("projectId"));
+            aVar.z("fromHost", unitedSchemeEntity.getParam("fromHost"));
+            aVar.z("spuId", unitedSchemeEntity.getParam("spuId"));
+            aVar.z("contentId", unitedSchemeEntity.getParam("contentId"));
+            Bundle bundle2 = null;
+            if (!TextUtils.isEmpty(queryParameter)) {
+                bundle2 = new Bundle();
+                bundle2.putString(str3, queryParameter);
+            }
+            if (a) {
+                Log.d("SwanLaunchInterceptor", "launchParams: " + aVar + " \n_naExtParmas: " + queryParameter);
+            }
+            SwanLauncher.j().n(aVar, bundle2);
+        }
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
+    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            Uri uri = unitedSchemeEntity.getUri();
+            if (uri == null || !TextUtils.equals(uri.getHost(), "swan")) {
                 return false;
             }
-            String optString = cp3.d(unitedSchemeEntity.getParam("params")).optString("name");
-            this.c = optString;
-            if (TextUtils.isEmpty(optString)) {
-                c92.c("Screenshot", "invalid params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
+            if (unitedSchemeEntity.isOnlyVerify()) {
+                return true;
             }
-            m(unitedSchemeEntity, callbackHandler, cc3Var);
+            String j = np3.j(uri);
+            if (a) {
+                Log.d("SwanLaunchInterceptor", "mAppId: " + j);
+            }
+            if (TextUtils.isEmpty(j)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                on3 on3Var = new on3();
+                on3Var.k(1L);
+                on3Var.i(1L);
+                on3Var.f("appId is empty");
+                sn3.a().f(on3Var);
+                wi3 wi3Var = new wi3();
+                wi3Var.q(oi3.n(0));
+                wi3Var.p(on3Var);
+                wi3Var.l("scheme", uri.toString());
+                oi3.R(wi3Var);
+                a53.k(on3Var);
+                return true;
+            }
+            kr4.f().b(5000);
+            String uri2 = uri.toString();
+            v82.i("SwanLaunchInterceptor", "launch scheme = " + uri2);
+            String param = unitedSchemeEntity.getParam("_baiduboxapp");
+            String str = null;
+            if (!TextUtils.isEmpty(param)) {
+                try {
+                    str = new JSONObject(param).optString("navi");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            String str2 = str;
+            if (ko4.e().g(!pp3.G()) && TextUtils.equals(str2, "naviTo")) {
+                if (!PMSConstants.a(gj4.b())) {
+                    v82.c("SwanLaunchInterceptor", "STOP :: Not Support BDTLS");
+                    return false;
+                }
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(j);
+                fj4.e(arrayList, ub3.K().q().O(), new a(this, j, uri, param, unitedSchemeEntity));
+            } else {
+                e(uri, j, param, unitedSchemeEntity);
+            }
+            lw2.n(str2, j, callbackHandler, unitedSchemeEntity, unitedSchemeEntity.getParam("cb"));
             return true;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final JSONObject l(boolean z, String str, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, str2})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", this.c);
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("message", str2);
-                }
-                if (z) {
-                    jSONObject.put("path", str);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeCommon.objValue;
-    }
-
-    public final void m(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull cc3 cc3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, callbackHandler, cc3Var) == null) {
-            wp3.e0(new a(this, unitedSchemeEntity, callbackHandler, cc3Var));
-        }
-    }
-
-    public final void n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, unitedSchemeEntity, callbackHandler, str) == null) {
-            c92.c("Screenshot", str);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(false, null, str), 0));
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x00ba */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00dd */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0077 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0077 */
-    public final void o(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull cc3 cc3Var) {
-        String x;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048580, this, bitmap, unitedSchemeEntity, callbackHandler, cc3Var) == null) && (x = kj3.x(cc3Var.b)) != null) {
-            String str = x + File.separator + StatisticConstants.SCREENSHOT;
-            File file = new File(str);
-            if (!file.exists() || !file.isDirectory()) {
-                file.delete();
-                if (!file.mkdir()) {
-                    n(unitedSchemeEntity, callbackHandler, "mkdir fail");
-                    return;
-                }
-            }
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault());
-            String str2 = str + File.separator + simpleDateFormat.format(new Date()) + this.c + ".png";
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(str2);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
-                    }
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
-                String str3 = "save screenshot to " + str2;
-                c92.i("Screenshot", str3);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(true, kj3.J(str2, cc3Var.b), "success"), 0));
-                fileOutputStream.close();
-                fileOutputStream2 = str3;
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
-                    fileOutputStream2 = fileOutputStream2;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                        n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
-                    }
-                }
-                throw th;
-            }
-        }
+        return invokeLLL.booleanValue;
     }
 }

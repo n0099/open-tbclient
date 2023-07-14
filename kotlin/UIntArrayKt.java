@@ -10,7 +10,7 @@ public final class UIntArrayKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: uintArrayOf--ajY-9A  reason: not valid java name */
-    public static final int[] m1008uintArrayOfajY9A(int... elements) {
+    public static final int[] m1010uintArrayOfajY9A(int... elements) {
         Intrinsics.checkNotNullParameter(elements, "elements");
         return elements;
     }
@@ -22,8 +22,8 @@ public final class UIntArrayKt {
         Intrinsics.checkNotNullParameter(init, "init");
         int[] iArr = new int[i];
         for (int i2 = 0; i2 < i; i2++) {
-            iArr[i2] = init.invoke(Integer.valueOf(i2)).m989unboximpl();
+            iArr[i2] = init.invoke(Integer.valueOf(i2)).m991unboximpl();
         }
-        return UIntArray.m992constructorimpl(iArr);
+        return UIntArray.m994constructorimpl(iArr);
     }
 }

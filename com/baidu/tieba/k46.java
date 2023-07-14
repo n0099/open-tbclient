@@ -1,23 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class k46 {
+public final class k46 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WheelView a;
 
-    public static e46 a(f46 f46Var) {
-        InterceptResult invokeL;
+    public k46(WheelView wheelView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, f46Var)) == null) {
-            if (f46Var != null && (f46Var.a() instanceof TbPageContext) && (((TbPageContext) f46Var.a()).getPageActivity() instanceof e46)) {
-                return (e46) ((TbPageContext) f46Var.a()).getPageActivity();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wheelView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (e46) invokeL.objValue;
+        this.a = wheelView;
+    }
+
+    @Override // android.os.Handler
+    public final void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            int i = message.what;
+            if (i != 1000) {
+                if (i != 2000) {
+                    if (i == 3000) {
+                        this.a.n();
+                        return;
+                    }
+                    return;
+                }
+                this.a.r(WheelView.ACTION.FLING);
+                return;
+            }
+            this.a.invalidate();
+        }
     }
 }

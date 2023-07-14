@@ -2,7 +2,7 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.source;
 
 import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hd;
+import com.baidu.tieba.id;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
 import java.util.Set;
 /* loaded from: classes.dex */
-public class IntentDataSource implements hd {
+public class IntentDataSource implements id {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BundleDataSource source;
@@ -34,7 +34,7 @@ public class IntentDataSource implements hd {
         this.source = new BundleDataSource(intent.getExtras());
     }
 
-    @Override // com.baidu.tieba.hd
+    @Override // com.baidu.tieba.id
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class IntentDataSource implements hd {
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hd
+    @Override // com.baidu.tieba.id
     public Object getObjectByType(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class IntentDataSource implements hd {
         return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.hd
+    @Override // com.baidu.tieba.id
     public void set(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {

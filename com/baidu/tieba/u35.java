@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class u35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<UserData> a;
-    public ArrayList<UserData> b;
-    public o35 c;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
 
     public u35() {
         Interceptable interceptable = $ic;
@@ -31,51 +29,82 @@ public class u35 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = new o35();
+        this.a = -1L;
+        this.b = null;
+        this.c = null;
+        this.d = "";
+        this.e = -1L;
     }
 
-    public void a(String str) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    UserData userData = new UserData();
-                    userData.parserJson(optJSONArray.getJSONObject(i));
-                    userData.mAttentionType = 2;
-                    this.a.add(userData);
-                }
-            }
-            if (optJSONArray2 != null) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    UserData userData2 = new UserData();
-                    userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                    userData2.mAttentionType = 1;
-                    this.b.add(userData2);
-                }
-            }
-            this.c.i(jSONObject.optJSONObject("page"));
-            jSONObject.optInt("tafriendnum", 0);
-            jSONObject.optInt("commonfriendnum", 0);
-        } catch (Exception e) {
-            BdLog.detailException(e);
+        return (String) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public u35(long j, long j2, String str, String str2, String str3, long j3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str, str2, str3, Long.valueOf(j3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = -1L;
+        this.b = null;
+        this.c = null;
+        this.d = "";
+        this.e = -1L;
+        this.a = j;
+        this.e = j2;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
     }
 }

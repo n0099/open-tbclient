@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.model.LoadType;
-import com.baidu.tieba.av5;
-import com.baidu.tieba.zu5;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xt5<Q extends zu5, P extends av5> implements yt5<Q, P> {
+public class xt5 extends cu5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
+    public wt5 b;
+    public boolean c;
+    public boolean d;
 
     public xt5() {
         Interceptable interceptable = $ic;
@@ -27,68 +26,51 @@ public class xt5<Q extends zu5, P extends av5> implements yt5<Q, P> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = true;
-        this.b = 1;
-        this.c = 1;
     }
 
-    public boolean c() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            wt5 wt5Var = this.b;
+            if (wt5Var != null) {
+                return wt5Var.b();
+            }
+            return -1;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yt5
-    public void a(Q q, P p) {
+    public void c() {
+        wt5 wt5Var;
+        hu5 hu5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, q, p) != null) || p == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d && (wt5Var = this.b) != null && wt5Var.b() >= 0 && (hu5Var = (hu5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
+            hu5Var.e(this);
+            this.d = true;
         }
-        if (p.getPageInfo() != null) {
-            uu5 pageInfo = p.getPageInfo();
-            this.c = pageInfo.a;
-            this.a = pageInfo.b;
-            if (q != null && q.c() != null) {
-                q.c().d = pageInfo.c;
-            }
-        }
-        if (this.c <= 0 && q != null && q.c() != null && q.c().c > 0) {
-            this.c = q.c().c;
-            this.a = true;
-        }
-        pv5.b("onResp--->pn=" + this.c + ",hasMore=" + this.a);
     }
 
-    @Override // com.baidu.tieba.yt5
-    public void b(Q q, boolean z) {
-        LoadType loadType;
+    public void e() {
+        wt5 wt5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q, z) == null) && q != null && q.c() != null) {
-            tu5 c = q.c();
-            if (z) {
-                if (!c.a()) {
-                    this.c = this.b;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && Build.VERSION.SDK_INT >= 16 && (wt5Var = this.b) != null) {
+            wt5Var.d();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.c && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            this.c = true;
+            if (Build.VERSION.SDK_INT >= 16) {
+                if (this.b == null) {
+                    this.b = new wt5();
                 }
-                if (c.a()) {
-                    loadType = LoadType.PREPEND;
-                } else {
-                    loadType = LoadType.REFRESH;
-                }
-                c.b = loadType;
-                c.c = this.c;
-            } else {
-                int i = this.c + 1;
-                this.c = i;
-                c.b = LoadType.APPEND;
-                c.c = i;
+                this.b.c();
             }
-            pv5.b("onReq--->pn=" + this.c + ",hasMore=" + this.a + ",isPullRefresh=" + z + ",loadType=" + c.b);
         }
     }
 }

@@ -1,46 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class lw6 {
+public final class lw6 extends fw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
+    public Set<Integer> b;
 
-    public abstract void a();
-
-    public abstract void c();
-
-    public abstract void d(ow6 ow6Var);
-
-    public lw6(BaseFragment baseFragment, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lw6() {
+        super(8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = baseFragment;
+        this.b = new LinkedHashSet();
     }
 
-    public void b() {
+    @Override // com.baidu.tieba.fw6
+    public boolean b(ov6 item, rx6 timer, iv6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.a.getUniqueId());
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            pv6 e = item.e();
+            if ((!this.b.isEmpty()) && !this.b.contains(Integer.valueOf(c(e)))) {
+                return true;
+            }
+            return false;
         }
+        return invokeLLL.booleanValue;
+    }
+
+    public final int c(pv6 pv6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pv6Var)) == null) {
+            return pv6Var.m() & 16777215;
+        }
+        return invokeL.intValue;
     }
 }

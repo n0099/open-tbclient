@@ -14,7 +14,7 @@ import com.kwad.components.core.webview.jshandler.r;
 import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ax;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends com.kwad.sdk.core.download.kwai.a implements r.b, x.b {
     public KsAdWebView bF;
     public com.kwad.sdk.core.webview.a.kwai.a bJ;

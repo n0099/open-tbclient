@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PraiseModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIKE = 1;
@@ -28,11 +28,11 @@ public class PraiseModel extends BdBaseModel {
     public b a;
     public final HttpMessageListener b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(int i, String str);
 
-        void j(String str);
+        void i(String str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -55,7 +55,7 @@ public class PraiseModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class PraiseModel extends BdBaseModel {
                 if (statusCode == 200 && (httpResponsedMessage instanceof PraiseResponseMessage)) {
                     PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                     if (praiseResponseMessage.getError() == 0) {
-                        this.a.a.j(praiseResponseMessage.getErrMsg());
+                        this.a.a.i(praiseResponseMessage.getErrMsg());
                     } else if (this.a.a != null) {
                         this.a.a.a(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }

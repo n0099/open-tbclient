@@ -1,35 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class rz2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static float b;
-    public static float c;
-    public static boolean d;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948138847, "Lcom/baidu/tieba/rz2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948138847, "Lcom/baidu/tieba/rz2;");
-                return;
-            }
-        }
-        a = ms1.a;
-        b = 2.5f;
-        c = 100.0f;
-        d = true;
-    }
+public interface rz2 {
+    void a(boolean z, String str, Object obj);
 }

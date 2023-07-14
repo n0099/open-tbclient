@@ -2,12 +2,19 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Rect;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.spswitch.utils.ViewUtil;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.publisher.view.SPSwitchRootLinearLayout;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,12 +25,66 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class w93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public ea3 c;
-    public Context d;
+
+    /* loaded from: classes8.dex */
+    public static class a implements y63 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ Activity c;
+        public final /* synthetic */ qz2 d;
+        public final /* synthetic */ Context e;
+
+        public a(int i, boolean z, Activity activity, qz2 qz2Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), activity, qz2Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = z;
+            this.c = activity;
+            this.d = qz2Var;
+            this.e = context;
+        }
+
+        @Override // com.baidu.tieba.y63
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("swanAppId", vb3.g0());
+                bundle.putInt("count", this.a);
+                bundle.putBoolean("compressed", this.b);
+                bundle.putString("launchType", "Image");
+                bundle.putString("swanTmpPath", ix2.T().G().k());
+                lz2.l(this.c, bundle, this.d);
+            }
+        }
+
+        @Override // com.baidu.tieba.y63
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                if (w93.a) {
+                    Log.i(ViewUtil.TAG, str + "");
+                }
+                Toast.makeText(this.e, str, 1).show();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,135 +99,135 @@ public class w93 {
                 return;
             }
         }
-        e = ms1.a;
+        a = fs1.a;
     }
 
-    public w93(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = -1;
-        this.b = view2;
-        this.d = view2.getContext();
-    }
-
-    public final ea3 a(View view2) {
+    public static View b(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            ea3 ea3Var = this.c;
-            if (ea3Var != null) {
-                return ea3Var;
-            }
-            if (view2 instanceof ea3) {
-                ea3 ea3Var2 = (ea3) view2;
-                this.c = ea3Var2;
-                return ea3Var2;
-            } else if (view2 instanceof ViewGroup) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            View view3 = null;
+            if (view2 instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view2;
                 for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                    ea3 a = a(viewGroup.getChildAt(i));
-                    if (a != null) {
-                        this.c = a;
-                        return a;
+                    View childAt = viewGroup.getChildAt(i);
+                    if (childAt instanceof SPSwitchRootLinearLayout) {
+                        view3 = childAt;
                     }
+                    if (view3 != null) {
+                        break;
+                    }
+                    view3 = b(childAt);
                 }
-                return null;
-            } else {
-                return null;
             }
+            return view3;
         }
-        return (ea3) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public void b(int i, int i2) {
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            Context context = this.d;
-            if (context instanceof Activity) {
-                Activity activity = (Activity) context;
-                if (da3.f(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect);
-                    i2 = rect.bottom - rect.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
+            View b = b(activity.getWindow().getDecorView());
+            if (b == null) {
+                if (a) {
+                    Log.d(ViewUtil.TAG, "#isFitsSystemWindows#, getSPSRootLayout is NULL");
+                    return false;
                 }
-                if (da3.e(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect2 = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect2);
-                    i2 = rect2.bottom - rect2.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
-                    }
-                }
+                return false;
             }
-            if (e) {
-                Log.d("SPSwitchRootLayout", "onMeasure, width: " + i + " height: " + i2);
+            return b.getFitsSystemWindows();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
+                return true;
             }
-            if (i2 < 0) {
-                return;
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
+            if ((activity.getWindow().getDecorView().getSystemUiVisibility() & 1024) != 0) {
+                return true;
             }
-            int i3 = this.a;
-            if (i3 < 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "onMeasure, oldHeight < 0, oldHeight: " + this.a);
-                }
-                this.a = i2;
-                return;
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
+            if ((activity.getWindow().getAttributes().flags & 67108864) != 0) {
+                return true;
             }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset == 0, break;");
-                    return;
-                }
-                return;
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(View view2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view2, i)) == null) {
+            if (view2.getHeight() == i) {
+                return false;
             }
-            this.a = i2;
-            ea3 a = a(this.b);
-            if (a == null) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "cannot find the valid panel layout, give up!");
-                    return;
-                }
-                return;
+            if (a) {
+                Log.d(ViewUtil.TAG, "refreshHeight, originalHeight: " + view2.getHeight() + ", aimHeight: " + i);
             }
-            int visibility = ((LinearLayout) a).getVisibility();
-            if (e) {
-                Log.d("SPSwitchRootLayout", "panel visibility: " + visibility);
-            }
-            if (Math.abs(i4) < ba3.g(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change min, not caused by softinput/panel switch!");
-                }
-            } else if (Math.abs(i4) > ba3.e(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change max , but not caused by softinput/panel switch!");
-                }
-            } else if (i4 > 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset > 0, offset : " + i4 + ", panel->handleHide...");
-                }
-                a.handleHide();
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, i));
             } else {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset < 0, offset : " + i4 + ", panel->handleShow...");
-                }
-                a.handleShow();
+                layoutParams.height = i;
+                view2.requestLayout();
             }
+            if (a) {
+                Log.d(ViewUtil.TAG, "refreshHeight, newHeight: " + view2.getHeight());
+                return true;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void h(@NonNull Context context, @StringRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65544, null, context, i) == null) {
+            nb3.f(context, i).G();
+        }
+    }
+
+    public static void i(int i, qz2 qz2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65545, null, i, qz2Var) == null) {
+            j(i, false, qz2Var);
+        }
+    }
+
+    public static void j(int i, boolean z, qz2 qz2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), qz2Var}) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            vb3 b0 = vb3.b0();
+            if (b0 == null) {
+                return;
+            }
+            SwanAppActivity w = b0.w();
+            x63.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, w, new a(i, z, w, qz2Var, appContext));
         }
     }
 }

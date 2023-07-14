@@ -1,64 +1,108 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ii1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public String c;
+    public String d;
+    public JSONObject e;
 
-    public static String a(byte[] bArr) {
+    public ii1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new JSONObject();
+        this.a = str;
+        this.b = System.currentTimeMillis();
+        this.c = wi1.c();
+    }
+
+    public ii1 a(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
+            try {
+                this.e.put(str, obj);
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (ii1) invokeLL.objValue;
+    }
+
+    public ii1 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (hexString.length() == 1) {
-                    sb.append(TransactionIdCreater.FILL_BYTE);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.d = str;
+            return this;
+        }
+        return (ii1) invokeL.objValue;
+    }
+
+    public ii1 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            this.e = jSONObject;
+            return this;
+        }
+        return (ii1) invokeL.objValue;
+    }
+
+    public JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                ui1.d("statistics action can not null");
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("a", this.a);
+                jSONObject.put("t", this.b);
+                jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.c);
+                if (this.e != null) {
+                    jSONObject.put("cn", this.e);
+                } else if (!TextUtils.isEmpty(this.d)) {
+                    try {
+                        jSONObject.put("cn", new JSONObject(this.d));
+                    } catch (JSONException unused) {
+                        jSONObject.put("cn", this.d);
+                    }
                 }
-                sb.append(hexString);
+            } catch (JSONException e) {
+                if (ui1.d) {
+                    e.printStackTrace();
+                }
             }
-            return sb.toString();
+            return jSONObject;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(str.getBytes());
-                return a(messageDigest.digest());
-            } catch (NoSuchAlgorithmException unused) {
-                return String.valueOf(str.hashCode());
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(str.getBytes());
-                return a(messageDigest.digest());
-            } catch (NoSuchAlgorithmException unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

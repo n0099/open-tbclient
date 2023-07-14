@@ -1,9 +1,29 @@
 package com.baidu.tieba;
-
-import com.baidu.swan.game.ad.entity.AdElementInfo;
 /* loaded from: classes7.dex */
 public interface o04 {
-    void a(String str);
+    long a();
 
-    void c(AdElementInfo adElementInfo);
+    void b(boolean z);
+
+    boolean c();
+
+    boolean d();
+
+    String e();
+
+    long f();
+
+    String g();
+
+    long h();
+
+    Long i();
+
+    boolean j();
+
+    boolean k();
+
+    String l();
+
+    String m();
 }

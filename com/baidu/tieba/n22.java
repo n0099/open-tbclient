@@ -1,133 +1,100 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hh3;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class n22 extends i22 {
+public class n22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final boolean c;
 
-    @Override // com.baidu.tieba.f02
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DeviceInfoApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements vq3<fh3<hh3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ n22 c;
-
-        public a(n22 n22Var, Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n22Var, context, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = n22Var;
-            this.a = context;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vq3
-        /* renamed from: b */
-        public void a(fh3<hh3.e> fh3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fh3Var) == null) {
-                if (ah3.h(fh3Var)) {
-                    this.c.d(this.b, new c42(0, this.c.z(this.a)));
-                    return;
-                }
-                int b = fh3Var.b();
-                ah3.f(b);
-                this.c.d(this.b, new c42(b, ah3.f(b)));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n22(@NonNull d02 d02Var) {
-        super(d02Var);
+    public n22(@NonNull String str, @NonNull JSONObject jSONObject, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d02Var};
+            Object[] objArr = {str, jSONObject, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d02) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = str2;
+        this.c = jSONObject.optBoolean("useEvent");
     }
 
-    public final JSONObject z(Context context) {
-        InterceptResult invokeL;
+    public void c(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("oaid", hx3.b.b(context));
-                jSONObject.put("androidId", hx3.b.a(context));
-            } catch (JSONException e) {
-                p("#getDeviceInfo json put data fail", e, false);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, callbackHandler, jSONObject) == null) {
+            if (this.c) {
+                ix2.T().u(new am2(this.a, new v32(0, jSONObject)));
+                return;
             }
-            return jSONObject;
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.b);
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    public c42 y(String str) {
-        InterceptResult invokeL;
+    public void e(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getDeviceInfo", false);
-            cc3 b0 = cc3.b0();
-            if (b0 == null) {
-                return new c42(1001, "swan app is null");
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, unitedSchemeEntity, callbackHandler, str) == null) {
+            if (this.c) {
+                ix2.T().u(new am2(this.a, new v32(1001, str)));
+                return;
             }
-            Pair<c42, JSONObject> s = s(str);
-            c42 c42Var = (c42) s.first;
-            if (!c42Var.isSuccess()) {
-                return c42Var;
-            }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new c42(202, "cb is empty");
-            }
-            Context context = getContext();
-            b0.e0().g(context, "scope_get_device_info", new a(this, context, optString));
-            return c42.f();
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.b);
         }
-        return (c42) invokeL.objValue;
+    }
+
+    public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, unitedSchemeEntity, callbackHandler) == null) && this.c) {
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.b);
+        }
+    }
+
+    public void d(yz1 yz1Var, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, yz1Var, jSONObject) == null) {
+            v32 v32Var = new v32(0, jSONObject);
+            if (this.c) {
+                ix2.T().u(new am2(this.a, v32Var));
+            } else {
+                yz1Var.d(this.b, v32Var);
+            }
+        }
+    }
+
+    public void f(yz1 yz1Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, yz1Var, str) == null) {
+            v32 v32Var = new v32(1001, str);
+            if (this.c) {
+                ix2.T().u(new am2(this.a, v32Var));
+            } else {
+                yz1Var.d(this.b, v32Var);
+            }
+        }
+    }
+
+    public void b(yz1 yz1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yz1Var) == null) && this.c) {
+            yz1Var.d(this.b, new v32(0));
+        }
     }
 }

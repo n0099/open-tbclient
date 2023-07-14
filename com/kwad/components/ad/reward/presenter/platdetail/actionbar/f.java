@@ -26,7 +26,7 @@ import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class f extends com.kwad.components.ad.reward.presenter.a implements com.kwad.components.core.webview.b.d.b {
     public KsAdWebView bF;
     public r.a bG;
@@ -352,8 +352,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091305);
-        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091237);
+        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091319);
+        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09124b);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

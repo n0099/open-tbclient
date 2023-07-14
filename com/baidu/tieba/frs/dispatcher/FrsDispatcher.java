@@ -4,14 +4,14 @@ import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tieba.xu9;
+import com.baidu.tieba.y2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class FrsDispatcher implements xu9 {
+public class FrsDispatcher implements y2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public class FrsDispatcher implements xu9 {
         }
     }
 
-    @Override // com.baidu.tieba.xu9
+    @Override // com.baidu.tieba.y2a
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
@@ -39,6 +39,10 @@ public class FrsDispatcher implements xu9 {
             if (optLong != 0) {
                 frsActivityConfig.setRoomId(optLong);
                 frsActivityConfig.setIsShowImGroupList(1);
+            }
+            int optInt = jSONObject.optInt("tab_id");
+            if (optInt != 0) {
+                frsActivityConfig.setJumpTabId(optInt);
             }
             frsActivityConfig.setToastData(jSONObject.optString("toast"));
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, frsActivityConfig));

@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
@@ -103,7 +102,7 @@ public class InterActiveMsg extends NormalMsg {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String localUrl = getLocalUrl();
             if (TextUtils.isEmpty(localUrl)) {
-                return IMConstants.INTER_ACTIVE_MSG_RECOMMEND_DESC;
+                return "暂无互动消息，快和朋友互动起来吧>";
             }
             return localUrl;
         }

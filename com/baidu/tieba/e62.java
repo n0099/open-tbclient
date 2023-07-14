@@ -8,11 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class e62 extends i52 {
+public class e62 extends b52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
+    public int a;
 
     public e62() {
         Interceptable interceptable = $ic;
@@ -24,27 +23,26 @@ public class e62 extends i52 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
     }
 
-    @Override // com.baidu.tieba.i52
-    public void a(j52 j52Var, Canvas canvas) {
+    @Override // com.baidu.tieba.b52
+    public void a(c52 c52Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) {
-            if (j52Var.a() == 0) {
-                j52Var.b(canvas.save());
-            }
-            canvas.scale(this.a, this.b);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, c52Var, canvas) == null) && (i = this.a) >= 0) {
+            c52Var.c.setStrokeWidth(i);
         }
     }
 
-    @Override // com.baidu.tieba.i52
+    @Override // com.baidu.tieba.b52
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
-            this.a = (float) jSONArray.optDouble(0);
-            this.b = (float) jSONArray.optDouble(1);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = mp3.g((float) jSONArray.optDouble(0));
         }
     }
 }

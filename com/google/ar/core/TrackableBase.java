@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.idb;
+import com.baidu.tieba.fmb;
 /* loaded from: classes9.dex */
-public class TrackableBase implements idb {
+public class TrackableBase implements fmb {
     public final long a;
     public final Session b;
 

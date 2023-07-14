@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.data.MemberBroadcastData;
-import com.baidu.tieba.r95;
+import com.baidu.tieba.da5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,10 +51,10 @@ public class MemberBroadcastHelper {
             String generatorSpNumKey = generatorSpNumKey(i);
             String generatorSpTimeKey = generatorSpTimeKey(i);
             if (!StringUtils.isNull(generatorSpNumKey)) {
-                r95.p().Q(generatorSpNumKey);
+                da5.p().Q(generatorSpNumKey);
             }
             if (!StringUtils.isNull(generatorSpTimeKey)) {
-                r95.p().Q(generatorSpTimeKey);
+                da5.p().Q(generatorSpTimeKey);
             }
         }
     }
@@ -64,10 +64,10 @@ public class MemberBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             if (i == 1) {
-                return r95.t("key_daily_member_broadcast_show_num_");
+                return da5.t("key_daily_member_broadcast_show_num_");
             }
             if (i == 2) {
-                return r95.t("key_om_member_broadcast_show_num_");
+                return da5.t("key_om_member_broadcast_show_num_");
             }
             return null;
         }
@@ -79,10 +79,10 @@ public class MemberBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
             if (i == 1) {
-                return r95.t("key_daily_member_broadcast_show_time_");
+                return da5.t("key_daily_member_broadcast_show_time_");
             }
             if (i == 2) {
-                return r95.t("key_om_member_broadcast_show_time_");
+                return da5.t("key_om_member_broadcast_show_time_");
             }
             return null;
         }
@@ -94,11 +94,11 @@ public class MemberBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) {
             String generatorSpNumKey = generatorSpNumKey(i);
-            if (!TimeHelper.isSameDay(r95.p().r(generatorSpTimeKey(i), 0L), System.currentTimeMillis())) {
+            if (!TimeHelper.isSameDay(da5.p().r(generatorSpTimeKey(i), 0L), System.currentTimeMillis())) {
                 clearSaveInfo(i);
                 return 0;
             }
-            return r95.p().q(generatorSpNumKey, 0);
+            return da5.p().q(generatorSpNumKey, 0);
         }
         return invokeI.intValue;
     }
@@ -108,7 +108,7 @@ public class MemberBroadcastHelper {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
-            long r = r95.p().r(generatorSpTimeKey(i), 0L);
+            long r = da5.p().r(generatorSpTimeKey(i), 0L);
             if (i == 1) {
                 i2 = this.mMemberBroadcastData.getDailyMinStep();
             } else if (i == 2) {
@@ -130,10 +130,10 @@ public class MemberBroadcastHelper {
             String generatorSpNumKey = generatorSpNumKey(i);
             String generatorSpTimeKey = generatorSpTimeKey(i);
             if (!StringUtils.isNull(generatorSpNumKey)) {
-                r95.p().F(generatorSpNumKey, r95.p().q(generatorSpNumKey, 0) + 1);
+                da5.p().F(generatorSpNumKey, da5.p().q(generatorSpNumKey, 0) + 1);
             }
             if (!StringUtils.isNull(generatorSpTimeKey)) {
-                r95.p().H(generatorSpTimeKey, System.currentTimeMillis());
+                da5.p().H(generatorSpTimeKey, System.currentTimeMillis());
             }
         }
     }

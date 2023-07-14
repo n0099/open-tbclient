@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,30 +10,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public final class mv implements kv {
+/* loaded from: classes7.dex */
+public final class mv {
     public static /* synthetic */ Interceptable $ic;
+    public static final mv a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final UBCManager a;
-    public final nv b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448311588, "Lcom/baidu/tieba/mv;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448311588, "Lcom/baidu/tieba/mv;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448311588, "Lcom/baidu/tieba/mv;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448311588, "Lcom/baidu/tieba/mv;");
-        }
+        a = new mv();
     }
 
     public mv() {
@@ -46,46 +43,65 @@ public final class mv implements kv {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-        this.b = (nv) ServiceManager.getService(nv.a.a());
-    }
-
-    @Override // com.baidu.tieba.kv
-    public void a(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("type", str2);
-            hashMap.put("page", str);
-            if (jSONObject != null) {
-                String jSONObject2 = jSONObject.toString();
-                Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "it.toString()");
-                hashMap.put("ext", jSONObject2);
-            }
-            UBCManager uBCManager = this.a;
-            if (uBCManager != null) {
-                uBCManager.onEvent("3676", hashMap);
             }
         }
     }
 
-    @Override // com.baidu.tieba.kv
-    public void b(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            String extra = jSONObject.toString();
-            HashMap hashMap = new HashMap();
-            hashMap.put("value", str);
-            hashMap.put("type", ApkCheckUBCManagerKt.TYPE_ABNORMAL);
-            Intrinsics.checkExpressionValueIsNotNull(extra, "extra");
-            hashMap.put("ext", extra);
-            nv nvVar = this.b;
-            if (nvVar != null) {
-                nvVar.a("3677", str, extra);
-            }
+    public static /* synthetic */ JSONObject b(mv mvVar, String str, String str2, String str3, int i, Object obj) {
+        if ((i & 4) != 0) {
+            str3 = null;
         }
+        return mvVar.a(str, str2, str3);
+    }
+
+    public final JSONObject a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("taskId", str);
+            jSONObject.put(TaskInfo.keyActTaskId, str2);
+            if (str3 != null) {
+                jSONObject.put("phase", str3);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public final String c(TaskStatus taskStatus) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskStatus)) == null) {
+            if (taskStatus.isFinished()) {
+                return "finish";
+            }
+            if (taskStatus.isRegistered()) {
+                return "guide";
+            }
+            return "doing";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String d(TaskStatus taskStatus) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskStatus)) == null) {
+            if (taskStatus.isUnRegistered()) {
+                return "y_task_unregister";
+            }
+            if (taskStatus.isFinished()) {
+                return "y_task_done";
+            }
+            if (taskStatus.isRegistered()) {
+                return "y_task_active";
+            }
+            if (taskStatus.isRunning() && taskStatus.isLocalCompleted()) {
+                return "y_task_local_done";
+            }
+            return "y_task_start";
+        }
+        return (String) invokeL.objValue;
     }
 }

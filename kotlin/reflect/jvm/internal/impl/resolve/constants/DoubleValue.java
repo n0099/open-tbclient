@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.resolve.constants;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.ModuleDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DoubleValue extends ConstantValue<Double> {
     public DoubleValue(double d) {
         super(Double.valueOf(d));

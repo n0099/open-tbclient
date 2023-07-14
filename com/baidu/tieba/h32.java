@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,32 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class h32 extends b32 {
+public class h32 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.f02
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetPerformanceLevelApi" : (String) invokeV.objValue;
-    }
+    public p32 a;
+    public boolean b;
+    public b2c c;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ h32 b;
+        public final /* synthetic */ h32 a;
 
-        public a(h32 h32Var, String str) {
+        public a(h32 h32Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h32Var, str};
+                Object[] objArr = {h32Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,16 +43,77 @@ public class h32 extends b32 {
                     return;
                 }
             }
-            this.b = h32Var;
-            this.a = str;
+            this.a = h32Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.d(this.a, new c42(0, this.b.y()));
+                if (h32.d) {
+                    Log.d("PendingOperationManager", "=============== FMP end, begin loop pending operation ==============");
+                }
+                this.a.j();
             }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h32 a;
+
+        public b(h32 h32Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h32Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h32Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (h32.d) {
+                    Log.d("PendingOperationManager", "=============== FCP end, begin loop pending operation ==============");
+                }
+                this.a.j();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final h32 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-796189565, "Lcom/baidu/tieba/h32$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-796189565, "Lcom/baidu/tieba/h32$c;");
+                    return;
+                }
+            }
+            a = new h32(null);
         }
     }
 
@@ -72,58 +130,118 @@ public class h32 extends b32 {
                 return;
             }
         }
-        boolean z = ms1.a;
+        d = fs1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h32(@NonNull d02 d02Var) {
-        super(d02Var);
+    public h32() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d02Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d02) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.b = false;
+        this.a = new p32();
     }
 
-    public c42 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getPerformanceLevel", false);
-            Pair<c42, JSONObject> s = s(str);
-            if (!((c42) s.first).isSuccess()) {
-                return (c42) s.first;
-            }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new c42(202, "cb is empty");
-            }
-            wo3.k(new a(this, optString), "SWAN_DEVICE_PERFORMANCE_CHECK");
-            return new c42(0);
-        }
-        return (c42) invokeL.objValue;
-    }
-
-    public JSONObject y() {
+    public static h32 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String b = jv2.u0().b();
-            c92.k("GetPerformanceLevelApi", "getPerformanceLevel: " + b);
-            JSONObject jSONObject = new JSONObject();
-            cp3.f(jSONObject, "performanceLevel", b);
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c.a;
         }
-        return (JSONObject) invokeV.objValue;
+        return (h32) invokeV.objValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (d) {
+                Log.d("PendingOperationManager", "=============== release PendingQueue & reset fmp flag ==============");
+            }
+            i();
+            this.a.b();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = false;
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = true;
+            this.a.d();
+        }
+    }
+
+    public /* synthetic */ h32(a aVar) {
+        this();
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void c(BasePendingOperation basePendingOperation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
+            if (basePendingOperation == null) {
+                if (!d) {
+                    return;
+                }
+                throw new IllegalStateException("The operation can't be null!");
+            } else if (!e() && basePendingOperation.a()) {
+                this.a.a(basePendingOperation);
+            } else {
+                if (d) {
+                    Log.d("PendingOperationManager", "=============== Execute module:" + e() + " " + basePendingOperation.b() + " params:" + basePendingOperation.c());
+                }
+                basePendingOperation.run();
+            }
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (d) {
+                Log.d("PendingOperationManager", String.format("=============== FCP end, delay  %d ms to loop ==============", 6000));
+            }
+            this.c = po3.c(new b(this), "pending_operation", LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION, TimeUnit.MILLISECONDS);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.c != null) {
+                if (d) {
+                    Log.d("PendingOperationManager", "=============== FMP end, cancel fcp loop operation ==============");
+                }
+                this.c.unsubscribe();
+                this.c = null;
+            }
+            if (e()) {
+                return;
+            }
+            po3.j(new a(this), "pending_operation");
+        }
     }
 }

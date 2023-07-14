@@ -1,63 +1,76 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import androidx.constraintlayout.motion.widget.Key;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.menu.BaseMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yh4 extends xh4 {
+public class yh4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948330148, "Lcom/baidu/tieba/yh4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static long a(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseMenuView)) == null) {
+            if (baseMenuView.a()) {
+                return 240L;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948330148, "Lcom/baidu/tieba/yh4;");
-                return;
-            }
+            return 200L;
         }
-        g = Color.parseColor("#26c56c");
+        return invokeL.longValue;
     }
 
-    @Override // com.baidu.tieba.xh4
-    public int f() {
-        InterceptResult invokeV;
+    public static ObjectAnimator c(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
+            ofFloat.setDuration(160L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
         }
-        return invokeV.intValue;
+        return (ObjectAnimator) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yh4(BaiduMap baiduMap) {
-        super(baiduMap);
+    public static ObjectAnimator b(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMap};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((BaiduMap) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, 0.0f);
+            ofFloat.setDuration(a(baseMenuView));
+            ofFloat.setInterpolator(new zh4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
         }
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator e(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, baseMenuView.getHeight());
+            ofFloat.setDuration(160L);
+            ofFloat.setInterpolator(new zh4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator d(View view2, BaseMenuView baseMenuView) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
+            ofFloat.setDuration(a(baseMenuView));
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeLL.objValue;
     }
 }

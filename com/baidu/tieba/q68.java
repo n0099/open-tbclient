@@ -1,31 +1,183 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class q68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<kn> a;
+    public c a;
+    public TbPageContext b;
+    public FastRequest c;
+    public boolean d;
+    public d e;
 
-    public q68(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        sd7 sd7Var;
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(i68 i68Var);
+
+        void onFail();
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements FastRequest.e<i68> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q68 a;
+
+        public a(q68 q68Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q68Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q68Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.net.FastRequest.e
+        @Nullable
+        /* renamed from: b */
+        public i68 a(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
+                return (i68) invokeL.objValue;
+            }
+            return this.a.l(str);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends FastRequest.b<i68> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ q68 d;
+
+        public b(q68 q68Var, String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q68Var, str, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = q68Var;
+            this.b = str;
+            this.c = j;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        /* renamed from: f */
+        public void b(int i, @NonNull String str, @Nullable i68 i68Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, i68Var) == null) {
+                super.b(i, str, i68Var);
+                this.d.d = true;
+                this.d.a.onFail();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        /* renamed from: g */
+        public void e(@NonNull i68 i68Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, i68Var) == null) {
+                super.e(i68Var);
+                this.d.d = true;
+                i68Var.g(this.b);
+                i68Var.f(String.valueOf(this.c));
+                this.d.j(this.c);
+                q68 q68Var = this.d;
+                if (q68Var.i(q68Var.e)) {
+                    this.d.a.a(i68Var);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public long b;
+
+        public d(q68 q68Var, long j, long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q68Var, Long.valueOf(j), Long.valueOf(j2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j;
+            this.b = j2;
+        }
+
+        public long c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return invokeV.longValue;
+        }
+    }
+
+    public q68(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,25 +187,173 @@ public class q68 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, sd7.class, tbPageContext);
-        if (runTask != null && (sd7Var = (sd7) runTask.getData()) != null) {
-            this.a.add(sd7Var);
-        }
-        this.a.add(new r68(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
-        this.a.add(new p68(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
-        bdTypeRecyclerView.addAdapters(this.a);
+        this.d = true;
+        this.b = tbPageContext;
     }
 
-    public void a(TbPageTag tbPageTag) {
+    @NonNull
+    public final List<d> g(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, tbPageTag) != null) || ListUtils.isEmpty(this.a)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return DataExt.toEntityList(str, d.class);
         }
-        for (kn knVar : this.a) {
-            if (knVar instanceof sd7) {
-                ((sd7) knVar).E(tbPageTag);
+        return (List) invokeL.objValue;
+    }
+
+    @NonNull
+    public final String h(@NonNull List<d> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return "";
+            }
+            return DataExt.toJson(list);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public final d j(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            d dVar = new d(this, j, System.currentTimeMillis());
+            this.e = dVar;
+            return dVar;
+        }
+        return (d) invokeJ.objValue;
+    }
+
+    public final i68 l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return i68.e(new JSONObject(str));
+            } catch (JSONException unused) {
+                return null;
             }
         }
+        return (i68) invokeL.objValue;
+    }
+
+    public void n(@NonNull ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, threadData) == null) {
+            o(threadData.getForum_name(), threadData.getFid(), threadData.getTid());
+        }
+    }
+
+    public final void p(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            synchronized (this) {
+                da5.p().J("key_homepage_rec_forum_record_info", str);
+            }
+        }
+    }
+
+    public void q(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
+            this.a = cVar;
+        }
+    }
+
+    public final boolean i(@Nullable d dVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar)) == null) {
+            if (dVar == null) {
+                return false;
+            }
+            List<d> arrayList = new ArrayList<>();
+            if (!TextUtils.isEmpty(m())) {
+                arrayList = g(m());
+            }
+            long j = dVar.a;
+            long j2 = dVar.b;
+            d dVar2 = (d) ListUtils.getItem(arrayList, 1);
+            d dVar3 = (d) ListUtils.getItem(arrayList, 0);
+            if (dVar2 != null) {
+                if (dVar3 == null || j2 - dVar2.c() < 86400000) {
+                    return false;
+                }
+                if (j2 - dVar3.c() < 86400000 && j == dVar3.a) {
+                    return false;
+                }
+                return true;
+            } else if (dVar3 != null && j2 - dVar3.c() < 86400000 && j == dVar3.a) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.e == null) {
+                return false;
+            }
+            List<d> list = null;
+            if (!TextUtils.isEmpty(m())) {
+                list = g(m());
+            }
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            ListUtils.add(list, 0, this.e);
+            if (ListUtils.getCount(list) > 2) {
+                list = list.subList(0, 2);
+            }
+            String h = h(list);
+            if (TextUtils.isEmpty(h)) {
+                return false;
+            }
+            p(h);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @NonNull
+    public final String m() {
+        InterceptResult invokeV;
+        String w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                w = da5.p().w("key_homepage_rec_forum_record_info", "");
+            }
+            return w;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void o(@Nullable String str, long j, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Long.valueOf(j), str2}) != null) || this.a == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str) || j <= 0 || !this.d) {
+            return;
+        }
+        if (this.c == null) {
+            this.c = new FastRequest(this.b, CmdConfigHttp.CMD_GET_HOMEPAGE_REC_FORUM_INFO, TbConfig.GET_HOMEPAGE_REC_FORUM_INFO);
+        }
+        this.d = false;
+        FastRequest fastRequest = this.c;
+        fastRequest.W("forum_id", Long.valueOf(j));
+        fastRequest.W("forum_name", str);
+        fastRequest.b0(HttpMessageTask.HTTP_METHOD.POST);
+        fastRequest.Y(new b(this, str2, j));
+        fastRequest.d0(new a(this));
+        fastRequest.X();
     }
 }

@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c25;
+import com.baidu.tieba.k25;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.wi;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public AbsPbActivity b;
-    public c25 c;
+    public k25 c;
     public String d;
     public boolean e;
     public int f;
@@ -55,7 +55,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public View v;
     public View.OnClickListener w;
 
-    public void h(String str) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
@@ -96,7 +96,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
                 int i = 3;
-                if (id == R.id.obfuscated_res_0x7f0923ba) {
+                if (id == R.id.obfuscated_res_0x7f0923ee) {
                     VideoInfo threadVideoInfo = this.a.c.getThreadVideoInfo();
                     if (threadVideoInfo != null) {
                         if (threadVideoInfo.is_vertical.intValue() == 1) {
@@ -213,7 +213,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.w = new a(this);
         this.b = absPbActivity;
         this.g = view2.findViewById(R.id.main_view);
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f090b02);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f090b0c);
         this.i = view2.findViewById(R.id.obfuscated_res_0x7f0903fa);
         this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903f8);
         this.k = view2.findViewById(R.id.obfuscated_res_0x7f0903f7);
@@ -221,67 +221,67 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.m = view2.findViewById(R.id.obfuscated_res_0x7f0903fc);
         this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903ff);
         this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903fd);
-        this.p = view2.findViewById(R.id.obfuscated_res_0x7f09143e);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ba);
-        this.q = view2.findViewById(R.id.obfuscated_res_0x7f09143c);
-        this.r = view2.findViewById(R.id.obfuscated_res_0x7f09143d);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f091452);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ee);
+        this.q = view2.findViewById(R.id.obfuscated_res_0x7f091450);
+        this.r = view2.findViewById(R.id.obfuscated_res_0x7f091451);
         this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903fb);
         this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903fe);
         this.v = view2.findViewById(R.id.obfuscated_res_0x7f0903f9);
     }
 
-    public void g(int i) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.f = i;
         }
     }
 
-    public void i(boolean z) {
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.e = z;
         }
     }
 
-    public void j(String str) {
+    public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.d = str;
         }
     }
 
-    public void f(c25 c25Var) {
+    public void g(k25 k25Var) {
         int i;
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c25Var) == null) {
-            this.c = c25Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, k25Var) == null) {
+            this.c = k25Var;
             View view2 = this.h;
-            if (c25Var.d()) {
+            if (k25Var.d()) {
                 i = 0;
             } else {
                 i = 8;
             }
             view2.setVisibility(i);
             View view3 = this.r;
-            if (c25Var.f()) {
+            if (k25Var.f()) {
                 i2 = 0;
             } else {
                 i2 = 8;
             }
             view3.setVisibility(i2);
             View view4 = this.i;
-            if (c25Var.e()) {
+            if (k25Var.e()) {
                 i3 = 8;
             } else {
                 i3 = 0;
             }
             view4.setVisibility(i3);
             View view5 = this.p;
-            if (c25Var.e()) {
+            if (k25Var.e()) {
                 i4 = 0;
             } else {
                 i4 = 8;
@@ -291,32 +291,32 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
             this.k.setOnClickListener(this.w);
             this.j.setOnClickListener(this.w);
             this.j.setConrers(15);
-            this.j.setRadius(xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds21));
+            this.j.setRadius(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds21));
             this.j.setDrawCorner(true);
             this.j.setPlaceHolder(2);
-            if (c25Var.getThreadVideoInfo() != null) {
-                this.l.setText(c25Var.getTitle());
-                this.j.N(c25Var.getThreadVideoInfo().thumbnail_url, 10, false);
+            if (k25Var.getThreadVideoInfo() != null) {
+                this.l.setText(k25Var.getTitle());
+                this.j.N(k25Var.getThreadVideoInfo().thumbnail_url, 10, false);
                 this.k.setVisibility(0);
                 this.k.setAlpha(0.5f);
                 this.m.setVisibility(0);
-                this.o.setText(StringUtils.translateSecondsToString(c25Var.getThreadVideoInfo().video_duration.intValue()));
+                this.o.setText(StringUtils.translateSecondsToString(k25Var.getThreadVideoInfo().video_duration.intValue()));
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.u.getLayoutParams();
-                if (c25Var.getAuthor() != null && !wi.isEmpty(c25Var.getAuthor().getName_show())) {
-                    this.t.setText(c25Var.getAuthor().getName_show());
+                if (k25Var.getAuthor() != null && !xi.isEmpty(k25Var.getAuthor().getName_show())) {
+                    this.t.setText(k25Var.getAuthor().getName_show());
                     this.t.setVisibility(0);
-                    layoutParams.leftMargin = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+                    layoutParams.leftMargin = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
                 } else {
                     this.t.setVisibility(8);
                     layoutParams.leftMargin = 0;
                 }
                 this.u.setLayoutParams(layoutParams);
-                this.u.setText(String.format(this.b.getResources().getString(R.string.bjh_pb_recommend_video_tip), StringHelper.numFormatOverWan(c25Var.getThreadVideoInfo().play_count.intValue())));
+                this.u.setText(String.format(this.b.getResources().getString(R.string.bjh_pb_recommend_video_tip), StringHelper.numFormatOverWan(k25Var.getThreadVideoInfo().play_count.intValue())));
             } else {
                 this.m.setVisibility(8);
                 this.k.setVisibility(8);
-                this.j.N(c25Var.getArticeCover(), 10, false);
-                this.l.setText(c25Var.getTitle());
+                this.j.N(k25Var.getArticeCover(), 10, false);
+                this.l.setText(k25Var.getTitle());
             }
             this.g.setOnClickListener(this.w);
         }

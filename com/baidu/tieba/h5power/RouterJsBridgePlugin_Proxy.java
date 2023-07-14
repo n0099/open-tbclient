@@ -6,12 +6,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.d5a;
-import com.baidu.tieba.e5a;
-import com.baidu.tieba.em6;
-import com.baidu.tieba.f5a;
-import com.baidu.tieba.h5a;
-import com.baidu.tieba.vy4;
+import com.baidu.tieba.in6;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.oy4;
+import com.baidu.tieba.pda;
+import com.baidu.tieba.qda;
+import com.baidu.tieba.sda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,17 +26,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class RouterJsBridgePlugin_Proxy extends d5a {
+public class RouterJsBridgePlugin_Proxy extends oda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vy4 mJsBridge;
+    public oy4 mJsBridge;
 
-    public RouterJsBridgePlugin_Proxy(vy4 vy4Var) {
+    public RouterJsBridgePlugin_Proxy(oy4 oy4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vy4Var};
+            Object[] objArr = {oy4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,7 +46,7 @@ public class RouterJsBridgePlugin_Proxy extends d5a {
                 return;
             }
         }
-        this.mJsBridge = vy4Var;
+        this.mJsBridge = oy4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
@@ -58,232 +58,232 @@ public class RouterJsBridgePlugin_Proxy extends d5a {
         this.mNotificationNameList.add("replyPostResult");
     }
 
-    @Override // com.baidu.tieba.d5a
-    public f5a dispatch(WebView webView, h5a h5aVar, f5a f5aVar) {
+    @Override // com.baidu.tieba.oda
+    public qda dispatch(WebView webView, sda sdaVar, qda qdaVar) {
         InterceptResult invokeLLL;
-        f5a f5aVar2;
+        qda qdaVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, h5aVar, f5aVar)) == null) {
-            if (f5aVar == null) {
-                f5aVar2 = new f5a();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, sdaVar, qdaVar)) == null) {
+            if (qdaVar == null) {
+                qdaVar2 = new qda();
             } else {
-                f5aVar2 = f5aVar;
+                qdaVar2 = qdaVar;
             }
-            String b = h5aVar.b();
-            JSONObject e = h5aVar.e();
+            String b = sdaVar.b();
+            JSONObject e = sdaVar.e();
             if (b.equals("router/finishThisPage")) {
-                f5aVar2.s(true);
-                f5a c = this.mJsBridge.c(webView, e.optString("nextPage"), e.optString("source"));
+                qdaVar2.s(true);
+                qda c = this.mJsBridge.c(webView, e.optString("nextPage"), e.optString("source"));
                 if (c != null) {
-                    f5aVar2.y(c.f());
-                    f5aVar2.u(c.b());
-                    f5aVar2.o(c.a());
-                    f5aVar2.x(c.e());
+                    qdaVar2.y(c.f());
+                    qdaVar2.u(c.b());
+                    qdaVar2.o(c.a());
+                    qdaVar2.x(c.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/portal")) {
-                f5aVar2.s(true);
-                f5a i = this.mJsBridge.i(webView, e.optString("page"), e.optString("refre"), e.optString("pageParams"));
+                qdaVar2.s(true);
+                qda i = this.mJsBridge.i(webView, e.optString("page"), e.optString("refre"), e.optString("pageParams"));
                 if (i != null) {
-                    f5aVar2.y(i.f());
-                    f5aVar2.u(i.b());
-                    f5aVar2.o(i.a());
-                    f5aVar2.x(i.e());
+                    qdaVar2.y(i.f());
+                    qdaVar2.u(i.b());
+                    qdaVar2.o(i.a());
+                    qdaVar2.x(i.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("router/videoImmersivePage")) {
-                f5aVar2.s(true);
-                f5a f5aVar3 = f5aVar2;
-                f5a g = this.mJsBridge.g(webView, e.optString("threadId"), e.optString("postId"), e.optString("title"), e.optString(TbEnum.SystemMessage.KEY_USER_NAME), e.optString("nickName"), e.optString("portrait"), e.optString("thumbnailUrl"), e.optString("videoUrl"), e.optString("videoWidth"), e.optString("videoHeight"), e.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), e.optString("postNum"), e.optString("agreeNum"), e.optString("shareNum"), e.optString("forumId"), e.optString("forumName"), e.optString("showComment"));
+                qdaVar2.s(true);
+                qda qdaVar3 = qdaVar2;
+                qda g = this.mJsBridge.g(webView, e.optString("threadId"), e.optString("postId"), e.optString("title"), e.optString(TbEnum.SystemMessage.KEY_USER_NAME), e.optString("nickName"), e.optString("portrait"), e.optString("thumbnailUrl"), e.optString("videoUrl"), e.optString("videoWidth"), e.optString("videoHeight"), e.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), e.optString("postNum"), e.optString("agreeNum"), e.optString("shareNum"), e.optString("forumId"), e.optString("forumName"), e.optString("showComment"));
                 if (g != null) {
-                    f5aVar3.y(g.f());
-                    f5aVar3.u(g.b());
-                    f5aVar3.o(g.a());
-                    f5aVar3.x(g.e());
+                    qdaVar3.y(g.f());
+                    qdaVar3.u(g.b());
+                    qdaVar3.o(g.a());
+                    qdaVar3.x(g.e());
                 }
-                f5aVar3.z(0);
-                return f5aVar3;
+                qdaVar3.z(0);
+                return qdaVar3;
             } else {
-                f5a f5aVar4 = f5aVar2;
+                qda qdaVar4 = qdaVar2;
                 if (b.equals("router/forumRulesEditPage")) {
-                    f5aVar4.s(true);
-                    f5a j = this.mJsBridge.j(webView, e.optString("forum_id"), e.optString("forum_name"));
+                    qdaVar4.s(true);
+                    qda j = this.mJsBridge.j(webView, e.optString("forum_id"), e.optString("forum_name"));
                     if (j != null) {
-                        f5aVar4.y(j.f());
-                        f5aVar4.u(j.b());
-                        f5aVar4.o(j.a());
-                        f5aVar4.x(j.e());
+                        qdaVar4.y(j.f());
+                        qdaVar4.u(j.b());
+                        qdaVar4.o(j.a());
+                        qdaVar4.x(j.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("router/goToBarDetail")) {
-                    f5aVar4.s(true);
-                    f5a h = this.mJsBridge.h(webView, e.optString("forumId"), e.optInt("selectHostTab"));
+                    qdaVar4.s(true);
+                    qda h = this.mJsBridge.h(webView, e.optString("forumId"), e.optInt("selectHostTab"));
                     if (h != null) {
-                        f5aVar4.y(h.f());
-                        f5aVar4.u(h.b());
-                        f5aVar4.o(h.a());
-                        f5aVar4.x(h.e());
+                        qdaVar4.y(h.f());
+                        qdaVar4.u(h.b());
+                        qdaVar4.o(h.a());
+                        qdaVar4.x(h.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("router/goToSelectPrivateMsgPage")) {
-                    f5aVar4.s(true);
+                    qdaVar4.s(true);
                     String optString = e.optString("portrait");
                     ArrayList<JSONObject> arrayList = new ArrayList<>();
                     ListUtils.convertJSONArrayToList(arrayList, e.optJSONArray("msgArray"));
-                    f5a u = this.mJsBridge.u(webView, optString, arrayList);
+                    qda u = this.mJsBridge.u(webView, optString, arrayList);
                     this.mNotificationNameList.add("goToSelectPrivateMsgPage");
                     if (u != null) {
-                        f5aVar4.y(u.f());
-                        f5aVar4.u(u.b());
-                        f5aVar4.o(u.a());
-                        f5aVar4.x(u.e());
-                        if (!f5aVar4.h()) {
-                            f5aVar4.n(false);
-                            addObserver(webView, "goToSelectPrivateMsgPage", f5aVar4, false);
+                        qdaVar4.y(u.f());
+                        qdaVar4.u(u.b());
+                        qdaVar4.o(u.a());
+                        qdaVar4.x(u.e());
+                        if (!qdaVar4.h()) {
+                            qdaVar4.n(false);
+                            addObserver(webView, "goToSelectPrivateMsgPage", qdaVar4, false);
                         }
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("router/goToReportThreadPage")) {
-                    f5aVar4.s(true);
+                    qdaVar4.s(true);
                     String optString2 = e.optString("portrait");
                     ArrayList<String> arrayList2 = new ArrayList<>();
                     ListUtils.convertJSONArrayToList(arrayList2, e.optJSONArray("threadArray"));
-                    f5a t = this.mJsBridge.t(webView, optString2, arrayList2);
+                    qda t = this.mJsBridge.t(webView, optString2, arrayList2);
                     this.mNotificationNameList.add("goToReportThreadPage");
                     if (t != null) {
-                        f5aVar4.y(t.f());
-                        f5aVar4.u(t.b());
-                        f5aVar4.o(t.a());
-                        f5aVar4.x(t.e());
-                        if (!f5aVar4.h()) {
-                            f5aVar4.n(false);
-                            addObserver(webView, "goToReportThreadPage", f5aVar4, false);
+                        qdaVar4.y(t.f());
+                        qdaVar4.u(t.b());
+                        qdaVar4.o(t.a());
+                        qdaVar4.x(t.e());
+                        if (!qdaVar4.h()) {
+                            qdaVar4.n(false);
+                            addObserver(webView, "goToReportThreadPage", qdaVar4, false);
                         }
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("router/goToEditPost")) {
-                    f5aVar4.s(true);
-                    f5a f = this.mJsBridge.f(webView, e.optString("pos"), e.optString("tid"), e.optString("floorId"), e.optString("postId"), e.optString("content"), e.optString("fid"), e.optString("fname"));
+                    qdaVar4.s(true);
+                    qda f = this.mJsBridge.f(webView, e.optString("pos"), e.optString("tid"), e.optString("floorId"), e.optString("postId"), e.optString("content"), e.optString("fid"), e.optString("fname"));
                     if (f != null) {
-                        f5aVar4.y(f.f());
-                        f5aVar4.u(f.b());
-                        f5aVar4.o(f.a());
-                        f5aVar4.x(f.e());
+                        qdaVar4.y(f.f());
+                        qdaVar4.u(f.b());
+                        qdaVar4.o(f.a());
+                        qdaVar4.x(f.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("router/jumpToVideo")) {
-                    f5aVar4.s(true);
-                    f5a l = this.mJsBridge.l(webView, e.optString("videoTopic"), e.optString("videoTopicID"), e.optString("isVideo"));
+                    qdaVar4.s(true);
+                    qda l = this.mJsBridge.l(webView, e.optString("videoTopic"), e.optString("videoTopicID"), e.optString("isVideo"));
                     if (l != null) {
-                        f5aVar4.y(l.f());
-                        f5aVar4.u(l.b());
-                        f5aVar4.o(l.a());
-                        f5aVar4.x(l.e());
+                        qdaVar4.y(l.f());
+                        qdaVar4.u(l.b());
+                        qdaVar4.o(l.a());
+                        qdaVar4.x(l.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("router/openThirdPartyApp")) {
-                    f5aVar4.s(true);
-                    f5a n = this.mJsBridge.n(webView, e.optInt("type"), e.optString("data"));
+                    qdaVar4.s(true);
+                    qda n = this.mJsBridge.n(webView, e.optInt("type"), e.optString("data"));
                     if (n != null) {
-                        f5aVar4.y(n.f());
-                        f5aVar4.u(n.b());
-                        f5aVar4.o(n.a());
-                        f5aVar4.x(n.e());
+                        qdaVar4.y(n.f());
+                        qdaVar4.u(n.b());
+                        qdaVar4.o(n.a());
+                        qdaVar4.x(n.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("router/jumpToHTMLPage")) {
-                    f5aVar4.s(true);
-                    f5a k = this.mJsBridge.k(webView, e.optString("url"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
+                    qdaVar4.s(true);
+                    qda k = this.mJsBridge.k(webView, e.optString("url"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
                     if (k != null) {
-                        f5aVar4.y(k.f());
-                        f5aVar4.u(k.b());
-                        f5aVar4.o(k.a());
-                        f5aVar4.x(k.e());
+                        qdaVar4.y(k.f());
+                        qdaVar4.u(k.b());
+                        qdaVar4.o(k.a());
+                        qdaVar4.x(k.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (!b.equals("router/replyPost")) {
-                    return f5aVar4;
+                    return qdaVar4;
                 } else {
-                    f5aVar4.s(true);
-                    f5a r = this.mJsBridge.r(webView, e.optString("tid"));
+                    qdaVar4.s(true);
+                    qda r = this.mJsBridge.r(webView, e.optString("tid"));
                     this.mNotificationNameList.add("replyPostResult");
                     if (r != null) {
-                        f5aVar4.y(r.f());
-                        f5aVar4.u(r.b());
-                        f5aVar4.o(r.a());
-                        f5aVar4.x(r.e());
-                        if (!f5aVar4.h()) {
-                            f5aVar4.n(false);
-                            addObserver(webView, "replyPostResult", f5aVar4, false);
+                        qdaVar4.y(r.f());
+                        qdaVar4.u(r.b());
+                        qdaVar4.o(r.a());
+                        qdaVar4.x(r.e());
+                        if (!qdaVar4.h()) {
+                            qdaVar4.n(false);
+                            addObserver(webView, "replyPostResult", qdaVar4, false);
                         }
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 }
             }
-            return f5aVar2;
+            return qdaVar2;
         }
-        return (f5a) invokeLLL.objValue;
+        return (qda) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.d5a
-    public em6 getJsBridge() {
+    @Override // com.baidu.tieba.oda
+    public in6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (em6) invokeV.objValue;
+        return (in6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d5a
-    public List<f5a> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.oda
+    public List<qda> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            f5a f5aVar = null;
+            qda qdaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals(CommonTbJsBridge.RE_SHOW)) {
-                f5aVar = this.mJsBridge.p(webView, hashMap);
+                qdaVar = this.mJsBridge.p(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.RE_HIDE)) {
-                f5aVar = this.mJsBridge.o(webView, hashMap);
+                qdaVar = this.mJsBridge.o(webView, hashMap);
             } else if (str.equals("goToSelectPrivateMsgPage")) {
-                f5aVar = this.mJsBridge.d(webView, hashMap);
+                qdaVar = this.mJsBridge.d(webView, hashMap);
             } else if (str.equals("goToReportThreadPage")) {
-                f5aVar = this.mJsBridge.e(webView, hashMap);
+                qdaVar = this.mJsBridge.e(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.REFRESH_TAIL)) {
-                f5aVar = this.mJsBridge.q(webView, hashMap);
+                qdaVar = this.mJsBridge.q(webView, hashMap);
             } else if (str.equals("replyPostResult")) {
-                f5aVar = this.mJsBridge.s(webView, hashMap);
+                qdaVar = this.mJsBridge.s(webView, hashMap);
             }
-            if (f5aVar != null) {
-                f5aVar.z(0);
+            if (qdaVar != null) {
+                qdaVar.z(0);
             }
-            List<e5a> list = this.mAsyncCallBackMethodList.get(str);
-            if (f5aVar != null && list != null) {
-                Iterator<e5a> it = list.iterator();
-                if (!TextUtils.isEmpty(f5aVar.e())) {
+            List<pda> list = this.mAsyncCallBackMethodList.get(str);
+            if (qdaVar != null && list != null) {
+                Iterator<pda> it = list.iterator();
+                if (!TextUtils.isEmpty(qdaVar.e())) {
                     while (it.hasNext()) {
-                        e5a next = it.next();
-                        if (next.b().equals(f5aVar.e())) {
-                            f5a f5aVar2 = new f5a();
-                            f5aVar2.w(next.a());
-                            f5aVar2.y(f5aVar.f());
-                            f5aVar2.u(f5aVar.b());
-                            f5aVar2.o(f5aVar.a());
-                            f5aVar2.A(f5aVar.l());
-                            arrayList.add(f5aVar2);
+                        pda next = it.next();
+                        if (next.b().equals(qdaVar.e())) {
+                            qda qdaVar2 = new qda();
+                            qdaVar2.w(next.a());
+                            qdaVar2.y(qdaVar.f());
+                            qdaVar2.u(qdaVar.b());
+                            qdaVar2.o(qdaVar.a());
+                            qdaVar2.A(qdaVar.l());
+                            arrayList.add(qdaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -291,14 +291,14 @@ public class RouterJsBridgePlugin_Proxy extends d5a {
                     }
                 } else {
                     while (it.hasNext()) {
-                        e5a next2 = it.next();
-                        f5a f5aVar3 = new f5a();
-                        f5aVar3.w(next2.a());
-                        f5aVar3.y(f5aVar.f());
-                        f5aVar3.u(f5aVar.b());
-                        f5aVar3.o(f5aVar.a());
-                        f5aVar3.A(f5aVar.l());
-                        arrayList.add(f5aVar3);
+                        pda next2 = it.next();
+                        qda qdaVar3 = new qda();
+                        qdaVar3.w(next2.a());
+                        qdaVar3.y(qdaVar.f());
+                        qdaVar3.u(qdaVar.b());
+                        qdaVar3.o(qdaVar.a());
+                        qdaVar3.A(qdaVar.l());
+                        arrayList.add(qdaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

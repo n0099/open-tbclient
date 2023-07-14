@@ -10,9 +10,9 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.z79;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.ee9;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -57,12 +57,12 @@ public class TextLineView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
             if (z) {
-                s75 d = s75.d(this);
+                d85 d = d85.d(this);
                 d.x(R.color.CAM_X0105);
                 d.D(R.string.F_X02);
                 return;
             }
-            s75 d2 = s75.d(this);
+            d85 d2 = d85.d(this);
             d2.x(R.color.CAM_X0108);
             d2.D(R.string.F_X01);
         }
@@ -107,7 +107,7 @@ public class TextLineView extends TextView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, z79.TextLineView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ee9.TextLineView);
         this.b = obtainStyledAttributes.getDimensionPixelSize(2, 0);
         this.c = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         this.d = obtainStyledAttributes.getDimensionPixelSize(0, 0);
@@ -115,9 +115,9 @@ public class TextLineView extends TextView {
         obtainStyledAttributes.getColor(5, SkinManager.getColor(R.color.CAM_X0108));
         setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.c + this.b + this.d);
         setTextColor(this.e);
-        this.f = xi.g(context, R.dimen.obfuscated_res_0x7f0703f1);
+        this.f = yi.g(context, R.dimen.obfuscated_res_0x7f0703f7);
         this.g = new RectF();
-        this.k = xi.g(getContext(), R.dimen.obfuscated_res_0x7f070224);
+        this.k = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070224);
         obtainStyledAttributes.recycle();
     }
 

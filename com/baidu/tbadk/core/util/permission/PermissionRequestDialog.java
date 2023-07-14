@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g55;
 import com.baidu.tieba.l9;
+import com.baidu.tieba.p55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
 /* loaded from: classes4.dex */
-public class PermissionRequestDialog extends g55 {
+public class PermissionRequestDialog extends p55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -84,7 +84,7 @@ public class PermissionRequestDialog extends g55 {
             this.mDetailView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_detail);
             TextView textView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_close);
             this.mCloseView = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f046e);
+            textView.setText(R.string.obfuscated_res_0x7f0f0471);
             TextView textView2 = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_continue);
             this.mContinueView = textView2;
             textView2.setText(R.string.alert_yes_button);
@@ -93,8 +93,8 @@ public class PermissionRequestDialog extends g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
-    public g55 create(l9<?> l9Var) {
+    @Override // com.baidu.tieba.p55
+    public p55 create(l9<?> l9Var) {
         InterceptResult invokeL;
         char c;
         String string;
@@ -204,7 +204,7 @@ public class PermissionRequestDialog extends g55 {
             });
             return this;
         }
-        return (g55) invokeL.objValue;
+        return (p55) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

@@ -1,115 +1,143 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class v13 extends i22 {
+public final class v13 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    @Override // com.baidu.tieba.f02
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "UpdateMenuStyleApi" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v13(@NonNull d02 d02Var) {
-        super(d02Var);
+    public v13() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d02Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d02) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final int y(String str) {
-        InterceptResult invokeL;
-        char c;
+    @Nullable
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -1866956286) {
-                if (hashCode == -838846263 && str.equals(StickerDataChangeType.UPDATE)) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("webDegrade")) {
-                    c = 1;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return 12;
-                }
-                return 20;
-            }
-            return 19;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b(this);
         }
-        return invokeL.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public c42 x(String str) {
+    @NonNull
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.clone();
+        }
+        return invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(v13 v13Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#changeMenuStyle", false);
-            Pair<c42, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((c42) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("type");
-                if (TextUtils.isEmpty(optString)) {
-                    return new c42(202);
-                }
-                int y = y(optString);
-                px2 T2 = px2.T();
-                if (T2 == null) {
-                    return new c42(1001);
-                }
-                lb2 U = T2.U();
-                if (U == null) {
-                    return new c42(1001);
-                }
-                ib2 m = U.m();
-                if (m == null) {
-                    return new c42(1001);
-                }
-                ji4 Q1 = m.Q1();
-                if (Q1 == null) {
-                    if (m instanceof pb2) {
-                        ((pb2) m).l3(y);
-                        return c42.f();
-                    }
-                    return new c42(1001);
-                }
-                Q1.e(y);
-                Q1.y();
-                return c42.f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, v13Var)) == null) {
+            if (v13Var == null || TextUtils.isEmpty(v13Var.a)) {
+                return null;
             }
-            return new c42(202);
+            if (TextUtils.isEmpty(v13Var.b)) {
+                return v13Var.a;
+            }
+            return v13Var.a + "?" + v13Var.b;
         }
-        return (c42) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(v13 v13Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, v13Var)) == null) {
+            if (v13Var == null || TextUtils.isEmpty(v13Var.d)) {
+                return null;
+            }
+            if (TextUtils.isEmpty(v13Var.b)) {
+                return v13Var.d;
+            }
+            return v13Var.d + "?" + v13Var.b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static v13 d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            v13 v13Var = new v13();
+            v13Var.a = np3.f(str);
+            v13Var.b = np3.o(str);
+            v13Var.c = str2;
+            v13Var.d = nf3.b(v13Var.a);
+            return v13Var;
+        }
+        return (v13) invokeLL.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "SwanAppPageParam{mPage='" + this.a + "', mParams='" + this.b + "', mBaseUrl='" + this.c + "', mRoutePage='" + this.d + "', mRoutType='" + this.e + "', mRouteId='" + this.f + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

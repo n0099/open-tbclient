@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q76 implements CustomMessageTask.CustomRunnable<Object> {
+public class q76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public v15 b;
+    public String c;
 
     public q76() {
         Interceptable interceptable = $ic;
@@ -28,30 +28,19 @@ public class q76 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public static q76 a(JSONObject jSONObject) {
         InterceptResult invokeL;
-        boolean d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            int cmd = customMessage.getCmd();
-            if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
-                nf5 nf5Var = (nf5) customMessage.getData();
-                if (cmd == 2001179) {
-                    d = s76.f().a(nf5Var);
-                } else {
-                    d = s76.f().d(nf5Var.d());
-                }
-                if (!d) {
-                    r95 p = r95.p();
-                    p.A("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
-                }
-            }
-            return null;
+            q76 q76Var = new q76();
+            q76Var.a = jSONObject.optInt("download_state");
+            q76Var.b = v15.b(jSONObject.optJSONObject("app_info"));
+            q76Var.c = jSONObject.optString("download_hint");
+            return q76Var;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (q76) invokeL.objValue;
     }
 }

@@ -27,14 +27,14 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.en9;
+import com.baidu.tieba.et9;
+import com.baidu.tieba.kt9;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.sk9;
-import com.baidu.tieba.sn9;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.xn;
-import com.baidu.tieba.ym9;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.yn;
+import com.baidu.tieba.yq9;
+import com.baidu.tieba.yt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,13 +49,13 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public static boolean x = true;
     public static CustomMessageListener y;
     public transient /* synthetic */ FieldHolder $fh;
-    public sn9 a;
+    public yt9 a;
     public TextView b;
     public NavigationBar c;
     public View d;
     public TextView e;
     public BdListView f;
-    public ym9 g;
+    public et9 g;
     public PersonPostModel h;
     public View i;
     public View j;
@@ -68,7 +68,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public int q;
     public ArrayList<String> r;
     public String s;
-    public ArrayList<xn> t;
+    public ArrayList<yn> t;
     public Handler u;
     public PersonPostModel.d v;
     public PersonPostModel.c w;
@@ -413,7 +413,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             navigationBar.setCenterTextTitle(getResources().getString(R.string.report_user));
-            this.e = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f04be));
+            this.e = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f04c1));
             this.d = this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.e.setOnClickListener(new d(this));
         }
@@ -440,7 +440,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         }
     }
 
-    public void Q1(ArrayList<xn> arrayList) {
+    public void Q1(ArrayList<yn> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, arrayList) == null) {
             R1(arrayList);
@@ -452,7 +452,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0846);
+            setContentView(R.layout.obfuscated_res_0x7f0d0860);
             L1(bundle);
             initView();
             H1(true);
@@ -493,7 +493,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 if (z) {
                     personPostModel2.threadList.clear();
                 }
-                this.h.threadList.addAll(en9.c(personPostModel.threadList));
+                this.h.threadList.addAll(kt9.c(personPostModel.threadList));
             }
             this.p = E1(personPostModel, z);
             PersonPostModel personPostModel3 = this.h;
@@ -510,8 +510,8 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                     Q1(this.h.threadList);
                 }
             }
-            sk9.d().l(System.currentTimeMillis() - currentTimeMillis);
-            sk9.d().p(System.currentTimeMillis() - sk9.d().g());
+            yq9.d().l(System.currentTimeMillis() - currentTimeMillis);
+            yq9.d().p(System.currentTimeMillis() - yq9.d().g());
         }
     }
 
@@ -535,7 +535,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         }
     }
 
-    public void R1(ArrayList<xn> arrayList) {
+    public void R1(ArrayList<yn> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
             if (ListUtils.isEmpty(arrayList)) {
@@ -599,7 +599,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             String string = getResources().getString(R.string.no_data_common_txt);
             if (this.n == null) {
-                this.n = NoDataViewFactory.a(this, null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070380)), NoDataViewFactory.e.d(null, string), null);
+                this.n = NoDataViewFactory.a(this, null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070386)), NoDataViewFactory.e.d(null, string), null);
             }
             this.n.f(getPageContext(), TbadkApplication.getInst().getSkinType());
             this.n.setVisibility(0);
@@ -613,22 +613,22 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             M1();
-            this.i = findViewById(R.id.obfuscated_res_0x7f091f23);
-            this.j = findViewById(R.id.obfuscated_res_0x7f091514);
-            this.k = findViewById(R.id.obfuscated_res_0x7f09151a);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0906e6);
-            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091e99);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090797);
-            ym9 ym9Var = new ym9(this, this.t);
-            this.g = ym9Var;
-            this.f.setAdapter((ListAdapter) ym9Var);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091f55);
+            this.j = findViewById(R.id.obfuscated_res_0x7f091528);
+            this.k = findViewById(R.id.obfuscated_res_0x7f09152e);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0906e9);
+            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091ec9);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090798);
+            et9 et9Var = new et9(this, this.t);
+            this.g = et9Var;
+            this.f.setAdapter((ListAdapter) et9Var);
             this.f.setOnSrollToBottomListener(new c(this));
             MessageManager.getInstance().registerListener(y);
             PbListView pbListView = new PbListView(this);
             this.m = pbListView;
             pbListView.a();
             this.m.s(R.color.CAM_X0205);
-            this.m.w(xi.g(this, R.dimen.tbds182));
+            this.m.w(yi.g(this, R.dimen.tbds182));
             this.m.B();
             this.m.L(R.dimen.tbfontsize33);
             this.m.J(SkinManager.getColor(R.color.CAM_X0107));
@@ -641,9 +641,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048597, this, view2, str, z) == null) {
             if (this.a == null) {
-                sn9 sn9Var = new sn9(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = sn9Var;
-                sn9Var.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+                yt9 yt9Var = new yt9(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = yt9Var;
+                yt9Var.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
                 this.a.d(null);
                 this.a.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
                 this.a.f();

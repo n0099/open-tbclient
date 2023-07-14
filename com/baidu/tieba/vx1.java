@@ -1,16 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.swan.apps.core.container.NgWebView;
+import androidx.annotation.NonNull;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface vx1 {
-    void a(NgWebView ngWebView);
+    void a(@NonNull Object obj, String str, String str2);
 
-    void b(NgWebView ngWebView, String str);
+    void b(@NonNull Object obj);
 
-    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
+    Object beginFlow(String str);
 
-    void d(String str, Context context);
+    void c(@NonNull Object obj);
 
-    void e(String str, Context context);
+    void d(String str, Map<String, String> map);
+
+    boolean e();
+
+    void f(String str, JSONObject jSONObject);
+
+    void g(@NonNull Object obj, String str, String str2, long j);
+
+    void h(@NonNull Object obj, String str);
+
+    void i(String str, String str2);
 }

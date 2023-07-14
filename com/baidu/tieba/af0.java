@@ -1,111 +1,214 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
-import android.util.Log;
+import android.opengl.EGLContext;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class af0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "af0";
+public class af0 implements Cloneable, Comparable<af0> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public EGLContext a;
+    public xe0 b;
+    public we0 c;
+    public ue0 d;
+    public ye0 e;
+    public boolean f;
+    public te0 g;
+    public ze0 h;
+    public int i;
+    public boolean j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947613118, "Lcom/baidu/tieba/af0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947613118, "Lcom/baidu/tieba/af0;");
-        }
-    }
-
-    public static void a(String str) {
-        int glGetError;
+    public af0(EGLContext eGLContext, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && (glGetError = GLES20.glGetError()) != 0) {
-            Log.e(a, str + ": glError 0x" + Integer.toHexString(glGetError));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eGLContext, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = eGLContext;
+        this.i = i;
+        this.j = z;
+        this.b = new xe0();
+        this.c = new we0();
+        this.d = new ve0();
+        this.e = new ye0();
+        this.f = false;
+        this.g = null;
+        this.h = new ze0();
     }
 
-    public static FloatBuffer b(float[] fArr) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public af0 clone() {
+        af0 af0Var;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                af0Var = (af0) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                af0Var = null;
+            }
+            if (af0Var != null) {
+                af0Var.m(this.e.clone());
+                af0Var.q(this.h.clone());
+            }
+            return af0Var;
+        }
+        return (af0) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: b */
+    public int compareTo(af0 af0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fArr)) == null) {
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(fArr.length * 4);
-            allocateDirect.order(ByteOrder.nativeOrder());
-            FloatBuffer asFloatBuffer = allocateDirect.asFloatBuffer();
-            asFloatBuffer.put(fArr);
-            asFloatBuffer.position(0);
-            return asFloatBuffer;
-        }
-        return (FloatBuffer) invokeL.objValue;
-    }
-
-    public static int c(String str, String str2) {
-        InterceptResult invokeLL;
-        int d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            int d2 = d(35633, str);
-            if (d2 == 0 || (d = d(35632, str2)) == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, af0Var)) == null) {
+            if (this.i < af0Var.d()) {
                 return -1;
             }
-            int glCreateProgram = GLES20.glCreateProgram();
-            a("glCreateProgram");
-            if (glCreateProgram == 0) {
-                Log.e(a, "Could not create program");
-            }
-            GLES20.glAttachShader(glCreateProgram, d2);
-            a("glAttachShader");
-            GLES20.glAttachShader(glCreateProgram, d);
-            a("glAttachShader");
-            GLES20.glLinkProgram(glCreateProgram);
-            int[] iArr = new int[1];
-            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-            if (iArr[0] != 1) {
-                Log.e(a, "Could not link program: ");
-                Log.e(a, GLES20.glGetProgramInfoLog(glCreateProgram));
-                GLES20.glDeleteProgram(glCreateProgram);
-                return -1;
-            }
-            return glCreateProgram;
+            return 1;
         }
-        return invokeLL.intValue;
+        return invokeL.intValue;
     }
 
-    public static int d(int i, String str) {
-        InterceptResult invokeIL;
+    public void m(ye0 ye0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            int glCreateShader = GLES20.glCreateShader(i);
-            a("glCreateShader type=" + i);
-            GLES20.glShaderSource(glCreateShader, str);
-            GLES20.glCompileShader(glCreateShader);
-            int[] iArr = new int[1];
-            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-            if (iArr[0] == 0) {
-                String str2 = a;
-                Log.e(str2, "Could not compile shader " + i + ":");
-                String str3 = a;
-                Log.e(str3, " " + GLES20.glGetShaderInfoLog(glCreateShader));
-                GLES20.glDeleteShader(glCreateShader);
-                return 0;
-            }
-            return glCreateShader;
+        if (interceptable == null || interceptable.invokeL(1048590, this, ye0Var) == null) {
+            this.e = ye0Var;
         }
-        return invokeIL.intValue;
+    }
+
+    public void n(EGLContext eGLContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, eGLContext) == null) {
+            this.a = eGLContext;
+        }
+    }
+
+    public void p(te0 te0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, te0Var) == null) {
+            this.g = te0Var;
+        }
+    }
+
+    public void q(ze0 ze0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, ze0Var) == null) {
+            this.h = ze0Var;
+        }
+    }
+
+    public void r(xe0 xe0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, xe0Var) == null) {
+            this.b = xe0Var;
+        }
+    }
+
+    public ye0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (ye0) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public ue0 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (ue0) invokeV.objValue;
+    }
+
+    public EGLContext f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (EGLContext) invokeV.objValue;
+    }
+
+    public te0 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return (te0) invokeV.objValue;
+    }
+
+    public ze0 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.h;
+        }
+        return (ze0) invokeV.objValue;
+    }
+
+    public we0 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
+        }
+        return (we0) invokeV.objValue;
+    }
+
+    public xe0 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.b;
+        }
+        return (xe0) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.j;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
     }
 }

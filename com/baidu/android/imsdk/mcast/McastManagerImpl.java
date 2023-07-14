@@ -1,22 +1,36 @@
 package com.baidu.android.imsdk.mcast;
 
 import android.content.Context;
+import android.content.Intent;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.BIMConversation;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.IConnectListener;
+import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
 import com.baidu.android.imsdk.chatmessage.IChatRoomExitListener;
 import com.baidu.android.imsdk.chatmessage.IChatRoomFetchListener;
 import com.baidu.android.imsdk.chatmessage.IChatRoomListener;
+import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.request.IMChatRoomEnterRequest;
 import com.baidu.android.imsdk.chatmessage.request.IMChatRoomExitRequest;
 import com.baidu.android.imsdk.chatmessage.request.IMChatRoomFetchRequest;
+import com.baidu.android.imsdk.chatmessage.request.IMEmojiReplyDetailListener;
+import com.baidu.android.imsdk.chatmessage.request.IMEmojiReplyDetailRequest;
+import com.baidu.android.imsdk.chatmessage.request.IMEmojiReplyListListener;
+import com.baidu.android.imsdk.chatmessage.request.IMEmojiReplyListRequest;
 import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
+import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.internal.ListenerManager;
+import com.baidu.android.imsdk.mcast.IMEmojiReplyListener;
+import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tieba.x80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,11 +47,11 @@ public class McastManagerImpl {
     public final IConnectListener connectListener;
     public final ConcurrentHashMap<Long, BIMConversation> conversationHashMap;
     public Context mContext;
-    public final ConcurrentHashMap<Long, JoinChatRoomGroup> roomGroupHashMap;
+    public final ConcurrentHashMap<Integer, JoinChatRoomGroup> roomGroupHashMap;
 
     public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str, iMcastSetListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str, iMcastSetListener}) == null) {
         }
     }
 
@@ -146,7 +160,7 @@ public class McastManagerImpl {
     public long getMaxReliableMsgId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
             return ConversationStudioManImpl.getInstance(this.mContext).getMaxReliableMsgId(j);
         }
         return invokeJ.longValue;
@@ -155,15 +169,44 @@ public class McastManagerImpl {
     public long getReliableMsgCount(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
             return ConversationStudioManImpl.getInstance(this.mContext).getReliableMsgCount(j);
         }
         return invokeJ.longValue;
     }
 
+    public void emojiReplyForChatRoom(IMEmojiReplyListener.IMEmojiReplyRequestInfo iMEmojiReplyRequestInfo, IMEmojiReplyListener iMEmojiReplyListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, iMEmojiReplyRequestInfo, iMEmojiReplyListener) == null) {
+            if (LoginManager.getInstance(this.mContext).isIMLogined()) {
+                String addListener = ListenerManager.getInstance().addListener(iMEmojiReplyListener);
+                Intent createMcastMethodIntent = Utility.createMcastMethodIntent(this.mContext, Constants.METHOD_IM_EMOJI);
+                createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+                createMcastMethodIntent.putExtra(Constants.EXTRA_SEND_MSG, iMEmojiReplyRequestInfo.msg);
+                createMcastMethodIntent.putExtra("op_type", iMEmojiReplyRequestInfo.opType);
+                createMcastMethodIntent.putExtra(Constants.EXTRA_EMOJI_PACKAGE_ID, iMEmojiReplyRequestInfo.emojiPackageId);
+                createMcastMethodIntent.putExtra("emoji_content", iMEmojiReplyRequestInfo.emojiContent);
+                try {
+                    x80.e(this.mContext).d(this.mContext, createMcastMethodIntent);
+                    return;
+                } catch (Exception unused) {
+                    if (iMEmojiReplyListener != null) {
+                        iMEmojiReplyListener.onResult(1003, "");
+                    }
+                    ListenerManager.getInstance().removeListener(addListener);
+                    return;
+                }
+            }
+            LoginManager.getInstance(this.mContext).triggleLogoutListener(4001, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+            if (iMEmojiReplyListener != null) {
+                iMEmojiReplyListener.onResult(1001, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+            }
+        }
+    }
+
     public void enterChatRoom(Context context, long j, IChatRoomEnterListener iChatRoomEnterListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), iChatRoomEnterListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j), iChatRoomEnterListener}) == null) {
             BIMManager.registerConnectListenerToList(this.connectListener);
             IMChatRoomEnterRequest iMChatRoomEnterRequest = new IMChatRoomEnterRequest(context, j, new IChatRoomEnterListener(this, context, j, iChatRoomEnterListener) { // from class: com.baidu.android.imsdk.mcast.McastManagerImpl.1
                 public static /* synthetic */ Interceptable $ic;
@@ -262,13 +305,13 @@ public class McastManagerImpl {
 
     public void enterChatRoomGroup(long j, int i, long j2, IChatRoomListener iChatRoomListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), iChatRoomListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), iChatRoomListener}) == null) {
             BIMManager.registerConnectListenerToList(this.connectListener);
             JoinChatRoomGroup joinChatRoomGroup = new JoinChatRoomGroup();
             joinChatRoomGroup.roomType = j;
             joinChatRoomGroup.batchType = i;
             joinChatRoomGroup.chatRoomGroupId = j2;
-            this.roomGroupHashMap.put(Long.valueOf(i + j + j2), joinChatRoomGroup);
+            this.roomGroupHashMap.put(Integer.valueOf((j + "" + i + "" + j2).hashCode()), joinChatRoomGroup);
             ConversationStudioManImpl.getInstance(this.mContext).joinChatRoomGroup(j, i, j2, iChatRoomListener);
         }
     }
@@ -276,10 +319,10 @@ public class McastManagerImpl {
     public void exitChatRoomGroup(long j, int i, long j2, IChatRoomListener iChatRoomListener) {
         JoinChatRoomGroup joinChatRoomGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), iChatRoomListener}) == null) {
-            long j3 = i + j + j2;
-            if (this.roomGroupHashMap.containsKey(Long.valueOf(j3))) {
-                joinChatRoomGroup = this.roomGroupHashMap.remove(Long.valueOf(j3));
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), iChatRoomListener}) == null) {
+            int hashCode = (j + "" + i + "" + j2).hashCode();
+            if (this.roomGroupHashMap.containsKey(Integer.valueOf(hashCode))) {
+                joinChatRoomGroup = this.roomGroupHashMap.remove(Integer.valueOf(hashCode));
             } else {
                 joinChatRoomGroup = null;
             }
@@ -292,7 +335,7 @@ public class McastManagerImpl {
 
     public void exitChatRoom(Context context, long j, IChatRoomExitListener iChatRoomExitListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Long.valueOf(j), iChatRoomExitListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j), iChatRoomExitListener}) == null) {
             IMChatRoomExitRequest iMChatRoomExitRequest = new IMChatRoomExitRequest(context, j, new IChatRoomExitListener(this, j, iChatRoomExitListener) { // from class: com.baidu.android.imsdk.mcast.McastManagerImpl.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -386,10 +429,26 @@ public class McastManagerImpl {
         }
     }
 
+    public void fetchEmojiReplyDetail(@NonNull IMEmojiReplyDetailListener.IMEmojiReplyDetailRequestInfo iMEmojiReplyDetailRequestInfo, @NonNull IMEmojiReplyDetailListener iMEmojiReplyDetailListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, iMEmojiReplyDetailRequestInfo, iMEmojiReplyDetailListener) == null) {
+            IMEmojiReplyDetailRequest iMEmojiReplyDetailRequest = new IMEmojiReplyDetailRequest(this.mContext, iMEmojiReplyDetailRequestInfo, iMEmojiReplyDetailListener);
+            HttpHelper.executor(this.mContext, iMEmojiReplyDetailRequest, iMEmojiReplyDetailRequest);
+        }
+    }
+
+    public void fetchEmojiReplyList(@NonNull IMEmojiReplyListListener.IMEmojiReplyListRequestInfo iMEmojiReplyListRequestInfo, @NonNull IMEmojiReplyListListener iMEmojiReplyListListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, iMEmojiReplyListRequestInfo, iMEmojiReplyListListener) == null) {
+            IMEmojiReplyListRequest iMEmojiReplyListRequest = new IMEmojiReplyListRequest(this.mContext, iMEmojiReplyListRequestInfo.roomId, iMEmojiReplyListRequestInfo.emojiPackageId, iMEmojiReplyListRequestInfo.msgs, iMEmojiReplyListListener);
+            HttpHelper.executor(this.mContext, iMEmojiReplyListRequest, iMEmojiReplyListRequest);
+        }
+    }
+
     public String getAllCastIdList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return ConversationStudioManImpl.getInstance(this.mContext).getAllCastIdList();
         }
         return (String) invokeV.objValue;
@@ -398,7 +457,7 @@ public class McastManagerImpl {
     public long getJoinedCastId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return ConversationStudioManImpl.getInstance(this.mContext).getJoinedCastId();
         }
         return invokeV.longValue;
@@ -406,9 +465,56 @@ public class McastManagerImpl {
 
     public void getChatRoomLastMsg(Context context, List<Long> list, long j, IChatRoomFetchListener iChatRoomFetchListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, list, Long.valueOf(j), iChatRoomFetchListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, list, Long.valueOf(j), iChatRoomFetchListener}) == null) {
             IMChatRoomFetchRequest iMChatRoomFetchRequest = new IMChatRoomFetchRequest(context, list, j, iChatRoomFetchListener);
             HttpHelper.executor(context, iMChatRoomFetchRequest, iMChatRoomFetchRequest);
+        }
+    }
+
+    public void getUsedEmoji(int i, int i2, boolean z, int i3, BIMValueCallBack<List<String>> bIMValueCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), bIMValueCallBack}) == null) {
+            TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable(this, i, i2, z, i3, bIMValueCallBack) { // from class: com.baidu.android.imsdk.mcast.McastManagerImpl.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ McastManagerImpl this$0;
+                public final /* synthetic */ BIMValueCallBack val$callBack;
+                public final /* synthetic */ int val$category;
+                public final /* synthetic */ int val$count;
+                public final /* synthetic */ int val$packageId;
+                public final /* synthetic */ boolean val$sortWithTime;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), bIMValueCallBack};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$packageId = i;
+                    this.val$category = i2;
+                    this.val$sortWithTime = z;
+                    this.val$count = i3;
+                    this.val$callBack = bIMValueCallBack;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        ChatMessageDBManager.getInstance(this.this$0.mContext).getUsedEmojiContent(this.val$packageId, this.val$category, this.val$sortWithTime, this.val$count, this.val$callBack);
+                    }
+                }
+            });
         }
     }
 }

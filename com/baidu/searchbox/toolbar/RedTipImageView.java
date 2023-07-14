@@ -105,10 +105,10 @@ public class RedTipImageView extends RelativeLayout implements IFontSizeViewList
 
     private void init() {
         setGravity(17);
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0217, this);
-        this.mIcon = (SelectorImageView) findViewById(R.id.obfuscated_res_0x7f091e4e);
-        this.mCopyIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e4f);
-        BadgeView badgeView = (BadgeView) findViewById(R.id.obfuscated_res_0x7f091e50);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0219, this);
+        this.mIcon = (SelectorImageView) findViewById(R.id.obfuscated_res_0x7f091e70);
+        this.mCopyIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e71);
+        BadgeView badgeView = (BadgeView) findViewById(R.id.obfuscated_res_0x7f091e72);
         this.mRedTip = badgeView;
         badgeView.setType(BadgeView.Type.SMALL_TEXT);
         this.mIcon.setVisibility(0);
@@ -174,7 +174,7 @@ public class RedTipImageView extends RelativeLayout implements IFontSizeViewList
             if (drawable == null) {
                 return;
             }
-            int dimenByResId = (int) ResUtil.getDimenByResId(R.dimen.obfuscated_res_0x7f0702fe);
+            int dimenByResId = (int) ResUtil.getDimenByResId(R.dimen.obfuscated_res_0x7f070304);
             int intrinsicWidth = drawable.getIntrinsicWidth();
             Drawable scaledDrawable = FontSizeHelper.getScaledDrawable(0, drawable);
             if (scaledDrawable == null) {
@@ -194,8 +194,8 @@ public class RedTipImageView extends RelativeLayout implements IFontSizeViewList
         if (this.mIsIgnoreUpdateLayoutParams || (layoutParams = getLayoutParams()) == null) {
             return;
         }
-        layoutParams.width = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0702fe);
-        layoutParams.height = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0702fe);
+        layoutParams.width = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070304);
+        layoutParams.height = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070304);
         setLayoutParams(layoutParams);
     }
 

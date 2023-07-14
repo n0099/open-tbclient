@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.net.Uri;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.xu9;
+import com.baidu.tieba.y2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class MinePageDispatcher implements xu9 {
+/* loaded from: classes8.dex */
+public class MinePageDispatcher implements y2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public class MinePageDispatcher implements xu9 {
         }
     }
 
-    @Override // com.baidu.tieba.xu9
+    @Override // com.baidu.tieba.y2a
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

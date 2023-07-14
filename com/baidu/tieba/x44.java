@@ -1,71 +1,83 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x44 extends i44 {
+public class x44 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    @V8JavascriptField
+    public int height;
+    @V8JavascriptField
+    public int left;
+    @V8JavascriptField
+    public int realHeight;
+    @V8JavascriptField
+    public int realWidth;
+    @V8JavascriptField
+    public int top;
+    @V8JavascriptField
+    public int width;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948250385, "Lcom/baidu/tieba/x44;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948250385, "Lcom/baidu/tieba/x44;");
-                return;
-            }
-        }
-        c = ms1.a;
+    /* loaded from: classes8.dex */
+    public interface a {
+        void i(String str);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x44() {
-        super("getSid");
+    public x44(@NonNull c42 c42Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {c42Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
+            }
+        }
+        a(c42Var);
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (fs1.a) {
+                Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
+            }
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.i(str);
             }
         }
     }
 
-    @Override // com.baidu.tieba.i44
-    public c42 a(JSONObject jSONObject, gp2 gp2Var) {
-        InterceptResult invokeLL;
+    public final void a(@NonNull c42 c42Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, gp2Var)) == null) {
-            String k = jv2.g0().k();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("sid", k);
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
-            }
-            gp2Var.onSuccess(jSONObject2);
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, c42Var) == null) {
+            this.left = c42Var.r("left", this.left);
+            this.top = c42Var.r("top", this.top);
+            this.width = c42Var.r("width", this.width);
+            this.height = c42Var.r("height", this.height);
         }
-        return (c42) invokeLL.objValue;
     }
 }

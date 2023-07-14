@@ -4,9 +4,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.o09;
-import com.baidu.tieba.xe;
+import com.baidu.tieba.o55;
+import com.baidu.tieba.r69;
+import com.baidu.tieba.ye;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,11 +17,11 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetVipInfo.DataRes;
 import tbclient.GetVipInfo.GetVipInfoResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o09 mMembercenter;
+    public r69 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MembercenterHttpResponseMessage() {
@@ -41,13 +41,13 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public o09 getMembercenterData() {
+    public r69 getMembercenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mMembercenter;
         }
-        return (o09) invokeV.objValue;
+        return (r69) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
         }
         DataRes dataRes = getVipInfoResIdl.data;
         if (dataRes != null) {
-            this.mMembercenter = new o09(dataRes);
+            this.mMembercenter = new r69(dataRes);
         }
         if (getError() == 0) {
             if (TbadkCoreApplication.isLogin()) {
@@ -74,10 +74,10 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
             } else {
                 str = SevenZipUtils.FILE_NAME_TEMP;
             }
-            f55.d();
-            xe<byte[]> c = f55.c("tb_member_center", str);
-            if (c != null && bArr != null) {
-                c.g("member_center_cache_key", bArr);
+            o55.e();
+            ye<byte[]> d = o55.d("tb_member_center", str);
+            if (d != null && bArr != null) {
+                d.g("member_center_cache_key", bArr);
             }
         }
     }

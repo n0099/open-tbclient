@@ -121,7 +121,7 @@ public class IMConfigInternal {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             try {
                 int productLine = getProductLine(context);
-                return Integer.valueOf("1035" + String.format("%03d", Integer.valueOf(productLine)) + "6").intValue();
+                return Integer.valueOf("1060" + String.format("%03d", Integer.valueOf(productLine)) + "6").intValue();
             } catch (Exception unused) {
                 return 0;
             }

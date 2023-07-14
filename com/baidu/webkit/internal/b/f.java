@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.MailTo;
 import android.net.Uri;
 import com.baidu.searchbox.IntentConstants;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class f extends g {
     @Override // com.baidu.webkit.internal.b.g
     public final boolean a(Context context, String str) {

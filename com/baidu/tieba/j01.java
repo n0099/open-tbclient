@@ -1,37 +1,44 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
+import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.nadcore.player.minivideo.view.LineLoadingView;
-import com.baidu.searchbox.player.event.ControlEvent;
-import com.baidu.searchbox.player.event.PlayerEvent;
-import com.baidu.searchbox.player.event.SystemEvent;
+import com.baidu.tieba.hw0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class j01 extends tz0 implements View.OnClickListener {
+public abstract class j01<T extends ViewGroup, S extends hw0> extends zz0 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup e;
-    public ImageView f;
-    public boolean g;
-    public LineLoadingView h;
+    public T e;
+    public final ArrayList<S> f;
+
+    public abstract void R();
+
+    public void S(@NonNull T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
+        }
+    }
+
+    public abstract void T();
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, view2) == null) {
         }
     }
 
@@ -48,136 +55,201 @@ public class j01 extends tz0 implements View.OnClickListener {
                 return;
             }
         }
-        this.g = false;
+        this.f = new ArrayList<>();
     }
 
-    public void N() {
+    @Override // com.baidu.tieba.zz0
+    public void F() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.h.g();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.F();
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().l();
+            }
         }
     }
 
-    public final void Q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.h.f();
-        }
-    }
-
-    @Override // com.baidu.tieba.yz0
-    public View getContentView() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.m01
+    @NonNull
+    /* renamed from: Q */
+    public T getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.e;
         }
-        return (View) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zx0
+    @Override // com.baidu.tieba.ny0
     @Nullable
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return new int[]{4, 2, 1, 5};
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return new int[]{4, 5, 2, 3, 1};
         }
         return (int[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lz0
-    @SuppressLint({"InflateParams"})
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.m01
+    public void onContainerDetach() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            super.onContainerDetach();
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().j();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.m01
+    public void onLayerRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            super.onLayerRelease();
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().m();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zz0
+    public void B(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            super.B(message);
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().h(message);
+            }
+        }
+    }
+
+    public void M(@NonNull S s) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, s) == null) && !this.f.contains(s)) {
+            x31.b(this.f, s);
+        }
+    }
+
+    public void P(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mx0Var) == null) {
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().k(mx0Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.ny0
+    public void d(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, mx0Var) == null) {
+            super.d(mx0Var);
+            P(mx0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.ny0
+    public void j(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, mx0Var) == null) {
+            super.j(mx0Var);
+            P(mx0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.ny0
+    public void k(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, mx0Var) == null) {
+            super.k(mx0Var);
+            P(mx0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.ny0
+    public void n(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, mx0Var) == null) {
+            super.n(mx0Var);
+            P(mx0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.ny0
+    public void q(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, mx0Var) == null) {
+            super.q(mx0Var);
+            P(mx0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.zz0
     public void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.c).inflate(R.layout.nad_mini_video_control_layer, (ViewGroup) null);
-            this.e = viewGroup;
-            this.f = (ImageView) viewGroup.findViewById(R.id.video_pause_icon);
-            this.h = (LineLoadingView) this.e.findViewById(R.id.line_loading_view);
-        }
-    }
-
-    public void O(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void P(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.g) {
-            this.f.setVisibility(i);
-            this.g = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.lz0, com.baidu.tieba.zx0
-    public void d(@NonNull yw0 yw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, yw0Var) == null) {
-            if (PlayerEvent.ACTION_ON_INFO.equals(yw0Var.c())) {
-                int intValue = ((Integer) yw0Var.f(1)).intValue();
-                if (intValue != 904 && 956 != intValue) {
-                    if (701 == intValue) {
-                        Q();
-                        return;
-                    } else if (702 == intValue) {
-                        N();
-                        return;
-                    } else {
-                        return;
-                    }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            R();
+            T();
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                S next = it.next();
+                next.p(this);
+                next.i();
+                if (next.d()) {
+                    N(next);
                 }
-                this.g = false;
-                this.f.setVisibility(4);
-                N();
-            } else if (PlayerEvent.ACTION_ON_PREPARED.equals(yw0Var.c())) {
-                N();
-            } else if (PlayerEvent.ACTION_ON_ERROR.equals(yw0Var.c())) {
-                N();
+            }
+            S(this.e);
+        }
+    }
+
+    public void N(@NonNull S s) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, s) == null) {
+            x21.k(s.getContentView());
+            if (O(s.f())) {
+                this.e.addView(s.getContentView(), s.f());
+            } else {
+                this.e.addView(s.getContentView());
             }
         }
     }
 
-    @Override // com.baidu.tieba.lz0, com.baidu.tieba.zx0
-    public void q(@NonNull yw0 yw0Var) {
+    public boolean O(@Nullable ViewGroup.LayoutParams layoutParams) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, yw0Var) == null) {
-            if (ControlEvent.ACTION_PAUSE.equals(yw0Var.c())) {
-                if (this.g) {
-                    this.f.setVisibility(0);
-                }
-            } else if (ControlEvent.ACTION_RESUME.equals(yw0Var.c())) {
-                this.g = false;
-                this.f.setVisibility(4);
-            } else if (ControlEvent.ACTION_START.equals(yw0Var.c())) {
-                if (!u().Y()) {
-                    Q();
-                }
-            } else if (ControlEvent.ACTION_STOP.equals(yw0Var.c())) {
-                N();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, layoutParams)) == null) {
+            if (getContentView() instanceof FrameLayout) {
+                return layoutParams instanceof FrameLayout.LayoutParams;
             }
+            if (getContentView() instanceof LinearLayout) {
+                return layoutParams instanceof LinearLayout.LayoutParams;
+            }
+            if (getContentView() instanceof RelativeLayout) {
+                return layoutParams instanceof RelativeLayout.LayoutParams;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lz0, com.baidu.tieba.zx0
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.ny0
     public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, playerStatus, playerStatus2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048590, this, playerStatus, playerStatus2) == null) {
             super.h(playerStatus, playerStatus2);
-            if (playerStatus == PlayerStatus.PLAYING || playerStatus == PlayerStatus.PAUSE || playerStatus == PlayerStatus.STOP) {
-                N();
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().n(playerStatus, playerStatus2);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.lz0, com.baidu.tieba.zx0
-    public void n(@NonNull yw0 yw0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, yw0Var) == null) && SystemEvent.ACTION_VOLUME_CHANGED.equals(yw0Var.c()) && !u().a0() && !u().Q() && ((Integer) yw0Var.f(5)).intValue() > 0 && u().V()) {
-            u().w0(false);
         }
     }
 }

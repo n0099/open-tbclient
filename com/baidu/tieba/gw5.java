@@ -1,64 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.dw5;
+import com.baidu.tieba.ew5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.AppTransmitData;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gw5 {
+public class gw5<Q extends dw5, P extends ew5> implements fw5<Q, P> {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public String c;
+    public Q d;
+    public P e;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public gw5(int i, int i2, String str, Q q, P p) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(TiebaStatic.Params.WISE_SAMPLE_ID, c());
-                jSONObject.put(DI.YY.YY_HDID, TbadkCoreApplication.getInst().getHdid());
-                jSONObject.put("yy_version", "");
-            } catch (JSONException e) {
-                BdLog.e(e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, q, p};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return jSONObject.toString();
+        }
+        this.a = i;
+        this.b = i2;
+        this.c = str;
+        this.d = q;
+        this.e = p;
+    }
+
+    @Override // com.baidu.tieba.fw5
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.fw5
+    public Q b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (Q) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fw5
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    public static AppTransmitData b() {
+    @Override // com.baidu.tieba.fw5
+    public P d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            AppTransmitData.Builder builder = new AppTransmitData.Builder();
-            builder.wise_sample_id = c();
-            builder.yy_hdid = TbadkCoreApplication.getInst().getHdid();
-            builder.yy_version = "";
-            return builder.build(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
-        return (AppTransmitData) invokeV.objValue;
+        return (P) invokeV.objValue;
     }
 
-    public static String c() {
+    @Override // com.baidu.tieba.fw5
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a = str;
-        }
+        return invokeV.intValue;
     }
 }

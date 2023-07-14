@@ -1,5 +1,5 @@
 package com.baidu.ugc.editvideo.magicmusic;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum EffectType {
     NO_MATCH(0),
     NO(0),

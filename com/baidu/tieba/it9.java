@@ -1,49 +1,46 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.view.BaseLegoCardView;
-import com.baidu.tieba.mn5;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.lego.view.AdCardMultiPicView;
-import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
-import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.kp6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class it9 extends tt8 {
+public class it9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.tt8
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_for_RecApp" : (String) invokeV.objValue;
-    }
+    public TbPageContext a;
+    public BdUniqueId b;
+    public jt9 c;
+    public int d;
+    public final CustomMessageListener e;
+    public final CustomMessageListener f;
+    public final CustomMessageListener g;
 
     /* loaded from: classes6.dex */
-    public class a implements mn5.b {
+    public class a implements kp6.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ ThreadData a;
+        public final /* synthetic */ it9 b;
 
-        public a(it9 it9Var, TbPageContext tbPageContext) {
+        public a(it9 it9Var, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {it9Var, tbPageContext};
+                Object[] objArr = {it9Var, threadData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,186 +50,263 @@ public class it9 extends tt8 {
                     return;
                 }
             }
-            this.a = tbPageContext;
+            this.b = it9Var;
+            this.a = threadData;
         }
 
-        @Override // com.baidu.tieba.mn5.b
-        public Object build() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.kp6.j
+        public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new AdCardSinglePicView(this.a);
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements mn5.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public b(it9 it9Var, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {it9Var, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z) {
+                    yi.Q(this.b.a.getPageActivity(), R.string.thread_has_hide);
                 }
+                this.b.h(z, this.a);
             }
-            this.a = tbPageContext;
-        }
-
-        @Override // com.baidu.tieba.mn5.b
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new AdCardMultiPicView(this.a);
-            }
-            return invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements mn5.b {
+    public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ int b;
+        public final /* synthetic */ it9 a;
 
-        public c(it9 it9Var, TbPageContext tbPageContext, int i) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(it9 it9Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {it9Var, tbPageContext, Integer.valueOf(i)};
+                Object[] objArr = {it9Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = tbPageContext;
-            this.b = i;
+            this.a = it9Var;
         }
 
-        @Override // com.baidu.tieba.mn5.b
-        public Object build() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new AdCardVideoView(this.a, this.b);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ThreadData) || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() != this.a.b || this.a.c == null || !this.a.c.j1()) {
+                return;
             }
-            return invokeV.objValue;
+            this.a.k((ThreadData) customResponsedMessage.getData());
         }
     }
 
-    public it9() {
+    /* loaded from: classes6.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ it9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(it9 it9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {it9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = it9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+                this.a.j((String) customResponsedMessage.getData());
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ it9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(it9 it9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {it9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = it9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+                this.a.i((String) customResponsedMessage.getData());
+            }
+        }
+    }
+
+    public it9(TbPageContext tbPageContext, BdUniqueId bdUniqueId, jt9 jt9Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, jt9Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = new b(this, 2921428);
+        this.f = new c(this, 2016557);
+        this.g = new d(this, 2921436);
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        this.c = jt9Var;
+        this.d = i;
+        this.e.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.e);
+        this.f.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f);
+        this.g.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.g);
     }
 
-    @Override // com.baidu.tieba.tt8
-    public <T> mu8 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        int cardType;
+    public final void h(boolean z, ThreadData threadData) {
+        jt9 jt9Var;
+        ThreadData e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
-            if (iCardInfo == null) {
-                cardType = -1;
-            } else {
-                cardType = iCardInfo.getCardType();
-            }
-            if (cardType != 17 && cardType != 34) {
-                return null;
-            }
-            return e(tbPageContext, iCardInfo, i);
-        }
-        return (mu8) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.tt8
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            if (i != 17 && i != 34) {
-                return null;
-            }
-            return new AdCard(jSONObject);
-        }
-        return (ICardInfo) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.tt8
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SparseIntArray sparseIntArray = tt8.a;
-            sparseIntArray.put(17, sparseIntArray.size() + 1);
-            SparseIntArray sparseIntArray2 = tt8.a;
-            sparseIntArray2.put(33, sparseIntArray2.size() + 1);
-            SparseIntArray sparseIntArray3 = tt8.a;
-            sparseIntArray3.put(34, sparseIntArray3.size() + 1);
-            tt8.b.put(17, BdUniqueId.gen());
-            tt8.b.put(33, BdUniqueId.gen());
-            tt8.b.put(34, BdUniqueId.gen());
-        }
-    }
-
-    public final BaseLegoCardView e(TbPageContext<?> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            if (!(iCardInfo instanceof AdCard)) {
-                return null;
-            }
-            AdCard adCard = (AdCard) iCardInfo;
-            int cardType = adCard.getCardType();
-            if (cardType != 17 && cardType != 34) {
-                BdLog.e("RecAppLegoFactory: specifyAdCardView got wrong card type!");
-                return null;
-            }
-            int i2 = adCard.goodsStyle;
-            if (i2 != 2) {
-                if (i2 != 14) {
-                    if (i2 != 6) {
-                        if (i2 != 7) {
-                            if (i2 != 8) {
-                                return null;
-                            }
-                        }
-                    } else {
-                        return (AdCardMultiPicView) mn5.e().d(1102, new b(this, tbPageContext));
+        if ((interceptable == null || interceptable.invokeZL(1048576, this, z, threadData) == null) && threadData != null && (jt9Var = this.c) != null && !ListUtils.isEmpty(jt9Var.getListData()) && this.c.getMainView() != null && this.c.getMainView().e() != null) {
+            boolean z2 = false;
+            int i = 0;
+            while (true) {
+                if (i >= this.c.getListData().size()) {
+                    break;
+                }
+                yn ynVar = this.c.getListData().get(i);
+                if (ynVar != null && (e = kt9.e(ynVar)) != null && !StringUtils.isNull(e.tid) && e.tid.equals(threadData.tid)) {
+                    e.isPrivacy = z;
+                    cq6 d2 = kt9.d(e);
+                    if (d2 != null) {
+                        this.c.getListData().set(i, d2);
+                        z2 = true;
+                        break;
                     }
                 }
-                AdCardVideoView adCardVideoView = (AdCardVideoView) mn5.e().d(PackageInfo.CODE_HOST_VERSION, new c(this, tbPageContext, i));
-                adCardVideoView.setBusinessType(i);
-                return adCardVideoView;
+                i++;
             }
-            return (AdCardSinglePicView) mn5.e().d(1101, new a(this, tbPageContext));
+            if (z2) {
+                this.c.getMainView().n(this.c.getListData());
+            }
         }
-        return (BaseLegoCardView) invokeLLI.objValue;
+    }
+
+    public final void i(String str) {
+        jt9 jt9Var;
+        ThreadData e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !StringUtils.isNull(str) && (jt9Var = this.c) != null && !ListUtils.isEmpty(jt9Var.getListData()) && this.c.getMainView() != null && this.c.getMainView().e() != null) {
+            boolean z = false;
+            Iterator<yn> it = this.c.getListData().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                yn next = it.next();
+                if (next != null && (e = kt9.e(next)) != null && e.getBaijiahaoData() != null && !StringUtils.isNull(e.getBaijiahaoData().oriUgcNid) && e.getBaijiahaoData().oriUgcNid.equals(str)) {
+                    it.remove();
+                    z = true;
+                    break;
+                }
+            }
+            if (z) {
+                this.c.getMainView().n(this.c.getListData());
+            }
+        }
+    }
+
+    public final void j(String str) {
+        jt9 jt9Var;
+        ThreadData e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !StringUtils.isNull(str) && (jt9Var = this.c) != null && !ListUtils.isEmpty(jt9Var.getListData()) && this.c.getMainView() != null && this.c.getMainView().e() != null) {
+            boolean z = false;
+            Iterator<yn> it = this.c.getListData().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                yn next = it.next();
+                if (next != null && (e = kt9.e(next)) != null && !StringUtils.isNull(e.tid) && e.tid.equals(str)) {
+                    it.remove();
+                    z = true;
+                    break;
+                }
+            }
+            if (z) {
+                this.c.getMainView().n(this.c.getListData());
+            }
+        }
+    }
+
+    public final void k(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, threadData) == null) {
+            CardPersonDynamicThreadData cardPersonDynamicThreadData = new CardPersonDynamicThreadData();
+            cardPersonDynamicThreadData.p = threadData;
+            cardPersonDynamicThreadData.a = String.valueOf(threadData.getFid());
+            cardPersonDynamicThreadData.b = threadData.tid;
+            cardPersonDynamicThreadData.e = threadData.person_center_post_id;
+            cardPersonDynamicThreadData.o = threadData.isPrivacy;
+            if (threadData != null && threadData.getBaijiahaoData() != null) {
+                cardPersonDynamicThreadData.G = threadData.getBaijiahaoData().oriUgcNid;
+            }
+            kp6 kp6Var = new kp6(this.a);
+            boolean z = true;
+            if (this.d != 1) {
+                z = false;
+            }
+            kp6Var.t(z);
+            kp6Var.o();
+            kp6Var.s(new a(this, threadData));
+            kp6Var.n(cardPersonDynamicThreadData, false);
+            kp6Var.u();
+        }
     }
 }

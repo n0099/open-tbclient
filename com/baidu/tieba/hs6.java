@@ -1,11 +1,18 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public abstract class hs6 {
+public class hs6 implements pb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -20,6 +27,20 @@ public abstract class hs6 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.pb7
+    public void a(Context context, String str) {
+        TbPageContext<?> tbPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
+            if (r9.a(context) instanceof TbPageContext) {
+                tbPageContext = (TbPageContext) r9.a(context);
+            } else {
+                tbPageContext = null;
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
     }
 }

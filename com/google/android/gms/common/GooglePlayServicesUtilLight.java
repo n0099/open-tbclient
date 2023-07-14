@@ -232,7 +232,7 @@ public class GooglePlayServicesUtilLight {
         boolean z2;
         PackageInfo packageInfo;
         try {
-            context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0499);
+            context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f049c);
         } catch (Throwable unused) {
             Log.e("GooglePlayServicesUtil", "The Google Play services resources were not found. Check your project configuration to ensure that the resources are included.");
         }

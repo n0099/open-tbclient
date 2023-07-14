@@ -2,11 +2,11 @@ package com.google.ar.core;
 
 import android.os.Bundle;
 import android.util.Log;
-import com.baidu.tieba.vdb;
+import com.baidu.tieba.smb;
 import com.google.ar.core.ArCoreApk;
 /* loaded from: classes9.dex */
 public final class u extends com.google.a.b.a.a.a.e {
-    public final /* synthetic */ vdb a;
+    public final /* synthetic */ smb a;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -16,8 +16,8 @@ public final class u extends com.google.a.b.a.a.a.e {
     public final void a(Bundle bundle) {
     }
 
-    public u(vdb vdbVar) {
-        this.a = vdbVar;
+    public u(smb smbVar) {
+        this.a = smbVar;
     }
 
     @Override // com.google.a.b.a.a.a.d

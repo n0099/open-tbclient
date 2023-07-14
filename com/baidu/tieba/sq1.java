@@ -1,44 +1,149 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.Proxy;
-import android.os.Build;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.URL;
-import java.util.Locale;
-import java.util.Map;
-import javax.net.ssl.HttpsURLConnection;
-import org.apache.http.conn.ssl.SSLSocketFactory;
-@SuppressLint({"TrulyRandom"})
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sq1 {
+public class sq1 extends kq1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sq1 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public byte[] b;
-    public HttpURLConnection c;
-    public String d;
-    public String e;
+    public nq1 c;
+    public tq1 d;
+    public Context e;
     public int f;
-    public int g;
-    public boolean h;
-    public boolean i;
 
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sq1 a;
+
+        public a(sq1 sq1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sq1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sq1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            try {
+                this.a.i(true);
+            } catch (Throwable th) {
+                er1.d(th);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ sq1 b;
+
+        public b(sq1 sq1Var, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sq1Var, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = sq1Var;
+            this.a = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.b.i(false)) {
+                        op1.g(this.b.e).L(this.a);
+                    }
+                } catch (Throwable th) {
+                    er1.d(th);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sq1 a;
+
+        public c(sq1 sq1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sq1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sq1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            try {
+                sq1.c(this.a.e).i(true);
+            } catch (Throwable th) {
+                er1.d(th);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sq1(Context context, Handler handler) {
+        super(context, handler);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,252 +153,198 @@ public class sq1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (Handler) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new byte[1024];
-        this.f = 10000;
-        this.g = 10000;
-        this.h = false;
-        this.i = false;
-        this.a = context;
+        this.f = 0;
+        this.e = context;
+        this.c = nq1.a(context);
+        this.d = new tq1();
     }
 
-    public final InputStream a(byte[] bArr, Map<String, String> map, String str) {
-        InterceptResult invokeLLL;
+    public static sq1 c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, bArr, map, str)) == null) {
-            BufferedOutputStream bufferedOutputStream = null;
-            try {
-                try {
-                    if (lr1.h(this.a) == 0) {
-                        return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (g == null) {
+                synchronized (sq1.class) {
+                    if (g == null) {
+                        g = new sq1(context, null);
                     }
-                    HttpURLConnection c = c(map);
-                    this.c = c;
-                    if (c == null) {
-                        return null;
-                    }
-                    if (bArr == null) {
-                        if ("gzip".equalsIgnoreCase(c.getContentEncoding())) {
-                            this.h = true;
-                        } else {
-                            this.h = false;
-                        }
-                        this.c.getResponseCode();
-                        return this.c.getInputStream();
-                    }
-                    BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(this.c.getOutputStream());
-                    try {
-                        bufferedOutputStream2.write(bArr);
-                        bufferedOutputStream2.flush();
-                        if ("gzip".equalsIgnoreCase(this.c.getContentEncoding())) {
-                            this.h = true;
-                        } else {
-                            this.h = false;
-                        }
-                        this.c.getResponseCode();
-                        InputStream inputStream = this.c.getInputStream();
-                        try {
-                            bufferedOutputStream2.close();
-                        } catch (Throwable th) {
-                            lr1.d(th);
-                        }
-                        return inputStream;
-                    } catch (Exception e) {
-                        throw e;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        bufferedOutputStream = bufferedOutputStream2;
-                        if (bufferedOutputStream != null) {
-                            try {
-                                bufferedOutputStream.close();
-                            } catch (Throwable th3) {
-                                lr1.d(th3);
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th4) {
-                    th = th4;
                 }
-            } catch (Exception e2) {
-                throw e2;
             }
-        } else {
-            return (InputStream) invokeLLL.objValue;
+            return g;
+        }
+        return (sq1) invokeL.objValue;
+    }
+
+    public final JSONArray d(JSONArray jSONArray, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONArray, str)) == null) {
+            try {
+                jSONArray.put(new JSONObject(str));
+            } catch (Throwable th) {
+                er1.d(th);
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeLL.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            long d0 = op1.g(this.e).d0();
+            long l0 = op1.g(this.e).l0() * er1.c;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - d0 < l0 || er1.h(this.e) == 0 || !er1.n(this.e)) {
+                return;
+            }
+            rq1.b().post(new b(this, currentTimeMillis));
         }
     }
 
-    public String b(String str, byte[] bArr, Map<String, String> map) {
-        InterceptResult invokeLLL;
-        InputStream inputStream;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
+    public synchronized void f(String str, String str2, int i) {
+        wq1 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, map)) == null) {
-            d("POST", str);
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i) == null) {
+            synchronized (this) {
+                try {
+                    a2 = this.d.a(this.e, str, str2, i, 1);
+                } finally {
+                }
+                if (a2 == null) {
+                    return;
+                }
+                this.f++;
+                vq1.a(this.e).c(a2);
+                if (this.f >= 2 && er1.n(this.e)) {
+                    this.f = 0;
+                    rq1.b().post(new a(this));
+                }
+            }
+        }
+    }
+
+    public final boolean h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
             try {
-                inputStream = a(bArr, map, str);
-                if (inputStream == null) {
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    HttpURLConnection httpURLConnection = this.c;
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                        this.c = null;
-                    }
-                    return null;
+                oq1 c2 = pq1.c(pq1.a(), hr1.b(str.getBytes("utf-8")));
+                if (c2 == null) {
+                    return false;
+                }
+                String b2 = this.c.b("p/1/r", URLEncoder.encode(Base64.encodeToString(gr1.b(c2.a(), jr1.b(fr1.a(this.e)).getBytes()), 0), "utf-8"));
+                if (c2.b() == null) {
+                    return false;
+                }
+                String a2 = a(b2, c2.b());
+                if (TextUtils.isEmpty(a2)) {
+                    return false;
                 }
                 try {
-                    String f = f(inputStream);
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    HttpURLConnection httpURLConnection2 = this.c;
-                    if (httpURLConnection2 != null) {
-                        httpURLConnection2.disconnect();
-                        this.c = null;
-                    }
-                    return f;
                 } catch (Throwable th) {
-                    th = th;
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    HttpURLConnection httpURLConnection3 = this.c;
-                    if (httpURLConnection3 != null) {
-                        httpURLConnection3.disconnect();
-                        this.c = null;
-                    }
-                    throw th;
+                    er1.d(th);
                 }
+                if (new JSONObject(a2).getInt("response") != 1) {
+                    return false;
+                }
+                return true;
             } catch (Throwable th2) {
-                th = th2;
-                inputStream = null;
+                er1.d(th2);
+                return false;
             }
-        } else {
-            return (String) invokeLLL.objValue;
         }
+        return invokeL.booleanValue;
     }
 
-    public final HttpURLConnection c(Map<String, String> map) {
-        InterceptResult invokeL;
-        HttpURLConnection httpURLConnection;
+    public final boolean i(boolean z) {
+        InterceptResult invokeZ;
+        boolean z2;
+        String str;
+        ArrayList<wq1> b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
-            String str = null;
-            if (this.i || TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.e)) {
-                return null;
-            }
-            if (!this.d.equals("POST") && !this.d.equals("GET")) {
-                this.d = "POST";
-            }
-            URL url = new URL(this.e);
-            int i = 80;
-            if (2 != lr1.h(this.a)) {
-                if (Build.VERSION.SDK_INT >= 13) {
-                    str = System.getProperties().getProperty("http.proxyHost");
-                    String property = System.getProperties().getProperty("http.proxyPort");
-                    if (!TextUtils.isEmpty(property)) {
-                        try {
-                            i = Integer.parseInt(property);
-                        } catch (Throwable unused) {
-                            i = -1;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            try {
+                int h = er1.h(this.e);
+                if (h == 2) {
+                    z2 = false;
+                } else {
+                    z2 = h == 1 ? true : true;
+                    return false;
+                }
+                if (z) {
+                    str = String.valueOf(1);
+                } else {
+                    str = "1,2";
+                }
+                if (z2) {
+                    b2 = vq1.a(this.e).e(str);
+                    String c0 = op1.g(this.e).c0();
+                    String a2 = er1.a();
+                    if (!TextUtils.isEmpty(a2) && !a2.equals(c0)) {
+                        op1.g(this.e).C(a2);
+                        op1.g(this.e).X(0L);
+                    }
+                } else {
+                    b2 = vq1.a(this.e).b(str);
+                }
+                if (b2 != null && b2.size() != 0) {
+                    long o0 = op1.g(this.e).o0();
+                    int size = b2.size();
+                    long j0 = op1.g(this.e).j0() * 1048576;
+                    JSONArray jSONArray = new JSONArray();
+                    ArrayList<wq1> arrayList = new ArrayList<>();
+                    for (int i = 0; i < size; i++) {
+                        wq1 wq1Var = b2.get(i);
+                        if (wq1Var != null) {
+                            String d = wq1Var.d();
+                            if (z2) {
+                                if (d.length() + o0 > j0) {
+                                    break;
+                                }
+                                o0 += d.length();
+                            }
+                            d(jSONArray, d);
+                            arrayList.add(wq1Var);
                         }
                     }
-                    i = -1;
-                } else {
-                    str = Proxy.getHost(this.a);
-                    i = Proxy.getPort(this.a);
+                    if (jSONArray.length() == 0) {
+                        return false;
+                    }
+                    boolean h2 = h(jSONArray.toString());
+                    if (h2) {
+                        vq1.a(this.e).d(arrayList);
+                        if (z2) {
+                            op1.g(this.e).X(op1.g(this.e).o0() + jSONArray.toString().length());
+                        }
+                    }
+                    return h2;
                 }
+                return false;
+            } catch (Throwable th) {
+                er1.d(th);
+                return false;
             }
-            if (str != null && i > 0) {
-                httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(str, i)));
-            } else {
-                httpURLConnection = (HttpURLConnection) url.openConnection();
-            }
-            if (this.e.startsWith("https")) {
-                ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-            }
-            httpURLConnection.setRequestMethod(this.d);
-            httpURLConnection.setDoInput(true);
-            if ("POST".equals(this.d)) {
-                httpURLConnection.setDoOutput(true);
-            }
-            httpURLConnection.setInstanceFollowRedirects(true);
-            httpURLConnection.setConnectTimeout(this.f);
-            httpURLConnection.setReadTimeout(this.g);
-            httpURLConnection.setRequestProperty("x-device-id", qr1.b(mr1.a(this.a)));
-            httpURLConnection.setRequestProperty("Pragma", "no-cache");
-            String str2 = up1.b;
-            String e = lr1.e(this.a);
-            httpURLConnection.setRequestProperty("User-Agent", "sso/" + str2 + "/" + e + "/1.2.1");
-            httpURLConnection.setRequestProperty("Accept", "*/*");
-            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage());
-            StringBuilder sb = new StringBuilder();
-            sb.append("sso/");
-            sb.append("1.2.1");
-            httpURLConnection.setRequestProperty("x-sdk-ver", sb.toString());
-            httpURLConnection.setRequestProperty("x-plu-ver", "sso/1.2.1");
-            httpURLConnection.setRequestProperty("x-app-ver", this.a.getPackageName() + "/" + lr1.e(this.a));
-            httpURLConnection.setRequestProperty("x-auth-ver", "5");
-            if (map != null) {
-                for (String str3 : map.keySet()) {
-                    httpURLConnection.setRequestProperty(str3, map.get(str3));
-                }
-            }
-            return httpURLConnection;
         }
-        return (HttpURLConnection) invokeL.objValue;
+        return invokeZ.booleanValue;
     }
 
-    public final void d(String str, String str2) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            this.d = str;
-            this.e = str2;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || !er1.n(this.e)) {
+            return;
         }
-    }
-
-    public final byte[] e(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, inputStream)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            while (true) {
-                int read = inputStream.read(this.b);
-                if (read != -1) {
-                    byteArrayOutputStream.write(this.b, 0, read);
-                } else {
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    byteArrayOutputStream.close();
-                    return byteArray;
-                }
-            }
-        } else {
-            return (byte[]) invokeL.objValue;
-        }
-    }
-
-    public final String f(InputStream inputStream) {
-        InterceptResult invokeL;
-        byte[] e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, inputStream)) == null) {
-            if (inputStream == null || (e = e(inputStream)) == null) {
-                return null;
-            }
-            if (this.h) {
-                e = or1.d(e);
-            }
-            if (e == null) {
-                return "";
-            }
-            return new String(e);
-        }
-        return (String) invokeL.objValue;
+        rq1.b().post(new c(this));
     }
 }

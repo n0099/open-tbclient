@@ -57,7 +57,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static Display a;
@@ -268,25 +268,6 @@ public class b {
         return (String) invokeL.objValue;
     }
 
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, context)) == null) {
-            if (b == 0) {
-                if (a == null) {
-                    a = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
-                }
-                Point point = new Point();
-                a.getSize(point);
-                b = point.x;
-                c = point.y;
-            }
-            int[] iArr = {b, c};
-            return iArr[0] + "x" + iArr[1];
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String a(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -394,6 +375,25 @@ public class b {
                 e3.printStackTrace();
             }
             return new String(Base64.encodeToString(bArr, 0));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, context)) == null) {
+            if (b == 0) {
+                if (a == null) {
+                    a = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
+                }
+                Point point = new Point();
+                a.getSize(point);
+                b = point.x;
+                c = point.y;
+            }
+            int[] iArr = {b, c};
+            return iArr[0] + "x" + iArr[1];
         }
         return (String) invokeL.objValue;
     }
@@ -560,17 +560,17 @@ public class b {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:69|70|(2:72|73)(1:104)|74|75|(2:77|(7:86|87|88|(2:90|(1:95)(1:94))|96|(1:92)|95)(2:81|(1:85)))|100|(1:79)|86|87|88|(0)|96|(0)|95) */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x0201, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x0208, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0202, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0209, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:147:0x027b A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x01d2 A[Catch: all -> 0x02ae, Exception -> 0x02b2, TryCatch #9 {Exception -> 0x02b2, blocks: (B:14:0x0119, B:15:0x0139, B:17:0x013f, B:20:0x0156, B:21:0x0165, B:23:0x016f, B:28:0x0185, B:30:0x018b, B:32:0x01a1, B:71:0x0252, B:73:0x0267, B:75:0x0271, B:78:0x0278, B:79:0x027b, B:50:0x01d2, B:52:0x01d8, B:54:0x01e4, B:56:0x01ea, B:57:0x01ee, B:66:0x0208, B:68:0x020e, B:69:0x0221, B:63:0x0202, B:47:0x01cc, B:70:0x0238, B:80:0x028d), top: B:134:0x0119 }] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x01fc A[Catch: Exception -> 0x0201, all -> 0x02ae, TRY_LEAVE, TryCatch #10 {all -> 0x02ae, blocks: (B:14:0x0119, B:15:0x0139, B:17:0x013f, B:20:0x0156, B:21:0x0165, B:23:0x016f, B:28:0x0185, B:30:0x018b, B:32:0x01a1, B:71:0x0252, B:73:0x0267, B:75:0x0271, B:78:0x0278, B:79:0x027b, B:34:0x01ae, B:36:0x01b4, B:39:0x01bd, B:41:0x01c3, B:50:0x01d2, B:52:0x01d8, B:54:0x01e4, B:56:0x01ea, B:57:0x01ee, B:58:0x01f6, B:60:0x01fc, B:66:0x0208, B:68:0x020e, B:69:0x0221, B:63:0x0202, B:47:0x01cc, B:70:0x0238, B:80:0x028d), top: B:134:0x0119 }] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0208 A[Catch: all -> 0x02ae, Exception -> 0x02b2, TryCatch #9 {Exception -> 0x02b2, blocks: (B:14:0x0119, B:15:0x0139, B:17:0x013f, B:20:0x0156, B:21:0x0165, B:23:0x016f, B:28:0x0185, B:30:0x018b, B:32:0x01a1, B:71:0x0252, B:73:0x0267, B:75:0x0271, B:78:0x0278, B:79:0x027b, B:50:0x01d2, B:52:0x01d8, B:54:0x01e4, B:56:0x01ea, B:57:0x01ee, B:66:0x0208, B:68:0x020e, B:69:0x0221, B:63:0x0202, B:47:0x01cc, B:70:0x0238, B:80:0x028d), top: B:134:0x0119 }] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0267 A[Catch: all -> 0x02ae, Exception -> 0x02b2, TryCatch #9 {Exception -> 0x02b2, blocks: (B:14:0x0119, B:15:0x0139, B:17:0x013f, B:20:0x0156, B:21:0x0165, B:23:0x016f, B:28:0x0185, B:30:0x018b, B:32:0x01a1, B:71:0x0252, B:73:0x0267, B:75:0x0271, B:78:0x0278, B:79:0x027b, B:50:0x01d2, B:52:0x01d8, B:54:0x01e4, B:56:0x01ea, B:57:0x01ee, B:66:0x0208, B:68:0x020e, B:69:0x0221, B:63:0x0202, B:47:0x01cc, B:70:0x0238, B:80:0x028d), top: B:134:0x0119 }] */
+    /* JADX WARN: Removed duplicated region for block: B:147:0x0282 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x01d9 A[Catch: all -> 0x02b5, Exception -> 0x02b9, TryCatch #12 {all -> 0x02b5, blocks: (B:14:0x011f, B:15:0x013f, B:17:0x0145, B:20:0x015c, B:21:0x016b, B:23:0x0175, B:28:0x018c, B:30:0x0192, B:32:0x01a8, B:71:0x0259, B:73:0x026e, B:75:0x0278, B:78:0x027f, B:79:0x0282, B:34:0x01b5, B:36:0x01bb, B:39:0x01c4, B:41:0x01ca, B:50:0x01d9, B:52:0x01df, B:54:0x01eb, B:56:0x01f1, B:57:0x01f5, B:58:0x01fd, B:60:0x0203, B:66:0x020f, B:68:0x0215, B:69:0x0228, B:63:0x0209, B:47:0x01d3, B:70:0x023f, B:80:0x0294), top: B:137:0x011f }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0203 A[Catch: Exception -> 0x0208, all -> 0x02b5, TRY_LEAVE, TryCatch #12 {all -> 0x02b5, blocks: (B:14:0x011f, B:15:0x013f, B:17:0x0145, B:20:0x015c, B:21:0x016b, B:23:0x0175, B:28:0x018c, B:30:0x0192, B:32:0x01a8, B:71:0x0259, B:73:0x026e, B:75:0x0278, B:78:0x027f, B:79:0x0282, B:34:0x01b5, B:36:0x01bb, B:39:0x01c4, B:41:0x01ca, B:50:0x01d9, B:52:0x01df, B:54:0x01eb, B:56:0x01f1, B:57:0x01f5, B:58:0x01fd, B:60:0x0203, B:66:0x020f, B:68:0x0215, B:69:0x0228, B:63:0x0209, B:47:0x01d3, B:70:0x023f, B:80:0x0294), top: B:137:0x011f }] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x020f A[Catch: all -> 0x02b5, Exception -> 0x02b9, TryCatch #12 {all -> 0x02b5, blocks: (B:14:0x011f, B:15:0x013f, B:17:0x0145, B:20:0x015c, B:21:0x016b, B:23:0x0175, B:28:0x018c, B:30:0x0192, B:32:0x01a8, B:71:0x0259, B:73:0x026e, B:75:0x0278, B:78:0x027f, B:79:0x0282, B:34:0x01b5, B:36:0x01bb, B:39:0x01c4, B:41:0x01ca, B:50:0x01d9, B:52:0x01df, B:54:0x01eb, B:56:0x01f1, B:57:0x01f5, B:58:0x01fd, B:60:0x0203, B:66:0x020f, B:68:0x0215, B:69:0x0228, B:63:0x0209, B:47:0x01d3, B:70:0x023f, B:80:0x0294), top: B:137:0x011f }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x026e A[Catch: all -> 0x02b5, Exception -> 0x02b9, TryCatch #12 {all -> 0x02b5, blocks: (B:14:0x011f, B:15:0x013f, B:17:0x0145, B:20:0x015c, B:21:0x016b, B:23:0x0175, B:28:0x018c, B:30:0x0192, B:32:0x01a8, B:71:0x0259, B:73:0x026e, B:75:0x0278, B:78:0x027f, B:79:0x0282, B:34:0x01b5, B:36:0x01bb, B:39:0x01c4, B:41:0x01ca, B:50:0x01d9, B:52:0x01df, B:54:0x01eb, B:56:0x01f1, B:57:0x01f5, B:58:0x01fd, B:60:0x0203, B:66:0x020f, B:68:0x0215, B:69:0x0228, B:63:0x0209, B:47:0x01d3, B:70:0x023f, B:80:0x0294), top: B:137:0x011f }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -677,37 +677,37 @@ public class b {
                                                             } else {
                                                                 jSONArray = null;
                                                             }
-                                                        } catch (Exception e2) {
-                                                            e = e2;
-                                                            jSONArray = null;
-                                                        }
-                                                        try {
+                                                            try {
+                                                            } catch (Exception e2) {
+                                                                e = e2;
+                                                                e.printStackTrace();
+                                                                str6 = null;
+                                                                if (jSONArray == null) {
+                                                                }
+                                                                hashMap3.put("flagRobot", 0);
+                                                                if (jSONObject2.has("answer")) {
+                                                                }
+                                                                str7 = null;
+                                                                if (str7 == null) {
+                                                                }
+                                                                hashMap3.put("flagRobot", 0);
+                                                                hashMap3.put("content", jSONArray2.getJSONObject(i).getString("content"));
+                                                                hashMap3.put("toggle", "yes");
+                                                                hashMap3.put("time", jSONArray2.getJSONObject(i).getString("time"));
+                                                                if (jSONArray2.getJSONObject(i).has("evaluation")) {
+                                                                }
+                                                                ArrayList<? extends Parcelable> arrayList3 = arrayList;
+                                                                arrayList3.add(hashMap3);
+                                                                i++;
+                                                                arrayList2 = arrayList3;
+                                                                str10 = str14;
+                                                                str11 = str15;
+                                                                intent3 = intent2;
+                                                                str8 = str;
+                                                            }
                                                         } catch (Exception e3) {
                                                             e = e3;
-                                                            e.printStackTrace();
-                                                            str6 = null;
-                                                            if (jSONArray == null) {
-                                                            }
-                                                            hashMap3.put("flagRobot", 0);
-                                                            if (jSONObject2.has("answer")) {
-                                                            }
-                                                            str7 = null;
-                                                            if (str7 == null) {
-                                                            }
-                                                            hashMap3.put("flagRobot", 0);
-                                                            hashMap3.put("content", jSONArray2.getJSONObject(i).getString("content"));
-                                                            hashMap3.put("toggle", "yes");
-                                                            hashMap3.put("time", jSONArray2.getJSONObject(i).getString("time"));
-                                                            if (jSONArray2.getJSONObject(i).has("evaluation")) {
-                                                            }
-                                                            ArrayList<? extends Parcelable> arrayList3 = arrayList;
-                                                            arrayList3.add(hashMap3);
-                                                            i++;
-                                                            arrayList2 = arrayList3;
-                                                            str10 = str14;
-                                                            str11 = str15;
-                                                            intent3 = intent2;
-                                                            str8 = str;
+                                                            jSONArray = null;
                                                         }
                                                         if (jSONObject2.has("tip")) {
                                                             str6 = jSONObject2.getString("tip");
@@ -784,11 +784,11 @@ public class b {
                                             intent.putExtras(bundle);
                                             intent.setPackage(c.a());
                                             context2 = context;
-                                        } catch (Exception unused2) {
+                                        } catch (Throwable th2) {
+                                            th = th2;
                                             context2 = context;
                                         }
-                                    } catch (Throwable th2) {
-                                        th = th2;
+                                    } catch (Exception unused2) {
                                         context2 = context;
                                     }
                                     try {
@@ -835,22 +835,22 @@ public class b {
                                             context2.sendBroadcast(intent8);
                                         } catch (Exception unused5) {
                                         }
-                                    } catch (Throwable th4) {
-                                        th = th4;
-                                        Intent intent62 = new Intent(str3);
-                                        intent62.setPackage(c.a());
-                                        context2.sendBroadcast(intent62);
-                                        throw th;
+                                    } catch (Exception unused6) {
                                     }
-                                } catch (Exception unused6) {
+                                } catch (Throwable th4) {
+                                    th = th4;
+                                    Intent intent62 = new Intent(str3);
+                                    intent62.setPackage(c.a());
+                                    context2.sendBroadcast(intent62);
+                                    throw th;
                                 }
                             }
                         }
-                    } catch (Throwable th5) {
-                        th = th5;
+                    } catch (Exception unused7) {
                         context2 = context;
                     }
-                } catch (Exception unused7) {
+                } catch (Throwable th5) {
+                    th = th5;
                     context2 = context;
                 }
                 str4 = "com.baidu.ufosdk.reload";
@@ -873,13 +873,13 @@ public class b {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(12:38|39|(2:41|(5:47|48|49|(1:51)|(2:57|58)(2:55|56))(2:45|46))|62|(1:43)|47|48|49|(0)|(1:53)|57|58) */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x01a2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x01a4, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x01a3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x01a5, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x019d A[Catch: Exception -> 0x01a2, all -> 0x027b, TRY_LEAVE, TryCatch #7 {all -> 0x027b, blocks: (B:19:0x00e3, B:20:0x00f3, B:22:0x00f9, B:24:0x0112, B:26:0x011d, B:29:0x012b, B:34:0x0143, B:36:0x0149, B:38:0x015f, B:64:0x01f1, B:40:0x016c, B:42:0x0172, B:48:0x0181, B:50:0x0187, B:51:0x018f, B:52:0x0197, B:54:0x019d, B:59:0x01a8, B:61:0x01ae, B:62:0x01c3, B:57:0x01a3, B:45:0x017a, B:63:0x01d7, B:65:0x0221, B:69:0x0249, B:73:0x025c), top: B:108:0x00e3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x019f A[Catch: Exception -> 0x01a4, all -> 0x027f, TRY_LEAVE, TryCatch #5 {Exception -> 0x01a4, blocks: (B:52:0x0199, B:54:0x019f), top: B:110:0x0199 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -934,40 +934,40 @@ public class b {
                             try {
                                 try {
                                     str4 = "com.baidu.ufosdk.reload";
-                                    try {
-                                        Intent intent = new Intent(str4);
-                                        intent.setPackage(c.a());
-                                        context.sendBroadcast(intent);
-                                    } catch (Exception unused) {
-                                        Intent intent2 = new Intent(str4);
-                                        intent2.setPackage(c.a());
-                                        context.sendBroadcast(intent2);
-                                        Intent intent3 = new Intent(str3);
-                                        intent3.setPackage(c.a());
-                                        context.sendBroadcast(intent3);
-                                        return false;
-                                    }
-                                } catch (Exception unused2) {
+                                } catch (Exception unused) {
                                     str4 = "com.baidu.ufosdk.reload";
-                                    Intent intent22 = new Intent(str4);
+                                    Intent intent = new Intent(str4);
+                                    intent.setPackage(c.a());
+                                    context.sendBroadcast(intent);
+                                    Intent intent2 = new Intent(str3);
+                                    intent2.setPackage(c.a());
+                                    context.sendBroadcast(intent2);
+                                    return false;
+                                }
+                                try {
+                                    Intent intent3 = new Intent(str4);
+                                    intent3.setPackage(c.a());
+                                    context.sendBroadcast(intent3);
+                                } catch (Exception unused2) {
+                                    Intent intent4 = new Intent(str4);
+                                    intent4.setPackage(c.a());
+                                    context.sendBroadcast(intent4);
+                                    Intent intent22 = new Intent(str3);
                                     intent22.setPackage(c.a());
                                     context.sendBroadcast(intent22);
-                                    Intent intent32 = new Intent(str3);
-                                    intent32.setPackage(c.a());
-                                    context.sendBroadcast(intent32);
                                     return false;
                                 }
                             } catch (Throwable th) {
                                 th = th;
-                                Intent intent4 = new Intent(str3);
-                                intent4.setPackage(c.a());
-                                context.sendBroadcast(intent4);
+                                Intent intent5 = new Intent(str3);
+                                intent5.setPackage(c.a());
+                                context.sendBroadcast(intent5);
                                 throw th;
                             }
                         }
                     } else {
                         ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
-                        Intent intent5 = new Intent("com.baidu.ufosdk.getchat");
+                        Intent intent6 = new Intent("com.baidu.ufosdk.getchat");
                         if (jSONObject3.getInt("msgnum") > 0) {
                             JSONArray jSONArray2 = jSONObject3.getJSONArray("msg");
                             StringBuilder sb = new StringBuilder();
@@ -1059,26 +1059,26 @@ public class b {
                                     str6 = str15;
                                     Bundle bundle = new Bundle();
                                     bundle.putParcelableArrayList("msgList", arrayList);
-                                    intent5.putExtras(bundle);
-                                    intent5.setPackage(c.a());
-                                    context.sendBroadcast(intent5);
+                                    intent6.putExtras(bundle);
+                                    intent6.setPackage(c.a());
+                                    context.sendBroadcast(intent6);
                                 } catch (Exception unused3) {
                                     str4 = "com.baidu.ufosdk.reload";
                                     str3 = str5;
-                                    Intent intent222 = new Intent(str4);
+                                    Intent intent42 = new Intent(str4);
+                                    intent42.setPackage(c.a());
+                                    context.sendBroadcast(intent42);
+                                    Intent intent222 = new Intent(str3);
                                     intent222.setPackage(c.a());
                                     context.sendBroadcast(intent222);
-                                    Intent intent322 = new Intent(str3);
-                                    intent322.setPackage(c.a());
-                                    context.sendBroadcast(intent322);
                                     return false;
                                 }
                             } catch (Throwable th2) {
                                 th = th2;
                                 str3 = str5;
-                                Intent intent42 = new Intent(str3);
-                                intent42.setPackage(c.a());
-                                context.sendBroadcast(intent42);
+                                Intent intent52 = new Intent(str3);
+                                intent52.setPackage(c.a());
+                                context.sendBroadcast(intent52);
                                 throw th;
                             }
                         } else {
@@ -1091,26 +1091,26 @@ public class b {
                             if (((Integer) jSONObject5.get(StickerDataChangeType.UPDATE)).intValue() == 1) {
                                 a.a = ((Integer) jSONObject5.get(str6)).intValue();
                             }
-                            Intent intent6 = new Intent(str5);
-                            intent6.setPackage(c.a());
-                            context.sendBroadcast(intent6);
+                            Intent intent7 = new Intent(str5);
+                            intent7.setPackage(c.a());
+                            context.sendBroadcast(intent7);
                             return true;
                         } catch (Exception unused4) {
                             str3 = str5;
                             str4 = "com.baidu.ufosdk.reload";
-                            Intent intent2222 = new Intent(str4);
+                            Intent intent422 = new Intent(str4);
+                            intent422.setPackage(c.a());
+                            context.sendBroadcast(intent422);
+                            Intent intent2222 = new Intent(str3);
                             intent2222.setPackage(c.a());
                             context.sendBroadcast(intent2222);
-                            Intent intent3222 = new Intent(str3);
-                            intent3222.setPackage(c.a());
-                            context.sendBroadcast(intent3222);
                             return false;
                         }
                     }
                 }
-                Intent intent7 = new Intent(str3);
-                intent7.setPackage(c.a());
-                context.sendBroadcast(intent7);
+                Intent intent8 = new Intent(str3);
+                intent8.setPackage(c.a());
+                context.sendBroadcast(intent8);
                 return false;
             } catch (Exception unused5) {
                 str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
@@ -1123,29 +1123,20 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:135:0x0368 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:161:0x00eb */
-    /* JADX WARN: Can't wrap try/catch for region: R(10:(2:66|67)|(2:69|(5:74|75|76|(1:78)|(1:83)(1:82))(1:73))|87|(1:71)|74|75|76|(0)|(1:80)|83) */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x01b1, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(11:66|67|(2:69|(5:74|75|76|(1:78)|(1:83)(1:82))(1:73))|87|(1:71)|74|75|76|(0)|(1:80)|83) */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x01b4, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x01b2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x01b5, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x01ac A[Catch: Exception -> 0x01b1, all -> 0x02c7, TRY_LEAVE, TryCatch #2 {all -> 0x02c7, blocks: (B:27:0x0103, B:33:0x0125, B:41:0x0153, B:43:0x0159, B:45:0x016d, B:78:0x0218, B:80:0x022d, B:82:0x023e, B:86:0x024a, B:96:0x027c, B:89:0x0259, B:92:0x0269, B:95:0x0275, B:47:0x017a, B:49:0x0180, B:55:0x018f, B:57:0x0195, B:58:0x019e, B:59:0x01a6, B:61:0x01ac, B:66:0x01b7, B:68:0x01bd, B:69:0x01d0, B:64:0x01b2, B:52:0x0188, B:70:0x01e4, B:72:0x01f0, B:74:0x01fa, B:77:0x0205, B:75:0x01fe, B:76:0x0202, B:97:0x02a5), top: B:145:0x0103 }] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v22 */
-    /* JADX WARN: Type inference failed for: r1v23 */
-    /* JADX WARN: Type inference failed for: r1v24 */
-    /* JADX WARN: Type inference failed for: r1v36 */
-    /* JADX WARN: Type inference failed for: r1v39 */
-    /* JADX WARN: Type inference failed for: r25v0, types: [java.lang.Object, java.lang.String] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x01af A[Catch: Exception -> 0x01b4, all -> 0x02ca, TRY_LEAVE, TryCatch #5 {all -> 0x02ca, blocks: (B:27:0x0105, B:33:0x0127, B:41:0x0156, B:43:0x015c, B:45:0x0170, B:78:0x021b, B:80:0x0230, B:82:0x0241, B:86:0x024d, B:96:0x027f, B:89:0x025c, B:92:0x026c, B:95:0x0278, B:47:0x017d, B:49:0x0183, B:55:0x0192, B:57:0x0198, B:58:0x01a1, B:59:0x01a9, B:61:0x01af, B:66:0x01ba, B:68:0x01c0, B:69:0x01d3, B:64:0x01b5, B:52:0x018b, B:70:0x01e7, B:72:0x01f3, B:74:0x01fd, B:77:0x0208, B:75:0x0201, B:76:0x0205, B:97:0x02a8), top: B:145:0x0105 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean c(Context context, String str, String str2) {
         InterceptResult invokeLLL;
+        Context context2;
         String str3;
         String str4;
         JSONObject jSONObject;
@@ -1158,8 +1149,8 @@ public class b {
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65567, null, context, str, str2)) == null) {
-            String str9 = context;
-            Context context2 = str;
+            Context context3 = context;
+            String str9 = str;
             String str10 = "extra";
             String str11 = "id";
             e0 a2 = e0.a(context);
@@ -1175,8 +1166,8 @@ public class b {
             hashMap.put("devid", a2.c);
             hashMap.put("sdkvn", "4.1.9.1");
             hashMap.put("output_style", 1);
-            if (context2 != null) {
-                hashMap.put("msgid", context2);
+            if (str9 != null) {
+                hashMap.put("msgid", str9);
             } else {
                 hashMap.put("msgid", "newMessage");
             }
@@ -1184,221 +1175,220 @@ public class b {
             hashMap.put("interval", String.valueOf(a.a));
             String b2 = b(a(hashMap));
             try {
-                try {
-                    HashMap hashMap2 = new HashMap();
-                    hashMap2.put("sdk_encrypt", b2);
-                    String a3 = d0.a(str12, d0.a(hashMap2));
-                    if (!TextUtils.isEmpty(a3)) {
-                        String a4 = a(a3);
-                        String str15 = "-----------getFeedbackChatBack---------response is " + a4;
-                        JSONObject jSONObject2 = new JSONObject(a4);
-                        int intValue = ((Integer) jSONObject2.get("errno")).intValue();
-                        if (intValue == 0) {
-                            ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
-                            Intent intent2 = new Intent("com.baidu.ufosdk.getchat");
-                            if (jSONObject2.getInt("msgnum") > 0) {
-                                JSONArray jSONArray2 = jSONObject2.getJSONArray("msg");
-                                StringBuilder sb = new StringBuilder();
-                                str5 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-                                try {
-                                    sb.append("getFeedbackChatBack --> msgArray : \n");
-                                    sb.append(jSONArray2.toString());
-                                    sb.toString();
-                                    int i2 = 0;
-                                    str9 = str9;
-                                    while (i2 < jSONArray2.length()) {
-                                        String str16 = str14;
+                HashMap hashMap2 = new HashMap();
+                hashMap2.put("sdk_encrypt", b2);
+                String a3 = d0.a(str12, d0.a(hashMap2));
+                if (!TextUtils.isEmpty(a3)) {
+                    String a4 = a(a3);
+                    String str15 = "-----------getFeedbackChatBack---------response is " + a4;
+                    JSONObject jSONObject2 = new JSONObject(a4);
+                    int intValue = ((Integer) jSONObject2.get("errno")).intValue();
+                    if (intValue == 0) {
+                        ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
+                        Intent intent2 = new Intent("com.baidu.ufosdk.getchat");
+                        if (jSONObject2.getInt("msgnum") > 0) {
+                            JSONArray jSONArray2 = jSONObject2.getJSONArray("msg");
+                            StringBuilder sb = new StringBuilder();
+                            str5 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                            try {
+                                sb.append("getFeedbackChatBack --> msgArray : \n");
+                                sb.append(jSONArray2.toString());
+                                sb.toString();
+                                int i2 = 0;
+                                while (i2 < jSONArray2.length()) {
+                                    String str16 = str14;
+                                    try {
                                         try {
-                                            try {
-                                                HashMap hashMap3 = new HashMap();
-                                                hashMap3.put(str11, context2);
-                                                hashMap3.put("toggle", "no");
-                                                String str17 = null;
-                                                if (jSONArray2.getJSONObject(i2).has(str10)) {
-                                                    str7 = jSONArray2.getJSONObject(i2).getString(str10);
+                                            HashMap hashMap3 = new HashMap();
+                                            hashMap3.put(str11, str9);
+                                            hashMap3.put("toggle", "no");
+                                            String str17 = null;
+                                            if (jSONArray2.getJSONObject(i2).has(str10)) {
+                                                str7 = jSONArray2.getJSONObject(i2).getString(str10);
+                                            } else {
+                                                str7 = null;
+                                            }
+                                            if (jSONArray2.getJSONObject(i2).has(str11)) {
+                                                str8 = str10;
+                                                hashMap3.put("chatId", Integer.valueOf(jSONArray2.getJSONObject(i2).getInt(str11)));
+                                            } else {
+                                                str8 = str10;
+                                            }
+                                            String str18 = str11;
+                                            JSONObject jSONObject3 = jSONObject2;
+                                            if (str7 != null && str7.length() != 0) {
+                                                JSONObject jSONObject4 = new JSONObject(str7);
+                                                int i3 = jSONObject4.getInt("flagRobot");
+                                                intent = intent2;
+                                                hashMap3.put("flagRobot", Integer.valueOf(i3));
+                                                if (i3 == 0) {
+                                                    hashMap3.put("content", jSONArray2.getJSONObject(i2).getString("content"));
                                                 } else {
-                                                    str7 = null;
-                                                }
-                                                if (jSONArray2.getJSONObject(i2).has(str11)) {
-                                                    str8 = str10;
-                                                    hashMap3.put("chatId", Integer.valueOf(jSONArray2.getJSONObject(i2).getInt(str11)));
-                                                } else {
-                                                    str8 = str10;
-                                                }
-                                                String str18 = str11;
-                                                JSONObject jSONObject3 = jSONObject2;
-                                                if (str7 != null && str7.length() != 0) {
-                                                    JSONObject jSONObject4 = new JSONObject(str7);
-                                                    int i3 = jSONObject4.getInt("flagRobot");
-                                                    intent = intent2;
-                                                    hashMap3.put("flagRobot", Integer.valueOf(i3));
-                                                    if (i3 == 0) {
-                                                        hashMap3.put("content", jSONArray2.getJSONObject(i2).getString("content"));
-                                                    } else {
-                                                        try {
-                                                        } catch (Exception e2) {
-                                                            e2.printStackTrace();
-                                                        }
-                                                        if (jSONObject4.has("robot")) {
-                                                            jSONArray = (JSONArray) jSONObject4.get("robot");
-                                                            if (jSONArray == null && jSONArray.length() != 0) {
-                                                                hashMap3.put("content", jSONArray.toString());
+                                                    try {
+                                                    } catch (Exception e2) {
+                                                        e2.printStackTrace();
+                                                    }
+                                                    if (jSONObject4.has("robot")) {
+                                                        jSONArray = (JSONArray) jSONObject4.get("robot");
+                                                        if (jSONArray == null && jSONArray.length() != 0) {
+                                                            hashMap3.put("content", jSONArray.toString());
+                                                        } else {
+                                                            hashMap3.put("flagRobot", 0);
+                                                            if (jSONObject4.has("answer")) {
+                                                                str17 = jSONObject4.getString("answer");
+                                                            }
+                                                            if (str17 == null && str17.length() > 0) {
+                                                                hashMap3.put("toggle", "yes");
+                                                                hashMap3.put("flagRobot", 0);
+                                                                hashMap3.put("content", jSONObject4.getString("answer"));
                                                             } else {
                                                                 hashMap3.put("flagRobot", 0);
-                                                                if (jSONObject4.has("answer")) {
-                                                                    str17 = jSONObject4.getString("answer");
-                                                                }
-                                                                if (str17 == null && str17.length() > 0) {
-                                                                    hashMap3.put("toggle", "yes");
-                                                                    hashMap3.put("flagRobot", 0);
-                                                                    hashMap3.put("content", jSONObject4.getString("answer"));
-                                                                } else {
-                                                                    hashMap3.put("flagRobot", 0);
-                                                                    hashMap3.put("content", jSONArray2.getJSONObject(i2).getString("content"));
-                                                                }
+                                                                hashMap3.put("content", jSONArray2.getJSONObject(i2).getString("content"));
                                                             }
                                                         }
-                                                        jSONArray = null;
-                                                        if (jSONArray == null) {
-                                                        }
-                                                        hashMap3.put("flagRobot", 0);
-                                                        if (jSONObject4.has("answer")) {
-                                                        }
-                                                        if (str17 == null) {
-                                                        }
-                                                        hashMap3.put("flagRobot", 0);
-                                                        hashMap3.put("content", jSONArray2.getJSONObject(i2).getString("content"));
                                                     }
-                                                } else {
-                                                    intent = intent2;
-                                                    if (jSONArray2.getJSONObject(i2).has("evaluation")) {
-                                                        if (jSONArray2.getJSONObject(i2).getInt("evaluation") == 0) {
-                                                            hashMap3.put("toggle", "no");
-                                                        } else {
-                                                            hashMap3.put("toggle", "yes");
-                                                        }
-                                                    } else {
-                                                        hashMap3.put("toggle", "no");
+                                                    jSONArray = null;
+                                                    if (jSONArray == null) {
+                                                    }
+                                                    hashMap3.put("flagRobot", 0);
+                                                    if (jSONObject4.has("answer")) {
+                                                    }
+                                                    if (str17 == null) {
                                                     }
                                                     hashMap3.put("flagRobot", 0);
                                                     hashMap3.put("content", jSONArray2.getJSONObject(i2).getString("content"));
                                                 }
-                                                hashMap3.put("time", jSONArray2.getJSONObject(i2).getString("time"));
+                                            } else {
+                                                intent = intent2;
                                                 if (jSONArray2.getJSONObject(i2).has("evaluation")) {
-                                                    i = ((Integer) jSONArray2.getJSONObject(i2).get("evaluation")).intValue();
+                                                    if (jSONArray2.getJSONObject(i2).getInt("evaluation") == 0) {
+                                                        hashMap3.put("toggle", "no");
+                                                    } else {
+                                                        hashMap3.put("toggle", "yes");
+                                                    }
                                                 } else {
-                                                    i = 0;
-                                                }
-                                                hashMap3.put("evaluation", Integer.valueOf(i));
-                                                if (i == 0) {
-                                                    hashMap3.put("ask", 0);
                                                     hashMap3.put("toggle", "no");
-                                                } else if (i == 10) {
-                                                    hashMap3.put("ask", 1);
-                                                    hashMap3.put("toggle", "yes");
-                                                } else if (i <= 9) {
-                                                    hashMap3.put("ask", 9);
-                                                } else if (i >= 11) {
-                                                    hashMap3.put("ask", 11);
                                                 }
-                                                arrayList.add(hashMap3);
-                                                String str19 = "^^^^^^^^getFeedbackChat^^^^^^^^^" + arrayList.toString();
-                                                i2++;
-                                                str9 = context;
-                                                context2 = str;
-                                                str14 = str16;
-                                                str10 = str8;
-                                                str11 = str18;
-                                                jSONObject2 = jSONObject3;
-                                                intent2 = intent;
-                                            } catch (Exception unused) {
-                                                context2 = context;
-                                                str4 = "com.baidu.ufosdk.reload";
-                                                str3 = str5;
-                                                Intent intent3 = new Intent(str4);
-                                                intent3.setPackage(c.a());
-                                                context2.sendBroadcast(intent3);
-                                                Intent intent4 = new Intent(str3);
-                                                intent4.setPackage(c.a());
-                                                context2.sendBroadcast(intent4);
-                                                return false;
+                                                hashMap3.put("flagRobot", 0);
+                                                hashMap3.put("content", jSONArray2.getJSONObject(i2).getString("content"));
                                             }
-                                        } catch (Throwable th) {
-                                            th = th;
+                                            hashMap3.put("time", jSONArray2.getJSONObject(i2).getString("time"));
+                                            if (jSONArray2.getJSONObject(i2).has("evaluation")) {
+                                                i = ((Integer) jSONArray2.getJSONObject(i2).get("evaluation")).intValue();
+                                            } else {
+                                                i = 0;
+                                            }
+                                            hashMap3.put("evaluation", Integer.valueOf(i));
+                                            if (i == 0) {
+                                                hashMap3.put("ask", 0);
+                                                hashMap3.put("toggle", "no");
+                                            } else if (i == 10) {
+                                                hashMap3.put("ask", 1);
+                                                hashMap3.put("toggle", "yes");
+                                            } else if (i <= 9) {
+                                                hashMap3.put("ask", 9);
+                                            } else if (i >= 11) {
+                                                hashMap3.put("ask", 11);
+                                            }
+                                            arrayList.add(hashMap3);
+                                            String str19 = "^^^^^^^^getFeedbackChat^^^^^^^^^" + arrayList.toString();
+                                            i2++;
+                                            context3 = context;
+                                            str9 = str;
+                                            str14 = str16;
+                                            str10 = str8;
+                                            str11 = str18;
+                                            jSONObject2 = jSONObject3;
+                                            intent2 = intent;
+                                        } catch (Exception unused) {
                                             context2 = context;
-                                            str9 = str5;
-                                            Intent intent5 = new Intent(str9);
-                                            intent5.setPackage(c.a());
-                                            context2.sendBroadcast(intent5);
-                                            throw th;
-                                        }
-                                    }
-                                    jSONObject = jSONObject2;
-                                    str6 = str14;
-                                    Intent intent6 = intent2;
-                                    Bundle bundle = new Bundle();
-                                    bundle.putParcelableArrayList("msgList", arrayList);
-                                    intent6.putExtras(bundle);
-                                    intent6.setPackage(c.a());
-                                    context2 = context;
-                                    try {
-                                        try {
-                                            context2.sendBroadcast(intent6);
-                                        } catch (Exception unused2) {
                                             str4 = "com.baidu.ufosdk.reload";
                                             str3 = str5;
-                                            Intent intent32 = new Intent(str4);
-                                            intent32.setPackage(c.a());
-                                            context2.sendBroadcast(intent32);
-                                            Intent intent42 = new Intent(str3);
-                                            intent42.setPackage(c.a());
-                                            context2.sendBroadcast(intent42);
+                                            Intent intent3 = new Intent(str4);
+                                            intent3.setPackage(c.a());
+                                            context2.sendBroadcast(intent3);
+                                            Intent intent4 = new Intent(str3);
+                                            intent4.setPackage(c.a());
+                                            context2.sendBroadcast(intent4);
                                             return false;
                                         }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        str9 = str5;
-                                        Intent intent52 = new Intent(str9);
-                                        intent52.setPackage(c.a());
-                                        context2.sendBroadcast(intent52);
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        context2 = context;
+                                        str3 = str5;
+                                        Intent intent5 = new Intent(str3);
+                                        intent5.setPackage(c.a());
+                                        context2.sendBroadcast(intent5);
                                         throw th;
                                     }
-                                } catch (Exception unused3) {
-                                    context2 = str9;
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    context2 = str9;
                                 }
-                            } else {
-                                context2 = str9;
                                 jSONObject = jSONObject2;
-                                str5 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-                                str6 = "interval";
-                            }
-                            try {
-                                JSONObject jSONObject5 = jSONObject;
-                                if (((Integer) jSONObject5.get(StickerDataChangeType.UPDATE)).intValue() == 1) {
-                                    a.a = ((Integer) jSONObject5.get(str6)).intValue();
+                                str6 = str14;
+                                Intent intent6 = intent2;
+                                Bundle bundle = new Bundle();
+                                bundle.putParcelableArrayList("msgList", arrayList);
+                                intent6.putExtras(bundle);
+                                intent6.setPackage(c.a());
+                                context2 = context;
+                                try {
+                                    try {
+                                        context2.sendBroadcast(intent6);
+                                    } catch (Exception unused2) {
+                                        str4 = "com.baidu.ufosdk.reload";
+                                        str3 = str5;
+                                        Intent intent32 = new Intent(str4);
+                                        intent32.setPackage(c.a());
+                                        context2.sendBroadcast(intent32);
+                                        Intent intent42 = new Intent(str3);
+                                        intent42.setPackage(c.a());
+                                        context2.sendBroadcast(intent42);
+                                        return false;
+                                    }
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    str3 = str5;
+                                    Intent intent52 = new Intent(str3);
+                                    intent52.setPackage(c.a());
+                                    context2.sendBroadcast(intent52);
+                                    throw th;
                                 }
-                                Intent intent7 = new Intent(str5);
-                                intent7.setPackage(c.a());
-                                context2.sendBroadcast(intent7);
-                                return true;
-                            } catch (Exception unused4) {
-                                str3 = str5;
-                                str4 = "com.baidu.ufosdk.reload";
-                                Intent intent322 = new Intent(str4);
-                                intent322.setPackage(c.a());
-                                context2.sendBroadcast(intent322);
-                                Intent intent422 = new Intent(str3);
-                                intent422.setPackage(c.a());
-                                context2.sendBroadcast(intent422);
-                                return false;
+                            } catch (Exception unused3) {
+                                context2 = context3;
+                            } catch (Throwable th3) {
+                                th = th3;
+                                context2 = context3;
                             }
+                        } else {
+                            context2 = context3;
+                            jSONObject = jSONObject2;
+                            str5 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                            str6 = "interval";
                         }
-                        context2 = str9;
-                        str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-                        if (intValue != 0) {
+                        try {
+                            JSONObject jSONObject5 = jSONObject;
+                            if (((Integer) jSONObject5.get(StickerDataChangeType.UPDATE)).intValue() == 1) {
+                                a.a = ((Integer) jSONObject5.get(str6)).intValue();
+                            }
+                            Intent intent7 = new Intent(str5);
+                            intent7.setPackage(c.a());
+                            context2.sendBroadcast(intent7);
+                            return true;
+                        } catch (Exception unused4) {
+                            str3 = str5;
+                            str4 = "com.baidu.ufosdk.reload";
+                            Intent intent322 = new Intent(str4);
+                            intent322.setPackage(c.a());
+                            context2.sendBroadcast(intent322);
+                            Intent intent422 = new Intent(str3);
+                            intent422.setPackage(c.a());
+                            context2.sendBroadcast(intent422);
+                            return false;
+                        }
+                    }
+                    context2 = context3;
+                    str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                    if (intValue != 0) {
+                        try {
                             try {
                                 str4 = "com.baidu.ufosdk.reload";
                                 try {
@@ -1424,25 +1414,29 @@ public class b {
                                 context2.sendBroadcast(intent42222);
                                 return false;
                             }
+                        } catch (Throwable th4) {
+                            th = th4;
+                            Intent intent522 = new Intent(str3);
+                            intent522.setPackage(c.a());
+                            context2.sendBroadcast(intent522);
+                            throw th;
                         }
-                    } else {
-                        context2 = str9;
-                        str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
                     }
-                    Intent intent9 = new Intent(str3);
-                    intent9.setPackage(c.a());
-                    context2.sendBroadcast(intent9);
-                    return false;
-                } catch (Throwable th4) {
-                    th = th4;
+                } else {
+                    context2 = context3;
+                    str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
                 }
+                Intent intent9 = new Intent(str3);
+                intent9.setPackage(c.a());
+                context2.sendBroadcast(intent9);
+                return false;
             } catch (Exception unused7) {
-                context2 = str9;
+                context2 = context3;
                 str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
             } catch (Throwable th5) {
                 th = th5;
-                context2 = str9;
-                str9 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                context2 = context3;
+                str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
             }
         } else {
             return invokeLLL.booleanValue;
@@ -1933,9 +1927,9 @@ public class b {
         return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x01d7 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:76:0x00ca */
-    /* JADX WARN: Can't wrap try/catch for region: R(3:(3:40|41|(2:50|51)(3:43|(2:45|46)(2:48|49)|47))|37|38) */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x01db */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00ce */
+    /* JADX WARN: Can't wrap try/catch for region: R(3:(3:42|43|(2:52|53)(3:45|(2:47|48)(2:50|51)|49))|39|40) */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r17v0 */
     /* JADX WARN: Type inference failed for: r17v2 */
@@ -1982,6 +1976,7 @@ public class b {
                     a2 = d0.a(str5, d0.a(hashMap2));
                 } catch (Throwable th) {
                     th = th;
+                    str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
                 }
             } catch (Exception unused) {
                 str4 = "com.baidu.ufosdk.reload";
@@ -2121,7 +2116,6 @@ public class b {
             return false;
         } catch (Throwable th4) {
             th = th4;
-            str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
         }
     }
 

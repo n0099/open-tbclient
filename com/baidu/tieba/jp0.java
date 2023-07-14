@@ -1,36 +1,40 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface jp0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "loadImage");
+    public static final ServiceReference a = new ServiceReference("nad.core", "ipdx");
     public static final jp0 b = new a();
 
-    void c(String str, ip0 ip0Var);
+    @NonNull
+    String a();
 
-    void d(String str);
+    void request();
 
     /* loaded from: classes6.dex */
-    public static class a implements jp0 {
+    public class a implements jp0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.jp0
-        public void c(String str, ip0 ip0Var) {
+        @NonNull
+        public String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, ip0Var) == null) {
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.jp0
-        public void d(String str) {
+        public void request() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 

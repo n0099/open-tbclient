@@ -23,14 +23,14 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static List<Throwable> DD;
     public static volatile boolean mHasInit;
 
     /* renamed from: com.kwad.components.core.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0639a {
+    /* loaded from: classes10.dex */
+    public static class C0644a {
         public static String ag(Context context) {
             File file = new File(getDataDir(context), "kwad_ex");
             if (!file.exists()) {
@@ -58,7 +58,7 @@ public final class a {
     @NonNull
     public static b a(@NonNull Context context, @NonNull final SdkConfig sdkConfig) {
         final Context applicationContext = context.getApplicationContext();
-        return new b.a().bI(applicationContext).aR(((j) d.b(applicationContext, c.UM)).sB()).aS(((j) d.b(applicationContext, c.UN)).sB()).aT(KsAdSDKImpl.get().getIsExternal()).cM(((o) d.b(applicationContext, c.UO)).getValue()).cL(((o) d.b(applicationContext, c.UP)).getValue()).cS(ExceptionMessage.getSdkCrashVersionName(KsAdSDKImpl.get().getSDKVersion(), 1)).bc(KsAdSDKImpl.get().getSDKVersionCode()).cT(ExceptionMessage.getSdkCrashVersionName(KsAdSDKImpl.get().getApiVersion(), 1)).bd(KsAdSDKImpl.get().getApiVersionCode()).be(1).cR("com.kwad.sdk").cU(sdkConfig.appId).cV(sdkConfig.appName).cW(applicationContext.getPackageName()).cX(com.kwad.sdk.utils.j.cb(applicationContext)).cO(ar.getDeviceId()).cN("Android").cP(sdkConfig.appId).cQ(C0639a.ag(applicationContext)).a(new g() { // from class: com.kwad.components.core.b.a.2
+        return new b.a().bI(applicationContext).aR(((j) d.b(applicationContext, c.UM)).sB()).aS(((j) d.b(applicationContext, c.UN)).sB()).aT(KsAdSDKImpl.get().getIsExternal()).cM(((o) d.b(applicationContext, c.UO)).getValue()).cL(((o) d.b(applicationContext, c.UP)).getValue()).cS(ExceptionMessage.getSdkCrashVersionName(KsAdSDKImpl.get().getSDKVersion(), 1)).bc(KsAdSDKImpl.get().getSDKVersionCode()).cT(ExceptionMessage.getSdkCrashVersionName(KsAdSDKImpl.get().getApiVersion(), 1)).bd(KsAdSDKImpl.get().getApiVersionCode()).be(1).cR("com.kwad.sdk").cU(sdkConfig.appId).cV(sdkConfig.appName).cW(applicationContext.getPackageName()).cX(com.kwad.sdk.utils.j.cb(applicationContext)).cO(ar.getDeviceId()).cN("Android").cP(sdkConfig.appId).cQ(C0644a.ag(applicationContext)).a(new g() { // from class: com.kwad.components.core.b.a.2
             @Override // com.kwad.sdk.crash.g
             public final com.kwad.sdk.crash.model.message.a mn() {
                 com.kwad.sdk.crash.model.message.a aVar = new com.kwad.sdk.crash.model.message.a();

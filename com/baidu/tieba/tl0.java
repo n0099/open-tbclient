@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.provider.FontsContractCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.util.NetUtil;
-import com.baidu.nadcore.utils.LruCache;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.nadcore.download.proxy.IAdDownloader;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,22 +20,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.HashMap;
-import org.json.JSONArray;
+import java.util.List;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class tl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, om0> a;
-    public final LruCache<String, String> b;
-    public final LruCache<String, String> c;
+    public final HashMap<String, List<ym0>> a;
+    public final ReentrantReadWriteLock b;
+    public final IAdDownloader c;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final tl0 a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +54,71 @@ public class tl0 {
                     return;
                 }
             }
-            a = new tl0();
+            int[] iArr = new int[AdDownloadAction.values().length];
+            a = iArr;
+            try {
+                iArr[AdDownloadAction.START.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AdDownloadAction.PAUSE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AdDownloadAction.RESUME.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[AdDownloadAction.COMPLETE.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[AdDownloadAction.INSTALL_START.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[AdDownloadAction.INSTALL_FINISH.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[AdDownloadAction.OPEN.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[AdDownloadAction.FAIL.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                a[AdDownloadAction.FAIL_RETRY.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                a[AdDownloadAction.FAIL_PERMISSION_DENY.ordinal()] = 10;
+            } catch (NoSuchFieldError unused10) {
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final tl0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-400058669, "Lcom/baidu/tieba/tl0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-400058669, "Lcom/baidu/tieba/tl0$b;");
+                    return;
+                }
+            }
+            a = new tl0(null);
         }
     }
 
@@ -67,508 +135,260 @@ public class tl0 {
                 return;
             }
         }
-        this.a = new LruCache<>(5);
-        this.b = new LruCache<>(5);
-        this.c = new LruCache<>(5);
+        this.a = new HashMap<>(32);
+        this.b = new ReentrantReadWriteLock();
+        this.c = an0.b();
     }
 
-    public static tl0 k() {
+    public /* synthetic */ tl0(a aVar) {
+        this();
+    }
+
+    public void a(@NonNull gm0 gm0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, gm0Var) != null) || gm0Var.f()) {
+            return;
+        }
+        this.c.b(gm0Var);
+        gm0Var.c = AdDownloadStatus.NONE;
+        om0 om0Var = new om0();
+        om0Var.b = "install_failed";
+        h(AdDownloadAction.FAIL, gm0Var, om0Var);
+    }
+
+    public void j(@NonNull gm0 gm0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, gm0Var) == null) {
+            this.c.c(gm0Var);
+        }
+    }
+
+    public void l(@NonNull gm0 gm0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, gm0Var) == null) {
+            g(AdDownloadAction.PROGRESS_UPDATE, gm0Var);
+            this.c.d(gm0Var, new ul0(gm0Var));
+        }
+    }
+
+    public void m(@NonNull gm0 gm0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gm0Var) == null) {
+            g(AdDownloadAction.PROGRESS_UPDATE, gm0Var);
+            gm0Var.b = this.c.a(gm0Var, new ul0(gm0Var));
+            gm0Var.c = AdDownloadStatus.DOWNLOADING;
+        }
+    }
+
+    public static tl0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
         return (tl0) invokeV.objValue;
     }
 
-    @NonNull
-    public final dm0 a(String str, String str2, String str3, @NonNull String str4) {
-        InterceptResult invokeLLLL;
+    public static void d(@NonNull gm0 gm0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, str, str2, str3, str4)) == null) {
-            dm0 dm0Var = new dm0();
-            dm0Var.g = str;
-            dm0Var.h(str2);
-            dm0Var.d = str3;
-            TextUtils.isEmpty(str3);
-            dm0Var.p.a = str4;
-            dm0Var.r.a = new JSONObject().toString();
-            return dm0Var;
-        }
-        return (dm0) invokeLLLL.objValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0085, code lost:
-        if (r1.equals("batchgetdownloadstatus") != false) goto L23;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(ck0 ck0Var, gk0 gk0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ck0Var, gk0Var) == null) {
-            String str = (String) d31.b(ck0Var.d(), "params");
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            JSONObject c = c31.c(str);
-            String optString = c.optString("type", "");
-            String e = ck0Var.e();
-            if (TextUtils.isEmpty(optString)) {
-                return;
-            }
-            Context b = ok0.b();
-            char c2 = 0;
-            if (!NetUtil.a(b) && (TextUtils.equals(optString, "startdownload") || TextUtils.equals(optString, "resumedownload"))) {
-                Toast.makeText(b, b.getString(R.string.nad_download_net_tip), 0).show();
-                return;
-            }
-            switch (optString.hashCode()) {
-                case -1263192174:
-                    if (optString.equals("openapk")) {
-                        c2 = 6;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -1028248962:
-                    if (optString.equals("querypackage")) {
-                        c2 = 7;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -690213213:
-                    if (optString.equals("register")) {
-                        c2 = '\b';
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -568075006:
-                    if (optString.equals("canceldownload")) {
-                        c2 = 4;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -515860354:
-                    if (optString.equals("pausedownload")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 120066997:
-                    if (optString.equals("resumedownload")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 636901206:
-                    break;
-                case 836015164:
-                    if (optString.equals("unregister")) {
-                        c2 = '\t';
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 900442785:
-                    if (optString.equals("installapk")) {
-                        c2 = 5;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1490291434:
-                    if (optString.equals("startdownload")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            switch (c2) {
-                case 0:
-                    c(c, gk0Var);
-                    return;
-                case 1:
-                    i(c, gk0Var);
-                    return;
-                case 2:
-                    g(c, gk0Var);
-                    return;
-                case 3:
-                    h(c, gk0Var);
-                    return;
-                case 4:
-                    d(c, gk0Var);
-                    return;
-                case 5:
-                    e(c, gk0Var);
-                    return;
-                case 6:
-                    f(e, c, gk0Var);
-                    return;
-                case 7:
-                    j(c, gk0Var);
-                    return;
-                case '\b':
-                    m(c, gk0Var);
-                    return;
-                case '\t':
-                    n(c, gk0Var);
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    public final void c(JSONObject jSONObject, gk0 gk0Var) {
-        String uri;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, gk0Var) == null) && jSONObject != null && gk0Var != null) {
-            String optString = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK, "");
-            JSONArray optJSONArray = jSONObject.optJSONArray("query");
-            String optString2 = jSONObject.optString("business", "");
-            String optString3 = jSONObject.optString("page", "");
-            HashMap hashMap = new HashMap();
-            hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, optString);
-            if (optJSONArray != null && optJSONArray.length() > 0 && !TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString2)) {
-                JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null && !TextUtils.isEmpty(optJSONObject.optString("url", "")) && !TextUtils.isEmpty(optJSONObject.optString(FontsContractCompat.Columns.FILE_ID, "")) && !TextUtils.isEmpty(optJSONObject.optString(MigrateStatisticUtils.EXT_INFO, ""))) {
-                        String optString4 = optJSONObject.optString("url", "");
-                        String optString5 = optJSONObject.optString(FontsContractCompat.Columns.FILE_ID, "");
-                        om0 l = l(optString4, optString5, optJSONObject.optString("packageName", ""), optJSONObject.optString(MigrateStatisticUtils.EXT_INFO, ""), optString3, optString2);
-                        if (l != null) {
-                            String u = l.u();
-                            Uri uri2 = l.t().k;
-                            String str = l.t().i + "";
-                            if (uri2 == null) {
-                                uri = "";
-                            } else {
-                                uri = uri2.toString();
-                            }
-                            jSONArray.put(c31.c(in0.a(u, str, uri, optString5)));
-                        }
-                    }
-                }
-                if (jSONArray.length() <= 0) {
-                    in0.b(gk0Var, true, hashMap);
+        if (interceptable == null || interceptable.invokeL(65539, null, gm0Var) == null) {
+            if (!TextUtils.isEmpty(gm0Var.p.c) && ak0.b(gm0Var.p.c)) {
+                if (so0.b().a().a("nad_als_open_to_click_switch", 0) == 1) {
+                    e(AdDownloadAction.OPEN, gm0Var);
                     return;
                 }
-                JSONObject jSONObject2 = new JSONObject();
-                c31.f(jSONObject2, "result", jSONArray);
-                hashMap.put("data", jSONObject2.toString());
-                in0.b(gk0Var, true, hashMap);
-            } else if (!TextUtils.isEmpty(optString)) {
-                in0.b(gk0Var, false, hashMap);
-            }
-        }
-    }
-
-    public final void d(JSONObject jSONObject, @Nullable gk0 gk0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, jSONObject, gk0Var) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("url", "");
-        String optString2 = jSONObject.optString("uri", "");
-        String optString3 = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK, "");
-        String optString4 = jSONObject.optString(FontsContractCompat.Columns.FILE_ID, "");
-        String optString5 = jSONObject.optString(MigrateStatisticUtils.EXT_INFO, "");
-        String optString6 = jSONObject.optString("business", "");
-        String optString7 = jSONObject.optString("page", "");
-        String optString8 = jSONObject.optString("packageName", "");
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, optString3);
-        if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
-            om0 l = l(optString, optString4, optString8, optString5, optString7, optString6);
-            if (l != null) {
-                l.c();
-                in0.c(gk0Var, optString3, optString2, optString4, "1");
-            }
-            in0.b(gk0Var, false, hashMap);
-            return;
-        }
-        in0.b(gk0Var, false, hashMap);
-    }
-
-    public final void e(JSONObject jSONObject, @Nullable gk0 gk0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, jSONObject, gk0Var) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK, "");
-        String optString2 = jSONObject.optString(FontsContractCompat.Columns.FILE_ID, "");
-        String optString3 = jSONObject.optString(MigrateStatisticUtils.EXT_INFO, "");
-        String optString4 = jSONObject.optString("packageName", "");
-        String optString5 = jSONObject.optString("business", "");
-        String optString6 = jSONObject.optString("page", "");
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, optString);
-        if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
-            om0 l = l("", optString2, optString4, optString3, optString6, optString5);
-            if (l != null) {
-                l.x();
-                in0.b(gk0Var, true, hashMap);
                 return;
             }
-            in0.b(gk0Var, false, hashMap);
-            return;
+            qn0.h(gm0Var.d);
+            e(AdDownloadAction.OPEN, gm0Var);
         }
-        in0.b(gk0Var, false, hashMap);
     }
 
-    public final void g(JSONObject jSONObject, @Nullable gk0 gk0Var) {
+    public static void e(@NonNull AdDownloadAction adDownloadAction, @NonNull gm0 gm0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, jSONObject, gk0Var) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, adDownloadAction, gm0Var) == null) {
+            f(adDownloadAction, gm0Var, null);
         }
-        String optString = jSONObject.optString("url", "");
-        String optString2 = jSONObject.optString("uri", "");
-        String optString3 = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK, "");
-        String optString4 = jSONObject.optString(FontsContractCompat.Columns.FILE_ID, "");
-        String optString5 = jSONObject.optString(MigrateStatisticUtils.EXT_INFO, "");
-        String optString6 = jSONObject.optString("business", "");
-        String optString7 = jSONObject.optString("page", "");
-        String optString8 = jSONObject.optString("packageName", "");
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, optString3);
-        if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
-            om0 l = l(optString, optString4, optString8, optString5, optString7, optString6);
-            if (l != null) {
-                l.t();
-                l.x();
-                in0.c(gk0Var, optString3, optString2, optString4, "2");
-                return;
-            }
-            in0.b(gk0Var, false, hashMap);
-            return;
-        }
-        in0.b(gk0Var, false, null);
     }
 
-    public final void h(JSONObject jSONObject, @Nullable gk0 gk0Var) {
+    public void g(@NonNull AdDownloadAction adDownloadAction, @NonNull gm0 gm0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, jSONObject, gk0Var) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, adDownloadAction, gm0Var) == null) {
+            h(adDownloadAction, gm0Var, null);
         }
-        String optString = jSONObject.optString("url", "");
-        String optString2 = jSONObject.optString("uri", "");
-        String optString3 = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK, "");
-        String optString4 = jSONObject.optString(FontsContractCompat.Columns.FILE_ID, "");
-        String optString5 = jSONObject.optString(MigrateStatisticUtils.EXT_INFO, "");
-        String optString6 = jSONObject.optString("business", "");
-        String optString7 = jSONObject.optString("page", "");
-        String optString8 = jSONObject.optString("packageName", "");
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, optString3);
-        if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
-            om0 l = l(optString, optString4, optString8, optString5, optString7, optString6);
-            if (l != null) {
-                l.t();
-                l.x();
-                in0.c(gk0Var, optString3, optString2, optString4, "1");
-                return;
-            }
-            in0.b(gk0Var, false, hashMap);
-            return;
-        }
-        in0.b(gk0Var, false, hashMap);
     }
 
-    public final void m(JSONObject jSONObject, @Nullable gk0 gk0Var) {
+    public static void f(@NonNull AdDownloadAction adDownloadAction, @NonNull gm0 gm0Var, @Nullable om0 om0Var) {
+        ClogBuilder.LogType logType;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048587, this, jSONObject, gk0Var) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65541, null, adDownloadAction, gm0Var, om0Var) != null) || TextUtils.isEmpty(gm0Var.p.a)) {
             return;
         }
-        String optString = jSONObject.optString("url");
-        String optString2 = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK);
-        String optString3 = jSONObject.optString("action");
-        String optString4 = jSONObject.optString(FontsContractCompat.Columns.FILE_ID, "");
-        String optString5 = jSONObject.optString(MigrateStatisticUtils.EXT_INFO, "");
-        String optString6 = jSONObject.optString("business", "");
-        String optString7 = jSONObject.optString("page", "");
-        String optString8 = jSONObject.optString("packageName", "");
-        d31.e(this.c, optString4, optString2);
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, optString2);
-        if (!TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
-            om0 l = l(optString, optString4, optString8, optString5, optString7, optString6);
-            if (l != null) {
-                l.z(optString3, optString2, optString7, optString6);
-                in0.b(gk0Var, true, hashMap);
-                return;
-            }
-            in0.b(gk0Var, false, hashMap);
-            return;
-        }
-        in0.b(gk0Var, false, hashMap);
-    }
-
-    public final void n(JSONObject jSONObject, @Nullable gk0 gk0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048588, this, jSONObject, gk0Var) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("url");
-        String optString2 = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK);
-        String optString3 = jSONObject.optString("action");
-        String optString4 = jSONObject.optString(FontsContractCompat.Columns.FILE_ID, "");
-        String optString5 = jSONObject.optString(MigrateStatisticUtils.EXT_INFO, "");
-        String optString6 = jSONObject.optString("business", "");
-        String optString7 = jSONObject.optString("page", "");
-        String optString8 = jSONObject.optString("packageName", "");
-        d31.g(this.c, optString4);
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, optString2);
-        if (!TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
-            om0 l = l(optString, optString4, optString8, optString5, optString7, optString6);
-            if (l != null) {
-                l.A(optString3, optString2, optString7, optString6);
-                in0.b(gk0Var, true, hashMap);
-                return;
-            }
-            in0.b(gk0Var, false, hashMap);
-            return;
-        }
-        in0.b(gk0Var, false, hashMap);
-    }
-
-    public final void f(String str, JSONObject jSONObject, @Nullable gk0 gk0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048581, this, str, jSONObject, gk0Var) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK, "");
-        String optString2 = jSONObject.optString(FontsContractCompat.Columns.FILE_ID, "");
-        String optString3 = jSONObject.optString(MigrateStatisticUtils.EXT_INFO, "");
-        String optString4 = jSONObject.optString("packageName", "");
-        String optString5 = jSONObject.optString("business", "");
-        String optString6 = jSONObject.optString("page", "");
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, optString);
-        if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
-            om0 l = l("", optString2, optString4, optString3, optString6, optString5);
-            if (l != null) {
-                l.t();
-                l.x();
-                in0.b(gk0Var, true, hashMap);
-                return;
-            }
-            in0.b(gk0Var, hn0.g(optString4), hashMap);
-            return;
-        }
-        in0.b(gk0Var, false, hashMap);
-    }
-
-    public final void i(JSONObject jSONObject, @Nullable gk0 gk0Var) {
-        Uri uri;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, gk0Var) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("url", "");
-        String optString2 = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK, "");
-        String optString3 = jSONObject.optString(FontsContractCompat.Columns.FILE_ID, "");
-        String optString4 = jSONObject.optString("uri", "");
-        String optString5 = jSONObject.optString(MigrateStatisticUtils.EXT_INFO, "");
-        String optString6 = jSONObject.optString("packageName", "");
-        String optString7 = jSONObject.optString("business", "");
-        String optString8 = jSONObject.optString("page", "");
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, optString2);
-        if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString8) && !TextUtils.isEmpty(optString7)) {
-            om0 l = l(optString, optString3, optString6, optString5, optString8, optString7);
-            if (l != null) {
-                dm0 t = l.t();
-                l.x();
-                if (t != null && (uri = t.k) != null) {
-                    optString4 = uri.toString();
+        String str = gm0Var.q.j;
+        switch (a.a[adDownloadAction.ordinal()]) {
+            case 1:
+                logType = ClogBuilder.LogType.DOWNLOAD_START;
+                break;
+            case 2:
+                logType = ClogBuilder.LogType.DOWNLOAD_PAUSE;
+                break;
+            case 3:
+                logType = ClogBuilder.LogType.DOWNLOAD_CONTINUE;
+                break;
+            case 4:
+                logType = ClogBuilder.LogType.DOWNLOAD_COMPLETE;
+                break;
+            case 5:
+                logType = ClogBuilder.LogType.DOWNLOAD_INSTALL;
+                break;
+            case 6:
+                logType = ClogBuilder.LogType.INSTALL_COMPLETE;
+                break;
+            case 7:
+                if (so0.b().a().a("nad_als_open_to_click_switch", 0) == 1) {
+                    logType = ClogBuilder.LogType.CLICK;
+                    str = ClogBuilder.Area.OPEN_BUTTON.type;
+                    break;
+                } else {
+                    logType = ClogBuilder.LogType.DEEP_LINK;
+                    break;
                 }
-                hashMap.put("data", in0.a("0", "0", optString4, optString3));
-                in0.b(gk0Var, true, hashMap);
+            case 8:
+                logType = ClogBuilder.LogType.DOWNLOAD_FAILED;
+                break;
+            case 9:
+                logType = ClogBuilder.LogType.DOWNLOAD_RETRY;
+                break;
+            default:
+                return;
+        }
+        if (TextUtils.isEmpty(str)) {
+            str = ClogBuilder.Area.DOWNLOAD_BUTTON.type;
+        }
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.y(logType).p(gm0Var.p.a).v(gm0Var.q.a).j(str).k(gm0Var.d).l(gm0Var.q.a).m(gm0Var.q.b).n(gm0Var.g);
+        JSONObject jSONObject = new JSONObject();
+        y31.d(jSONObject, "is_swallow", 1);
+        if (!TextUtils.isEmpty(gm0Var.q.d)) {
+            y31.f(jSONObject, "ad_download_content_type", gm0Var.q.d);
+        }
+        long j = gm0Var.q.e;
+        if (j > 0) {
+            y31.e(jSONObject, "ad_download_content_length", j);
+        }
+        int i = gm0Var.n;
+        if (i > 0) {
+            y31.d(jSONObject, "version_code", i);
+        }
+        if (!TextUtils.isEmpty(gm0Var.o)) {
+            y31.f(jSONObject, NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, gm0Var.o);
+        }
+        if (om0Var != null) {
+            Exception exc = om0Var.a;
+            if (exc != null) {
+                y31.f(jSONObject, "failed_reason", exc.getClass().toString());
+            }
+            String str2 = om0Var.b;
+            if (str2 != null) {
+                y31.f(jSONObject, "failed_reason", str2);
+            }
+        }
+        if (jSONObject.length() > 0) {
+            clogBuilder.o(jSONObject.toString());
+        }
+        n41.e(clogBuilder);
+    }
+
+    public final void b(@NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            Context b2 = rk0.b();
+            Object systemService = b2.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+            if (!(systemService instanceof ClipboardManager)) {
                 return;
             }
-            in0.b(gk0Var, false, hashMap);
-            return;
-        }
-        in0.b(gk0Var, false, hashMap);
-    }
-
-    public final void j(JSONObject jSONObject, @Nullable gk0 gk0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048585, this, jSONObject, gk0Var) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK);
-        String optString2 = jSONObject.optString("packageName", "");
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, optString);
-        JSONObject jSONObject2 = new JSONObject();
-        String str = "1";
-        if (!TextUtils.isEmpty(optString2) && hn0.c(optString2)) {
-            str = "0";
-        }
-        c31.f(jSONObject2, "result", str);
-        hashMap.put("data", jSONObject2.toString());
-        if (gk0Var != null) {
-            gk0Var.a(true, hashMap);
+            ((ClipboardManager) systemService).setPrimaryClip(ClipData.newPlainText(b2.getResources().getString(R.string.nad_invite_code_label), str));
+            g61.a().showToast(b2, str2);
         }
     }
 
-    public final om0 l(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
+    public void h(@NonNull AdDownloadAction adDownloadAction, @NonNull gm0 gm0Var, @Nullable om0 om0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            if (TextUtils.isEmpty(str2) && this.b.containsValue(str)) {
-                for (String str7 : this.b.keySet()) {
-                    if (TextUtils.equals(this.b.get(str7), str)) {
-                        str2 = str7;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, adDownloadAction, gm0Var, om0Var) == null) {
+            f(adDownloadAction, gm0Var, om0Var);
+            this.b.readLock().lock();
+            try {
+                List list = (List) z31.b(this.a, gm0Var.e());
+                if (list == null) {
+                    return;
+                }
+                for (int i = 0; i != x31.l(list); i++) {
+                    ym0 ym0Var = (ym0) x31.d(list, i);
+                    if (ym0Var != null && ym0Var.getData() != null) {
+                        ym0Var.getData().i(gm0Var);
+                        ym0Var.a(adDownloadAction, ym0Var.getData());
                     }
                 }
+                this.b.readLock().unlock();
+                i(adDownloadAction, gm0Var);
+            } finally {
+                this.b.readLock().unlock();
             }
-            if (TextUtils.isEmpty(str) && this.b.containsKey(str2)) {
-                str = this.b.get(str2);
-            }
-            om0 om0Var = this.a.get(str2);
-            if (om0Var == null && !TextUtils.isEmpty(str)) {
-                dm0 a2 = a(str, str2, str3, in0.d(str4));
-                if (a2.q == null) {
-                    a2.q = new em0();
-                }
-                if (a2.p == null) {
-                    a2.p = new hm0();
-                }
-                em0 em0Var = a2.q;
-                em0Var.b = str6;
-                em0Var.a = str5;
-                if (!TextUtils.isEmpty(str4)) {
-                    JSONObject c = c31.c(str4);
-                    a2.q.g = c.optInt("close_v_dl");
-                    a2.q.c = c.optString("source");
-                    a2.p.h = c.optString("app_name");
-                    a2.p.g = c.optString("app_icon");
-                    a2.p.i = c.optString("version");
-                }
-                om0Var = new om0(a2);
-                this.a.put(str2, om0Var);
-            }
-            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                this.b.put(str2, str);
-            }
-            return om0Var;
         }
-        return (om0) invokeCommon.objValue;
+    }
+
+    public final void i(@NonNull AdDownloadAction adDownloadAction, @NonNull gm0 gm0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, adDownloadAction, gm0Var) == null) && a.a[adDownloadAction.ordinal()] == 1) {
+            Context context = null;
+            WeakReference<Context> weakReference = gm0Var.p.m;
+            if (weakReference != null) {
+                context = weakReference.get();
+            }
+            if (!TextUtils.isEmpty(gm0Var.p.l) && context != null) {
+                ak0.c(gm0Var.p.l, context);
+            }
+            if (gm0Var.q.r) {
+                g61.a().a(rk0.b(), R.string.nad_apk_download_start_toast);
+            }
+            im0 im0Var = gm0Var.p.k;
+            if (im0Var != null && !TextUtils.isEmpty(im0Var.a)) {
+                im0 im0Var2 = gm0Var.p.k;
+                b(im0Var2.a, im0Var2.b);
+            }
+        }
+    }
+
+    public void k(String str, ym0 ym0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, ym0Var) == null) && !TextUtils.isEmpty(str) && ym0Var != null) {
+            this.b.writeLock().lock();
+            try {
+                List list = (List) z31.b(this.a, str);
+                if (list == null) {
+                    list = new ArrayList();
+                    z31.e(this.a, str, list);
+                }
+                x31.b(list, ym0Var);
+            } finally {
+                this.b.writeLock().unlock();
+            }
+        }
+    }
+
+    public void n(String str, ym0 ym0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, ym0Var) == null) && !TextUtils.isEmpty(str) && ym0Var != null) {
+            this.b.writeLock().lock();
+            try {
+                List list = (List) z31.b(this.a, str);
+                if (list == null) {
+                    return;
+                }
+                x31.j(list, ym0Var);
+            } finally {
+                this.b.writeLock().unlock();
+            }
+        }
     }
 }

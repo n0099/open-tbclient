@@ -1,525 +1,228 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.ContentUris;
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.provider.MediaStore;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.cx4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class bx4 {
     public static /* synthetic */ Interceptable $ic;
+    public static cx4 a;
+    public static bx4 b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public c b;
-    public final Context c;
-    public int d;
-    public String[] e;
-    public String[] f;
-    public HashMap<String, ww4> g;
 
-    /* loaded from: classes5.dex */
-    public class a implements Comparator<MediaFileInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(bx4 bx4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947660331, "Lcom/baidu/tieba/bx4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bx4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947660331, "Lcom/baidu/tieba/bx4;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(MediaFileInfo mediaFileInfo, MediaFileInfo mediaFileInfo2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaFileInfo, mediaFileInfo2)) == null) {
-                int i = ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) > 0L ? 1 : ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) == 0L ? 0 : -1));
-                if (i == 0) {
-                    return 0;
-                }
-                if (i > 0) {
-                    return 1;
-                }
-                return -1;
-            }
-            return invokeLL.intValue;
-        }
+        new ArrayList(5);
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Comparator<ww4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bx4 a;
-
-        public b(bx4 bx4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bx4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bx4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ww4 ww4Var, ww4 ww4Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ww4Var, ww4Var2)) == null) {
-                if (this.a.a.equals(ww4Var.g())) {
-                    return -1;
-                }
-                if (this.a.a.equals(ww4Var2.g())) {
-                    return 1;
-                }
-                int i = ((ww4Var2.e().getSortTime() - ww4Var.e().getSortTime()) > 0L ? 1 : ((ww4Var2.e().getSortTime() - ww4Var.e().getSortTime()) == 0L ? 0 : -1));
-                if (i == 0) {
-                    return 0;
-                }
-                if (i <= 0) {
-                    return -1;
-                }
-                return 1;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask<Object, Integer, cx4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ax4 a;
-        public final /* synthetic */ bx4 b;
-
-        public c(bx4 bx4Var, ax4 ax4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bx4Var, ax4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = bx4Var;
-            this.a = ax4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public cx4 doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                return this.b.d();
-            }
-            return (cx4) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(cx4 cx4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cx4Var) == null) {
-                super.onPostExecute(cx4Var);
-                ax4 ax4Var = this.a;
-                if (ax4Var != null) {
-                    ax4Var.a(cx4Var);
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onPreExecute();
-                ax4 ax4Var = this.a;
-                if (ax4Var != null) {
-                    ax4Var.onPreLoad();
-                }
-            }
-        }
-    }
-
-    public bx4(Context context) {
+    public bx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = TbConfig.getTempDirName();
-        this.d = 0;
-        this.e = new String[]{"_id", "bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
-        this.f = new String[]{"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
-        this.g = new HashMap<>();
-        this.c = context;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
+        }
     }
 
     public void c() {
-        c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.b) != null) {
-            cVar.cancel();
-            this.b = null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b();
+            cx4 cx4Var = a;
+            if (cx4Var != null) {
+                cx4Var.d();
+                c = false;
+            }
         }
     }
 
-    public List<ImageFileInfo> e() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<ImageFileInfo> f = f(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            if (f != null) {
-                arrayList.addAll(f);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b();
+            cx4 cx4Var = a;
+            if (cx4Var != null) {
+                cx4Var.c();
+                c = false;
             }
-            List<ImageFileInfo> f2 = f(MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-            if (f2 != null) {
-                arrayList.addAll(f2);
-            }
-            return arrayList;
         }
-        return (List) invokeV.objValue;
     }
 
-    public final cx4 d() {
-        InterceptResult invokeV;
-        List<ImageFileInfo> list;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.g.clear();
-            cx4 cx4Var = new cx4();
-            List<VideoFileInfo> list2 = null;
-            if (this.d != 1) {
-                list = e();
-            } else {
-                list = null;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b();
+            cx4 cx4Var = a;
+            if (cx4Var != null) {
+                cx4Var.h();
             }
-            int i = this.d;
-            if (i != 2 && i != 3 && i != 4) {
-                list2 = g();
-            }
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(list)) {
-                arrayList.addAll(list);
-            }
-            if (!ListUtils.isEmpty(list2)) {
-                arrayList.addAll(list2);
-            }
-            if (!ListUtils.isEmpty(arrayList)) {
-                Collections.sort(arrayList, new a(this));
-            }
-            ArrayList arrayList2 = new ArrayList(this.g.values());
-            if (!ListUtils.isEmpty(arrayList2)) {
-                Collections.sort(arrayList2, new b(this));
-            }
-            cx4Var.a = arrayList2;
-            cx4Var.c = list2;
-            cx4Var.b = arrayList;
-            return cx4Var;
         }
-        return (cx4) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x009f, code lost:
-        if (r12 > 3145728) goto L27;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x0122 A[LOOP:0: B:12:0x002c->B:48:0x0122, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x013a A[EDGE_INSN: B:80:0x013a->B:61:0x013a ?: BREAK  , SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final List<ImageFileInfo> f(Uri uri) {
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            b();
+            i();
+            m();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            b();
+            cx4 cx4Var = a;
+            if (cx4Var != null) {
+                cx4Var.m();
+                c = true;
+            }
+        }
+    }
+
+    public static bx4 a(BaseFragmentActivity baseFragmentActivity) {
         InterceptResult invokeL;
-        Cursor cursor;
-        ArrayList arrayList;
-        Cursor cursor2;
-        String str;
-        ArrayList arrayList2;
+        cx4 cx4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) {
-            String str2 = null;
-            if (this.c == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            if (b == null) {
+                synchronized (bx4.class) {
+                    if (b == null) {
+                        b = new bx4();
+                        a = cx4.a(baseFragmentActivity);
+                    }
+                }
+            } else {
+                cx4 cx4Var2 = a;
+                if (cx4Var2 != null) {
+                    cx4Var2.j(baseFragmentActivity.getPageContext());
+                }
             }
-            ArrayList arrayList3 = new ArrayList();
+            if (c && (cx4Var = a) != null) {
+                cx4Var.d();
+                a.c();
+                c = false;
+            }
+            return b;
+        }
+        return (bx4) invokeL.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             try {
-                cursor2 = this.c.getContentResolver().query(uri, this.e, "mime_type like 'image/%'", null, "date_added DESC");
-            } catch (Exception e) {
-                e = e;
-                arrayList = arrayList3;
-                cursor2 = null;
+                if (a != null) {
+                    if (b != null) {
+                        b.j();
+                    }
+                    a.e();
+                    a.i();
+                    a = null;
+                }
+                if (b != null) {
+                    b = null;
+                }
             } catch (Throwable th) {
-                th = th;
-                cursor = null;
-                ug.a(cursor);
-                throw th;
+                th.printStackTrace();
             }
-            if (cursor2 != null) {
-                try {
-                    try {
-                    } catch (Exception e2) {
-                        e = e2;
-                        arrayList = arrayList3;
-                    }
-                    if (cursor2.moveToFirst()) {
-                        while (true) {
-                            Uri withAppendedId = ContentUris.withAppendedId(uri, cursor2.getLong(cursor2.getColumnIndex("_id")));
-                            if (withAppendedId != null) {
-                                str = withAppendedId.toString();
-                            } else {
-                                str = str2;
-                            }
-                            String string = cursor2.getString(cursor2.getColumnIndex("bucket_id"));
-                            String string2 = cursor2.getString(cursor2.getColumnIndex("bucket_display_name"));
-                            String string3 = cursor2.getString(cursor2.getColumnIndex("_data"));
-                            String string4 = cursor2.getString(cursor2.getColumnIndex("mime_type"));
-                            long j = cursor2.getLong(cursor2.getColumnIndex("date_added"));
-                            int i = cursor2.getInt(cursor2.getColumnIndex("_size"));
-                            long j2 = cursor2.getLong(cursor2.getColumnIndex("date_modified"));
-                            boolean endsWith = string4.endsWith(NativeConstants.TYPE_GIF);
-                            try {
-                                if (endsWith) {
-                                    if (this.d != 3) {
-                                        arrayList2 = arrayList3;
-                                    } else {
-                                        arrayList = arrayList3;
-                                        if (!cursor2.moveToNext()) {
-                                            break;
-                                        }
-                                        arrayList3 = arrayList;
-                                        str2 = null;
-                                    }
-                                } else {
-                                    arrayList2 = arrayList3;
-                                }
-                                if (this.d == 4 && !string4.endsWith("jpeg") && !string4.endsWith("png")) {
-                                    arrayList = arrayList2;
-                                    if (!cursor2.moveToNext()) {
-                                    }
-                                } else {
-                                    ImageFileInfo imageFileInfo = new ImageFileInfo();
-                                    imageFileInfo.setAlbumnId(string);
-                                    imageFileInfo.setContentUriStr(str);
-                                    imageFileInfo.setFilePath(string3);
-                                    imageFileInfo.setIsGif(endsWith);
-                                    imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(j2));
-                                    imageFileInfo.setSortTime(j);
-                                    arrayList = arrayList2;
-                                    try {
-                                        arrayList.add(imageFileInfo);
-                                        ww4 ww4Var = this.g.get(string);
-                                        if (ww4Var == null) {
-                                            ww4Var = new ww4();
-                                            this.g.put(string, ww4Var);
-                                        }
-                                        ww4Var.h(string);
-                                        ww4Var.l(string2);
-                                        ww4Var.a();
-                                        if (ww4Var.e() == null) {
-                                            ww4Var.k(imageFileInfo);
-                                        }
-                                        List<MediaFileInfo> d = ww4Var.d();
-                                        if (ww4Var.d() == null) {
-                                            d = new ArrayList<>();
-                                            ww4Var.j(d);
-                                        }
-                                        d.add(imageFileInfo);
-                                        if (!cursor2.moveToNext()) {
-                                        }
-                                    } catch (Exception e3) {
-                                        e = e3;
-                                        BdLog.detailException(e);
-                                        ug.a(cursor2);
-                                        return arrayList;
-                                    }
-                                }
-                            } catch (Exception e4) {
-                                e = e4;
-                                arrayList = arrayList2;
-                                BdLog.detailException(e);
-                                ug.a(cursor2);
-                                return arrayList;
-                            }
-                        }
-                        ug.a(cursor2);
-                        return arrayList;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor = cursor2;
-                    ug.a(cursor);
-                    throw th;
-                }
-            }
-            arrayList = arrayList3;
-            ug.a(cursor2);
-            return arrayList;
         }
-        return (List) invokeL.objValue;
     }
 
-    public final List<VideoFileInfo> g() {
-        InterceptResult invokeV;
-        Cursor cursor;
-        Cursor cursor2;
-        String str;
+    public void e(boolean z, boolean z2, boolean z3, cx4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Context context = this.c;
-            if (context == null) {
-                return arrayList;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
+            b();
+            if (z) {
+                c();
             }
-            ContentResolver contentResolver = context.getContentResolver();
-            HashSet hashSet = new HashSet();
-            try {
-                Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-                Cursor query = contentResolver.query(uri, this.f, null, null, "date_added DESC");
-                if (query != null) {
-                    try {
-                        if (query.moveToFirst()) {
-                            while (true) {
-                                int i = query.getInt(query.getColumnIndex("_id"));
-                                Uri withAppendedId = ContentUris.withAppendedId(uri, i);
-                                if (withAppendedId != null) {
-                                    str = withAppendedId.toString();
-                                } else {
-                                    str = null;
-                                }
-                                String string = query.getString(query.getColumnIndexOrThrow("_data"));
-                                String string2 = query.getString(query.getColumnIndexOrThrow("title"));
-                                String string3 = query.getString(query.getColumnIndexOrThrow("_display_name"));
-                                String string4 = query.getString(query.getColumnIndexOrThrow("mime_type"));
-                                int i2 = query.getInt(query.getColumnIndexOrThrow("duration"));
-                                long j = query.getLong(query.getColumnIndexOrThrow("date_modified"));
-                                Uri uri2 = uri;
-                                long j2 = query.getLong(query.getColumnIndexOrThrow("date_added"));
-                                if (i2 > 1 && !hashSet.contains(string)) {
-                                    hashSet.add(string);
-                                    File file = new File(string);
-                                    if (file.exists() && file.isFile() && si.u(file) > 0) {
-                                        VideoFileInfo videoFileInfo = new VideoFileInfo();
-                                        videoFileInfo.videoId = i;
-                                        videoFileInfo.contentUriStr = str;
-                                        videoFileInfo.videoPath = string;
-                                        videoFileInfo.displayName = string3;
-                                        videoFileInfo.title = string2;
-                                        videoFileInfo.mimeType = string4;
-                                        videoFileInfo.videoDuration = i2;
-                                        videoFileInfo.lastModified = j;
-                                        videoFileInfo.setSortTime(j2);
-                                        arrayList.add(videoFileInfo);
-                                    }
-                                }
-                                if (!query.moveToNext()) {
-                                    break;
-                                }
-                                uri = uri2;
-                            }
-                        }
-                    } catch (Exception unused) {
-                        cursor2 = query;
-                        ug.a(cursor2);
-                        return arrayList;
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor = query;
-                        ug.a(cursor);
-                        throw th;
-                    }
-                }
-                ug.a(query);
-            } catch (Exception unused2) {
-                cursor2 = null;
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = null;
+            if (z2) {
+                d();
             }
-            return arrayList;
+            l(z3);
+            k(aVar);
         }
-        return (List) invokeV.objValue;
     }
 
-    public boolean h(int i, ax4 ax4Var) {
-        InterceptResult invokeIL;
+    public void f(cx4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, ax4Var)) == null) {
-            if (ax4Var == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            b();
+            cx4 cx4Var = a;
+            if (cx4Var != null) {
+                if (cx4Var.b()) {
+                    a.k(aVar);
+                }
+                a.f();
             }
-            c();
-            this.d = i;
-            c cVar = new c(this, ax4Var);
-            this.b = cVar;
-            cVar.setPriority(3);
-            this.b.execute(new Object[0]);
-            return true;
         }
-        return invokeIL.booleanValue;
+    }
+
+    public void k(cx4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            b();
+            cx4 cx4Var = a;
+            if (cx4Var != null) {
+                cx4Var.k(aVar);
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            b();
+            cx4 cx4Var = a;
+            if (cx4Var != null) {
+                cx4Var.l(z);
+            }
+        }
+    }
+
+    public void g(int i, cx4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
+            b();
+            cx4 cx4Var = a;
+            if (cx4Var != null) {
+                if (cx4Var.b()) {
+                    a.k(aVar);
+                }
+                a.g(i);
+            }
+        }
     }
 }

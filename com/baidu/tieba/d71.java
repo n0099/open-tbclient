@@ -1,100 +1,100 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.pm.PackageManager;
-import com.baidu.tieba.g61;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+import java.util.TimeZone;
 /* loaded from: classes5.dex */
-public class d71 extends f71 {
+public final class d71 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<Integer> a;
+    public static final Set<Integer> b;
+    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ b c;
-        public final /* synthetic */ int d;
-
-        public a(String[] strArr, Activity activity, b bVar, int i) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947657355, "Lcom/baidu/tieba/d71;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {strArr, activity, bVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = strArr;
-            this.b = activity;
-            this.c = bVar;
-            this.d = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = new int[this.a.length];
-                PackageManager packageManager = this.b.getPackageManager();
-                String packageName = this.b.getPackageName();
-                int length = this.a.length;
-                for (int i = 0; i < length; i++) {
-                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
-                }
-                this.c.onRequestPermissionsResult(this.d, this.a, iArr);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947657355, "Lcom/baidu/tieba/d71;");
+                return;
             }
         }
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        a.add(5);
+        a.add(6);
+        b.add(7);
+        b.add(1);
+        c.addAll(a);
+        c.addAll(b);
     }
 
-    public static boolean b(Activity activity, String str) {
-        InterceptResult invokeLL;
+    public static int a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
-            if (g61.b.d() && e71.a(activity, str)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return (int) ((j2 - (j - ((TimeZone.getDefault().getRawOffset() + j) % 86400000))) / 86400000);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static String b(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
+                return "";
+            }
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
+            if (i2 == 0 && !z) {
+                return String.format(Locale.US, "%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i4));
+            }
+            return String.format(Locale.US, "%02d:%02d:%02d", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4));
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static long c(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return Math.abs((j2 - j) / 86400000);
+        }
+        return invokeCommon.longValue;
+    }
+
+    public static boolean d(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(j);
+            Calendar calendar2 = Calendar.getInstance();
+            calendar2.setTimeInMillis(j2);
+            if (calendar.get(1) == calendar2.get(1) && calendar.get(6) == calendar2.get(6)) {
                 return true;
             }
             return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
-            if (g61.b.d()) {
-                e71.requestPermissions(activity, strArr, i);
-            } else if (activity instanceof b) {
-                requestPermissions(activity, strArr, i, (b) activity);
-            }
-        }
-    }
-
-    public static void requestPermissions(Activity activity, String[] strArr, int i, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65538, null, activity, strArr, i, bVar) == null) {
-            if (g61.b.d()) {
-                e71.requestPermissions(activity, strArr, i);
-            } else if (!activity.isFinishing() && bVar != null) {
-                dl0.b(new a(strArr, activity, bVar, i));
-            }
-        }
+        return invokeCommon.booleanValue;
     }
 }

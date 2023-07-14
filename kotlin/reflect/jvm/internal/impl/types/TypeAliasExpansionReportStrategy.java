@@ -3,10 +3,10 @@ package kotlin.reflect.jvm.internal.impl.types;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeAliasDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.AnnotationDescriptor;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface TypeAliasExpansionReportStrategy {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class DO_NOTHING implements TypeAliasExpansionReportStrategy {
         public static final DO_NOTHING INSTANCE = new DO_NOTHING();
 

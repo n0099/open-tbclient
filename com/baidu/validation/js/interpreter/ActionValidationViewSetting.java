@@ -1,6 +1,6 @@
 package com.baidu.validation.js.interpreter;
 
-import com.baidu.tieba.b3b;
+import com.baidu.tieba.zbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.validation.js.BaseInterpreter;
 import com.baidu.validation.result.ValidationViewSettingResult;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ActionValidationViewSetting extends BaseInterpreter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class ActionValidationViewSetting extends BaseInterpreter {
     }
 
     @Override // com.baidu.validation.js.BaseInterpreter
-    public String interpret(b3b b3bVar) {
+    public String interpret(zbb zbbVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b3bVar)) == null) {
-            if (b3bVar != null && b3bVar.c() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zbbVar)) == null) {
+            if (zbbVar != null && zbbVar.c() != null) {
                 try {
-                    this.mInterpreterCallback.a(this.mName, ValidationViewSettingResult.parseFromJson(new JSONObject(b3bVar.c().get(0))));
+                    this.mInterpreterCallback.a(this.mName, ValidationViewSettingResult.parseFromJson(new JSONObject(zbbVar.c().get(0))));
                 } catch (JSONException unused) {
                 }
             }

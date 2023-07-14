@@ -1,105 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.HashMap;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class ugb extends tgb {
+public class ugb extends ngb<TTNativeAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> c;
-    public final Object d;
-    public qgb e;
-    public boolean f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ugb(Context context, String str) {
-        super(context, str);
+    public ugb(TTNativeAd tTNativeAd) {
+        super(tTNativeAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {tTNativeAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1]);
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new HashMap();
-        this.d = new Object();
-        this.f = true;
-        try {
-            String a = a("/AD91D45E3E72DB6989DDCB13287E75061FABCB933D886E6C6ABEF0939B577138");
-            String a2 = a("/B314B3BF013DF5AC4134E880AF3D2B7C9FFBE8F0305EAC1C898145E2BCF1F21C");
-            String a3 = a("/C767BD8FDF53E53D059BE95B09E2A71056F5F180AECC62836B287ACA5793421B");
-            String a4 = a("/DCB3E6D4C2CF80F30D89CDBC412C964DA8381BB84668769391FBCC3E329AD0FD");
-            if (a == null || a2 == null || a3 == null || a4 == null) {
-                this.f = false;
-            } else {
-                this.e = new pgb(a, a2, a3, a4);
-            }
-        } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-            Log.e("SecurityResourcesReader", "Exception when reading the 'K&I' for 'Config'.");
-            this.e = null;
-        }
     }
 
-    private String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ngb
+    public double a() {
+        InterceptResult invokeV;
+        Map<String, Object> mediaExtraInfo;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? super.a(str, null) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.tgb, com.baidu.tieba.ngb
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (!this.f) {
-                String a = a(str);
-                return a != null ? a : str2;
-            } else if (this.e == null) {
-                Log.e("SecurityResourcesReader", "KEY is null return def directly");
-                return str2;
-            } else {
-                synchronized (this.d) {
-                    String str3 = this.c.get(str);
-                    if (str3 != null) {
-                        return str3;
-                    }
-                    String a2 = a(str);
-                    if (a2 == null) {
-                        return str2;
-                    }
-                    String a3 = this.e.a(a2, str2);
-                    this.c.put(str, a3);
-                    return a3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                A a = this.a;
+                if (a == 0 || (mediaExtraInfo = ((TTNativeAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
+                    return 0.0d;
                 }
+                return ((Integer) mediaExtraInfo.get("price")).intValue() / 100.0d;
+            } catch (Exception unused) {
+                return 0.0d;
             }
         }
-        return (String) invokeLL.objValue;
+        return invokeV.doubleValue;
     }
 
-    public String toString() {
+    @Override // com.baidu.tieba.ngb
+    public void b(String str, double d, double d2, boolean z, int i) {
+        A a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a = this.a) == 0) {
+            return;
+        }
+        TTNativeAd tTNativeAd = (TTNativeAd) a;
+        if (z) {
+            tTNativeAd.win(Double.valueOf(d2));
+        } else {
+            tTNativeAd.loss(Double.valueOf(d), str, String.valueOf(i));
+        }
+    }
+
+    @Override // com.baidu.tieba.ngb
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SecurityResourcesReader{mKey=, encrypt=" + this.f + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b.isEmpty() && ((TTNativeAd) this.a).getMediaExtraInfo() != null) {
+                this.b = (String) ((TTNativeAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+            }
+            return this.b;
         }
         return (String) invokeV.objValue;
     }

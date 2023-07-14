@@ -8,7 +8,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends com.kwad.sdk.core.download.kwai.a {
     public int itemType;
     @Nullable
@@ -23,13 +23,13 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
     public int le = -1;
     public int lf;
     public int lg;
-    public InterfaceC0610a lh;
+    public InterfaceC0615a lh;
     public c mApkDownloadHelper;
     public String title;
 
     /* renamed from: com.kwad.components.ad.reflux.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0610a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0615a {
         void eF();
     }
 
@@ -73,9 +73,9 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
     }
 
     private void eU() {
-        InterfaceC0610a interfaceC0610a = this.lh;
-        if (interfaceC0610a != null) {
-            interfaceC0610a.eF();
+        InterfaceC0615a interfaceC0615a = this.lh;
+        if (interfaceC0615a != null) {
+            interfaceC0615a.eF();
         }
     }
 
@@ -87,8 +87,8 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
         this.itemType = i;
     }
 
-    public final void a(InterfaceC0610a interfaceC0610a) {
-        this.lh = interfaceC0610a;
+    public final void a(InterfaceC0615a interfaceC0615a) {
+        this.lh = interfaceC0615a;
     }
 
     public final b eJ() {

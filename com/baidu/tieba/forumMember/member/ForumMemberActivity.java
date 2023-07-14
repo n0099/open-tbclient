@@ -6,14 +6,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.aa5;
-import com.baidu.tieba.bc7;
-import com.baidu.tieba.df7;
-import com.baidu.tieba.jf7;
-import com.baidu.tieba.of7;
-import com.baidu.tieba.pb7;
-import com.baidu.tieba.vd7;
-import com.baidu.tieba.xn;
+import com.baidu.tieba.bi7;
+import com.baidu.tieba.hg7;
+import com.baidu.tieba.jj7;
+import com.baidu.tieba.pj7;
+import com.baidu.tieba.sa5;
+import com.baidu.tieba.uj7;
+import com.baidu.tieba.vf7;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,20 +22,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements aa5.g {
+public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements sa5.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jf7 a;
+    public pj7 a;
     public String b;
     public String c;
-    public List<xn> d;
-    public bc7 e;
-    public pb7 f;
-    public df7 g;
+    public List<yn> d;
+    public hg7 e;
+    public vf7 f;
+    public jj7 g;
     public NoNetworkView.b h;
 
     /* loaded from: classes5.dex */
-    public class a implements df7 {
+    public class a implements jj7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumMemberActivity a;
@@ -58,16 +58,16 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.a = forumMemberActivity;
         }
 
-        @Override // com.baidu.tieba.df7
-        public void a(int i, int i2, of7 of7Var, ArrayList<xn> arrayList) {
+        @Override // com.baidu.tieba.jj7
+        public void a(int i, int i2, uj7 uj7Var, ArrayList<yn> arrayList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), of7Var, arrayList}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), uj7Var, arrayList}) == null) {
                 this.a.e.d();
                 this.a.e.c();
                 if (arrayList != null) {
-                    Iterator<xn> it = arrayList.iterator();
+                    Iterator<yn> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        if (it.next() instanceof vd7) {
+                        if (it.next() instanceof bi7) {
                             it.remove();
                         }
                     }
@@ -76,8 +76,8 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     this.a.e.e();
                     this.a.d = arrayList;
                     this.a.e.f(this.a.d);
-                } else if (ListUtils.isEmpty(this.a.d) && of7Var != null) {
-                    this.a.e.l(of7Var.f);
+                } else if (ListUtils.isEmpty(this.a.d) && uj7Var != null) {
+                    this.a.e.l(uj7Var.f);
                 }
             }
         }
@@ -108,13 +108,13 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void i(boolean z) {
+        public void j(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 this.a.e.b(z);
                 if (z) {
                     if (ListUtils.isEmpty(this.a.d)) {
-                        this.a.D1();
+                        this.a.z1();
                     } else {
                         this.a.e.m();
                     }
@@ -141,18 +141,18 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         this.h = new b(this);
     }
 
-    @Override // com.baidu.tieba.aa5.g
-    public void f(boolean z) {
+    @Override // com.baidu.tieba.sa5.g
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f.M(3, 0, this.a);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.f.N(3, 0, this.a);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
             this.e.h(i);
         }
@@ -161,16 +161,64 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             bundle.putString("forum_id", this.c);
             bundle.putString("forum_name", this.b);
         }
     }
 
-    public final void C1(Bundle bundle) {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+            y1(bundle);
+            hg7 hg7Var = new hg7(this);
+            this.e = hg7Var;
+            hg7Var.j(this.h);
+            vf7 vf7Var = new vf7();
+            this.f = vf7Var;
+            vf7Var.C(getUniqueId());
+            this.f.init();
+            this.f.S(this.g);
+            z1();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroy();
+            this.f.t();
+            hg7 hg7Var = this.e;
+            if (hg7Var != null) {
+                hg7Var.i();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onNetRefreshButtonClicked() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+            return;
+        }
+        z1();
+    }
+
+    public final void z1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.e.k();
+            this.f.N(3, 0, this.a);
+        }
+    }
+
+    public final void y1(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             if (bundle == null) {
                 if (getIntent() == null) {
                     return;
@@ -181,58 +229,10 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 this.c = bundle.getString("forum_id", "");
                 this.b = bundle.getString("forum_name", "");
             }
-            jf7 jf7Var = new jf7();
-            this.a = jf7Var;
-            jf7Var.b = this.c;
-            jf7Var.a = this.b;
-        }
-    }
-
-    public final void D1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.k();
-            this.f.M(3, 0, this.a);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onDestroy();
-            this.f.s();
-            bc7 bc7Var = this.e;
-            if (bc7Var != null) {
-                bc7Var.i();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onNetRefreshButtonClicked() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-            return;
-        }
-        D1();
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            super.onCreate(bundle);
-            C1(bundle);
-            bc7 bc7Var = new bc7(this);
-            this.e = bc7Var;
-            bc7Var.j(this.h);
-            pb7 pb7Var = new pb7();
-            this.f = pb7Var;
-            pb7Var.C(getUniqueId());
-            this.f.init();
-            this.f.R(this.g);
-            D1();
+            pj7 pj7Var = new pj7();
+            this.a = pj7Var;
+            pj7Var.b = this.c;
+            pj7Var.a = this.b;
         }
     }
 }

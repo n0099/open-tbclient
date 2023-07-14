@@ -1,25 +1,20 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class uy2 implements b23 {
+public final class uy2 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<ty2> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public zy2 d;
 
     static {
         InterceptResult invokeClinit;
@@ -34,54 +29,144 @@ public class uy2 implements b23 {
                 return;
             }
         }
-        boolean z = ms1.a;
+        a = new ArrayList<>();
     }
 
-    public uy2() {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a.clear();
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ty2 ty2Var = a.get(size);
+                if (ty2Var != null) {
+                    ty2Var.onDestroy();
+                }
             }
         }
-        this.b = "";
-        this.c = false;
     }
 
-    @Override // com.baidu.tieba.b23
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public static void a(ty2 ty2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            zy2 zy2Var = this.d;
-            if (zy2Var != null && zy2Var.isValid() && !TextUtils.isEmpty(this.b)) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(65537, null, ty2Var) == null) && ty2Var != null && !a.contains(ty2Var)) {
+            a.add(ty2Var);
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ty2 ty2Var = a.get(size);
+                if (ty2Var != null) {
+                    ty2Var.j(z);
+                }
+            }
+        }
+    }
+
+    public static void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ty2 ty2Var = a.get(size);
+                if (ty2Var != null) {
+                    ty2Var.k(z);
+                }
+            }
+        }
+    }
+
+    public static void k(ty2 ty2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, ty2Var) != null) || ty2Var == null) {
+            return;
+        }
+        a.remove(ty2Var);
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            ty2 ty2Var = a.get(size);
+            if (ty2Var != null && TextUtils.equals(str, ty2Var.b())) {
+                ty2Var.onDestroy();
+            }
+        }
+    }
+
+    public static ty2 e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ty2 ty2Var = a.get(size);
+                if (ty2Var != null && TextUtils.equals(str, ty2Var.c())) {
+                    return ty2Var;
+                }
+            }
+            return null;
+        }
+        return (ty2) invokeL.objValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ty2 ty2Var = a.get(size);
+                if (ty2Var != null && TextUtils.equals(str, ty2Var.b()) && ty2Var.onBackPressed()) {
+                    return true;
+                }
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.b23
-    public void a(JSONObject jSONObject) throws JSONException {
+    public static ty2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has(CriusAttrConstants.POSITION) && jSONObject.has("iconPath")) {
-            String optString = jSONObject.optString("controlId");
-            this.a = optString;
-            if (TextUtils.isEmpty(optString)) {
-                this.a = jSONObject.optString("id");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
             }
-            zy2 zy2Var = new zy2();
-            this.d = zy2Var;
-            zy2Var.a(jSONObject.optJSONObject(CriusAttrConstants.POSITION));
-            this.b = jSONObject.optString("iconPath");
-            this.c = jSONObject.optBoolean("clickable");
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ty2 ty2Var = a.get(size);
+                if (ty2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, ty2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, ty2Var.f())) || TextUtils.equals(str3, ty2Var.c())))) {
+                    return ty2Var;
+                }
+            }
+            return null;
+        }
+        return (ty2) invokeLLL.objValue;
+    }
+
+    public static void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(65545, null, str, z) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            ty2 ty2Var = a.get(size);
+            if (ty2Var != null && TextUtils.equals(str, ty2Var.b())) {
+                ty2Var.k(z);
+            }
         }
     }
 }

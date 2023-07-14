@@ -1,81 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class we4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2, i23 i23Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, i23Var)) == null) {
-            tt1 W = px2.T().W();
-            if (W != null && W.c(view2, i23Var)) {
-                return true;
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(JSONObject jSONObject);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements oq3<hh3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+
+        public a(we4 we4Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {we4Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.a = bVar;
         }
-        return invokeLL.booleanValue;
-    }
 
-    public static boolean f(View view2, i23 i23Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, i23Var)) == null) {
-            tt1 W = px2.T().W();
-            if (W != null && W.a(view2, i23Var)) {
-                return true;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oq3
+        /* renamed from: b */
+        public void a(hh3 hh3Var) {
+            JSONObject jSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hh3Var) == null) {
+                if (hh3Var != null && (jSONObject = hh3Var.g) != null) {
+                    v82.b("OpenData", "onOpenDataCallback success: ", jSONObject);
+                    this.a.a(hh3Var.g);
+                    return;
+                }
+                this.a.a(null);
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static Context b() {
-        InterceptResult invokeV;
+    public we4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            tt1 W = px2.T().W();
-            if (W != null) {
-                return W.getContext();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return null;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public static void c(br3 br3Var) {
-        tt1 W;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, br3Var) == null) && (W = px2.T().W()) != null) {
-            W.e(br3Var);
         }
     }
 
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
+    public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            tt1 W = px2.T().W();
-            if (W != null && W.removeView(view2)) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null || ix2.T().getActivity() == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(br3 br3Var) {
-        tt1 W;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, br3Var) == null) && (W = px2.T().W()) != null) {
-            W.f(br3Var);
-        }
+        hh3.B(ix2.T().getActivity(), "snsapi_userinfo", null, true, "GameUserInfoRequest", new a(this, bVar));
     }
 }

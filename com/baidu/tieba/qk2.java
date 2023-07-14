@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.tw2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +14,55 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class qk2 implements by2 {
+public class qk2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static long b;
+    public static String c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+
+        public a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bundle;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                tw2.a aVar = (tw2.a) new tw2.a().s(this.a);
+                yi3 yi3Var = new yi3();
+                yi3Var.a = oi3.n(0);
+                yi3Var.b = "launch";
+                yi3Var.e = "repeatlaunch";
+                yi3Var.a("launchInterval", Long.valueOf(aVar.l("launch_interval", -1L)));
+                yi3Var.j(aVar);
+                yi3Var.d(aVar.s0().getString("ubc"));
+                yi3Var.b(oi3.k(aVar.W()));
+                oi3.onEvent(yi3Var);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -28,44 +77,56 @@ public abstract class qk2 implements by2 {
                 return;
             }
         }
-        a = ms1.a;
+        a = fs1.a;
     }
 
-    public qk2() {
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return System.currentTimeMillis() - b;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            b = System.currentTimeMillis();
         }
     }
 
-    @Override // com.baidu.tieba.by2
-    public void a(boolean z, Activity activity) {
-        long j;
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) && sk2.a() && !z) {
-            if (a) {
-                j = System.currentTimeMillis();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - b;
+            if (currentTimeMillis < 800 && TextUtils.equals(c, str) && TextUtils.equals(d, str2)) {
+                z = true;
             } else {
-                j = 0;
+                z = false;
             }
-            boolean B = tp3.B();
-            if (a) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("DiskCleanerLifecycleObserver", "detect all process is on baground cost - " + (currentTimeMillis - j) + "ms");
+            if (a && z) {
+                Log.d("SeriesLaunchChecker", "CurrentLaunchInterval:" + currentTimeMillis + ",PreventSeriesLaunchInterval:800");
             }
-            if (B) {
-                boolean n = uk2.n();
-                c92.k("DiskCleanerLifecycleObserver", "all app process in background，run clean task");
-                ok2.c().d().u(null, n, 16);
-                uk2.p(false);
-            }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
+            ExecutorUtilsExt.postOnElastic(new a(bundle), "SeriesLaunchChecker", 3);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c = str;
+            d = str2;
         }
     }
 }

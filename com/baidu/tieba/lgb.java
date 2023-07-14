@@ -1,38 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.animation.Animator;
+import android.app.Activity;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fgb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
+import com.bytedance.sdk.openadsdk.ISplashClickEyeListener;
+import com.bytedance.sdk.openadsdk.TTSplashAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.PxUtils;
+import com.fun.ad.sdk.internal.api.utils.ViewUtils;
 /* loaded from: classes6.dex */
-public class lgb implements dgb {
+public class lgb implements FunSplashAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Context b;
-    public final String c;
-    public final agb d;
-    public final ngb e;
-    public final ogb f;
-    public final Map<String, String> g;
-    public final List<vgb> h;
-    public final Map<String, String> i;
+    public final TTSplashAd a;
+    public final View b;
+    public final Pair<Integer, Integer> c;
+    public final int d;
+    public final int e;
+    public boolean f;
+    public int g;
+    public int h;
+    public FrameLayout i;
+    public FunSplashAdInteractionListener j;
 
-    public lgb(Context context, String str, agb agbVar, InputStream inputStream, Map<String, String> map, List<vgb> list, String str2) {
+    public lgb(TTSplashAd tTSplashAd) {
+        Integer valueOf;
+        int round;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, agbVar, inputStream, map, list, str2};
+            Object[] objArr = {tTSplashAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,115 +54,225 @@ public class lgb implements dgb {
                 return;
             }
         }
-        this.i = new HashMap();
-        context = context.getApplicationContext() != null ? context.getApplicationContext() : context;
-        this.b = context;
-        str = str == null ? context.getPackageName() : str;
-        this.c = str;
-        if (inputStream != null) {
-            this.e = new rgb(inputStream, str);
-            jgb.a(inputStream);
+        this.d = PxUtils.dp2px(16.0f);
+        this.e = PxUtils.dp2px(100.0f);
+        this.i = new FrameLayout(FunAdSdk.getAppContext());
+        tTSplashAd.setSplashClickEyeListener(new a(this));
+        this.a = tTSplashAd;
+        this.b = tTSplashAd.getSplashView();
+        int[] splashClickEyeSizeToDp = tTSplashAd.getSplashClickEyeSizeToDp();
+        if (splashClickEyeSizeToDp == null || splashClickEyeSizeToDp.length != 2) {
+            DisplayMetrics displayMetrics = FunAdSdk.getAppContext().getResources().getDisplayMetrics();
+            int round2 = Math.round(Math.min(displayMetrics.heightPixels, displayMetrics.widthPixels) * 0.3f);
+            valueOf = Integer.valueOf(round2);
+            round = Math.round((round2 * 16) / 9.0f);
         } else {
-            this.e = new ugb(this.b, str);
+            valueOf = Integer.valueOf(PxUtils.dp2px(splashClickEyeSizeToDp[0]));
+            round = PxUtils.dp2px(splashClickEyeSizeToDp[1]);
         }
-        this.f = new ogb(this.e);
-        if (agbVar != agb.b && "1.0".equals(this.e.a("/configuration_version", null))) {
-            throw new RuntimeException("The file version does not match,please download the latest agconnect-services.json from the AGC website.");
-        }
-        this.d = (agbVar == null || agbVar == agb.b) ? jgb.f(this.e.a("/region", null), this.e.a("/agcgw/url", null)) : agbVar;
-        this.g = jgb.d(map);
-        this.h = list;
-        this.a = str2 == null ? e() : str2;
+        this.c = Pair.create(valueOf, Integer.valueOf(round));
     }
 
-    @Override // com.baidu.tieba.dgb
-    public String a(String str) {
-        InterceptResult invokeL;
+    public final void a(ViewGroup viewGroup, float f, float f2, int[] iArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f(str, null) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dgb
-    public agb b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            agb agbVar = this.d;
-            return agbVar == null ? agb.b : agbVar;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            ViewUtils.removeFromParent(this.b);
+            this.b.setScaleX(1.0f);
+            this.b.setScaleY(1.0f);
+            this.b.setX(0.0f);
+            this.b.setY(0.0f);
+            int[] iArr2 = new int[2];
+            viewGroup.getLocationOnScreen(iArr2);
+            float f3 = (f2 - iArr2[1]) + iArr[1];
+            this.i.addView(this.b, -1, -1);
+            viewGroup.addView(this.i, new FrameLayout.LayoutParams(i, i2));
+            this.i.setTranslationX((f - iArr2[0]) + iArr[0]);
+            this.i.setTranslationY(f3);
+            this.a.splashClickEyeAnimationFinish();
         }
-        return (agb) invokeV.objValue;
     }
 
-    public final String c(String str) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunSplashAd
+    public void removeMiniWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Map<String, fgb.a> a = fgb.a();
-            if (a.containsKey(str)) {
-                if (this.i.containsKey(str)) {
-                    return this.i.get(str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            FrameLayout frameLayout = this.i;
+            if (frameLayout != null) {
+                ViewUtils.removeFromParent(frameLayout);
+                this.i = null;
+            }
+            this.j = null;
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunSplashAd
+    public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
+            if (activity != null) {
+                if (!this.f) {
+                    LogPrinter.d("showMiniWindow failed without support", new Object[0]);
+                    return false;
+                } else if (this.i == null) {
+                    LogPrinter.d("showMiniWindow failed:Can't showMiniWindow again", new Object[0]);
+                    return false;
+                } else {
+                    this.j = funSplashAdInteractionListener;
+                    ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+                    ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(16908290);
+                    int[] iArr = new int[2];
+                    this.b.getLocationOnScreen(iArr);
+                    int width = this.b.getWidth();
+                    int height = this.b.getHeight();
+                    int i = this.g;
+                    int i2 = this.h;
+                    if (i == 0 || i2 == 0) {
+                        LogPrinter.d("showMiniWindow failed without invalid origin view width and height", new Object[0]);
+                        return false;
+                    }
+                    int intValue = ((Integer) this.c.first).intValue();
+                    int intValue2 = ((Integer) this.c.second).intValue();
+                    float f = intValue / width;
+                    float f2 = intValue2 / height;
+                    float f3 = (i - this.d) - intValue;
+                    float f4 = (i2 - this.e) - intValue2;
+                    ViewUtils.removeFromParent(this.b);
+                    viewGroup.addView(this.b, new FrameLayout.LayoutParams(width, height));
+                    this.b.setPivotX(0.0f);
+                    this.b.setPivotY(0.0f);
+                    if (z) {
+                        this.b.animate().scaleX(f).scaleY(f2).x(f3).y(f4).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(300L).setListener(new b(this, viewGroup2, f3, f4, iArr, intValue, intValue2));
+                        return true;
+                    }
+                    a(viewGroup2, f3, f4, iArr, intValue, intValue2);
+                    return true;
                 }
-                fgb.a aVar = a.get(str);
-                if (aVar == null) {
-                    return null;
+            }
+            throw new IllegalArgumentException();
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements ISplashClickEyeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lgb a;
+
+        public a(lgb lgbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lgbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                String a2 = aVar.a(this);
-                this.i.put(str, a2);
-                return a2;
             }
-            return null;
+            this.a = lgbVar;
         }
-        return (String) invokeL.objValue;
-    }
 
-    public List<vgb> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (List) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return String.valueOf(("{packageName='" + this.c + "', routePolicy=" + this.d + ", reader=" + this.e.toString().hashCode() + ", customConfigMap=" + new JSONObject(this.g).toString().hashCode() + '}').hashCode());
+        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
+        public boolean isSupportSplashClickEye(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                this.a.f = z;
+                LogPrinter.d("isSupportSplashClickEye:" + z, new Object[0]);
+                return false;
+            }
+            return invokeZ.booleanValue;
         }
-        return (String) invokeV.objValue;
-    }
 
-    public String f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (str == null) {
-                return str2;
+        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
+        public void onSplashClickEyeAnimationStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
             }
-            String e = jgb.e(str);
-            String str3 = this.g.get(e);
-            if (str3 != null) {
-                return str3;
-            }
-            String c = c(e);
-            if (c != null) {
-                return c;
-            }
-            String a = this.e.a(e, str2);
-            return ogb.c(a) ? this.f.a(a, str2) : a;
         }
-        return (String) invokeLL.objValue;
+
+        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
+        public void onSplashClickEyeAnimationFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                ViewUtils.removeFromParent(this.a.i);
+                this.a.i = null;
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.dgb
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (Context) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class b implements Animator.AnimatorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ float b;
+        public final /* synthetic */ float c;
+        public final /* synthetic */ int[] d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ lgb g;
 
-    @Override // com.baidu.tieba.dgb
-    public String getIdentifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
+        public b(lgb lgbVar, ViewGroup viewGroup, float f, float f2, int[] iArr, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lgbVar, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = lgbVar;
+            this.a = viewGroup;
+            this.b = f;
+            this.c = f2;
+            this.d = iArr;
+            this.e = i;
+            this.f = i2;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                this.g.a(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+        }
     }
 }

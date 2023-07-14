@@ -11,7 +11,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassifierDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeAliasDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TypeAliasExpansion {
     public static final Companion Companion = new Companion(null);
     public final List<TypeProjection> arguments;
@@ -19,7 +19,7 @@ public final class TypeAliasExpansion {
     public final Map<TypeParameterDescriptor, TypeProjection> mapping;
     public final TypeAliasExpansion parent;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -65,9 +65,9 @@ public final class TypeAliasExpansion {
     }
 
     public final TypeProjection getReplacement(TypeConstructor typeConstructor) {
-        ClassifierDescriptor mo2099getDeclarationDescriptor = typeConstructor.mo2099getDeclarationDescriptor();
-        if (mo2099getDeclarationDescriptor instanceof TypeParameterDescriptor) {
-            return this.mapping.get(mo2099getDeclarationDescriptor);
+        ClassifierDescriptor mo2101getDeclarationDescriptor = typeConstructor.mo2101getDeclarationDescriptor();
+        if (mo2101getDeclarationDescriptor instanceof TypeParameterDescriptor) {
+            return this.mapping.get(mo2101getDeclarationDescriptor);
         }
         return null;
     }

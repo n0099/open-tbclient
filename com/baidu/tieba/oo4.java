@@ -1,23 +1,22 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.pms.model.PMSPkgStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
+import com.baidu.webkit.internal.ETAG;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class oo4 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, po4> a;
-    public static HashMap<String, po4> b;
+    public static volatile oo4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public oo4() {
@@ -34,105 +33,168 @@ public class oo4 {
         }
     }
 
-    public static String d() {
+    public static oo4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return nj4.c().a("SwanDownloadApiStrategy").getString("version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static po4 a(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (a == null) {
                 synchronized (oo4.class) {
                     if (a == null) {
-                        HashMap<String, po4> hashMap = new HashMap<>();
-                        a = hashMap;
-                        e(hashMap, "download_api_ctrl");
+                        a = new oo4();
                     }
                 }
             }
-            return c(str, a);
+            return a;
         }
-        return (po4) invokeL.objValue;
+        return (oo4) invokeV.objValue;
     }
 
-    @NonNull
-    public static po4 b(@Nullable String str) {
-        InterceptResult invokeL;
+    public static void b(tk4 tk4Var, dp4 dp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (b == null) {
-                synchronized (oo4.class) {
-                    if (b == null) {
-                        HashMap<String, po4> hashMap = new HashMap<>();
-                        b = hashMap;
-                        e(hashMap, "preload_api_ctrl");
-                    }
-                }
-            }
-            return c(str, b);
-        }
-        return (po4) invokeL.objValue;
-    }
-
-    public static void f(@Nullable JSONObject jSONObject) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeLL(65538, null, tk4Var, dp4Var) != null) || tk4Var == null) {
             return;
         }
-        String optString = jSONObject.optString("version");
-        JSONObject optJSONObject = jSONObject.optJSONObject("data");
-        es4 a2 = nj4.c().a("SwanDownloadApiStrategy");
-        a2.putString("version", optString);
-        if (optJSONObject != null) {
-            str = optJSONObject.toString();
-        } else {
-            str = null;
-        }
-        a2.putString("data", str);
+        dp4Var.a(tk4Var, PMSPkgStatus.WAIT);
     }
 
-    @NonNull
-    public static po4 c(@Nullable String str, @NonNull HashMap<String, po4> hashMap) {
-        InterceptResult invokeLL;
-        po4 po4Var;
+    public void c(JSONArray jSONArray, qj4 qj4Var, qj4 qj4Var2, qj4 qj4Var3) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, hashMap)) == null) {
-            if (!TextUtils.isEmpty(str) && (po4Var = hashMap.get(str)) != null) {
-                return po4Var;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, qj4Var, qj4Var2, qj4Var3) == null) && jSONArray != null && jSONArray.length() != 0) {
+            no4 no4Var = new no4();
+            no4 no4Var2 = new no4();
+            no4 no4Var3 = new no4();
+            dp4 dp4Var = new dp4();
+            dp4 dp4Var2 = new dp4();
+            dp4 dp4Var3 = new dp4();
+            po4 po4Var = null;
+            if (qj4Var3 != null) {
+                po4Var = qj4Var3.w("so");
             }
-            po4 po4Var2 = hashMap.get("default");
-            if (po4Var2 != null) {
-                return po4Var2;
-            }
-            return po4.a();
-        }
-        return (po4) invokeLL.objValue;
-    }
-
-    public static void e(@NonNull HashMap<String, po4> hashMap, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, hashMap, str) == null) {
-            try {
-                JSONObject optJSONObject = new JSONObject(nj4.c().a("SwanDownloadApiStrategy").getString("data", "{}")).optJSONObject(str);
-                if (optJSONObject != null) {
-                    Iterator<String> keys = optJSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!TextUtils.isEmpty(next)) {
-                            hashMap.put(next, po4.b(optJSONObject.optJSONObject(next)));
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i);
+                    String string = jSONObject.getString("type");
+                    if (!TextUtils.isEmpty(string)) {
+                        JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+                        if (!TextUtils.isEmpty(jSONObject2.getString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME))) {
+                            switch (string.hashCode()) {
+                                case -612557761:
+                                    if (string.equals(ETAG.KEY_EXTENSION)) {
+                                        c = 2;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 3676:
+                                    if (string.equals("so")) {
+                                        c = 4;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 99308:
+                                    if (string.equals("ddl")) {
+                                        c = 5;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 54573042:
+                                    if (string.equals("extension_game")) {
+                                        c = 3;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 714512640:
+                                    if (string.equals("bbasp_core")) {
+                                        c = 0;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 714618195:
+                                    if (string.equals("bbasp_game")) {
+                                        c = 1;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                default:
+                                    c = 65535;
+                                    break;
+                            }
+                            if (c != 0) {
+                                if (c != 1) {
+                                    if (c != 2) {
+                                        if (c != 3) {
+                                            if (c != 4) {
+                                                if (c == 5) {
+                                                    if (no4Var3.e == null) {
+                                                        no4Var3.e = new ArrayList();
+                                                    }
+                                                    wk4 wk4Var = (wk4) cp4.j(jSONObject2, new wk4());
+                                                    b(wk4Var, dp4Var3);
+                                                    no4Var3.e.add(wk4Var);
+                                                }
+                                            } else if (po4Var != null) {
+                                                po4Var.l(jSONObject2);
+                                            }
+                                        } else {
+                                            qk4 qk4Var = (qk4) cp4.j(jSONObject2, new qk4());
+                                            if (qk4Var != null) {
+                                                b(qk4Var, dp4Var2);
+                                                no4Var2.c = qk4Var;
+                                            }
+                                        }
+                                    } else {
+                                        qk4 qk4Var2 = (qk4) cp4.j(jSONObject2, new qk4());
+                                        if (qk4Var2 != null) {
+                                            b(qk4Var2, dp4Var);
+                                            no4Var.c = qk4Var2;
+                                        }
+                                    }
+                                } else {
+                                    sk4 sk4Var = (sk4) cp4.j(jSONObject2, new sk4());
+                                    if (sk4Var != null) {
+                                        b(sk4Var, dp4Var2);
+                                        no4Var2.a = sk4Var;
+                                    }
+                                }
+                            } else {
+                                sk4 sk4Var2 = (sk4) cp4.j(jSONObject2, new sk4());
+                                if (sk4Var2 != null) {
+                                    b(sk4Var2, dp4Var);
+                                    no4Var.b = sk4Var2;
+                                }
+                            }
                         }
                     }
+                } catch (JSONException unused) {
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+            }
+            if (qj4Var != null) {
+                if (dp4Var.n() == 0) {
+                    qj4Var.F();
+                } else {
+                    qj4Var.G(dp4Var);
+                    gl4.e(no4Var, qj4Var);
+                }
+            }
+            if (qj4Var2 != null) {
+                if (dp4Var2.n() == 0) {
+                    qj4Var2.F();
+                } else {
+                    qj4Var2.G(dp4Var2);
+                    gl4.e(no4Var2, qj4Var2);
+                }
+            }
+            if (po4Var != null) {
+                po4Var.o();
+            }
+            if (dp4Var3.n() > 0 && gj4.b() != null) {
+                gj4.b().t(no4Var3, dp4Var3);
             }
         }
     }

@@ -1,173 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.g55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
-import tbclient.PopInfo;
 /* loaded from: classes8.dex */
-public class xr7 {
+public class xr7 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FrsFragment a;
-    public b b;
+    public FrsFragment m;
+    public FrsActivity n;
+    public boolean o;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<Void, Void, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xr7 a;
-
-        /* loaded from: classes8.dex */
-        public class a implements g55.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // com.baidu.tieba.g55.e
-            public void onClick(g55 g55Var) {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeL(1048576, this, g55Var) != null) || g55Var == null) {
-                    return;
-                }
-                g55Var.dismiss();
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.xr7$b$b  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0532b implements g55.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ PopInfo a;
-            public final /* synthetic */ b b;
-
-            public C0532b(b bVar, PopInfo popInfo) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, popInfo};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = popInfo;
-            }
-
-            @Override // com.baidu.tieba.g55.e
-            public void onClick(g55 g55Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, g55Var) == null) {
-                    UrlManager.getInstance().dealOneLink(this.b.a.a.getPageContext(), new String[]{this.a.ahead_url});
-                    if (g55Var == null) {
-                        return;
-                    }
-                    g55Var.dismiss();
-                }
-            }
-        }
-
-        public b(xr7 xr7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xr7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xr7Var;
-        }
-
-        public /* synthetic */ b(xr7 xr7Var, a aVar) {
-            this(xr7Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Boolean doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                f55.d();
-                xe<String> e = f55.e("tb.enter_frs_dialog_list");
-                String encode = URLEncoder.encode(this.a.a.c1().getForum().getName());
-                if (e.get(encode) == null) {
-                    e.g(encode, "1");
-                    return Boolean.TRUE;
-                }
-                return Boolean.FALSE;
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) != null) || !bool.booleanValue() || !this.a.c() || !this.a.a.isAdded()) {
-                return;
-            }
-            PopInfo popInfo = this.a.a.c1().enterFrsDialogInfo;
-            g55 g55Var = new g55(this.a.a.getActivity());
-            g55Var.setTitle(popInfo.title);
-            g55Var.setMessage(popInfo.v_title);
-            g55Var.isShowTitleAndMessage();
-            g55Var.setNegativeButton(popInfo.ok_info, new a(this));
-            g55Var.setPositiveButton(popInfo.ahead_info, new C0532b(this, popInfo));
-            g55Var.create(this.a.a.getPageContext()).show();
-        }
-    }
-
-    public xr7(FrsFragment frsFragment) {
+    public xr7(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -177,15 +33,24 @@ public class xr7 {
                 return;
             }
         }
-        this.a = frsFragment;
+        this.n = frsActivity;
+        this.m = frsFragment;
     }
 
-    public final boolean c() {
+    public void F(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.o = z;
+        }
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PopInfo popInfo = this.a.c1().enterFrsDialogInfo;
-            if (popInfo != null && !StringUtils.isNull(popInfo.ahead_info) && !StringUtils.isNull(popInfo.ahead_url) && !StringUtils.isNull(popInfo.ok_info) && !StringUtils.isNull(popInfo.title) && !StringUtils.isNull(popInfo.v_title) && this.a.c1().enterFrsDialogInfo.if_pop.intValue() != 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null && !frsFragment.K3() && TbSingleton.getInstance().getFrsResponseData() != null) {
                 return true;
             }
             return false;
@@ -193,14 +58,24 @@ public class xr7 {
         return invokeV.booleanValue;
     }
 
-    public void d() {
-        FrsFragment frsFragment;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !TbadkCoreApplication.isLogin() || (frsFragment = this.a) == null || frsFragment.c1() == null || this.a.c1().getForum() == null || StringUtils.isNull(this.a.c1().getForum().getName()) || this.a.c1().enterFrsDialogInfo == null || !c() || this.b != null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (m65.k() || !this.o || !nv7.d(TbSingleton.getInstance().getFrsResponseData(), this.m)) {
+                return false;
+            }
+            return true;
         }
-        b bVar = new b(this, null);
-        this.b = bVar;
-        bVar.execute(new Void[0]);
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            t();
+        }
     }
 }

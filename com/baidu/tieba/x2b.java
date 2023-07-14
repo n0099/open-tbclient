@@ -1,37 +1,49 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class x2b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public boolean d;
+    public int e;
+    public String f;
 
-    public static String a(File file, Object obj) {
-        InterceptResult invokeLL;
-        String b;
+    public x2b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, obj)) == null) {
-            synchronized (obj) {
-                b = y2b.b(file);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return b;
         }
-        return (String) invokeLL.objValue;
+        this.a = true;
+        this.b = false;
+        this.c = 60;
+        this.d = true;
+        this.e = 0;
+        this.f = "99999";
     }
 
-    public static boolean b(String str, File file, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        boolean e;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, file, Boolean.valueOf(z), obj})) == null) {
-            synchronized (obj) {
-                e = y2b.e(str, file, z);
-            }
-            return e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return TextUtils.equals(str, "99999");
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,142 +1,97 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import kotlin.collections.CollectionsKt__MutableCollectionsJVMKt;
-import kotlin.collections.CollectionsKt__MutableCollectionsKt;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class st6 extends qt6 implements i0 {
+public final class st6 implements qc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k0 e;
-    public final Comparator<h0> f;
-    public final List<h0> g;
-    public boolean h;
+    public final HashMap<String, String> a;
 
-    @Override // com.baidu.tieba.qt6
-    public void j() {
+    @Override // com.baidu.tieba.qc7
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW : (String) invokeV.objValue;
     }
 
-    public abstract void l(h0 h0Var, float f);
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public st6(nt6 context, k0 family, Comparator<h0> comparator) {
-        super(context);
+    public st6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, family, comparator};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((nt6) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(family, "family");
-        Intrinsics.checkNotNullParameter(comparator, "comparator");
-        this.e = family;
-        this.f = comparator;
-        this.g = new ArrayList();
+        this.a = new HashMap<>();
     }
 
-    public /* synthetic */ st6(nt6 nt6Var, k0 k0Var, Comparator comparator, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(nt6Var, k0Var, (i & 4) != 0 ? new rt6() : comparator);
-    }
-
-    public void a(h0 entity) {
+    @Override // com.baidu.tieba.qc7
+    public Map<String, String> a(d87 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, entity) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            this.g.remove(entity);
-            this.h = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.i0
-    public void b(h0 entity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entity) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            this.g.add(entity);
-            this.h = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.qt6, com.baidu.tieba.j0
-    public void g(g0 engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            super.g(engine);
-            engine.o(this);
-            this.g.clear();
-            this.h = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.j0
-    public void update(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            m();
-            for (h0 h0Var : this.g) {
-                l(h0Var, f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            Map<String, String> a = businessInfo.a();
+            HashMap<String, String> hashMap = this.a;
+            String str = a.get("has_customstate");
+            String str2 = "";
+            if (str == null) {
+                str = "";
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.j0
-    public void c(g0 engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            this.g.clear();
-            r0<h0> newEntities = engine.j(this.e);
-            if (newEntities.size() > 0) {
-                List<h0> list = this.g;
-                Intrinsics.checkNotNullExpressionValue(newEntities, "newEntities");
-                CollectionsKt__MutableCollectionsKt.addAll(list, newEntities);
+            hashMap.put("obj_source", str);
+            if (Intrinsics.areEqual(a.get("has_customstate"), "1")) {
+                HashMap<String, String> hashMap2 = this.a;
+                String str3 = a.get("customstate_name");
+                if (str3 == null) {
+                    str3 = "";
+                }
+                hashMap2.put("obj_name", str3);
             }
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
-            this.h = false;
-            engine.f(this.e, this);
+            HashMap<String, String> hashMap3 = this.a;
+            String str4 = a.get("user_id");
+            if (str4 != null) {
+                str2 = str4;
+            }
+            hashMap3.put(TiebaStatic.Params.FRIEND_UID, str2);
+            return this.a;
         }
+        return (Map) invokeL.objValue;
     }
 
-    public final List<h0> k() {
-        InterceptResult invokeV;
+    public final st6 b(String locate) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            m();
-            return this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
+            Intrinsics.checkNotNullParameter(locate, "locate");
+            this.a.put("obj_locate", locate);
+            return this;
         }
-        return (List) invokeV.objValue;
+        return (st6) invokeL.objValue;
     }
 
-    public final void m() {
+    public final st6 d(String type) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.h) {
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
-            this.h = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, type)) == null) {
+            Intrinsics.checkNotNullParameter(type, "type");
+            this.a.put("obj_type", type);
+            return this;
         }
+        return (st6) invokeL.objValue;
     }
 }

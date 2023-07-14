@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IPackageGetter;
-import com.baidu.nps.interfa.IPackageGetter_PackageGetter_Provider;
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,20 +12,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class gf1 {
     public static /* synthetic */ Interceptable $ic;
     public static gf1 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public jl1<IPackageGetter> a;
+    public cl1<IWebViewDataDirectoryManager> a;
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hl1 b2 = hl1.b();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            al1 b2 = al1.b();
             this.a = b2;
-            b2.a(new IPackageGetter_PackageGetter_Provider());
+            b2.a(new IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider());
         }
     }
 
@@ -57,7 +58,7 @@ public class gf1 {
                 return;
             }
         }
-        c();
+        b();
     }
 
     public static gf1 a() {
@@ -69,12 +70,13 @@ public class gf1 {
         return (gf1) invokeV.objValue;
     }
 
-    public IPackageGetter b() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (zf1.a()) {
+                Log.i("NPS-WebViewDataDirec", "webViewDataDirectoryManagerHolder class=" + this.a.getClass());
+            }
+            this.a.get().setDataDirectorySuffix();
         }
-        return (IPackageGetter) invokeV.objValue;
     }
 }

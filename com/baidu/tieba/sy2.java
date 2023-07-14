@@ -9,10 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sy2 extends oy2 {
+public class sy2 implements u13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vy2 z;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
 
     public sy2() {
         Interceptable interceptable = $ic;
@@ -24,16 +27,21 @@ public class sy2 extends oy2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = Integer.MIN_VALUE;
+        this.b = Integer.MIN_VALUE;
+        this.c = -1;
+        this.d = -1;
     }
 
-    @Override // com.baidu.tieba.s72, com.baidu.tieba.b23
+    @Override // com.baidu.tieba.u13
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.z != null) {
+            if (this.a != Integer.MIN_VALUE && this.b != Integer.MIN_VALUE) {
                 return true;
             }
             return false;
@@ -41,22 +49,24 @@ public class sy2 extends oy2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.oy2, com.baidu.tieba.s72, com.baidu.tieba.b23
+    @Override // com.baidu.tieba.u13
     public void a(JSONObject jSONObject) throws JSONException {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        jSONObject.optString("cb");
-        double optDouble = jSONObject.optDouble("latitude");
-        double optDouble2 = jSONObject.optDouble("longitude");
-        jSONObject.optString("guideKey");
-        jSONObject.optString("guideIcon");
-        if (!Double.isNaN(optDouble) && !Double.isNaN(optDouble2) && optDouble >= -90.0d && optDouble <= 90.0d && optDouble2 >= -180.0d && optDouble2 <= 180.0d) {
-            vy2 vy2Var = new vy2();
-            this.z = vy2Var;
-            vy2Var.a(jSONObject);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("left") && jSONObject.has("top")) {
+            this.a = mp3.g(jSONObject.optInt("left"));
+            this.b = mp3.g(jSONObject.optInt("top"));
+            int i2 = -1;
+            if (jSONObject.has("width")) {
+                i = Math.abs(mp3.g(jSONObject.optInt("width")));
+            } else {
+                i = -1;
+            }
+            this.c = i;
+            if (jSONObject.has("height")) {
+                i2 = Math.abs(mp3.g(jSONObject.optInt("height")));
+            }
+            this.d = i2;
         }
     }
 }

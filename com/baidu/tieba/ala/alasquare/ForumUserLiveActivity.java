@@ -20,15 +20,15 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.va6;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.zb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements va6 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements zb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -41,8 +41,8 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements va6 {
     public PollingModel h;
     public CustomMessageListener i;
 
-    @Override // com.baidu.tieba.va6
-    public boolean Y0() {
+    @Override // com.baidu.tieba.zb6
+    public boolean W0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -142,7 +142,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements va6 {
         this.i = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.va6
+    @Override // com.baidu.tieba.zb6
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements va6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
-            s75.d(this.b).f(R.color.CAM_X0202);
+            d85.d(this.b).f(R.color.CAM_X0202);
             LiveTabYYSubFragment liveTabYYSubFragment = this.c;
             if (liveTabYYSubFragment != null) {
                 liveTabYYSubFragment.changeSkinType(i);
@@ -192,15 +192,15 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements va6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d030d);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091876);
+            setContentView(R.layout.obfuscated_res_0x7f0d0316);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09188c);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f07dc));
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f07e5));
             int i = 2;
             this.c = LiveTabYYSubFragment.Y1(false, 2, 4);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0907a1);
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0907a1, this.c).commitAllowingStateLoss();
+            this.b = findViewById(R.id.obfuscated_res_0x7f0907a2);
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0907a2, this.c).commitAllowingStateLoss();
             this.e = getIntent().getStringExtra("KEY_FORUM_ID");
             String stringExtra = getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME);
             this.d = getIntent().getStringExtra("from");
@@ -214,7 +214,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements va6 {
             registerListener(this.i);
             PollingModel pollingModel = new PollingModel(getPageContext(), getUniqueId());
             this.h = pollingModel;
-            pollingModel.C0(PollingModel.MEMBER_BROADCAST);
+            pollingModel.D0(PollingModel.MEMBER_BROADCAST);
         }
     }
 
@@ -241,6 +241,6 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements va6 {
         if (str == null) {
             str = "";
         }
-        bottomCommonTipLayout.o(memberBroadcastData, "frs_list_vip_brd", 2, str);
+        bottomCommonTipLayout.p(memberBroadcastData, "frs_list_vip_brd", 2, str);
     }
 }

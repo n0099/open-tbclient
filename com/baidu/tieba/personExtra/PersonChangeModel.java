@@ -16,7 +16,7 @@ import com.baidu.tieba.l9;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,11 +97,11 @@ public class PersonChangeModel extends BdBaseModel {
                 }
                 if (z) {
                     ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
-                    this.a.X(profileSocketResponseMessage.getNicknameInfo(), profileSocketResponseMessage.GetUser());
+                    this.a.Y(profileSocketResponseMessage.getNicknameInfo(), profileSocketResponseMessage.GetUser());
                 }
                 if (responsedMessage instanceof ProfileHttpResponseMessage) {
                     ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
-                    this.a.X(profileHttpResponseMessage.getNicknameInfo(), profileHttpResponseMessage.GetUser());
+                    this.a.Y(profileHttpResponseMessage.getNicknameInfo(), profileHttpResponseMessage.GetUser());
                 }
                 if (this.a.b != null) {
                     this.a.b.b();
@@ -139,14 +139,14 @@ public class PersonChangeModel extends BdBaseModel {
         registerListener(this.c);
     }
 
-    public void Z(b bVar) {
+    public void a0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.b = bVar;
         }
     }
 
-    public boolean W() {
+    public boolean X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -162,7 +162,7 @@ public class PersonChangeModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public final void X(NicknameInfo nicknameInfo, User user) {
+    public final void Y(NicknameInfo nicknameInfo, User user) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nicknameInfo, user) == null) {
@@ -217,7 +217,7 @@ public class PersonChangeModel extends BdBaseModel {
         }
     }
 
-    public PersonChangeData Y() {
+    public PersonChangeData Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -232,13 +232,13 @@ public class PersonChangeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e0f));
+                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e1f));
                 return false;
             } else if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;
             } else {
                 ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
-                profileRequestMessage.set_uid(Long.valueOf(vg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
+                profileRequestMessage.set_uid(Long.valueOf(wg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
                 profileRequestMessage.set_pn(1);
                 profileRequestMessage.set_rn(1);
                 profileRequestMessage.set_has_plist(1);

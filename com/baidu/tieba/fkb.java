@@ -2,99 +2,87 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ckb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.SoftReference;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 /* loaded from: classes5.dex */
-public final class fkb {
+public class fkb extends FunNativeAd2Bridger<wjb, View> {
     public static /* synthetic */ Interceptable $ic;
-    public static SoftReference<fkb> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public gkb a;
-    public String b;
-    public Context c;
+    public boolean b;
+    public ckb.b c;
+    public final /* synthetic */ Context d;
+    public final /* synthetic */ ckb e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947768428, "Lcom/baidu/tieba/fkb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947768428, "Lcom/baidu/tieba/fkb;");
-        }
-    }
-
-    public fkb(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fkb(ckb ckbVar, ReporterPidLoader reporterPidLoader, Context context) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {ckbVar, reporterPidLoader, context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        kkb.b();
-        this.a = new gkb(context, str);
-        this.b = str;
-        this.c = context;
+        this.e = ckbVar;
+        this.d = context;
     }
 
-    public static fkb b(Context context, String str) {
-        InterceptResult invokeLL;
-        fkb fkbVar;
-        fkb fkbVar2;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, wjb wjbVar, BaseNativeAd2<wjb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (context != null && str != null) {
-                SoftReference<fkb> softReference = d;
-                if (softReference == null) {
-                    fkbVar = null;
-                } else {
-                    fkbVar = softReference.get();
-                }
-                if (fkbVar == null || !str.equals(fkbVar.b)) {
-                    synchronized (fkb.class) {
-                        fkbVar2 = new fkb(context, str);
-                        d = new SoftReference<>(fkbVar2);
-                    }
-                    return fkbVar2;
-                }
-                return fkbVar;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, wjbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(wjb wjbVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wjbVar)) == null) {
+            return this.e.f(this.d, wjbVar);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, wjb wjbVar, BaseNativeAd2<wjb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, wjbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            wjb wjbVar2 = wjbVar;
+            this.e.onShowStart(wjbVar2, this.b);
+            this.b = true;
+            View expressView = expressInflater.getExpressView();
+            if (this.c == null) {
+                ckb ckbVar = this.e;
+                ckb.b bVar = new ckb.b(ckbVar, wjbVar2, expressView, str);
+                this.c = bVar;
+                ckbVar.h(wjbVar2, bVar);
             }
-            throw new IllegalArgumentException("YYOpenSDK createInstance failed, Make sure context or appid is not null!");
-        }
-        return (fkb) invokeLL.objValue;
-    }
-
-    public final void a(Activity activity, dkb dkbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, dkbVar) == null) {
-            this.a.c(activity, "123", dkbVar);
-        }
-    }
-
-    public final void c(int i, int i2, Intent intent, dkb dkbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, dkbVar}) == null) {
-            this.a.d(i, i2, intent, dkbVar);
+            this.c.d = funAdInteractionListener;
+            expressInflater.inflate();
         }
     }
 }

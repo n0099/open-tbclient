@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class BDHttpDnsResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public class BDHttpDnsResult {
     public ArrayList<String> d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static final class ResolveStatus {
         public static final /* synthetic */ ResolveStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -89,7 +89,7 @@ public class BDHttpDnsResult {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static final class ResolveType {
         public static final /* synthetic */ ResolveType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

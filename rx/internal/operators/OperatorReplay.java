@@ -1,19 +1,19 @@
 package rx.internal.operators;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.atb;
-import com.baidu.tieba.ayb;
-import com.baidu.tieba.bxb;
-import com.baidu.tieba.dtb;
-import com.baidu.tieba.etb;
-import com.baidu.tieba.jtb;
-import com.baidu.tieba.ktb;
-import com.baidu.tieba.kvb;
-import com.baidu.tieba.ltb;
-import com.baidu.tieba.otb;
-import com.baidu.tieba.rxb;
-import com.baidu.tieba.xsb;
-import com.baidu.tieba.zsb;
+import com.baidu.tieba.a2c;
+import com.baidu.tieba.b2c;
+import com.baidu.tieba.g2c;
+import com.baidu.tieba.h2c;
+import com.baidu.tieba.h4c;
+import com.baidu.tieba.i2c;
+import com.baidu.tieba.l2c;
+import com.baidu.tieba.o6c;
+import com.baidu.tieba.u1c;
+import com.baidu.tieba.w1c;
+import com.baidu.tieba.x1c;
+import com.baidu.tieba.x6c;
+import com.baidu.tieba.y5c;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,11 +23,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes2.dex */
-public final class OperatorReplay<T> extends bxb<T> {
-    public static final otb e = new a();
-    public final xsb<? extends T> b;
+public final class OperatorReplay<T> extends y5c<T> {
+    public static final l2c e = new a();
+    public final u1c<? extends T> b;
     public final AtomicReference<f<T>> c;
-    public final otb<? extends e<T>> d;
+    public final l2c<? extends e<T>> d;
 
     /* loaded from: classes2.dex */
     public interface e<T> {
@@ -41,7 +41,7 @@ public final class OperatorReplay<T> extends bxb<T> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class f<T> extends dtb<T> implements etb {
+    public static final class f<T> extends a2c<T> implements b2c {
         public static final InnerProducer[] t = new InnerProducer[0];
         public final e<T> e;
         public boolean f;
@@ -52,19 +52,19 @@ public final class OperatorReplay<T> extends bxb<T> {
         public boolean n;
         public long o;
         public long p;
-        public volatile zsb q;
+        public volatile w1c q;
         public List<InnerProducer<T>> r;
         public boolean s;
-        public final kvb<InnerProducer<T>> h = new kvb<>();
+        public final h4c<InnerProducer<T>> h = new h4c<>();
         public InnerProducer<T>[] i = t;
         public final AtomicBoolean l = new AtomicBoolean();
 
         /* loaded from: classes2.dex */
-        public class a implements ktb {
+        public class a implements h2c {
             public a() {
             }
 
-            @Override // com.baidu.tieba.ktb
+            @Override // com.baidu.tieba.h2c
             public void call() {
                 if (!f.this.g) {
                     synchronized (f.this.h) {
@@ -90,10 +90,10 @@ public final class OperatorReplay<T> extends bxb<T> {
         }
 
         public void i() {
-            b(ayb.a(new a()));
+            b(x6c.a(new a()));
         }
 
-        @Override // com.baidu.tieba.ysb
+        @Override // com.baidu.tieba.v1c
         public void onCompleted() {
             if (!this.f) {
                 this.f = true;
@@ -111,10 +111,10 @@ public final class OperatorReplay<T> extends bxb<T> {
             e(0L);
         }
 
-        @Override // com.baidu.tieba.dtb
-        public void f(zsb zsbVar) {
+        @Override // com.baidu.tieba.a2c
+        public void f(w1c w1cVar) {
             if (this.q == null) {
-                this.q = zsbVar;
+                this.q = w1cVar;
                 k(null);
                 m();
                 return;
@@ -155,7 +155,7 @@ public final class OperatorReplay<T> extends bxb<T> {
             }
         }
 
-        @Override // com.baidu.tieba.ysb
+        @Override // com.baidu.tieba.v1c
         public void onError(Throwable th) {
             if (!this.f) {
                 this.f = true;
@@ -168,7 +168,7 @@ public final class OperatorReplay<T> extends bxb<T> {
             }
         }
 
-        @Override // com.baidu.tieba.ysb
+        @Override // com.baidu.tieba.v1c
         public void onNext(T t2) {
             if (!this.f) {
                 this.e.next(t2);
@@ -178,17 +178,17 @@ public final class OperatorReplay<T> extends bxb<T> {
 
         public void j(long j, long j2) {
             long j3 = this.p;
-            zsb zsbVar = this.q;
+            w1c w1cVar = this.q;
             long j4 = j - j2;
             if (j4 != 0) {
                 this.o = j;
-                if (zsbVar != null) {
+                if (w1cVar != null) {
                     if (j3 != 0) {
                         this.p = 0L;
-                        zsbVar.request(j3 + j4);
+                        w1cVar.request(j3 + j4);
                         return;
                     }
-                    zsbVar.request(j4);
+                    w1cVar.request(j4);
                     return;
                 }
                 long j5 = j3 + j4;
@@ -196,9 +196,9 @@ public final class OperatorReplay<T> extends bxb<T> {
                     j5 = Long.MAX_VALUE;
                 }
                 this.p = j5;
-            } else if (j3 != 0 && zsbVar != null) {
+            } else if (j3 != 0 && w1cVar != null) {
                 this.p = 0L;
-                zsbVar.request(j3);
+                w1cVar.request(j3);
             }
         }
 
@@ -421,7 +421,7 @@ public final class OperatorReplay<T> extends bxb<T> {
 
         @Override // rx.internal.operators.OperatorReplay.e
         public final void replay(InnerProducer<T> innerProducer) {
-            dtb<? super T> dtbVar;
+            a2c<? super T> a2cVar;
             Node node;
             synchronized (innerProducer) {
                 if (innerProducer.emitting) {
@@ -436,7 +436,7 @@ public final class OperatorReplay<T> extends bxb<T> {
                         innerProducer.index = node2;
                         innerProducer.addTotalRequested(node2.index);
                     }
-                    if (innerProducer.isUnsubscribed() || (dtbVar = innerProducer.child) == null) {
+                    if (innerProducer.isUnsubscribed() || (a2cVar = innerProducer.child) == null) {
                         return;
                     }
                     long j = innerProducer.get();
@@ -444,7 +444,7 @@ public final class OperatorReplay<T> extends bxb<T> {
                     while (j2 != j && (node = node2.get()) != null) {
                         Object leaveTransform = leaveTransform(node.value);
                         try {
-                            if (NotificationLite.a(dtbVar, leaveTransform)) {
+                            if (NotificationLite.a(a2cVar, leaveTransform)) {
                                 innerProducer.index = null;
                                 return;
                             }
@@ -455,10 +455,10 @@ public final class OperatorReplay<T> extends bxb<T> {
                             node2 = node;
                         } catch (Throwable th) {
                             innerProducer.index = null;
-                            jtb.e(th);
+                            g2c.e(th);
                             innerProducer.unsubscribe();
                             if (!NotificationLite.g(leaveTransform) && !NotificationLite.f(leaveTransform)) {
-                                dtbVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(leaveTransform)));
+                                a2cVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(leaveTransform)));
                                 return;
                             }
                             return;
@@ -483,19 +483,19 @@ public final class OperatorReplay<T> extends bxb<T> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class InnerProducer<T> extends AtomicLong implements zsb, etb {
+    public static final class InnerProducer<T> extends AtomicLong implements w1c, b2c {
         public static final long UNSUBSCRIBED = Long.MIN_VALUE;
         public static final long serialVersionUID = -4453897557930727610L;
-        public dtb<? super T> child;
+        public a2c<? super T> child;
         public boolean emitting;
         public Object index;
         public boolean missed;
         public final f<T> parent;
         public final AtomicLong totalRequested = new AtomicLong();
 
-        public InnerProducer(f<T> fVar, dtb<? super T> dtbVar) {
+        public InnerProducer(f<T> fVar, a2c<? super T> a2cVar) {
             this.parent = fVar;
-            this.child = dtbVar;
+            this.child = a2cVar;
         }
 
         public void addTotalRequested(long j) {
@@ -514,7 +514,7 @@ public final class OperatorReplay<T> extends bxb<T> {
             return (U) this.index;
         }
 
-        @Override // com.baidu.tieba.etb
+        @Override // com.baidu.tieba.b2c
         public boolean isUnsubscribed() {
             if (get() == Long.MIN_VALUE) {
                 return true;
@@ -522,7 +522,7 @@ public final class OperatorReplay<T> extends bxb<T> {
             return false;
         }
 
-        @Override // com.baidu.tieba.etb
+        @Override // com.baidu.tieba.b2c
         public void unsubscribe() {
             if (get() != Long.MIN_VALUE && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
                 this.parent.l(this);
@@ -550,7 +550,7 @@ public final class OperatorReplay<T> extends bxb<T> {
             throw new IllegalArgumentException("Cant produce zero or less");
         }
 
-        @Override // com.baidu.tieba.zsb
+        @Override // com.baidu.tieba.w1c
         public void request(long j) {
             long j2;
             long j3;
@@ -594,22 +594,22 @@ public final class OperatorReplay<T> extends bxb<T> {
         public static final long serialVersionUID = 3457957419649567404L;
         public final int limit;
         public final long maxAgeInMillis;
-        public final atb scheduler;
+        public final x1c scheduler;
 
-        public SizeAndTimeBoundReplayBuffer(int i, long j, atb atbVar) {
-            this.scheduler = atbVar;
+        public SizeAndTimeBoundReplayBuffer(int i, long j, x1c x1cVar) {
+            this.scheduler = x1cVar;
             this.limit = i;
             this.maxAgeInMillis = j;
         }
 
         @Override // rx.internal.operators.OperatorReplay.BoundedReplayBuffer
         public Object enterTransform(Object obj) {
-            return new rxb(this.scheduler.now(), obj);
+            return new o6c(this.scheduler.now(), obj);
         }
 
         @Override // rx.internal.operators.OperatorReplay.BoundedReplayBuffer
         public Object leaveTransform(Object obj) {
-            return ((rxb) obj).b();
+            return ((o6c) obj).b();
         }
 
         @Override // rx.internal.operators.OperatorReplay.BoundedReplayBuffer
@@ -622,7 +622,7 @@ public final class OperatorReplay<T> extends bxb<T> {
                 Node node4 = node3;
                 node = node2;
                 node2 = node4;
-                if (node2 == null || ((rxb) node2.value).a() > now) {
+                if (node2 == null || ((o6c) node2.value).a() > now) {
                     break;
                 }
                 node3 = node2.get();
@@ -647,7 +647,7 @@ public final class OperatorReplay<T> extends bxb<T> {
                         i++;
                         this.size = i2 - 1;
                         node3 = node2.get();
-                    } else if (((rxb) node2.value).a() > now) {
+                    } else if (((o6c) node2.value).a() > now) {
                         break;
                     } else {
                         i++;
@@ -682,7 +682,7 @@ public final class OperatorReplay<T> extends bxb<T> {
                 Node node3 = node2;
                 Node node4 = node;
                 node = node3;
-                if (node == null || this.size <= 1 || ((rxb) node.value).a() > now) {
+                if (node == null || this.size <= 1 || ((o6c) node.value).a() > now) {
                     break;
                 }
                 i++;
@@ -753,8 +753,8 @@ public final class OperatorReplay<T> extends bxb<T> {
                     } else {
                         i = 0;
                     }
-                    dtb<? super T> dtbVar = innerProducer.child;
-                    if (dtbVar == null) {
+                    a2c<? super T> a2cVar = innerProducer.child;
+                    if (a2cVar == null) {
                         return;
                     }
                     long j = innerProducer.get();
@@ -762,16 +762,16 @@ public final class OperatorReplay<T> extends bxb<T> {
                     while (j2 != j && i < i2) {
                         Object obj = get(i);
                         try {
-                            if (NotificationLite.a(dtbVar, obj) || innerProducer.isUnsubscribed()) {
+                            if (NotificationLite.a(a2cVar, obj) || innerProducer.isUnsubscribed()) {
                                 return;
                             }
                             i++;
                             j2++;
                         } catch (Throwable th) {
-                            jtb.e(th);
+                            g2c.e(th);
                             innerProducer.unsubscribe();
                             if (!NotificationLite.g(obj) && !NotificationLite.f(obj)) {
-                                dtbVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(obj)));
+                                a2cVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(obj)));
                                 return;
                             }
                             return;
@@ -796,15 +796,15 @@ public final class OperatorReplay<T> extends bxb<T> {
     }
 
     /* loaded from: classes2.dex */
-    public static class a implements otb {
-        @Override // com.baidu.tieba.otb
+    public static class a implements l2c {
+        @Override // com.baidu.tieba.l2c
         public Object call() {
             return new UnboundedReplayBuffer(16);
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class b implements otb<e<T>> {
+    public static class b implements l2c<e<T>> {
         public final /* synthetic */ int a;
 
         public b(int i) {
@@ -812,42 +812,42 @@ public final class OperatorReplay<T> extends bxb<T> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.otb
+        @Override // com.baidu.tieba.l2c
         public e<T> call() {
             return new SizeBoundReplayBuffer(this.a);
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class c implements otb<e<T>> {
+    public static class c implements l2c<e<T>> {
         public final /* synthetic */ int a;
         public final /* synthetic */ long b;
-        public final /* synthetic */ atb c;
+        public final /* synthetic */ x1c c;
 
-        public c(int i, long j, atb atbVar) {
+        public c(int i, long j, x1c x1cVar) {
             this.a = i;
             this.b = j;
-            this.c = atbVar;
+            this.c = x1cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.otb
+        @Override // com.baidu.tieba.l2c
         public e<T> call() {
             return new SizeAndTimeBoundReplayBuffer(this.a, this.b, this.c);
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class d implements xsb.a<T> {
+    public static class d implements u1c.a<T> {
         public final /* synthetic */ AtomicReference a;
-        public final /* synthetic */ otb b;
+        public final /* synthetic */ l2c b;
 
-        public d(AtomicReference atomicReference, otb otbVar) {
+        public d(AtomicReference atomicReference, l2c l2cVar) {
             this.a = atomicReference;
-            this.b = otbVar;
+            this.b = l2cVar;
         }
 
-        public void call(dtb<? super T> dtbVar) {
+        public void call(a2c<? super T> a2cVar) {
             f fVar;
             while (true) {
                 fVar = (f) this.a.get();
@@ -861,52 +861,52 @@ public final class OperatorReplay<T> extends bxb<T> {
                     break;
                 }
             }
-            InnerProducer<T> innerProducer = new InnerProducer<>(fVar, dtbVar);
+            InnerProducer<T> innerProducer = new InnerProducer<>(fVar, a2cVar);
             fVar.g(innerProducer);
-            dtbVar.b(innerProducer);
+            a2cVar.b(innerProducer);
             fVar.e.replay(innerProducer);
-            dtbVar.f(innerProducer);
+            a2cVar.f(innerProducer);
         }
 
-        @Override // com.baidu.tieba.xsb.a, com.baidu.tieba.ltb
+        @Override // com.baidu.tieba.u1c.a, com.baidu.tieba.i2c
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((dtb) ((dtb) obj));
+            call((a2c) ((a2c) obj));
         }
     }
 
-    public OperatorReplay(xsb.a<T> aVar, xsb<? extends T> xsbVar, AtomicReference<f<T>> atomicReference, otb<? extends e<T>> otbVar) {
+    public OperatorReplay(u1c.a<T> aVar, u1c<? extends T> u1cVar, AtomicReference<f<T>> atomicReference, l2c<? extends e<T>> l2cVar) {
         super(aVar);
-        this.b = xsbVar;
+        this.b = u1cVar;
         this.c = atomicReference;
-        this.d = otbVar;
+        this.d = l2cVar;
     }
 
-    public static <T> bxb<T> Q(xsb<? extends T> xsbVar, long j, TimeUnit timeUnit, atb atbVar) {
-        return R(xsbVar, j, timeUnit, atbVar, Integer.MAX_VALUE);
+    public static <T> y5c<T> S(u1c<? extends T> u1cVar, long j, TimeUnit timeUnit, x1c x1cVar) {
+        return T(u1cVar, j, timeUnit, x1cVar, Integer.MAX_VALUE);
     }
 
-    public static <T> bxb<T> O(xsb<? extends T> xsbVar) {
-        return S(xsbVar, e);
+    public static <T> y5c<T> Q(u1c<? extends T> u1cVar) {
+        return U(u1cVar, e);
     }
 
-    public static <T> bxb<T> P(xsb<? extends T> xsbVar, int i) {
+    public static <T> y5c<T> R(u1c<? extends T> u1cVar, int i) {
         if (i == Integer.MAX_VALUE) {
-            return O(xsbVar);
+            return Q(u1cVar);
         }
-        return S(xsbVar, new b(i));
+        return U(u1cVar, new b(i));
     }
 
-    public static <T> bxb<T> S(xsb<? extends T> xsbVar, otb<? extends e<T>> otbVar) {
+    public static <T> y5c<T> U(u1c<? extends T> u1cVar, l2c<? extends e<T>> l2cVar) {
         AtomicReference atomicReference = new AtomicReference();
-        return new OperatorReplay(new d(atomicReference, otbVar), xsbVar, atomicReference, otbVar);
+        return new OperatorReplay(new d(atomicReference, l2cVar), u1cVar, atomicReference, l2cVar);
     }
 
-    public static <T> bxb<T> R(xsb<? extends T> xsbVar, long j, TimeUnit timeUnit, atb atbVar, int i) {
-        return S(xsbVar, new c(i, timeUnit.toMillis(j), atbVar));
+    public static <T> y5c<T> T(u1c<? extends T> u1cVar, long j, TimeUnit timeUnit, x1c x1cVar, int i) {
+        return U(u1cVar, new c(i, timeUnit.toMillis(j), x1cVar));
     }
 
-    @Override // com.baidu.tieba.bxb
-    public void N(ltb<? super etb> ltbVar) {
+    @Override // com.baidu.tieba.y5c
+    public void P(i2c<? super b2c> i2cVar) {
         f<T> fVar;
         while (true) {
             fVar = this.c.get();
@@ -922,9 +922,9 @@ public final class OperatorReplay<T> extends bxb<T> {
         }
         boolean z = true;
         z = (fVar.l.get() || !fVar.l.compareAndSet(false, true)) ? false : false;
-        ltbVar.call(fVar);
+        i2cVar.call(fVar);
         if (z) {
-            this.b.M(fVar);
+            this.b.O(fVar);
         }
     }
 }

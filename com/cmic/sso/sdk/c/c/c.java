@@ -149,18 +149,6 @@ public class c {
         return (String) invokeV.objValue;
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (e.a(this.f) && !this.b.contains("logReport") && !this.b.contains("uniConfig")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
     public Network h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -228,5 +216,17 @@ public class c {
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.e = z;
         }
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (e.a(this.f) && !this.b.contains("logReport") && !this.b.contains("uniConfig")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

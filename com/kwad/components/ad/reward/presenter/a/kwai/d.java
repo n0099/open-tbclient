@@ -14,7 +14,7 @@ import com.kwad.components.ad.reward.m;
 import com.kwad.components.core.video.DetailVideoView;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d extends com.kwad.components.ad.reward.presenter.a implements b.a {
     public FrameLayout bS;
     public com.kwad.components.ad.i.b bb;
@@ -48,12 +48,12 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         }
         k kVar = this.nM;
         bVar.a(frameLayout, kVar.mRootContainer, adTemplate, kVar.mApkDownloadHelper, kVar.mScreenOrientation);
-        this.mn.a((b.InterfaceC0603b) null);
+        this.mn.a((b.InterfaceC0608b) null);
         ViewGroup.LayoutParams layoutParams = this.sF.getLayoutParams();
         ViewGroup.MarginLayoutParams marginLayoutParams = layoutParams instanceof ViewGroup.MarginLayoutParams ? (ViewGroup.MarginLayoutParams) layoutParams : null;
         if (marginLayoutParams != null) {
             if (ag.cB(getContext())) {
-                marginLayoutParams.bottomMargin = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704da);
+                marginLayoutParams.bottomMargin = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e1);
             } else {
                 marginLayoutParams.bottomMargin = 0;
                 int screenWidth = com.kwad.sdk.b.kwai.a.getScreenWidth(getContext()) / 2;
@@ -98,7 +98,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         FrameLayout frameLayout = this.bS;
         k kVar2 = this.nM;
         bVar.a(frameLayout, kVar2.mRootContainer, adTemplate, kVar2.mApkDownloadHelper, kVar2.mScreenOrientation);
-        this.bb.a((b.InterfaceC0603b) null);
+        this.bb.a((b.InterfaceC0608b) null);
         com.kwad.components.ad.i.b bVar2 = this.nM.mn;
         this.mn = bVar2;
         if (bVar2 != null) {
@@ -110,9 +110,9 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09141d);
-        this.sF = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912fe);
-        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09140d);
+        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091431);
+        this.sF = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091312);
+        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091421);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

@@ -2,7 +2,7 @@ package com.kwad.components.ad.interstitial.b;
 
 import com.kwad.sdk.mvp.Presenter;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends Presenter {
     public c gh;
 

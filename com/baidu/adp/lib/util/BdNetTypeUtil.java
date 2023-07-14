@@ -16,11 +16,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
-import com.baidu.tieba.ew8;
-import com.baidu.tieba.uf;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.xk;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.aj;
+import com.baidu.tieba.h29;
+import com.baidu.tieba.vf;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.yk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -133,7 +133,7 @@ public class BdNetTypeUtil {
                     networkState.mCurChangedTime = currentTimeMillis;
                     BdNetTypeUtil.setNetWorkChangedTime(currentTimeMillis);
                     MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
-                    ew8 a = xk.a();
+                    h29 a = yk.a();
                     a.c(Config.DEVICE_PART, "net status: " + networkState.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -234,8 +234,8 @@ public class BdNetTypeUtil {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            String j = zi.j();
-            if (j.length() < 4 || wi.isEmptyStringAfterTrim(j) || (substring = j.substring(0, 3)) == null || !substring.equals(NATION_CODE)) {
+            String j = aj.j();
+            if (j.length() < 4 || xi.isEmptyStringAfterTrim(j) || (substring = j.substring(0, 3)) == null || !substring.equals(NATION_CODE)) {
                 return 0;
             }
             try {
@@ -558,7 +558,7 @@ public class BdNetTypeUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
-            if (getInstance().isWifi || readNetworkOperatorType() == 1 || wi.isEmptyStringAfterTrim(Proxy.getDefaultHost())) {
+            if (getInstance().isWifi || readNetworkOperatorType() == 1 || xi.isEmptyStringAfterTrim(Proxy.getDefaultHost())) {
                 return false;
             }
             return true;
@@ -804,7 +804,7 @@ public class BdNetTypeUtil {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
-            boolean netBdABTest = ((uf) ServiceManager.getService(uf.a)).netBdABTest();
+            boolean netBdABTest = ((vf) ServiceManager.getService(vf.a)).netBdABTest();
             switch (i) {
                 case 1:
                 case 2:

@@ -17,7 +17,7 @@ import com.kwad.components.core.widget.e;
 import com.kwad.components.core.widget.f;
 import com.kwad.sdk.R;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KSCouponLabelTextView extends TextView implements e {
     public final Paint mPaint;
     @ColorInt

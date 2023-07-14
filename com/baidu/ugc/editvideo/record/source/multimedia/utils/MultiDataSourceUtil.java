@@ -8,23 +8,23 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransitionConfig;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.m1b;
+import com.baidu.tieba.kab;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import java.nio.Buffer;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MultiDataSourceUtil {
     public static final float DEFAULT_SINGLE_MEDIA_TIME = 3.0f;
     public static String sDefaultScaleType = "center_inside";
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnInitMultiMediaListener {
         void onInitMultiMedia(MultiMediaData multiMediaData);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnReleaseMultiMediaListener {
         void onReleaseMultiMedia(MultiMediaData multiMediaData);
     }
@@ -103,10 +103,10 @@ public class MultiDataSourceUtil {
 
     public static long getMultiMediaDataRealEnd(MediaTrack mediaTrack, int i) {
         MediaSegment mediaSegment;
-        if (i < 0 || mediaTrack == null || m1b.e(mediaTrack.mediaSegments) || (mediaSegment = (MediaSegment) m1b.c(mediaTrack.mediaSegments, i)) == null) {
+        if (i < 0 || mediaTrack == null || kab.e(mediaTrack.mediaSegments) || (mediaSegment = (MediaSegment) kab.c(mediaTrack.mediaSegments, i)) == null) {
             return 0L;
         }
-        MediaTransition mediaTransition = (MediaTransition) m1b.c(mediaTrack.mediaTransitions, i);
+        MediaTransition mediaTransition = (MediaTransition) kab.c(mediaTrack.mediaTransitions, i);
         return (mediaSegment.end - mediaSegment.start) - (mediaTransition != null ? mediaTransition.duration : 0L);
     }
 

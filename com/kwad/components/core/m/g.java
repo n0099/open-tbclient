@@ -5,7 +5,7 @@ import android.content.IntentFilter;
 import androidx.annotation.NonNull;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g {
     public static final AtomicBoolean IY = new AtomicBoolean(false);
     public static volatile g IZ;

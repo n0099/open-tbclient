@@ -1,100 +1,109 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.VpnService;
-import androidx.fragment.app.Fragment;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kka {
+public class kka extends BdAsyncTask<String, String, Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Fragment a;
-    public Activity b;
-    public jka c;
+    public String a;
+    public a b;
 
-    public kka() {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+
+        void b();
+
+        void c();
+
+        void onError(String str);
+    }
+
+    public kka(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.b = aVar;
     }
 
-    public static kka c(Fragment fragment) {
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return UrlUtils.getParamValue(this.a, "url", true).contains("yandex.");
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Integer doInBackground(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
-            kka kkaVar = new kka();
-            kkaVar.a = fragment;
-            return kkaVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+            try {
+                if (b()) {
+                    return 5;
+                }
+                NetWork netWork = new NetWork(this.a);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                JSONArray optJSONArray = new JSONObject(new String(netWork.getNetData())).optJSONArray("result");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            return Integer.valueOf(optJSONObject.optInt("main", -1));
+                        }
+                    }
+                    return -1;
+                }
+                return -1;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
+            }
         }
-        return (kka) invokeL.objValue;
+        return (Integer) invokeL.objValue;
     }
 
-    public void a(int i, int i2, Intent intent) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(Integer num) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048576, this, i, i2, intent) != null) || i != 25069) {
-            return;
-        }
-        if (i2 == -1) {
-            jka jkaVar = this.c;
-            if (jkaVar != null) {
-                jkaVar.a();
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, num) == null) && this.b != null && num != null) {
+            if (num.intValue() == -1) {
+                this.b.onError(null);
+            } else if (num.intValue() == 1) {
+                this.b.c();
+            } else if (num.intValue() != 2 && num.intValue() != 0) {
+                this.b.a();
+            } else {
+                this.b.b();
             }
-            return;
-        }
-        jka jkaVar2 = this.c;
-        if (jkaVar2 != null) {
-            jkaVar2.b();
-        }
-    }
-
-    public void b(jka jkaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jkaVar) == null) {
-            this.c = jkaVar;
-            Fragment fragment = this.a;
-            if (fragment != null) {
-                Intent prepare = VpnService.prepare(fragment.getContext());
-                if (prepare != null) {
-                    this.a.startActivityForResult(prepare, 25069);
-                    return;
-                }
-                jka jkaVar2 = this.c;
-                if (jkaVar2 != null) {
-                    jkaVar2.a();
-                    return;
-                }
-                return;
-            }
-            Activity activity = this.b;
-            if (activity != null) {
-                Intent prepare2 = VpnService.prepare(activity);
-                if (prepare2 != null) {
-                    this.b.startActivityForResult(prepare2, 25069);
-                    return;
-                }
-                jka jkaVar3 = this.c;
-                if (jkaVar3 != null) {
-                    jkaVar3.a();
-                    return;
-                }
-                return;
-            }
-            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
         }
     }
 }

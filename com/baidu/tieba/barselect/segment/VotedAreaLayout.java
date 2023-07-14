@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wh6;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yh6;
+import com.baidu.tieba.aj6;
+import com.baidu.tieba.cj6;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,10 +45,10 @@ public class VotedAreaLayout extends CardBasicLayout {
         }
     }
 
-    public void setMyRecordData(wh6 wh6Var) {
+    public void setMyRecordData(aj6 aj6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, wh6Var) == null) && wh6Var != null) {
-            this.c = wh6Var;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aj6Var) == null) && aj6Var != null) {
+            this.c = aj6Var;
             TextView textView = this.e;
             textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
         }
@@ -92,10 +92,10 @@ public class VotedAreaLayout extends CardBasicLayout {
             setOrientation(0);
             setGravity(17);
             setBackgroundResource(R.drawable.bar_select_bg_voted_area_layout);
-            setMinimumHeight(xi.g(getContext(), R.dimen.tbds62));
-            setMinimumWidth(xi.g(getContext(), R.dimen.tbds172));
+            setMinimumHeight(yi.g(getContext(), R.dimen.tbds62));
+            setMinimumWidth(yi.g(getContext(), R.dimen.tbds172));
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09f2, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a0c, (ViewGroup) this, true);
             a();
         }
     }
@@ -109,10 +109,10 @@ public class VotedAreaLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, yh6 yh6Var) {
+    public void setData(int i, cj6 cj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, yh6Var) == null) {
-            super.setData(i, yh6Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, cj6Var) == null) {
+            super.setData(i, cj6Var);
             if (this.b != null && this.c != null && this.a >= 0) {
                 TextView textView = this.e;
                 textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");

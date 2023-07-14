@@ -20,13 +20,13 @@ import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public KsAdWebView BQ;
     public boolean BR;
     public boolean BS;
     public View BT;
-    public InterfaceC0602a BU;
+    public InterfaceC0607a BU;
     public b BY;
     @Nullable
     public com.kwad.sdk.core.webview.a.kwai.a bJ;
@@ -44,12 +44,12 @@ public final class a {
     public boolean BX = false;
 
     /* renamed from: com.kwad.components.ad.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0602a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0607a {
         void V(boolean z);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void hI();
     }
@@ -84,7 +84,7 @@ public final class a {
         this.bS.removeAllViews();
         this.bS.setVisibility(4);
         this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-        KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f09141f);
+        KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f091433);
         this.BQ = ksAdWebView;
         ksAdWebView.setBackgroundColor(-1);
         u.b bVar = new u.b();
@@ -101,7 +101,7 @@ public final class a {
                 }
             }
         });
-        ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f09128e);
+        ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f0912a2);
         this.mBackIcon = imageView;
         imageView.setVisibility(8);
         this.mBackIcon.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.i.a.2
@@ -115,7 +115,7 @@ public final class a {
     }
 
     public static int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0473;
+        return R.layout.obfuscated_res_0x7f0d047e;
     }
 
     private KsAdWebView.d getWebListener() {
@@ -189,8 +189,8 @@ public final class a {
         this.BP = false;
     }
 
-    public final void a(InterfaceC0602a interfaceC0602a) {
-        this.BU = interfaceC0602a;
+    public final void a(InterfaceC0607a interfaceC0607a) {
+        this.BU = interfaceC0607a;
     }
 
     public final void a(b bVar) {

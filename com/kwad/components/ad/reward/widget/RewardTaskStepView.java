@@ -14,7 +14,7 @@ import com.kwad.components.ad.reward.i.c;
 import com.kwad.sdk.widget.DividerView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RewardTaskStepView extends LinearLayout {
     public String no;
     public List<c> wG;
@@ -45,7 +45,7 @@ public class RewardTaskStepView extends LinearLayout {
     }
 
     private void a(int i, String str, String str2, boolean z) {
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(z ? R.layout.obfuscated_res_0x7f0d04cb : R.layout.obfuscated_res_0x7f0d04cc, (ViewGroup) this, false);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(z ? R.layout.obfuscated_res_0x7f0d04d6 : R.layout.obfuscated_res_0x7f0d04d7, (ViewGroup) this, false);
         if (z) {
             a(viewGroup, str);
         } else {
@@ -55,18 +55,18 @@ public class RewardTaskStepView extends LinearLayout {
     }
 
     private void a(ViewGroup viewGroup, int i, String str) {
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913aa)).setText(String.format(str, this.no));
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913a9)).setText(String.valueOf(i));
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913be)).setText(String.format(str, this.no));
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913bd)).setText(String.valueOf(i));
     }
 
     public static void a(ViewGroup viewGroup, String str) {
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913aa)).setText(str);
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913be)).setText(str);
     }
 
     private void ac(boolean z) {
-        DividerView dividerView = (DividerView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04c9, (ViewGroup) this, false);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704f6);
-        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704f4);
+        DividerView dividerView = (DividerView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04d4, (ViewGroup) this, false);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704fe);
+        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704fc);
         dividerView.setDividerColor(getResources().getColor(z ? R.color.obfuscated_res_0x7f06079e : R.color.obfuscated_res_0x7f0607a0));
         addView(dividerView, dimensionPixelSize, dimensionPixelSize2);
     }

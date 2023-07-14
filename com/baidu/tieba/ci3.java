@@ -1,244 +1,159 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.ubc.Flow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONArray;
-import org.json.JSONException;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ci3 {
+public class ci3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static volatile ci3 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public gi3 a;
-    public hi3 b;
-    public b c;
-    public ei3 d;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static bi3 a(String str) {
+        InterceptResult invokeL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Flow d = br4.d(str);
+            if (g()) {
+                obj = cv2.A0().beginFlow(str);
+            } else {
+                obj = null;
+            }
+            return new bi3(obj, d);
+        }
+        return (bi3) invokeL.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements fi3<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public JSONArray b;
-
-        public b(ci3 ci3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ci3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static void b(@NonNull bi3 bi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, bi3Var) == null) {
+            if (g()) {
+                cv2.A0().b(bi3Var.b());
             }
-        }
-
-        public /* synthetic */ b(ci3 ci3Var, a aVar) {
-            this(ci3Var);
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b = null;
+            Flow a = bi3Var.a();
+            if (a != null) {
+                a.cancel();
             }
-        }
-
-        public JSONObject c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("extra", this.b);
-                } catch (JSONException e) {
-                    if (fi3.a) {
-                        Log.e("SwanStabilityTracer", Log.getStackTraceString(e));
-                    }
-                }
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947675676, "Lcom/baidu/tieba/ci3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static void c(@NonNull bi3 bi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, bi3Var) == null) {
+            if (g()) {
+                cv2.A0().c(bi3Var.b());
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947675676, "Lcom/baidu/tieba/ci3;");
-                return;
+            Flow a = bi3Var.a();
+            if (a != null) {
+                a.end();
             }
         }
-        e = ms1.a;
     }
 
-    public static ci3 d() {
+    public static void d(@NonNull bi3 bi3Var, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, bi3Var, str, str2) == null) {
+            if (g()) {
+                cv2.A0().a(bi3Var.b(), str, str2);
+            }
+            Flow a = bi3Var.a();
+            if (a != null) {
+                a.addEvent(str, str2);
+            }
+        }
+    }
+
+    public static void i(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, jSONObject) == null) {
+            if (g()) {
+                cv2.A0().f(str, jSONObject);
+            }
+            br4.l(str2, jSONObject);
+        }
+    }
+
+    public static void e(@NonNull bi3 bi3Var, String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bi3Var, str, str2, Long.valueOf(j)}) == null) {
+            if (g()) {
+                cv2.A0().g(bi3Var.b(), str, str2, j);
+            }
+            Flow a = bi3Var.a();
+            if (a != null) {
+                a.addEvent(str, str2, j);
+            }
+        }
+    }
+
+    public static void f(@NonNull bi3 bi3Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, bi3Var, str) == null) {
+            if (g()) {
+                cv2.A0().h(bi3Var.b(), str);
+            }
+            Flow a = bi3Var.a();
+            if (a != null) {
+                a.setValueWithDuration(str);
+            }
+        }
+    }
+
+    public static void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            if (g()) {
+                cv2.A0().i(str, str2);
+            }
+            br4.h(str, str2);
+        }
+    }
+
+    public static void j(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, map) == null) {
+            if (g()) {
+                cv2.A0().d(str, map);
+            }
+            br4.j(str, map);
+        }
+    }
+
+    public static void k(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, jSONObject) == null) {
+            if (g()) {
+                cv2.A0().f(str, jSONObject);
+            }
+            br4.l(str, jSONObject);
+        }
+    }
+
+    public static void l(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
+            cv2.A0().i(str, str2);
+        }
+    }
+
+    public static void m(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, str, jSONObject) == null) {
+            cv2.A0().f(str, jSONObject);
+        }
+    }
+
+    public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (ci3.class) {
-                    if (f == null) {
-                        f = new ci3();
-                    }
-                }
-            }
-            return f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return cv2.A0().e();
         }
-        return (ci3) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.c();
-            this.b.b();
-            this.c.b();
-        }
-    }
-
-    public ei3 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (ei3) invokeV.objValue;
-    }
-
-    public ci3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new gi3();
-        this.b = new hi3();
-        this.c = new b(this, null);
-        this.d = new ei3();
-    }
-
-    public File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            jSONArray.put(e());
-            jSONArray.put(g());
-            jSONArray.put(c());
-            return this.d.d(jSONArray);
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject c = this.c.c();
-            if (e) {
-                Log.d("SwanStabilityTracer", "extraTraces: " + c);
-            }
-            return c;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public JSONObject e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject d = this.a.d();
-            if (e) {
-                Log.d("SwanStabilityTracer", "LaunchTraces: " + d);
-            }
-            return d;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public JSONObject g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject c = this.b.c();
-            if (e) {
-                Log.d("SwanStabilityTracer", "WhiteTraces: " + c);
-            }
-            return c;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.c.b != null && this.c.b.length() != 0) {
-            JSONArray jSONArray = new JSONArray();
-            jSONArray.put(e());
-            jSONArray.put(g());
-            jSONArray.put(c());
-            this.d.d(jSONArray);
-        }
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
-            this.b.a(jSONObject);
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            j(str, null);
-        }
-    }
-
-    public void k(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            this.a.b(jSONObject);
-        }
-    }
-
-    public void j(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            this.a.a(str, str2);
-        }
+        return invokeV.booleanValue;
     }
 }

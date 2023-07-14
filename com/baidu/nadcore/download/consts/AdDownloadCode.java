@@ -6,7 +6,8 @@ public enum AdDownloadCode {
     ERROR_CONNECT_TIMEOUT(2),
     ERROR_FAST_CLICK(3),
     ERROR_INVALID_DATA(4),
-    ERROR_OTHERS(5);
+    ERROR_OTHERS(5),
+    ERROR_PERMISSION_DENIED(6);
     
     public int code;
 

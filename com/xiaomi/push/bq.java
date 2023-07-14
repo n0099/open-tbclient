@@ -11,12 +11,12 @@ public class bq extends aj.a {
     }
 
     private boolean a() {
-        return com.xiaomi.clientreport.manager.a.a(this.a).m180a().isPerfUploadSwitchOpen();
+        return com.xiaomi.clientreport.manager.a.a(this.a).m182a().isPerfUploadSwitchOpen();
     }
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo295a() {
+    public String mo297a() {
         return "100887";
     }
 

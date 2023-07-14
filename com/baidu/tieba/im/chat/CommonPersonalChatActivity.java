@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.EmotionImageActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.gc8;
+import com.baidu.tieba.ch8;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
@@ -70,31 +70,21 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity
-    public String[] C1(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return super.C1(i, true);
-        }
-        return (String[]) invokeCommon.objValue;
-    }
-
     /* JADX WARN: Code restructure failed: missing block: B:18:0x002b, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.pf
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.qf
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void D(View view2, int i, int i2, long j) {
+    public void B(View view2, int i, int i2, long j) {
         MsglistModel msglistModel;
         ChatMessage msg;
         String content;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            super.D(view2, i, i2, j);
-            if (i != 7 || !I1() || (msglistModel = this.c) == null || (msg = msglistModel.getMsg(i2)) == null || !gc8.z(msg) || content == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            super.B(view2, i, i2, j);
+            if (i != 7 || !I1() || (msglistModel = this.c) == null || (msg = msglistModel.getMsg(i2)) == null || !ch8.z(msg) || content == null) {
                 return;
             }
             JSONObject jSONObject = null;
@@ -114,6 +104,16 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
                 sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(getPageContext().getContext(), jSONObject.optString("pid"), jSONObject.optString("packet_name"), jSONObject.optString("icon"), jSONObject.optString("url_s"), jSONObject.optString("url_d"), jSONObject.optString("face_name"), 2, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
             }
         }
+    }
+
+    @Override // com.baidu.tieba.im.chat.TalkableActivity
+    public String[] C1(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return super.C1(i, true);
+        }
+        return (String[]) invokeCommon.objValue;
     }
 
     public boolean c2() {

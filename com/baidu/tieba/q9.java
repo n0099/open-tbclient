@@ -7,7 +7,7 @@ public interface q9 {
 
     boolean isScroll();
 
-    void onPreLoad(bo boVar);
+    void onPreLoad(co coVar);
 
     void setIsScroll(boolean z);
 }

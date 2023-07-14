@@ -78,7 +78,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SetJavaScriptEnabled"})
 @TargetApi(11)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FeedbackReportActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -558,7 +558,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -603,7 +603,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -645,7 +645,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -786,7 +786,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class d implements i0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -810,8 +810,8 @@ public class FeedbackReportActivity extends Activity {
             this.a = feedbackReportActivity;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:64:0x01ee  */
-        /* JADX WARN: Removed duplicated region for block: B:65:0x01f6  */
+        /* JADX WARN: Removed duplicated region for block: B:64:0x01fc  */
+        /* JADX WARN: Removed duplicated region for block: B:65:0x0204  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -935,7 +935,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class e implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1030,7 +1030,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class f implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1087,7 +1087,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1131,7 +1131,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1569,8 +1569,8 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0106  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0124  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0108  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0126  */
     @Override // android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.

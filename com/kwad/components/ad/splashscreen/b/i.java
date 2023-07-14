@@ -13,7 +13,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import com.kwad.sdk.utils.bd;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class i extends h implements com.kwad.components.ad.splashscreen.g, com.kwad.sdk.core.g.a {
     public View yO;
     public KsRotateView yP;
@@ -74,10 +74,10 @@ public final class i extends h implements com.kwad.components.ad.splashscreen.g,
 
     @Override // com.kwad.components.ad.splashscreen.b.h
     public final void initView() {
-        this.yO = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0913b9)).inflate();
-        this.yQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0913ba);
-        this.yR = (TextView) findViewById(R.id.obfuscated_res_0x7f0913b8);
-        this.yP = (KsRotateView) findViewById(R.id.obfuscated_res_0x7f0913bb);
+        this.yO = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0913cd)).inflate();
+        this.yQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0913ce);
+        this.yR = (TextView) findViewById(R.id.obfuscated_res_0x7f0913cc);
+        this.yP = (KsRotateView) findViewById(R.id.obfuscated_res_0x7f0913cf);
     }
 
     @Override // com.kwad.components.ad.splashscreen.g
@@ -151,7 +151,7 @@ public final class i extends h implements com.kwad.components.ad.splashscreen.g,
     @Override // com.kwad.components.ad.splashscreen.b.h
     public final void kl() {
         if (com.kwad.components.ad.splashscreen.d.c.b(this.yF)) {
-            com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0913b8), -1, 60, -1, -1);
+            com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0913cc), -1, 60, -1, -1);
         }
     }
 

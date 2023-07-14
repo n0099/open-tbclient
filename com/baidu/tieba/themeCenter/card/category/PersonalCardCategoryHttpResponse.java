@@ -2,8 +2,8 @@ package com.baidu.tieba.themeCenter.card.category;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.aba;
-import com.baidu.tieba.iba;
+import com.baidu.tieba.rja;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,13 +16,13 @@ import tbclient.Error;
 import tbclient.GetCardByCategory.DataRes;
 import tbclient.GetCardByCategory.GetCardByCategoryResIdl;
 import tbclient.GetCardByCategory.ThemeCardInMain;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PersonalCardCategoryHttpResponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<aba> mCardCategoryList;
-    public iba mRecommand;
+    public List<rja> mCardCategoryList;
+    public zja mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardCategoryHttpResponse(int i) {
@@ -68,24 +68,24 @@ public class PersonalCardCategoryHttpResponse extends TbHttpResponsedMessage {
             this.hasMore = false;
         }
         if (getCardByCategoryResIdl.data.recommend != null) {
-            iba ibaVar = new iba();
-            this.mRecommand = ibaVar;
-            ibaVar.d(getCardByCategoryResIdl.data.recommend);
+            zja zjaVar = new zja();
+            this.mRecommand = zjaVar;
+            zjaVar.d(getCardByCategoryResIdl.data.recommend);
         }
         List<ThemeCardInMain> list = getCardByCategoryResIdl.data.cards;
         if (list != null && list.size() > 0) {
             this.mCardCategoryList = new ArrayList();
             for (ThemeCardInMain themeCardInMain : list) {
                 if (themeCardInMain != null) {
-                    aba abaVar = new aba();
-                    abaVar.c(themeCardInMain);
-                    this.mCardCategoryList.add(abaVar);
+                    rja rjaVar = new rja();
+                    rjaVar.c(themeCardInMain);
+                    this.mCardCategoryList.add(rjaVar);
                 }
             }
         }
     }
 
-    public List<aba> getCardCategoryList() {
+    public List<rja> getCardCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -94,13 +94,13 @@ public class PersonalCardCategoryHttpResponse extends TbHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public iba getRecommand() {
+    public zja getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (iba) invokeV.objValue;
+        return (zja) invokeV.objValue;
     }
 
     public boolean isHasMore() {

@@ -1,116 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsHotTopic.FrsHotTopicListData;
-import com.baidu.tieba.frs.FrsHotTopic.FrsLinkHashMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class wd7 {
+public class wd7 implements dc7 {
     public static /* synthetic */ Interceptable $ic;
-    public static wd7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsLinkHashMap<String, Long> a;
-
-    /* loaded from: classes8.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wd7 a;
-
-        public a(wd7 wd7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wd7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wd7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            FrsHotTopicListData frsHotTopicListData;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                f55.d();
-                xe<String> f = f55.f("tb.frs_hottopic", "");
-                if (f != null) {
-                    String str = f.get("hot_topic_key");
-                    if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
-                        this.a.a = frsHotTopicListData.mSceneMap;
-                    }
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wd7 a;
-
-        public b(wd7 wd7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wd7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wd7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                f55.d();
-                xe<String> f = f55.f("tb.frs_hottopic", "");
-                if (f == null) {
-                    return null;
-                }
-                FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                frsHotTopicListData.mSceneMap = this.a.a;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
-                if (!StringUtils.isNull(jsonStrWithObject)) {
-                    f.g("hot_topic_key", jsonStrWithObject);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
 
     public wd7() {
         Interceptable interceptable = $ic;
@@ -126,72 +26,41 @@ public class wd7 {
         }
     }
 
-    public static wd7 d() {
+    @Override // com.baidu.tieba.dc7
+    public List<lc7<?, ?>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (wd7.class) {
-                    if (b == null) {
-                        b = new wd7();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new od7("card_vote"));
+            arrayList.add(new ud7("recommend_card_person_attention"));
+            arrayList.add(new cd7("mount"));
+            arrayList.add(new rd7("img_text"));
+            arrayList.add(new td7("sideway_card"));
+            arrayList.add(new pd7("common_card"));
+            arrayList.add(new kd7("video_ad"));
+            arrayList.add(new sd7("live_card"));
+            arrayList.add(new dd7("card_multi_link"));
+            arrayList.add(new yc7("mount_app"));
+            arrayList.add(new nd7("feed_voice"));
+            arrayList.add(new vd7("social_bar"));
+            arrayList.add(new bd7("live"));
+            arrayList.add(new ld7("video"));
+            arrayList.add(new id7("card_single_link"));
+            arrayList.add(new gd7("recommend_info"));
+            arrayList.add(new jd7("title"));
+            arrayList.add(new ad7("feed_head"));
+            arrayList.add(new qd7("delegate-layout"));
+            arrayList.add(new xd7("video_card"));
+            arrayList.add(new zc7("feed_entrybar"));
+            arrayList.add(new md7("virtual_head"));
+            arrayList.add(new hd7("reply"));
+            arrayList.add(new ed7("origin_card"));
+            arrayList.add(new fd7("pic"));
+            arrayList.add(new xc7("abstract"));
+            arrayList.add(new wc7("browse_location"));
+            return arrayList;
         }
-        return (wd7) invokeV.objValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b bVar = new b(this);
-            bVar.setPriority(3);
-            bVar.execute(new Void[0]);
-        }
-    }
-
-    public final void e(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            a aVar = new a(this);
-            aVar.setPriority(3);
-            aVar.execute(new Void[0]);
-        }
-    }
-
-    public boolean c(String str, long j) {
-        InterceptResult invokeLJ;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            if (this.a == null) {
-                this.a = new FrsLinkHashMap<>();
-                e(str, j);
-            }
-            if (StringUtils.isNull(str) || this.a.isEmpty()) {
-                return false;
-            }
-            Iterator<Map.Entry<String, Long>> it = this.a.entrySet().iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    Map.Entry<String, Long> next = it.next();
-                    if (next != null && str.equals(next.getKey())) {
-                        z = true;
-                        break;
-                    }
-                } else {
-                    z = false;
-                    break;
-                }
-            }
-            if (z && this.a.get(str).longValue() == j) {
-                return false;
-            }
-            this.a.put(str, Long.valueOf(j));
-            f();
-            return true;
-        }
-        return invokeLJ.booleanValue;
+        return (List) invokeV.objValue;
     }
 }

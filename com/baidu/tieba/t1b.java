@@ -1,48 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
-public class t1b {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.CronetException;
+import com.baidu.turbonet.net.RequestFinishedInfo;
+import com.baidu.turbonet.net.UrlResponseInfo;
+import java.util.Collection;
+/* loaded from: classes8.dex */
+public class t1b extends RequestFinishedInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a() {
-        InterceptResult invokeV;
+    public t1b(String str, Collection<Object> collection, RequestFinishedInfo.Metrics metrics, int i, @Nullable UrlResponseInfo urlResponseInfo, @Nullable CronetException cronetException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long[] b = b();
-            if (b[0] <= 0) {
-                return 0.0f;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, collection, metrics, Integer.valueOf(i), urlResponseInfo, cronetException};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return 1.0f - (((float) ((b[1] + b[2]) + b[3])) / ((float) b[0]));
         }
-        return invokeV.floatValue;
-    }
-
-    public static long[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            long[] jArr = new long[4];
-            try {
-                Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
-                long[] jArr2 = {30, -30};
-                Object[] objArr = {new String(HardwareInfoUtils.MEM_INFO_FILE), new String[]{"MemTotal:", "MemFree:", "Buffers:", "Cached:"}, jArr2};
-                if (method != null) {
-                    method.invoke(null, objArr);
-                    for (int i = 0; i < 4; i++) {
-                        jArr[i] = jArr2[i] / 1024;
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return jArr;
-        }
-        return (long[]) invokeV.objValue;
     }
 }

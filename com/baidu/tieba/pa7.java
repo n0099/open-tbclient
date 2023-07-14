@@ -1,104 +1,170 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.feed.widget.uistate.PersonAttentionUiStateKt;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function3;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.Agree;
+import tbclient.FeedContentResource;
+import tbclient.FeedPostExpose;
+import tbclient.PostExposeHead;
 /* loaded from: classes7.dex */
-public final class pa7 extends r87 {
+public final class pa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final i67 c;
-    public final String d;
-    public Function1<? super m67, Unit> e;
-    public final Function2<pa7, TbPageContext<?>, Unit> f;
-    public final Function3<pa7, TbPageContext<?>, Object, Unit> g;
 
-    @JvmOverloads
-    public pa7(i67 personAttentionData, String str, Function1<? super m67, Unit> onStat, Function2<? super pa7, ? super TbPageContext<?>, Unit> onAttentionClick, Function3<? super pa7, ? super TbPageContext<?>, Object, Unit> registerAttentionListener) {
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0070  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0073  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0078  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x007a  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0084  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0087  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x008a  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x008c  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0096  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0098  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00a2  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00a5  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00bf  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00c3  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00c6  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00d1  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00d4  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final void a(FeedPostExpose feedPostExpose, List<mc7<?>> dataList, s87 feedExtraData) {
+        boolean z;
+        PostExposeHead postExposeHead;
+        String str;
+        String str2;
+        PostExposeHead postExposeHead2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        PostExposeHead postExposeHead3;
+        String str9;
+        String str10;
+        String str11;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {personAttentionData, str, onStat, onAttentionClick, registerAttentionListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, feedPostExpose, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedPostExpose, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            List<FeedContentResource> list = feedPostExpose.floor;
+            if (list != null) {
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                String str12 = null;
+                qa7.a(list, spannableStringBuilder, new s87(), new w77(null, null, 3, null));
+                long j = 0;
+                Agree head_agree = feedPostExpose.head_agree;
+                if (head_agree != null) {
+                    Intrinsics.checkNotNullExpressionValue(head_agree, "head_agree");
+                    Long l = head_agree.agree_num;
+                    Intrinsics.checkNotNullExpressionValue(l, "agree.agree_num");
+                    j = l.longValue();
+                    Integer num = head_agree.has_agree;
+                    if (num != null && num.intValue() == 1) {
+                        z = true;
+                        d87 d87Var = new d87();
+                        d87Var.b(rb7.a.a(feedPostExpose.business_info));
+                        q87 q87Var = new q87(j, z, d87Var);
+                        postExposeHead = feedPostExpose.head_img;
+                        if (postExposeHead == null) {
+                            str = postExposeHead.img_url;
+                        } else {
+                            str = null;
+                        }
+                        if (str != null) {
+                            str2 = "";
+                        } else {
+                            Intrinsics.checkNotNullExpressionValue(str, "head_img?.img_url ?: \"\"");
+                            str2 = str;
+                        }
+                        postExposeHead2 = feedPostExpose.head_img;
+                        if (postExposeHead2 == null) {
+                            str3 = postExposeHead2.corner_url;
+                        } else {
+                            str3 = null;
+                        }
+                        if (str3 != null) {
+                            str4 = "";
+                        } else {
+                            Intrinsics.checkNotNullExpressionValue(str3, "head_img?.corner_url ?: \"\"");
+                            str4 = str3;
+                        }
+                        str5 = feedPostExpose.head_text;
+                        if (str5 != null) {
+                            str6 = "";
+                        } else {
+                            Intrinsics.checkNotNullExpressionValue(str5, "head_text ?: \"\"");
+                            str6 = str5;
+                        }
+                        str7 = feedPostExpose.stamp_url;
+                        if (str7 != null) {
+                            str8 = "";
+                        } else {
+                            Intrinsics.checkNotNullExpressionValue(str7, "stamp_url ?: \"\"");
+                            str8 = str7;
+                        }
+                        q97 q97Var = new q97(str2, str4, str6, str8, new SpannableString(spannableStringBuilder), q87Var);
+                        postExposeHead3 = feedPostExpose.head_img;
+                        if (postExposeHead3 != null) {
+                            str12 = postExposeHead3.schema;
+                        }
+                        if (str12 != null) {
+                            str9 = "";
+                        } else {
+                            Intrinsics.checkNotNullExpressionValue(str12, "head_img?.schema ?: \"\"");
+                            str9 = str12;
+                        }
+                        str10 = feedPostExpose.schema;
+                        if (str10 != null) {
+                            str11 = "";
+                        } else {
+                            Intrinsics.checkNotNullExpressionValue(str10, "schema ?: \"\"");
+                            str11 = str10;
+                        }
+                        dataList.add(new nc7(new j77(q97Var, str9, str11, CollectionsKt__CollectionsKt.listOf((Object[]) new u97[]{t87.b(feedExtraData, "reply_user_head_click1"), t87.b(feedExtraData, "reply_user_head_click2")}), CollectionsKt__CollectionsKt.listOf((Object[]) new u97[]{t87.b(feedExtraData, "reply_user_name_click1"), t87.b(feedExtraData, "reply_user_name_click2")}), CollectionsKt__CollectionsKt.listOf((Object[]) new u97[]{t87.b(feedExtraData, "reply_card_click1"), t87.b(feedExtraData, "reply_card_click2")})), "reply"));
+                    }
+                }
+                z = false;
+                d87 d87Var2 = new d87();
+                d87Var2.b(rb7.a.a(feedPostExpose.business_info));
+                q87 q87Var2 = new q87(j, z, d87Var2);
+                postExposeHead = feedPostExpose.head_img;
+                if (postExposeHead == null) {
+                }
+                if (str != null) {
+                }
+                postExposeHead2 = feedPostExpose.head_img;
+                if (postExposeHead2 == null) {
+                }
+                if (str3 != null) {
+                }
+                str5 = feedPostExpose.head_text;
+                if (str5 != null) {
+                }
+                str7 = feedPostExpose.stamp_url;
+                if (str7 != null) {
+                }
+                q97 q97Var2 = new q97(str2, str4, str6, str8, new SpannableString(spannableStringBuilder), q87Var2);
+                postExposeHead3 = feedPostExpose.head_img;
+                if (postExposeHead3 != null) {
+                }
+                if (str12 != null) {
+                }
+                str10 = feedPostExpose.schema;
+                if (str10 != null) {
+                }
+                dataList.add(new nc7(new j77(q97Var2, str9, str11, CollectionsKt__CollectionsKt.listOf((Object[]) new u97[]{t87.b(feedExtraData, "reply_user_head_click1"), t87.b(feedExtraData, "reply_user_head_click2")}), CollectionsKt__CollectionsKt.listOf((Object[]) new u97[]{t87.b(feedExtraData, "reply_user_name_click1"), t87.b(feedExtraData, "reply_user_name_click2")}), CollectionsKt__CollectionsKt.listOf((Object[]) new u97[]{t87.b(feedExtraData, "reply_card_click1"), t87.b(feedExtraData, "reply_card_click2")})), "reply"));
             }
         }
-        Intrinsics.checkNotNullParameter(personAttentionData, "personAttentionData");
-        Intrinsics.checkNotNullParameter(onStat, "onStat");
-        Intrinsics.checkNotNullParameter(onAttentionClick, "onAttentionClick");
-        Intrinsics.checkNotNullParameter(registerAttentionListener, "registerAttentionListener");
-        this.c = personAttentionData;
-        this.d = str;
-        this.e = onStat;
-        this.f = onAttentionClick;
-        this.g = registerAttentionListener;
-    }
-
-    public /* synthetic */ pa7(i67 i67Var, String str, Function1 function1, Function2 function2, Function3 function3, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(i67Var, str, (i & 4) != 0 ? PersonAttentionUiStateKt.c : function1, (i & 8) != 0 ? PersonAttentionUiStateKt.c() : function2, (i & 16) != 0 ? PersonAttentionUiStateKt.b : function3);
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final Function2<pa7, TbPageContext<?>, Unit> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function1<? super com.baidu.tieba.m67, kotlin.Unit>, kotlin.jvm.functions.Function1<com.baidu.tieba.m67, kotlin.Unit> */
-    public final Function1<m67, Unit> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (Function1) invokeV.objValue;
-    }
-
-    public final i67 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (i67) invokeV.objValue;
-    }
-
-    public final Function3<pa7, TbPageContext<?>, Object, Unit> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (Function3) invokeV.objValue;
     }
 }

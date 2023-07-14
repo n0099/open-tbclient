@@ -1,43 +1,39 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDLocation;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.MyLocationConfiguration;
-import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.tieba.cw2;
-import com.baidu.tieba.dh4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ah3;
+import com.baidu.tieba.z63;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wg4 extends og4<oy2> {
+public class wg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements dh4.c {
+    public interface c {
+        void onFail();
+
+        void onSuccess();
+    }
+
+    /* loaded from: classes8.dex */
+    public static class a implements oq3<yg3<ah3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ mh4 b;
-        public final /* synthetic */ kg4 c;
-        public final /* synthetic */ wg4 d;
+        public final /* synthetic */ c a;
 
-        public a(wg4 wg4Var, Context context, mh4 mh4Var, kg4 kg4Var) {
+        public a(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wg4Var, context, mh4Var, kg4Var};
+                Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,43 +43,36 @@ public class wg4 extends og4<oy2> {
                     return;
                 }
             }
-            this.d = wg4Var;
-            this.a = context;
-            this.b = mh4Var;
-            this.c = kg4Var;
+            this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.dh4.c
-        public void onFail() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oq3
+        /* renamed from: b */
+        public void a(yg3<ah3.e> yg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c92.o("map", "location permission fail");
-            }
-        }
-
-        @Override // com.baidu.tieba.dh4.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c92.o("map", "location permission success");
-                this.d.e(this.a, this.b, this.c);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yg3Var) == null) {
+                if (tg3.h(yg3Var)) {
+                    wg4.c(this.a);
+                } else {
+                    this.a.onFail();
+                }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements cw2.a {
+    public static class b implements z63.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mh4 a;
-        public final /* synthetic */ kg4 b;
+        public final /* synthetic */ c a;
 
-        public b(wg4 wg4Var, mh4 mh4Var, kg4 kg4Var) {
+        public b(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wg4Var, mh4Var, kg4Var};
+                Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,121 +82,51 @@ public class wg4 extends og4<oy2> {
                     return;
                 }
             }
-            this.a = mh4Var;
-            this.b = kg4Var;
+            this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.cw2.a
-        public void a(bf3 bf3Var) {
+        @Override // com.baidu.tieba.z63.a
+        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bf3Var) == null) {
-                c92.i("map", "get location " + bf3Var.a().toString());
-                BaiduMap map = this.a.l.getMap();
-                map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bf3Var.c, bf3Var.b)));
-                map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
-                map.setMyLocationEnabled(true);
-                map.setMyLocationData(new MyLocationData.Builder().accuracy((float) bf3Var.e).latitude(bf3Var.c).longitude(bf3Var.b).build());
-                this.b.p(true);
-            }
-        }
-
-        @Override // com.baidu.tieba.cw2.a
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                c92.i("map", "get location error " + i);
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
+                if (i != 0) {
+                    this.a.onFail();
+                    return;
+                }
+                for (int i2 : iArr) {
+                    if (i2 == -1) {
+                        this.a.onFail();
+                        return;
+                    }
+                }
+                this.a.onSuccess();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948269605, "Lcom/baidu/tieba/wg4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948269605, "Lcom/baidu/tieba/wg4;");
+    public static void b(Context context, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, cVar) == null) {
+            if (!(context instanceof Activity)) {
+                cVar.onFail();
                 return;
             }
-        }
-        boolean z = ms1.a;
-    }
-
-    public wg4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            vb3 M = vb3.M();
+            if (M != null) {
+                M.e0().g((Activity) context, "mapp_location", new a(cVar));
             }
         }
     }
 
-    public static wg4 f() {
-        InterceptResult invokeV;
+    public static void c(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new wg4();
-        }
-        return (wg4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.og4
-    public boolean b(Context context, oy2 oy2Var, ly2 ly2Var, cc3 cc3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, oy2Var, ly2Var, cc3Var, jSONObject)) == null) {
-            return g(context, oy2Var, ly2Var, cc3Var);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final void e(Context context, mh4 mh4Var, kg4 kg4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, mh4Var, kg4Var) == null) {
-            jv2.I().b("gcj02", true, false, new b(this, mh4Var, kg4Var));
-        }
-    }
-
-    public final boolean g(Context context, oy2 oy2Var, ly2 ly2Var, cc3 cc3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, oy2Var, ly2Var, cc3Var)) == null) {
-            c92.i("map", "MoveToLocationAction start");
-            ky1 A = px2.T().A(oy2Var.c);
-            if (!(A instanceof iy1)) {
-                c92.c("map", "WebViewManager is null");
-                return false;
-            }
-            kg4 c = lg4.b().c((iy1) A);
-            mh4 d = c.d(oy2Var.b);
-            if (d == null) {
-                c92.c("map", "can not find map by id " + oy2Var.b);
-                return false;
-            } else if (!d.k) {
-                c92.o("map", "can not move to location because showLocation is not set");
-                return false;
+        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
+            vb3 b0 = vb3.b0();
+            if (pp3.M() && b0 != null) {
+                cVar.onSuccess();
             } else {
-                BDLocation e = c.e();
-                if (e != null && c.g()) {
-                    d.l.getMap().animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(e.getLatitude(), e.getLongitude())));
-                    d.l.getMap().setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
-                    d.l.getMap().setMyLocationEnabled(true);
-                    d.l.getMap().setMyLocationData(new MyLocationData.Builder().accuracy(e.getRadius()).latitude(e.getLatitude()).longitude(e.getLongitude()).build());
-                    c92.i("map", "MoveToLocationAction end");
-                    return true;
-                }
-                dh4.b(context, new a(this, context, d, c));
-                return true;
+                b0.w().z(0, new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, new b(cVar));
             }
         }
-        return invokeLLLL.booleanValue;
     }
 }

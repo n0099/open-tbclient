@@ -205,15 +205,15 @@ public final class TypeSignatureMappingKt {
         }
         TypeConstructor constructor = kotlinType.getConstructor();
         if (constructor instanceof IntersectionTypeConstructor) {
-            return (T) mapType(TypeUtilsKt.replaceArgumentsWithStarProjections(typeMappingConfiguration.commonSupertype(((IntersectionTypeConstructor) constructor).mo2100getSupertypes())), jvmTypeFactory, typeMappingMode, typeMappingConfiguration, jvmDescriptorTypeWriter, function3);
+            return (T) mapType(TypeUtilsKt.replaceArgumentsWithStarProjections(typeMappingConfiguration.commonSupertype(((IntersectionTypeConstructor) constructor).mo2102getSupertypes())), jvmTypeFactory, typeMappingMode, typeMappingConfiguration, jvmDescriptorTypeWriter, function3);
         }
-        ClassifierDescriptor mo2099getDeclarationDescriptor = constructor.mo2099getDeclarationDescriptor();
-        if (mo2099getDeclarationDescriptor != null) {
-            Intrinsics.checkExpressionValueIsNotNull(mo2099getDeclarationDescriptor, "constructor.declarationD…structor of $kotlinType\")");
-            if (ErrorUtils.isError(mo2099getDeclarationDescriptor)) {
+        ClassifierDescriptor mo2101getDeclarationDescriptor = constructor.mo2101getDeclarationDescriptor();
+        if (mo2101getDeclarationDescriptor != null) {
+            Intrinsics.checkExpressionValueIsNotNull(mo2101getDeclarationDescriptor, "constructor.declarationD…structor of $kotlinType\")");
+            if (ErrorUtils.isError(mo2101getDeclarationDescriptor)) {
                 T t = (T) jvmTypeFactory.createObjectType("error/NonExistentClass");
-                if (mo2099getDeclarationDescriptor != null) {
-                    typeMappingConfiguration.processErrorType(kotlinType, (ClassDescriptor) mo2099getDeclarationDescriptor);
+                if (mo2101getDeclarationDescriptor != null) {
+                    typeMappingConfiguration.processErrorType(kotlinType, (ClassDescriptor) mo2101getDeclarationDescriptor);
                     if (jvmDescriptorTypeWriter != 0) {
                         jvmDescriptorTypeWriter.writeClass(t);
                     }
@@ -221,7 +221,7 @@ public final class TypeSignatureMappingKt {
                 }
                 throw new TypeCastException("null cannot be cast to non-null type org.jetbrains.kotlin.descriptors.ClassDescriptor");
             }
-            boolean z = mo2099getDeclarationDescriptor instanceof ClassDescriptor;
+            boolean z = mo2101getDeclarationDescriptor instanceof ClassDescriptor;
             if (z && KotlinBuiltIns.isArray(kotlinType)) {
                 if (kotlinType.getArguments().size() == 1) {
                     TypeProjection typeProjection = kotlinType.getArguments().get(0);
@@ -249,7 +249,7 @@ public final class TypeSignatureMappingKt {
                 }
                 throw new UnsupportedOperationException("arrays must have one type argument");
             } else if (z) {
-                ClassDescriptor classDescriptor = (ClassDescriptor) mo2099getDeclarationDescriptor;
+                ClassDescriptor classDescriptor = (ClassDescriptor) mo2101getDeclarationDescriptor;
                 if (classDescriptor.isInline() && !typeMappingMode.getNeedInlineClassWrapping() && (kotlinType2 = (KotlinType) InlineClassMappingKt.computeExpandedTypeForInlineClass(SimpleClassicTypeSystemContext.INSTANCE, kotlinType)) != null) {
                     return (T) mapType(kotlinType2, jvmTypeFactory, typeMappingMode.wrapInlineClassesMode(), typeMappingConfiguration, jvmDescriptorTypeWriter, function3);
                 }
@@ -277,10 +277,10 @@ public final class TypeSignatureMappingKt {
                 }
                 function3.invoke(kotlinType, obj, typeMappingMode);
                 return (T) obj;
-            } else if (mo2099getDeclarationDescriptor instanceof TypeParameterDescriptor) {
-                T t2 = (T) mapType(TypeUtilsKt.getRepresentativeUpperBound((TypeParameterDescriptor) mo2099getDeclarationDescriptor), jvmTypeFactory, typeMappingMode, typeMappingConfiguration, null, FunctionsKt.getDO_NOTHING_3());
+            } else if (mo2101getDeclarationDescriptor instanceof TypeParameterDescriptor) {
+                T t2 = (T) mapType(TypeUtilsKt.getRepresentativeUpperBound((TypeParameterDescriptor) mo2101getDeclarationDescriptor), jvmTypeFactory, typeMappingMode, typeMappingConfiguration, null, FunctionsKt.getDO_NOTHING_3());
                 if (jvmDescriptorTypeWriter != 0) {
-                    Name name = mo2099getDeclarationDescriptor.getName();
+                    Name name = mo2101getDeclarationDescriptor.getName();
                     Intrinsics.checkExpressionValueIsNotNull(name, "descriptor.getName()");
                     jvmDescriptorTypeWriter.writeTypeVariable(name, t2);
                 }

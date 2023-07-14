@@ -14,17 +14,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.a99;
 import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.ee9;
-import com.baidu.tieba.fm6;
-import com.baidu.tieba.jm6;
-import com.baidu.tieba.kb9;
-import com.baidu.tieba.kn;
+import com.baidu.tieba.ff9;
+import com.baidu.tieba.jk9;
+import com.baidu.tieba.jn6;
+import com.baidu.tieba.ln;
+import com.baidu.tieba.nn6;
 import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorWebViewAdapter;
 import com.baidu.tieba.pb.pb.main.view.PbFirstFloorWebView;
+import com.baidu.tieba.ph9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\u0018\u0000 +2\u0014\u0012\u0004\u0012\u00020\u0002\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00040\u00030\u0001:\u0003+,-B\u0015\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0018\u0010\u001e\u001a\b\u0012\u0004\u0012\u00020\u00040\u00032\b\u0010\u001f\u001a\u0004\u0018\u00010 H\u0014J\u0006\u0010!\u001a\u00020\"J@\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010%\u001a\u00020\u000b2\b\u0010&\u001a\u0004\u0018\u00010$2\b\u0010\u001f\u001a\u0004\u0018\u00010 2\b\u0010'\u001a\u0004\u0018\u00010\u00022\u000e\u0010(\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003H\u0015J\u0006\u0010)\u001a\u00020\"J\u0006\u0010*\u001a\u00020\"R\u001a\u0010\n\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u001a\u0010\u0010\u001a\u00020\u0011X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0010\u0010\u0012\"\u0004\b\u0013\u0010\u0014R\u001b\u0010\u0015\u001a\u00020\u00048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0018\u0010\u0019\u001a\u0004\b\u0016\u0010\u0017R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u001bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u001bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006."}, d2 = {"Lcom/baidu/tieba/pb/pb/main/adapter/PbFirstFloorWebViewAdapter;", "Lcom/baidu/adp/widget/ListView/AbsDelegateAdapter;", "Lcom/baidu/tieba/pb/data/PbFirstFloorWebViewItemData;", "Lcom/baidu/tieba/card/holder/CardViewHolder;", "Lcom/baidu/tieba/pb/pb/main/view/PbFirstFloorWebView;", "pbFragment", "Lcom/baidu/tieba/pb/pb/main/PbFragment;", "mType", "Lcom/baidu/adp/BdUniqueId;", "(Lcom/baidu/tieba/pb/pb/main/PbFragment;Lcom/baidu/adp/BdUniqueId;)V", "currentResultCode", "", "getCurrentResultCode", "()I", "setCurrentResultCode", "(I)V", "isRegisteredListener", "", "()Z", "setRegisteredListener", "(Z)V", "mPbFirstFloorWebView", "getMPbFirstFloorWebView", "()Lcom/baidu/tieba/pb/pb/main/view/PbFirstFloorWebView;", "mPbFirstFloorWebView$delegate", "Lkotlin/Lazy;", "mPopupReplyPostPanelListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mReplyPostNotificationH5Listener", "mWritePostNotificationH5SuccessListener", "onCreateViewHolder", "parent", "Landroid/view/ViewGroup;", MissionEvent.MESSAGE_DESTROY, "", "onFillViewHolder", "Landroid/view/View;", CriusAttrConstants.POSITION, "convertView", "data", "viewHolder", MissionEvent.MESSAGE_PAUSE, "onResume", "Companion", "IPbFirstFloorWebViewChangeImpl", "IWebViewClickListenerImpl", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
-public final class PbFirstFloorWebViewAdapter extends kn<a99, CardViewHolder<PbFirstFloorWebView>> {
+public final class PbFirstFloorWebViewAdapter extends ln<ff9, CardViewHolder<PbFirstFloorWebView>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final PbFragment a;
@@ -69,7 +69,7 @@ public final class PbFirstFloorWebViewAdapter extends kn<a99, CardViewHolder<PbF
     }
 
     /* loaded from: classes7.dex */
-    public static final class a implements kb9 {
+    public static final class a implements ph9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<PbFirstFloorWebViewAdapter> a;
@@ -93,7 +93,7 @@ public final class PbFirstFloorWebViewAdapter extends kn<a99, CardViewHolder<PbF
             this.a = new WeakReference<>(adapter);
         }
 
-        @Override // com.baidu.tieba.kb9
+        @Override // com.baidu.tieba.ph9
         public void a(int i, double d) {
             PbFirstFloorWebViewAdapter pbFirstFloorWebViewAdapter;
             Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public final class PbFirstFloorWebViewAdapter extends kn<a99, CardViewHolder<PbF
                 pbFirstFloorWebViewAdapter.A(i);
                 if (pbFirstFloorWebViewAdapter.a.L5() != null) {
                     if (pbFirstFloorWebViewAdapter.a.w0) {
-                        ee9.g(pbFirstFloorWebViewAdapter.a.getListView());
+                        jk9.g(pbFirstFloorWebViewAdapter.a.getListView());
                         pbFirstFloorWebViewAdapter.a.w0 = false;
                     }
                     if (i == 2) {
@@ -112,7 +112,7 @@ public final class PbFirstFloorWebViewAdapter extends kn<a99, CardViewHolder<PbF
             }
         }
 
-        @Override // com.baidu.tieba.kb9
+        @Override // com.baidu.tieba.ph9
         public void b() {
             PbFirstFloorWebViewAdapter pbFirstFloorWebViewAdapter;
             Interceptable interceptable = $ic;
@@ -124,7 +124,7 @@ public final class PbFirstFloorWebViewAdapter extends kn<a99, CardViewHolder<PbF
     }
 
     /* loaded from: classes7.dex */
-    public static final class b implements jm6 {
+    public static final class b implements nn6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -147,8 +147,8 @@ public final class PbFirstFloorWebViewAdapter extends kn<a99, CardViewHolder<PbF
             new WeakReference(adapter);
         }
 
-        @Override // com.baidu.tieba.jm6
-        public void g(View view2, MotionEvent motionEvent) {
+        @Override // com.baidu.tieba.nn6
+        public void j(View view2, MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, view2, motionEvent) == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004021, motionEvent));
@@ -234,7 +234,7 @@ public final class PbFirstFloorWebViewAdapter extends kn<a99, CardViewHolder<PbF
                     int intValue = ((Integer) data).intValue();
                     LinkedHashMap linkedHashMap = new LinkedHashMap();
                     linkedHashMap.put("resultCode", Integer.valueOf(intValue));
-                    fm6.a().d(this.a.x().s(), "replyPostResult", linkedHashMap);
+                    jn6.a().d(this.a.x().s(), "replyPostResult", linkedHashMap);
                     return;
                 }
                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Int");
@@ -274,7 +274,7 @@ public final class PbFirstFloorWebViewAdapter extends kn<a99, CardViewHolder<PbF
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                fm6.a().d(this.a.x().s(), "writePostSuccess", new HashMap<>());
+                jn6.a().d(this.a.x().s(), "writePostSuccess", new HashMap<>());
             }
         }
     }
@@ -400,7 +400,7 @@ public final class PbFirstFloorWebViewAdapter extends kn<a99, CardViewHolder<PbF
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
+    @Override // com.baidu.tieba.ln
     /* renamed from: y */
     public CardViewHolder<PbFirstFloorWebView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -418,26 +418,26 @@ public final class PbFirstFloorWebViewAdapter extends kn<a99, CardViewHolder<PbF
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
+    @Override // com.baidu.tieba.ln
     @SuppressLint({"ClickableViewAccessibility"})
     /* renamed from: z */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a99 a99Var, CardViewHolder<PbFirstFloorWebView> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ff9 ff9Var, CardViewHolder<PbFirstFloorWebView> cardViewHolder) {
         InterceptResult invokeCommon;
-        PbFirstFloorWebView a2;
-        PbFirstFloorWebView a3;
-        PbFirstFloorWebView a4;
+        PbFirstFloorWebView b2;
+        PbFirstFloorWebView b3;
+        PbFirstFloorWebView b4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a99Var, cardViewHolder})) == null) {
-            if (this.c != 1 && cardViewHolder != null && (a4 = cardViewHolder.a()) != null) {
-                a4.i(a99Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ff9Var, cardViewHolder})) == null) {
+            if (this.c != 1 && cardViewHolder != null && (b4 = cardViewHolder.b()) != null) {
+                b4.i(ff9Var);
             }
-            if (cardViewHolder != null && (a3 = cardViewHolder.a()) != null) {
-                a3.j(null, TbadkCoreApplication.getInst().getSkinType());
+            if (cardViewHolder != null && (b3 = cardViewHolder.b()) != null) {
+                b3.j(null, TbadkCoreApplication.getInst().getSkinType());
             }
-            if (cardViewHolder == null || (a2 = cardViewHolder.a()) == null) {
+            if (cardViewHolder == null || (b2 = cardViewHolder.b()) == null) {
                 return null;
             }
-            return a2.h();
+            return b2.h();
         }
         return (View) invokeCommon.objValue;
     }

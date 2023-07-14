@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalNavBinding;
 import com.baidu.tieba.impersonal.slices.ChatNavSlice;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,11 +42,11 @@ public final class ChatNavSlice extends Slice {
         }
     }
 
-    public static final void W(ChatNavSlice this$0, View view2) {
+    public static final void X(ChatNavSlice this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            FragmentActivity activity = this$0.D().getActivity();
+            FragmentActivity activity = this$0.E().getActivity();
             if (activity != null) {
                 activity.finish();
             }
@@ -54,7 +54,7 @@ public final class ChatNavSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View M(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    public View N(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
@@ -69,10 +69,10 @@ public final class ChatNavSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void T(View view2, Bundle bundle) {
+    public void U(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.T(view2, bundle);
+            super.U(view2, bundle);
             SlicePersonalNavBinding slicePersonalNavBinding = this.j;
             if (slicePersonalNavBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -80,11 +80,11 @@ public final class ChatNavSlice extends Slice {
             }
             NavigationBar navigationBar = slicePersonalNavBinding.b;
             ImageView imageView = new ImageView(navigationBar.getContext());
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(xi.g(imageView.getContext(), R.dimen.tbds104), xi.g(imageView.getContext(), R.dimen.tbds104));
-            marginLayoutParams.setMargins(xi.g(imageView.getContext(), R.dimen.M_W_X003), 0, 0, 0);
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(yi.g(imageView.getContext(), R.dimen.tbds104), yi.g(imageView.getContext(), R.dimen.tbds104));
+            marginLayoutParams.setMargins(yi.g(imageView.getContext(), R.dimen.M_W_X003), 0, 0, 0);
             imageView.setLayoutParams(marginLayoutParams);
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.ic_icon_pure_topbar_return40_svg, imageView.getContext().getResources().getColor(R.color.CAM_X0105), null));
-            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, imageView, new View.OnClickListener() { // from class: com.baidu.tieba.pq8
+            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, imageView, new View.OnClickListener() { // from class: com.baidu.tieba.rw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -92,7 +92,7 @@ public final class ChatNavSlice extends Slice {
                 public final void onClick(View view3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        ChatNavSlice.W(ChatNavSlice.this, view3);
+                        ChatNavSlice.X(ChatNavSlice.this, view3);
                     }
                 }
             });

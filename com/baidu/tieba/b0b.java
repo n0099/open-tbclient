@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface b0b {
-    void onCancel();
+    void M0(boolean z);
 
-    void onExceptionThrown(String str);
+    void g();
 
-    void onProgressChanged(int i, double d, long j);
-
-    void onTrackEnd(int i);
+    void o1(int i, String str);
 }

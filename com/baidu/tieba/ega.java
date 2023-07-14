@@ -1,42 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ega extends ei5 {
+public class ega {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public final MainTabActivity a;
+    public PollingModel b;
+    public final Runnable c;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements di5 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dga a;
-        public final /* synthetic */ ega b;
+        public final /* synthetic */ ega a;
 
-        public a(ega egaVar, dga dgaVar) {
+        public a(ega egaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {egaVar, dgaVar};
+                Object[] objArr = {egaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,124 +35,45 @@ public class ega extends ei5 {
                     return;
                 }
             }
-            this.b = egaVar;
-            this.a = dgaVar;
+            this.a = egaVar;
         }
 
-        @Override // com.baidu.tieba.di5
-        public void C(ci5 ci5Var) {
-            dga dgaVar;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, ci5Var) != null) || (dgaVar = this.a) == null || dgaVar.b() == null || ci5Var == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                this.a.b.D0(PollingModel.POLLING_TYPE_LOOP);
+                zg.a().postDelayed(this.a.c, p95.a().b());
             }
-            int i = ci5Var.a;
-            if (i != 4) {
-                if (i != 7) {
-                    if (i == 8) {
-                        this.a.z();
-                        if (!this.b.h(this.a.getContext(), 25066)) {
-                            return;
-                        }
-                        this.a.p();
-                        if (this.b.a != null) {
-                            this.b.a.a(this.a.m());
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                this.a.getContext().showToast((int) R.string.over_limit_tip);
-                return;
-            }
-            this.a.v((String) ci5Var.c);
         }
     }
 
-    public ega() {
+    public ega(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new a(this);
+        this.a = mainTabActivity;
+        PollingModel pollingModel = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
+        this.b = pollingModel;
+        pollingModel.N0(l65.d);
     }
 
-    @Override // com.baidu.tieba.ei5
-    public gi5 b(Context context) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setHideBigEmotion(true);
-            editorTools.setBarLauncherType(4);
-            editorTools.setBackgroundColorId(R.color.CAM_X0207);
-            return new dga(editorTools);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zg.a().removeCallbacks(this.c);
         }
-        return (gi5) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ei5
-    public void c(gi5 gi5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gi5Var) != null) || !(gi5Var instanceof dga)) {
-            return;
-        }
-        EditorTools b2 = gi5Var.b();
-        a aVar = new a(this, (dga) gi5Var);
-        b2.setActionListener(4, aVar);
-        b2.setActionListener(7, aVar);
-        b2.setActionListener(8, aVar);
-    }
-
-    @Override // com.baidu.tieba.ei5
-    public void d(gi5 gi5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gi5Var) != null) || gi5Var == null) {
-            return;
-        }
-        EditorTools b2 = gi5Var.b();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(5);
-        b2.h(arrayList);
-        oi5 p = b2.p(5);
-        if (p != null) {
-            p.e(false);
-            p.d = 0;
-        }
-        b2.d(new fga(b2.getContext()));
-        b2.f();
-        b2.C(new ci5(35, 5, Boolean.FALSE));
-        b2.q();
-    }
-
-    public gi5 g(Context context, b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
-            this.a = bVar;
-            return super.a(context);
-        }
-        return (gi5) invokeLL.objValue;
-    }
-
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                return true;
-            }
-            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-            return false;
-        }
-        return invokeLI.booleanValue;
     }
 }

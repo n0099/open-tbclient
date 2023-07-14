@@ -4,9 +4,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.gw5;
-import com.baidu.tieba.gx5;
-import com.baidu.tieba.xt9;
+import com.baidu.tieba.f0a;
+import com.baidu.tieba.kx5;
+import com.baidu.tieba.ky5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FRSPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,9 +84,9 @@ public class FRSPageRequestMessage extends NetMessage {
             builder.lastids = this.lastId;
             builder.category_id = Integer.valueOf(this.categoryId);
             builder.call_from = Integer.valueOf(this.callFrom);
-            builder.app_pos = xt9.e().a();
-            builder.app_transmit_data = gw5.b();
-            gx5.c(builder, true, false, true);
+            builder.app_pos = f0a.e().a();
+            builder.app_transmit_data = kx5.b();
+            ky5.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

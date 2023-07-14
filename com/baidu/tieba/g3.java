@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import java.nio.Buffer;
 import java.nio.IntBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface g3 extends f3 {
     void A(int i, IntBuffer intBuffer);
 

@@ -1,103 +1,84 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
+import com.airbnb.lottie.ImageAssetDelegate;
+import com.airbnb.lottie.LottieImageAsset;
+import com.baidu.searchbox.downloads.ImgDataURISchemeUtil;
+import com.baidu.searchbox.v8engine.WebGLImageLoader;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class o72 extends q72 {
+public class o72 implements ImageAssetDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String t;
-    public int u;
-    public boolean v;
-    public double w;
-    public int x;
-    public int y;
-    public String z;
+    public String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o72(String str, @NonNull String str2) {
-        super(str, str2);
+    public o72(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.t = "";
-        this.v = false;
-        this.z = "";
-        this.A = "";
-        this.B = "";
-        this.C = "";
+        PathType s = dj3.s(str);
+        if (s == PathType.BD_FILE || s == PathType.RELATIVE) {
+            this.a = new File(ix2.T().G().a(str)).getParent();
+        }
     }
 
-    private void i() {
-        JSONObject jSONObject;
+    @Override // com.airbnb.lottie.ImageAssetDelegate
+    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
+        InterceptResult invokeL;
+        File file;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
-            try {
-                this.u = Color.parseColor(jSONObject.optString("color"));
-                this.v = true;
-            } catch (Exception unused) {
-                c92.o("Component-Model-TextView", "text color occurs exception");
-                this.v = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lottieImageAsset)) == null) {
+            if (lottieImageAsset == null) {
+                return null;
             }
-            this.w = this.j.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 0.0d);
-            this.x = tp3.g((float) this.j.optDouble("lineHeight", 0.0d));
-            this.y = tp3.g((float) this.j.optDouble("lineSpace", 0.0d));
-            this.z = this.j.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
-            this.A = this.j.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
-            this.B = this.j.optString("whiteSpace");
-            this.C = this.j.optString("lineBreak");
+            String fileName = lottieImageAsset.getFileName();
+            if (TextUtils.isEmpty(fileName)) {
+                return null;
+            }
+            if (fileName.startsWith(WebGLImageLoader.DATA_URL) && fileName.indexOf(ImgDataURISchemeUtil.DATA_URL_SCHEME_BASE64_FLAG) > 0) {
+                try {
+                    byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inScaled = true;
+                    options.inDensity = 160;
+                    return BitmapFactory.decodeByteArray(decode, 0, decode.length, options);
+                } catch (IllegalArgumentException e) {
+                    Log.w("SwanAppAnimationViewAss", "data URL did not have correct base64 format.", e);
+                    return null;
+                }
+            } else if (TextUtils.isEmpty(this.a)) {
+                return null;
+            } else {
+                String dirName = lottieImageAsset.getDirName();
+                if (TextUtils.isEmpty(dirName)) {
+                    file = new File(this.a);
+                } else {
+                    file = new File(this.a, dirName);
+                }
+                return BitmapFactory.decodeFile(new File(file, lottieImageAsset.getFileName()).getAbsolutePath());
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.q72, com.baidu.tieba.s72, com.baidu.tieba.b23
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("text");
-        i();
-    }
-
-    @Override // com.baidu.tieba.q72, com.baidu.tieba.s72
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            super.g(jSONObject);
-            this.t = jSONObject.optString("text", this.t);
-            i();
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.t = str;
-        }
+        return (Bitmap) invokeL.objValue;
     }
 }

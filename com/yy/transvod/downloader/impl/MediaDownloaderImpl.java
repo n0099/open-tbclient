@@ -1,9 +1,9 @@
 package com.yy.transvod.downloader.impl;
 
-import com.baidu.tieba.plb;
+import com.baidu.tieba.mub;
 import java.util.TreeMap;
 /* loaded from: classes10.dex */
-public class MediaDownloaderImpl extends plb {
+public class MediaDownloaderImpl extends mub {
     private native String nativeCheckVideoCachePath(String str);
 
     public static native void nativeClassInit();

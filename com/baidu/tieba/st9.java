@@ -1,146 +1,95 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.recapp.lego.model.AdCard;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class st9 {
+public class st9 extends wo6<qs9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbImageView i;
+    public View j;
+    public View k;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.wo6
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01c8 : invokeV.intValue;
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) ((i * 16.0d) / 9.0d) : invokeI.intValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public st9(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
-    }
-
-    public static dm0 d(@NonNull AdCard adCard) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adCard)) == null) {
-            if (ul0.b().query(adCard.getDownloadKey()) != null) {
-                return ul0.b().query(adCard.getDownloadKey());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            dm0 dm0Var = new dm0();
-            dm0Var.h(adCard.getDownloadKey());
-            if (adCard.downloadInfo != null) {
-                if (TextUtils.isEmpty(dm0Var.e())) {
-                    dm0Var.h(adCard.downloadInfo.b);
+        }
+        View h = h();
+        this.j = h;
+        this.i = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09068b);
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f091789);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wo6
+    /* renamed from: r */
+    public void i(qs9 qs9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, qs9Var) == null) {
+            if (qs9Var == null) {
+                this.j.setVisibility(8);
+            }
+            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+            if (layoutParams != null) {
+                if (layoutParams.width > 0) {
+                    layoutParams.width = qs9Var.a;
                 }
-                kt9 kt9Var = adCard.downloadInfo;
-                dm0Var.g = kt9Var.b;
-                dm0Var.d = kt9Var.a;
+                if (layoutParams.height > 0) {
+                    layoutParams.height = qs9Var.b;
+                }
             }
-            if (TextUtils.isEmpty(dm0Var.e())) {
-                dm0Var.h(adCard.adId);
-            }
-            hm0 hm0Var = new hm0();
-            hm0Var.d = adCard.getButtonText();
-            hm0Var.j = adCard.adId;
-            hm0Var.a = adCard.getExtInfo();
-            n15 n15Var = adCard.appInfoModel;
-            if (n15Var != null) {
-                hm0Var.g = n15Var.b;
-                hm0Var.h = n15Var.c;
-            }
-            if (lk0.n(adCard.cmdScheme)) {
-                hm0Var.c = adCard.cmdScheme;
-            }
-            dm0Var.p = hm0Var;
-            em0 em0Var = new em0();
-            em0Var.a = adCard.getAdvertAppInfo().j;
-            em0Var.t = o36.a().b();
-            em0Var.s = o36.a().h();
-            dm0Var.q = em0Var;
-            return dm0Var;
+            this.k.setLayoutParams(layoutParams);
+            this.j.setVisibility(0);
+            j(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
-        return (dm0) invokeL.objValue;
     }
 
-    public static String e(String str, String str2, float f, TextPaint textPaint) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.wo6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
-            if (ellipsize != null) {
-                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
-            }
-            return str2;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
+            return;
         }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static Drawable f(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) {
-            return q75.G(q75.n(r75.y(), i), i2, i3, i4);
-        }
-        return (Drawable) invokeIIII.objValue;
-    }
-
-    public static int g(float f, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (i == i2) {
-                return i;
-            }
-            if (f <= 0.0f) {
-                return i;
-            }
-            if (f >= 1.0f) {
-                return i2;
-            }
-            int red = Color.red(i);
-            int green = Color.green(i);
-            int blue = Color.blue(i);
-            int alpha = Color.alpha(i);
-            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static int h(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
-            try {
-                return Color.parseColor(str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return i;
-            }
-        }
-        return invokeLI.intValue;
+        this.a = i;
+        SkinManager.setImageResource(this.i, R.drawable.icon_mine_more);
+        SkinManager.setBackgroundResource(this.j, R.drawable.btn_look_more_selector);
     }
 }

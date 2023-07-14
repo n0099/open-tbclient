@@ -1,197 +1,245 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yw9 extends xw9 {
+public final class yw9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context M;
-    public p1a N;
-    public RoundRelativeLayout O;
-    public TbImageView P;
-    public TextView Q;
-    public TextView R;
-    public RoundRelativeLayout S;
+    public String a;
+    public final List<zw9> b;
 
-    /* renamed from: T  reason: collision with root package name */
-    public TbImageView f1187T;
-    public TextView U;
-    public TextView V;
-    public ImageView W;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948344718, "Lcom/baidu/tieba/yw9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948344718, "Lcom/baidu/tieba/yw9;");
+                return;
+            }
+        }
+        c = new a(null);
+    }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yw9(Context context, boolean z, int i, p1a p1aVar) {
-        super(context, z, i);
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof yw9) {
+                yw9 yw9Var = (yw9) obj;
+                return Intrinsics.areEqual(this.a, yw9Var.a) && Intrinsics.areEqual(this.b, yw9Var.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "PushSceneGroupRecord(date=" + this.a + ", groups=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final List<zw9> a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("groups");
+                if (optJSONArray == null) {
+                    return new ArrayList();
+                }
+                ArrayList arrayList = new ArrayList();
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    zw9 a = zw9.c.a(optJSONArray.optJSONObject(i));
+                    if (a != null) {
+                        arrayList.add(a);
+                    }
+                }
+                return arrayList;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        @JvmStatic
+        public final yw9 b(String str) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString(GfhKeyValue.TYPE_DATE);
+                Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"date\")");
+                return new yw9(optString, a(jSONObject));
+            }
+            return (yw9) invokeL.objValue;
+        }
+    }
+
+    public yw9(String date, List<zw9> groups) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i), p1aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue());
+            Object[] objArr = {date, groups};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.M = context;
-        this.N = p1aVar;
-        C0();
-        i0(2);
+        Intrinsics.checkNotNullParameter(date, "date");
+        Intrinsics.checkNotNullParameter(groups, "groups");
+        this.a = date;
+        this.b = groups;
     }
 
-    public final Bitmap B0(View view2) {
-        InterceptResult invokeL;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_4444);
-            view2.draw(new Canvas(createBitmap));
-            return createBitmap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (Bitmap) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xw9
-    public void l0(Window window) {
+    public final List<zw9> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, window) == null) {
-            window.setLayout(-1, -1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (List) invokeV.objValue;
     }
 
-    public final void C0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.O = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09224e);
-            this.P = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09224d);
-            this.S = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09148b);
-            this.f1187T = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092251);
-            this.Q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092250);
-            this.R = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09224f);
-            this.U = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092728);
-            this.V = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092727);
-            this.W = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0910dd);
-            E0();
-            this.O.setRoundLayoutRadius(q75.B(R.string.J_X06));
-            this.S.setRoundLayoutRadius(q75.B(R.string.J_X04));
-        }
-    }
-
-    @Override // com.baidu.tieba.xw9
-    public View D() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d7, (ViewGroup) null);
+            return Intrinsics.areEqual(this.a, xi.getDateStringDay(new Date()));
         }
-        return (View) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void D0(TbImageView tbImageView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, tbImageView) != null) || tbImageView == null) {
-            return;
-        }
-        if (this.N.b() == 1) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080c75);
-        } else if (this.N.b() == 2) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080dfe);
-        } else if (this.N.b() == 3) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080c76);
-        } else if (this.N.b() == 4) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080c79);
-        } else {
-            tbImageView.N(this.N.c(), 10, false);
-        }
-    }
-
-    public final void E0() {
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int l = (xi.l(TbadkCoreApplication.getInst()) * 879) / 1076;
-            int i = (l * 1342) / 879;
-            ViewGroup.LayoutParams layoutParams = this.O.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.width = l;
-                layoutParams.height = i;
+            String dateStringDay = xi.getDateStringDay(new Date());
+            if (dateStringDay == null) {
+                dateStringDay = "";
             }
-            this.O.setLayoutParams(layoutParams);
-            int i2 = (l * 416) / 879;
-            ViewGroup.LayoutParams layoutParams2 = this.P.getLayoutParams();
-            if (layoutParams2 != null) {
-                layoutParams2.width = i2;
-                layoutParams2.height = i2;
-            }
-            this.P.setLayoutParams(layoutParams2);
+            this.a = dateStringDay;
+            this.b.clear();
         }
     }
 
-    @Override // com.baidu.tieba.xw9
-    public ShareItem G(int i) {
-        InterceptResult invokeI;
+    public final void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            ShareItem shareItem = this.z.get(1);
-            if (shareItem == null) {
-                shareItem = new ShareItem();
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            zw9 zw9Var = null;
+            for (zw9 zw9Var2 : this.b) {
+                if (zw9Var2.a() == i) {
+                    zw9Var = zw9Var2;
+                }
             }
-            shareItem.r0 = false;
-            shareItem.q0 = false;
-            shareItem.w = "";
-            shareItem.k0 = 1;
-            shareItem.o(B0(this.O));
-            shareItem.m();
-            this.z.put(1, shareItem);
-            return super.G(i);
+            if (zw9Var == null) {
+                this.b.add(new zw9(i, 1));
+                return;
+            }
+            zw9Var.c(zw9Var.b() + 1);
         }
-        return (ShareItem) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.xw9
-    public void p0() {
+    public final void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0202));
-            if (this.N != null) {
-                D0(this.P);
-                this.f1187T.setImageBitmap(this.N.a());
-                this.Q.setText(this.N.d());
-            }
-            WebPManager.setPureDrawable(this.W, R.drawable.obfuscated_res_0x7f080bc4, R.color.CAM_X0101, null);
-            s75.d(this.U).x(R.color.CAM_X0101);
-            s75.d(this.V).x(R.color.CAM_X0101);
-            s75 d = s75.d(this.Q);
-            d.D(R.string.F_X02);
-            d.x(R.color.CAM_X0102);
-            s75.d(this.R).x(R.color.CAM_X0103);
-            super.p0();
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.a = str;
         }
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (zw9 zw9Var : this.b) {
+                jSONArray.put(zw9Var.d());
+            }
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(GfhKeyValue.TYPE_DATE, this.a);
+            jSONObject.put("groups", jSONArray);
+            String jSONObject2 = jSONObject.toString();
+            Intrinsics.checkNotNullExpressionValue(jSONObject2, "JSONObject().apply {\n   …ray)\n        }.toString()");
+            return jSONObject2;
+        }
+        return (String) invokeV.objValue;
     }
 }

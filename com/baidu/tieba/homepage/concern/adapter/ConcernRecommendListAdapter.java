@@ -24,11 +24,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.sb5;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.i05;
+import com.baidu.tieba.kc5;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.zz4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,11 +44,11 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     public BdUniqueId c;
     public int d;
     public List<MetaData> e;
-    public zz4<MetaData> f;
+    public i05<MetaData> f;
 
-    public void r(boolean z) {
+    public void s(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
         }
     }
 
@@ -61,7 +61,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         public TextView c;
         public HeadPendantClickableView d;
         public DynamicUserLikeButton e;
-        public sb5 f;
+        public kc5 f;
         public boolean g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -90,15 +90,15 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
             this.d.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.d.getHeadView().setDefaultResource(17170445);
             this.d.getHeadView().setPlaceHolder(1);
-            this.d.getHeadView().setBorderWidth(xi.g(concernRecommendListAdapter.a, R.dimen.tbds1));
+            this.d.getHeadView().setBorderWidth(yi.g(concernRecommendListAdapter.a, R.dimen.tbds1));
             this.d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.b = (TextView) view2.findViewById(R.id.concern_user_name);
             this.c = (TextView) view2.findViewById(R.id.concern_user_desc);
             this.e = (DynamicUserLikeButton) view2.findViewById(R.id.user_recommend_like_btn);
-            this.f = new sb5(concernRecommendListAdapter.b, this.e);
+            this.f = new kc5(concernRecommendListAdapter.b, this.e);
         }
 
-        public void a(int i) {
+        public void b(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 if (!this.g) {
@@ -108,13 +108,13 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                 }
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
                 this.e.onChangeSkinType(i);
-                s75 d = s75.d(this.a);
+                d85 d = d85.d(this.a);
                 d.o(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
             }
         }
 
-        public void b(boolean z) {
+        public void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 this.g = z;
@@ -157,7 +157,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                 StatisticItem statisticItem = new StatisticItem("c13566");
                 statisticItem.param("obj_locate", 2);
                 TiebaStatic.log(statisticItem);
-                this.c.q(this.a, this.b);
+                this.c.r(this.a, this.b);
             }
         }
     }
@@ -242,7 +242,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                 statisticItem.param("obj_locate", 2);
                 TiebaStatic.log(statisticItem);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.c.a, this.a.getUserId(), this.a.getName_show())));
-                this.c.q(this.a, this.b);
+                this.c.r(this.a, this.b);
             }
         }
     }
@@ -266,17 +266,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         this.a = context;
     }
 
-    public void o(int i) {
+    public void p(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.d = i;
-        }
-    }
-
-    public void s(zz4<MetaData> zz4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, zz4Var) == null) {
-            this.f = zz4Var;
         }
     }
 
@@ -287,24 +280,77 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         }
     }
 
-    public void t(TbPageContext tbPageContext) {
+    public void t(i05<MetaData> i05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, tbPageContext) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, i05Var) == null) {
+            this.f = i05Var;
+        }
+    }
+
+    public void u(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, tbPageContext) == null) {
             this.b = tbPageContext;
         }
     }
 
-    public void u(BdUniqueId bdUniqueId) {
+    public void x(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, bdUniqueId) == null) {
             this.c = bdUniqueId;
         }
     }
 
     public final void A(MetaData metaData, ForumViewHolder forumViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, metaData, forumViewHolder) == null) {
+            forumViewHolder.e.setOnClickEvent(new b(this, metaData));
+            kc5 kc5Var = forumViewHolder.f;
+            if (kc5Var != null) {
+                kc5Var.j(this.c);
+                kc5Var.l(metaData);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    /* renamed from: q */
+    public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
+            return new ForumViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d021f, (ViewGroup) null));
+        }
+        return (ForumViewHolder) invokeLI.objValue;
+    }
+
+    public final void r(MetaData metaData, ForumViewHolder forumViewHolder) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, metaData, forumViewHolder) == null) && this.f != null) {
+            this.f.d(forumViewHolder.itemView, metaData, forumViewHolder.getAdapterPosition(), forumViewHolder.getItemId());
+        }
+    }
+
+    public final void y(MetaData metaData, ForumViewHolder forumViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, metaData, forumViewHolder) == null) {
+            forumViewHolder.d.setData(metaData, true);
+            forumViewHolder.d.setAfterClickListener(new a(this, metaData, forumViewHolder));
+        }
+    }
+
+    public final void z(MetaData metaData, ForumViewHolder forumViewHolder) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048591, this, metaData, forumViewHolder) == null) && metaData != null && forumViewHolder != null) {
+            forumViewHolder.c.setText(UtilHelper.getAuthInfo(metaData, false, 24));
+        }
+    }
+
+    public final void B(MetaData metaData, ForumViewHolder forumViewHolder) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, metaData, forumViewHolder) == null) && metaData != null && forumViewHolder != null) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData, forumViewHolder) == null) && metaData != null && forumViewHolder != null) {
             if (!StringUtils.isNull(metaData.getName_show())) {
                 str = metaData.getName_show();
             } else {
@@ -320,31 +366,31 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: n */
+    /* renamed from: o */
     public void onBindViewHolder(ForumViewHolder forumViewHolder, int i) {
         List<MetaData> list;
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, forumViewHolder, i) != null) || forumViewHolder == null || (list = this.e) == null || (metaData = list.get(i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048579, this, forumViewHolder, i) != null) || forumViewHolder == null || (list = this.e) == null || (metaData = list.get(i)) == null) {
             return;
         }
-        forumViewHolder.b(metaData.isNewGod());
-        x(metaData, forumViewHolder);
-        A(metaData, forumViewHolder);
+        forumViewHolder.c(metaData.isNewGod());
         y(metaData, forumViewHolder);
+        B(metaData, forumViewHolder);
         z(metaData, forumViewHolder);
-        zz4<MetaData> zz4Var = this.f;
-        if (zz4Var != null) {
-            zz4Var.c(forumViewHolder.itemView, metaData, i, i);
+        A(metaData, forumViewHolder);
+        i05<MetaData> i05Var = this.f;
+        if (i05Var != null) {
+            i05Var.c(forumViewHolder.itemView, metaData, i, i);
         }
-        forumViewHolder.a(this.d);
+        forumViewHolder.b(this.d);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             List<MetaData> list = this.e;
             if (list == null) {
                 return 0;
@@ -352,51 +398,5 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
             return list.size();
         }
         return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: p */
-    public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            return new ForumViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d021d, (ViewGroup) null));
-        }
-        return (ForumViewHolder) invokeLI.objValue;
-    }
-
-    public final void q(MetaData metaData, ForumViewHolder forumViewHolder) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, metaData, forumViewHolder) == null) && this.f != null) {
-            this.f.d(forumViewHolder.itemView, metaData, forumViewHolder.getAdapterPosition(), forumViewHolder.getItemId());
-        }
-    }
-
-    public final void x(MetaData metaData, ForumViewHolder forumViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, metaData, forumViewHolder) == null) {
-            forumViewHolder.d.setData(metaData, true);
-            forumViewHolder.d.setAfterClickListener(new a(this, metaData, forumViewHolder));
-        }
-    }
-
-    public final void y(MetaData metaData, ForumViewHolder forumViewHolder) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, metaData, forumViewHolder) == null) && metaData != null && forumViewHolder != null) {
-            forumViewHolder.c.setText(UtilHelper.getAuthInfo(metaData, false, 24));
-        }
-    }
-
-    public final void z(MetaData metaData, ForumViewHolder forumViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, metaData, forumViewHolder) == null) {
-            forumViewHolder.e.setOnClickEvent(new b(this, metaData));
-            sb5 sb5Var = forumViewHolder.f;
-            if (sb5Var != null) {
-                sb5Var.j(this.c);
-                sb5Var.l(metaData);
-            }
-        }
     }
 }

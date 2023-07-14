@@ -1,305 +1,227 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.content.SharedPreferences;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.sweetsqlite.BooleanColumn;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.nadcore.sweetsqlite.IntegerColumn;
-import com.baidu.nadcore.sweetsqlite.LongColumn;
-import com.baidu.nadcore.sweetsqlite.StringColumn;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class h41 {
+public abstract class h41 implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final SharedPreferences a;
 
-    public static void a(Object obj, Class<?>... clsArr) {
+    public abstract SharedPreferences c(String str, int i);
+
+    public abstract void i(String str, String str2, boolean z);
+
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, obj, clsArr) == null) {
-            for (Class<?> cls : clsArr) {
-                if (cls == obj.getClass()) {
-                    return;
-                }
-            }
-            throw new IllegalArgumentException("Expected " + Arrays.toString(clsArr) + ", but got" + obj.getClass().getName());
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
         }
     }
 
-    public static ContentValues b(Column[] columnArr) {
-        InterceptResult invokeL;
+    public h41(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, columnArr)) == null) {
-            ContentValues contentValues = new ContentValues();
-            for (Column column : columnArr) {
-                if (column.isAssignedValue) {
-                    int type = column.type();
-                    if (type != 1) {
-                        if (type != 2) {
-                            if (type != 3) {
-                                if (type == 4) {
-                                    contentValues.put(column.field.b, ((StringColumn) column).getValue());
-                                } else {
-                                    throw new IllegalStateException("Unsupported type:" + column.type());
-                                }
-                            } else {
-                                contentValues.put(column.field.b, Long.valueOf(((LongColumn) column).getValue()));
-                            }
-                        } else {
-                            contentValues.put(column.field.b, Integer.valueOf(((IntegerColumn) column).getValue()));
-                        }
-                    } else {
-                        contentValues.put(column.field.b, Integer.valueOf(((BooleanColumn) column).getValue() ? 1 : 0));
-                    }
-                }
-            }
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public static ContentValues e(Column... columnArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, columnArr)) == null) {
-            ContentValues contentValues = new ContentValues(columnArr.length);
-            for (Column column : columnArr) {
-                if (column.isAssignedValue) {
-                    int type = column.type();
-                    if (type != 1) {
-                        if (type != 2) {
-                            if (type != 3) {
-                                if (type == 4) {
-                                    contentValues.put(column.field.b, b41.d(column));
-                                } else {
-                                    throw new IllegalArgumentException("Unsupported column type.");
-                                }
-                            } else {
-                                contentValues.put(column.field.b, Long.valueOf(b41.c(column)));
-                            }
-                        } else {
-                            contentValues.put(column.field.b, Integer.valueOf(b41.b(column)));
-                        }
-                    } else {
-                        contentValues.put(column.field.b, Integer.valueOf(b41.a(column) ? 1 : 0));
-                    }
-                } else {
-                    throw new IllegalArgumentException("All columns must be initialized.");
-                }
-            }
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public static ContentValues c(b41[] b41VarArr, Object[] objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, b41VarArr, objArr)) == null) {
-            if (b41VarArr.length == objArr.length) {
-                ContentValues contentValues = new ContentValues();
-                for (int i = 0; i < b41VarArr.length; i++) {
-                    b41 b41Var = b41VarArr[i];
-                    Object obj = objArr[i];
-                    int i2 = b41Var.a;
-                    if (i2 != 1) {
-                        if (i2 != 2) {
-                            if (i2 != 3) {
-                                if (i2 == 4) {
-                                    a(obj, String.class, CharSequence.class);
-                                    contentValues.put(b41Var.b, (String) obj);
-                                } else {
-                                    throw new IllegalArgumentException("Unsupported field type.");
-                                }
-                            } else {
-                                a(obj, Long.class, Integer.class, Short.class, Byte.class);
-                                contentValues.put(b41Var.b, Long.valueOf(((Long) obj).longValue()));
-                            }
-                        } else {
-                            a(obj, Integer.class, Short.class, Byte.class);
-                            contentValues.put(b41Var.b, Integer.valueOf(((Integer) obj).intValue()));
-                        }
-                    } else {
-                        a(obj, Boolean.class);
-                        contentValues.put(b41Var.b, Boolean.valueOf(((Boolean) obj).booleanValue()));
-                    }
-                }
-                return contentValues;
-            }
-            throw new IllegalArgumentException("invalid columns & values pair.");
-        }
-        return (ContentValues) invokeLL.objValue;
-    }
-
-    public static Column[] d(k41 k41Var, b41... b41VarArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, k41Var, b41VarArr)) == null) {
-            Column[] columnArr = new Column[b41VarArr.length];
-            for (int i = 0; i < b41VarArr.length; i++) {
-                columnArr[i] = k41Var.b().c()[a41.a(k41Var.b().d(), b41VarArr[i])];
-            }
-            return columnArr;
-        }
-        return (Column[]) invokeLL.objValue;
-    }
-
-    public static void f(Column column, Column column2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, column, column2) == null) && column.type() == column2.type()) {
-            column2.isAssignedValue = column.isAssignedValue;
-            int type = column.type();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (type == 4) {
-                            ((StringColumn) column2).value = ((StringColumn) column).value;
-                            return;
-                        }
-                        throw new IllegalStateException("Unsupported type:" + column.type());
-                    }
-                    ((LongColumn) column2).value = ((LongColumn) column).value;
-                    return;
-                }
-                ((IntegerColumn) column2).value = ((IntegerColumn) column).value;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ((BooleanColumn) column2).value = ((BooleanColumn) column).value;
         }
+        this.a = c(str, i);
     }
 
-    public static boolean g(BooleanColumn booleanColumn, Cursor cursor, int i) {
-        InterceptResult invokeLLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, booleanColumn, cursor, i)) == null) {
-            boolean z2 = true;
-            if (i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                if (cursor.getInt(i) <= 0) {
-                    z2 = false;
-                }
-                booleanColumn.setValue(z2);
-            }
-            return z;
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static void j(Cursor cursor, Column[] columnArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65545, null, cursor, columnArr, i) == null) {
-            if (!cursor.isBeforeFirst() && !cursor.isAfterLast()) {
-                for (int i2 = 0; i2 < i; i2++) {
-                    columnArr[i2].clear();
-                    h(columnArr[i2], cursor, i2);
-                }
-                return;
-            }
-            throw new IllegalStateException("cursor is not in range.");
-        }
-    }
-
-    public static void h(Column column, Cursor cursor, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65543, null, column, cursor, i) == null) {
-            int type = column.type();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (type == 4) {
-                            m((StringColumn) column, cursor, i);
-                            return;
-                        }
-                        throw new IllegalStateException("Unsupported type:" + column.type());
-                    }
-                    l((LongColumn) column, cursor, i);
-                    return;
-                }
-                k((IntegerColumn) column, cursor, i);
-                return;
-            }
-            g((BooleanColumn) column, cursor, i);
-        }
-    }
-
-    public static void i(Cursor cursor, Column[] columnArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, cursor, columnArr) == null) {
-            j(cursor, columnArr, columnArr.length);
-        }
-    }
-
-    public static boolean k(IntegerColumn integerColumn, Cursor cursor, int i) {
-        InterceptResult invokeLLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65546, null, integerColumn, cursor, i)) == null) {
-            if (i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                integerColumn.setValue(cursor.getInt(i));
-            }
-            return z;
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean l(LongColumn longColumn, Cursor cursor, int i) {
-        InterceptResult invokeLLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65547, null, longColumn, cursor, i)) == null) {
-            if (i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                longColumn.setValue(cursor.getLong(i));
-            }
-            return z;
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean m(StringColumn stringColumn, Cursor cursor, int i) {
-        InterceptResult invokeLLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65548, null, stringColumn, cursor, i)) == null) {
-            if (i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                stringColumn.setValue(cursor.getString(i));
-            }
-            return z;
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean n(Column column) {
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, column)) == null) {
-            if (column != null && column.field.d == 3) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a.contains(str);
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, onSharedPreferenceChangeListener) == null) {
+            this.a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, onSharedPreferenceChangeListener) == null) {
+            this.a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        }
+    }
+
+    public void d(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            this.a.edit().putBoolean(str, z).apply();
+        }
+    }
+
+    public void e(String str, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(1048579, this, str, f) == null) {
+            this.a.edit().putFloat(str, f).apply();
+        }
+    }
+
+    public void f(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            this.a.edit().putInt(str, i).apply();
+        }
+    }
+
+    public void g(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j) == null) {
+            this.a.edit().putLong(str, j).apply();
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
+            try {
+                return this.a.getBoolean(str, z);
+            } catch (ClassCastException e) {
+                j(e.getMessage());
+                return z;
+            }
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048585, this, str, f)) == null) {
+            try {
+                return this.a.getFloat(str, f);
+            } catch (ClassCastException e) {
+                j(e.getMessage());
+                return f;
+            }
+        }
+        return invokeLF.floatValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i)) == null) {
+            try {
+                return this.a.getInt(str, i);
+            } catch (ClassCastException e) {
+                j(e.getMessage());
+                return i;
+            }
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048587, this, str, j)) == null) {
+            try {
+                return this.a.getLong(str, j);
+            } catch (ClassCastException e) {
+                j(e.getMessage());
+                return j;
+            }
+        }
+        return invokeLJ.longValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    @Nullable
+    public String getString(String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
+            try {
+                return this.a.getString(str, str2);
+            } catch (ClassCastException e) {
+                j(e.getMessage());
+                return str2;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    @Nullable
+    public Set<String> getStringSet(String str, @Nullable Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, set)) == null) {
+            try {
+                return this.a.getStringSet(str, set);
+            } catch (ClassCastException e) {
+                j(e.getMessage());
+                return set;
+            }
+        }
+        return (Set) invokeLL.objValue;
+    }
+
+    public void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
+            this.a.edit().putString(str, str2).apply();
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.edit();
+        }
+        return (SharedPreferences.Editor) invokeV.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public Map<String, ?> getAll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            try {
+                return this.a.getAll();
+            } catch (Exception e) {
+                j(e.getMessage());
+                return null;
+            }
+        }
+        return (Map) invokeV.objValue;
     }
 }

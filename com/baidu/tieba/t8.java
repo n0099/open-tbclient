@@ -19,12 +19,12 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class t8 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile t8 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public a30 a;
+    public b30 a;
     public Context b;
     public volatile int c;
     public AtomicReference<HashMap<String, b9>>[] d;
@@ -39,7 +39,7 @@ public class t8 {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class t8 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HashMap[] hashMapArr = new HashMap[this.c.c];
                 for (b9 b9Var : this.a) {
-                    int a = j30.a(b9Var.a(), this.c.c);
+                    int a = k30.a(b9Var.a(), this.c.c);
                     if (hashMapArr[a] == null) {
                         hashMapArr[a] = new HashMap();
                     }
@@ -92,7 +92,7 @@ public class t8 {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +154,7 @@ public class t8 {
         }
         this.b = context.getApplicationContext();
         this.c = d9.b().a();
-        this.a = new a30(this.b);
+        this.a = new b30(this.b);
         y();
     }
 
@@ -247,7 +247,7 @@ public class t8 {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, str, z)) == null) {
-            return i30.a(u(str), z);
+            return j30.a(u(str), z);
         }
         return invokeLZ.booleanValue;
     }
@@ -256,7 +256,7 @@ public class t8 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Double.valueOf(d)})) == null) {
-            return i30.b(u(str), d);
+            return j30.b(u(str), d);
         }
         return invokeCommon.doubleValue;
     }
@@ -265,7 +265,7 @@ public class t8 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, str, i)) == null) {
-            return i30.c(u(str), i);
+            return j30.c(u(str), i);
         }
         return invokeLI.intValue;
     }
@@ -274,7 +274,7 @@ public class t8 {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048591, this, str, j)) == null) {
-            return i30.e(u(str), j);
+            return j30.e(u(str), j);
         }
         return invokeLJ.longValue;
     }
@@ -283,7 +283,7 @@ public class t8 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, str, str2)) == null) {
-            return i30.f(u(str), str2);
+            return j30.f(u(str), str2);
         }
         return (String) invokeLL.objValue;
     }

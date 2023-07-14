@@ -3,7 +3,7 @@ package com.baidu.tieba.memberCenter.tail.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.gx5;
+import com.baidu.tieba.ky5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.DeleteTail.DeleteTailReqIdl;
 import tbclient.DeleteTail.ReqData;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DeleteTailNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class DeleteTailNetMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DeleteTailReqIdl.Builder builder = new DeleteTailReqIdl.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                gx5.a(this.data, true);
+                ky5.a(this.data, true);
             }
             builder.data = this.data.build(false);
             return builder.build(false);

@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cg8;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.cl8;
+import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,13 +63,13 @@ public class TopBubbleView extends FrameLayout {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 a aVar = new a();
                 aVar.a = view2;
-                aVar.f = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ab);
-                aVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090510);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050f);
-                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050d);
-                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09050e);
-                aVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ac);
-                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09213c);
+                aVar.f = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ad);
+                aVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090511);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090510);
+                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050e);
+                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09050f);
+                aVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ae);
+                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092170);
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -144,7 +144,7 @@ public class TopBubbleView extends FrameLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = a.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0974, this));
+            this.a = a.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d098e, this));
             b();
         }
     }
@@ -163,19 +163,19 @@ public class TopBubbleView extends FrameLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            s75 d = s75.d(this.a.d);
+            d85 d = d85.d(this.a.d);
             d.x(R.color.CAM_X0101);
             d.D(R.string.F_X01);
             d.C(R.dimen.T_X10);
-            s75 d2 = s75.d(this.a.e);
+            d85 d2 = d85.d(this.a.e);
             d2.D(R.string.F_X01);
             d2.x(R.color.CAM_X0107);
             d2.C(R.dimen.T_X08);
-            s75 d3 = s75.d(this.a.f);
+            d85 d3 = d85.d(this.a.f);
             d3.m(R.dimen.L_X02);
             d3.o(R.string.J_X05);
             d3.f(R.color.CAM_X0207);
-            s75 d4 = s75.d(this.a.c);
+            d85 d4 = d85.d(this.a.c);
             d4.o(R.string.J_X04);
             d4.f(R.color.CAM_X0303);
             SkinManager.setViewTextColor(this.a.d, (int) R.color.CAM_X0101);
@@ -193,9 +193,9 @@ public class TopBubbleView extends FrameLayout {
             setIconVisibility(true);
             TextView textView = this.a.d;
             if (z) {
-                i = R.string.obfuscated_res_0x7f0f0409;
+                i = R.string.obfuscated_res_0x7f0f040b;
             } else {
-                i = R.string.obfuscated_res_0x7f0f0408;
+                i = R.string.obfuscated_res_0x7f0f040a;
             }
             textView.setText(i);
             if (z) {
@@ -205,9 +205,9 @@ public class TopBubbleView extends FrameLayout {
                 } else {
                     this.a.g.setVisibility(8);
                 }
-            } else if (!cg8.a(topBubbleData.getVersionKey())) {
+            } else if (!cl8.a(topBubbleData.getVersionKey())) {
                 this.a.g.setVisibility(0);
-                this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080613);
+                this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080614);
             } else {
                 this.a.g.setVisibility(8);
             }

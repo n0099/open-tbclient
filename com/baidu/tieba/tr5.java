@@ -1,38 +1,51 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class tr5 {
+public class tr5 implements qq5<SoLoaderEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, int i, String str2, String str3, String str4) {
+    public tr5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4}) == null) {
-            b(str, -1, str2, str3, str4, 0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(String str, int i, String str2, String str3, String str4, int i2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qq5
+    /* renamed from: a */
+    public boolean onEvent(SoLoaderEvent soLoaderEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4, Integer.valueOf(i2)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_source", str2);
-            statisticItem.param("thread_type", i2);
-            if (i > 0) {
-                statisticItem.param("obj_locate", i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, soLoaderEvent)) == null) {
+            if (soLoaderEvent != null && !StringUtils.isNull(soLoaderEvent.name)) {
+                if (sm.a(BdBaseApplication.getInst().getContext(), qm.a(soLoaderEvent.name))) {
+                    ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                    String str = soLoaderEvent.name;
+                    resHashMap.put(str, qm.a(str));
+                    return true;
+                }
+                return true;
             }
-            if (!StringUtils.isNull(str3)) {
-                statisticItem.param("tid", str3);
-            }
-            if (!StringUtils.isNull(str4)) {
-                statisticItem.param("fid", str4);
-            }
-            TiebaStatic.log(statisticItem);
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

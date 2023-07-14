@@ -3,7 +3,7 @@ package com.huawei.hms.opendevice;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ghb;
+import com.baidu.tieba.dqb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,18 +54,18 @@ public class l extends TaskApiCall<PushClient, TokenResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.huawei.hms.common.internal.TaskApiCall
     /* renamed from: a */
-    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, ghb<TokenResult> ghbVar) {
+    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, dqb<TokenResult> dqbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, pushClient, responseErrorCode, str, ghbVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, pushClient, responseErrorCode, str, dqbVar) == null) {
             if (responseErrorCode.getErrorCode() != 0) {
                 String str2 = HmsInstanceId.TAG;
                 HMSLog.e(str2, "TokenTask failed, ErrorCode:" + responseErrorCode.getErrorCode());
-                a(responseErrorCode, ghbVar);
+                a(responseErrorCode, dqbVar);
             } else {
                 TokenResp tokenResp = (TokenResp) JsonUtil.jsonToEntity(str, new TokenResp());
                 ErrorEnum fromCode = ErrorEnum.fromCode(tokenResp.getRetCode());
                 if (fromCode != ErrorEnum.SUCCESS) {
-                    ghbVar.c(fromCode.toApiException());
+                    dqbVar.c(fromCode.toApiException());
                     String str3 = HmsInstanceId.TAG;
                     HMSLog.e(str3, "TokenTask failed, StatusCode:" + fromCode.getExternalCode());
                 } else {
@@ -73,7 +73,7 @@ public class l extends TaskApiCall<PushClient, TokenResult> {
                     tokenResult.setToken(tokenResp.getToken());
                     tokenResult.setBelongId(tokenResp.getBelongId());
                     tokenResult.setRetCode(ErrorEnum.fromCode(tokenResp.getRetCode()).getExternalCode());
-                    ghbVar.setResult(tokenResult);
+                    dqbVar.setResult(tokenResult);
                     String token = tokenResp.getToken();
                     if (TextUtils.isEmpty(token)) {
                         HMSLog.i(HmsInstanceId.TAG, "GetTokenTask receive a empty token, please check HmsMessageService.onNewToken receive result.");
@@ -88,14 +88,14 @@ public class l extends TaskApiCall<PushClient, TokenResult> {
         }
     }
 
-    public final void a(ResponseErrorCode responseErrorCode, ghb<TokenResult> ghbVar) {
+    public final void a(ResponseErrorCode responseErrorCode, dqb<TokenResult> dqbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseErrorCode, ghbVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseErrorCode, dqbVar) == null) {
             ErrorEnum fromCode = ErrorEnum.fromCode(responseErrorCode.getErrorCode());
             if (fromCode != ErrorEnum.ERROR_UNKNOWN) {
-                ghbVar.c(fromCode.toApiException());
+                dqbVar.c(fromCode.toApiException());
             } else {
-                ghbVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
+                dqbVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
             }
         }
     }

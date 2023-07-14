@@ -1,151 +1,80 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q72 extends s72 {
+public final class q72 extends j72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public JSONObject j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public JSONArray o;
-    public float p;
-    @Nullable
-    public JSONObject q;
-    public long r;
-    public String s;
+    public String t;
+    public boolean u;
+    public boolean v;
+    public String w;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q72(String str, @NonNull String str2) {
-        super(str, str2);
+    public q72() {
+        super("animateview", "sanId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 0;
-        this.m = 0;
-        this.p = -1.0f;
-        this.s = "";
+        this.u = false;
+        this.v = true;
+        this.w = null;
     }
 
-    @Override // com.baidu.tieba.s72, com.baidu.tieba.b23
+    @Override // com.baidu.tieba.j72, com.baidu.tieba.l72, com.baidu.tieba.u13
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         super.a(jSONObject);
-        this.j = jSONObject.optJSONObject("style");
-        this.q = jSONObject.optJSONObject(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-        i();
-        h();
+        this.t = jSONObject.optString("path");
+        this.u = jSONObject.optBoolean("loop");
+        this.v = jSONObject.optBoolean("autoPlay");
+        this.w = jSONObject.optString("action");
     }
 
-    @Override // com.baidu.tieba.s72
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            super.g(jSONObject);
-            i();
-            h();
-        }
-    }
-
-    @Override // com.baidu.tieba.s72
-    public Object clone() throws CloneNotSupportedException {
+    @Override // com.baidu.tieba.l72, com.baidu.tieba.u13
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q72 q72Var = (q72) super.clone();
-            if (this.j != null) {
-                try {
-                    q72Var.j = new JSONObject(this.j.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b)) {
+                return true;
             }
-            if (this.o != null) {
-                try {
-                    q72Var.o = new JSONArray(this.o.toString());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (this.q != null) {
-                try {
-                    q72Var.q = new JSONObject(this.q.toString());
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                }
-            }
-            return q72Var;
+            return false;
         }
-        return invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void h() {
-        JSONObject jSONObject;
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jSONObject = this.q) != null) {
-            try {
-                this.r = Long.parseLong(jSONObject.optString("duration"));
-            } catch (Exception unused) {
-                c92.b("Component-Model-View", "duration occurs exception");
-                this.r = 0L;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (isValid() && !TextUtils.isEmpty(this.t)) {
+                return true;
             }
-            this.s = this.q.optString("easing");
+            return false;
         }
-    }
-
-    public final void i() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (jSONObject = this.j) != null) {
-            try {
-                this.k = Color.parseColor(jSONObject.optString("bgColor"));
-            } catch (Exception unused) {
-                c92.b("Component-Model-View", "backgroundColor occurs exception");
-                this.k = 0;
-            }
-            this.l = this.j.optInt("borderWidth");
-            try {
-                this.m = Color.parseColor(this.j.optString("borderColor"));
-            } catch (Exception unused2) {
-                c92.b("Component-Model-View", "borderColor occurs exception");
-                this.m = 0;
-            }
-            this.n = tp3.g(this.j.optInt("borderRadius"));
-            this.p = cp3.b(this.j, NativeConstants.OPACITY, -1.0f);
-            this.o = this.j.optJSONArray(CriusAttrConstants.PADDING);
-        }
+        return invokeV.booleanValue;
     }
 }

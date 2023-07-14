@@ -1,73 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import org.json.JSONObject;
+import tbclient.RecomVertical.SubClassItem;
 /* loaded from: classes7.dex */
-public class r28 extends ef {
+public class r28 extends j25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ef
-    public void changeSettingByType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ef
-    /* renamed from: getCrashKeys */
-    public String[] mo129getCrashKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ef
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ef
-    public int getMaxCrashTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 10;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ef
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "12_44_disable_intercept_onlayout_switch" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ef
-    public int getOffType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
+    public int a;
+    public String b;
+    public String c;
+    public int d;
 
     public r28() {
         Interceptable interceptable = $ic;
@@ -83,15 +30,26 @@ public class r28 extends ef {
         }
     }
 
-    public static boolean isOn() {
-        InterceptResult invokeV;
+    public void a(SubClassItem subClassItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (SwitchManager.getInstance().findType("12_44_disable_intercept_onlayout_switch") == 1) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, subClassItem) != null) || subClassItem == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        this.a = subClassItem.sub_class_id.intValue();
+        this.b = subClassItem.sub_class_name;
+        this.c = subClassItem.sub_class_icon;
+        this.d = subClassItem.enable.intValue();
+    }
+
+    @Override // com.baidu.tieba.j25
+    public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("sub_class_id");
+        this.b = jSONObject.optString("sub_class_name");
+        this.c = jSONObject.optString("sub_class_icon");
+        this.d = jSONObject.optInt("enable");
     }
 }

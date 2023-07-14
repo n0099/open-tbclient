@@ -1,41 +1,52 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface rmb {
+public final class rmb implements ServiceConnection {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ pmb a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void handleMessage(Message message);
-
-        void onPause();
-
-        void onResume();
-
-        void onStart();
-
-        void onStop();
+    public rmb(pmb pmbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pmbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = pmbVar;
     }
 
-    boolean a(int i, long j);
+    @Override // android.content.ServiceConnection
+    public final void onServiceDisconnected(ComponentName componentName) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) != null) {
+            return;
+        }
+        this.a.q();
+    }
 
-    void b(a aVar);
-
-    void c();
-
-    void d(int i);
-
-    boolean e(Runnable runnable);
-
-    boolean f(int i);
-
-    void g(int i);
-
-    int getStatus();
-
-    boolean sendMessage(Message message);
-
-    void setName(String str);
-
-    void start();
+    @Override // android.content.ServiceConnection
+    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
+            return;
+        }
+        this.a.f(iBinder);
+    }
 }

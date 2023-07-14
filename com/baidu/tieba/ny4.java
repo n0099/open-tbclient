@@ -2,30 +2,38 @@ package com.baidu.tieba;
 
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ny4 implements em6 {
+public class ny4 implements in6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.em6
+    @Override // com.baidu.tieba.in6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        dm6.a(this, webView, str, jSONObject);
+        hn6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.em6
+    @Override // com.baidu.tieba.in6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            return false;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.in6
     public /* synthetic */ void onDestroy() {
-        dm6.b(this);
+        hn6.b(this);
     }
 
     public ny4() {
@@ -42,66 +50,22 @@ public class ny4 implements em6 {
         }
     }
 
-    @Override // com.baidu.tieba.em6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.GET_CLIPPER_INFORMATION.equals(str2)) {
-                jsPromptResult.confirm(c(webView).a());
-                return true;
-            } else if (CommonTbJsBridge.SET_CLIPPER_INFORMATION.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(d(webView, new JSONObject(str3).optString("txt")).a());
-                    return true;
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public f5a c(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            f5a f5aVar = new f5a();
-            String clipBoardContent = UtilHelper.getClipBoardContent();
-            int i = !wi.isEmpty(clipBoardContent) ? 1 : 0;
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", i);
-                jSONObject.put("data", clipBoardContent);
-                f5aVar.o(jSONObject.toString());
-                return f5aVar;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return f5aVar;
-            }
-        }
-        return (f5a) invokeL.objValue;
-    }
-
-    public f5a d(WebView webView, String str) {
+    public qda c(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-            f5a f5aVar = new f5a();
-            ni.a(str);
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", 1);
-                f5aVar.o(jSONObject.toString());
-                return f5aVar;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return f5aVar;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
+            return new qda();
         }
-        return (f5a) invokeLL.objValue;
+        return (qda) invokeLL.objValue;
+    }
+
+    public qda d(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
+            a(webView, CommonTbJsBridge.OPEN_VIP_SUCCESS, new JSONObject());
+            return new qda();
+        }
+        return (qda) invokeLL.objValue;
     }
 }

@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.emotiontool.EmotionNoLaunchView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +10,120 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ti5 extends oi5 {
+public class ti5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int t;
-    public static final int u;
-    public static final int v;
+    public static og0 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public static class a implements og0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.baidu.tieba.ti5$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class C0489a implements ui5 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ng0 a;
+
+            @Override // com.baidu.tieba.ui5
+            public boolean onFileDownloaded(DownloadData downloadData) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                    return true;
+                }
+                return invokeL.booleanValue;
+            }
+
+            public C0489a(a aVar, ng0 ng0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, ng0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = ng0Var;
+            }
+
+            @Override // com.baidu.tieba.ui5
+            public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+                ng0 ng0Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) && (ng0Var = this.a) != null) {
+                    ng0Var.onFailed(new Exception(str));
+                }
+            }
+
+            @Override // com.baidu.tieba.ui5
+            public void onFileDownloadSucceed(DownloadData downloadData) {
+                ng0 ng0Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && (ng0Var = this.a) != null) {
+                    ng0Var.b(downloadData.getPath());
+                }
+            }
+
+            @Override // com.baidu.tieba.ui5
+            public void onFileUpdateProgress(DownloadData downloadData) {
+                ng0 ng0Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && (ng0Var = this.a) != null) {
+                    ng0Var.a(0L, 100L, (int) (downloadData.getLength() / downloadData.getSize()));
+                }
+            }
+
+            @Override // com.baidu.tieba.ui5
+            public boolean onPreDownload(DownloadData downloadData) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                    ng0 ng0Var = this.a;
+                    if (ng0Var != null) {
+                        ng0Var.onStarted();
+                        return true;
+                    }
+                    return true;
+                }
+                return invokeL.booleanValue;
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.og0
+        public void a(String str, String str2, String str3, ng0 ng0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, ng0Var) == null) {
+                DownloadData downloadData = new DownloadData();
+                downloadData.setPath(str2 + "/" + str3);
+                downloadData.setUrl(str);
+                downloadData.setCallback(new C0489a(this, ng0Var));
+                vi5.k().l(downloadData);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,40 +138,13 @@ public class ti5 extends oi5 {
                 return;
             }
         }
-        t = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
-        u = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds46);
-        v = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds68);
+        a = new a();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ti5(Context context) {
-        super(context, (String) null, 37);
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            hg0.q(a);
         }
-        this.o = true;
-        this.n = 8;
-        this.m = new EmotionNoLaunchView(context);
-        int i3 = v;
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(t + i3, i3 + (u * 2));
-        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-        ((View) this.m).setLayoutParams(layoutParams);
-        int i4 = t;
-        int i5 = u;
-        ((View) this.m).setPadding(i4, i5, 0, i5);
-        this.p = new int[]{1, 5};
     }
 }

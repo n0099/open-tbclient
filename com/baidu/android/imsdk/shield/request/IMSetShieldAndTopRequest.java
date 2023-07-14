@@ -158,8 +158,17 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 } else {
                     ShieldAndTopManager.getInstance(this.mContext).onPaMarkTopResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
                 }
-            } else if (i2 == 3 && this.mContacterType == 2) {
-                ShieldAndTopManager.getInstance(this.mContext).onSetGroupNotDisturbResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
+            } else if (i2 == 3) {
+                int i4 = this.mContacterType;
+                if (i4 == 2) {
+                    ShieldAndTopManager.getInstance(this.mContext).onSetGroupNotDisturbResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
+                } else if (i4 == 1) {
+                    this.user.setCategory(0);
+                    ShieldAndTopManager.getInstance(this.mContext).onPaDisturbResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
+                } else if (i4 == 0) {
+                    this.user.setCategory(0);
+                    ShieldAndTopManager.getInstance(this.mContext).onUserDisturbResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
+                }
             }
         }
     }
@@ -218,13 +227,24 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
                     this.user.setMarkTop(this.mState);
                     ShieldAndTopManager.getInstance(this.mContext).onPaMarkTopResult(i2, str, this.user, this.mKey);
                 }
-            } else if (i4 == 3 && this.mContacterType == 2) {
-                ShieldAndTopManager.getInstance(this.mContext).onSetGroupNotDisturbResult(i2, str, this.user, this.mKey);
-            } else {
-                int i6 = this.mSubBusiness;
-                if ((i6 == 3 || i6 == 4 || i6 == 5) && (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) != null) {
-                    iStatusListener.onResult(i2, str, this.mState, this.mContacter);
+            } else if (i4 == 3) {
+                int i6 = this.mContacterType;
+                if (i6 == 2) {
+                    ShieldAndTopManager.getInstance(this.mContext).onSetGroupNotDisturbResult(i2, str, this.user, this.mKey);
+                } else if (i6 == 1) {
+                    this.user.setCategory(0);
+                    ShieldAndTopManager.getInstance(this.mContext).onPaDisturbResult(i2, str, this.user, this.mKey);
+                } else if (i6 == 0) {
+                    this.user.setCategory(0);
+                    ShieldAndTopManager.getInstance(this.mContext).onUserDisturbResult(i2, str, this.user, this.mKey);
+                } else {
+                    IStatusListener iStatusListener2 = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey);
+                    if (iStatusListener2 != null) {
+                        iStatusListener2.onResult(i2, str, this.mState, this.mContacter);
+                    }
                 }
+            } else if ((i4 == 4 || i4 == 5) && (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) != null) {
+                iStatusListener.onResult(i2, str, this.mState, this.mContacter);
             }
         }
     }

@@ -1,21 +1,33 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.Nullable;
+import android.content.ContextWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wb3 {
+public abstract class wb3 extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(@Nullable Context context, float f) {
-        InterceptResult invokeLF;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wb3(vb3 vb3Var) {
+        super(vb3Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, context, f)) == null) {
-            return tp3.f(context, f);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeLF.intValue;
     }
 }

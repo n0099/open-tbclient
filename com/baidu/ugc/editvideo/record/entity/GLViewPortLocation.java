@@ -1,5 +1,5 @@
 package com.baidu.ugc.editvideo.record.entity;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GLViewPortLocation {
     public int defaultHeight;
     public int defaultWidth;

@@ -68,7 +68,7 @@ public class bw {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m303a() {
+    public String m305a() {
         return this.e;
     }
 

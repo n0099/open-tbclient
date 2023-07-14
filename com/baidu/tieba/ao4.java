@@ -1,50 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ao4 {
     public static /* synthetic */ Interceptable $ic;
-    public static ao4 d;
+    public static volatile ao4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public String b;
-    public String c;
-
-    /* loaded from: classes5.dex */
-    public static class a extends ms4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("updatecore_node_tipmsgs");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
+    public final int a;
+    public int b;
 
     public ao4() {
         Interceptable interceptable = $ic;
@@ -59,82 +29,81 @@ public class ao4 {
                 return;
             }
         }
-        this.a = new a();
-        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14bb);
-        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14bc);
+        this.b = 0;
+        this.a = gj4.b().i().getInt("max_emit_app_close_num", 1);
     }
 
-    public static ao4 b() {
+    public static ao4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
+            if (c == null) {
                 synchronized (ao4.class) {
-                    if (d == null) {
-                        d = new ao4();
+                    if (c == null) {
+                        c = new ao4();
                     }
                 }
             }
-            return d;
+            return c;
         }
         return (ao4) invokeV.objValue;
     }
 
-    public String d() {
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || c == null) {
+            return;
+        }
+        c = null;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getString("tips_config_version", "0");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return gj4.b().i().getString("simple_control_item_version", "0");
         }
         return (String) invokeV.objValue;
     }
 
-    public String a(long j) {
-        InterceptResult invokeJ;
+    public synchronized void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return this.a.getString(String.format("%04d", Long.valueOf(j)), this.b);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b++;
+            }
         }
-        return (String) invokeJ.objValue;
     }
 
-    public String c(long j) {
-        InterceptResult invokeJ;
+    public synchronized boolean d() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return this.a.getString(String.format("%04d", Long.valueOf(j)), this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                if (this.b < this.a) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
         }
-        return (String) invokeJ.objValue;
+        return invokeV.booleanValue;
     }
 
     public void e(JSONObject jSONObject) {
-        JSONArray optJSONArray;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("max_emit_app_close_num")) {
             return;
         }
-        HashMap<String, String> hashMap = new HashMap<>(optJSONArray.length());
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            hashMap.put(optJSONObject.optString("tipno"), optJSONObject.optString("tipmsg"));
-        }
-        f(hashMap, optString);
-    }
-
-    public void f(HashMap<String, String> hashMap, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, hashMap, str) == null) && hashMap != null && !hashMap.isEmpty() && !TextUtils.isEmpty(str)) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.clear();
-            edit.putString("tips_config_version", str);
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                edit.putString(entry.getKey(), entry.getValue());
-            }
-            edit.apply();
-        }
+        int optInt = optJSONObject.optInt("max_emit_app_close_num", 1);
+        gj4.b().i().putString("simple_control_item_version", optString);
+        gj4.b().i().putInt("max_emit_app_close_num", optInt);
     }
 }

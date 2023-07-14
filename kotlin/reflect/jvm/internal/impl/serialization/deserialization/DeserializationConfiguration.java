@@ -1,8 +1,8 @@
 package kotlin.reflect.jvm.internal.impl.serialization.deserialization;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface DeserializationConfiguration {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class DefaultImpls {
         public static boolean getReleaseCoroutines(DeserializationConfiguration deserializationConfiguration) {
             return false;
@@ -29,7 +29,7 @@ public interface DeserializationConfiguration {
 
     boolean getTypeAliasesAllowed();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Default implements DeserializationConfiguration {
         public static final Default INSTANCE = new Default();
 

@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class d extends RecyclerView.Adapter<c> {
     public List<Presenter> GT = new ArrayList();
 

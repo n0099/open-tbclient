@@ -13,15 +13,15 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kn;
-import com.baidu.tieba.rw7;
+import com.baidu.tieba.i18;
+import com.baidu.tieba.ln;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ConcernEmotionTipAdapter extends kn<rw7, ConcernEmotionTipViewHolder> {
+public class ConcernEmotionTipAdapter extends ln<i18, ConcernEmotionTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -50,12 +50,12 @@ public class ConcernEmotionTipAdapter extends kn<rw7, ConcernEmotionTipViewHolde
                     return;
                 }
             }
-            NoDataView a = NoDataViewFactory.a(view2.getContext(), view2, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NOPOST), NoDataViewFactory.e.d(null, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b7)), null);
+            NoDataView a = NoDataViewFactory.a(view2.getContext(), view2, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NOPOST), NoDataViewFactory.e.d(null, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ba)), null);
             this.a = a;
             a.setVisibility(0);
         }
 
-        public void a(TbPageContext<?> tbPageContext, int i, NoDataViewFactory.ImgType imgType) {
+        public void b(TbPageContext<?> tbPageContext, int i, NoDataViewFactory.ImgType imgType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, tbPageContext, i, imgType) == null) {
                 this.a.setImgOption(NoDataViewFactory.d.a(imgType));
@@ -67,7 +67,7 @@ public class ConcernEmotionTipAdapter extends kn<rw7, ConcernEmotionTipViewHolde
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernEmotionTipAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getContext(), rw7.g);
+        super(tbPageContext.getContext(), i18.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,42 +110,42 @@ public class ConcernEmotionTipAdapter extends kn<rw7, ConcernEmotionTipViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
+    @Override // com.baidu.tieba.ln
     /* renamed from: s */
     public ConcernEmotionTipViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new ConcernEmotionTipViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0219, viewGroup, false));
+            return new ConcernEmotionTipViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d021b, viewGroup, false));
         }
         return (ConcernEmotionTipViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
+    @Override // com.baidu.tieba.ln
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rw7 rw7Var, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, i18 i18Var, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rw7Var, concernEmotionTipViewHolder})) == null) {
-            String str = rw7Var.b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i18Var, concernEmotionTipViewHolder})) == null) {
+            String str = i18Var.b;
             if (str != null) {
                 concernEmotionTipViewHolder.a.setTextOption(NoDataViewFactory.e.d(null, str));
             }
-            if (rw7Var.getType() == rw7.f) {
-                if (rw7Var.a == 2) {
-                    concernEmotionTipViewHolder.a.setTextOption(NoDataViewFactory.e.d(null, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b8)));
+            if (i18Var.getType() == i18.f) {
+                if (i18Var.a == 2) {
+                    concernEmotionTipViewHolder.a.setTextOption(NoDataViewFactory.e.d(null, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04bb)));
                 } else {
-                    concernEmotionTipViewHolder.a.setTextOption(NoDataViewFactory.e.d(null, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b7)));
+                    concernEmotionTipViewHolder.a.setTextOption(NoDataViewFactory.e.d(null, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ba)));
                 }
             }
-            int i2 = rw7Var.a;
+            int i2 = i18Var.a;
             if (i2 != 2) {
                 if (i2 == 3) {
-                    concernEmotionTipViewHolder.a(this.a, TbadkCoreApplication.getInst().getSkinType(), NoDataViewFactory.ImgType.NOPOST);
+                    concernEmotionTipViewHolder.b(this.a, TbadkCoreApplication.getInst().getSkinType(), NoDataViewFactory.ImgType.NOPOST);
                 }
             } else {
-                concernEmotionTipViewHolder.a(this.a, TbadkCoreApplication.getInst().getSkinType(), NoDataViewFactory.ImgType.NOFOLLOW);
+                concernEmotionTipViewHolder.b(this.a, TbadkCoreApplication.getInst().getSkinType(), NoDataViewFactory.ImgType.NOFOLLOW);
             }
             SkinManager.setBackgroundColor(viewGroup, R.color.CAM_X0202);
             return concernEmotionTipViewHolder.getView();

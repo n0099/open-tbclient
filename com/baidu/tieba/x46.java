@@ -1,65 +1,130 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.tbadkCore.model.ForumManageModel;
+import com.baidu.tieba.newdetail.HotTopicDetailModel;
+import com.baidu.tieba.wp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class x46 {
+public class x46 implements ql1<wp5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ForumManageModel b;
-    public ThreadData c;
 
-    public x46(int i, ForumManageModel forumManageModel, ThreadData threadData) {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b implements wp5, HotTopicDetailModel.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HotTopicDetailModel b;
+        @Nullable
+        public wp5.a c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.wp5
+        public void c(@Nullable wp5.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+                this.c = aVar;
+            }
+        }
+
+        @Override // com.baidu.tieba.wp5
+        public wp5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), str})) == null) {
+                HotTopicDetailModel hotTopicDetailModel = new HotTopicDetailModel(tbPageContext);
+                this.b = hotTopicDetailModel;
+                hotTopicDetailModel.k0(j, str);
+                this.b.j0(this);
+                return this;
+            }
+            return (wp5) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.wp5
+        public void b(int i, w35 w35Var, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), w35Var, Long.valueOf(j)}) == null) {
+                this.b.X(i, w35Var, j);
+            }
+        }
+
+        @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
+        public void o(int i, @Nullable za8 za8Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048579, this, i, za8Var) == null) && this.c != null) {
+                if (za8Var != null) {
+                    ArrayList arrayList = new ArrayList();
+                    for (cq6 cq6Var : za8Var.a) {
+                        if (cq6Var instanceof cq6) {
+                            ThreadData threadData = cq6Var.getThreadData();
+                            if (!TextUtils.equals(threadData.getTid(), "0")) {
+                                arrayList.add(threadData);
+                            }
+                        }
+                    }
+                    this.c.b(arrayList, za8Var.e());
+                }
+                this.c.a();
+            }
+        }
+    }
+
+    public x46() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), forumManageModel, threadData};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = forumManageModel;
-        this.c = threadData;
     }
 
-    public ForumManageModel a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ql1
+    /* renamed from: a */
+    public wp5 getService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return new b(null);
         }
-        return (ForumManageModel) invokeV.objValue;
-    }
-
-    public ThreadData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
+        return (wp5) invokeV.objValue;
     }
 }

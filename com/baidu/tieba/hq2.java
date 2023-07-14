@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class hq2 extends wp2<cq2> {
+public class hq2 extends pp2<dq2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.wp2
+    @Override // com.baidu.tieba.pp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showsoftkeyboard" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "release" : (String) invokeV.objValue;
     }
 
     public hq2() {
@@ -36,15 +36,12 @@ public class hq2 extends wp2<cq2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wp2
+    @Override // com.baidu.tieba.pp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull cq2 cq2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull dq2 dq2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, cq2Var) == null) {
-            int i = command.arg1;
-            String str = command.what;
-            d(cq2Var, str, "Type:" + i, false);
-            cq2Var.z0(i);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, dq2Var) == null) {
+            dq2Var.release();
         }
     }
 }

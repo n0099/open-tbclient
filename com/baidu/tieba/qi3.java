@@ -1,23 +1,31 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.tieba.zw2;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.database.SwanAppDbControl;
+import com.baidu.tieba.di3;
+import com.baidu.tieba.sw2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qi3 {
+public class qi3 extends v73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile boolean b;
-    public static volatile boolean c;
-    public static final boolean d;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,184 +41,132 @@ public class qi3 {
                 return;
             }
         }
-        a = ms1.a;
-        b = false;
-        c = false;
-        jv2.g0().getSwitch("swan_app_use_route_statistic", false);
-        d = false;
+        f = fs1.a;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public qi3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "mIsStartByApi = " + c);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            boolean z = c;
-            k(false);
-            return z;
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static boolean e(@Nullable String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "mIsStartFirstPage = " + b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.equals("0", str)) {
+                return false;
             }
-            boolean z = b;
-            l(false);
-            return z;
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public static void f(String str, String str2, @Nullable JSONObject jSONObject) {
+        String str3;
+        String I1;
+        Intent intent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void d(c23 c23Var, String str, ty1 ty1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, c23Var, str, ty1Var) == null) {
-            e(c23Var, str, ty1Var, null);
-        }
-    }
-
-    public static void e(c23 c23Var, String str, ty1 ty1Var, String str2) {
-        cc3 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65541, null, c23Var, str, ty1Var, str2) != null) || !d || (b0 = cc3.b0()) == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, jSONObject) != null) || !e(str2)) {
             return;
         }
-        zw2.a W = b0.W();
-        fj3 fj3Var = new fj3();
-        fj3Var.a = vi3.n(W.G());
-        fj3Var.f = W.H();
-        if (t92.d()) {
-            fj3Var.c = "remote-debug";
-        } else if (b83.D()) {
-            fj3Var.c = "local-debug";
-        } else {
-            fj3Var.c = W.T();
+        JSONObject jSONObject2 = new JSONObject();
+        String str4 = StringUtil.NULL_STRING;
+        if (str2 == null) {
+            str2 = StringUtil.NULL_STRING;
         }
-        fj3Var.b = "pageshow";
-        if (!TextUtils.isEmpty(str)) {
-            fj3Var.e = str;
-        }
-        if (c23Var != null) {
-            fj3Var.a("path", c23Var.a);
-            fj3Var.a("routeType", c23Var.e);
-            fj3Var.a("routeid", c23Var.f);
-        }
-        if (!TextUtils.isEmpty(str2)) {
-            fj3Var.a(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, str2);
-        }
-        if (ty1Var != null && ty1Var.c > 0) {
-            fj3Var.a("valuetype", ty1Var.g);
-        }
-        Bundle P = W.P();
-        if (P != null) {
-            fj3Var.d(P.getString("ubc"));
-        }
-        fj3Var.b(vi3.k(W.W()));
-        if (a) {
-            Log.d("SwanAppRouteUbc", "onRouteEvent - " + fj3Var.f());
-        }
-        vi3.onEvent(fj3Var);
-    }
-
-    public static c23 f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
-            lb2 U = px2.T().U();
-            c23 c23Var = null;
-            if (U == null) {
-                return null;
+        try {
+            jSONObject2.put("version", str2);
+            if (str == null) {
+                str3 = StringUtil.NULL_STRING;
+            } else {
+                str3 = str;
             }
-            ib2 j = U.j((U.k() - i) - 1);
-            if (j instanceof kb2) {
-                c23Var = ((kb2) j).o3();
-                c23Var.e = "1";
-                c23Var.f = str;
-            }
-            g(c23Var);
-            return c23Var;
-        }
-        return (c23) invokeLI.objValue;
-    }
-
-    public static void g(c23 c23Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, c23Var) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "recordRouteAllByApi");
-            }
-            if (!c()) {
-                k(true);
-                d(c23Var, null, null);
-            }
-        }
-    }
-
-    public static void h(c23 c23Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, c23Var) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "recordRouteAllByResume");
-            }
-            d(c23Var, null, null);
-        }
-    }
-
-    public static void i(c23 c23Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, c23Var) == null) {
-            j(c23Var, null);
-        }
-    }
-
-    public static synchronized void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            synchronized (qi3.class) {
-                c = z;
-            }
-        }
-    }
-
-    public static synchronized void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            synchronized (qi3.class) {
-                b = z;
-            }
-        }
-    }
-
-    public static void j(c23 c23Var, vn3 vn3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, c23Var, vn3Var) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "recordRouteFailByApi - pageParam=" + c23Var + " errCode=" + vn3Var);
-            }
-            if (c) {
-                if (vn3Var == null) {
-                    vn3Var = new vn3();
-                    vn3Var.k(5L);
-                    vn3Var.i(58L);
-                    vn3Var.d("route check fail");
+            jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str3);
+            vb3 M = vb3.M();
+            if (M != null) {
+                sw2.a Y = M.Y();
+                if (Y == null) {
+                    I1 = StringUtil.NULL_STRING;
+                } else {
+                    I1 = Y.I1();
                 }
-                e(c23Var, "fail", null, String.valueOf(vn3Var.a()));
+                jSONObject2.put("launchInfo", I1);
+                SwanAppActivity w = M.w();
+                sw2 sw2Var = null;
+                if (w != null && (intent = w.getIntent()) != null) {
+                    sw2Var = sw2.d1(intent);
+                }
+                if (sw2Var != null) {
+                    str4 = sw2Var.I1();
+                }
+                jSONObject2.put("launchInfoIntent", str4);
+            } else {
+                jSONObject2.put("swanApp", StringUtil.NULL_STRING);
             }
+            jSONObject2.put("stackTrace", pp3.y());
+            if (jSONObject != null) {
+                jSONObject2.put("reportExtInfo", jSONObject);
+            }
+        } catch (JSONException e) {
+            if (f) {
+                e.printStackTrace();
+            }
+        }
+        q83 y = ub3.K().y();
+        if (y != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("key_swan_appid", str);
+            bundle.putString("key_report_info", jSONObject2.toString());
+            y.W(bundle, qi3.class);
+        }
+    }
+
+    @Override // com.baidu.tieba.v73
+    public void b(@NonNull Bundle bundle) {
+        si2 o;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String str = "";
+            String string = bundle.getString("key_swan_appid", "");
+            String string2 = bundle.getString("key_report_info", "");
+            if (!TextUtils.isEmpty(string2)) {
+                str = string2;
+            }
+            JSONObject jSONObject = null;
+            try {
+                jSONObject = new JSONObject(str);
+            } catch (JSONException e) {
+                if (f) {
+                    Log.e("VersionBusinessUbc", "execCall: ", e);
+                }
+                e.printStackTrace();
+            }
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            if (!TextUtils.isEmpty(string) && (o = SwanAppDbControl.f(AppRuntime.getAppContext()).o(string)) != null) {
+                try {
+                    jSONObject.put("appDbInfo", o.a());
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            if (f) {
+                Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
+            }
+            di3.b bVar = new di3.b(10002);
+            bVar.i(jSONObject.toString());
+            bVar.m();
+            c();
         }
     }
 }

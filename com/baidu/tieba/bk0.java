@@ -1,15 +1,22 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class bk0 implements gl1 {
+public abstract class bk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract String a();
 
     public bk0() {
         Interceptable interceptable = $ic;
@@ -25,15 +32,28 @@ public class bk0 implements gl1 {
         }
     }
 
-    @Override // com.baidu.tieba.gl1
-    public Object get() {
-        InterceptResult invokeV;
+    @CallSuper
+    public boolean b(@NonNull Context context, @NonNull fk0 fk0Var, @Nullable Map<String, Object> map, @Nullable jk0 jk0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new k91());
-            return arrayList;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fk0Var, map, jk0Var)) == null) {
+            o41.b((String) z31.b(fk0Var.d(), "charge_url"));
+            return true;
         }
-        return invokeV.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    public void c(jk0 jk0Var, @Nullable fk0 fk0Var, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jk0Var, fk0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            ok0.b(jk0Var, fk0Var, i, z);
+        }
+    }
+
+    public void d(jk0 jk0Var, @Nullable fk0 fk0Var, @Nullable String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{jk0Var, fk0Var, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            ok0.c(jk0Var, fk0Var, str, i, z);
+        }
     }
 }

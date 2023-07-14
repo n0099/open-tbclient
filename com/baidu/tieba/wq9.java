@@ -1,62 +1,90 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.iq5;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class wq9 {
+public class wq9 implements iq5, PersonPostModel.d, PersonPostModel.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public PersonPostModel a;
+    @Nullable
+    public iq5.a b;
 
-    public static void a(Context context, String str) {
+    public wq9(@NonNull TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameAlbum(context, str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new PersonPostModel(tbPageContext, tbPageContext.getUniqueId(), this, false, 1);
+    }
+
+    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
+    public void B0(PersonPostModel personPostModel, boolean z) {
+        iq5.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) && (aVar = this.b) != null) {
+            aVar.a();
         }
     }
 
-    public static void b(Context context, String str) {
+    @Override // com.baidu.tieba.iq5
+    public void a(@Nullable iq5.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 
-    public static void c(Context context, String str) {
+    @Override // com.baidu.tieba.iq5
+    public void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameOrderPage(context, str);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, metaData, num, num2, num3, num4, l, num5}) == null) {
+            this.a.fetchPostByBeginThreadId(str, this, metaData, num, num2, num3, num4, l, num5);
         }
     }
 
-    public static void d(Context context, String str) {
+    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
+    public void s0(PersonPostModel personPostModel, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameSkillDetail(context, str);
+        if ((interceptable == null || interceptable.invokeLZ(1048579, this, personPostModel, z) == null) && this.b != null) {
+            ArrayList arrayList = new ArrayList();
+            Iterator<yn> it = personPostModel.threadList.iterator();
+            while (it.hasNext()) {
+                yn next = it.next();
+                if (next instanceof CardPersonDynamicThreadData) {
+                    ThreadData threadData = ((CardPersonDynamicThreadData) next).getThreadData();
+                    if (!TextUtils.equals(threadData.getTid(), "0")) {
+                        arrayList.add(threadData);
+                    }
+                }
+            }
+            this.b.b(arrayList, personPostModel.getDataResMap());
+            this.b.a();
         }
-    }
-
-    public static void e(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z) == null) {
-            UrlSchemaJumpHelper.jumpPersonChat(context, str, z);
-        }
-    }
-
-    public static Ringtone f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            Ringtone ringtone = RingtoneManager.getRingtone(TbadkCoreApplication.getInst(), RingtoneManager.getDefaultUri(2));
-            ringtone.play();
-            return ringtone;
-        }
-        return (Ringtone) invokeV.objValue;
     }
 }

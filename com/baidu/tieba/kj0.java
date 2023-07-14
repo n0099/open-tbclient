@@ -1,97 +1,297 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.DecimalFormat;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class kj0 extends se1 {
+public final class kj0 extends tm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdBaseModel a;
-    public View b;
-    public View.OnClickListener c;
+    public ri0 g;
 
-    public kj0(AdBaseModel adBaseModel, View view2) {
+    /* loaded from: classes6.dex */
+    public static final class a extends ho0<ri0> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kj0 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(kj0 kj0Var, Class cls) {
+            super(cls);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kj0Var, cls};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Class) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = kj0Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ho0
+        public void onEvent(ri0 it) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                if (this.b.e != null && !(!Intrinsics.areEqual(it.a, "2"))) {
+                    this.b.g = it;
+                    if (it.h) {
+                        zm0 zm0Var = (zm0) this.b.e.get();
+                        if (zm0Var != null) {
+                            Context b = rk0.b();
+                            Intrinsics.checkNotNullExpressionValue(b, "AdRuntime.applicationContext()");
+                            zm0Var.update(b.getResources().getString(R.string.nad_download_open), this.b.a);
+                            return;
+                        }
+                        return;
+                    }
+                    this.b.t();
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kj0(gm0 data, zm0<?> view2) {
+        super(data, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {adBaseModel, view2};
+            Object[] objArr = {data, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((gm0) objArr2[0], (zm0) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = adBaseModel;
-        this.b = view2;
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(view2, "view");
     }
 
-    @Override // com.baidu.tieba.se1
-    public void a(String str) {
-        AdBaseModel adBaseModel;
-        ur0 ur0Var;
-        pr0 pr0Var;
+    @Override // com.baidu.tieba.tm0
+    public void t() {
+        String str;
+        boolean z;
+        String str2;
+        boolean z2;
+        String str3;
+        boolean z3;
+        String str4;
+        boolean z4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        String str11;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (adBaseModel = this.a) != null && (ur0Var = adBaseModel.f) != null && !TextUtils.isEmpty(ur0Var.d)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.FREE_CLICK);
-            clogBuilder.j(str);
-            qr0 qr0Var = adBaseModel.m;
-            if (qr0Var != null && (pr0Var = qr0Var.q) != null) {
-                clogBuilder.v(pr0Var.a);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ri0 ri0Var = this.g;
+            if (ri0Var == null) {
+                super.t();
+            } else if (this.e == null) {
+            } else {
+                String str12 = null;
+                if (ri0Var != null) {
+                    str = ri0Var.c;
+                } else {
+                    str = null;
+                }
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    ri0 ri0Var2 = this.g;
+                    if (ri0Var2 != null) {
+                        str2 = ri0Var2.b;
+                    } else {
+                        str2 = null;
+                    }
+                    if (str2 != null && str2.length() != 0) {
+                        z2 = false;
+                    } else {
+                        z2 = true;
+                    }
+                    if (!z2) {
+                        Context b = rk0.b();
+                        Intrinsics.checkNotNullExpressionValue(b, "AdRuntime.applicationContext()");
+                        Resources resources = b.getResources();
+                        String string = resources.getString(R.string.nad_download_start);
+                        Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.string.nad_download_start)");
+                        AdDownloadStatus adDownloadStatus = this.a.c;
+                        if (adDownloadStatus != null) {
+                            switch (jj0.$EnumSwitchMapping$0[adDownloadStatus.ordinal()]) {
+                                case 1:
+                                    Object[] objArr = new Object[2];
+                                    ri0 ri0Var3 = this.g;
+                                    if (ri0Var3 != null) {
+                                        str6 = ri0Var3.b;
+                                    } else {
+                                        str6 = null;
+                                    }
+                                    objArr[0] = str6;
+                                    ri0 ri0Var4 = this.g;
+                                    if (ri0Var4 != null) {
+                                        str7 = ri0Var4.c;
+                                    } else {
+                                        str7 = null;
+                                    }
+                                    objArr[1] = str7;
+                                    string = resources.getString(R.string.nad_reward_download_task_init, objArr);
+                                    Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st…t?.duration, event?.coin)");
+                                    break;
+                                case 2:
+                                    string = new DecimalFormat("#.#%").format(this.a.i);
+                                    Intrinsics.checkNotNullExpressionValue(string, "format.format(mData.progress.toDouble())");
+                                    break;
+                                case 3:
+                                    string = resources.getString(R.string.nad_download_continue);
+                                    Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st…ng.nad_download_continue)");
+                                    break;
+                                case 4:
+                                    Object[] objArr2 = new Object[2];
+                                    ri0 ri0Var5 = this.g;
+                                    if (ri0Var5 != null) {
+                                        str8 = ri0Var5.b;
+                                    } else {
+                                        str8 = null;
+                                    }
+                                    objArr2[0] = str8;
+                                    ri0 ri0Var6 = this.g;
+                                    if (ri0Var6 != null) {
+                                        str9 = ri0Var6.c;
+                                    } else {
+                                        str9 = null;
+                                    }
+                                    objArr2[1] = str9;
+                                    string = resources.getString(R.string.nad_reward_download_task_install, objArr2);
+                                    Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st…t?.duration, event?.coin)");
+                                    break;
+                                case 5:
+                                    Object[] objArr3 = new Object[2];
+                                    ri0 ri0Var7 = this.g;
+                                    if (ri0Var7 != null) {
+                                        str10 = ri0Var7.b;
+                                    } else {
+                                        str10 = null;
+                                    }
+                                    objArr3[0] = str10;
+                                    ri0 ri0Var8 = this.g;
+                                    if (ri0Var8 != null) {
+                                        str11 = ri0Var8.c;
+                                    } else {
+                                        str11 = null;
+                                    }
+                                    objArr3[1] = str11;
+                                    string = resources.getString(R.string.nad_reward_download_task_open, objArr3);
+                                    Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st…t?.duration, event?.coin)");
+                                    break;
+                                case 6:
+                                    string = resources.getString(R.string.nad_download_failed_retry);
+                                    Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st…ad_download_failed_retry)");
+                                    break;
+                            }
+                        }
+                        ri0 ri0Var9 = this.g;
+                        if (ri0Var9 != null) {
+                            str3 = ri0Var9.d;
+                        } else {
+                            str3 = null;
+                        }
+                        if (str3 != null && str3.length() != 0) {
+                            z3 = false;
+                        } else {
+                            z3 = true;
+                        }
+                        if (!z3) {
+                            ri0 ri0Var10 = this.g;
+                            if (ri0Var10 != null) {
+                                str4 = ri0Var10.e;
+                            } else {
+                                str4 = null;
+                            }
+                            if (str4 != null && str4.length() != 0) {
+                                z4 = false;
+                            } else {
+                                z4 = true;
+                            }
+                            if (!z4 && (this.e.get() instanceof NadMiniVideoDownloadView)) {
+                                zm0<?> zm0Var = this.e.get();
+                                if (zm0Var != null) {
+                                    Drawable background = ((NadMiniVideoDownloadView) zm0Var).getBackground();
+                                    if (background != null) {
+                                        GradientDrawable gradientDrawable = (GradientDrawable) background;
+                                        gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+                                        int[] iArr = new int[2];
+                                        ri0 ri0Var11 = this.g;
+                                        if (ri0Var11 != null) {
+                                            str5 = ri0Var11.d;
+                                        } else {
+                                            str5 = null;
+                                        }
+                                        iArr[0] = a71.a(str5, R.color.nad_reward_full_tail_btn_color);
+                                        ri0 ri0Var12 = this.g;
+                                        if (ri0Var12 != null) {
+                                            str12 = ri0Var12.e;
+                                        }
+                                        iArr[1] = a71.a(str12, R.color.nad_reward_full_tail_btn_color);
+                                        gradientDrawable.setColors(iArr);
+                                        zm0<?> zm0Var2 = this.e.get();
+                                        if (zm0Var2 != null) {
+                                            ((NadMiniVideoDownloadView) zm0Var2).setBackground(gradientDrawable);
+                                        } else {
+                                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView");
+                                        }
+                                    } else {
+                                        throw new NullPointerException("null cannot be cast to non-null type android.graphics.drawable.GradientDrawable");
+                                    }
+                                } else {
+                                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView");
+                                }
+                            }
+                        }
+                        zm0<?> zm0Var3 = this.e.get();
+                        if (zm0Var3 != null) {
+                            zm0Var3.update(string, this.a);
+                        }
+                    }
+                }
             }
-            clogBuilder.p(adBaseModel.f.d);
-            r31.b(clogBuilder);
         }
     }
 
-    @Override // com.baidu.tieba.se1
-    public void b(@NonNull as0 as0Var) {
+    public final void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, as0Var) == null) {
-            if (as0Var.c) {
-                xj0.b(as0Var.a);
-                g(ClogBuilder.LogType.CLICK, "detailbtn", this.a);
-            }
-            View.OnClickListener onClickListener = this.c;
-            if (onClickListener != null) {
-                onClickListener.onClick(this.b);
-            }
-        }
-    }
-
-    public void h(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.c = onClickListener;
-        }
-    }
-
-    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
-        ur0 ur0Var;
-        pr0 pr0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, logType, str, adBaseModel) == null) && adBaseModel != null && (ur0Var = adBaseModel.f) != null && !TextUtils.isEmpty(ur0Var.d)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(logType);
-            clogBuilder.j(str);
-            qr0 qr0Var = adBaseModel.m;
-            if (qr0Var != null && (pr0Var = qr0Var.q) != null) {
-                clogBuilder.v(pr0Var.a);
-            }
-            clogBuilder.p(adBaseModel.f.d);
-            r31.b(clogBuilder);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            do0.a().b(this, new a(this, ri0.class));
         }
     }
 }

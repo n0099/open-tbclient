@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface qm1 {
-    void a();
+    void onVideoSizeChanged(int i, int i2);
 
-    void b();
-
-    void c();
-
-    void e();
-
-    void f();
+    void setDisplayMode(int i);
 }

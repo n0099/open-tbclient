@@ -15,73 +15,73 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class dimen {
-        public static final int permission_popup_window_content_size = 0x7f070757;
-        public static final int permission_popup_window_root_padding_horizontal = 0x7f070758;
-        public static final int permission_popup_window_root_padding_top = 0x7f070759;
-        public static final int permission_popup_window_root_padding_vertical = 0x7f07075a;
-        public static final int permission_popup_window_title_size = 0x7f07075b;
+        public static final int permission_popup_window_content_size = 0x7f07076a;
+        public static final int permission_popup_window_root_padding_horizontal = 0x7f07076b;
+        public static final int permission_popup_window_root_padding_top = 0x7f07076c;
+        public static final int permission_popup_window_root_padding_vertical = 0x7f07076d;
+        public static final int permission_popup_window_title_size = 0x7f07076e;
     }
 
     /* loaded from: classes4.dex */
     public static final class drawable {
-        public static final int shape_permission_window = 0x7f081382;
+        public static final int shape_permission_window = 0x7f081397;
     }
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static final int permission_content = 0x7f091b36;
-        public static final int permission_root = 0x7f091b3d;
-        public static final int permission_title = 0x7f091b3e;
+        public static final int permission_content = 0x7f091b4d;
+        public static final int permission_root = 0x7f091b54;
+        public static final int permission_title = 0x7f091b55;
     }
 
     /* loaded from: classes4.dex */
     public static final class layout {
-        public static final int permission_in_app_window_layout = 0x7f0d079b;
+        public static final int permission_in_app_window_layout = 0x7f0d07b3;
     }
 
     /* loaded from: classes4.dex */
     public static final class string {
-        public static final int click_no = 0x7f0f0466;
-        public static final int click_ok = 0x7f0f0467;
-        public static final int permission_camera = 0x7f0f1000;
-        public static final int permission_grant_confirm = 0x7f0f1001;
-        public static final int permission_grant_deny = 0x7f0f1002;
-        public static final int permission_grant_message_camera = 0x7f0f1003;
-        public static final int permission_grant_message_location = 0x7f0f1004;
-        public static final int permission_grant_message_microphone = 0x7f0f1005;
-        public static final int permission_grant_message_read_contacts = 0x7f0f1006;
-        public static final int permission_grant_message_read_phone_state = 0x7f0f1007;
-        public static final int permission_grant_message_read_sms = 0x7f0f1008;
-        public static final int permission_grant_message_write_external_storage = 0x7f0f1009;
-        public static final int permission_grant_title = 0x7f0f100a;
-        public static final int permission_location = 0x7f0f100c;
-        public static final int permission_location_v2 = 0x7f0f100d;
-        public static final int permission_message_camera = 0x7f0f100e;
-        public static final int permission_message_camera_v2 = 0x7f0f100f;
-        public static final int permission_message_location = 0x7f0f1010;
-        public static final int permission_message_location_v2 = 0x7f0f1011;
-        public static final int permission_message_microphone = 0x7f0f1012;
-        public static final int permission_message_microphone_v2 = 0x7f0f1013;
-        public static final int permission_message_read_contacts = 0x7f0f1014;
-        public static final int permission_message_read_contacts_v2 = 0x7f0f1015;
-        public static final int permission_message_read_phone_state = 0x7f0f1016;
-        public static final int permission_message_read_phone_state_v2 = 0x7f0f1017;
-        public static final int permission_message_read_sms = 0x7f0f1018;
-        public static final int permission_message_write_external_storage = 0x7f0f1019;
-        public static final int permission_message_write_external_storage_v2 = 0x7f0f101a;
-        public static final int permission_microphone = 0x7f0f101b;
-        public static final int permission_read_contacts = 0x7f0f101c;
-        public static final int permission_read_phone_state = 0x7f0f101d;
-        public static final int permission_read_phone_state_v2 = 0x7f0f101e;
-        public static final int permission_read_sms = 0x7f0f101f;
-        public static final int permission_title_end = 0x7f0f1020;
-        public static final int permission_title_pre = 0x7f0f1021;
-        public static final int permission_write_external_storage = 0x7f0f1022;
-        public static final int permission_write_external_storage_v2 = 0x7f0f1023;
+        public static final int click_no = 0x7f0f0469;
+        public static final int click_ok = 0x7f0f046a;
+        public static final int permission_camera = 0x7f0f1012;
+        public static final int permission_grant_confirm = 0x7f0f1013;
+        public static final int permission_grant_deny = 0x7f0f1014;
+        public static final int permission_grant_message_camera = 0x7f0f1015;
+        public static final int permission_grant_message_location = 0x7f0f1016;
+        public static final int permission_grant_message_microphone = 0x7f0f1017;
+        public static final int permission_grant_message_read_contacts = 0x7f0f1018;
+        public static final int permission_grant_message_read_phone_state = 0x7f0f1019;
+        public static final int permission_grant_message_read_sms = 0x7f0f101a;
+        public static final int permission_grant_message_write_external_storage = 0x7f0f101b;
+        public static final int permission_grant_title = 0x7f0f101c;
+        public static final int permission_location = 0x7f0f101e;
+        public static final int permission_location_v2 = 0x7f0f101f;
+        public static final int permission_message_camera = 0x7f0f1020;
+        public static final int permission_message_camera_v2 = 0x7f0f1021;
+        public static final int permission_message_location = 0x7f0f1022;
+        public static final int permission_message_location_v2 = 0x7f0f1023;
+        public static final int permission_message_microphone = 0x7f0f1024;
+        public static final int permission_message_microphone_v2 = 0x7f0f1025;
+        public static final int permission_message_read_contacts = 0x7f0f1026;
+        public static final int permission_message_read_contacts_v2 = 0x7f0f1027;
+        public static final int permission_message_read_phone_state = 0x7f0f1028;
+        public static final int permission_message_read_phone_state_v2 = 0x7f0f1029;
+        public static final int permission_message_read_sms = 0x7f0f102a;
+        public static final int permission_message_write_external_storage = 0x7f0f102b;
+        public static final int permission_message_write_external_storage_v2 = 0x7f0f102c;
+        public static final int permission_microphone = 0x7f0f102d;
+        public static final int permission_read_contacts = 0x7f0f102e;
+        public static final int permission_read_phone_state = 0x7f0f102f;
+        public static final int permission_read_phone_state_v2 = 0x7f0f1030;
+        public static final int permission_read_sms = 0x7f0f1031;
+        public static final int permission_title_end = 0x7f0f1032;
+        public static final int permission_title_pre = 0x7f0f1033;
+        public static final int permission_write_external_storage = 0x7f0f1034;
+        public static final int permission_write_external_storage_v2 = 0x7f0f1035;
     }
 
     /* loaded from: classes4.dex */
     public static final class style {
-        public static final int permission_notice_in_app_popup_window_anim = 0x7f1003f2;
+        public static final int permission_notice_in_app_popup_window_anim = 0x7f1003f3;
     }
 }

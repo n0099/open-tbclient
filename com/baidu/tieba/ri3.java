@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,24 +12,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ri3 {
+public class ri3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static volatile boolean b;
+    public static final List<a> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dj3 a;
+        public final vi3 a;
+        public JSONObject b;
+        public final long c;
+        public final String d;
 
-        public a(dj3 dj3Var) {
+        public a(@NonNull vi3 vi3Var, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dj3Var};
+                Object[] objArr = {vi3Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -35,14 +50,13 @@ public final class ri3 {
                     return;
                 }
             }
-            this.a = dj3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ji3.k("671", this.a.f());
+            this.a = vi3Var;
+            this.d = str;
+            this.c = vi3Var.l();
+            synchronized (ri3.c) {
+                if (ri3.b) {
+                    ri3.c.add(this);
+                }
             }
         }
     }
@@ -60,47 +74,64 @@ public final class ri3 {
                 return;
             }
         }
-        a = ms1.a;
+        a = fs1.a;
+        b = false;
+        c = new ArrayList();
     }
 
-    public static void a(uj4 uj4Var, int i, boolean z) {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{uj4Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (uj4Var == null) {
-                if (a) {
-                    Log.d("SwanStabilityUbc", "pms callback is null");
-                    return;
-                }
-                return;
-            }
-            vn3 vn3Var = new vn3();
-            vn3Var.k(11L);
-            vn3Var.i(2331L);
-            vn3Var.f("Retry=" + z + ", Scene=" + uj4Var.getClass().getName());
-            dj3 dj3Var = new dj3();
-            dj3Var.q(vi3.n(i));
-            dj3Var.p(vn3Var);
-            if (uj4Var instanceof df2) {
-                dj3Var.r(((df2) uj4Var).I0());
-            }
-            b(dj3Var);
-            if (a) {
-                Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + uj4Var.getClass().getSimpleName());
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (c) {
+                b = true;
+                c.clear();
             }
         }
     }
 
-    public static void b(dj3 dj3Var) {
+    public static void c(@NonNull HybridUbcFlow hybridUbcFlow) {
+        UbcFlowEvent g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, dj3Var) == null) {
-            if (dj3Var == null) {
-                if (a) {
-                    Log.d("SwanStabilityUbc", "event is null");
-                    return;
-                }
-                return;
+        if ((interceptable != null && interceptable.invokeL(65539, null, hybridUbcFlow) != null) || !"670".equals(hybridUbcFlow.l())) {
+            return;
+        }
+        hybridUbcFlow.D("networkStatus", String.valueOf(i33.c()));
+        if (t53.f || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
+            return;
+        }
+        long g2 = g.g();
+        synchronized (c) {
+            if (a) {
+                Log.d("SwanReqStatisticManager", "size=" + c.size());
             }
-            wo3.k(new a(dj3Var), "SwanStabilityUBC");
+            b = false;
+            JSONArray jSONArray = new JSONArray();
+            for (a aVar : c) {
+                if (aVar.c <= g2) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("type", aVar.d);
+                        if (aVar.a != null) {
+                            aVar.a.p(jSONObject);
+                        }
+                        if (aVar.b != null) {
+                            Iterator<String> keys = aVar.b.keys();
+                            while (keys.hasNext()) {
+                                String next = keys.next();
+                                jSONObject.put(next, aVar.b.get(next));
+                            }
+                        }
+                        jSONArray.put(jSONObject);
+                    } catch (JSONException e) {
+                        if (a) {
+                            Log.e("SwanReqStatisticManager", "appendRequestRecord", e);
+                        }
+                    }
+                }
+            }
+            if (jSONArray.length() > 0) {
+                hybridUbcFlow.D("requests", jSONArray.toString());
+            }
         }
     }
 }

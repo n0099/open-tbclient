@@ -79,7 +79,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FeedbackEditActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -175,8 +175,8 @@ public class FeedbackEditActivity extends Activity {
             this.G = getIntent().getIntExtra("come_from", -1);
             getIntent().getIntExtra("extend_feedback_channel", -1);
             this.L = getIntent().getIntExtra("showProblem", 0) == 1;
-            this.M = getResources().getStringArray(R.array.obfuscated_res_0x7f030016);
-            this.N = getResources().getStringArray(R.array.obfuscated_res_0x7f030015);
+            this.M = getResources().getStringArray(R.array.obfuscated_res_0x7f030017);
+            this.N = getResources().getStringArray(R.array.obfuscated_res_0x7f030016);
             if (TextUtils.isEmpty(this.v)) {
                 this.v = "newMessage";
             }
@@ -513,7 +513,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -557,7 +557,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -595,7 +595,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -640,7 +640,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -688,7 +688,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -730,7 +730,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class f extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -874,7 +874,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class g extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

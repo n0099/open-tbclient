@@ -1,33 +1,36 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dx0 {
+public class dx0 extends mx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static r01 a(@NonNull BdVideoSeries bdVideoSeries, @NonNull BdVideo bdVideo, @NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLLLL;
+    public dx0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, bdVideoSeries, bdVideo, str, str2)) == null) {
-            r01 r01Var = new r01();
-            r01Var.k(str2);
-            r01Var.l(q01.c(bdVideo.getCurrentLength()) + "/" + q01.c(bdVideo.getTotalLength()));
-            r01Var.p(bdVideoSeries.getVid());
-            r01Var.m(bdVideo.getType());
-            r01Var.j(System.currentTimeMillis());
-            r01Var.n(bdVideo.getTitle());
-            r01Var.o(str);
-            r01Var.r(bdVideoSeries.getPositionMs());
-            r01Var.q(bdVideo.getCurrentLength());
-            r01Var.s(bdVideo.getTotalLength());
-            return r01Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (r01) invokeLLLL.objValue;
+    }
+
+    public static mx0 w(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return mx0.m(str, 4);
+        }
+        return (mx0) invokeL.objValue;
     }
 }

@@ -19,7 +19,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class g extends e implements com.kwad.sdk.core.h.b {
     public AdInfo mAdInfo;
     public ImageView yH;
@@ -141,8 +141,8 @@ public final class g extends e implements com.kwad.sdk.core.h.b {
     @Override // com.kwad.components.ad.splashscreen.b.e, com.kwad.sdk.mvp.Presenter
     public final void aq() {
         super.aq();
-        this.yI = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913d5);
-        this.yH = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913d8);
+        this.yI = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913e9);
+        this.yH = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913ec);
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.yF.mAdTemplate);
         this.mAdInfo = bQ;
         String str = com.kwad.sdk.core.response.a.a.at(bQ).materialUrl;

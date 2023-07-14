@@ -1,87 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-@Deprecated
-/* loaded from: classes5.dex */
-public abstract class ggb implements dgb {
+import com.bytedance.sdk.openadsdk.TTAdDislike;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+/* loaded from: classes6.dex */
+public class ggb implements TTAdDislike.DislikeInteractionCallback {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, ggb> a;
-    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ View a;
+    public final /* synthetic */ rgb b;
+    public final /* synthetic */ cgb c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947794375, "Lcom/baidu/tieba/ggb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947794375, "Lcom/baidu/tieba/ggb;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = new Object();
-    }
-
-    public ggb() {
+    public ggb(cgb cgbVar, View view2, rgb rgbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cgbVar, view2, rgbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = cgbVar;
+        this.a = view2;
+        this.b = rgbVar;
     }
 
-    public static ggb c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onCancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
-            }
-            return d(context, context.getPackageName());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d("CSJBannerExpressAd dislike callback onCancel", new Object[0]);
         }
-        return (ggb) invokeL.objValue;
     }
 
-    public static ggb d(Context context, String str) {
-        InterceptResult invokeLL;
-        ggb ggbVar;
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onSelected(int i, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            synchronized (b) {
-                ggbVar = a.get(str);
-                if (ggbVar == null) {
-                    ggbVar = new mgb(context, str);
-                    a.put(str, ggbVar);
-                }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            LogPrinter.d("dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
+            if (this.a.getParent() != null) {
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
             }
-            return ggbVar;
+            this.c.onAdClose(this.b);
         }
-        return (ggb) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.dgb
-    public abstract /* synthetic */ Context getContext();
-
-    @Override // com.baidu.tieba.dgb
-    public abstract /* synthetic */ String getIdentifier();
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 }

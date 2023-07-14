@@ -1,17 +1,22 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.chromium.base.UserData;
-/* compiled from: UserData.java */
 /* loaded from: classes5.dex */
-public final /* synthetic */ class frb {
+public class frb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void $default$destroy(UserData userData) {
+    public static boolean a(String[] strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, userData) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

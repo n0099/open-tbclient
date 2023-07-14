@@ -1,109 +1,76 @@
 package com.baidu.tieba;
 
-import android.net.wifi.WifiConfiguration;
-import android.text.TextUtils;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class en3 {
+public class en3 extends ym3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(WifiConfiguration wifiConfiguration) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public en3(sc3 sc3Var) {
+        super(sc3Var, "/swanAPI/setTabBarBadge");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wifiConfiguration)) == null) {
-            if (wifiConfiguration == null) {
-                return -1;
-            }
-            if (wifiConfiguration.allowedKeyManagement.get(1)) {
-                return 2;
-            }
-            if (wifiConfiguration.allowedKeyManagement.get(2) || wifiConfiguration.allowedKeyManagement.get(3)) {
-                return 3;
-            }
-            if (wifiConfiguration.wepKeys[0] != null) {
-                return 1;
-            }
-            if (!wifiConfiguration.allowedKeyManagement.get(0)) {
-                return -1;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int b(an3 an3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, an3Var)) == null) {
-            if (an3Var == null) {
-                return -1;
-            }
-            if (TextUtils.isEmpty(an3Var.c) && TextUtils.isEmpty(an3Var.d)) {
-                return 0;
-            }
-            if (!TextUtils.isEmpty(an3Var.c) && !TextUtils.isEmpty(an3Var.d)) {
-                return 3;
-            }
-            if (TextUtils.isEmpty(an3Var.d)) {
-                return -1;
-            }
-            return 2;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            if (str.contains("WEP")) {
-                return 1;
-            }
-            if (str.contains("PSK")) {
-                return 2;
-            }
-            if (str.contains("EAP")) {
-                return 3;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void d(WifiConfiguration wifiConfiguration, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65539, null, wifiConfiguration, i) != null) || wifiConfiguration == null) {
-            return;
-        }
-        wifiConfiguration.allowedKeyManagement.clear();
-        wifiConfiguration.allowedProtocols.clear();
-        wifiConfiguration.allowedAuthAlgorithms.clear();
-        wifiConfiguration.allowedPairwiseCiphers.clear();
-        wifiConfiguration.allowedGroupCiphers.clear();
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        wifiConfiguration.allowedKeyManagement.set(2);
-                        wifiConfiguration.allowedKeyManagement.set(3);
-                        return;
-                    }
-                    return;
-                }
-                wifiConfiguration.allowedKeyManagement.set(1);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((sc3) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            wifiConfiguration.allowedKeyManagement.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(1);
-            return;
         }
-        wifiConfiguration.allowedKeyManagement.set(0);
+    }
+
+    @Override // com.baidu.tieba.sd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                v82.c("setTabBarBadge", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            int optInt = optParamsAsJo.optInt("index");
+            String optString = optParamsAsJo.optString("text");
+            if (optString.length() > 3) {
+                optString = context.getString(R.string.obfuscated_res_0x7f0f020e);
+            }
+            if (ym3.k()) {
+                v82.c("SetTabBarBadgeAction", "fail not TabBar page");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
+                return false;
+            }
+            hn3 j = ym3.j();
+            if (j == null) {
+                v82.c("SetTabBarBadgeAction", "tabBarViewController is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!j.w(optInt, optString)) {
+                v82.c("setTabBarBadge", "set bottom badge fail");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
     }
 }

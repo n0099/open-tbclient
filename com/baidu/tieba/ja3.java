@@ -1,90 +1,57 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ja3 {
+public class ja3 implements ka3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public String b;
+    public int a;
+    public int b;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public ja3() {
+    public ja3(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = i2;
     }
 
-    @Nullable
-    public static ja3 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int length;
+    @Override // com.baidu.tieba.ka3
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < getItemsCount()) {
+                return Integer.valueOf(this.a + i);
             }
-            ja3 ja3Var = new ja3();
-            ja3Var.b = jSONObject.optString("more");
-            JSONArray optJSONArray = jSONObject.optJSONArray("bind_app_list");
-            if (optJSONArray == null || (length = optJSONArray.length()) <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    a aVar = new a();
-                    optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                    aVar.b = optJSONObject.optString("app_name");
-                    aVar.a = optJSONObject.optString("photo_addr");
-                    aVar.c = optJSONObject.optString("scheme");
-                    arrayList.add(aVar);
-                }
-            }
-            ja3Var.a = arrayList;
-            return ja3Var;
+            return 0;
         }
-        return (ja3) invokeL.objValue;
+        return invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.ka3
+    public int getItemsCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (this.b - this.a) + 1;
+        }
+        return invokeV.intValue;
     }
 }

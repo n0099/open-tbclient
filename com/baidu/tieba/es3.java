@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class es3 extends ActivityDelegation implements vq3<Bundle> {
+public class es3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,31 +26,17 @@ public class es3 extends ActivityDelegation implements vq3<Bundle> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vq3
-    /* renamed from: c */
-    public void a(Bundle bundle) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.mResult.putBundle("result", bundle);
-            finish();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            ws3 A = wr3.A(getAgent().getContext());
+            bundle2.putString("NICK_NAME", A.a);
+            bundle2.putString("AVATAR_URL", A.b);
+            return bundle2;
         }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean c = bp3.c(this.mParams, "isRealName", false);
-            String g = bp3.g(this.mParams, "swanAppId");
-            if (c) {
-                ds3.H(getAgent(), g, this);
-            } else {
-                ds3.K(getAgent(), g, this);
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (Bundle) invokeL.objValue;
     }
 }

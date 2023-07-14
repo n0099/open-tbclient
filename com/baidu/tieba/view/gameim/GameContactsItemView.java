@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o88;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.jd8;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public o88 d;
+    public jd8 d;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class GameContactsItemView extends RelativeLayout {
                 return;
             }
         }
-        e = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds114);
+        e = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds114);
     }
 
     public void a() {
@@ -71,13 +71,13 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public o88 getGameMatchUser() {
+    public jd8 getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
-        return (o88) invokeV.objValue;
+        return (jd8) invokeV.objValue;
     }
 
     public void h() {
@@ -178,12 +178,12 @@ public class GameContactsItemView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.c = new View(getContext());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(xi.g(getContext(), R.dimen.tbds13), xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds47));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(yi.g(getContext(), R.dimen.tbds13), yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds47));
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(8);
-            s75 d = s75.d(this.c);
+            d85 d = d85.d(this.c);
             d.o(R.string.J_X12);
             d.f(R.color.CAM_X0302);
             addView(this.c);
@@ -197,7 +197,7 @@ public class GameContactsItemView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(6, this.a.getId());
             layoutParams.addRule(7, this.a.getId());
-            layoutParams.setMargins(0, -xi.g(getContext(), R.dimen.tbds10), -xi.g(getContext(), R.dimen.tbds14), 0);
+            layoutParams.setMargins(0, -yi.g(getContext(), R.dimen.tbds10), -yi.g(getContext(), R.dimen.tbds14), 0);
             this.b.setLayoutParams(layoutParams);
             addView(this.b);
         }
@@ -215,12 +215,12 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public void setGameMatchUser(@NonNull o88 o88Var) {
+    public void setGameMatchUser(@NonNull jd8 jd8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, o88Var) != null) || o88Var.equals(this.d)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, jd8Var) != null) || jd8Var.equals(this.d)) {
             return;
         }
-        this.d = o88Var;
+        this.d = jd8Var;
         i();
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public final class GroupItemHolder extends RecyclerView.ViewHolder {
         this.d = 3;
     }
 
-    public final View a() {
+    public final View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -63,7 +63,7 @@ public final class GroupItemHolder extends RecyclerView.ViewHolder {
         return (View) invokeV.objValue;
     }
 
-    public final TextView b() {
+    public final TextView c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -72,13 +72,13 @@ public final class GroupItemHolder extends RecyclerView.ViewHolder {
         return (TextView) invokeV.objValue;
     }
 
-    public final void c() {
+    public final void d() {
         int skinType;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             this.d = skinType;
-            this.a.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806c9));
-            s75 d = s75.d(this.b);
+            this.a.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806ca));
+            d85 d = d85.d(this.b);
             d.x(R.color.CAM_X0304);
             d.C(R.dimen.T_X08);
             d.D(R.string.F_X01);

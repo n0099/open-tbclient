@@ -1,118 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.RecommendForumInfo;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c45 extends k25 {
+public class c45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public int e;
-    public String f;
-    public ArrayList<b45> g;
-
-    @Override // com.baidu.tieba.k25, com.baidu.tieba.l15
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624805, "Lcom/baidu/tieba/c45;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947624805, "Lcom/baidu/tieba/c45;");
-                return;
-            }
-        }
-        BdUniqueId.gen();
-    }
+    public ArrayList<UserData> a;
+    public ArrayList<UserData> b;
+    public w35 c;
 
     public c45() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        d(9);
-        this.g = new ArrayList<>();
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = new w35();
     }
 
-    public ArrayList<b45> e() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                b(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.k25, com.baidu.tieba.l15
-    public k35 getNegFeedBackData() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new k35();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (k35) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return k25.b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void f(List<RecommendForumInfo> list) {
-        Long l;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                RecommendForumInfo recommendForumInfo = list.get(i);
-                b45 b45Var = new b45();
-                if (recommendForumInfo != null && (l = recommendForumInfo.forum_id) != null && l.longValue() != 0 && !StringUtils.isNull(recommendForumInfo.forum_name) && (num = recommendForumInfo.is_like) != null && num.intValue() != 1) {
-                    b45Var.m(recommendForumInfo);
-                    arrayList.add(b45Var);
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    UserData userData = new UserData();
+                    userData.parserJson(optJSONArray.getJSONObject(i));
+                    userData.mAttentionType = 2;
+                    this.a.add(userData);
                 }
             }
-            this.g.clear();
-            this.g.addAll(ListUtils.trimToSize(arrayList, 15));
+            if (optJSONArray2 != null) {
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    UserData userData2 = new UserData();
+                    userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                    userData2.mAttentionType = 1;
+                    this.b.add(userData2);
+                }
+            }
+            this.c.i(jSONObject.optJSONObject("page"));
+            jSONObject.optInt("tafriendnum", 0);
+            jSONObject.optInt("commonfriendnum", 0);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

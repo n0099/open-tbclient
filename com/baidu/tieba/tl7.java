@@ -1,40 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.frs.itemtab.holder.FrsItemAcceleratorHolder;
-import com.baidu.tieba.frs.itemtab.view.FrsItemAcceleratorView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.entelechy.view.ReadProgressViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tl7 extends kn<hm7, FrsItemAcceleratorHolder> {
+public class tl7 extends yh7<ji7, ReadProgressViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tl7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public tl7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,44 +40,32 @@ public class tl7 extends kn<hm7, FrsItemAcceleratorHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public FrsItemAcceleratorHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.ln
+    /* renamed from: G */
+    public ReadProgressViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new FrsItemAcceleratorHolder(new FrsItemAcceleratorView(viewGroup.getContext()), this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new ReadProgressViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0392, viewGroup, false), this.c.getPageActivity());
         }
-        return (FrsItemAcceleratorHolder) invokeL.objValue;
+        return (ReadProgressViewHolder) invokeL.objValue;
     }
 
-    public void u(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, hm7 hm7Var, FrsItemAcceleratorHolder frsItemAcceleratorHolder) {
+    public View H(int i, View view2, ViewGroup viewGroup, ji7 ji7Var, ReadProgressViewHolder readProgressViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hm7Var, frsItemAcceleratorHolder})) == null) {
-            frsItemAcceleratorHolder.b(hm7Var);
-            frsItemAcceleratorHolder.e();
-            if (TbSingleton.getInstance().isItemTabVisible) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new xa5(17)));
-                if (hm7Var.a() == TbSingleton.getInstance().acceleratorItemId) {
-                    frsItemAcceleratorHolder.c();
-                    return null;
-                }
-                frsItemAcceleratorHolder.d();
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ji7Var, readProgressViewHolder})) == null) {
+            if (ji7Var != null && readProgressViewHolder != null) {
+                readProgressViewHolder.c(ji7Var);
             }
-            return null;
+            return view2;
         }
         return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.yh7, com.baidu.tieba.ln
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        H(i, view2, viewGroup, (ji7) obj, (ReadProgressViewHolder) viewHolder);
+        return view2;
     }
 }

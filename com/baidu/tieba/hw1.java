@@ -1,8 +1,14 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
-import java.io.InputStream;
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import com.baidu.tieba.hd3;
 /* loaded from: classes6.dex */
 public interface hw1 {
-    InputStream a(InputStream inputStream) throws IOException;
+    boolean a(Activity activity, String str, hd3.b bVar);
+
+    boolean b(Context context, String str);
+
+    boolean c(Activity activity, Uri uri, String str);
 }

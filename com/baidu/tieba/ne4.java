@@ -1,27 +1,32 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ne4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile me4 a;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String uuap_p_token;
+    @V8JavascriptField
+    public String uuap_p_token_offline;
+    @V8JavascriptField
+    public String uuap_s_token;
 
-    public static synchronized me4 a() {
-        InterceptResult invokeV;
-        me4 me4Var;
+    public ne4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ne4.class) {
-                if (a == null) {
-                    a = new me4();
-                }
-                me4Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return me4Var;
         }
-        return (me4) invokeV.objValue;
     }
 }

@@ -1,28 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.sharesdk.ShareHandlerActivity;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Timgs;
 /* loaded from: classes6.dex */
-public class i4a implements w75 {
+public class i4a implements qg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
+    public Context a;
 
-    public i4a(Timgs timgs) {
+    public i4a(Context context, pg5 pg5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {timgs};
+            Object[] objArr = {context, pg5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,62 +35,69 @@ public class i4a implements w75 {
             }
         }
         this.a = null;
-        this.b = null;
-        this.c = 1;
-        this.d = 1;
-        if (timgs == null) {
-            return;
+        this.a = context;
+    }
+
+    @Override // com.baidu.tieba.qg5
+    public void a(ShareItem shareItem, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            b(shareItem, i);
         }
-        this.a = timgs.img_url;
-        timgs.flag.intValue();
-        this.b = timgs.url;
-        String str = timgs.big_cdn_url;
-        String str2 = timgs.des_main;
-        String str3 = timgs.des_sub;
-        String str4 = timgs.bsize;
-        if (str4 != null) {
-            try {
-                String[] split = str4.split(",");
-                this.c = vg.e(split[0], 1);
-                this.d = vg.e(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    }
+
+    public final void b(ShareItem shareItem, int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) && this.a != null && shareItem != null) {
+            IntentConfig intentConfig = new IntentConfig(this.a);
+            ShareEntity shareEntity = new ShareEntity();
+            shareEntity.setTitle(shareItem.v);
+            shareEntity.setContent(shareItem.w);
+            shareEntity.setReadCount(shareItem.W);
+            int i2 = shareItem.R;
+            if (i2 != 2 && i2 != 6 && i2 != 8) {
+                z = false;
+            } else {
+                z = true;
             }
+            shareEntity.setIsVideoThread(z);
+            shareEntity.setFestivalTaskTid(shareItem.Y);
+            shareEntity.setFestivalTaskType(shareItem.Z);
+            shareEntity.setImageUri(shareItem.z);
+            shareEntity.canShareBySmartApp = shareItem.v0;
+            String str = shareItem.x;
+            if (i == 6 && !StringUtils.isNull(shareItem.y)) {
+                str = shareItem.y;
+            }
+            shareEntity.setLinkUrl(str);
+            shareEntity.setLocalFile(shareItem.B);
+            shareEntity.setLocation(shareItem.F);
+            shareEntity.setShareTo(i);
+            shareEntity.setStats(shareItem.g());
+            shareEntity.setPreferImageToLink(shareItem.k0);
+            shareEntity.setTid(shareItem.O);
+            shareEntity.setFloorAuthorUid(shareItem.P);
+            shareEntity.setfName(shareItem.t);
+            shareEntity.setTypeShareToSmallApp(shareItem.C);
+            shareEntity.topic = shareItem.f1081T;
+            if (i == 6 && !StringUtils.isNull(shareItem.V)) {
+                shareEntity.topic = shareItem.U + shareItem.V;
+                shareEntity.setContent("");
+            }
+            shareEntity.taskCompleteId = shareItem.X;
+            shareEntity.diskPicOperate = shareItem.E;
+            shareEntity.setExtLiveInfo(shareItem.A0);
+            shareEntity.setFromDuXiaoMan(shareItem.m);
+            shareEntity.setTopicId(shareItem.B0);
+            shareEntity.groupData = shareItem.L0;
+            shareEntity.shareMediaType = shareItem.N0;
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("extra_share_data", shareEntity);
+            bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
+            intentConfig.getIntent().putExtras(bundle);
+            shareItem.q(true);
+            intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
         }
-        if (this.c <= 0) {
-            this.c = 1;
-        }
-        if (this.d <= 0) {
-            this.d = 1;
-        }
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.w75
-    public String getPicLinkUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.w75
-    public String getPicUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,18 +1,5 @@
 package com.baidu.tieba;
-
-import android.graphics.Canvas;
-import android.view.MotionEvent;
 /* loaded from: classes7.dex */
-public interface oo {
-    boolean a(MotionEvent motionEvent);
-
-    void b(int i, int i2);
-
-    void c(int i);
-
-    boolean dispatchTouchEvent(MotionEvent motionEvent);
-
-    void draw(Canvas canvas);
-
-    boolean e(MotionEvent motionEvent);
+public interface oo extends po {
+    void d(boolean z, int i, int i2, int i3, int i4);
 }

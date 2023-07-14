@@ -1,109 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.view.ViewGroup;
-import com.baidu.spswitch.utils.BDEmotionPanelManager;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class n26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context A;
-    public String B;
-    public String C;
-    public String D;
-    public int E;
-    public int F;
-    public int G;
-    public int H;
-    public int I;
-    public int J;
-    public int K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public float Q;
-    public boolean R;
-    public boolean S;
+    public List<String> a;
+    public List<String> b;
+    public int c;
+    public String d;
 
-    /* renamed from: T  reason: collision with root package name */
-    public boolean f1136T;
-    public WheelView.DividerType U;
-    public t26 a;
-    public s26 b;
-    public o26 c;
-    public boolean[] d;
-    public Calendar e;
-    public Calendar f;
-    public Calendar g;
-    public int h;
-    public int i;
-    public boolean j;
-    public boolean k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public int t;
-    public int u;
-    public int v;
-    public int w;
-    public int x;
-    public ViewGroup y;
-    public int z;
-
-    public n26(int i) {
+    public n26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = new boolean[]{true, true, true, false, false, false};
-        this.j = false;
-        this.k = false;
-        this.z = 17;
-        this.E = -16417281;
-        this.F = -16417281;
-        this.G = -16777216;
-        this.H = -1;
-        this.I = BDEmotionPanelManager.COLOR_EMOTION_TYPE_LAYOUT;
-        this.J = 17;
-        this.K = 18;
-        this.L = 18;
-        this.M = -5723992;
-        this.N = -14013910;
-        this.O = -2763307;
-        this.P = -1;
-        this.Q = 1.6f;
-        this.S = true;
-        this.f1136T = false;
-        Typeface typeface = Typeface.MONOSPACE;
-        this.U = WheelView.DividerType.FILL;
-        if (i == 1) {
-            this.x = R.layout.pickerview_options;
-        } else {
-            this.x = R.layout.pickerview_time;
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
+        JSONArray optJSONArray = jSONObject.optJSONArray("del_success");
+        if (optJSONArray != null) {
+            this.a = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
+                    this.a.add(optJSONArray.optString(i));
+                }
+            }
+        }
+        JSONArray optJSONArray2 = jSONObject.optJSONArray("del_fail");
+        if (optJSONArray2 != null) {
+            this.b = new ArrayList();
+            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
+                    this.b.add(optJSONArray2.optString(i2));
+                }
+            }
+        }
+        this.c = jSONObject.optInt("ret_type");
+        this.d = jSONObject.optString("text");
     }
 }

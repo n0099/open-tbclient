@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.metadata.jvm.deserialization;
 
 import kotlin._Assertions;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class UtfEncodingKt {
     public static final byte[] stringsToBytes(String[] strArr) {
         int i;

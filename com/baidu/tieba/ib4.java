@@ -1,67 +1,80 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.down.retry.HttpRetryStatistic;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes6.dex */
 public class ib4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947847726, "Lcom/baidu/tieba/ib4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947847726, "Lcom/baidu/tieba/ib4;");
-                return;
-            }
-        }
-        a = ms1.a;
-    }
+    @V8JavascriptField
+    public String key;
+    @V8JavascriptField
+    public String value;
 
     public ib4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, responseCallback) == null) {
-            if (a) {
-                Log.d("requestWithUrlAndBody", HttpRetryStatistic.RETRY_URL + str + "\nbody:" + str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                if (this.key != null) {
+                    if (this.key.getBytes("UTF-8").length <= 128) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return true;
             }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            pv1 e = jv2.e();
-            if (e.h() && e.g(str)) {
-                e.e(str, str2, responseCallback);
-                return;
-            }
-            gj4.g().postStringRequest().url(str).cookieManager(jv2.q().a()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.key + ":" + this.value;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                if (this.key != null && this.value != null) {
+                    if (this.key.getBytes("UTF-8").length + this.value.getBytes("UTF-8").length <= 1024) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

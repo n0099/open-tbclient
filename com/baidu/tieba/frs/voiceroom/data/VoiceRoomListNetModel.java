@@ -7,35 +7,35 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.ar5;
-import com.baidu.tieba.at7;
-import com.baidu.tieba.zs7;
+import com.baidu.tieba.es5;
+import com.baidu.tieba.ox7;
+import com.baidu.tieba.px7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class VoiceRoomListNetModel extends NetAutoModel<zs7, at7, BaseFragment> {
+public class VoiceRoomListNetModel extends NetAutoModel<ox7, px7, BaseFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int h0() {
+    public int i0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CmdConfigHttp.CMD_GET_VOICE_ROOM_LIST : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String k0() {
+    public String l0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "c/f/forum/voiceRoom" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int l0() {
+    public int m0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -55,7 +55,7 @@ public class VoiceRoomListNetModel extends NetAutoModel<zs7, at7, BaseFragment> 
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((TbPageContext) objArr[0], (ar5) objArr[1]);
+                super((TbPageContext) objArr[0], (es5) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,17 +64,17 @@ public class VoiceRoomListNetModel extends NetAutoModel<zs7, at7, BaseFragment> 
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<at7> getResponseDataClass() {
+    public Class<px7> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return at7.class;
+            return px7.class;
         }
         return (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcProtobufHttpResponsedMessage> j0() {
+    public Class<? extends MvcProtobufHttpResponsedMessage> k0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -84,7 +84,7 @@ public class VoiceRoomListNetModel extends NetAutoModel<zs7, at7, BaseFragment> 
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcSocketResponsedMessage> m0() {
+    public Class<? extends MvcSocketResponsedMessage> n0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -93,10 +93,10 @@ public class VoiceRoomListNetModel extends NetAutoModel<zs7, at7, BaseFragment> 
         return (Class) invokeV.objValue;
     }
 
-    public void x0(zs7 zs7Var) {
+    public void y0(ox7 ox7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zs7Var) == null) {
-            this.c = zs7Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ox7Var) == null) {
+            this.c = ox7Var;
         }
     }
 }

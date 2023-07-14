@@ -15,7 +15,6 @@ import com.baidu.android.imsdk.chatmessage.messages.HtmlMsg;
 import com.baidu.android.imsdk.chatmessage.messages.InterActiveMsg;
 import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.chatmessage.request.IMAckRequest;
-import com.baidu.android.imsdk.chatmessage.request.RequestContants;
 import com.baidu.android.imsdk.chatmessage.request.Type;
 import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.db.TableDefine;
@@ -32,8 +31,8 @@ import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tieba.t90;
-import com.baidu.tieba.x90;
+import com.baidu.tieba.u90;
+import com.baidu.tieba.y90;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -572,7 +571,7 @@ public class MessageParser {
                                         linkedList.add(tripule);
                                     }
                                 } else if (optInt2 == 0 && optInt != 27) {
-                                    long optLong2 = jSONObject.optLong(RequestContants.EXTRA_TO_USER);
+                                    long optLong2 = jSONObject.optLong("to_user");
                                     String str5 = "";
                                     String str6 = "B";
                                     if (optLong2 == AccountManager.getUK(context)) {
@@ -715,8 +714,8 @@ public class MessageParser {
         return (ChatMsg) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0161 A[Catch: JSONException -> 0x01b8, Exception -> 0x0289, TRY_LEAVE, TryCatch #4 {JSONException -> 0x01b8, blocks: (B:43:0x0156, B:45:0x0161), top: B:79:0x0156, outer: #5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x01c9 A[Catch: JSONException -> 0x021c, Exception -> 0x0289, TRY_LEAVE, TryCatch #6 {JSONException -> 0x021c, blocks: (B:49:0x01be, B:51:0x01c9), top: B:83:0x01be, outer: #5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0161 A[Catch: JSONException -> 0x01b8, Exception -> 0x0293, TRY_LEAVE, TryCatch #2 {JSONException -> 0x01b8, blocks: (B:43:0x0156, B:45:0x0161), top: B:75:0x0156, outer: #7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x01c9 A[Catch: JSONException -> 0x021c, Exception -> 0x0293, TRY_LEAVE, TryCatch #4 {JSONException -> 0x021c, blocks: (B:49:0x01be, B:51:0x01c9), top: B:79:0x01be, outer: #7 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -782,6 +781,7 @@ public class MessageParser {
                                             IChatRoomEnterListener.TaskInfo taskInfo = new IChatRoomEnterListener.TaskInfo();
                                             if (jSONObject.has("task_info")) {
                                             }
+                                            newChatMsg.setHasReaction(jSONObject.optInt("has_reaction", 0));
                                             newChatMsg.setCategory(chatMsg.getCategory());
                                             newChatMsg.setContacter(chatMsg.getContacter());
                                             newChatMsg.setMsgId(chatMsg.getMsgId());
@@ -825,6 +825,7 @@ public class MessageParser {
                                         IChatRoomEnterListener.TaskInfo taskInfo2 = new IChatRoomEnterListener.TaskInfo();
                                         if (jSONObject.has("task_info")) {
                                         }
+                                        newChatMsg.setHasReaction(jSONObject.optInt("has_reaction", 0));
                                         newChatMsg.setCategory(chatMsg.getCategory());
                                         newChatMsg.setContacter(chatMsg.getContacter());
                                         newChatMsg.setMsgId(chatMsg.getMsgId());
@@ -891,6 +892,7 @@ public class MessageParser {
                     } catch (JSONException e7) {
                         LogUtils.e(TAG, "parse TaskInfo exception", e7);
                     }
+                    newChatMsg.setHasReaction(jSONObject.optInt("has_reaction", 0));
                     newChatMsg.setCategory(chatMsg.getCategory());
                     newChatMsg.setContacter(chatMsg.getContacter());
                     newChatMsg.setMsgId(chatMsg.getMsgId());
@@ -1012,7 +1014,7 @@ public class MessageParser {
     /* JADX WARN: Removed duplicated region for block: B:143:0x0392 A[Catch: Exception -> 0x048b, TryCatch #2 {Exception -> 0x048b, blocks: (B:5:0x001b, B:150:0x03b2, B:152:0x03b8, B:154:0x03d2, B:156:0x03e4, B:157:0x03eb, B:159:0x03f3, B:160:0x03fa, B:162:0x0402, B:166:0x040f, B:167:0x0412, B:169:0x0418, B:171:0x041e, B:173:0x0424, B:174:0x0427, B:176:0x042d, B:178:0x0432, B:180:0x043e, B:182:0x044d, B:184:0x045a, B:185:0x0461, B:187:0x0469, B:188:0x0472, B:181:0x0442, B:82:0x0262, B:103:0x0289, B:106:0x0295, B:108:0x02a5, B:110:0x02cb, B:134:0x0354, B:136:0x0369, B:138:0x0376, B:139:0x037f, B:141:0x0387, B:143:0x0392, B:144:0x0395, B:124:0x0328, B:126:0x0331, B:130:0x0346, B:81:0x025e, B:113:0x02d5, B:115:0x02ea, B:117:0x02f9, B:118:0x02fe, B:120:0x030b, B:121:0x030e), top: B:200:0x001b, inners: #4 }] */
     /* JADX WARN: Removed duplicated region for block: B:94:0x027a A[ADDED_TO_REGION] */
     /* JADX WARN: Type inference failed for: r1v12 */
-    /* JADX WARN: Type inference failed for: r1v13, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r1v13, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r1v23 */
     /* JADX WARN: Type inference failed for: r7v1, types: [T, java.lang.Long] */
     /*
@@ -1417,7 +1419,7 @@ public class MessageParser {
                     bLCPRequest.b = 95L;
                     bLCPRequest.c = newAckMessage.getBody().getBytes();
                     bLCPRequest.d = System.nanoTime();
-                    t90.d(bLCPRequest, new x90(newAckMessage, context, list, z) { // from class: com.baidu.android.imsdk.internal.MessageParser.2
+                    u90.d(bLCPRequest, new y90(newAckMessage, context, list, z) { // from class: com.baidu.android.imsdk.internal.MessageParser.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context val$context;
@@ -1425,7 +1427,7 @@ public class MessageParser {
                         public final /* synthetic */ List val$lt;
                         public final /* synthetic */ NewAckMessage val$msg;
 
-                        @Override // com.baidu.tieba.z90
+                        @Override // com.baidu.tieba.aa0
                         public void onResponse(int i, String str, long j2, long j3, long j4, byte[] bArr) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) {
@@ -1453,8 +1455,8 @@ public class MessageParser {
                             this.val$isReliable = z;
                         }
 
-                        @Override // com.baidu.tieba.x90
-                        public void onResponse(int i, String str, @NonNull x90.a aVar) {
+                        @Override // com.baidu.tieba.y90
+                        public void onResponse(int i, String str, @NonNull y90.a aVar) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, aVar) == null) {
                                 LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i + ", methodId :" + aVar.a + ", data :" + new String(aVar.c));

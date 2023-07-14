@@ -127,6 +127,9 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
                 if (paInfo.getSubtype() == 7 && paInfo.getSubsetType() == 0 && paInfo.getHasIdentity() == 0 && paInfo.getSubscribe() != 1 && paInfo.getSubscribe() != 3) {
                     jSONObject.put("stranger", 1);
                 }
+                if (paInfo.getDisturb() == 1) {
+                    jSONObject.put("disturb", paInfo.getDisturb());
+                }
             } catch (JSONException e) {
                 LogUtils.d("GetPaInfoForSessionHandler", e.toString());
             }

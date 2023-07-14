@@ -14,7 +14,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.types.checker.NewCapturedTypeConstructor;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CapturedTypeConstructorImpl implements CapturedTypeConstructor {
     public NewCapturedTypeConstructor newTypeConstructor;
     public final TypeProjection projection;
@@ -51,7 +51,7 @@ public final class CapturedTypeConstructorImpl implements CapturedTypeConstructo
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getDeclarationDescriptor  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ ClassifierDescriptor mo2099getDeclarationDescriptor() {
+    public /* bridge */ /* synthetic */ ClassifierDescriptor mo2101getDeclarationDescriptor() {
         return (ClassifierDescriptor) getDeclarationDescriptor();
     }
 
@@ -71,7 +71,7 @@ public final class CapturedTypeConstructorImpl implements CapturedTypeConstructo
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getSupertypes */
-    public Collection<KotlinType> mo2100getSupertypes() {
+    public Collection<KotlinType> mo2102getSupertypes() {
         KotlinType nullableAnyType;
         if (getProjection().getProjectionKind() == Variance.OUT_VARIANCE) {
             nullableAnyType = getProjection().getType();

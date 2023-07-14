@@ -1,159 +1,78 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes7.dex */
-public final class nqb {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class nqb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "PBKDF2";
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] A;
-    public int B;
-    public int C;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public byte[] H;
-    public int I;
-    public int J;
-    public int K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public int Q;
-    public long R;
-    public byte[] S;
 
-    /* renamed from: T  reason: collision with root package name */
-    public int f1138T;
-    public int U;
-    public int V;
-    public int W;
-    public int X;
-    public int Y;
-    public byte[] Z;
-    public int a;
-    public int b;
-    public final eqb c;
-    public byte[] d;
-    public final int[] e;
-    public final int[] f;
-    public int g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public final kqb k;
-    public final kqb l;
-    public final kqb m;
-    public final int[] n;
-    public final int[] o;
-    public final int[] p;
-    public final int[] q;
-    public int r;
-    public int s;
-    public int t;
-    public boolean u;
-    public int v;
-    public int w;
-    public int x;
-    public int y;
-    public byte[] z;
-
-    public nqb() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948012522, "Lcom/baidu/tieba/nqb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = 0;
-        this.c = new eqb();
-        this.e = new int[3240];
-        this.f = new int[3240];
-        this.k = new kqb();
-        this.l = new kqb();
-        this.m = new kqb();
-        this.n = new int[3];
-        this.o = new int[3];
-        this.p = new int[6];
-        this.q = new int[]{16, 15, 11, 4};
-        this.r = 0;
-        this.s = 0;
-        this.t = 0;
-        this.u = false;
-        this.v = 0;
-        this.Q = 0;
-        this.R = 0L;
-        this.S = new byte[0];
-        this.f1138T = 0;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948012522, "Lcom/baidu/tieba/nqb;");
+        }
     }
 
-    public static void a(nqb nqbVar) throws IOException {
+    public static byte[] a(char[] cArr, byte[] bArr, int i, int i2, boolean z) {
+        SecretKeyFactory secretKeyFactory;
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, nqbVar) == null) {
-            int i = nqbVar.a;
-            if (i != 0) {
-                if (i == 11) {
-                    return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{cArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            try {
+                PBEKeySpec pBEKeySpec = new PBEKeySpec(cArr, bArr, i, i2);
+                if (z) {
+                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
+                } else {
+                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
                 }
-                nqbVar.a = 11;
-                eqb.b(nqbVar.c);
-                return;
+                return secretKeyFactory.generateSecret(pBEKeySpec).getEncoded();
+            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+                String str = a;
+                vqb.c(str, "pbkdf exception : " + e.getMessage());
+                return new byte[0];
             }
-            throw new IllegalStateException("State MUST be initialized");
         }
+        return (byte[]) invokeCommon.objValue;
     }
 
-    public static int b(eqb eqbVar) {
-        InterceptResult invokeL;
+    public static byte[] b(char[] cArr, byte[] bArr, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eqbVar)) == null) {
-            if (eqb.i(eqbVar, 1) == 0) {
-                return 16;
-            }
-            int i = eqb.i(eqbVar, 3);
-            if (i != 0) {
-                return i + 17;
-            }
-            int i2 = eqb.i(eqbVar, 3);
-            if (i2 == 0) {
-                return 17;
-            }
-            return i2 + 8;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, cArr, bArr, i, i2)) == null) {
+            return a(cArr, bArr, i, i2, false);
         }
-        return invokeL.intValue;
+        return (byte[]) invokeLLII.objValue;
     }
 
-    public static void c(nqb nqbVar, InputStream inputStream) {
+    public static byte[] c(char[] cArr, byte[] bArr, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, nqbVar, inputStream) == null) {
-            if (nqbVar.a == 0) {
-                eqb.e(nqbVar.c, inputStream);
-                int b = b(nqbVar.c);
-                if (b != 9) {
-                    int i = 1 << b;
-                    nqbVar.P = i;
-                    nqbVar.O = i - 16;
-                    nqbVar.a = 1;
-                    return;
-                }
-                throw new BrotliRuntimeException("Invalid 'windowBits' code");
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, cArr, bArr, i, i2)) == null) {
+            byte[] bArr2 = new byte[0];
+            if (Build.VERSION.SDK_INT < 26) {
+                vqb.c(a, "system version not high than 26");
+                return bArr2;
             }
-            throw new IllegalStateException("State MUST be uninitialized");
+            return a(cArr, bArr, i, i2, true);
         }
+        return (byte[]) invokeLLII.objValue;
     }
 }

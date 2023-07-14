@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MaxSignItemView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,12 +36,12 @@ public class MaxSignItemView extends FrameLayout {
     public int g;
     public int h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class MaxSignItemView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,8 +122,8 @@ public class MaxSignItemView extends FrameLayout {
             this.j = false;
             this.k = activeCenterStatusData;
             this.f = view2;
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091183);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0911b0);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091195);
+            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0911c2);
             CircleView circleView = (CircleView) this.f.findViewById(R.id.select_circle);
             this.i = circleView;
             circleView.setVisibility(4);
@@ -183,8 +183,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -208,8 +208,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -233,8 +233,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -266,8 +266,8 @@ public class MaxSignItemView extends FrameLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.max_sign_dialog_cus_view, (ViewGroup) this, true);
             this.a = (LinearLayout) findViewById(R.id.sign_item_container);
             this.b = (LineView) findViewById(R.id.line_view);
-            this.e = xi.g(getContext(), R.dimen.tbds3);
-            this.f = xi.g(getContext(), R.dimen.tbds0);
+            this.e = yi.g(getContext(), R.dimen.tbds3);
+            this.f = yi.g(getContext(), R.dimen.tbds0);
         }
     }
 

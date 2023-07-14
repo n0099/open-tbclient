@@ -5,7 +5,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.renderer.DescriptorRenderer;
 import kotlin.reflect.jvm.internal.impl.renderer.DescriptorRendererOptions;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FlexibleTypeWithEnhancement extends FlexibleType implements TypeWithEnhancement {
     public final KotlinType enhancement;
     public final FlexibleType origin;

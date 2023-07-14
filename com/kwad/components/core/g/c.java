@@ -7,7 +7,7 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.mvp.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class c<T extends com.kwad.sdk.mvp.a> extends FrameLayout {
     public T EH;
     public ViewGroup iB;

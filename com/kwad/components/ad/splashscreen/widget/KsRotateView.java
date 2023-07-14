@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import com.kwad.sdk.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KsRotateView extends b {
     public static int Al = 50;
     public static int Am = -12;
@@ -41,11 +41,11 @@ public class KsRotateView extends b {
     @Override // com.kwad.components.ad.splashscreen.widget.b
     public final void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KsShakeView, i, 0);
-        this.Aq = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e27);
+        this.Aq = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e32);
         obtainStyledAttributes.recycle();
         ImageView imageView = new ImageView(getContext());
         this.Ak = imageView;
-        imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e26);
+        imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e31);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 49;
         addView(this.Ak, layoutParams);

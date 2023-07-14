@@ -77,19 +77,19 @@ public final class ExceptionsConstructorKt {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.functions.Function1
             public final Throwable invoke(Throwable th) {
-                Object m844constructorimpl;
+                Object m846constructorimpl;
                 Function1<Throwable, Throwable> function12 = function1;
                 try {
                     Result.Companion companion = Result.Companion;
-                    m844constructorimpl = Result.m844constructorimpl(function12.invoke(th));
+                    m846constructorimpl = Result.m846constructorimpl(function12.invoke(th));
                 } catch (Throwable th2) {
                     Result.Companion companion2 = Result.Companion;
-                    m844constructorimpl = Result.m844constructorimpl(ResultKt.createFailure(th2));
+                    m846constructorimpl = Result.m846constructorimpl(ResultKt.createFailure(th2));
                 }
-                if (Result.m850isFailureimpl(m844constructorimpl)) {
-                    m844constructorimpl = null;
+                if (Result.m852isFailureimpl(m846constructorimpl)) {
+                    m846constructorimpl = null;
                 }
-                return (Throwable) m844constructorimpl;
+                return (Throwable) m846constructorimpl;
             }
         };
     }
@@ -111,21 +111,21 @@ public final class ExceptionsConstructorKt {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
                     public final Throwable invoke(Throwable th) {
-                        Object m844constructorimpl;
+                        Object m846constructorimpl;
                         Object newInstance;
                         try {
                             Result.Companion companion = Result.Companion;
                             newInstance = constructor.newInstance(th.getMessage(), th);
                         } catch (Throwable th2) {
                             Result.Companion companion2 = Result.Companion;
-                            m844constructorimpl = Result.m844constructorimpl(ResultKt.createFailure(th2));
+                            m846constructorimpl = Result.m846constructorimpl(ResultKt.createFailure(th2));
                         }
                         if (newInstance != null) {
-                            m844constructorimpl = Result.m844constructorimpl((Throwable) newInstance);
-                            if (Result.m850isFailureimpl(m844constructorimpl)) {
-                                m844constructorimpl = null;
+                            m846constructorimpl = Result.m846constructorimpl((Throwable) newInstance);
+                            if (Result.m852isFailureimpl(m846constructorimpl)) {
+                                m846constructorimpl = null;
                             }
-                            return (Throwable) m844constructorimpl;
+                            return (Throwable) m846constructorimpl;
                         }
                         throw new NullPointerException("null cannot be cast to non-null type kotlin.Throwable");
                     }
@@ -142,21 +142,21 @@ public final class ExceptionsConstructorKt {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
                     public final Throwable invoke(Throwable th) {
-                        Object m844constructorimpl;
+                        Object m846constructorimpl;
                         Object newInstance;
                         try {
                             Result.Companion companion = Result.Companion;
                             newInstance = constructor.newInstance(th);
                         } catch (Throwable th2) {
                             Result.Companion companion2 = Result.Companion;
-                            m844constructorimpl = Result.m844constructorimpl(ResultKt.createFailure(th2));
+                            m846constructorimpl = Result.m846constructorimpl(ResultKt.createFailure(th2));
                         }
                         if (newInstance != null) {
-                            m844constructorimpl = Result.m844constructorimpl((Throwable) newInstance);
-                            if (Result.m850isFailureimpl(m844constructorimpl)) {
-                                m844constructorimpl = null;
+                            m846constructorimpl = Result.m846constructorimpl((Throwable) newInstance);
+                            if (Result.m852isFailureimpl(m846constructorimpl)) {
+                                m846constructorimpl = null;
                             }
-                            return (Throwable) m844constructorimpl;
+                            return (Throwable) m846constructorimpl;
                         }
                         throw new NullPointerException("null cannot be cast to non-null type kotlin.Throwable");
                     }
@@ -174,23 +174,23 @@ public final class ExceptionsConstructorKt {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function1
                 public final Throwable invoke(Throwable th) {
-                    Object m844constructorimpl;
+                    Object m846constructorimpl;
                     Object newInstance;
                     try {
                         Result.Companion companion = Result.Companion;
                         newInstance = constructor.newInstance(th.getMessage());
                     } catch (Throwable th2) {
                         Result.Companion companion2 = Result.Companion;
-                        m844constructorimpl = Result.m844constructorimpl(ResultKt.createFailure(th2));
+                        m846constructorimpl = Result.m846constructorimpl(ResultKt.createFailure(th2));
                     }
                     if (newInstance != null) {
                         Throwable th3 = (Throwable) newInstance;
                         th3.initCause(th);
-                        m844constructorimpl = Result.m844constructorimpl(th3);
-                        if (Result.m850isFailureimpl(m844constructorimpl)) {
-                            m844constructorimpl = null;
+                        m846constructorimpl = Result.m846constructorimpl(th3);
+                        if (Result.m852isFailureimpl(m846constructorimpl)) {
+                            m846constructorimpl = null;
                         }
-                        return (Throwable) m844constructorimpl;
+                        return (Throwable) m846constructorimpl;
                     }
                     throw new NullPointerException("null cannot be cast to non-null type kotlin.Throwable");
                 }
@@ -205,23 +205,23 @@ public final class ExceptionsConstructorKt {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.functions.Function1
             public final Throwable invoke(Throwable th) {
-                Object m844constructorimpl;
+                Object m846constructorimpl;
                 Object newInstance;
                 try {
                     Result.Companion companion = Result.Companion;
                     newInstance = constructor.newInstance(new Object[0]);
                 } catch (Throwable th2) {
                     Result.Companion companion2 = Result.Companion;
-                    m844constructorimpl = Result.m844constructorimpl(ResultKt.createFailure(th2));
+                    m846constructorimpl = Result.m846constructorimpl(ResultKt.createFailure(th2));
                 }
                 if (newInstance != null) {
                     Throwable th3 = (Throwable) newInstance;
                     th3.initCause(th);
-                    m844constructorimpl = Result.m844constructorimpl(th3);
-                    if (Result.m850isFailureimpl(m844constructorimpl)) {
-                        m844constructorimpl = null;
+                    m846constructorimpl = Result.m846constructorimpl(th3);
+                    if (Result.m852isFailureimpl(m846constructorimpl)) {
+                        m846constructorimpl = null;
                     }
-                    return (Throwable) m844constructorimpl;
+                    return (Throwable) m846constructorimpl;
                 }
                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Throwable");
             }
@@ -248,20 +248,20 @@ public final class ExceptionsConstructorKt {
     }
 
     public static final int fieldsCountOrDefault(Class<?> cls, int i) {
-        Integer m844constructorimpl;
+        Integer m846constructorimpl;
         JvmClassMappingKt.getKotlinClass(cls);
         try {
             Result.Companion companion = Result.Companion;
-            m844constructorimpl = Result.m844constructorimpl(Integer.valueOf(fieldsCount$default(cls, 0, 1, null)));
+            m846constructorimpl = Result.m846constructorimpl(Integer.valueOf(fieldsCount$default(cls, 0, 1, null)));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m844constructorimpl = Result.m844constructorimpl(ResultKt.createFailure(th));
+            m846constructorimpl = Result.m846constructorimpl(ResultKt.createFailure(th));
         }
         Integer valueOf = Integer.valueOf(i);
-        if (Result.m850isFailureimpl(m844constructorimpl)) {
-            m844constructorimpl = valueOf;
+        if (Result.m852isFailureimpl(m846constructorimpl)) {
+            m846constructorimpl = valueOf;
         }
-        return ((Number) m844constructorimpl).intValue();
+        return ((Number) m846constructorimpl).intValue();
     }
 
     public static /* synthetic */ int fieldsCount$default(Class cls, int i, int i2, Object obj) {
@@ -274,19 +274,19 @@ public final class ExceptionsConstructorKt {
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: kotlinx.coroutines.internal.CtorCache */
     /* JADX WARN: Multi-variable type inference failed */
     public static final <E extends Throwable> E tryCopyException(E e) {
-        Object m844constructorimpl;
+        Object m846constructorimpl;
         if (e instanceof CopyableThrowable) {
             try {
                 Result.Companion companion = Result.Companion;
-                m844constructorimpl = Result.m844constructorimpl(((CopyableThrowable) e).createCopy());
+                m846constructorimpl = Result.m846constructorimpl(((CopyableThrowable) e).createCopy());
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                m844constructorimpl = Result.m844constructorimpl(ResultKt.createFailure(th));
+                m846constructorimpl = Result.m846constructorimpl(ResultKt.createFailure(th));
             }
-            if (Result.m850isFailureimpl(m844constructorimpl)) {
-                m844constructorimpl = null;
+            if (Result.m852isFailureimpl(m846constructorimpl)) {
+                m846constructorimpl = null;
             }
-            return (E) m844constructorimpl;
+            return (E) m846constructorimpl;
         }
         return (E) ctorCache.get(e.getClass()).invoke(e);
     }

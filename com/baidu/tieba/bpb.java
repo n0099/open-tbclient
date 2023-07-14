@@ -1,295 +1,58 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public final class bpb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "bpb";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public xob b;
+    public InputStream c;
+    public final Map<String, String> d;
+    public final List<spb> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947654069, "Lcom/baidu/tieba/bpb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public bpb() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947654069, "Lcom/baidu/tieba/bpb;");
-        }
-    }
-
-    public static int f(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65542, null, f)) == null) ? (int) (f + 0.5f) : invokeF.intValue;
-    }
-
-    public static float g(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65543, null, f)) == null) ? ((int) (f * 100.0f)) / 100.0f : invokeF.floatValue;
-    }
-
-    public static void a(float[] fArr, int i, int i2, MediaInfo mediaInfo, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{fArr, Integer.valueOf(i), Integer.valueOf(i2), mediaInfo, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            int i5 = mediaInfo.b;
-            int i6 = mediaInfo.c;
-            float f = i5 / mediaInfo.d;
-            float f2 = i6 / mediaInfo.e;
-            if (i2 == 1 || i2 == 3) {
-                i5 = mediaInfo.c;
-                i6 = mediaInfo.b;
-                f = i5 / mediaInfo.e;
-                f2 = i6 / mediaInfo.d;
-            }
-            float g = g(f);
-            float g2 = g(f2);
-            fArr[2] = 0.0f;
-            fArr[3] = 0.0f;
-            fArr[6] = g;
-            fArr[7] = 0.0f;
-            fArr[10] = 0.0f;
-            fArr[11] = g2;
-            fArr[14] = g;
-            fArr[15] = g2;
-            if (i == 2) {
-                float f3 = i6 / i5;
-                int f4 = f(i3 * f3);
-                if (f4 > i4) {
-                    float f5 = ((f4 - i4) >> 1) / f4;
-                    if (i2 != 1 && i2 != 3) {
-                        fArr[3] = fArr[3] + f5;
-                        fArr[7] = fArr[7] + f5;
-                        fArr[11] = fArr[11] - f5;
-                        fArr[15] = fArr[15] - f5;
-                        return;
-                    }
-                    fArr[2] = fArr[2] + f5;
-                    fArr[6] = fArr[6] - f5;
-                    fArr[10] = fArr[10] + f5;
-                    fArr[14] = fArr[14] - f5;
-                    return;
-                }
-                int f6 = f(i4 / f3);
-                float f7 = ((f6 - i3) >> 1) / f6;
-                if (i2 != 1 && i2 != 3) {
-                    fArr[2] = fArr[2] + f7;
-                    fArr[6] = fArr[6] - f7;
-                    fArr[10] = fArr[10] + f7;
-                    fArr[14] = fArr[14] - f7;
-                    return;
-                }
-                fArr[3] = fArr[3] + f7;
-                fArr[7] = fArr[7] + f7;
-                fArr[11] = fArr[11] - f7;
-                fArr[15] = fArr[15] - f7;
-            }
-        }
-    }
-
-    public static void b(float[] fArr, int i, int i2, MediaInfo mediaInfo, int i3, int i4) {
-        int f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{fArr, Integer.valueOf(i), Integer.valueOf(i2), mediaInfo, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            fArr[0] = -1.0f;
-            fArr[1] = 1.0f;
-            fArr[4] = 1.0f;
-            fArr[5] = 1.0f;
-            fArr[8] = -1.0f;
-            fArr[9] = -1.0f;
-            fArr[12] = 1.0f;
-            fArr[13] = -1.0f;
-            int i5 = mediaInfo.b;
-            int i6 = mediaInfo.c;
-            if (i2 == 1 || i2 == 3) {
-                i5 = mediaInfo.c;
-                i6 = mediaInfo.b;
-            }
-            if (i == 1) {
-                float f2 = i6 / i5;
-                float f3 = i3;
-                if (f(f3 * f2) <= i4) {
-                    float f4 = (i4 - f) / i4;
-                    if (i2 != 1 && i2 != 3) {
-                        fArr[1] = fArr[1] - f4;
-                        fArr[5] = fArr[5] - f4;
-                        fArr[9] = fArr[9] + f4;
-                        fArr[13] = fArr[13] + f4;
-                        return;
-                    }
-                    fArr[0] = fArr[0] + f4;
-                    fArr[4] = fArr[4] - f4;
-                    fArr[8] = fArr[8] + f4;
-                    fArr[12] = fArr[12] - f4;
-                    return;
-                }
-                float f5 = (i3 - f(i4 / f2)) / f3;
-                if (i2 != 1 && i2 != 3) {
-                    fArr[0] = fArr[0] + f5;
-                    fArr[4] = fArr[4] - f5;
-                    fArr[8] = fArr[8] + f5;
-                    fArr[12] = fArr[12] - f5;
-                    return;
-                }
-                fArr[1] = fArr[1] - f5;
-                fArr[5] = fArr[5] - f5;
-                fArr[9] = fArr[9] + f5;
-                fArr[13] = fArr[13] + f5;
-            }
-        }
-    }
-
-    public static void c(String str, apb apbVar) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65539, null, str, apbVar) != null) {
-            return;
-        }
-        while (true) {
-            int glGetError = GLES20.glGetError();
-            if (glGetError != 0) {
-                String format = String.format("%s failed. glError() = 0x%04x", str, Integer.valueOf(glGetError));
-                if (glGetError == 1285 && apbVar != null && (i = apbVar.a) < 10000) {
-                    apbVar.a = i + 1;
-                }
-                TLog.d(a, format);
-            } else {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = xob.b;
+        this.d = new HashMap();
+        this.e = new ArrayList();
     }
 
-    public static int d(String str, String str2, apb apbVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, apbVar)) == null) {
-            int[] iArr = new int[1];
-            int h = h(str, 35633);
-            if (h <= 0) {
-                c("loadShader(GL_VERTEX_SHADER)", apbVar);
-                return -1;
-            }
-            int h2 = h(str2, 35632);
-            if (h2 <= 0) {
-                c("loadShader(GL_FRAGMENT_SHADER)", apbVar);
-                k(h, apbVar);
-                return -1;
-            }
-            int glCreateProgram = GLES20.glCreateProgram();
-            c("glCreateProgram()", apbVar);
-            GLES20.glAttachShader(glCreateProgram, h);
-            GLES20.glAttachShader(glCreateProgram, h2);
-            GLES20.glLinkProgram(glCreateProgram);
-            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-            if (iArr[0] <= 0) {
-                String str3 = a;
-                TLog.d(str3, "glLinkProgram() failed.\n" + GLES20.glGetProgramInfoLog(glCreateProgram));
-                glCreateProgram = j(glCreateProgram, apbVar);
-            }
-            GLES20.glDeleteShader(h);
-            GLES20.glDeleteShader(h2);
-            return glCreateProgram;
-        }
-        return invokeLLL.intValue;
-    }
-
-    public static int e(apb apbVar) {
+    public apb a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, apbVar)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            c("glGenTextures()", apbVar);
-            return iArr[0];
-        }
-        return invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new ipb(context, this.a, this.b, this.c, this.d, this.e, null) : (apb) invokeL.objValue;
     }
 
-    public static int h(String str, int i) {
-        InterceptResult invokeLI;
+    public bpb b(InputStream inputStream) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i)) == null) {
-            int[] iArr = new int[1];
-            int glCreateShader = GLES20.glCreateShader(i);
-            GLES20.glShaderSource(glCreateShader, str);
-            GLES20.glCompileShader(glCreateShader);
-            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-            if (iArr[0] != 1) {
-                String str2 = a;
-                TLog.h(str2, "[seek] glCompileShader() failed." + GLES20.glGetShaderInfoLog(glCreateShader));
-                return -1;
-            }
-            return glCreateShader;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
+            this.c = inputStream;
+            return this;
         }
-        return invokeLI.intValue;
-    }
-
-    public static int i(int i, apb apbVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65545, null, i, apbVar)) == null) {
-            if (i > 0) {
-                GLES20.glDeleteBuffers(1, new int[]{i}, 0);
-                c("glDeleteBuffers()", apbVar);
-                return -1;
-            }
-            return -1;
-        }
-        return invokeIL.intValue;
-    }
-
-    public static int j(int i, apb apbVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i, apbVar)) == null) {
-            if (i > 0) {
-                GLES20.glDeleteProgram(i);
-                c("glDeleteProgram()", apbVar);
-                return -1;
-            }
-            return -1;
-        }
-        return invokeIL.intValue;
-    }
-
-    public static int k(int i, apb apbVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65547, null, i, apbVar)) == null) {
-            if (i > 0) {
-                GLES20.glDeleteShader(i);
-                c("glDeleteShader()", apbVar);
-                return -1;
-            }
-            return -1;
-        }
-        return invokeIL.intValue;
-    }
-
-    public static int l(int i, apb apbVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, null, i, apbVar)) == null) {
-            if (i > 0) {
-                GLES20.glDeleteTextures(1, new int[]{i}, 0);
-                c("glDeleteTextures()", apbVar);
-                return -1;
-            }
-            return -1;
-        }
-        return invokeIL.intValue;
+        return (bpb) invokeL.objValue;
     }
 }

@@ -1,143 +1,159 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.util.gson.Holder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class sz5 {
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.internal.C$Gson$Types;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.Collection;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsJVMKt;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.JvmClassMappingKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Reflection;
+import kotlin.reflect.KClass;
+import kotlin.reflect.KClassifier;
+import kotlin.reflect.KParameter;
+import kotlin.reflect.full.KClasses;
+import kotlin.reflect.jvm.ReflectJvmMapping;
+/* loaded from: classes8.dex */
+public final class sz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
 
-    public sz5() {
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
+    public static final /* synthetic */ Object a(KParameter kParameter) {
+        return e(kParameter);
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
+    public static final /* synthetic */ KClass d(TypeToken typeToken) {
+        return h(typeToken);
+    }
+
+    public static final <T> KClass<T> h(TypeToken<T> typeToken) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, typeToken)) == null) {
+            Class<? super T> rawType = typeToken.getRawType();
+            if (rawType != null) {
+                return JvmClassMappingKt.getKotlinClass(rawType);
             }
+            throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<T of com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactoryKt.toKClass>");
         }
-        this.a = 7000;
-        this.b = 19;
-        this.c = true;
-        this.d = true;
-        this.e = true;
+        return (KClass) invokeL.objValue;
     }
 
-    public static sz5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new sz5();
-        }
-        return (sz5) invokeV.objValue;
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
+    public static final /* synthetic */ List b(KParameter kParameter, Class cls) {
+        return f(kParameter, cls);
     }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
+    public static final /* synthetic */ TypeToken c(TypeToken typeToken, KParameter kParameter) {
+        return g(typeToken, kParameter);
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public static final Object e(KParameter kParameter) {
+        InterceptResult invokeL;
+        KClass kClass;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, kParameter)) == null) {
+            if (kParameter.getType().isMarkedNullable()) {
+                return null;
+            }
+            KClassifier classifier = kParameter.getType().getClassifier();
+            if (classifier instanceof KClass) {
+                kClass = (KClass) classifier;
+            } else {
+                kClass = null;
+            }
+            if (kClass == null) {
+                return null;
+            }
+            if (!KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Collection.class)) && !KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Object[].class))) {
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(String.class))) {
+                    return "";
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Boolean.TYPE))) {
+                    return Boolean.FALSE;
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Byte.TYPE))) {
+                    return (byte) 0;
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Character.TYPE))) {
+                    return (char) 0;
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Double.TYPE))) {
+                    return Double.valueOf(0.0d);
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Float.TYPE))) {
+                    return Float.valueOf(0.0f);
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Integer.class))) {
+                    return 0;
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Long.TYPE))) {
+                    return 0L;
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Short.TYPE))) {
+                    return (short) 0;
+                }
+                return Holder.OBJECT;
+            }
+            return Holder.ARRAY;
         }
-        return invokeV.intValue;
+        return invokeL.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public static final <T> List<String> f(KParameter kParameter, Class<T> cls) {
+        InterceptResult invokeLL;
+        Field field;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, kParameter, cls)) == null) {
+            String name = kParameter.getName();
+            if (name == null) {
+                return CollectionsKt__CollectionsKt.emptyList();
+            }
+            SerializedName serializedName = null;
+            try {
+                field = cls.getDeclaredField(name);
+            } catch (NoSuchFieldException unused) {
+                field = null;
+            }
+            if (field != null) {
+                serializedName = (SerializedName) field.getAnnotation(SerializedName.class);
+            }
+            if (field != null && !Modifier.isTransient(field.getModifiers())) {
+                if (serializedName != null) {
+                    return CollectionsKt___CollectionsKt.plus((Collection) CollectionsKt__CollectionsJVMKt.listOf(serializedName.value()), (Object[]) serializedName.alternate());
+                }
+                return CollectionsKt__CollectionsJVMKt.listOf(name);
+            }
+            return CollectionsKt__CollectionsKt.emptyList();
         }
-        return invokeV.booleanValue;
+        return (List) invokeLL.objValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public static final TypeToken<?> g(TypeToken<?> typeToken, KParameter kParameter) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, typeToken, kParameter)) == null) {
+            TypeToken<?> resolveParameterType = TypeToken.get(C$Gson$Types.resolve(typeToken.getType(), typeToken.getRawType(), ReflectJvmMapping.getJavaType(kParameter.getType())));
+            Intrinsics.checkNotNullExpressionValue(resolveParameterType, "resolveParameterType");
+            return resolveParameterType;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public sz5 g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.a = i;
-            return this;
-        }
-        return (sz5) invokeI.objValue;
-    }
-
-    public sz5 h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.c = z;
-            return this;
-        }
-        return (sz5) invokeZ.objValue;
-    }
-
-    public sz5 i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.d = z;
-            return this;
-        }
-        return (sz5) invokeZ.objValue;
-    }
-
-    public sz5 j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.e = z;
-            return this;
-        }
-        return (sz5) invokeZ.objValue;
-    }
-
-    public sz5 k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            this.b = i;
-            return this;
-        }
-        return (sz5) invokeI.objValue;
+        return (TypeToken) invokeLL.objValue;
     }
 }

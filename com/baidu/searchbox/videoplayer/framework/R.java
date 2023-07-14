@@ -73,24 +73,24 @@ public final class R {
     /* loaded from: classes4.dex */
     public static final class id {
         public static final int bdvideoplayer_seekbar = 0x7f0903bf;
-        public static final int bt_retry = 0x7f09048c;
-        public static final int center = 0x7f09067b;
-        public static final int left = 0x7f09149e;
-        public static final int main_duration_text = 0x7f09167a;
-        public static final int main_progress_text = 0x7f091680;
-        public static final int main_view_seekbar = 0x7f09168c;
-        public static final int play_error_layout_retry = 0x7f091c6b;
-        public static final int progress = 0x7f091d2e;
-        public static final int right = 0x7f091eba;
-        public static final int time = 0x7f0924d8;
-        public static final int tv_error = 0x7f0926a7;
+        public static final int bt_retry = 0x7f09048d;
+        public static final int center = 0x7f09067d;
+        public static final int left = 0x7f0914b2;
+        public static final int main_duration_text = 0x7f09168e;
+        public static final int main_progress_text = 0x7f091694;
+        public static final int main_view_seekbar = 0x7f0916a0;
+        public static final int play_error_layout_retry = 0x7f091c82;
+        public static final int progress = 0x7f091d48;
+        public static final int right = 0x7f091eed;
+        public static final int time = 0x7f09250c;
+        public static final int tv_error = 0x7f0926dc;
     }
 
     /* loaded from: classes4.dex */
     public static final class layout {
-        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d016c;
-        public static final int bdvideoplayer_layout_net_error = 0x7f0d016d;
-        public static final int bdvideoplayer_seek_bar_view = 0x7f0d016e;
+        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d016b;
+        public static final int bdvideoplayer_layout_net_error = 0x7f0d016c;
+        public static final int bdvideoplayer_seek_bar_view = 0x7f0d016d;
     }
 
     /* loaded from: classes4.dex */

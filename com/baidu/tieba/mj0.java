@@ -1,326 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.LruCache;
+import android.graphics.Color;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.oj0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.model.MonitorUrl;
+import com.baidu.tieba.qs0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+import java.util.List;
+/* loaded from: classes7.dex */
 public class mj0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern d;
-    public static volatile mj0 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, nj0<?>> a;
-    public final oj0 b;
-    public final String c;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a();
-
-        void b();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d<T> {
-        <D> T a(D d);
-
-        T b(byte[] bArr);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements d<Bitmap> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(mj0 mj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mj0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mj0.d
-        /* renamed from: d */
-        public <D> Bitmap a(D d) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d)) == null) {
-                if (d instanceof Bitmap) {
-                    return (Bitmap) d;
-                }
-                return null;
-            }
-            return (Bitmap) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Throwable added to exception handler: 'OutOfMemoryError', keep only Throwable */
-        @Override // com.baidu.tieba.mj0.d
-        /* renamed from: c */
-        public Bitmap b(byte[] bArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-                if (bArr != null) {
-                    try {
-                        if (bArr.length != 0) {
-                            BitmapFactory.Options options = new BitmapFactory.Options();
-                            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-                            options.inPurgeable = true;
-                            options.inInputShareable = true;
-                            return BitmapFactory.decodeStream(new ByteArrayInputStream(bArr), null, options);
-                        }
-                    } catch (Throwable unused) {
-                    }
-                }
-                return null;
-            }
-            return (Bitmap) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements oj0.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ c b;
-        public final /* synthetic */ mj0 c;
-
-        @Override // com.baidu.tieba.oj0.e
-        public void b(String str, nj0<File> nj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, nj0Var) == null) {
-            }
-        }
-
-        public b(mj0 mj0Var, String str, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mj0Var, str, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = mj0Var;
-            this.a = str;
-            this.b = cVar;
-        }
-
-        @Override // com.baidu.tieba.oj0.e
-        public void a(String str, nj0<File> nj0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, nj0Var) == null) && this.a.equals(str)) {
-                this.b.a();
-                this.c.b.n(this);
-            }
-        }
-
-        @Override // com.baidu.tieba.oj0.e
-        public void c(String str, nj0<File> nj0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, nj0Var) == null) && this.a.equals(str)) {
-                this.b.b();
-                this.c.b.n(this);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947974454, "Lcom/baidu/tieba/mj0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947974454, "Lcom/baidu/tieba/mj0;");
-                return;
-            }
-        }
-        d = Pattern.compile("[^a-zA-Z0-9]");
-    }
-
-    public mj0(Context context, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        File cacheDir = context.getCacheDir();
-        this.c = (cacheDir.getPath() + "/nad/") + "nad_image_cache/";
-        this.a = new LruCache<>(i);
-        this.b = oj0.l(this.c, i2);
-    }
-
-    public String c(String str) {
+    public static boolean a(qs0 qs0Var) {
         InterceptResult invokeL;
+        qs0.b bVar;
+        qs0.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String b2 = b(str);
-            return this.c + b2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public nj0<?> e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            nj0<?> g = g(str);
-            if (g != null) {
-                return g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, qs0Var)) == null) {
+            if (qs0Var == null) {
+                return false;
             }
-            return f(str);
-        }
-        return (nj0) invokeL.objValue;
-    }
-
-    public final nj0<File> f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.b.i(str);
-        }
-        return (nj0) invokeL.objValue;
-    }
-
-    public final nj0<?> g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.a.get(str);
-        }
-        return (nj0) invokeL.objValue;
-    }
-
-    @Nullable
-    public Bitmap h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return (Bitmap) i(str, new a(this));
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str.length() >= 160) {
-                return k61.b(str, false);
+            if (TextUtils.isEmpty(qs0Var.f) && TextUtils.isEmpty(qs0Var.d) && (((bVar = qs0Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = qs0Var.h) == null || TextUtils.isEmpty(aVar.a)))) {
+                return false;
             }
-            return d.matcher(str).replaceAll("").trim();
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static mj0 d() {
-        InterceptResult invokeV;
+    public static void b(@Nullable List<MonitorUrl> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (mj0.class) {
-                    if (e == null) {
-                        e = new mj0(ok0.b(), 6, 50000000);
-                    }
-                }
+        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
+            return;
+        }
+        for (MonitorUrl monitorUrl : list) {
+            if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.clickUrl)) {
+                o41.b(monitorUrl.clickUrl);
             }
-            return e;
         }
-        return (mj0) invokeV.objValue;
     }
 
-    public final <T> T i(String str, d<T> dVar) {
-        InterceptResult invokeLL;
+    public static void c(@Nullable List<MonitorUrl> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, dVar)) == null) {
-            nj0<?> e2 = e(b(str));
-            if (e2 != null) {
-                if (File.class.equals(e2.c())) {
-                    return dVar.b(e2.b());
-                }
-                if (Byte.TYPE.equals(e2.c())) {
-                    return null;
-                }
-                return dVar.a(e2.a());
+        if ((interceptable != null && interceptable.invokeL(65538, null, list) != null) || list == null) {
+            return;
+        }
+        for (MonitorUrl monitorUrl : list) {
+            if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.showUrl)) {
+                o41.b(monitorUrl.showUrl);
             }
-            if (!this.b.e) {
-                File file = new File(c(str));
-                if (file.exists()) {
-                    return dVar.b(new nj0(file).b());
-                }
+        }
+    }
+
+    @ColorInt
+    public static int d(float f, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (i == i2) {
+                return i;
             }
-            return null;
+            if (f <= 0.0f) {
+                return i;
+            }
+            if (f >= 1.0f) {
+                return i2;
+            }
+            int red = Color.red(i);
+            int blue = Color.blue(i);
+            int green = Color.green(i);
+            int alpha = Color.alpha(i);
+            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
         }
-        return (T) invokeLL.objValue;
+        return invokeCommon.intValue;
     }
 
-    public void j(String str, Bitmap bitmap) {
+    public static String e(@FloatRange(from = 0.0d, to = 1.0d) float f, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, bitmap) == null) {
-            k(str, new nj0<>(bitmap), true, null);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), str})) == null) {
+            String hexString = Integer.toHexString(Math.round(f * 255.0f));
+            if (hexString.length() < 2) {
+                hexString = "0" + hexString;
+            }
+            if (hexString.length() != 2) {
+                return "";
+            }
+            return "#" + hexString + str;
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public final void k(String str, nj0<?> nj0Var, boolean z, c cVar) {
+    public static int f(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, nj0Var, Boolean.valueOf(z), cVar}) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return ContextCompat.getColor(rk0.b(), i);
+            }
             try {
-                String b2 = b(str);
-                if (z) {
-                    this.a.put(b2, nj0Var);
-                }
-                File file = new File(this.b.j() + b2);
-                if (cVar != null) {
-                    this.b.e(new b(this, b2, cVar));
-                }
-                this.b.q(nj0Var.b(), new nj0<>(file));
-            } catch (Throwable unused) {
+                return Color.parseColor(str);
+            } catch (IllegalArgumentException unused) {
+                return ContextCompat.getColor(rk0.b(), i);
             }
+        }
+        return invokeLI.intValue;
+    }
+
+    public static void g(View view2) {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, view2) == null) && view2 != null && (viewGroup = (ViewGroup) view2.getParent()) != null) {
+            viewGroup.removeView(view2);
         }
     }
 }

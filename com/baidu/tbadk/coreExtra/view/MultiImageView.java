@@ -23,8 +23,8 @@ import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ig5;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.fh5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class MultiImageView extends RelativeLayout {
     public Map<String, ImageUrlData> s;
     public boolean t;
     public boolean u;
-    public ig5 v;
+    public fh5 v;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -482,16 +482,16 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void B(boolean z) {
-        ig5 ig5Var;
+        fh5 fh5Var;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (ig5Var = this.v) != null) {
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (fh5Var = this.v) != null) {
             if (z) {
                 i = 0;
             } else {
                 i = 8;
             }
-            ig5Var.o(i);
+            fh5Var.o(i);
         }
     }
 
@@ -656,10 +656,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
-        ig5 ig5Var;
+        fh5 fh5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048617, this, bVar) == null) && (ig5Var = this.v) != null) {
-            ig5Var.k(bVar);
+        if ((interceptable == null || interceptable.invokeL(1048617, this, bVar) == null) && (fh5Var = this.v) != null) {
+            fh5Var.k(bVar);
         }
     }
 
@@ -671,10 +671,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        ig5 ig5Var;
+        fh5 fh5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048619, this, onClickListener) == null) && (ig5Var = this.v) != null) {
-            ig5Var.l(onClickListener);
+        if ((interceptable == null || interceptable.invokeL(1048619, this, onClickListener) == null) && (fh5Var = this.v) != null) {
+            fh5Var.l(onClickListener);
         }
     }
 
@@ -687,10 +687,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
-        ig5 ig5Var;
+        fh5 fh5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048621, this, cVar) == null) && (ig5Var = this.v) != null) {
-            ig5Var.m(cVar);
+        if ((interceptable == null || interceptable.invokeL(1048621, this, cVar) == null) && (fh5Var = this.v) != null) {
+            fh5Var.m(cVar);
         }
     }
 
@@ -754,10 +754,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setYoungterCoverSomeView(boolean z) {
-        ig5 ig5Var;
+        fh5 fh5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048630, this, z) == null) && (ig5Var = this.v) != null) {
-            ig5Var.q(z);
+        if ((interceptable == null || interceptable.invokeZ(1048630, this, z) == null) && (fh5Var = this.v) != null) {
+            fh5Var.q(z);
         }
     }
 
@@ -796,11 +796,11 @@ public class MultiImageView extends RelativeLayout {
 
     public int getBottomHeight() {
         InterceptResult invokeV;
-        ig5 ig5Var;
+        fh5 fh5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.u && (ig5Var = this.v) != null) {
-                return ig5Var.c();
+            if (this.u && (fh5Var = this.v) != null) {
+                return fh5Var.c();
             }
             return 0;
         }
@@ -977,11 +977,11 @@ public class MultiImageView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
-            ig5 ig5Var = this.v;
-            if (ig5Var == null) {
+            fh5 fh5Var = this.v;
+            if (fh5Var == null) {
                 return false;
             }
-            return ig5Var.g();
+            return fh5Var.g();
         }
         return invokeV.booleanValue;
     }
@@ -1019,10 +1019,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void A(ImageUrlData imageUrlData) {
-        ig5 ig5Var;
+        fh5 fh5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, imageUrlData) == null) && (ig5Var = this.v) != null) {
-            ig5Var.j(imageUrlData);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, imageUrlData) == null) && (fh5Var = this.v) != null) {
+            fh5Var.j(imageUrlData);
             if (!this.t && imageUrlData != null) {
                 if (!this.v.g()) {
                     this.v.r(false);
@@ -1068,9 +1068,9 @@ public class MultiImageView extends RelativeLayout {
                 ((UrlDragImageView) childAt).setUserId(str);
             }
         }
-        ig5 ig5Var = this.v;
-        if (ig5Var != null) {
-            ig5Var.n(str);
+        fh5 fh5Var = this.v;
+        if (fh5Var != null) {
+            fh5Var.n(str);
         }
     }
 
@@ -1113,16 +1113,16 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void C(boolean z, int i) {
-        ig5 ig5Var;
+        fh5 fh5Var;
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.u && (ig5Var = this.v) != null) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.u && (fh5Var = this.v) != null) {
             if (z) {
                 i2 = 0;
             } else {
                 i2 = 8;
             }
-            ig5Var.p(i2, i);
+            fh5Var.p(i2, i);
         }
     }
 
@@ -1165,7 +1165,7 @@ public class MultiImageView extends RelativeLayout {
             addView(this.e);
             this.d = new LinearLayout(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.bottomMargin = xi.d(getContext(), 10.0f);
+            layoutParams.bottomMargin = yi.d(getContext(), 10.0f);
             layoutParams.addRule(12);
             layoutParams.addRule(14);
             this.d.setOrientation(0);
@@ -1193,7 +1193,7 @@ public class MultiImageView extends RelativeLayout {
             this.f = imagePagerAdapter;
             imagePagerAdapter.u(this.l);
             setAdapter(this.f);
-            this.v = new ig5(getContext(), this);
+            this.v = new fh5(getContext(), this);
         }
     }
 

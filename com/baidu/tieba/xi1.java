@@ -1,83 +1,69 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class xi1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static void a(Context context, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            JSONObject b = b(str3);
-            try {
-                b.put("orderId", str);
-                b.put("payInfo", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return b.toString();
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, bundle) != null) || bundle == null) {
+            return;
         }
-        return (String) invokeLLL.objValue;
+        try {
+            String string = bundle.getString("zid");
+            if (!TextUtils.isEmpty(string)) {
+                bundle.remove("zid");
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("c", bundle.getString("cuid"));
+                jSONObject.put("z", string);
+                jSONObject.put("mac", ni1.c());
+                jSONObject.put("app", "android");
+                jSONObject.put("ver", oi1.a(context));
+                bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
+            }
+        } catch (Exception e) {
+            ui1.b(e.getMessage());
+        }
     }
 
-    public static String d(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static Bundle b(Context context, Bundle bundle) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
-            JSONObject b = b(str3);
-            try {
-                b.put("orderId", str);
-                b.put("payUrl", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bundle)) == null) {
+            if (bundle == null) {
+                return new Bundle();
             }
-            return b.toString();
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static JSONObject b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("returnData", a);
-                jSONObject.put("msg", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            li1.a = bundle.getString("bduss");
+            li1.b = bundle.getString("tpOrderId");
+            li1.g = bundle.getString("nativeAppId");
+            li1.h = bundle.getString("sceneSource");
+            li1.c = bundle.getString("appKey");
+            li1.d = bundle.getString("dealId");
+            bundle.putString("deviceType", "ANDROID");
+            bundle.putString("channel", "cashiersdk");
+            bundle.putString(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
+            String[] stringArray = bundle.getStringArray("blockedPayChannels");
+            if (stringArray != null && stringArray.length > 0) {
+                bundle.remove("blockedPayChannels");
+                JSONArray jSONArray = new JSONArray();
+                for (String str : stringArray) {
+                    jSONArray.put(str);
+                }
+                bundle.putString("bannedChannels", jSONArray.toString());
             }
-            return jSONObject;
+            a(context, bundle);
+            return bundle;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return b(str).toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
-            if (bundle != null) {
-                a = bundle.getString("returnData");
-            } else {
-                a = "";
-            }
-        }
+        return (Bundle) invokeLL.objValue;
     }
 }

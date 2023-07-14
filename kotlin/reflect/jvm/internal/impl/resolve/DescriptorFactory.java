@@ -24,7 +24,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers.ExtensionReceiver;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DescriptorFactory {
     public static /* synthetic */ void $$$reportNull$$$0(int i) {
         String str = (i == 12 || i == 23 || i == 25) ? "@NotNull method %s.%s must not return null" : "Argument for @NotNull parameter '%s' of %s.%s must not be null";
@@ -154,7 +154,7 @@ public class DescriptorFactory {
         throw new IllegalStateException(format);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class DefaultClassConstructorDescriptor extends ClassConstructorDescriptorImpl {
         public static /* synthetic */ void $$$reportNull$$$0(int i) {
             Object[] objArr = new Object[3];

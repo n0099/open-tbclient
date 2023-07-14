@@ -1,69 +1,62 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public class ld2 extends dd2<JSONObject, c42> {
+public class ld2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static AtomicInteger b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ld2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947938959, "Lcom/baidu/tieba/ld2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947938959, "Lcom/baidu/tieba/ld2;");
+                return;
             }
         }
+        a = fs1.a;
+        b = new AtomicInteger(0);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hd2
-    @NonNull
-    /* renamed from: c */
-    public c42 a(@NonNull JSONObject jSONObject) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return new c42(202);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && str.startsWith("localDebug")) {
+                return true;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                return new c42(202, "data is required");
-            }
-            String optString = optJSONObject.optString("status");
-            if (TextUtils.isEmpty(optString)) {
-                return new c42(202, "status is required");
-            }
-            char c = 65535;
-            int hashCode = optString.hashCode();
-            if (hashCode != 48) {
-                if (hashCode == 49 && optString.equals("1")) {
-                    c = 0;
-                }
-            } else if (optString.equals("0")) {
-                c = 1;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return new c42(202, "status value is invalid");
-                }
-                new bd2().d();
-            }
-            return new c42(0);
+            return false;
         }
-        return (c42) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            int andIncrement = b.getAndIncrement();
+            String str = "localDebug";
+            if (andIncrement >= 1) {
+                str = "localDebug" + andIncrement;
+            }
+            if (a) {
+                Log.i("DaemonIdGenerator", "next daemon id - " + str);
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 }

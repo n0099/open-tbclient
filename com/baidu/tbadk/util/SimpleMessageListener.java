@@ -98,7 +98,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         }
     }
 
-    public static <T> void f(int i, @Nullable T t) {
+    public static <T> void i(int i, @Nullable T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, null, i, t) == null) {
             d(i, null, t);

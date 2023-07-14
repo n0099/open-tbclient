@@ -17,7 +17,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.CouponInfo;
 import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.utils.ax;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class m extends d implements View.OnClickListener {
     public ViewGroup es;
     public TextView li;
@@ -31,7 +31,7 @@ public final class m extends d implements View.OnClickListener {
     public b vH;
     public a vI;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void gV();
     }
@@ -43,7 +43,7 @@ public final class m extends d implements View.OnClickListener {
     }
 
     public static View a(Context context, CouponInfo couponInfo, ViewGroup viewGroup) {
-        KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04c4, viewGroup, false);
+        KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04cf, viewGroup, false);
         kSCouponLabelTextView.setText(couponInfo.getDisplayName());
         return kSCouponLabelTextView;
     }
@@ -100,14 +100,14 @@ public final class m extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f091391);
-        this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09138e);
-        this.li = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f091393);
-        this.vC = (LinearLayout) this.es.findViewById(R.id.obfuscated_res_0x7f091380);
-        this.vD = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f091390);
-        this.vE = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f09137d);
-        this.vF = this.es.findViewById(R.id.obfuscated_res_0x7f091392);
-        this.vG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09138f);
+        this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f0913a5);
+        this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f0913a2);
+        this.li = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0913a7);
+        this.vC = (LinearLayout) this.es.findViewById(R.id.obfuscated_res_0x7f091394);
+        this.vD = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f0913a4);
+        this.vE = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f091391);
+        this.vF = this.es.findViewById(R.id.obfuscated_res_0x7f0913a6);
+        this.vG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f0913a3);
         this.vE.setText(com.kwad.components.ad.c.b.ai());
         this.vE.setOnClickListener(this);
         this.nG.setOnClickListener(this);
@@ -119,7 +119,7 @@ public final class m extends d implements View.OnClickListener {
         ViewGroup.LayoutParams layoutParams = this.es.getLayoutParams();
         if (layoutParams instanceof FrameLayout.LayoutParams) {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070505);
+            layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050b);
             this.es.setLayoutParams(layoutParams2);
         }
     }

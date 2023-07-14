@@ -1,33 +1,23 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class kd implements pd {
+public class kd implements qd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
+    public boolean a;
 
-    @Override // com.baidu.tieba.pd
-    public Object a(fe feVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, feVar)) == null) {
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    public kd(Bundle bundle) {
+    public kd(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bundle};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,6 +27,52 @@ public class kd implements pd {
                 return;
             }
         }
-        this.a = bundle;
+        this.a = z;
+    }
+
+    @Override // com.baidu.tieba.qd
+    public Object a(ge geVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, geVar)) == null) {
+            Class<?> a = geVar.a();
+            if (a != Boolean.class && a != Boolean.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        if (a == String.class) {
+                                            return String.valueOf(this.a);
+                                        }
+                                        if (a == char[].class) {
+                                            return String.valueOf(this.a).toCharArray();
+                                        }
+                                        if (a == byte[].class) {
+                                            try {
+                                                return qi.e(String.valueOf(this.a), 0);
+                                            } catch (IOException e) {
+                                                e.printStackTrace();
+                                                return null;
+                                            }
+                                        }
+                                        return null;
+                                    }
+                                    return Character.valueOf((char) (!this.a ? 1 : 0));
+                                }
+                                return Double.valueOf(!this.a ? 1 : 0);
+                            }
+                            return Float.valueOf(!this.a ? 1 : 0);
+                        }
+                        return Long.valueOf(!this.a ? 1 : 0);
+                    }
+                    return Integer.valueOf(!this.a ? 1 : 0);
+                }
+                return Short.valueOf((short) (!this.a ? 1 : 0));
+            }
+            return Boolean.valueOf(this.a);
+        }
+        return invokeL.objValue;
     }
 }

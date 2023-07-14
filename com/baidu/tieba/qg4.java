@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qg4 extends og4<oy2> {
+public class qg4 extends hg4<jy2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +29,7 @@ public class qg4 extends og4<oy2> {
                 return;
             }
         }
-        boolean z = ms1.a;
+        boolean z = fs1.a;
     }
 
     public qg4() {
@@ -45,7 +46,7 @@ public class qg4 extends og4<oy2> {
         }
     }
 
-    public static qg4 d() {
+    public static qg4 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -54,24 +55,47 @@ public class qg4 extends og4<oy2> {
         return (qg4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.og4
-    public boolean b(Context context, oy2 oy2Var, ly2 ly2Var, cc3 cc3Var, JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hg4
+    /* renamed from: d */
+    public boolean b(Context context, jy2 jy2Var, ey2 ey2Var, vb3 vb3Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, oy2Var, ly2Var, cc3Var, jSONObject)) == null) {
-            return e(context, oy2Var, ly2Var, cc3Var);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jy2Var, ey2Var, vb3Var, jSONObject)) == null) {
+            return g(context, jy2Var, ey2Var, vb3Var);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final boolean e(Context context, oy2 oy2Var, ly2 ly2Var, cc3 cc3Var) {
+    public final Bundle f(jy2 jy2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jy2Var)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("slaveId", jy2Var.c);
+            bundle.putDouble("latitude", jy2Var.j.a);
+            bundle.putDouble("longitude", jy2Var.j.b);
+            bundle.putDouble("scale", jy2Var.k);
+            bundle.putString("name", jy2Var.z);
+            bundle.putString("address", jy2Var.A);
+            bundle.putStringArrayList("ignoredApps", jy2Var.B);
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    public final boolean g(Context context, jy2 jy2Var, ey2 ey2Var, vb3 vb3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, oy2Var, ly2Var, cc3Var)) == null) {
-            c92.i("map", "MapRemoveAction start");
-            boolean g = lg4.b().g(oy2Var);
-            c92.i("map", "MapRemoveAction end");
-            return g;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, jy2Var, ey2Var, vb3Var)) == null) {
+            v82.i("map", "OpenLocationAction start");
+            if (!jy2Var.isValid()) {
+                v82.c("map", "model is invalid");
+                return false;
+            }
+            ch4.t3(f(jy2Var)).x3();
+            v82.i("map", "OpenLocationAction end");
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

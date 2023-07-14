@@ -4,7 +4,7 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class color {
-        public static final int player_floating_bg_cover = 0x7f060946;
+        public static final int player_floating_bg_cover = 0x7f06094d;
     }
 
     /* loaded from: classes4.dex */
@@ -25,29 +25,29 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static final int floating_click_view_id = 0x7f090b4b;
-        public static final int floating_click_view_tag = 0x7f090b4c;
-        public static final int player_floating_replay = 0x7f091c73;
+        public static final int floating_click_view_id = 0x7f090b55;
+        public static final int floating_click_view_tag = 0x7f090b56;
+        public static final int player_floating_replay = 0x7f091c8a;
     }
 
     /* loaded from: classes4.dex */
     public static final class layout {
-        public static final int bdvideoplayer_floating_error = 0x7f0d016a;
-        public static final int bdvideoplayer_floating_replay = 0x7f0d016b;
+        public static final int bdvideoplayer_floating_error = 0x7f0d0169;
+        public static final int bdvideoplayer_floating_replay = 0x7f0d016a;
     }
 
     /* loaded from: classes4.dex */
     public static final class string {
-        public static final int player_floating_close_tips = 0x7f0f10a5;
-        public static final int player_floating_close_warning = 0x7f0f10a6;
-        public static final int player_floating_network_3g = 0x7f0f10a7;
-        public static final int player_floating_network_wifi = 0x7f0f10a8;
-        public static final int player_floating_notification_channel = 0x7f0f10a9;
-        public static final int player_floating_notification_content = 0x7f0f10aa;
-        public static final int player_floating_notification_title = 0x7f0f10ab;
-        public static final int player_floating_permission_message = 0x7f0f10ac;
-        public static final int player_floating_permission_title = 0x7f0f10ad;
-        public static final int player_floating_play_error = 0x7f0f10ae;
-        public static final int player_floating_replay = 0x7f0f10af;
+        public static final int player_floating_close_tips = 0x7f0f10b7;
+        public static final int player_floating_close_warning = 0x7f0f10b8;
+        public static final int player_floating_network_3g = 0x7f0f10b9;
+        public static final int player_floating_network_wifi = 0x7f0f10ba;
+        public static final int player_floating_notification_channel = 0x7f0f10bb;
+        public static final int player_floating_notification_content = 0x7f0f10bc;
+        public static final int player_floating_notification_title = 0x7f0f10bd;
+        public static final int player_floating_permission_message = 0x7f0f10be;
+        public static final int player_floating_permission_title = 0x7f0f10bf;
+        public static final int player_floating_play_error = 0x7f0f10c0;
+        public static final int player_floating_replay = 0x7f0f10c1;
     }
 }

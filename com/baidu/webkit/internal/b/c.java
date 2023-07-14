@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends g {
-    /* JADX WARN: Removed duplicated region for block: B:40:0x008b  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x008e  */
     @Override // com.baidu.webkit.internal.b.g
     /*
         Code decompiled incorrectly, please refer to instructions dump.

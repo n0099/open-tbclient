@@ -8,7 +8,7 @@ import com.kwad.components.ad.reward.k;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.kwad.components.ad.reward.presenter.a implements a.b {
     public FrameLayout bS;
     public volatile long ss = 0;
@@ -50,8 +50,8 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             aVar.a(this);
             aVar.a(this.bJ);
             aVar.a(this.bS, this.nM.mRootContainer, adTemplate);
-            aVar.a(new a.InterfaceC0602a() { // from class: com.kwad.components.ad.reward.presenter.a.kwai.b.2
-                @Override // com.kwad.components.ad.i.a.InterfaceC0602a
+            aVar.a(new a.InterfaceC0607a() { // from class: com.kwad.components.ad.reward.presenter.a.kwai.b.2
+                @Override // com.kwad.components.ad.i.a.InterfaceC0607a
                 public final void V(boolean z) {
                     b.this.nM.mF = z;
                 }
@@ -72,7 +72,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912ce);
+        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912e2);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

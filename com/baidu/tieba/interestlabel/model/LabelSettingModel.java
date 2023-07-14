@@ -16,8 +16,8 @@ import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
 import com.baidu.tieba.kb;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.ns8;
-import com.baidu.tieba.os8;
+import com.baidu.tieba.qy8;
+import com.baidu.tieba.ry8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,8 +29,8 @@ public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public os8 b;
-    public ns8 c;
+    public ry8 b;
+    public qy8 c;
     public kb d;
     public kb e;
 
@@ -74,18 +74,18 @@ public class LabelSettingModel extends BdBaseModel {
 
         @Override // com.baidu.tieba.kb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            ns8 ns8Var;
+            qy8 qy8Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
                 if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag() && this.a.b != null) {
-                    os8 os8Var = this.a.b;
+                    ry8 ry8Var = this.a.b;
                     LabelRequestEnum labelRequestEnum = LabelRequestEnum.GET_LABEL;
                     if (responsedMessage.getError() == 0) {
-                        ns8Var = this.a.c;
+                        qy8Var = this.a.c;
                     } else {
-                        ns8Var = null;
+                        qy8Var = null;
                     }
-                    os8Var.a(labelRequestEnum, ns8Var, responsedMessage.getError());
+                    ry8Var.a(labelRequestEnum, qy8Var, responsedMessage.getError());
                 }
             }
         }
@@ -158,16 +158,16 @@ public class LabelSettingModel extends BdBaseModel {
         this.d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
         this.e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
         this.a = tbPageContext;
-        this.c = new ns8();
+        this.c = new qy8();
         registerListener(this.d);
         registerListener(this.e);
     }
 
-    public void a0(List<Integer> list) {
+    public void b0(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0e0f);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0e1f);
                 return;
             }
             RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();
@@ -177,20 +177,20 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void b0(os8 os8Var) {
+    public void c0(ry8 ry8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, os8Var) == null) {
-            this.b = os8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ry8Var) == null) {
+            this.b = ry8Var;
         }
     }
 
-    public void Z() {
+    public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                os8 os8Var = this.b;
-                if (os8Var != null) {
-                    os8Var.a(LabelRequestEnum.GET_LABEL, null, -1);
+                ry8 ry8Var = this.b;
+                if (ry8Var != null) {
+                    ry8Var.a(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
                 }
                 return;

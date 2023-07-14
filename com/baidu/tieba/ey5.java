@@ -1,220 +1,148 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.level.TbLevelView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.res.AssetManager;
+import android.graphics.BitmapFactory;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.WebpForceSwitch;
+import com.baidu.tbadk.switchs.WebpSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public final class ey5 {
+public class ey5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ey5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947750696, "Lcom/baidu/tieba/ey5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static void e(boolean z, @Nullable String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+        }
+    }
+
+    public static void g(@NonNull String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+        }
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return TbadkCoreApplication.getInst().getCapabilityOfWebp();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (!WebpForceSwitch.isOn() && (!a() || !h())) {
+                return false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947750696, "Lcom/baidu/tieba/ey5;");
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (SwitchManager.getInstance().findType(WebpSwitch.WEBP_ENABLE) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void b(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            int loadInt = TbadkSettings.getInst().loadInt("webp_failure_count", 0) + 1;
+            if (loadInt > 5) {
+                TbadkCoreApplication.getInst().setCapableOfWebp(false);
+                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", false);
                 return;
             }
-        }
-        a = new ey5();
-    }
-
-    public ey5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            TbadkSettings.getInst().saveInt("webp_failure_count", loadInt);
         }
     }
 
-    @JvmStatic
-    public static final void c(int i, String str, TextView nickName, TbLevelView levelView, List<? extends View> orderList, UserIconBox userIconBox) {
-        String str2;
+    /* JADX WARN: Removed duplicated region for block: B:19:0x003b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, nickName, levelView, orderList, userIconBox}) == null) {
-            Intrinsics.checkNotNullParameter(nickName, "nickName");
-            Intrinsics.checkNotNullParameter(levelView, "levelView");
-            Intrinsics.checkNotNullParameter(orderList, "orderList");
-            if (str == null) {
-                str2 = "";
-            } else {
-                str2 = str;
-            }
-            float measureText = nickName.getPaint().measureText(str2) + a.a(nickName);
-            if (levelView.getVisibility() != 8) {
-                levelView.setMode(true);
-                measureText += levelView.b() + a.a(levelView);
-            }
-            for (View view2 : orderList) {
-                if (!(view2 instanceof TbLevelView) && view2.getVisibility() != 8) {
-                    measureText += a.b(view2);
-                }
-            }
-            if (userIconBox != null && userIconBox.getVisibility() != 8) {
-                int childCount = userIconBox.getChildCount();
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    View childAt = userIconBox.getChildAt(i2);
-                    if (childAt != null) {
-                        Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(i)");
-                        childAt.setVisibility(0);
-                        measureText += a.b(childAt);
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            int i = 0;
+            if (TbadkSettings.getInst().loadInt("webp_failure_count", -1) == -1) {
+                AssetManager assets = TbadkCoreApplication.getInst().getContext().getAssets();
+                if (assets != null) {
+                    InputStream inputStream = null;
+                    try {
+                        inputStream = assets.open("webp_test/test.webp");
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                }
-            }
-            float f = i;
-            if (measureText <= f) {
-                nickName.setText(str);
-                return;
-            }
-            float e = a.e(i, measureText, str2, nickName);
-            if (e <= f) {
-                return;
-            }
-            float d = a.d(e, levelView);
-            if (d <= f) {
-                return;
-            }
-            a.f(i, d, orderList, userIconBox);
-        }
-    }
-
-    public final int a(View view2) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            ViewGroup.MarginLayoutParams marginLayoutParams = null;
-            if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
-                layoutParams = null;
-            }
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
-            int i2 = 0;
-            if (marginLayoutParams2 != null) {
-                i = marginLayoutParams2.leftMargin;
-            } else {
-                i = 0;
-            }
-            ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
-            if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
-                marginLayoutParams = layoutParams2;
-            }
-            ViewGroup.MarginLayoutParams marginLayoutParams3 = marginLayoutParams;
-            if (marginLayoutParams3 != null) {
-                i2 = marginLayoutParams3.rightMargin;
-            }
-            return i + i2;
-        }
-        return invokeL.intValue;
-    }
-
-    public final int b(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            return view2.getMeasuredWidth() + a(view2);
-        }
-        return invokeL.intValue;
-    }
-
-    public final float d(float f, TbLevelView tbLevelView) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), tbLevelView})) == null) {
-            float b = tbLevelView.b();
-            tbLevelView.setMode(false);
-            return f - (b - tbLevelView.b());
-        }
-        return invokeCommon.floatValue;
-    }
-
-    public final float e(int i, float f, String str, TextView textView) {
-        InterceptResult invokeCommon;
-        float measureText;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), str, textView})) == null) {
-            if (zx5.e(str) <= 12) {
-                textView.setText(str);
-                return f;
-            }
-            float measureText2 = textView.getPaint().measureText(str);
-            float f2 = f - i;
-            int e = zx5.e(str);
-            do {
-                str = zx5.m(str, e - 1);
-                e = zx5.e(str);
-                TextPaint paint = textView.getPaint();
-                measureText = paint.measureText(str + "...");
-                if (f2 <= measureText2 - measureText) {
-                    break;
-                }
-            } while (e > 10);
-            textView.setText(str + "...");
-            return (f - measureText2) + measureText;
-        }
-        return invokeCommon.floatValue;
-    }
-
-    public final float f(int i, float f, List<? extends View> list, UserIconBox userIconBox) {
-        InterceptResult invokeCommon;
-        float b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), list, userIconBox})) == null) {
-            if (userIconBox != null && userIconBox.getVisibility() != 8) {
-                for (int childCount = userIconBox.getChildCount() - 1; -1 < childCount; childCount--) {
-                    View childAt = userIconBox.getChildAt(childCount);
-                    if (childAt != null) {
-                        Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(i)");
-                        childAt.setVisibility(8);
-                        f -= a.b(childAt);
-                        if (f <= i) {
-                            return f;
+                    if (inputStream != null && BitmapFactory.decodeStream(inputStream) != null) {
+                        z = true;
+                        if (!z) {
+                            TiebaStatic.log("LocalWebpUnSupport");
+                            i = 6;
                         }
+                        TbadkCoreApplication.getInst().setCapableOfWebp(z);
+                        TbadkSettings.getInst().saveInt("webp_failure_count", i);
+                        TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
+                        return;
                     }
                 }
-            }
-            for (int size = list.size() - 1; -1 < size; size--) {
-                if (list.get(size).getVisibility() != 8) {
-                    list.get(size).setVisibility(8);
-                    if (list.get(size) instanceof TbLevelView) {
-                        b = ((TbLevelView) list.get(size)).b() + a(list.get(size));
-                    } else {
-                        b = b(list.get(size));
-                    }
-                    f -= b;
-                    if (f <= i) {
-                        return f;
-                    }
+                z = false;
+                if (!z) {
                 }
+                TbadkCoreApplication.getInst().setCapableOfWebp(z);
+                TbadkSettings.getInst().saveInt("webp_failure_count", i);
+                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
+                return;
             }
-            return f;
+            TbadkCoreApplication.getInst().setCapableOfWebp(TbadkSettings.getInst().loadBoolean("capable_of_webp_format", false));
         }
-        return invokeCommon.floatValue;
+    }
+
+    @NonNull
+    public static Pair<Boolean, String> d(@Nullable String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!f()) {
+                return new Pair<>(Boolean.FALSE, str);
+            }
+            if (str != null && str.length() != 0) {
+                int indexOf = str.indexOf("hiphotos.baidu.com");
+                if (indexOf <= 0) {
+                    indexOf = str.indexOf("tiebapic.baidu.com");
+                }
+                if (indexOf > 0 && (lastIndexOf = str.lastIndexOf(".jpg")) > 0) {
+                    return new Pair<>(Boolean.TRUE, str.substring(0, lastIndexOf) + ".webp" + str.substring(lastIndexOf + 4));
+                }
+                return new Pair<>(Boolean.FALSE, str);
+            }
+            return new Pair<>(Boolean.FALSE, str);
+        }
+        return (Pair) invokeL.objValue;
     }
 }

@@ -22,7 +22,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.renderer.ClassifierNamePolicy;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class DescriptorRenderer {
     @JvmField
     public static final DescriptorRenderer COMPACT;
@@ -60,10 +60,10 @@ public abstract class DescriptorRenderer {
 
     public abstract String renderTypeProjection(TypeProjection typeProjection);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public final /* synthetic */ class WhenMappings {
             public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 
@@ -285,7 +285,7 @@ public abstract class DescriptorRenderer {
         });
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface ValueParametersHandler {
         void appendAfterValueParameter(ValueParameterDescriptor valueParameterDescriptor, int i, int i2, StringBuilder sb);
 
@@ -295,7 +295,7 @@ public abstract class DescriptorRenderer {
 
         void appendBeforeValueParameters(int i, StringBuilder sb);
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class DEFAULT implements ValueParametersHandler {
             public static final DEFAULT INSTANCE = new DEFAULT();
 

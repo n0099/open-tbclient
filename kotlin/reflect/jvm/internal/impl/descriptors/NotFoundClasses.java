@@ -86,13 +86,13 @@ public final class NotFoundClasses {
 
         @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
         /* renamed from: getCompanionObjectDescriptor */
-        public ClassDescriptor mo2092getCompanionObjectDescriptor() {
+        public ClassDescriptor mo2094getCompanionObjectDescriptor() {
             return null;
         }
 
         @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
         /* renamed from: getUnsubstitutedPrimaryConstructor */
-        public ClassConstructorDescriptor mo2093getUnsubstitutedPrimaryConstructor() {
+        public ClassConstructorDescriptor mo2095getUnsubstitutedPrimaryConstructor() {
             return null;
         }
 

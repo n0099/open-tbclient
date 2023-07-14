@@ -1,10 +1,10 @@
 package kotlin.reflect.jvm.internal.impl.protobuf;
 
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface MessageLite extends MessageLiteOrBuilder {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface Builder extends Cloneable, MessageLiteOrBuilder {
         MessageLite build();
 

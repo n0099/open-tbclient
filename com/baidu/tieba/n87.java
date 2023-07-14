@@ -1,28 +1,40 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class n87 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface n87 extends Comparable<n87> {
+    boolean D();
 
-    public static final boolean a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            Intrinsics.checkNotNullParameter(view2, "<this>");
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f0928e6);
-            if ((tag instanceof Integer) && Intrinsics.areEqual(tag, Integer.valueOf(SkinManager.getCurrentSkinType()))) {
-                return true;
+    boolean E();
+
+    String J();
+
+    boolean R();
+
+    int getPriority();
+
+    void hide();
+
+    int o(int i, int i2);
+
+    void reset();
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static int a(n87 n87Var, n87 other) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, n87Var, other)) == null) {
+                Intrinsics.checkNotNullParameter(other, "other");
+                return Intrinsics.compare(other.getPriority(), n87Var.getPriority());
             }
-            view2.setTag(R.id.obfuscated_res_0x7f0928e6, Integer.valueOf(SkinManager.getCurrentSkinType()));
-            return false;
+            return invokeLL.intValue;
         }
-        return invokeL.booleanValue;
     }
 }

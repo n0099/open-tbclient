@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.gu3;
-import com.baidu.tieba.ms1;
+import com.baidu.tieba.fs1;
+import com.baidu.tieba.zt3;
 /* loaded from: classes4.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public String agreeText;
@@ -14,7 +14,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     public int loginMode;
     public String serviceAgreement;
     public boolean supportQuickLogin;
-    public static final boolean DEBUG = ms1.a;
+    public static final boolean DEBUG = fs1.a;
     public static final Parcelable.Creator<QuickLoginInfo> CREATOR = new a();
 
     @Override // android.os.Parcelable
@@ -72,17 +72,17 @@ public class QuickLoginInfo extends SwanAppIPCData {
     }
 
     @Nullable
-    public static QuickLoginInfo parseQuickLoginInfo(gu3 gu3Var) {
-        if (gu3Var == null) {
+    public static QuickLoginInfo parseQuickLoginInfo(zt3 zt3Var) {
+        if (zt3Var == null) {
             return null;
         }
         QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-        quickLoginInfo.supportQuickLogin = gu3Var.f();
-        quickLoginInfo.encryptPhoneNum = gu3Var.c();
-        quickLoginInfo.serviceAgreement = gu3Var.b();
-        quickLoginInfo.hasHistory = gu3Var.d();
-        quickLoginInfo.loginMode = gu3Var.e();
-        quickLoginInfo.agreeText = gu3Var.a();
+        quickLoginInfo.supportQuickLogin = zt3Var.f();
+        quickLoginInfo.encryptPhoneNum = zt3Var.c();
+        quickLoginInfo.serviceAgreement = zt3Var.b();
+        quickLoginInfo.hasHistory = zt3Var.d();
+        quickLoginInfo.loginMode = zt3Var.e();
+        quickLoginInfo.agreeText = zt3Var.a();
         return quickLoginInfo;
     }
 

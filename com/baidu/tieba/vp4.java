@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.IdRes;
-import androidx.annotation.Nullable;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,10 +10,14 @@ public abstract class vp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public abstract View a(@IdRes int i);
+    /* loaded from: classes8.dex */
+    public interface a<D> {
+        void a(bq4<D> bq4Var);
 
-    public abstract boolean b();
+        void b(bq4<D> bq4Var, D d);
+
+        bq4<D> onCreateLoader(int i, Bundle bundle);
+    }
 
     public vp4() {
         Interceptable interceptable = $ic;

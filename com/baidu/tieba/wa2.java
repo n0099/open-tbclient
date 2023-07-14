@@ -1,165 +1,333 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.browser.sailor.BdSailor;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
+import com.baidu.webkit.sdk.WebKitFactory;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes8.dex */
-public class wa2 extends zd3 {
+public class wa2 implements hy1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<xa2> a;
+    public final Lock b;
+    public volatile boolean c;
+    public volatile boolean d;
+    public c e;
+    public WebKitFactory.IForceInitZeusListener f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wa2(zc3 zc3Var) {
-        super(zc3Var, "/swanAPI/sConsole");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public interface c {
+        void a();
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wa2 a;
+
+        public a(wa2 wa2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wa2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wa2Var;
+        }
+
+        @Override // com.baidu.tieba.wa2.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.b.lock();
+                    this.a.d = true;
+                    this.a.j();
+                    this.a.p();
+                } finally {
+                    this.a.b.unlock();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements WebKitFactory.IForceInitZeusListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wa2 a;
+
+        public b(wa2 wa2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wa2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wa2Var;
+        }
+
+        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
+        public void onForceInitZeusFinish(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                try {
+                    this.a.b.lock();
+                    this.a.c = true;
+                    this.a.p();
+                    this.a.b.unlock();
+                    BdSailor.getInstance().removeForceInitListener(this.a.f);
+                } catch (Throwable th) {
+                    this.a.b.unlock();
+                    throw th;
+                }
+            }
+        }
+
+        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
+        public void onForceInitZeusStart() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && wa2.g) {
+                Log.d("NgWebViewInitHelper", "onForceInitZeusStart");
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final wa2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-324270303, "Lcom/baidu/tieba/wa2$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-324270303, "Lcom/baidu/tieba/wa2$d;");
+                    return;
+                }
+            }
+            a = new wa2(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948263777, "Lcom/baidu/tieba/wa2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948263777, "Lcom/baidu/tieba/wa2;");
                 return;
             }
         }
+        g = fs1.a;
     }
 
-    @Override // com.baidu.tieba.zd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
-        InterceptResult invokeLLLL;
+    public static wa2 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
-            if (zd3.b) {
-                Log.d("ConsoleAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return d.a;
+        }
+        return (wa2) invokeV.objValue;
+    }
+
+    public final synchronized void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (!ProcessUtils.isMainProcess()) {
+                    WebSettingsGlobalBlink.setFileInIOEnabled(true);
+                }
+            }
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            m(false);
+        }
+    }
+
+    public wa2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+        this.b = new ReentrantLock();
+        this.c = false;
+        this.d = false;
+        this.e = new a(this);
+        b bVar = new b(this);
+        this.f = bVar;
+        BdSailor.addForceInitListener(bVar);
+        cv2.g().h(this.e);
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            try {
+                this.b.lock();
+                if (!n()) {
+                    return;
+                }
+                Iterator<xa2> it = this.a.iterator();
+                while (it.hasNext()) {
+                    xa2 next = it.next();
+                    if (next != null) {
+                        next.a();
+                    }
+                }
+                this.a.clear();
+            } finally {
+                this.b.unlock();
+            }
+        }
+    }
+
+    public /* synthetic */ wa2(a aVar) {
+        this();
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            cv2.g().d(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.hy1
+    public void a(xa2 xa2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, xa2Var) == null) {
+            try {
+                this.b.lock();
+                if (xa2Var != null && this.a.contains(xa2Var)) {
+                    this.a.remove(xa2Var);
+                }
+            } finally {
+                this.b.unlock();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.hy1
+    public void b(xa2 xa2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xa2Var) == null) {
+            try {
+                this.b.lock();
+                if (xa2Var == null) {
+                    return;
+                }
+                if (!this.a.contains(xa2Var)) {
+                    this.a.add(xa2Var);
+                }
+                if (n()) {
+                    p();
+                }
+            } finally {
+                this.b.unlock();
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0053, code lost:
+        if (o() != false) goto L15;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean n() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                this.b.lock();
+                if (g) {
+                    Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.d);
+                    Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.c + " ,isZeusForceInited: " + o());
+                }
+                if (this.d) {
+                    if (!this.c) {
+                    }
+                    z = true;
+                    return z;
+                }
+                z = false;
+                return z;
+            } finally {
+                this.b.unlock();
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (g) {
+                Log.d("NgWebViewInitHelper", "checkZeusForceInit: " + BdSailor.getInstance().checkZeusForceInit());
+                Log.d("NgWebViewInitHelper", "isZeusForceInited: " + BdSailor.getInstance().isZeusForceInited());
+            }
+            if (BdSailor.getInstance().checkZeusForceInit() && (!BdSailor.getInstance().checkZeusForceInit() || !BdSailor.getInstance().isZeusForceInited())) {
                 return false;
             }
-            return false;
+            return true;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zd3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, cc3 cc3Var) {
-        InterceptResult invokeLLLLL;
-        boolean optBoolean;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, cc3Var)) == null) {
-            if (zd3.b) {
-                Log.d("ConsoleAction", "handleSubAction subAction: " + str);
-            }
-            if (!z82.a() && !c92.f() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
-                return super.i(context, unitedSchemeEntity, callbackHandler, str, cc3Var);
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1923550429:
-                    if (str.equals("/swanAPI/sConsole/sanIncData2Console")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -1792428120:
-                    if (str.equals("/swanAPI/sConsole/sanFullData2Console")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case -797920904:
-                    if (str.equals("/swanAPI/sConsole/hide")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -797593805:
-                    if (str.equals("/swanAPI/sConsole/show")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -161927599:
-                    if (str.equals("/swanAPI/sConsole/postMessage")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 1089933937:
-                    if (str.equals("/swanAPI/sConsole/debugSwitch")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 2136057821:
-                    if (str.equals("/swanAPI/sConsole/getSanDataFromActiveSlave")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    if (optParamsAsJo != null && (optBoolean = optParamsAsJo.optBoolean("enableDebug")) != z82.a()) {
-                        z82.c(context, optBoolean);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        c92.i("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
-                    }
-                    return true;
-                case 1:
-                    px2.T().q().O(true);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    c92.i("ConsoleAction", "sConsole show");
-                    return true;
-                case 2:
-                    px2.T().q().O(false);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    c92.i("ConsoleAction", "sConsole hide");
-                    return true;
-                case 3:
-                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                        c92.i("ConsoleAction", "send san inc data");
-                        xa2.d(optParamsAsJo.toString());
-                    } else {
-                        c92.c("ConsoleAction", "san inc data is null");
-                    }
-                    return true;
-                case 4:
-                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                        c92.i("ConsoleAction", "send san full data");
-                        xa2.c(optParamsAsJo.toString());
-                    } else {
-                        c92.c("ConsoleAction", "san full data is null");
-                    }
-                    return true;
-                case 5:
-                    c92.i("ConsoleAction", "request san full data");
-                    xa2.b();
-                    return true;
-                case 6:
-                    lt1 h = kv2.h();
-                    if (h != null) {
-                        h.c(optParamsAsJo);
-                    }
-                    return true;
-                default:
-                    return super.i(context, unitedSchemeEntity, callbackHandler, str, cc3Var);
-            }
-        }
-        return invokeLLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 }

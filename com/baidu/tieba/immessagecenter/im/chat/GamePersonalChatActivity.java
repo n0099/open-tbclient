@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.atomData.GamePersonalChatActivityConfig;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h78;
+import com.baidu.tieba.cc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,10 +32,10 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     public CustomMessageListener d0;
 
     @Override // com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity
-    public boolean U1(h78 h78Var) {
+    public boolean U1(cc8 cc8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h78Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cc8Var)) == null) {
             return true;
         }
         return invokeL.booleanValue;
@@ -295,7 +295,7 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
         tBAlertBuilder.w(R.string.game_back_tip);
         tBAlertBuilder.m(R.string.cancel_game_match);
         tBAlertBuilder.o(true);
-        tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0588, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f11a0, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
+        tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f058b, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f11b2, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
         tBAlertBuilder.i();
         tBAlertBuilder.j(false);
         tBAlertBuilder.z();

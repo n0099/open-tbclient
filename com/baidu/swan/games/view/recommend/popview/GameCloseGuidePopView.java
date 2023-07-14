@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lf4;
-import com.baidu.tieba.ms1;
+import com.baidu.tieba.ef4;
+import com.baidu.tieba.fs1;
+import com.baidu.tieba.kf4;
+import com.baidu.tieba.nf4;
 import com.baidu.tieba.rf4;
-import com.baidu.tieba.uf4;
-import com.baidu.tieba.yf4;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GameCloseGuidePopView extends RelativeLayout {
-    public static final boolean i = ms1.a;
+    public static final boolean i = fs1.a;
     public Context a;
     public View b;
     public View c;
@@ -36,7 +36,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
     public RecyclerView e;
     public e f;
     public RecommendItemModel g;
-    public lf4 h;
+    public ef4 h;
 
     /* loaded from: classes4.dex */
     public interface e {
@@ -53,11 +53,11 @@ public class GameCloseGuidePopView extends RelativeLayout {
         /* loaded from: classes4.dex */
         public class a implements Runnable {
             public final /* synthetic */ List a;
-            public final /* synthetic */ rf4 b;
+            public final /* synthetic */ kf4 b;
 
-            public a(List list, rf4 rf4Var) {
+            public a(List list, kf4 kf4Var) {
                 this.a = list;
-                this.b = rf4Var;
+                this.b = kf4Var;
             }
 
             @Override // java.lang.Runnable
@@ -102,7 +102,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
                             arrayList.add((RecommendItemModel) gson.fromJson(optJSONArray.opt(i).toString(), (Class<Object>) RecommendItemModel.class));
                         }
                     }
-                    GameCloseGuidePopView.this.post(new a(arrayList, new rf4(GameCloseGuidePopView.this.g, arrayList)));
+                    GameCloseGuidePopView.this.post(new a(arrayList, new kf4(GameCloseGuidePopView.this.g, arrayList)));
                 } catch (JSONException e) {
                     if (GameCloseGuidePopView.i) {
                         e.printStackTrace();
@@ -156,8 +156,8 @@ public class GameCloseGuidePopView extends RelativeLayout {
     }
 
     public final void h() {
-        this.h = new lf4();
-        uf4.a(new d());
+        this.h = new ef4();
+        nf4.a(new d());
     }
 
     public GameCloseGuidePopView(Context context) {
@@ -172,16 +172,16 @@ public class GameCloseGuidePopView extends RelativeLayout {
     }
 
     public final void i() {
-        LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0916, this);
-        this.b = findViewById(R.id.obfuscated_res_0x7f0926a8);
-        this.c = findViewById(R.id.obfuscated_res_0x7f0926de);
-        this.d = findViewById(R.id.obfuscated_res_0x7f091ef6);
-        this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f54);
+        LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0930, this);
+        this.b = findViewById(R.id.obfuscated_res_0x7f0926dd);
+        this.c = findViewById(R.id.obfuscated_res_0x7f092713);
+        this.d = findViewById(R.id.obfuscated_res_0x7f091f28);
+        this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f86);
         this.b.setOnClickListener(new a());
         this.c.setOnClickListener(new b());
         this.d.setOnClickListener(new c());
-        yf4.a(this.b);
-        yf4.a(this.c);
+        rf4.a(this.b);
+        rf4.a(this.c);
         this.e.setLayoutManager(new GridLayoutManager(this.a, 3));
     }
 }

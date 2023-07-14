@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.schemeaction.SchemeActionName;
 import com.baidu.tbadk.core.util.schemeaction.UriBuilder;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCallback;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.ay4;
-import com.baidu.tieba.q2a;
+import com.baidu.tieba.bba;
+import com.baidu.tieba.tx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,7 +115,7 @@ public class DeepLinkAction {
                 deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, -1);
                 return false;
             }
-            TbPageContext<?> c = q2a.c(context);
+            TbPageContext<?> c = bba.c(context);
             if (c != null) {
                 int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(c, new String[]{str});
                 SchemeActionHelper.printLog("inner tryOpenInnerLink-->" + str + ",retType=" + dealOneLinkWithOutJumpWebView);
@@ -259,9 +259,9 @@ public class DeepLinkAction {
         TbPageContext<?> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, context, str, bundle)) == null) {
-            String[] strArr = {ay4.k(str)};
+            String[] strArr = {tx4.k(str)};
             UrlManager urlManager = UrlManager.getInstance();
-            if (urlManager == null || (c = q2a.c(context)) == null) {
+            if (urlManager == null || (c = bba.c(context)) == null) {
                 return false;
             }
             if (urlManager.UrlValidated(str)) {

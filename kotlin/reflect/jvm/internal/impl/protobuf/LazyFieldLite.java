@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.protobuf;
 
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class LazyFieldLite {
     public ByteString bytes;
     public ExtensionRegistryLite extensionRegistry;

@@ -190,7 +190,7 @@ public class ChatUserDBManager extends DBBase {
 
     public void updateMarkTopList(@NonNull List<ChatSession> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, list) { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -238,7 +238,7 @@ public class ChatUserDBManager extends DBBase {
 
     public void updateSubscribedUsers(@NonNull Map<Long, Integer> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, map) == null) && map.size() > 0) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, map) == null) && map.size() > 0) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, map) { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -498,6 +498,24 @@ public class ChatUserDBManager extends DBBase {
         } else {
             return (ChatUser) invokeLJ.objValue;
         }
+    }
+
+    public boolean updateDisturbByBduid(long j, int i) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("disturb", Integer.valueOf(i));
+            synchronized (DBBase.mSyncLock) {
+                z = true;
+                if (update(TableDefine.DB_TABLE_USERINFO, "buid =? ", new String[]{String.valueOf(j)}, contentValues) <= 0) {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeCommon.booleanValue;
     }
 
     private ChatSession constructShieldUsers(@NonNull ChatSession chatSession, @NonNull Cursor cursor, boolean z) {
@@ -1029,12 +1047,32 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
+    public boolean updateDisturb(long j, int i) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            String str = TAG;
+            LogUtils.d(str, "updateDisturb, uk =" + j + ", markDisturb=" + i);
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("disturb", Integer.valueOf(i));
+            synchronized (DBBase.mSyncLock) {
+                z = true;
+                if (update(TableDefine.DB_TABLE_USERINFO, "uid =? ", new String[]{String.valueOf(j)}, contentValues) <= 0) {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeCommon.booleanValue;
+    }
+
     public boolean updateMarkTop(long j, int i, long j2) {
         InterceptResult invokeCommon;
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)})) == null) {
             String str = TAG;
             LogUtils.d(str, "updateMarkTop, uk =" + j + ", markToped=" + i + ", updateTime=" + j2);
             ContentValues contentValues = new ContentValues();
@@ -1066,7 +1104,7 @@ public class ChatUserDBManager extends DBBase {
         boolean z4;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{chatSession, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{chatSession, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             synchronized (DBBase.mSyncLock) {
                 ContentValues contentValues = new ContentValues();
                 if (z2) {
@@ -1107,7 +1145,7 @@ public class ChatUserDBManager extends DBBase {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("subscribe_status", Integer.valueOf(i));
             synchronized (DBBase.mSyncLock) {
@@ -1144,7 +1182,7 @@ public class ChatUserDBManager extends DBBase {
         InterceptResult invokeL;
         long add;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, chatUser)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, chatUser)) == null) {
             if (chatUser == null) {
                 return 0L;
             }
@@ -1160,7 +1198,7 @@ public class ChatUserDBManager extends DBBase {
         InterceptResult invokeL;
         long add;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, chatUser)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, chatUser)) == null) {
             if (chatUser == null) {
                 return 0L;
             }
@@ -1174,7 +1212,7 @@ public class ChatUserDBManager extends DBBase {
 
     public void updateUserIdentity(List<ChatUser> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, list) == null) && list != null && list.size() > 0) {
+        if ((interceptable == null || interceptable.invokeL(1048594, this, list) == null) && list != null && list.size() > 0) {
             synchronized (DBBase.mSyncLock) {
                 for (ChatUser chatUser : list) {
                     ContentValues contentValues = new ContentValues();
@@ -1202,7 +1240,7 @@ public class ChatUserDBManager extends DBBase {
     public int updateUserIpInfo(ArrayList<IpInfo> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, arrayList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, arrayList)) == null) {
             synchronized (DBBase.mSyncLock) {
                 if (arrayList == null) {
                     return -1;

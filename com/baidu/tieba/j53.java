@@ -1,14 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.ArrayMap;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.TooltipCompatHandler;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tieba.gb3;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,292 +14,209 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
+import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j53 {
+public class j53 implements zw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static j53 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, JSONArray> a;
-    public String[] b;
-    public String c;
-    public Map<String, String> d;
+    public long c;
+    public ConcurrentHashMap<String, JSONObject> d;
+    public ConcurrentHashMap<String, Integer> e;
+    public r63 f;
 
     /* loaded from: classes6.dex */
-    public static abstract class a {
+    public class a implements r63 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j53 c;
 
-        public abstract void c(String str);
+        @Override // com.baidu.tieba.r63
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
 
-        public a() {
+        @Override // com.baidu.tieba.r63
+        public void c(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.r63
+        public String getName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "LaunchApiCache" : (String) invokeV.objValue;
+        }
+
+        public a(j53 j53Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j53Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.c = j53Var;
+        }
+
+        @Override // com.baidu.tieba.r63
+        public void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeZ(1048579, this, z) != null) {
+                return;
+            }
+            this.c.g();
+        }
+
+        @Override // com.baidu.tieba.r63
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.c.c = System.currentTimeMillis();
             }
         }
 
-        public final void b(int i) {
-            Application c;
+        @Override // com.baidu.tieba.r63
+        public void b() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (c = jv2.c()) != null) {
-                c(c.getString(i));
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.g();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends ResponseCallback {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final j53 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public AtomicInteger a;
-        public boolean b;
-        public int c;
-        public a d;
-        public final /* synthetic */ j53 e;
 
-        public b(j53 j53Var, int i, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j53Var, Integer.valueOf(i), aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-737054461, "Lcom/baidu/tieba/j53$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-737054461, "Lcom/baidu/tieba/j53$b;");
                     return;
                 }
             }
-            this.e = j53Var;
-            this.a = new AtomicInteger(0);
-            this.c = i;
-            this.d = aVar;
+            a = new j53(null);
         }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            a aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && !this.b && this.a.incrementAndGet() >= this.c && (aVar = this.d) != null) {
-                aVar.b(R.string.obfuscated_res_0x7f0f0177);
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-                this.b = true;
-                this.e.a = new ArrayMap();
-                a aVar = this.d;
-                if (aVar != null) {
-                    aVar.b(R.string.obfuscated_res_0x7f0f017b);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                if (response != null && response.body() != null && response.isSuccessful()) {
-                    try {
-                        return response.body().string();
-                    } catch (IOException e) {
-                        if (j53.e) {
-                            Log.d("TraceDataManager", "Trace Data publish fail for IOException", e);
-                        }
-                    }
-                }
-                return null;
-            }
-            return invokeLI.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947834241, "Lcom/baidu/tieba/j53;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947834241, "Lcom/baidu/tieba/j53;");
-                return;
-            }
-        }
-        e = ms1.a;
-    }
-
-    public static j53 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f == null) {
-                synchronized (j53.class) {
-                    if (f == null) {
-                        f = new j53();
-                    }
-                }
-            }
-            return f;
-        }
-        return (j53) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String[] strArr = this.b;
-            if (strArr != null && strArr.length > 0 && !TextUtils.isEmpty(this.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public j53() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayMap();
-        this.c = "";
-        this.d = new HashMap();
+        this.c = -1L;
+        this.d = new ConcurrentHashMap<>(10);
+        this.e = new ConcurrentHashMap<>(10);
+        this.f = new a(this);
     }
 
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && this.a != null && jSONObject != null) {
-            String S = px2.T().S();
-            JSONArray jSONArray = this.a.get(S);
-            if (jSONArray == null) {
-                jSONArray = new JSONArray();
-                this.a.put(S, jSONArray);
-            }
-            jSONArray.put(jSONObject);
-        }
+    public /* synthetic */ j53(a aVar) {
+        this();
     }
 
-    public final String d(int i) {
-        InterceptResult invokeI;
+    public void h(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (f() && i < this.b.length) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("http://");
-                sb.append(this.b[i]);
-                sb.append(":");
-                sb.append(this.c);
-                sb.append("/uploadTraceData");
-                sb.append("?");
-                for (Map.Entry<String, String> entry : this.d.entrySet()) {
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
-                }
-                return sb.toString();
-            }
-            return "";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void h(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, bundle) != null) || bundle == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, jSONObject) != null) || TextUtils.isEmpty(str) || !e()) {
             return;
         }
-        String string = bundle.getString("tool_ip");
-        String string2 = bundle.getString("tool_port");
-        String string3 = bundle.getString("projectId");
-        if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
-            if (e) {
-                Log.d("TraceDataManager", "IP : " + string);
-                Log.d("TraceDataManager", "Port : " + string2);
-                Log.d("TraceDataManager", "Project ID : " + string3);
+        this.d.put(str, jSONObject);
+    }
+
+    public static j53 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b.a;
+        }
+        return (j53) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c == -1 || System.currentTimeMillis() - this.c > TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS) {
+                return false;
             }
-            this.b = string.split("_");
-            this.c = string2;
-            this.d.put("projectId", string3);
-        } else if (e) {
-            Log.d("TraceDataManager", "Trace Data Params is invalid");
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            p63.g().i(this.f, 2500);
         }
     }
 
-    public void g(a aVar) {
+    public JSONObject d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (!f()) {
-                ub3.f(bc3.K().w(), R.string.obfuscated_res_0x7f0f0178).G();
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || !e()) {
+                return null;
             }
-            Map<String, JSONArray> map = this.a;
-            if (map != null && map.size() > 0) {
-                JSONArray jSONArray = new JSONArray();
-                try {
-                    for (Map.Entry<String, JSONArray> entry : this.a.entrySet()) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.putOpt("path", entry.getKey());
-                        jSONObject.putOpt("data", entry.getValue().toString());
-                        jSONArray.put(jSONObject);
-                    }
-                } catch (JSONException e2) {
-                    if (e) {
-                        Log.e("TraceDataManager", "Maybe the format of the Trace data is incorrect", e2);
-                    }
+            JSONObject jSONObject = this.d.get(str);
+            if (zw2.a && jSONObject != null) {
+                Integer num = this.e.get(str);
+                if (num == null) {
+                    num = 0;
                 }
-                aj4 postRequest = gj4.g().postRequest();
-                postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONArray.toString()));
-                postRequest.connectionTimeout(3000);
-                int min = Math.min(this.b.length, 4);
-                b bVar = new b(this, min, aVar);
-                for (int i = 0; i < min; i++) {
-                    postRequest.url(d(i));
-                    postRequest.build().executeAsync(bVar);
-                }
-                return;
+                this.e.put(str, Integer.valueOf(num.intValue() + 1));
             }
-            gb3.a aVar2 = new gb3.a(bc3.K().w());
-            aVar2.U(R.string.obfuscated_res_0x7f0f017a);
-            aVar2.v(R.string.obfuscated_res_0x7f0f0179);
-            aVar2.n(new kr3());
-            aVar2.O(R.string.obfuscated_res_0x7f0f0146, null);
-            aVar2.X();
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c = -1L;
+            if (zw2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("adopt cache api = [ ");
+                for (Map.Entry<String, Integer> entry : this.e.entrySet()) {
+                    sb.append((Object) entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
+                    sb.append(" ");
+                }
+                sb.append(PreferencesUtil.RIGHT_MOUNT);
+                Log.d("SwanPerformance", sb.toString());
+            }
+            this.e.clear();
+            this.d.clear();
         }
     }
 }

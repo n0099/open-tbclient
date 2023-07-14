@@ -1,29 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ErrorData;
+import android.app.ActivityManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class nla {
+public final class nla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ErrorData a;
-    public String b;
-    public String c;
 
-    public nla() {
+    public static final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                String e = rla.e();
+                Object systemService = TbadkCoreApplication.getInst().getContext().getSystemService("activity");
+                if (systemService != null) {
+                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) systemService).getRunningAppProcesses()) {
+                        if (Intrinsics.areEqual(runningAppProcessInfo.processName, e)) {
+                            return runningAppProcessInfo.pid;
+                        }
+                    }
+                    return -1;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type android.app.ActivityManager");
+            } catch (Exception unused) {
+                return -1;
             }
         }
+        return invokeV.intValue;
     }
 }

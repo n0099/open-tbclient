@@ -19,13 +19,13 @@ public class c extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo750a() {
+    public String mo752a() {
         return "batch send message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo467a() {
+    public void mo469a() {
         try {
             if (this.f965a != null) {
                 this.a.a(this.f965a);

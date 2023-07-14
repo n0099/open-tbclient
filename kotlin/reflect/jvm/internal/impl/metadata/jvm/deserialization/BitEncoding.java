@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.metadata.jvm.deserialization;
 
 import com.baidu.searchbox.player.model.YYOption;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BitEncoding {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final boolean FORCE_8TO7_ENCODING;

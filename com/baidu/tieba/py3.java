@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,10 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes7.dex */
-public class py3 implements qr4 {
+public class py3 extends ut1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +31,7 @@ public class py3 implements qr4 {
                 return;
             }
         }
-        a = ms1.a;
+        a = fs1.a;
     }
 
     public py3() {
@@ -47,30 +48,37 @@ public class py3 implements qr4 {
         }
     }
 
-    @Override // com.baidu.tieba.qr4
-    public boolean a(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.rv1
+    public boolean x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
-            if (a) {
-                Log.d("OpenBehaviorUploader", "upload stat data -> " + jSONArray.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (a && u73.G().booleanValue()) {
+                return false;
             }
-            uy3 uy3Var = new uy3();
-            HashMap hashMap = new HashMap(2);
-            hashMap.put("cuid", ir4.g().getDeviceId(AppRuntime.getApplication()));
-            hashMap.put("uuid", ir4.g().o(AppRuntime.getApplication()));
-            ty3.d().g(hashMap, jSONArray.toString().getBytes(), null, uy3Var);
-            if (a) {
-                Log.d("OpenBehaviorUploader", "errorCode : " + uy3Var.a);
-                Log.d("OpenBehaviorUploader", "errorMsg : " + uy3Var.b);
-            }
-            int i = uy3Var.a;
-            if (i != 1 && i != 2 && i != 4) {
-                return true;
-            }
-            bs4.a();
-            return false;
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rv1
+    public JSONObject getRawSwitch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (wt4.a()) {
+                    jSONObject.put("swanswitch_android_setdata", 1);
+                }
+                jSONObject.put("swanswitch_ab_inline_video", 1);
+                jSONObject.put("swanswitch_ab_inline_input", 1);
+                jSONObject.put("swanswitch_ab_inline_textarea", 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

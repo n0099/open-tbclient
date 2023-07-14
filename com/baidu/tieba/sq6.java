@@ -1,49 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import tbclient.Userlike.UserFollowLive;
 /* loaded from: classes7.dex */
-public class sq6 implements r67<Message> {
+public class sq6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948160113, "Lcom/baidu/tieba/sq6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948160113, "Lcom/baidu/tieba/sq6;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
 
     public sq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = R.color.CAM_X0204;
+        this.b = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r67
-    /* renamed from: a */
-    public t87<?> b(Message message) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (!(message instanceof UserFollowLive)) {
-                return null;
-            }
-            qw7 qw7Var = new qw7();
-            qw7Var.d((UserFollowLive) message);
-            uo6 uo6Var = new uo6(null, qw7Var.c(), ImageViewerConfig.FROM_CONCERN);
-            h67 h67Var = new h67();
-            h67Var.a = uo6Var;
-            return new u87(new r37(h67Var), "ala_live_attention");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
         }
-        return (t87) invokeL.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

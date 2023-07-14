@@ -16,11 +16,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d56;
+import com.baidu.tieba.h66;
 import com.baidu.tieba.view.widget.mediaedit.RangeSlider;
 import com.baidu.tieba.view.widget.mediaedit.adapter.rangerslider.VideoClipAdapter;
 import com.baidu.tieba.view.widget.mediaedit.manager.CustomLinearLayoutManager;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -581,7 +581,7 @@ public class VideoClipLayout extends FrameLayout {
     public final void G(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, d56.VideoClipLayout);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, h66.VideoClipLayout);
             this.u = obtainStyledAttributes.getInt(0, 0);
             obtainStyledAttributes.recycle();
         }
@@ -666,9 +666,9 @@ public class VideoClipLayout extends FrameLayout {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d098f, (ViewGroup) null);
-            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f092781);
-            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f092780);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09a9, (ViewGroup) null);
+            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0927b6);
+            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f0927b5);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
             this.e = customLinearLayoutManager;
@@ -982,7 +982,7 @@ public class VideoClipLayout extends FrameLayout {
             this.g = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
             this.n = UtilHelper.getDimenPixelSize(R.dimen.tbds130);
             this.m = UtilHelper.getDimenPixelSize(R.dimen.tbds89);
-            double l = ((xi.l(getContext()) - UtilHelper.getDimenPixelSize(R.dimen.tbds187)) - this.g) - (UtilHelper.getDimenPixelSize(R.dimen.tbds31) * 2);
+            double l = ((yi.l(getContext()) - UtilHelper.getDimenPixelSize(R.dimen.tbds187)) - this.g) - (UtilHelper.getDimenPixelSize(R.dimen.tbds31) * 2);
             this.h = l;
             double d3 = l / I;
             this.i = d3;
@@ -1083,14 +1083,14 @@ public class VideoClipLayout extends FrameLayout {
                 J();
             }
             if (z && (videoClipAdapter = this.d) != null) {
-                videoClipAdapter.m(this.u, this.g, this.m, this.n, this.q, UtilHelper.getDimenPixelSize(R.dimen.tbds130));
+                videoClipAdapter.n(this.u, this.g, this.m, this.n, this.q, UtilHelper.getDimenPixelSize(R.dimen.tbds130));
                 if (vlogEditManager == null) {
                     return;
                 }
                 if (this.D >= 0) {
-                    this.d.k((MultiMediaData) ListUtils.getItem(vlogEditManager.getInputMultiMediaData(), this.D), this.p);
+                    this.d.l((MultiMediaData) ListUtils.getItem(vlogEditManager.getInputMultiMediaData(), this.D), this.p);
                 } else {
-                    this.d.l(vlogEditManager, this.p);
+                    this.d.m(vlogEditManager, this.p);
                 }
             }
         }

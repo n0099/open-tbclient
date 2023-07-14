@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,12 +49,12 @@ public class HeadWorldCupFlagLayout extends FrameLayout {
                 return;
             }
         }
-        e = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds17);
-        f = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds138);
-        h = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds72);
-        i = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
-        j = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
+        e = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds17);
+        f = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds138);
+        h = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds72);
+        i = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
+        j = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
     }
 
     public final void a() {

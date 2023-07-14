@@ -1,53 +1,29 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.webkit.WebResourceResponse;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
 /* loaded from: classes5.dex */
-public final class fm6 {
+public class fm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cm6 a;
+    public final WebResourceResponse a;
+    public final ByteArrayInputStream b;
+    public final int c;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final fm6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-799764516, "Lcom/baidu/tieba/fm6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-799764516, "Lcom/baidu/tieba/fm6$b;");
-                    return;
-                }
-            }
-            a = new fm6(null);
-        }
-    }
-
-    public fm6() {
+    public fm6(WebResourceResponse webResourceResponse, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webResourceResponse, bArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -57,20 +33,71 @@ public final class fm6 {
                 return;
             }
         }
-        this.a = (cm6) ServiceManager.getService(cm6.a);
+        this.a = webResourceResponse;
+        if (bArr != null) {
+            this.c = bArr.length;
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            this.b = byteArrayInputStream;
+            byteArrayInputStream.mark(0);
+            return;
+        }
+        this.c = 0;
+        this.b = null;
     }
 
-    @NonNull
-    public static cm6 a() {
+    public WebResourceResponse a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b != null && c()) {
+                this.b.reset();
+                this.a.setData(this.b);
+            }
+            return this.a;
         }
-        return (cm6) invokeV.objValue;
+        return (WebResourceResponse) invokeV.objValue;
     }
 
-    public /* synthetic */ fm6(a aVar) {
-        this();
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a != null && this.b != null && d() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WebResourceResponse webResourceResponse = this.a;
+            if (webResourceResponse != null && !xn6.b(webResourceResponse.getResponseHeaders())) {
+                return TextUtils.equals(this.a.getResponseHeaders().get("tieba-response-via"), PrefetchEvent.MODULE);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "WebResourceResponseWrap{size='" + this.c + "', isSuccessful='" + c() + "', isPrefetchData='" + b() + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

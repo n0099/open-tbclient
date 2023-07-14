@@ -1,12 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.aperf.bosuploader.BOSResponseEntity;
+import com.baidu.searchbox.aperf.bosuploader.BOSUploader;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tieba.vcb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,26 +17,132 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.http.GetRequest;
-import com.fun.ad.sdk.internal.api.http.RequestParams;
-import com.fun.ad.sdk.internal.api.http.Response;
-import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.File;
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Random;
-import org.json.JSONArray;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class hcb {
     public static /* synthetic */ Interceptable $ic;
-    public static final pcb a;
+    public static final boolean d;
+    public static volatile hcb e;
     public transient /* synthetic */ FieldHolder $fh;
+    public File a;
+    public File b;
+    public ExecutorService c;
+
+    /* loaded from: classes6.dex */
+    public class a implements icb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ kcb b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ JSONObject e;
+        public final /* synthetic */ String f;
+
+        public a(hcb hcbVar, File file, kcb kcbVar, String str, String str2, JSONObject jSONObject, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hcbVar, file, kcbVar, str, str2, jSONObject, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = file;
+            this.b = kcbVar;
+            this.c = str;
+            this.d = str2;
+            this.e = jSONObject;
+            this.f = str3;
+        }
+
+        @Override // com.baidu.tieba.icb
+        public void a(lcb lcbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lcbVar) == null) {
+                if (lcbVar != null && lcbVar.c()) {
+                    if (hcb.d) {
+                        Log.d("VoyagerFileManager", "bos upload success");
+                    }
+                    if (this.a.exists()) {
+                        this.a.delete();
+                    }
+                    kcb kcbVar = this.b;
+                    if (kcbVar != null) {
+                        kcbVar.d(this.c, this.d, this.e);
+                    }
+                } else if (lcbVar != null) {
+                    int a = lcbVar.a();
+                    String b = lcbVar.b();
+                    if (hcb.d) {
+                        Log.d("VoyagerFileManager", "bos upload fail: error code = " + a + ", error message: " + b);
+                    }
+                    kcb kcbVar2 = this.b;
+                    if (kcbVar2 != null) {
+                        kcbVar2.c(this.f, a, b, this.e);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ File c;
+        public final /* synthetic */ icb d;
+        public final /* synthetic */ hcb e;
+
+        public b(hcb hcbVar, String str, String str2, File file, icb icbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hcbVar, str, str2, file, icbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = hcbVar;
+            this.a = str;
+            this.b = str2;
+            this.c = file;
+            this.d = icbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.e.m(this.a, this.b, this.c, this.d);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -48,249 +157,395 @@ public class hcb {
                 return;
             }
         }
-        a = new pcb();
-        HandlerThread handlerThread = new HandlerThread("pull_pid_cpm");
-        handlerThread.start();
-        new a(handlerThread.getLooper());
+        d = AppConfig.isDebug();
     }
 
-    /* loaded from: classes6.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static hcb g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
+                synchronized (hcb.class) {
+                    if (e == null) {
+                        e = new hcb();
+                    }
                 }
             }
+            return e;
         }
+        return (hcb) invokeV.objValue;
+    }
 
-        /* JADX WARN: Removed duplicated region for block: B:53:0x011d  */
-        /* JADX WARN: Removed duplicated region for block: B:61:0x014c  */
-        @Override // android.os.Handler
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void handleMessage(@NonNull Message message) {
-            boolean z;
-            long j;
-            double d;
-            int i;
-            Response perform;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i2 = message.what;
-                long j2 = 0;
-                boolean z2 = false;
-                if (i2 != 100) {
-                    if (i2 == 101) {
-                        pcb pcbVar = hcb.a;
-                        synchronized (pcbVar) {
-                            LogPrinter.d("new dey", new Object[0]);
-                            double a = n6b.a();
-                            n6b.b.clear().apply();
-                            pcbVar.a.clear();
-                            if (a > 0.0d) {
-                                l6b.d(l6b.n() + a);
-                            }
-                        }
-                        Calendar calendar = Calendar.getInstance();
-                        long timeInMillis = calendar.getTimeInMillis();
-                        calendar.add(6, 1);
-                        calendar.set(11, 0);
-                        calendar.set(12, 0);
-                        calendar.set(13, 0);
-                        long timeInMillis2 = calendar.getTimeInMillis() - timeInMillis;
-                        if (timeInMillis2 >= 0) {
-                            j2 = timeInMillis2;
-                        }
-                        sendEmptyMessageDelayed(101, j2);
-                        return;
+    public ArrayList<File> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList<File> arrayList = new ArrayList<>();
+            File[] listFiles = this.a.listFiles();
+            if (listFiles != null && listFiles.length > 0) {
+                return new ArrayList<>(Arrays.asList(listFiles));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public File h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public hcb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        j();
+        this.c = new ThreadPoolExecutor(1, 1, 600000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+    }
+
+    public void c(ocb ocbVar, kcb kcbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, ocbVar, kcbVar) == null) {
+            String j = ocbVar.j();
+            String a2 = ocbVar.a();
+            if (!TextUtils.isEmpty(j) && !TextUtils.isEmpty(a2)) {
+                File file = new File(this.a, j);
+                JSONObject c = ocbVar.c();
+                if (file.exists()) {
+                    if (d) {
+                        Log.d("VoyagerFileManager", "retry: " + j + " exists and upload");
                     }
+                    k(j, a2, file, c, kcbVar);
                     return;
                 }
-                HashMap hashMap = new HashMap();
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    HostAppInfo.fillReqParams(jSONObject);
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        hashMap.put(next, jSONObject.get(next));
-                    }
-                } catch (JSONException unused) {
+                d(ocbVar, kcbVar);
+            }
+        }
+    }
+
+    public void d(ocb ocbVar, kcb kcbVar) {
+        File i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ocbVar, kcbVar) == null) {
+            String j = ocbVar.j();
+            String a2 = ocbVar.a();
+            if (!TextUtils.isEmpty(j) && !TextUtils.isEmpty(a2)) {
+                ArrayList<String> g = ocbVar.g();
+                JSONObject c = ocbVar.c();
+                if (c == null) {
+                    c = new JSONObject();
+                    ocbVar.n(c);
                 }
-                try {
-                    perform = new GetRequest("https://cd.xdplt.com/v2/pr", new RequestParams(hashMap)).perform();
-                } catch (IOException | JSONException e) {
-                    LogPrinter.d("cpm exception:" + e, new Object[0]);
-                    LogPrinter.e(e);
-                }
-                if (perform != null && perform.getResponseCode() == 200) {
-                    JSONObject jSONObject2 = new JSONObject(perform.getContent());
-                    if (jSONObject2.getInt("ret") == 200) {
-                        n6b.a.edit().putLong("key_cpm_update_date", Calendar.getInstance().getTimeInMillis()).putString("key_ad_cpmcfg", jSONObject2.getJSONObject("data").getJSONArray("cpm").toString()).apply();
-                        z = true;
-                        if (!z) {
-                        }
-                    } else {
-                        z = false;
-                        if (!z) {
-                            int i3 = message.arg1;
-                            LogPrinter.d("ad cpm config pull times = %1s", Integer.valueOf(i3));
-                            if (i3 == 0) {
-                                i = 10;
-                            } else if (i3 <= 2) {
-                                i = i3 * 5 * 60;
-                            } else {
-                                i = 3600;
-                            }
-                            Message obtainMessage = obtainMessage(100);
-                            obtainMessage.arg1 = i3 + 1;
-                            sendMessageDelayed(obtainMessage, i * 1000);
+                JSONObject jSONObject = c;
+                if (g != null && g.size() != 0) {
+                    if (!ocbVar.l() && g.size() == 1) {
+                        String str = g.get(0);
+                        if (TextUtils.isEmpty(str)) {
+                            kcbVar.a(j, jSONObject);
                             return;
                         }
-                        pcb pcbVar2 = hcb.a;
-                        synchronized (pcbVar2) {
-                            pcbVar2.a.clear();
-                            try {
-                                JSONArray jSONArray = new JSONArray(n6b.a.getString("key_ad_cpmcfg", ""));
-                                if (jSONArray.length() >= 1) {
-                                    double n = l6b.n();
-                                    double a2 = n6b.a();
-                                    HashMap hashMap2 = new HashMap();
-                                    boolean z3 = false;
-                                    for (int i4 = 0; i4 < jSONArray.length(); i4++) {
-                                        JSONObject jSONObject3 = jSONArray.getJSONObject(i4);
-                                        String string = jSONObject3.getString("aid");
-                                        double d2 = jSONObject3.getDouble("cpm");
-                                        LogPrinter.d("update Cpm:" + string, new Object[0]);
-                                        hashMap2.put(string, Double.valueOf(d2));
-                                        int i5 = n6b.a.getInt(string, 0);
-                                        LogPrinter.d("need adjust aid count:" + i5, new Object[0]);
-                                        if (i5 != 0) {
-                                            a2 -= n6b.b(string);
-                                            n += i5 * d2;
-                                            n6b.b.remove(string).remove(string + "_");
-                                            z3 = true;
-                                        }
-                                    }
-                                    pcbVar2.a.putAll(hashMap2);
-                                    if (z3) {
-                                        LogPrinter.d("update totalPrice&totalPriceByBasePrice", new Object[0]);
-                                        if (a2 < 0.0d) {
-                                            d = 0.0d;
-                                        } else {
-                                            d = a2;
-                                        }
-                                        SharedPreferences.Editor editor = n6b.b;
-                                        editor.putLong("key_price_by_baseprice", Double.doubleToRawLongBits(d));
-                                        editor.apply();
-                                        l6b.d(n);
-                                    }
-                                }
-                            } catch (JSONException unused2) {
-                                pcbVar2.a.clear();
-                            }
-                        }
-                        Calendar calendar2 = Calendar.getInstance();
-                        Random random = new Random();
-                        long timeInMillis3 = calendar2.getTimeInMillis();
-                        int nextInt = random.nextInt(30);
-                        calendar2.set(11, 1);
-                        calendar2.set(12, nextInt);
-                        Calendar calendar3 = Calendar.getInstance();
-                        int i6 = calendar3.get(6);
-                        int i7 = calendar3.get(1);
-                        calendar3.setTimeInMillis(n6b.a.getLong("key_cpm_update_date", 0L));
-                        int i8 = calendar3.get(6);
-                        if (i7 == calendar3.get(1) && i6 == i8) {
-                            z2 = true;
-                        }
-                        if (z2) {
-                            calendar2.add(6, 1);
-                        }
-                        long timeInMillis4 = calendar2.getTimeInMillis() - timeInMillis3;
-                        if (timeInMillis4 < 0) {
-                            j = 0;
+                        File file = new File(str);
+                        if (!file.exists()) {
+                            kcbVar.a(j, jSONObject);
+                            return;
                         } else {
-                            j = timeInMillis4;
+                            i = new File(this.a, j);
+                            xcb.a(file, i);
                         }
-                        sendEmptyMessageDelayed(100, j);
+                    } else {
+                        long e2 = ocbVar.e();
+                        if (e2 == 0) {
+                            e2 = fcb.f().d(a2);
+                        }
+                        i = i(j, g, e2, jSONObject);
+                    }
+                    File file2 = i;
+                    if (file2 != null && file2.exists()) {
+                        k(j, a2, file2, jSONObject, kcbVar);
+                        return;
+                    } else {
+                        kcbVar.b(j, jSONObject);
                         return;
                     }
                 }
-                LogPrinter.d("cpm fail:", new Object[0]);
-                z = false;
-                if (!z) {
+                kcbVar.a(j, jSONObject);
+            }
+        }
+    }
+
+    public void e(String str, String str2, String str3, File file, String str4, boolean z, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, file, str4, Boolean.valueOf(z), jSONObject}) == null) {
+            try {
+                JSONObject b2 = wcb.b(file, str4, str2, str3, z);
+                jSONObject.put(str, b2);
+                if (d) {
+                    Log.d("VoyagerFileManager", "generateMetaInfo path " + str + " fileMeta ：" + b2);
+                }
+            } catch (JSONException e2) {
+                if (d) {
+                    e2.printStackTrace();
                 }
             }
         }
     }
 
-    public static double a(String str) {
-        InterceptResult invokeL;
-        double d;
-        v5b v5bVar;
+    public File i(String str, ArrayList<String> arrayList, long j, JSONObject jSONObject) {
+        InterceptResult invokeCommon;
+        JSONObject jSONObject2;
+        String str2;
+        File file;
+        String str3;
+        Iterator<String> it;
+        File file2;
+        String str4;
+        boolean z;
+        String str5;
+        File file3;
+        String str6;
+        String str7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Double d2 = a.a.get(str);
-            if (d2 != null) {
-                d = d2.doubleValue();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, arrayList, Long.valueOf(j), jSONObject})) == null) {
+            ArrayList arrayList2 = new ArrayList(arrayList.size());
+            if (jSONObject == null) {
+                jSONObject2 = new JSONObject();
             } else {
-                d = -2.0d;
+                jSONObject2 = jSONObject;
             }
-            if (d == -2.0d) {
-                Map<String, Double> map = d6b.a;
-                Double d3 = null;
-                if (!TextUtils.isEmpty(str)) {
-                    Map<String, Double> map2 = d6b.a;
-                    Double d4 = map2.get(str);
-                    if (d4 == null) {
-                        map2.clear();
-                        o6b o6bVar = d6b.f;
-                        synchronized (o6bVar) {
-                            v5bVar = o6bVar.a;
-                        }
-                        if (v5bVar == null) {
-                            LogPrinter.d("No adConfig found now.", new Object[0]);
+            Iterator<String> it2 = arrayList.iterator();
+            long j2 = 0;
+            while (true) {
+                if (!it2.hasNext()) {
+                    str2 = "VoyagerFileManager";
+                    file = null;
+                    str3 = " not exist";
+                    break;
+                }
+                String next = it2.next();
+                if (!TextUtils.isEmpty(next)) {
+                    if (next.startsWith("external:")) {
+                        next = next.replace("external:", AppRuntime.getAppContext().getExternalFilesDir(null).getParent() + File.separatorChar);
+                    } else if (next.startsWith("internal:")) {
+                        next = next.replace("internal:", AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator);
+                    }
+                    String str8 = next;
+                    if (str8.contains("../")) {
+                        e(str8, "4", str8 + " error", null, null, true, jSONObject2);
+                    } else {
+                        File file4 = new File(str8);
+                        if (!file4.exists()) {
+                            e(str8, "1", str8 + " not exist", null, null, true, jSONObject2);
                         } else {
-                            HashMap hashMap = new HashMap();
-                            for (Ssp ssp : v5bVar.a) {
-                                for (Ssp.Pid pid : ssp.pids) {
-                                    hashMap.put(pid.pid, Double.valueOf(pid.basePrice));
-                                    if (pid.pid.equals(str)) {
-                                        d4 = Double.valueOf(pid.basePrice);
+                            if (d) {
+                                Log.d("VoyagerFileManager", "path: " + str8);
+                            }
+                            if (file4.isFile()) {
+                                long length = file4.length() + j2;
+                                if (d) {
+                                    Log.d("VoyagerFileManager", "total file size: " + length);
+                                    Log.d("VoyagerFileManager", "max file size: " + j);
+                                }
+                                if (length > j) {
+                                    file = null;
+                                    e(str8, "3", str8 + " size exceed maxFileSize ", null, null, true, jSONObject2);
+                                    str3 = " not exist";
+                                    str2 = "VoyagerFileManager";
+                                    break;
+                                }
+                                file = null;
+                                StringBuilder sb = new StringBuilder(ycb.c(file4.getAbsolutePath().getBytes(), true));
+                                sb.append("_");
+                                sb.append(file4.getName());
+                                arrayList2.add(new vcb.a(file4, sb.toString()));
+                                file2 = file4;
+                                str4 = str8;
+                                it = it2;
+                                z = true;
+                                str3 = " not exist";
+                                e(str8, "0", str8 + " success", file2, sb.toString(), true, jSONObject2);
+                                if (d) {
+                                    Log.d("VoyagerFileManager", "zip name: " + ((Object) sb));
+                                }
+                                str5 = "VoyagerFileManager";
+                                j2 = length;
+                            } else {
+                                it = it2;
+                                file2 = file4;
+                                str4 = str8;
+                                file = null;
+                                str3 = " not exist";
+                                z = true;
+                                str5 = "VoyagerFileManager";
+                            }
+                            if (file2.isDirectory()) {
+                                ArrayList arrayList3 = new ArrayList();
+                                File file5 = file2;
+                                xcb.e(file5, arrayList3);
+                                if (arrayList3.size() != 0) {
+                                    boolean z2 = false;
+                                    Iterator it3 = arrayList3.iterator();
+                                    while (true) {
+                                        if (it3.hasNext()) {
+                                            String str9 = (String) it3.next();
+                                            if (!TextUtils.isEmpty(str9)) {
+                                                File file6 = new File(str9);
+                                                if (file6.exists()) {
+                                                    j2 += file6.length();
+                                                    if (j2 > j) {
+                                                        file3 = file5;
+                                                        str6 = str5;
+                                                        e(str4, "3", file5.getPath() + "size exceed maxFileSize ", null, null, true, jSONObject2);
+                                                        z2 = true;
+                                                        break;
+                                                    }
+                                                }
+                                                file5 = file5;
+                                                str5 = str5;
+                                            }
+                                        } else {
+                                            file3 = file5;
+                                            str6 = str5;
+                                            break;
+                                        }
+                                    }
+                                    if (z2) {
+                                        str2 = str6;
+                                        break;
+                                    }
+                                    File file7 = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "/store/");
+                                    String c = ycb.c(file3.getAbsolutePath().getBytes(), z);
+                                    File file8 = new File(file7, c + ".zip");
+                                    if (d) {
+                                        str7 = str6;
+                                        Log.d(str7, "inner path: " + file7.getAbsolutePath());
+                                        Log.d(str7, "inner path md5: " + c);
+                                        Log.d(str7, "inner zip out file: " + file8.getAbsolutePath());
+                                    } else {
+                                        str7 = str6;
+                                    }
+                                    if (!file7.exists()) {
+                                        file7.mkdir();
+                                    }
+                                    if (file8.exists()) {
+                                        file8.delete();
+                                    }
+                                    if (xcb.h(file3, file8.getAbsolutePath())) {
+                                        if (d) {
+                                            Log.d(str7, "inner zip out file: " + file8.getName());
+                                        }
+                                        arrayList2.add(new vcb.a(file8, file8.getName(), z));
+                                        e(str4, "0", "success", file8, file8.getPath(), false, jSONObject2);
+                                    } else {
+                                        StringBuilder sb2 = new StringBuilder();
+                                        String str10 = str4;
+                                        sb2.append(str10);
+                                        sb2.append("copy error");
+                                        e(str10, "2", sb2.toString(), null, null, false, jSONObject2);
                                     }
                                 }
                             }
-                            d6b.a.putAll(hashMap);
-                            LogPrinter.d("No target basePrice found for pid:%s", str);
+                            it2 = it;
                         }
                     }
-                    d3 = d4;
                 }
-                if (d3 == null) {
-                    return -1.0d;
-                }
-                return d3.doubleValue() / 1000.0d;
             }
-            return d;
+            File file9 = new File(this.b, "filemeta_" + str + ".log");
+            try {
+                file9.createNewFile();
+                xcb.g(jSONObject2.toString(), file9);
+            } catch (IOException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+            if (file9.exists()) {
+                arrayList2.add(new vcb.a(file9, file9.getName(), true));
+            }
+            if (d) {
+                Log.d(str2, "start generate out zip file");
+            }
+            File file10 = new File(this.a, str);
+            try {
+                if (file10.exists()) {
+                    file10.delete();
+                }
+                file10.createNewFile();
+            } catch (IOException e3) {
+                if (d) {
+                    e3.printStackTrace();
+                }
+            }
+            if (arrayList2.size() > 0) {
+                vcb.a(file10, arrayList2);
+                File file11 = new File(file10.getAbsolutePath());
+                if (d) {
+                    Log.d(str2, "out put File: " + file11.getAbsolutePath());
+                }
+                return file11;
+            }
+            e(file10.getAbsolutePath(), "1", file10.getPath() + str3, null, null, true, jSONObject2);
+            return file;
         }
-        return invokeL.doubleValue;
+        return (File) invokeCommon.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            String str = AppRuntime.getAppContext().getApplicationInfo().dataDir + "/.voyager";
+            File file = new File(str, "/upload/");
+            this.a = file;
+            if (!file.exists()) {
+                this.a.mkdirs();
+            }
+            File file2 = new File(str, "/store/");
+            this.b = file2;
+            if (!file2.exists()) {
+                this.b.mkdirs();
+            }
+        }
+    }
+
+    public final void k(String str, String str2, File file, JSONObject jSONObject, kcb kcbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, str, str2, file, jSONObject, kcbVar) == null) {
+            String str3 = str + ".zip";
+            String createObjectKey = BOSUploader.getInstance().createObjectKey(str2, str3);
+            if (d) {
+                Log.d("VoyagerFileManager", "bos object key is : " + createObjectKey);
+            }
+            l(str2, str3, file, new a(this, file, kcbVar, str3, createObjectKey, jSONObject, str));
+        }
+    }
+
+    public final void l(String str, String str2, File file, icb icbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, file, icbVar) == null) {
+            this.c.execute(new b(this, str, str2, file, icbVar));
+        }
+    }
+
+    public final void m(@NonNull String str, @NonNull String str2, @NonNull File file, icb icbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048585, this, str, str2, file, icbVar) == null) {
+            BOSResponseEntity uploadFileSync = BOSUploader.getInstance().uploadFileSync(str, str2, file);
+            lcb lcbVar = new lcb(uploadFileSync.isSuccess(), uploadFileSync.getErrorCode(), uploadFileSync.getMessage());
+            if (icbVar != null) {
+                icbVar.a(lcbVar);
+            }
+        }
     }
 }

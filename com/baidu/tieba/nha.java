@@ -1,215 +1,58 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.IdRes;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class nha {
+public class nha extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    @IdRes
-    public int b;
-    @IdRes
-    public int c;
-    public Object d;
-    public int e;
-    public int f;
+    public final MainTabActivity a;
+    public i45 b;
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final nha a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new nha();
-        }
-
-        public final nha a() {
-            InterceptResult invokeV;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.a != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    return this.a;
-                }
-                throw new IllegalStateException("必须设置引导视图 GuideView".toString());
-            }
-            return (nha) invokeV.objValue;
-        }
-
-        public final a b(Object viewTag) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewTag)) == null) {
-                Intrinsics.checkNotNullParameter(viewTag, "viewTag");
-                this.a.c(viewTag);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a c(@IdRes int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.a.d(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a d(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-                Intrinsics.checkNotNullParameter(view2, "view");
-                this.a.e(view2);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a e(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.a.f(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a f(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.a.g(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-    }
-
-    public nha() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nha(MainTabActivity mainTabActivity, pfa pfaVar) {
+        super(2921333);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, pfaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = -1;
-        this.c = -1;
+        this.a = mainTabActivity;
     }
 
-    public final View b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            if (view2 != null) {
-                return view2;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("guideView");
-            return null;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+            return;
         }
-        return (View) invokeV.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x001a, code lost:
-        r5 = com.baidu.tieba.mha.c(r5);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final PointF a(ViewGroup rootView) {
-        InterceptResult invokeL;
-        View findViewById;
-        RectF rectF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rootView)) == null) {
-            Intrinsics.checkNotNullParameter(rootView, "rootView");
-            Object obj = this.d;
-            if (obj != null) {
-                findViewById = rootView.findViewWithTag(obj);
-            } else {
-                findViewById = rootView.findViewById(this.c);
-            }
-            if (findViewById == null || rectF == null) {
-                rectF = new RectF();
-            }
-            View findViewById2 = b().findViewById(this.b);
-            return new PointF(rectF.left + this.e, (rectF.bottom - (findViewById2.getTop() + findViewById2.getHeight())) + this.f);
+        if (this.b == null && !(customResponsedMessage.getData() instanceof i45)) {
+            return;
         }
-        return (PointF) invokeL.objValue;
-    }
-
-    public final void c(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            this.d = obj;
+        if (customResponsedMessage.getData() != null) {
+            this.b = (i45) customResponsedMessage.getData();
         }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void e(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "<set-?>");
-            this.a = view2;
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f = i;
+        if (this.b != null && TbadkCoreApplication.isLogin()) {
+            nfa nfaVar = this.a.v;
+            i45 i45Var = this.b;
+            nfaVar.j(i45Var.a, i45Var.b, i45Var.c);
         }
     }
 }

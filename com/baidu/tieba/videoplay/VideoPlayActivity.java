@@ -25,18 +25,18 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ft7;
+import com.baidu.tieba.au4;
+import com.baidu.tieba.bu4;
 import com.baidu.tieba.h9;
-import com.baidu.tieba.hu4;
-import com.baidu.tieba.iu4;
-import com.baidu.tieba.q46;
-import com.baidu.tieba.ry5;
-import com.baidu.tieba.tp6;
+import com.baidu.tieba.u56;
+import com.baidu.tieba.ux7;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoMiddleFragment;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.vz5;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.xq6;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean b;
     public List<VideoItemData> c;
     public VideoMiddleFragment d;
-    public q46 e;
+    public u56 e;
     public boolean f;
     public Rect g;
     public String h;
@@ -113,12 +113,12 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            q46 q46Var = this.e;
-            if (q46Var != null) {
-                q46Var.h();
+            u56 u56Var = this.e;
+            if (u56Var != null) {
+                u56Var.h();
             }
-            ft7.m().c(ft7.s());
-            tp6.a();
+            ux7.m().c(ux7.s());
+            xq6.a();
         }
     }
 
@@ -132,7 +132,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 videoMiddleFragment.setPrimary(false);
                 this.d.setUserVisibleHint(false);
             }
-            iu4.w().E();
+            bu4.w().E();
         }
     }
 
@@ -145,7 +145,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (videoMiddleFragment != null) {
                 videoMiddleFragment.setPrimary(true);
                 this.d.setUserVisibleHint(true);
-                iu4.w().Q(hu4.c0, this.d.m());
+                bu4.w().Q(au4.c0, this.d.m());
             }
         }
     }
@@ -205,7 +205,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048579, this, i, i2, intent) != null) || ry5.c(i, i2, intent)) {
+        if ((interceptable != null && interceptable.invokeIIL(1048579, this, i, i2, intent) != null) || vz5.c(i, i2, intent)) {
             return;
         }
         super.onActivityResult(i, i2, intent);
@@ -237,8 +237,8 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_PAGE);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FRS_PAGE);
-            setContentView(R.layout.obfuscated_res_0x7f0d09c0);
-            this.e = new q46(getPageContext(), "client_videomiddle");
+            setContentView(R.layout.obfuscated_res_0x7f0d09da);
+            this.e = new u56(getPageContext(), "client_videomiddle");
             w1();
             x1();
             addNoAdjustSoftInputHeightListener();
@@ -310,7 +310,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.c)) {
-                xi.P(this, R.string.obfuscated_res_0x7f0f0e0c);
+                yi.Q(this, R.string.obfuscated_res_0x7f0f0e1c);
                 finish();
                 return;
             }
@@ -318,7 +318,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (list != null && list.size() > 0 && this.c.get(0) != null) {
                 this.h = this.c.get(0).thread_id;
             }
-            if (getIntent() != null && !wi.isEmpty(VideoPlayActivityConfig.VIDEO_VIEW_RECT)) {
+            if (getIntent() != null && !xi.isEmpty(VideoPlayActivityConfig.VIDEO_VIEW_RECT)) {
                 this.g = (Rect) getIntent().getParcelableExtra(VideoPlayActivityConfig.VIDEO_VIEW_RECT);
             }
             VideoMiddleFragment videoMiddleFragment = new VideoMiddleFragment();
@@ -327,7 +327,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             this.d.setArguments(getIntent().getExtras());
             this.d.Z1(this.c);
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f0928c8, this.d);
+            beginTransaction.add(R.id.obfuscated_res_0x7f0928fe, this.d);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
         }

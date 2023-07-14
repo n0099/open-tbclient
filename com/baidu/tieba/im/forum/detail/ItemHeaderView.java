@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h05;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.q05;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -99,13 +99,13 @@ public class ItemHeaderView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e6, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) this, true);
             setVisibility(8);
-            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090ebe);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ebd);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b92);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ebc);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090ebf);
+            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090ecd);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ecc);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b9e);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ecb);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090ece);
             this.b.setPlaceHolder(1);
         }
     }
@@ -114,7 +114,7 @@ public class ItemHeaderView extends RelativeLayout {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
-            h05 layoutMode = forumDetailActivity.getLayoutMode();
+            q05 layoutMode = forumDetailActivity.getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -141,7 +141,7 @@ public class ItemHeaderView extends RelativeLayout {
             this.c.setCompoundDrawables(null, null, bitmapDrawable, null);
             TextView textView = this.c;
             Context context = this.a;
-            textView.setCompoundDrawablePadding(xi.d(context, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224)));
+            textView.setCompoundDrawablePadding(yi.d(context, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224)));
             this.d.setText(recommendForumInfo.authen);
             this.d.setVisibility(0);
         } else {
@@ -150,7 +150,7 @@ public class ItemHeaderView extends RelativeLayout {
         }
         this.e.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
         this.f.setText(StringHelper.numberUniformFormat(recommendForumInfo.thread_count.intValue()));
-        int d = xi.d(this.a, 80.0f);
+        int d = yi.d(this.a, 80.0f);
         this.b.J(recommendForumInfo.avatar, 10, d, d, false);
         setVisibility(0);
     }

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -70,7 +70,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
                 TbPageContext<?> pageContext = this.a.getPageContext();
                 if (view2.getId() == this.a.e.getId()) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    this.a.C1(2);
+                    this.a.y1(2);
                     this.a.finish();
                 }
                 if (view2.getId() == this.a.i.getId()) {
@@ -96,18 +96,10 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         this.j = new a(this);
     }
 
-    public final void A1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.setOnClickListener(this.j);
-            this.i.setOnClickListener(this.j);
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -115,7 +107,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -123,7 +115,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             if (this.j != null) {
                 this.j = null;
@@ -134,70 +126,78 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            C1(1);
+            y1(1);
+        }
+    }
+
+    public final void x1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.e.setOnClickListener(this.j);
+            this.i.setOnClickListener(this.j);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d005d);
+            setContentView(R.layout.obfuscated_res_0x7f0d005c);
             initView();
-            A1();
-        }
-    }
-
-    public final void C1(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f1438));
-            statisticItem.param("obj_type", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
+            x1();
         }
     }
 
     public final void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092644);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092678);
             this.a = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(xi.g(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092645);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092926);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0914fa);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0914fb);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092131);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092132);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f092646);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09071d);
+            roundRelativeLayout.setAllCornerRound(yi.g(this, R.dimen.tbds32));
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092679);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09295c);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09150e);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09150f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092165);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092166);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f09267a);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090720);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080cf3);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080cfe);
             this.f.setSkinType(i);
-            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080cf4);
+            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080cff);
             this.g.setSkinType(i);
-            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080cf5);
+            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080d00);
             this.h.setSkinType(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080ae2);
+            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080aec);
             this.i.setSkinType(i);
+        }
+    }
+
+    public final void y1(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f144e));
+            statisticItem.param("obj_type", i);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
         }
     }
 }

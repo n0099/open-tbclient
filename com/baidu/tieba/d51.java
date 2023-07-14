@@ -1,105 +1,305 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.searchbox.elasticthread.queue.QueueManager;
+import android.content.ContentValues;
+import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.sweetsqlite.BooleanColumn;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.nadcore.sweetsqlite.IntegerColumn;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
 public class d51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c51[] a;
 
-    public d51() {
+    public static void a(Object obj, Class<?>... clsArr) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, obj, clsArr) == null) {
+            for (Class<?> cls : clsArr) {
+                if (cls == obj.getClass()) {
+                    return;
+                }
+            }
+            throw new IllegalArgumentException("Expected " + Arrays.toString(clsArr) + ", but got" + obj.getClass().getName());
+        }
+    }
+
+    public static ContentValues b(Column[] columnArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, columnArr)) == null) {
+            ContentValues contentValues = new ContentValues();
+            for (Column column : columnArr) {
+                if (column.isAssignedValue) {
+                    int type = column.type();
+                    if (type != 1) {
+                        if (type != 2) {
+                            if (type != 3) {
+                                if (type == 4) {
+                                    contentValues.put(column.field.b, ((StringColumn) column).getValue());
+                                } else {
+                                    throw new IllegalStateException("Unsupported type:" + column.type());
+                                }
+                            } else {
+                                contentValues.put(column.field.b, Long.valueOf(((LongColumn) column).getValue()));
+                            }
+                        } else {
+                            contentValues.put(column.field.b, Integer.valueOf(((IntegerColumn) column).getValue()));
+                        }
+                    } else {
+                        contentValues.put(column.field.b, Integer.valueOf(((BooleanColumn) column).getValue() ? 1 : 0));
+                    }
+                }
+            }
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    public static ContentValues e(Column... columnArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, columnArr)) == null) {
+            ContentValues contentValues = new ContentValues(columnArr.length);
+            for (Column column : columnArr) {
+                if (column.isAssignedValue) {
+                    int type = column.type();
+                    if (type != 1) {
+                        if (type != 2) {
+                            if (type != 3) {
+                                if (type == 4) {
+                                    contentValues.put(column.field.b, x41.d(column));
+                                } else {
+                                    throw new IllegalArgumentException("Unsupported column type.");
+                                }
+                            } else {
+                                contentValues.put(column.field.b, Long.valueOf(x41.c(column)));
+                            }
+                        } else {
+                            contentValues.put(column.field.b, Integer.valueOf(x41.b(column)));
+                        }
+                    } else {
+                        contentValues.put(column.field.b, Integer.valueOf(x41.a(column) ? 1 : 0));
+                    }
+                } else {
+                    throw new IllegalArgumentException("All columns must be initialized.");
+                }
+            }
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    public static ContentValues c(x41[] x41VarArr, Object[] objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, x41VarArr, objArr)) == null) {
+            if (x41VarArr.length == objArr.length) {
+                ContentValues contentValues = new ContentValues();
+                for (int i = 0; i < x41VarArr.length; i++) {
+                    x41 x41Var = x41VarArr[i];
+                    Object obj = objArr[i];
+                    int i2 = x41Var.a;
+                    if (i2 != 1) {
+                        if (i2 != 2) {
+                            if (i2 != 3) {
+                                if (i2 == 4) {
+                                    a(obj, String.class, CharSequence.class);
+                                    contentValues.put(x41Var.b, (String) obj);
+                                } else {
+                                    throw new IllegalArgumentException("Unsupported field type.");
+                                }
+                            } else {
+                                a(obj, Long.class, Integer.class, Short.class, Byte.class);
+                                contentValues.put(x41Var.b, Long.valueOf(((Long) obj).longValue()));
+                            }
+                        } else {
+                            a(obj, Integer.class, Short.class, Byte.class);
+                            contentValues.put(x41Var.b, Integer.valueOf(((Integer) obj).intValue()));
+                        }
+                    } else {
+                        a(obj, Boolean.class);
+                        contentValues.put(x41Var.b, Boolean.valueOf(((Boolean) obj).booleanValue()));
+                    }
+                }
+                return contentValues;
+            }
+            throw new IllegalArgumentException("invalid columns & values pair.");
+        }
+        return (ContentValues) invokeLL.objValue;
+    }
+
+    public static Column[] d(g51 g51Var, x41... x41VarArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, g51Var, x41VarArr)) == null) {
+            Column[] columnArr = new Column[x41VarArr.length];
+            for (int i = 0; i < x41VarArr.length; i++) {
+                columnArr[i] = g51Var.b().c()[w41.a(g51Var.b().d(), x41VarArr[i])];
+            }
+            return columnArr;
+        }
+        return (Column[]) invokeLL.objValue;
+    }
+
+    public static void f(Column column, Column column2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, column, column2) == null) && column.type() == column2.type()) {
+            column2.isAssignedValue = column.isAssignedValue;
+            int type = column.type();
+            if (type != 1) {
+                if (type != 2) {
+                    if (type != 3) {
+                        if (type == 4) {
+                            ((StringColumn) column2).value = ((StringColumn) column).value;
+                            return;
+                        }
+                        throw new IllegalStateException("Unsupported type:" + column.type());
+                    }
+                    ((LongColumn) column2).value = ((LongColumn) column).value;
+                    return;
+                }
+                ((IntegerColumn) column2).value = ((IntegerColumn) column).value;
                 return;
             }
-        }
-        this.a = new c51[4];
-        if (r41.s.length != 4) {
-            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
-        }
-        for (int i3 = 0; i3 < 4; i3++) {
-            this.a[i3] = new c51();
+            ((BooleanColumn) column2).value = ((BooleanColumn) column).value;
         }
     }
 
-    public double a() {
-        InterceptResult invokeV;
+    public static boolean g(BooleanColumn booleanColumn, Cursor cursor, int i) {
+        InterceptResult invokeLLI;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!c(0).d()) {
-                return 9999999.0d;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, booleanColumn, cursor, i)) == null) {
+            boolean z2 = true;
+            if (i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i)) {
+                z = true;
+            } else {
+                z = false;
             }
-            double d = 0.0d;
-            for (int i = 0; i < 4; i++) {
-                d += this.a[i].a() * r41.s[i];
-            }
-            return d / 1000.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public ElasticTask b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            for (int i = 0; i < 4; i++) {
-                if (!this.a[i].d()) {
-                    return this.a[i].b();
+            if (z) {
+                if (cursor.getInt(i) <= 0) {
+                    z2 = false;
                 }
+                booleanColumn.setValue(z2);
             }
-            return null;
+            return z;
         }
-        return (ElasticTask) invokeV.objValue;
+        return invokeLLI.booleanValue;
     }
 
-    public c51 c(int i) {
-        InterceptResult invokeI;
+    public static void j(Cursor cursor, Column[] columnArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int i2 = 0;
-            while (true) {
-                int[] iArr = r41.a;
-                if (i2 < iArr.length) {
-                    if (iArr[i2] == i) {
-                        return this.a[i2];
+        if (interceptable == null || interceptable.invokeLLI(65545, null, cursor, columnArr, i) == null) {
+            if (!cursor.isBeforeFirst() && !cursor.isAfterLast()) {
+                for (int i2 = 0; i2 < i; i2++) {
+                    columnArr[i2].clear();
+                    h(columnArr[i2], cursor, i2);
+                }
+                return;
+            }
+            throw new IllegalStateException("cursor is not in range.");
+        }
+    }
+
+    public static void h(Column column, Cursor cursor, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65543, null, column, cursor, i) == null) {
+            int type = column.type();
+            if (type != 1) {
+                if (type != 2) {
+                    if (type != 3) {
+                        if (type == 4) {
+                            m((StringColumn) column, cursor, i);
+                            return;
+                        }
+                        throw new IllegalStateException("Unsupported type:" + column.type());
                     }
-                    i2++;
-                } else {
-                    c51[] c51VarArr = this.a;
-                    return c51VarArr[c51VarArr.length - 1];
+                    l((LongColumn) column, cursor, i);
+                    return;
                 }
+                k((IntegerColumn) column, cursor, i);
+                return;
             }
-        } else {
-            return (c51) invokeI.objValue;
+            g((BooleanColumn) column, cursor, i);
         }
     }
 
-    public void e(ElasticTask elasticTask) {
+    public static void i(Cursor cursor, Column[] columnArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
-            c(elasticTask.b()).e(elasticTask);
+        if (interceptable == null || interceptable.invokeLL(65544, null, cursor, columnArr) == null) {
+            j(cursor, columnArr, columnArr.length);
         }
     }
 
-    public void d(Runnable runnable, String str, int i) {
+    public static boolean k(IntegerColumn integerColumn, Cursor cursor, int i) {
+        InterceptResult invokeLLI;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
-            c(i).c(runnable, str, i);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65546, null, integerColumn, cursor, i)) == null) {
+            if (i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                integerColumn.setValue(cursor.getInt(i));
+            }
+            return z;
         }
+        return invokeLLI.booleanValue;
+    }
+
+    public static boolean l(LongColumn longColumn, Cursor cursor, int i) {
+        InterceptResult invokeLLI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65547, null, longColumn, cursor, i)) == null) {
+            if (i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                longColumn.setValue(cursor.getLong(i));
+            }
+            return z;
+        }
+        return invokeLLI.booleanValue;
+    }
+
+    public static boolean m(StringColumn stringColumn, Cursor cursor, int i) {
+        InterceptResult invokeLLI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65548, null, stringColumn, cursor, i)) == null) {
+            if (i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                stringColumn.setValue(cursor.getString(i));
+            }
+            return z;
+        }
+        return invokeLLI.booleanValue;
+    }
+
+    public static boolean n(Column column) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, column)) == null) {
+            if (column != null && column.field.d == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -17,7 +17,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d extends com.kwad.components.core.i.e implements View.OnClickListener {
     public static boolean iy;
     public TextView eQ;
@@ -54,12 +54,12 @@ public final class d extends com.kwad.components.core.i.e implements View.OnClic
     }
 
     private void h(View view2) {
-        this.it = (KSCornerImageView) view2.findViewById(R.id.obfuscated_res_0x7f0912b2);
-        this.eQ = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912b3);
-        this.iu = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912b6);
-        this.iv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912b7);
-        this.iw = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912b4);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912b5);
+        this.it = (KSCornerImageView) view2.findViewById(R.id.obfuscated_res_0x7f0912c6);
+        this.eQ = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912c7);
+        this.iu = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912ca);
+        this.iv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912cb);
+        this.iw = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912c8);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912c9);
         this.ix = textView;
         com.kwad.sdk.b.kwai.a.a(this, this.it, this.eQ, this.iu, this.iv, this.iw, textView);
     }
@@ -75,7 +75,7 @@ public final class d extends com.kwad.components.core.i.e implements View.OnClic
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d049b, viewGroup, false);
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04a6, viewGroup, false);
         h(inflate);
         dT();
         return inflate;

@@ -14,7 +14,7 @@ import com.baidu.searchbox.download.unified.EventCallback;
 import com.baidu.searchbox.download.unified.db.DBHelper;
 import com.baidu.searchbox.downloads.DownloadMessageSender;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.y20;
+import com.baidu.tieba.z20;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -223,7 +223,7 @@ public class DownloadUnifiedManager {
     }
 
     public void startDownload(Context context, String str, DownloadParams downloadParams, IDownloadListener iDownloadListener, EventControlInfoForStart eventControlInfoForStart, EventCallback eventCallback) {
-        y20.k(str);
+        z20.k(str);
         if (!checkParamsForStart(str, downloadParams, eventControlInfoForStart, iDownloadListener, eventCallback)) {
             return;
         }

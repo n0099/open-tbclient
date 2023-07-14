@@ -1,32 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.content.Context;
 import android.view.View;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-/* loaded from: classes6.dex */
+import android.widget.FrameLayout;
+/* loaded from: classes7.dex */
 public interface mt1 {
-    SwanCoreVersion m();
+    boolean a(View view2, b23 b23Var);
 
-    bp2 n(SwanAppActivity swanAppActivity, String str);
+    boolean b();
 
-    kf2 o(vq3<Exception> vq3Var);
+    boolean c(View view2, b23 b23Var);
 
-    void p(Intent intent);
+    boolean d(View view2);
 
-    View q(ib2 ib2Var);
+    void e(uq3 uq3Var);
 
-    void r(V8ExceptionInfo v8ExceptionInfo);
+    void f(uq3 uq3Var);
 
-    void release();
+    void g(boolean z);
 
-    ExtensionCore s();
+    Context getContext();
 
-    om2 t();
+    FrameLayout getRootView();
 
-    int u(String str, long j);
+    boolean h();
 
-    void v(String str, boolean z);
+    boolean removeView(View view2);
 }

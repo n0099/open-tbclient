@@ -1,91 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.data.AtSelectData;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import android.animation.Animator;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface aoa {
-    void A();
+public abstract class aoa implements Animator.AnimatorListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    void B();
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+        }
+    }
 
-    void D(ci5 ci5Var);
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationRepeat(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+        }
+    }
 
-    void E();
+    public aoa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+    }
 
-    LinkedList<jb5> F();
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationCancel(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            this.a = true;
+        }
+    }
 
-    void b(boolean z);
-
-    void c(String str);
-
-    void d(int i, boolean z);
-
-    void e();
-
-    void f();
-
-    int g();
-
-    void h();
-
-    boolean i();
-
-    void j();
-
-    void k(boolean z);
-
-    void m();
-
-    void n(@Nullable ArrayList<AtSelectData> arrayList);
-
-    void o(boolean z);
-
-    void onActivityResult(int i, int i2, Intent intent);
-
-    boolean onBackPressed();
-
-    void onChangeSkinType(int i);
-
-    void onCreate(Bundle bundle);
-
-    void onDestroy();
-
-    void onNewIntent(Intent intent);
-
-    void onPause();
-
-    void onResume();
-
-    void onSaveInstanceState(Bundle bundle);
-
-    void onStart();
-
-    void onStop();
-
-    void p(boolean z);
-
-    void r();
-
-    void s();
-
-    @NonNull
-    PermissionJudgePolicy t();
-
-    void u();
-
-    void v();
-
-    void w();
-
-    void x(int[] iArr);
-
-    void y(boolean z);
-
-    void z(ci5 ci5Var);
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            this.a = false;
+        }
+    }
 }

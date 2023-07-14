@@ -1,179 +1,380 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.ecommerce.StatKey;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.tieba.pm4;
+import com.baidu.tieba.wm4;
+import com.baidu.tieba.zm4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import org.json.JSONObject;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class la2 extends zd3 {
+public final class la2 implements pl2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public la2(zc3 zc3Var) {
-        super(zc3Var, "/swanAPI/setPhoneContact");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+
+        void b(int i);
+
+        void c();
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a extends pe2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ b b;
+        public final /* synthetic */ Map c;
+
+        public a(b bVar, Map map) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = bVar;
+            this.c = map;
+            this.a = false;
+        }
+
+        @Override // com.baidu.tieba.pe2
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                super.a();
+                b bVar = this.b;
+                if (bVar != null) {
+                    bVar.a();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.pe2
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                i();
+                b bVar = this.b;
+                if (bVar != null && !this.a) {
+                    bVar.a();
+                }
+            }
+        }
+
+        public final void i() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                for (String str : this.c.keySet()) {
+                    j(str);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.pe2
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                super.b(i);
+                b bVar = this.b;
+                if (bVar != null) {
+                    if (i == 1010) {
+                        bVar.a();
+                    } else {
+                        bVar.b(3);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.pe2
+        public void c(@NonNull pm4.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+                super.c(aVar);
+                j(aVar.b);
+                lf2.c(aVar.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.pe2
+        public void f(pk4 pk4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, pk4Var) == null) {
+                super.f(pk4Var);
+                if (pk4Var.a != 1010) {
+                    this.a = true;
+                    b bVar = this.b;
+                    if (bVar != null) {
+                        bVar.b(3);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.pe2
+        public void g(@NonNull vk4 vk4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, vk4Var) == null) {
+                super.g(vk4Var);
+                j(vk4Var.o);
+            }
+        }
+
+        public final void j(@NonNull String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.c.containsKey(str)) {
+                Set<String> set = (Set) this.c.get(str);
+                if (set != null && !set.isEmpty()) {
+                    for (String str2 : set) {
+                        lf2.d(str, str2);
+                    }
+                    return;
+                }
+                lf2.c(str);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947936076, "Lcom/baidu/tieba/la2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947936076, "Lcom/baidu/tieba/la2;");
                 return;
             }
         }
+        a = fs1.a;
     }
 
-    @SuppressLint({"BDOfflineUrl"})
-    private void insert(Context context, ka2 ka2Var, CallbackHandler callbackHandler) {
+    public static void a(@NonNull List<zm4.b> list, @Nullable String str, b bVar) {
+        String[] i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, this, context, ka2Var, callbackHandler) == null) {
-            Intent intent = new Intent("android.intent.action.INSERT", Uri.withAppendedPath(Uri.parse("content://com.android.contacts"), "contacts"));
-            intent.putExtra("name", ka2Var.d());
-            intent.putExtra("email", ka2Var.r);
-            intent.putParcelableArrayListExtra("data", k(ka2Var));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            l(context, intent, callbackHandler);
-        }
-    }
-
-    public final void j(Context context, ka2 ka2Var, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ka2Var, callbackHandler) == null) {
-            Intent intent = new Intent("android.intent.action.INSERT_OR_EDIT");
-            intent.setType("vnd.android.cursor.item/contact");
-            intent.putExtra("name", ka2Var.d());
-            intent.putExtra("email", ka2Var.r);
-            intent.putParcelableArrayListExtra("data", k(ka2Var));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            l(context, intent, callbackHandler);
-        }
-    }
-
-    @Override // com.baidu.tieba.zd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
-            if (context != null && callbackHandler != null && cc3Var != null) {
-                if (cc3Var.n0()) {
-                    if (zd3.b) {
-                        Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                    return false;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, list, str, bVar) == null) {
+            if (!c(jk3.a().getString("predownload_network_switch", "1"))) {
+                if (a) {
+                    Log.e("SwanPreDownload", "pre download net invalid");
                 }
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
+                if (bVar != null) {
+                    bVar.b(6);
+                    return;
                 }
-                if (zd3.b) {
-                    Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
-                }
-                String optString = optParamsAsJo.optString("action");
-                if (TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                ka2 a = ka2.a(optParamsAsJo);
-                if (!a.t()) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                this.c = optParamsAsJo.optString("cb");
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != -1183792455) {
-                    if (hashCode == 3108362 && optString.equals(StatKey.EDITADDR_TAG_STAGE_EDIT)) {
-                        c = 1;
-                    }
-                } else if (optString.equals("insert")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                        return false;
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    j(context, a, callbackHandler);
-                    return true;
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                insert(context, a, callbackHandler);
-                return true;
+                return;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            for (zm4.b bVar2 : list) {
+                if (bVar2 != null) {
+                    if (bVar2.i() != null && bVar2.i().length != 0) {
+                        Set set = (Set) hashMap.get(bVar2.b());
+                        if (set == null) {
+                            set = new HashSet();
+                        }
+                        boolean z = false;
+                        for (String str2 : bVar2.i()) {
+                            if (lf2.f(bVar2.b(), str2) && !z) {
+                                arrayList.add(bVar2);
+                                z = true;
+                            }
+                            set.add(str2);
+                        }
+                        hashMap.put(bVar2.b(), set);
+                    } else if (lf2.e(bVar2.b())) {
+                        arrayList.add(bVar2);
+                        hashMap.put(bVar2.b(), null);
+                    }
+                }
+            }
+            if (arrayList.isEmpty()) {
+                if (a) {
+                    Log.i("SwanPreDownload", "preDownload list empty");
+                }
+                if (bVar != null) {
+                    bVar.a();
+                    return;
+                }
+                return;
+            }
+            zm4 zm4Var = new zm4(arrayList, tp3.b());
+            zm4Var.e(str);
+            zm4Var.d("1");
+            se2 se2Var = new se2(new a(bVar, hashMap));
+            se2Var.L(bf2.a(str));
+            fj4.f(zm4Var, se2Var);
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final ArrayList<ContentValues> k(ka2 ka2Var) {
+    public static void b(@NonNull List<wm4.a> list, @NonNull String str, @NonNull pe2 pe2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, list, str, pe2Var) == null) {
+            if (!c(jk3.a().getString("predownload_network_switch", "1"))) {
+                pe2Var.b(6);
+                return;
+            }
+            List<wm4.a> i = lf2.i(list);
+            if (i.isEmpty()) {
+                pe2Var.d();
+                return;
+            }
+            wm4 wm4Var = new wm4((List<? extends wm4.a>) i, (yo4) tp3.b());
+            wm4Var.d("1");
+            wm4Var.e(str);
+            se2 se2Var = new se2(pe2Var);
+            se2Var.L(bf2.a(str));
+            fj4.f(wm4Var, se2Var);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
+        if (com.baidu.swan.apps.network.SwanAppNetworkUtils.j(com.baidu.searchbox.common.runtime.AppRuntime.getAppContext()) != false) goto L8;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ka2Var)) == null) {
-            ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-            arrayList.add(ka2Var.j());
-            arrayList.add(ka2Var.h());
-            arrayList.add(ka2Var.s());
-            arrayList.add(ka2Var.i());
-            arrayList.add(ka2Var.g());
-            arrayList.add(ka2Var.r());
-            arrayList.add(ka2Var.k());
-            arrayList.add(ka2Var.o());
-            arrayList.add(ka2Var.n());
-            arrayList.add(ka2Var.m());
-            arrayList.add(ka2Var.l());
-            arrayList.add(ka2Var.b());
-            arrayList.add(ka2Var.p());
-            arrayList.add(ka2Var.e());
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            boolean z = true;
+            if (!TextUtils.equals(str, "0")) {
+                if (!TextUtils.equals(str, "1")) {
+                    TextUtils.equals(str, "2");
+                    z = false;
+                }
+                if (a) {
+                    Log.d("SwanPreDownload", "SwanPredownload: current net suits for net config = " + z);
+                }
+                return z;
+            }
+        } else {
+            return invokeL.booleanValue;
         }
-        return (ArrayList) invokeL.objValue;
     }
 
-    public final void l(Context context, Intent intent, CallbackHandler callbackHandler) {
+    public static boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, intent, callbackHandler) == null) {
-            try {
-                context.startActivity(intent);
-                if (!TextUtils.isEmpty(this.c)) {
-                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0, DnsModel.MSG_OK).toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (!TextUtils.equals(SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME, str)) {
+                return true;
+            }
+            cv2.g0().getSwitch("swan_game_feed_predownload", 0);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(@NonNull String str, @Nullable String str2, @Nullable String str3, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, bVar) == null) {
+            zm4.b bVar2 = new zm4.b(str);
+            if (!TextUtils.isEmpty(str2)) {
+                bVar2.l(new String[]{str2});
+            }
+            a(Collections.singletonList(bVar2), str3, bVar);
+        }
+    }
+
+    public static void f(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.e("SwanPreDownload", "pre download swanAppId invalid");
                 }
-            } catch (Exception e) {
-                if (zd3.b) {
-                    Log.d("SetPhoneContactAction", "startContactActivity:" + e.toString());
+            } else if (!c(jk3.a().getString("predownload_network_switch", "1"))) {
+                if (a) {
+                    Log.e("SwanPreDownload", "pre download net invalid");
                 }
-                if (!TextUtils.isEmpty(this.c)) {
-                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
+            } else {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(new wm4.a(str));
+                List<wm4.a> i = lf2.i(arrayList);
+                if (i.isEmpty()) {
+                    if (a) {
+                        Log.e("SwanPreDownload", "pre download has record");
+                        return;
+                    }
+                    return;
                 }
+                wm4 wm4Var = new wm4((List<? extends wm4.a>) i, (yo4) tp3.b());
+                wm4Var.e(str2);
+                wm4Var.d("1");
+                se2 se2Var = new se2();
+                se2Var.L(bf2.a(str2));
+                fj4.f(wm4Var, se2Var);
+            }
+        }
+    }
+
+    public static void g(@Nullable String str, @Nullable String str2, @Nullable String str3, boolean z, @Nullable String str4, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, bVar}) == null) {
+            if (a) {
+                Log.d("SwanPreDownload", "preDownloadSwanAppByFeed appId: " + str + " ,appType: " + str2 + " ,isClick: " + z + ", scheme=" + str4);
+            }
+            if (z) {
+                if (bVar != null) {
+                    bVar.a();
+                }
+            } else if (TextUtils.isEmpty(str)) {
+                if (bVar != null) {
+                    bVar.c();
+                }
+            } else if (!d(str2)) {
+                if (bVar != null) {
+                    bVar.b(6);
+                }
+            } else {
+                String str5 = null;
+                if (!TextUtils.isEmpty(str4)) {
+                    try {
+                        Uri parse = Uri.parse(str4);
+                        if (parse != null) {
+                            str5 = np3.n(str, parse, false);
+                        }
+                    } catch (Exception e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                e(str, str5, str3, bVar);
             }
         }
     }

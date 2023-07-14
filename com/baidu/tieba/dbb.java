@@ -1,102 +1,147 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Looper;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsInterstitialAd;
 /* loaded from: classes5.dex */
-public class dbb implements KsInterstitialAd.AdInteractionListener {
-    public static /* synthetic */ Interceptable $ic;
+public class dbb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "UnionIDHelper";
+    public static boolean c;
+    public static dbb d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ uab a;
-    public final /* synthetic */ abb b;
+    public Context a;
 
-    public dbb(abb abbVar, uab uabVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947700197, "Lcom/baidu/tieba/dbb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947700197, "Lcom/baidu/tieba/dbb;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements lbb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cbb a;
+
+        public a(dbb dbbVar, cbb cbbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dbbVar, cbbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cbbVar;
+        }
+
+        @Override // com.baidu.tieba.lbb
+        public void a(mbb mbbVar) {
+            bbb bbbVar;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, mbbVar) == null) {
+                if (dbb.c) {
+                    String str = dbb.b;
+                    Log.d(str, "异步回调 结果:" + mbbVar);
+                    String str2 = dbb.b;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("异步回调 (listener != null):");
+                    if (this.a != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    Log.d(str2, sb.toString());
+                }
+                cbb cbbVar = this.a;
+                if (cbbVar != null) {
+                    if (mbbVar == null) {
+                        bbbVar = null;
+                    } else {
+                        bbbVar = new bbb(mbbVar.c(), mbbVar.isSupport(), mbbVar.getOAID(), mbbVar.getAAID(), mbbVar.getVAID(), mbbVar.getStatusCode());
+                    }
+                    cbbVar.a(0, bbbVar);
+                }
+            }
+        }
+    }
+
+    public dbb(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {abbVar, uabVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = abbVar;
-        this.a = uabVar;
+        this.a = context.getApplicationContext();
     }
 
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onAdClicked() {
+    public static dbb c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.b.onAdClicked((abb) this.a, false, new String[0]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (d == null) {
+                synchronized (dbb.class) {
+                    if (d == null) {
+                        d = new dbb(context);
+                        fbb.c(context);
+                    }
+                }
+            }
+            return d;
+        }
+        return (dbb) invokeL.objValue;
+    }
+
+    public void e(cbb cbbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cbbVar) == null) {
+            ebb ebbVar = new ebb();
+            ebbVar.b(1);
+            ebbVar.a(false);
+            d(ebbVar, cbbVar, Looper.getMainLooper());
         }
     }
 
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onAdClosed() {
+    public void d(ebb ebbVar, cbb cbbVar, Looper looper) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onAdShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.b.onAdShow((abb) this.a, false, new String[0]);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onPageDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.b.onAdClose(this.a);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onSkippedAd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onVideoPlayEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onVideoPlayError(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
-            LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
-            this.b.onAdError(this.a, i, String.valueOf(i2));
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onVideoPlayStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            LogPrinter.d();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, ebbVar, cbbVar, looper) == null) {
+            jbb.o().i(this.a, looper, new a(this, cbbVar));
         }
     }
 }

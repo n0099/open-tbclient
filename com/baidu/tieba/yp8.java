@@ -1,68 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public final class yp8 {
+public class yp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final ArrayList<String> b;
-    public boolean c;
 
-    public yp8() {
+    public static boolean a(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterShowItemData)) == null) {
+            if (imMessageCenterShowItemData == null) {
+                return false;
             }
+            if (!String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName()) && !"".equals(imMessageCenterShowItemData.getOwnerName())) {
+                return false;
+            }
+            return true;
         }
-        this.a = R.drawable.obfuscated_res_0x7f0808f4;
-        this.b = iq8.a();
+        return invokeL.booleanValue;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public static boolean b(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imMessageCenterShowItemData)) == null) {
+            if (imMessageCenterShowItemData == null) {
+                return false;
+            }
+            return String.valueOf(9).equals(imMessageCenterShowItemData.getOwnerName());
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 
-    public final ArrayList<String> b() {
-        InterceptResult invokeV;
+    public static boolean c(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imMessageCenterShowItemData)) == null) {
+            if (imMessageCenterShowItemData == null || !String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName()) || "3222425470".equals(imMessageCenterShowItemData.getFriendId()) || "801001117".equals(imMessageCenterShowItemData.getFriendId()) || "5044059141".equals(imMessageCenterShowItemData.getFriendId())) {
+                return false;
+            }
+            return true;
         }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
-        }
+        return invokeL.booleanValue;
     }
 }

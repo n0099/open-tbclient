@@ -1,15 +1,86 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.nadcore.widget.bubble.BubbleManager;
+import com.baidu.nadcore.widget.bubble.BubblePosition;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class lw0 extends sw0 {
+public abstract class lw0 extends nw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @JvmField
+    public ViewGroup b;
+    @JvmField
+    public ld1 c;
+    @JvmField
+    public boolean d;
+
+    public View y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a implements BubbleManager.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lw0 a;
+
+        @Override // com.baidu.nadcore.widget.bubble.BubbleManager.b
+        public void onBubbleClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.nadcore.widget.bubble.BubbleManager.b
+        public void onBubbleShow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(lw0 lw0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lw0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lw0Var;
+        }
+
+        @Override // com.baidu.nadcore.widget.bubble.BubbleManager.b
+        public void onBubbleDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.b = null;
+            }
+        }
+    }
 
     public lw0() {
         Interceptable interceptable = $ic;
@@ -25,67 +96,81 @@ public class lw0 extends sw0 {
         }
     }
 
-    public void e() {
+    @Override // com.baidu.tieba.hw0
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c(kw0.w(ControlEvent.ACTION_RESUME));
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(kw0.w(ControlEvent.ACTION_SHOW_TIP));
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c(kw0.w(ControlEvent.ACTION_START));
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c(kw0.w(ControlEvent.ACTION_STOP));
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            yw0 w = kw0.w(ControlEvent.ACTION_PAUSE);
-            w.n(11, Integer.valueOf(i));
-            boolean z = true;
-            if (i != 1) {
-                z = false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.m();
+            this.b = null;
+            ld1 ld1Var = this.c;
+            if (ld1Var != null) {
+                ld1Var.k();
             }
-            w.n(7, Boolean.valueOf(z));
-            c(w);
         }
     }
 
-    public void f(int i, int i2) {
+    public void x() {
+        ld1 ld1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            yw0 w = kw0.w(ControlEvent.ACTION_SEEK_MS);
-            w.n(5, Integer.valueOf(i));
-            w.n(12, Integer.valueOf(i2));
-            c(w);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ld1Var = this.c) != null) {
+            ld1Var.c();
         }
     }
 
-    public void j(int i, int i2, int i3) {
+    public String z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
-            yw0 w = kw0.w(ControlEvent.ACTION_SYNC_PROGRESS);
-            w.n(1, Integer.valueOf(i));
-            w.n(2, Integer.valueOf(i2));
-            w.n(3, Integer.valueOf(i3));
-            w.r(1);
-            c(w);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Context context = getContext();
+            Intrinsics.checkNotNullExpressionValue(context, "context");
+            String string = context.getResources().getString(R.string.nad_bd_video_switch_fullscreen_tip);
+            Intrinsics.checkNotNullExpressionValue(string, "context.resources.getStr…eo_switch_fullscreen_tip)");
+            return string;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void A() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d && this.b != null) {
+            if (!q().V0()) {
+                r().Z(true, true);
+            }
+            Context context = getContext();
+            Intrinsics.checkNotNullExpressionValue(context, "context");
+            int color = context.getResources().getColor(R.color.nad_video_bubble_bg_color);
+            hd1 hd1Var = (hd1) BubbleManager.t(hd1.class);
+            hd1Var.j(y(), this.b);
+            hd1Var.q(z());
+            hd1Var.r(-1, -1);
+            hd1Var.l(color, color);
+            hd1Var.m(1, 12.0f);
+            hd1Var.p(-2.0f);
+            hd1Var.n(BubblePosition.DOWN);
+            hd1Var.k(5000);
+            hd1Var.i(true);
+            hd1Var.o(new a(this));
+            ld1 h = hd1Var.h();
+            this.c = h;
+            if (h != null) {
+                h.p();
+            }
+            this.d = false;
+            r().W(5000);
+        }
+    }
+
+    @Override // com.baidu.tieba.hw0
+    public void k(mx0 event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (Intrinsics.areEqual(event.c(), PlayerEvent.ACTION_ON_INFO)) {
+                int g = event.g(1);
+                if ((g == 904 || g == 956) && y() != null) {
+                    A();
+                }
+            }
         }
     }
 }

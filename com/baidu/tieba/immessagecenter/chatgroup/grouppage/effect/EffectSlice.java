@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.dialog.yun.YunTask;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.FallingData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e65;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatEggRainData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.mh8;
+import com.baidu.tieba.mm8;
+import com.baidu.tieba.n65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class EffectSlice extends Slice {
     @NonNull
     public final FallingSlice j;
     @NonNull
-    public final e65 k;
+    public final n65 k;
     public b l;
     @Nullable
     public ChatRoomDetail m;
@@ -76,7 +76,7 @@ public class EffectSlice extends Slice {
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.i.j.b0(this.i.Y(this.e, this.f), this.g, this.h, this);
+                this.i.j.c0(this.i.Z(this.e, this.f), this.g, this.h, this);
             }
         }
     }
@@ -114,7 +114,7 @@ public class EffectSlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static abstract class c extends YunTask implements mh8 {
+    public static abstract class c extends YunTask implements mm8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -132,7 +132,7 @@ public class EffectSlice extends Slice {
             }
         }
 
-        @Override // com.baidu.tieba.mh8
+        @Override // com.baidu.tieba.mm8
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -160,11 +160,11 @@ public class EffectSlice extends Slice {
                 return;
             }
         }
-        this.k = new e65(YunDialogDataManager.j().l());
+        this.k = new n65(YunDialogDataManager.j().l());
         this.j = new FallingSlice(tbPageContext);
     }
 
-    public void b0(ChatRoomDetail chatRoomDetail) {
+    public void c0(ChatRoomDetail chatRoomDetail) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, chatRoomDetail) == null) {
             this.m = chatRoomDetail;
@@ -173,29 +173,29 @@ public class EffectSlice extends Slice {
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
     @Nullable
-    public View M(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View N(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d089e, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08b8, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void T(@Nullable View view2, @Nullable Bundle bundle) {
+    public void U(@Nullable View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.T(view2, bundle);
+            super.U(view2, bundle);
             if (view2 != null) {
                 this.l = b.a(view2);
             }
-            X();
+            Y();
         }
     }
 
     @NonNull
-    public FallingData Y(ChatEggRainData.EggRain eggRain, int i) {
+    public FallingData Z(ChatEggRainData.EggRain eggRain, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, eggRain, i)) == null) {
@@ -204,14 +204,14 @@ public class EffectSlice extends Slice {
         return (FallingData) invokeLI.objValue;
     }
 
-    public final void X() {
+    public final void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            w((ViewGroup) this.l.a, this.j);
+            A((ViewGroup) this.l.a, this.j);
         }
     }
 
-    public void Z(@NonNull ChatEggRainData.EggRain eggRain, int i, long j, boolean z) {
+    public void a0(@NonNull ChatEggRainData.EggRain eggRain, int i, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{eggRain, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             a aVar = new a(this, eggRain, i, j, z);
@@ -222,7 +222,7 @@ public class EffectSlice extends Slice {
         }
     }
 
-    public void a0(@NonNull String str, long j, boolean z) {
+    public void b0(@NonNull String str, long j, boolean z) {
         ChatRoomDetail chatRoomDetail;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)}) == null) && (chatRoomDetail = this.m) != null && chatRoomDetail.getGroupChatResource() != null && this.m.getGroupChatResource().getEggRainData() != null && this.m.getGroupChatResource().getEggRainData().getEggRainList() != null && this.m.getChatConf() != null && !ListUtils.isEmpty(this.m.getGroupChatResource().getEggRainData().getEggRainList())) {
@@ -231,7 +231,7 @@ public class EffectSlice extends Slice {
             for (int i = 0; i < eggRainList.size(); i++) {
                 ChatEggRainData.EggRain eggRain = eggRainList.get(i);
                 if (eggRain != null && !StringUtils.isNull(eggRain.getAffectContent()) && !StringUtils.isNull(eggRain.getPic()) && str.contains(eggRain.getAffectContent()) && eggRain.getCanUse()) {
-                    Z(eggRain, resourceMaxTimeDelay, j, z);
+                    a0(eggRain, resourceMaxTimeDelay, j, z);
                     return;
                 }
             }

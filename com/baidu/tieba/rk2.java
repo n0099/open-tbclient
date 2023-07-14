@@ -1,25 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Bundle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class rk2 {
+public class rk2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final Map<String, Integer> b;
-    public static final Object c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,116 +32,59 @@ public class rk2 {
                 return;
             }
         }
-        a = ms1.a;
-        b = new HashMap();
-        c = new Object();
-        d = sk2.a();
+        cv2.g0().getSwitch("swan_recovery_enable", true);
+        a = true;
     }
 
-    @NonNull
-    public static Set<String> b() {
-        InterceptResult invokeV;
-        String[] strArr;
+    public rk2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!d) {
-                return Collections.emptySet();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            synchronized (c) {
-                strArr = (String[]) b.keySet().toArray(new String[0]);
-            }
-            return gq3.a(strArr);
         }
-        return (Set) invokeV.objValue;
     }
 
-    public static void a() {
+    public static void c(bl2 bl2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !d) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, bl2Var) != null) || !a || bl2Var == null) {
             return;
         }
-        if (a) {
-            Log.d("ExcludeRecorder", "remove all exclude appIds");
+        if (ProcessUtils.isMainProcess()) {
+            sk2.a(bl2Var).b();
+            al2.b().a(bl2Var.a);
+            return;
         }
-        synchronized (c) {
-            b.clear();
-        }
+        Bundle bundle = new Bundle();
+        bundle.putInt("recovery_level", bl2Var.a);
+        bundle.putStringArrayList("recovery_app_list", bl2Var.b);
+        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), rk2.class, bundle);
     }
 
-    public static boolean c(String str) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
         InterceptResult invokeL;
-        boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!d || TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            if (!a) {
+                return null;
             }
-            synchronized (c) {
-                containsKey = b.containsKey(str);
+            int i = bundle.getInt("recovery_level", -1);
+            ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
+            bl2 bl2Var = new bl2();
+            bl2Var.a = i;
+            if (stringArrayList != null) {
+                bl2Var.b = stringArrayList;
             }
-            if (a) {
-                Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
-            }
-            return containsKey;
+            sk2.a(bl2Var).b();
+            al2.b().a(bl2Var.a);
+            return null;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (c) {
-            Integer num = b.get(str);
-            if (num == null) {
-                b.put(str, 1);
-            } else {
-                b.put(str, Integer.valueOf(num.intValue() + 1));
-            }
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (c) {
-            Integer num = b.get(str);
-            if (num != null) {
-                int intValue = num.intValue() - 1;
-                if (intValue <= 0) {
-                    b.remove(str);
-                } else {
-                    b.put(str, Integer.valueOf(intValue));
-                }
-            }
-        }
-    }
-
-    public static void e(kp4 kp4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, kp4Var) == null) && d && kp4Var != null) {
-            for (al4 al4Var : kp4Var.j()) {
-                if (al4Var instanceof bl4) {
-                    d(al4Var.g);
-                } else if (al4Var instanceof cl4) {
-                    d(((cl4) al4Var).o);
-                }
-            }
-        }
+        return (Bundle) invokeL.objValue;
     }
 }

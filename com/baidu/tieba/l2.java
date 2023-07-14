@@ -6,7 +6,7 @@ import com.badlogic.gdx.Input;
 public interface l2 extends Input, View.OnTouchListener, View.OnKeyListener, View.OnGenericMotionListener {
     void T0();
 
-    void d0();
+    void c0();
 
     void e1();
 

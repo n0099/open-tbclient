@@ -1,15 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import tbclient.HistorySwan.DataRes;
+import tbclient.SmartApp;
 /* loaded from: classes7.dex */
-public class oq9 implements gl1 {
+public class oq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<SmartApp> a;
 
     public oq9() {
         Interceptable interceptable = $ic;
@@ -25,28 +30,20 @@ public class oq9 implements gl1 {
         }
     }
 
-    @Override // com.baidu.tieba.gl1
-    public Object get() {
+    public List<SmartApp> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new un7());
-            arrayList.add(new vn7());
-            arrayList.add(new n28());
-            arrayList.add(new ul8());
-            arrayList.add(new vl8());
-            arrayList.add(new wl8());
-            arrayList.add(new xl8());
-            arrayList.add(new zl8());
-            arrayList.add(new sf9());
-            arrayList.add(new uf9());
-            arrayList.add(new vf9());
-            arrayList.add(new wf9());
-            arrayList.add(new upa());
-            arrayList.add(new vpa());
-            return arrayList;
+            return this.a;
         }
-        return invokeV.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        this.a = new ArrayList(dataRes.naws_list);
     }
 }

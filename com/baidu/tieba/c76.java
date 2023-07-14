@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.nadcore.player.remote.BDRemotePlayerService;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,89 +14,51 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Stack;
 /* loaded from: classes5.dex */
-public final class c76 extends wl1<bl0> {
+public class c76 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile c76 g;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wl1
-    /* renamed from: a */
-    public bl0 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new bl0() { // from class: com.baidu.tieba.b76
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.bl0
-            public final boolean a() {
-                InterceptResult invokeV2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? c76.b() : invokeV2.booleanValue;
-            }
-        } : (bl0) invokeV.objValue;
-    }
+    public AbsDataRecorder a;
+    public String b;
+    public String c;
+    public Stack<HashMap<AbsDataRecorder.Scene, AbsDataRecorder>> d;
+    public boolean e;
+    public Map<String, Integer> f;
 
     /* loaded from: classes5.dex */
-    public static final class a implements CyberPlayerManager.InstallListener2 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-935522134, "Lcom/baidu/tieba/c76$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-            }
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallError(int i, int i2, String detail) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, detail) == null) {
-                Intrinsics.checkNotNullParameter(detail, "detail");
-                ol0.c("NadCyberManagerImpl", "onInstallError: type=" + i + ", errorType=" + i2 + ", detail=" + detail);
-            }
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener2
-        public void onInstallInfo(int i, int i2, Object obj) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
-                if (obj instanceof String) {
-                    str = (String) obj;
-                } else {
-                    str = null;
-                }
-                if (str == null) {
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-935522134, "Lcom/baidu/tieba/c76$a;");
                     return;
                 }
-                ol0.c("NadCyberManagerImpl", "onInstallInfo: what=" + i + ", message=" + str);
             }
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallSuccess(int i, String coreVer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048579, this, i, coreVer) == null) {
-                Intrinsics.checkNotNullParameter(coreVer, "coreVer");
-                ol0.c("NadCyberManagerImpl", "onInstallSuccess: type=" + i + ", ver=" + coreVer);
+            int[] iArr = new int[AbsDataRecorder.Scene.values().length];
+            a = iArr;
+            try {
+                iArr[AbsDataRecorder.Scene.RECOMMEND.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.FRS_HOT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
         }
     }
@@ -110,34 +73,234 @@ public final class c76 extends wl1<bl0> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = false;
+        if (this.d == null) {
+            this.d = new Stack<>();
+        }
+        this.b = "key_ad_free_guid_display_num_" + TbadkCoreApplication.getCurrentAccount();
+        this.c = "key_ad_free_guid_display_time_" + TbadkCoreApplication.getCurrentAccount();
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            a();
+            b();
+            if (TbadkCoreApplication.isLogin()) {
+                this.b = "key_ad_free_guid_display_num_" + TbadkCoreApplication.getCurrentAccount();
+                this.c = "key_ad_free_guid_display_time_" + TbadkCoreApplication.getCurrentAccount();
+            } else {
+                z66.e().a();
+            }
+            this.a.a();
+        }
+    }
+
+    public static c76 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (g == null) {
+                synchronized (c76.class) {
+                    if (g == null) {
+                        g = new c76();
+                    }
+                }
+            }
+            return g;
+        }
+        return (c76) invokeV.objValue;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            da5.p().Q(this.b);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            da5.p().Q(this.c);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            HashMap<AbsDataRecorder.Scene, AbsDataRecorder> hashMap = new HashMap<>();
+            hashMap.put(AbsDataRecorder.Scene.FRS_HOT, null);
+            hashMap.put(AbsDataRecorder.Scene.FRS_NEW, null);
+            this.d.push(hashMap);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.d.isEmpty()) {
+            this.d.pop();
+        }
+    }
+
+    public final AbsDataRecorder f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.a == null) {
+                this.a = new d76();
+            }
+            return this.a;
+        }
+        return (AbsDataRecorder) invokeV.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (TbadkCoreApplication.isLogin() && TbadkCoreApplication.getCurrentMemberType() == 0 && z66.e().i()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            da5.p().F(this.b, da5.p().q(this.b, 0) + 1);
+            da5.p().H(this.c, System.currentTimeMillis());
+        }
+    }
+
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!TimeHelper.isSameDay(da5.p().r(this.c, 0L), System.currentTimeMillis())) {
+                a();
+            }
+            return da5.p().q(this.b, 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public AbsDataRecorder g(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, scene)) == null) {
+            int i = a.a[scene.ordinal()];
+            if (i != 1) {
+                if (i != 2 && i != 3) {
+                    return null;
+                }
+                return i(scene);
+            }
+            return f();
+        }
+        return (AbsDataRecorder) invokeL.objValue;
+    }
+
+    public int j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            Map<String, Integer> map = this.f;
+            if (map != null && map.get(str) != null) {
+                return this.f.get(str).intValue();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean l(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, scene)) == null) {
+            if (!v76.i().p(scene) && n() && g(scene) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public final AbsDataRecorder i(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene)) == null) {
+            if (!this.d.isEmpty()) {
+                HashMap<AbsDataRecorder.Scene, AbsDataRecorder> peek = this.d.peek();
+                if (peek.get(scene) == null) {
+                    if (scene == AbsDataRecorder.Scene.FRS_HOT) {
+                        peek.put(scene, new a76());
+                    } else if (scene == AbsDataRecorder.Scene.FRS_NEW) {
+                        peek.put(scene, new b76());
+                    }
+                }
+                return peek.get(scene);
+            }
+            return null;
+        }
+        return (AbsDataRecorder) invokeL.objValue;
+    }
+
+    public void p(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048590, this, str, i) == null) {
+            if (this.f == null) {
+                this.f = new HashMap();
+            }
+            if (this.f.get(str) == null) {
+                this.f.put(str, Integer.valueOf(i));
             }
         }
     }
 
-    public static final boolean b() {
-        InterceptResult invokeV;
-        Class<BDRemotePlayerService> cls;
+    public boolean r(int i, AbsDataRecorder.Scene scene) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (CyberPlayerManager.isCoreLoaded(31)) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i, scene)) == null) {
+            if (!v76.i().q() && n() && i >= z66.e().f(AbsDataRecorder.Scene.PB) && h() < z66.e().d()) {
                 return true;
             }
-            new HashMap().put(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE, "2");
-            boolean l = t21.l();
-            try {
-                Context context = TbadkCoreApplication.getInst().getContext();
-                String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-                if (l) {
-                    cls = BDRemotePlayerService.class;
-                } else {
-                    cls = null;
-                }
-                CyberPlayerManager.install(context, cuidGalaxy2, (String) null, 31, (Class<?>) cls, (Map<String, String>) null, (CyberPlayerManager.InstallListener2) new a());
-            } catch (Exception e) {
-                e.printStackTrace();
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public boolean s(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, scene)) == null) {
+            AbsDataRecorder g2 = g(scene);
+            if (g2 == null || !l(scene) || g2.c() < z66.e().f(scene) || h() >= z66.e().d()) {
+                return false;
             }
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

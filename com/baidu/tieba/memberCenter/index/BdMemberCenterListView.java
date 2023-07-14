@@ -11,7 +11,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d56;
+import com.baidu.tieba.h66;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BdMemberCenterListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int V = 1;
@@ -36,10 +36,10 @@ public class BdMemberCenterListView extends BdTypeListView {
     public final int S;
 
     /* renamed from: T  reason: collision with root package name */
-    public final int f1133T;
+    public final int f1140T;
     public a U;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(float f);
 
@@ -63,7 +63,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,15 +122,15 @@ public class BdMemberCenterListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.S = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d56.ExpandListView);
-        this.f1133T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h66.ExpandListView);
+        this.f1140T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
         obtainStyledAttributes.recycle();
     }
 
     public final void I(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            this.U.a(360.0f - ((f * 360.0f) / this.f1133T));
+            this.U.a(360.0f - ((f * 360.0f) / this.f1140T));
         }
     }
 
@@ -187,7 +187,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         } else {
             height = view2.getHeight();
         }
-        if (height >= this.O.b - (this.f1133T / 2)) {
+        if (height >= this.O.b - (this.f1140T / 2)) {
             J();
         } else {
             this.U.b();
@@ -271,7 +271,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                 }
                 this.M = this.N;
                 this.Q = this.R;
-                this.O = new b(0, height, 0, this.f1133T + height);
+                this.O = new b(0, height, 0, this.f1140T + height);
             }
             return super.dispatchTouchEvent(motionEvent);
         }

@@ -1,26 +1,49 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.content.ContextWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.IOException;
 /* loaded from: classes8.dex */
-public class xm6 {
+public final class xm6 {
     public static /* synthetic */ Interceptable $ic;
+    public static Application a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable... closeableArr) {
+    public static Activity a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, closeableArr) != null) || tm6.e(closeableArr)) {
-            return;
-        }
-        for (Closeable closeable : closeableArr) {
-            if (closeable != null) {
-                try {
-                    closeable.close();
-                } catch (IOException unused) {
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context instanceof Activity) {
+                return (Activity) context;
             }
+            while (context instanceof ContextWrapper) {
+                if (context instanceof Activity) {
+                    return (Activity) context;
+                }
+                context = ((ContextWrapper) context).getBaseContext();
+            }
+            return null;
         }
+        return (Activity) invokeL.objValue;
+    }
+
+    public static void b(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
+            a = application;
+        }
+    }
+
+    public static Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return (Context) invokeV.objValue;
     }
 }

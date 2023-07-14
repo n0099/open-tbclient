@@ -1,76 +1,170 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Comparator;
 /* loaded from: classes7.dex */
-public final class qk3 {
+public class qk3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, kk3> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public boolean f;
+    public long g;
+    public long h;
+    public int i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948094672, "Lcom/baidu/tieba/qk3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static final class a implements Comparator<qk3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948094672, "Lcom/baidu/tieba/qk3;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        boolean z = ms1.a;
-        a = new HashMap();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(qk3 qk3Var, qk3 qk3Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, qk3Var, qk3Var2)) == null) {
+                int length = qk3Var2.b.length() - qk3Var.b.length();
+                if (length != 0) {
+                    return length;
+                }
+                int length2 = qk3Var2.a.length() - qk3Var.a.length();
+                if (length2 != 0) {
+                    return length2;
+                }
+                int hashCode = qk3Var2.c.hashCode() - qk3Var.c.hashCode();
+                if (hashCode != 0) {
+                    return hashCode;
+                }
+                if (qk3Var2.d == null) {
+                    return -1;
+                }
+                if (qk3Var.d == null) {
+                    return 1;
+                }
+                return 0;
+            }
+            return invokeLL.intValue;
+        }
     }
 
     public qk3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public qk3(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = str2;
+        this.e = -1L;
     }
 
-    public static kk3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b("searchbox_webapps_sp");
-        }
-        return (kk3) invokeV.objValue;
-    }
-
-    public static kk3 b(String str) {
+    public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            kk3 kk3Var = a.get(str);
-            if (kk3Var == null) {
-                synchronized (qk3.class) {
-                    kk3Var = a.get(str);
-                    if (kk3Var == null) {
-                        kk3Var = new kk3(str);
-                        a.put(str, kk3Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
+                if (!this.a.startsWith(".")) {
+                    return str.equals(this.a);
+                }
+                if (str.endsWith(this.a.substring(1))) {
+                    int length = this.a.length();
+                    int length2 = str.length();
+                    if (length2 > length - 1 && str.charAt(length2 - length) != '.') {
+                        return false;
                     }
+                    return true;
                 }
             }
-            return kk3Var;
+            return false;
         }
-        return (kk3) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public boolean b(qk3 qk3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qk3Var)) == null) {
+            if (qk3Var == null || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || !TextUtils.equals(this.a, qk3Var.a) || !TextUtils.equals(this.b, qk3Var.b) || !TextUtils.equals(this.c, qk3Var.c)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.b) || !str.startsWith(this.b)) {
+                return false;
+            }
+            int length = this.b.length();
+            int length2 = str.length();
+            if (this.b.charAt(length - 1) != '/' && length2 > length && str.charAt(length) != '/') {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "domain: " + this.a + "; path: " + this.b + "; name: " + this.c + "; value: " + this.d + "; expires: " + this.e + "; secure: " + this.f;
+        }
+        return (String) invokeV.objValue;
     }
 }

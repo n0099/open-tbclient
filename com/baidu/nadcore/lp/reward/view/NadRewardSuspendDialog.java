@@ -10,10 +10,10 @@ import android.widget.TextView;
 import androidx.fragment.app.FragmentManager;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c61;
-import com.baidu.tieba.g61;
-import com.baidu.tieba.op0;
-import com.baidu.tieba.pp0;
+import com.baidu.tieba.a71;
+import com.baidu.tieba.e71;
+import com.baidu.tieba.yp0;
+import com.baidu.tieba.zp0;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -55,7 +55,7 @@ public final class NadRewardSuspendDialog extends NadRewardVideoDialog {
         super.a2();
         ViewGroup.LayoutParams layoutParams = X1().getLayoutParams();
         Intrinsics.checkNotNullExpressionValue(layoutParams, "topImg.layoutParams");
-        layoutParams.height = g61.c.a(getContext(), 83.0f);
+        layoutParams.height = e71.c.a(getContext(), 83.0f);
         X1().setLayoutParams(layoutParams);
     }
 
@@ -66,8 +66,8 @@ public final class NadRewardSuspendDialog extends NadRewardVideoDialog {
         String str;
         boolean z;
         String str2;
-        op0 u;
-        op0 s;
+        yp0 u;
+        yp0 s;
         U1().setLayoutResource(R.layout.nad_reward_suspend_dialog_content);
         View inflate = U1().inflate();
         Intrinsics.checkNotNullExpressionValue(inflate, "dialogStub.inflate()");
@@ -75,26 +75,26 @@ public final class NadRewardSuspendDialog extends NadRewardVideoDialog {
         View findViewById = S1().findViewById(R.id.close_img);
         Intrinsics.checkNotNullExpressionValue(findViewById, "dialogContent.findViewById(R.id.close_img)");
         AdImageView adImageView = (AdImageView) findViewById;
-        View findViewById2 = S1().findViewById(R.id.obfuscated_res_0x7f09250e);
+        View findViewById2 = S1().findViewById(R.id.obfuscated_res_0x7f092542);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "dialogContent.findViewById(R.id.title)");
         TextView textView3 = (TextView) findViewById2;
         View findViewById3 = S1().findViewById(R.id.btn_container);
         Intrinsics.checkNotNullExpressionValue(findViewById3, "dialogContent.findViewById(R.id.btn_container)");
         LinearLayout linearLayout = (LinearLayout) findViewById3;
-        pp0 T1 = T1();
+        zp0 T1 = T1();
         String str3 = null;
         if (T1 != null && (s = T1.s()) != null) {
             textView = NadRewardVideoDialog.P1(this, s, null, null, "1", false, false, false, 118, null);
         } else {
             textView = null;
         }
-        pp0 T12 = T1();
+        zp0 T12 = T1();
         if (T12 != null && (u = T12.u()) != null) {
             textView2 = NadRewardVideoDialog.P1(this, u, null, null, "2", false, false, false, 118, null);
         } else {
             textView2 = null;
         }
-        pp0 T13 = T1();
+        zp0 T13 = T1();
         if (T13 != null) {
             str = T13.v();
         } else {
@@ -109,37 +109,37 @@ public final class NadRewardSuspendDialog extends NadRewardVideoDialog {
             textView3.setVisibility(8);
         } else {
             textView3.setVisibility(0);
-            pp0 T14 = T1();
+            zp0 T14 = T1();
             if (T14 != null) {
                 str2 = T14.v();
             } else {
                 str2 = null;
             }
             textView3.setText(str2);
-            pp0 T15 = T1();
+            zp0 T15 = T1();
             if (T15 != null) {
                 str3 = T15.y();
             }
-            textView3.setTextColor(c61.a(str3, R.color.nad_reward_dialog_title_default));
+            textView3.setTextColor(a71.a(str3, R.color.nad_reward_dialog_title_default));
         }
         if (textView2 != null) {
             textView2.setTypeface(Typeface.defaultFromStyle(1));
             textView2.setTextSize(1, 17.0f);
             textView2.setGravity(17);
-            textView2.setHeight(g61.c.a(textView2.getContext(), 50.0f));
-            textView2.setWidth(g61.c.a(textView2.getContext(), 219.0f));
+            textView2.setHeight(e71.c.a(textView2.getContext(), 50.0f));
+            textView2.setWidth(e71.c.a(textView2.getContext(), 219.0f));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = g61.c.a(textView2.getContext(), 10.0f);
+            layoutParams.topMargin = e71.c.a(textView2.getContext(), 10.0f);
             linearLayout.addView(textView2, 0, layoutParams);
         }
         if (textView != null) {
             textView.setTypeface(Typeface.defaultFromStyle(1));
             textView.setTextSize(1, 17.0f);
             textView.setGravity(17);
-            textView.setHeight(g61.c.a(textView.getContext(), 50.0f));
-            textView.setWidth(g61.c.a(textView.getContext(), 219.0f));
+            textView.setHeight(e71.c.a(textView.getContext(), 50.0f));
+            textView.setWidth(e71.c.a(textView.getContext(), 219.0f));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.topMargin = g61.c.a(textView.getContext(), 10.0f);
+            layoutParams2.topMargin = e71.c.a(textView.getContext(), 10.0f);
             linearLayout.addView(textView, 0, layoutParams2);
         }
         Z1(adImageView);
@@ -149,16 +149,16 @@ public final class NadRewardSuspendDialog extends NadRewardVideoDialog {
     @Override // com.baidu.nadcore.lp.reward.view.NadRewardVideoDialog, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setStyle(0, R.style.obfuscated_res_0x7f1003fe);
+        setStyle(0, R.style.obfuscated_res_0x7f1003ff);
     }
 
     public final void r2() {
         int i;
         String n;
         Integer intOrNull;
-        pp0 T1 = T1();
-        if (T1 != null && T1.F()) {
-            pp0 T12 = T1();
+        zp0 T1 = T1();
+        if (T1 != null && T1.E()) {
+            zp0 T12 = T1();
             if (T12 != null && (n = T12.n()) != null && (intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(n)) != null) {
                 i = intOrNull.intValue();
             } else {

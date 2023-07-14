@@ -14,7 +14,7 @@ import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -230,7 +230,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
                 this.author.portrait = (String) map2.get("portrait");
                 this.author.hasFocus = "1".equals(map2.get("has_concerned"));
                 if (map2.get("god_data") instanceof Map) {
-                    int e = vg.e((String) ((Map) map2.get("god_data")).get("type"), 0);
+                    int e = wg.e((String) ((Map) map2.get("god_data")).get("type"), 0);
                     VideoAggregationAuthorData videoAggregationAuthorData2 = this.author;
                     boolean z2 = true;
                     if (e != 2 && e != 1) {
@@ -250,7 +250,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
                     this.author.baijiahaoData = new VideoAggregationAuthorData.BaijiahaoAuthorData();
                     this.author.baijiahaoData.name = (String) map3.get("name");
                     this.author.baijiahaoData.avatar = (String) map3.get("avatar");
-                    this.author.baijiahaoData.auth_id = Integer.valueOf(vg.e((String) map3.get("auth_id"), 0));
+                    this.author.baijiahaoData.auth_id = Integer.valueOf(wg.e((String) map3.get("auth_id"), 0));
                     this.author.baijiahaoData.auth_desc = (String) map3.get(IMUserExtraData.KEY_AUTH_DESC);
                     this.author.baijiahaoData.brief = (String) map3.get(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
                 }
@@ -260,7 +260,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
                 BaijiahaoData baijiahaoData = new BaijiahaoData();
                 baijiahaoData.oriUgcNid = (String) map4.get("ori_ugc_nid");
                 baijiahaoData.oriUgcTid = (String) map4.get("ori_ugc_tid");
-                baijiahaoData.oriUgcType = vg.e((String) map4.get(TiebaStatic.Params.UGC_TYPE), 0);
+                baijiahaoData.oriUgcType = wg.e((String) map4.get(TiebaStatic.Params.UGC_TYPE), 0);
                 baijiahaoData.oriUgcVid = (String) map4.get("ori_ugc_vid");
                 baijiahaoData.forwardUrl = (String) map4.get("forward_url");
                 this.mBaijiahaoData = baijiahaoData;
@@ -272,32 +272,32 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
                 videoAggregationVideoData.thumbnailHeight = String.valueOf(map5.get("thumbnail_height"));
                 videoAggregationVideoData.videoMd5 = (String) map5.get(VideoFinishResult.KEY_VIDEO_MD5);
                 videoAggregationVideoData.videoUrl = (String) map5.get("video_url");
-                videoAggregationVideoData.videoDuration = vg.e((String) map5.get(AdWebVideoActivityConfig.KEY_VIDEO_DURATION), 0);
+                videoAggregationVideoData.videoDuration = wg.e((String) map5.get(AdWebVideoActivityConfig.KEY_VIDEO_DURATION), 0);
                 videoAggregationVideoData.videoWidth = String.valueOf(map5.get("video_width"));
                 videoAggregationVideoData.videoHeight = String.valueOf(map5.get("video_height"));
-                videoAggregationVideoData.videoSize = vg.e((String) map5.get("video_length"), 0);
+                videoAggregationVideoData.videoSize = wg.e((String) map5.get("video_length"), 0);
                 videoAggregationVideoData.thumbnailUrl = (String) map5.get("thumbnail_url");
-                this.playCount = vg.e((String) map5.get("play_count"), 0);
+                this.playCount = wg.e((String) map5.get("play_count"), 0);
             }
             this.video = videoAggregationVideoData;
             this.forumId = String.valueOf(map.get("fid"));
             this.threadId = (String) map.get("tid");
             this.firstPostId = (String) map.get("first_post_id");
             this.createTime = (String) map.get("create_time");
-            this.postNum = vg.g((String) map.get("reply_num"), 0L);
-            this.shareNum = vg.g((String) map.get("share_num"), 0L);
+            this.postNum = wg.g((String) map.get("reply_num"), 0L);
+            this.shareNum = wg.g((String) map.get("share_num"), 0L);
             this.title = (String) map.get("title");
             if (map.get("agree") instanceof Map) {
                 Map map6 = (Map) map.get("agree");
-                this.agreeNum = vg.g((String) map6.get("agree_num"), 0L);
-                this.disAgreeNum = vg.g((String) map6.get("disagree_num"), 0L);
-                this.agreeType = vg.e((String) map6.get("agree_type"), 0);
+                this.agreeNum = wg.g((String) map6.get("agree_num"), 0L);
+                this.disAgreeNum = wg.g((String) map6.get("disagree_num"), 0L);
+                this.agreeType = wg.e((String) map6.get("agree_type"), 0);
                 this.hasAgree = "1".equals(map6.get("has_agree"));
                 AgreeData agreeData = new AgreeData();
                 this.mAgreeData = agreeData;
                 agreeData.threadId = this.threadId;
                 agreeData.agreeNum = this.agreeNum;
-                agreeData.diffAgreeNum = vg.g((String) map6.get("diff_agree_num"), 0L);
+                agreeData.diffAgreeNum = wg.g((String) map6.get("diff_agree_num"), 0L);
                 AgreeData agreeData2 = this.mAgreeData;
                 agreeData2.disAgreeNum = this.disAgreeNum;
                 agreeData2.agreeType = this.agreeType;

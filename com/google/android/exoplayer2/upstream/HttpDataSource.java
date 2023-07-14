@@ -1,6 +1,7 @@
 package com.google.android.exoplayer2.upstream;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.IMConstants;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Predicate;
@@ -19,7 +20,7 @@ public interface HttpDataSource extends DataSource {
         @Override // com.google.android.exoplayer2.util.Predicate
         public boolean evaluate(String str) {
             String lowerInvariant = Util.toLowerInvariant(str);
-            if (!TextUtils.isEmpty(lowerInvariant) && ((!lowerInvariant.contains("text") || lowerInvariant.contains(MimeTypes.TEXT_VTT)) && !lowerInvariant.contains("html") && !lowerInvariant.contains("xml"))) {
+            if (!TextUtils.isEmpty(lowerInvariant) && ((!lowerInvariant.contains("text") || lowerInvariant.contains(MimeTypes.TEXT_VTT)) && !lowerInvariant.contains(IMConstants.IM_RECEIVE_SERVER_COMMON_TYPE_HTML) && !lowerInvariant.contains("xml"))) {
                 return true;
             }
             return false;

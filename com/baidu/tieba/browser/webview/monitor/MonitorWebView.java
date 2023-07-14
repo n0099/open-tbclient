@@ -15,18 +15,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tieba.browser.data.PreRenderMode;
 import com.baidu.tieba.browser.webview.scroll.NestedScrollWebView;
-import com.baidu.tieba.in6;
-import com.baidu.tieba.km6;
-import com.baidu.tieba.kn6;
-import com.baidu.tieba.lm6;
-import com.baidu.tieba.mm6;
-import com.baidu.tieba.nm6;
-import com.baidu.tieba.nn6;
-import com.baidu.tieba.om6;
+import com.baidu.tieba.co6;
+import com.baidu.tieba.mo6;
 import com.baidu.tieba.on6;
+import com.baidu.tieba.oo6;
+import com.baidu.tieba.p6c;
 import com.baidu.tieba.pn6;
-import com.baidu.tieba.sxb;
-import com.baidu.tieba.ym6;
+import com.baidu.tieba.qn6;
+import com.baidu.tieba.rn6;
+import com.baidu.tieba.ro6;
+import com.baidu.tieba.sn6;
+import com.baidu.tieba.so6;
+import com.baidu.tieba.to6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,20 +34,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class MonitorWebView extends NestedScrollWebView implements on6 {
+public abstract class MonitorWebView extends NestedScrollWebView implements so6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pn6 n;
+    public to6 n;
     public String o;
-    public km6 p;
-    public mm6 q;
-    public lm6 r;
-    public nm6 s;
-    public om6 t;
+    public on6 p;
+    public qn6 q;
+    public pn6 r;
+    public rn6 s;
+    public sn6 t;
     public PreRenderMode u;
-    public final sxb<Pair<Integer, Double>> v;
-    public lm6 w;
-    public final in6 x;
+    public final p6c<Pair<Integer, Double>> v;
+    public final mo6 w;
 
     public boolean v() {
         InterceptResult invokeV;
@@ -59,7 +58,7 @@ public abstract class MonitorWebView extends NestedScrollWebView implements on6 
     }
 
     /* loaded from: classes5.dex */
-    public class a extends nn6 {
+    public class a extends ro6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MonitorWebView a;
@@ -82,7 +81,7 @@ public abstract class MonitorWebView extends NestedScrollWebView implements on6 
             this.a = monitorWebView;
         }
 
-        @Override // com.baidu.tieba.im6
+        @Override // com.baidu.tieba.mn6
         public void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(1048576, this, webView, sslErrorHandler, sslError) == null) && this.a.t != null) {
@@ -90,7 +89,7 @@ public abstract class MonitorWebView extends NestedScrollWebView implements on6 
             }
         }
 
-        @Override // com.baidu.tieba.im6
+        @Override // com.baidu.tieba.mn6
         public void b(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, webResourceRequest, i, charSequence) == null) && this.a.s != null) {
@@ -98,15 +97,15 @@ public abstract class MonitorWebView extends NestedScrollWebView implements on6 
             }
         }
 
-        @Override // com.baidu.tieba.im6
-        public void d(WebView webView, String str) {
+        @Override // com.baidu.tieba.mn6
+        public void c(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) && this.a.q != null) {
-                this.a.q.d(webView, str);
+                this.a.q.c(webView, str);
             }
         }
 
-        @Override // com.baidu.tieba.im6
+        @Override // com.baidu.tieba.mn6
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) && this.a.r != null) {
@@ -114,7 +113,7 @@ public abstract class MonitorWebView extends NestedScrollWebView implements on6 
             }
         }
 
-        @Override // com.baidu.tieba.im6
+        @Override // com.baidu.tieba.mn6
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -153,11 +152,10 @@ public abstract class MonitorWebView extends NestedScrollWebView implements on6 
         this.s = null;
         this.t = null;
         this.u = PreRenderMode.NONE;
-        this.v = sxb.O();
-        this.w = null;
-        kn6 kn6Var = new kn6(null, new a(this));
-        this.x = kn6Var;
-        super.setWebViewClient(kn6Var);
+        this.v = p6c.Q();
+        oo6 oo6Var = new oo6(null, new a(this));
+        this.w = oo6Var;
+        super.setWebViewClient(oo6Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -186,11 +184,10 @@ public abstract class MonitorWebView extends NestedScrollWebView implements on6 
         this.s = null;
         this.t = null;
         this.u = PreRenderMode.NONE;
-        this.v = sxb.O();
-        this.w = null;
-        kn6 kn6Var = new kn6(null, new a(this));
-        this.x = kn6Var;
-        super.setWebViewClient(kn6Var);
+        this.v = p6c.Q();
+        oo6 oo6Var = new oo6(null, new a(this));
+        this.w = oo6Var;
+        super.setWebViewClient(oo6Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -219,52 +216,51 @@ public abstract class MonitorWebView extends NestedScrollWebView implements on6 
         this.s = null;
         this.t = null;
         this.u = PreRenderMode.NONE;
-        this.v = sxb.O();
-        this.w = null;
-        kn6 kn6Var = new kn6(null, new a(this));
-        this.x = kn6Var;
-        super.setWebViewClient(kn6Var);
+        this.v = p6c.Q();
+        oo6 oo6Var = new oo6(null, new a(this));
+        this.w = oo6Var;
+        super.setWebViewClient(oo6Var);
     }
 
-    public void setOnLoadUrlListener(km6 km6Var) {
+    public void setOnLoadUrlListener(on6 on6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, km6Var) == null) {
-            this.p = km6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, on6Var) == null) {
+            this.p = on6Var;
         }
     }
 
-    public void setOnPageFinishedListener(lm6 lm6Var) {
+    public void setOnPageFinishedListener(pn6 pn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, lm6Var) == null) {
-            this.r = lm6Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, pn6Var) == null) {
+            this.r = pn6Var;
         }
     }
 
-    public void setOnPageStartedListener(mm6 mm6Var) {
+    public void setOnPageStartedListener(qn6 qn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, mm6Var) == null) {
-            this.q = mm6Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, qn6Var) == null) {
+            this.q = qn6Var;
         }
     }
 
-    public void setOnReceivedErrorListener(nm6 nm6Var) {
+    public void setOnReceivedErrorListener(rn6 rn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, nm6Var) == null) {
-            this.s = nm6Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, rn6Var) == null) {
+            this.s = rn6Var;
         }
     }
 
-    public void setOnReceivedSslErrorListener(om6 om6Var) {
+    public void setOnReceivedSslErrorListener(sn6 sn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, om6Var) == null) {
-            this.t = om6Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, sn6Var) == null) {
+            this.t = sn6Var;
         }
     }
 
-    public void setPerfData(pn6 pn6Var) {
+    public void setPerfData(to6 to6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, pn6Var) == null) {
-            this.n = pn6Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, to6Var) == null) {
+            this.n = to6Var;
         }
     }
 
@@ -279,7 +275,7 @@ public abstract class MonitorWebView extends NestedScrollWebView implements on6 
     public void setWebViewClient(WebViewClient webViewClient) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, webViewClient) == null) {
-            this.x.b(webViewClient);
+            this.w.b(webViewClient);
         }
     }
 
@@ -302,13 +298,13 @@ public abstract class MonitorWebView extends NestedScrollWebView implements on6 
         return (PreRenderMode) invokeV.objValue;
     }
 
-    public sxb<Pair<Integer, Double>> getViewHeightBs() {
+    public p6c<Pair<Integer, Double>> getViewHeightBs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.v;
         }
-        return (sxb) invokeV.objValue;
+        return (p6c) invokeV.objValue;
     }
 
     public void r() {
@@ -358,11 +354,11 @@ public abstract class MonitorWebView extends NestedScrollWebView implements on6 
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, map) == null) {
             if (URLUtil.isNetworkUrl(str) || URLUtil.isFileUrl(str)) {
                 map.put("Accept", SapiWebView.DATA_MIME_TYPE);
-                this.o = ym6.c(str);
+                this.o = co6.c(str);
             }
-            pn6 pn6Var = this.n;
-            if (pn6Var != null) {
-                pn6Var.s(str);
+            to6 to6Var = this.n;
+            if (to6Var != null) {
+                to6Var.s(str);
             }
             super.loadUrl(str, map);
         }

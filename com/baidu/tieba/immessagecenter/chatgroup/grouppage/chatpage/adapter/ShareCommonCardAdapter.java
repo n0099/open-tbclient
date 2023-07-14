@@ -102,7 +102,7 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             final ChatShareCommonCard chatShareCommonCard = new ChatShareCommonCard(context, null, 2, null);
-            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090e8b);
+            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090e9a);
             chatShareCommonCard.setScene(1);
             chatShareCommonCard.setLayoutParams(new ViewGroup.LayoutParams(l, -2));
             return new BaseViewHolder(chatShareCommonCard) { // from class: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.ShareCommonCardAdapter$createViewHolder$1
@@ -130,7 +130,7 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
                 }
 
                 @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-                public void b(View.OnLongClickListener onLongClickListener) {
+                public void c(View.OnLongClickListener onLongClickListener) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, onLongClickListener) == null) {
                         this.itemView.setOnLongClickListener(onLongClickListener);

@@ -2,17 +2,17 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.swan.games.view.webview.GameWebViewManager;
+import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.vv2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,29 +20,65 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class ag4 extends EventTargetImpl {
+public class ag4 implements vv2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean c;
+    public static final long d;
+    public static final c e;
     public transient /* synthetic */ FieldHolder $fh;
-    public my1 a;
-    public volatile String b;
-    public e c;
+    public LocationClient a;
+    public LocationClientOption b;
+
+    public static boolean q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? i == 65 || i == 61 || i == 161 || i == 66 || i == 68 : invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vv2
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vv2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vv2
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vv2
+    public void f(vv2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ag4 b;
+        public final /* synthetic */ ag4 a;
 
-        public a(ag4 ag4Var, String str) {
+        public a(ag4 ag4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ag4Var, str};
+                Object[] objArr = {ag4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,31 +88,22 @@ public class ag4 extends EventTargetImpl {
                     return;
                 }
             }
-            this.b = ag4Var;
-            this.a = str;
+            this.a = ag4Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.a == null) {
-                    this.b.F();
-                }
-                if (!this.b.a.c()) {
-                    this.b.a.G();
-                }
-                this.b.a.loadUrl(this.a);
-                this.b.D("open", new bg4(this.a));
+                this.a.a.requestLocation();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    public class b implements vv2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ag4 a;
 
         public b(ag4 ag4Var) {
             Interceptable interceptable = $ic;
@@ -90,38 +117,38 @@ public class ag4 extends EventTargetImpl {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = ag4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.vv2.a
+        public void a(ue3 ue3Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null && this.a.a.c()) {
-                this.a.a.removeFromParent();
-                this.a.a.destroy();
-                this.a.a = null;
-                ag4 ag4Var = this.a;
-                ag4Var.D("close", new bg4(ag4Var.b));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, ue3Var) == null) && ag4.c) {
+                Log.i("SwanAppLocationImpl", "onWarmUpSuccess::= result=" + ue3Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.vv2.a
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && ag4.c) {
+                Log.i("SwanAppLocationImpl", "onWarmUpFailed:: errCode=" + i);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements Runnable {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ag4 b;
+        public long a;
+        public BDLocation b;
 
-        public c(ag4 ag4Var, String str) {
+        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ag4Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -131,35 +158,90 @@ public class ag4 extends EventTargetImpl {
                     return;
                 }
             }
-            this.b = ag4Var;
-            this.a = str;
+            this.a = 0L;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public synchronized void update(BDLocation bDLocation) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                if (TextUtils.equals("1", this.a)) {
-                    this.b.a.f(true);
-                } else {
-                    this.b.a.f(false);
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bDLocation) == null) {
+                synchronized (this) {
+                    this.b = bDLocation;
+                    this.a = System.currentTimeMillis();
                 }
             }
+        }
+
+        public synchronized BDLocation c(long j) {
+            InterceptResult invokeJ;
+            BDLocation bDLocation;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                synchronized (this) {
+                    if (d(j)) {
+                        bDLocation = this.b;
+                    } else {
+                        bDLocation = null;
+                    }
+                }
+                return bDLocation;
+            }
+            return (BDLocation) invokeJ.objValue;
+        }
+
+        public synchronized boolean d(long j) {
+            InterceptResult invokeJ;
+            boolean z;
+            boolean z2;
+            boolean z3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                synchronized (this) {
+                    long currentTimeMillis = System.currentTimeMillis() - this.a;
+                    if (this.b != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (currentTimeMillis < j) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z && z2) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    if (ag4.c) {
+                        Log.i("SwanAppLocationImpl", String.format("hitCache[%b] hasInfo[%b] isAgeOk[%b] cacheAge[%d] timeout[%d]", Boolean.valueOf(z3), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(currentTimeMillis), Long.valueOf(j)));
+                    }
+                }
+                return z3;
+            }
+            return invokeJ.booleanValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements View.OnClickListener {
+    public static class d extends BDAbstractLocationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ag4 a;
+        public LocationClient a;
+        public vv2.a b;
+        public String c;
+        public boolean d;
 
-        public d(ag4 ag4Var) {
+        public d(LocationClient locationClient, vv2.a aVar, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ag4Var};
+                Object[] objArr = {locationClient, aVar, str, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -169,58 +251,30 @@ public class ag4 extends EventTargetImpl {
                     return;
                 }
             }
-            this.a = ag4Var;
+            this.a = locationClient;
+            this.b = aVar;
+            this.c = str;
+            this.d = z;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.location.BDAbstractLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.close();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public long c;
-        public long d;
-
-        public e(String str, String str2, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                this.a.unRegisterLocationListener(this);
+                int locType = bDLocation.getLocType();
+                if (!ag4.q(locType)) {
+                    if (!this.d) {
+                        this.b.onFailed(locType);
+                        return;
+                    }
                     return;
                 }
+                ag4.e.update(bDLocation);
+                if (!this.d) {
+                    this.b.a(ag4.o(bDLocation, this.c));
+                }
             }
-            this.a = str;
-            this.b = str2;
-            this.c = j;
-        }
-
-        public /* synthetic */ e(String str, String str2, long j, a aVar) {
-            this(str, str2, j);
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "H5GameInfo{mGameId='" + this.a + "', mGameName='" + this.b + "', mStartLoadingTimestamp=" + this.c + ", mFinishLoadingTimestamp=" + this.d + '}';
-            }
-            return (String) invokeV.objValue;
         }
     }
 
@@ -237,206 +291,166 @@ public class ag4 extends EventTargetImpl {
                 return;
             }
         }
-        d = ms1.a;
+        c = fs1.a;
+        d = TimeUnit.MINUTES.toMillis(3L);
+        e = new c(null);
     }
 
-    public static ag4 E() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vv2
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            kj2 n = c84.m().n();
-            if (n == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long p = p();
+            if (e.b == null || (p > 0 && !e.d(p))) {
+                if (c) {
+                    Log.i("SwanAppLocationImpl", "onWarmUp");
+                }
+                b("gcj02", false, true, new b(this));
             }
-            EventTarget m = n.m();
-            if (!(m instanceof j64)) {
-                return null;
-            }
-            return ((j64) m).getWebViewManager();
-        }
-        return (ag4) invokeV.objValue;
-    }
-
-    public final void F() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null) {
-            GameWebViewManager gameWebViewManager = new GameWebViewManager(jv2.c());
-            this.a = gameWebViewManager;
-            gameWebViewManager.h(new d(this));
         }
     }
 
-    @JavascriptInterface
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            wp3.e0(new b(this));
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag4(mj2 mj2Var) {
-        super(mj2Var);
+    public ag4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mj2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    public final boolean G(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vv2
+    public ue3 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            BDLocation bDLocation = e.b;
+            if (bDLocation == null) {
+                return null;
             }
-            String lowerCase = str.toLowerCase(Locale.US);
-            if (!lowerCase.startsWith("http://") && !lowerCase.startsWith("https://")) {
-                return false;
-            }
-            return true;
+            return o(bDLocation, bDLocation.getCoorType());
         }
-        return invokeL.booleanValue;
+        return (ue3) invokeV.objValue;
     }
 
-    @JavascriptInterface
-    public void setCloseViewVisibility(JsObject jsObject) {
+    public final long p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
-            j42 F = j42.F(jsObject);
-            if (F == null) {
-                D("error", C(null, "1001"));
-            } else {
-                wp3.e0(new c(this, F.C("setCloseViewVisibility", null)));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return d;
         }
+        return invokeV.longValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final cg4 C(String str, @NonNull String str2) {
+    @Override // com.baidu.tieba.vv2
+    public double[] g(@NonNull ue3 ue3Var, @NonNull String str) {
         InterceptResult invokeLL;
-        char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            switch (str2.hashCode()) {
-                case 1507424:
-                    if (str2.equals("1001")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1507425:
-                    if (str2.equals("1002")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    return null;
-                }
-                return new cg4(str, str2, "open:host not in white list");
-            }
-            return new cg4(str, str2, "open:url is invalid");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, ue3Var, str)) == null) {
+            return n(ue3Var.b, ue3Var.c, ue3Var.a, str);
         }
-        return (cg4) invokeLL.objValue;
+        return (double[]) invokeLL.objValue;
     }
 
-    public final void D(String str, Object obj) {
+    public static BDLocation m(double d2, double d3, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            if (d) {
-                Log.i("GameWebViewApi", "dispatchEvent:" + str + "," + obj);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str})) == null) {
+            BDLocation bDLocation = new BDLocation();
+            bDLocation.setLongitude(d3);
+            bDLocation.setLatitude(d2);
+            if (TextUtils.equals(str, "gcj02")) {
+                return bDLocation;
             }
-            dispatchEvent(new JSEvent(str, obj));
+            if (TextUtils.equals(str, "bd09")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "bd09");
+            }
+            if (TextUtils.equals(str, "bd09ll")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "bd09ll");
+            }
+            if (TextUtils.equals(str, "wgs84")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "gcj2wgs");
+            }
+            return bDLocation;
         }
+        return (BDLocation) invokeCommon.objValue;
     }
 
-    public void H() {
+    public static ue3 o(BDLocation bDLocation, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.c == null) {
-                if (d) {
-                    Log.d("GameWebViewApi", "onGameLoadingFinish: H5GameInfo is null.");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bDLocation, str)) == null) {
+            double longitude = bDLocation.getLongitude();
+            double latitude = bDLocation.getLatitude();
+            if (!TextUtils.equals(str, bDLocation.getCoorType())) {
+                BDLocation m = m(latitude, longitude, str);
+                longitude = m.getLongitude();
+                latitude = m.getLatitude();
             }
-            cc3 b0 = cc3.b0();
-            if (b0 == null) {
-                if (d) {
-                    Log.d("GameWebViewApi", "onGameLoadingFinish: SwanApp is null.");
-                    return;
-                }
-                return;
-            }
-            this.c.d = System.currentTimeMillis();
-            if (d) {
-                Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.c);
-            }
-            dg4.a(b0, this.c);
-            this.c = null;
+            return new ue3(str, longitude, latitude, bDLocation.getSpeed(), bDLocation.getRadius(), bDLocation.getAltitude(), bDLocation.getCountry(), bDLocation.getCountryCode(), bDLocation.getCity(), bDLocation.getCityCode(), bDLocation.getProvince(), bDLocation.getDistrict(), bDLocation.getStreet(), bDLocation.getStreetNumber());
         }
+        return (ue3) invokeLL.objValue;
     }
 
-    @JavascriptInterface
-    public void onGameLoadingStart(JsObject jsObject) {
-        j42 F;
+    @Override // com.baidu.tieba.vv2
+    public void b(String str, boolean z, boolean z2, vv2.a aVar) {
+        boolean z3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jsObject) != null) || (F = j42.F(jsObject)) == null) {
-            return;
-        }
-        String B = F.B("gameId");
-        String B2 = F.B("gameName");
-        if (!TextUtils.isEmpty(B) && !TextUtils.isEmpty(B2)) {
-            this.c = new e(B, B2, System.currentTimeMillis(), null);
-            if (d) {
-                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.c);
-            }
-            oe4.call(F, true, null);
-            return;
-        }
-        oe4.call(F, false, null);
-    }
-
-    @JavascriptInterface
-    public void open(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
-            j42 F = j42.F(jsObject);
-            if (F == null) {
-                D("error", C(null, "1001"));
-                return;
-            }
-            String C = F.C("url", null);
-            if (!G(C)) {
-                D("error", C(C, "1001"));
-            } else if (!tc3.h(C)) {
-                D("error", C(C, "1002"));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), aVar}) == null) {
+            BDLocation c2 = e.c(p());
+            if (c2 != null) {
+                z3 = true;
             } else {
-                if (d) {
-                    Log.i("GameWebViewApi", "open:" + C);
-                }
-                this.b = C;
-                wp3.e0(new a(this, C));
+                z3 = false;
             }
+            if (z3) {
+                aVar.a(o(c2, str));
+            }
+            if (this.a == null) {
+                this.a = new LocationClient(AppRuntime.getAppContext());
+                LocationClientOption locationClientOption = new LocationClientOption();
+                locationClientOption.setCoorType("gcj02");
+                locationClientOption.setScanSpan(0);
+                locationClientOption.setIgnoreKillProcess(true);
+                locationClientOption.setIsNeedAddress(true);
+                this.a.setLocOption(locationClientOption);
+                this.b = locationClientOption;
+                this.a.start();
+            }
+            this.a.registerLocationListener(new d(this.a, aVar, str, z3));
+            this.b.setIsNeedAltitude(z2);
+            this.a.setLocOption(this.b);
+            pp3.a0(new a(this));
         }
+    }
+
+    public final double[] n(double d2, double d3, String str, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str, str2})) == null) {
+            double[] dArr = new double[2];
+            if (TextUtils.equals(str2, "gcj02")) {
+                return dArr;
+            }
+            BDLocation bDLocation = new BDLocation();
+            bDLocation.setLongitude(d2);
+            bDLocation.setLatitude(d3);
+            if (TextUtils.equals(str2, "bd09")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "bd09");
+            } else if (TextUtils.equals(str2, "bd09ll")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "bd09ll");
+            } else if (TextUtils.equals(str2, "wgs84")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "gcj2wgs");
+            }
+            dArr[0] = bDLocation.getLongitude();
+            dArr[1] = bDLocation.getLatitude();
+            return dArr;
+        }
+        return (double[]) invokeCommon.objValue;
     }
 }

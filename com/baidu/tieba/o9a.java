@@ -1,45 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class o9a extends CustomMessageListener {
+public class o9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public ArrayList<o9a> e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o9a(MainTabActivity mainTabActivity, e7a e7aVar) {
-        super(2921504);
+    public o9a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, e7aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-            this.a.V1();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
+            this.b = jSONObject.optString("menu_name");
+            this.c = jSONObject.optString("menu_id");
+            String str = null;
+            String optString = jSONObject.optString("default_logo_url", null);
+            this.d = optString;
+            if (optString != null) {
+                str = this.d + "?v=2";
+            }
+            this.d = str;
+            if (jSONObject.has("child_menu_list")) {
+                ArrayList<o9a> arrayList = new ArrayList<>();
+                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    o9a o9aVar = new o9a();
+                    o9aVar.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(o9aVar);
+                }
+                this.e = arrayList;
+            }
         }
     }
 }

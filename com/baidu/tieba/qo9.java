@@ -1,32 +1,66 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import androidx.constraintlayout.motion.widget.Key;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.play.VideoLoadingProgressView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class qo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public ImageView b;
-    public VideoLoadingProgressView c;
-    public ObjectAnimator d;
-    public ObjectAnimator e;
-    public ObjectAnimator f;
+    public TbPageContext a;
+    public NavigationBar b;
+    public BdTypeListView c;
+    public oo9 d;
+    public up6<qp9> e;
 
-    public qo9(ViewGroup viewGroup) {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qo9 a;
+
+        public a(qo9 qo9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qo9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qo9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a.getPageActivity().finish();
+            }
+        }
+    }
+
+    public qo9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,76 +70,50 @@ public class qo9 {
                 return;
             }
         }
-        this.a = viewGroup;
-        this.b = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
-        this.c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
-        d();
+        this.a = tbPageContext;
     }
 
-    public final void a() {
+    public void e(List<yn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.c.setData(list);
+        }
+    }
+
+    public void f(up6<qp9> up6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, up6Var) == null) {
+            this.e = up6Var;
+        }
+    }
+
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.cancel();
-            this.e.cancel();
-            this.f.cancel();
+            this.b.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f104d));
+            this.b.showBottomLine();
+            this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void b() {
+    public void c(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a();
-            this.a.setVisibility(8);
-            this.c.h();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.b = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091c04);
+            BdTypeListView bdTypeListView = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091c03);
+            this.c = bdTypeListView;
+            this.d = new oo9(this.a, bdTypeListView, this.e);
+            b();
         }
     }
 
-    public void c() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
-            this.e.start();
-            this.f.start();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a();
-            this.c.j();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a();
-            this.b.setAlpha(1.0f);
-            this.c.setAlpha(1.0f);
-            this.a.setVisibility(0);
-            this.c.l();
-            this.d.start();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 1.0f, 0.5f);
-            this.e = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 0.5f, 0.0f);
-            this.f = ObjectAnimator.ofFloat(this.c, Key.ALPHA, 1.0f, 0.0f);
-            this.d.setDuration(50L);
-            this.e.setDuration(50L);
-            this.f.setDuration(50L);
-        }
-    }
-
-    public void f(VideoLoadingProgressView.c cVar) {
-        VideoLoadingProgressView videoLoadingProgressView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) && (videoLoadingProgressView = this.c) != null) {
-            videoLoadingProgressView.setLoadingAnimationListener(cVar);
+            this.d.a();
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
+            this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

@@ -410,6 +410,19 @@ public class FH {
         return invokeL.booleanValue;
     }
 
+    public static byte parseByte(String str) throws IllegalArgumentException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
+            int intValue = Integer.valueOf(str).intValue();
+            if (intValue <= 127 && intValue >= -128) {
+                return (byte) intValue;
+            }
+            throw new IllegalArgumentException("parse byte fail");
+        }
+        return invokeL.byteValue;
+    }
+
     public static char parseChar(String str) throws IllegalArgumentException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -465,19 +478,6 @@ public class FH {
             return Short.valueOf(str).shortValue();
         }
         return invokeL.shortValue;
-    }
-
-    public static byte parseByte(String str) throws IllegalArgumentException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
-            int intValue = Integer.valueOf(str).intValue();
-            if (intValue <= 127 && intValue >= -128) {
-                return (byte) intValue;
-            }
-            throw new IllegalArgumentException("parse byte fail");
-        }
-        return invokeL.byteValue;
     }
 
     public static Class[] parseClassArray(String str) throws IllegalArgumentException {

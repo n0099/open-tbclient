@@ -1,355 +1,71 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Handler;
-import android.view.LayoutInflater;
+import android.os.Parcelable;
+import android.util.SparseArray;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.support.v4.app.Fragment;
-import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
 /* loaded from: classes8.dex */
-public abstract class xp4<E> extends vp4 {
+public class xp4 extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public final Context b;
-    public final Handler c;
-    public final int d;
-    public final zp4 e;
-    public oq4<String, cq4> f;
-    public dq4 g;
-    public boolean h;
-    public boolean i;
 
-    @Override // com.baidu.tieba.vp4
-    @Nullable
-    public View a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return null;
-        }
-        return (View) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.vp4
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k(Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, fragment) == null) {
-        }
-    }
-
-    public void l(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048589, this, str, fileDescriptor, printWriter, strArr) == null) {
-        }
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void p(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048593, this, fragment, strArr, i) == null) {
-        }
-    }
-
-    public boolean q(Fragment fragment) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, fragment)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-        }
-    }
-
-    public xp4(Activity activity, Context context, Handler handler, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xp4(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, context, handler, Integer.valueOf(i)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new zp4();
-        this.a = activity;
-        this.b = context;
-        this.c = handler;
-        this.d = i;
     }
 
-    public void f(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    public static ViewGroup a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, str, fileDescriptor, printWriter, strArr) == null) {
-            printWriter.print(str);
-            printWriter.print("mLoadersStarted=");
-            printWriter.println(this.i);
-            if (this.g != null) {
-                printWriter.print(str);
-                printWriter.print("Loader Manager ");
-                printWriter.print(Integer.toHexString(System.identityHashCode(this.g)));
-                printWriter.println(":");
-                dq4 dq4Var = this.g;
-                dq4Var.h(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            xp4 xp4Var = new xp4(view2.getContext());
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams != null) {
+                xp4Var.setLayoutParams(layoutParams);
             }
+            view2.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            xp4Var.addView(view2);
+            return xp4Var;
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchRestoreInstanceState(SparseArray<Parcelable> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sparseArray) == null) {
+            dispatchThawSelfOnly(sparseArray);
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public xp4(FragmentActivity fragmentActivity) {
-        this(fragmentActivity, fragmentActivity, fragmentActivity.a, 0);
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchSaveInstanceState(SparseArray<Parcelable> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Activity) objArr2[0], (Context) objArr2[1], (Handler) objArr2[2], ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseArray) == null) {
+            dispatchFreezeSelfOnly(sparseArray);
         }
-    }
-
-    public void c() {
-        dq4 dq4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (dq4Var = this.g) == null) {
-            return;
-        }
-        dq4Var.b();
-    }
-
-    public zp4 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (zp4) invokeV.objValue;
-    }
-
-    public Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public Handler h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.c;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public LayoutInflater m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return (LayoutInflater) this.b.getSystemService("layout_inflater");
-        }
-        return (LayoutInflater) invokeV.objValue;
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.i) {
-            return;
-        }
-        this.i = true;
-        dq4 dq4Var = this.g;
-        if (dq4Var != null) {
-            dq4Var.f();
-        } else if (!this.h) {
-            dq4 i = i("(root)", true, false);
-            this.g = i;
-            if (i != null && !i.d) {
-                i.f();
-            }
-        }
-        this.h = true;
-    }
-
-    public void t() {
-        oq4<String, cq4> oq4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (oq4Var = this.f) != null) {
-            int size = oq4Var.size();
-            dq4[] dq4VarArr = new dq4[size];
-            for (int i = size - 1; i >= 0; i--) {
-                dq4VarArr[i] = (dq4) this.f.k(i);
-            }
-            for (int i2 = 0; i2 < size; i2++) {
-                dq4 dq4Var = dq4VarArr[i2];
-                dq4Var.i();
-                dq4Var.d();
-            }
-        }
-    }
-
-    public void e(boolean z) {
-        dq4 dq4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048580, this, z) != null) || (dq4Var = this.g) == null || !this.i) {
-            return;
-        }
-        this.i = false;
-        if (z) {
-            dq4Var.e();
-        } else {
-            dq4Var.g();
-        }
-    }
-
-    public void j(String str) {
-        oq4<String, cq4> oq4Var;
-        dq4 dq4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && (oq4Var = this.f) != null && (dq4Var = (dq4) oq4Var.get(str)) != null && !dq4Var.e) {
-            dq4Var.b();
-            this.f.remove(str);
-        }
-    }
-
-    public void u(oq4<String, cq4> oq4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, oq4Var) == null) {
-            this.f = oq4Var;
-        }
-    }
-
-    public dq4 i(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (this.f == null) {
-                this.f = new oq4<>();
-            }
-            dq4 dq4Var = (dq4) this.f.get(str);
-            if (dq4Var == null) {
-                if (z2) {
-                    dq4 dq4Var2 = new dq4(str, this, z);
-                    this.f.put(str, dq4Var2);
-                    return dq4Var2;
-                }
-                return dq4Var;
-            }
-            dq4Var.k(this);
-            return dq4Var;
-        }
-        return (dq4) invokeCommon.objValue;
-    }
-
-    public void r(Fragment fragment, Intent intent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048595, this, fragment, intent, i) == null) {
-            if (i == -1) {
-                this.b.startActivity(intent);
-                return;
-            }
-            throw new IllegalStateException("Starting activity with a requestCode requires a FragmentActivity host");
-        }
-    }
-
-    public oq4<String, cq4> v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            oq4<String, cq4> oq4Var = this.f;
-            int i = 0;
-            if (oq4Var != null) {
-                int size = oq4Var.size();
-                dq4[] dq4VarArr = new dq4[size];
-                for (int i2 = size - 1; i2 >= 0; i2--) {
-                    dq4VarArr[i2] = (dq4) this.f.k(i2);
-                }
-                int i3 = 0;
-                while (i < size) {
-                    dq4 dq4Var = dq4VarArr[i];
-                    if (dq4Var.e) {
-                        i3 = 1;
-                    } else {
-                        dq4Var.b();
-                        this.f.remove(dq4Var.c);
-                    }
-                    i++;
-                }
-                i = i3;
-            }
-            if (i != 0) {
-                return this.f;
-            }
-            return null;
-        }
-        return (oq4) invokeV.objValue;
     }
 }

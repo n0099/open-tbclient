@@ -1,71 +1,278 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.tieba.feed.helper.CommonOnClickKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedPicComponent;
-import tbclient.PicInfo;
 /* loaded from: classes5.dex */
-public final class c77 {
+public final class c77 extends m77 implements mb7, mc7<c77>, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final f87 d;
+    public final u87 e;
+    public final ve7 f;
+    public final ue7 g;
+    public final String h;
+    public final List<u97> i;
+    public final Function2<View, String, Unit> j;
+    public final Function2<View, String, Unit> k;
+    public final Function2<u87, View, Unit> l;
 
-    public static final u47 a(List<PicInfo> picInfoList, String schema, v57 feedExtraData) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.mc7
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, picInfoList, schema, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(picInfoList, "picInfoList");
-            Intrinsics.checkNotNullParameter(schema, "schema");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            m57 m57Var = new m57();
-            ArrayList arrayList = new ArrayList();
-            for (PicInfo picInfo : picInfoList) {
-                j67 j67Var = new j67();
-                j67Var.a = picInfo.small_pic_url;
-                Integer num = picInfo.width;
-                Intrinsics.checkNotNullExpressionValue(num, "component.width");
-                j67Var.b = num.intValue();
-                Integer num2 = picInfo.height;
-                Intrinsics.checkNotNullExpressionValue(num2, "component.height");
-                j67Var.c = num2.intValue();
-                Double d = picInfo.crop_point_width_ratio;
-                Intrinsics.checkNotNullExpressionValue(d, "component.crop_point_width_ratio");
-                j67Var.d = d.doubleValue();
-                Double d2 = picInfo.crop_point_height_ratio;
-                Intrinsics.checkNotNullExpressionValue(d2, "component.crop_point_height_ratio");
-                j67Var.e = d2.doubleValue();
-                arrayList.add(j67Var);
-            }
-            m57Var.a = arrayList;
-            return new u47(m57Var, schema, w57.b(feedExtraData, "image_click"), null, 8, null);
-        }
-        return (u47) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "feed_head" : (String) invokeV.objValue;
     }
 
-    public static final void b(FeedPicComponent feedPicComponent, List<t87<?>> dataList, v57 feedExtraData) {
-        boolean z;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, feedPicComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedPicComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            List<PicInfo> list = feedPicComponent.pics;
-            if (list != null && !list.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if (z) {
+            if (obj instanceof c77) {
+                c77 c77Var = (c77) obj;
+                return Intrinsics.areEqual(this.d, c77Var.d) && Intrinsics.areEqual(this.e, c77Var.e) && Intrinsics.areEqual(this.f, c77Var.f) && Intrinsics.areEqual(this.g, c77Var.g) && Intrinsics.areEqual(this.h, c77Var.h) && Intrinsics.areEqual(this.i, c77Var.i) && Intrinsics.areEqual(this.j, c77Var.j) && Intrinsics.areEqual(this.k, c77Var.k) && Intrinsics.areEqual(this.l, c77Var.l);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public c77 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (c77) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int hashCode = this.d.hashCode() * 31;
+            u87 u87Var = this.e;
+            int hashCode2 = (hashCode + (u87Var == null ? 0 : u87Var.hashCode())) * 31;
+            ve7 ve7Var = this.f;
+            int hashCode3 = (hashCode2 + (ve7Var == null ? 0 : ve7Var.hashCode())) * 31;
+            ue7 ue7Var = this.g;
+            int hashCode4 = (hashCode3 + (ue7Var == null ? 0 : ue7Var.hashCode())) * 31;
+            String str = this.h;
+            return ((((((((hashCode4 + (str != null ? str.hashCode() : 0)) * 31) + this.i.hashCode()) * 31) + this.j.hashCode()) * 31) + this.k.hashCode()) * 31) + this.l.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return "CardHeadUiState(headData=" + this.d + ", feedBackData=" + this.e + ", personAttentionUiState=" + this.f + ", forumAttentionUiState=" + this.g + ", schema=" + this.h + ", statDataList=" + this.i + ", onItemClick=" + this.j + ", onImageClick=" + this.k + ", onFeedBackClick=" + this.l + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public c77(f87 headData, u87 u87Var, ve7 ve7Var, ue7 ue7Var, String str, List<u97> statDataList, Function2<? super View, ? super String, Unit> onItemClick, Function2<? super View, ? super String, Unit> onImageClick, Function2<? super u87, ? super View, Unit> onFeedBackClick) {
+        super(null, null, 3, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {headData, u87Var, ve7Var, ue7Var, str, statDataList, onItemClick, onImageClick, onFeedBackClick};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            List<PicInfo> pics = feedPicComponent.pics;
-            Intrinsics.checkNotNullExpressionValue(pics, "pics");
-            String schema = feedPicComponent.schema;
-            Intrinsics.checkNotNullExpressionValue(schema, "schema");
-            dataList.add(new u87(a(pics, schema, feedExtraData), "pic"));
         }
+        Intrinsics.checkNotNullParameter(headData, "headData");
+        Intrinsics.checkNotNullParameter(statDataList, "statDataList");
+        Intrinsics.checkNotNullParameter(onItemClick, "onItemClick");
+        Intrinsics.checkNotNullParameter(onImageClick, "onImageClick");
+        Intrinsics.checkNotNullParameter(onFeedBackClick, "onFeedBackClick");
+        this.d = headData;
+        this.e = u87Var;
+        this.f = ve7Var;
+        this.g = ue7Var;
+        this.h = str;
+        this.i = statDataList;
+        this.j = onItemClick;
+        this.k = onImageClick;
+        this.l = onFeedBackClick;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ c77(f87 f87Var, u87 u87Var, ve7 ve7Var, ue7 ue7Var, String str, List list, Function2 function2, Function2 function22, Function2 function23, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(f87Var, u87Var, ve7Var, ue7Var, str, r8, r9, r10, r11);
+        ArrayList arrayList;
+        Function2<View, String, Unit> function24;
+        Function2<View, String, Unit> function25;
+        Function2<u87, View, Unit> function26;
+        if ((i & 32) != 0) {
+            arrayList = new ArrayList();
+        } else {
+            arrayList = list;
+        }
+        if ((i & 64) != 0) {
+            function24 = CommonOnClickKt.b();
+        } else {
+            function24 = function2;
+        }
+        if ((i & 128) != 0) {
+            function25 = CommonOnClickKt.b();
+        } else {
+            function25 = function22;
+        }
+        if ((i & 256) != 0) {
+            function26 = CommonOnClickKt.a();
+        } else {
+            function26 = function23;
+        }
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.mc7
+    public /* bridge */ /* synthetic */ c77 b() {
+        h();
+        return this;
+    }
+
+    public final u87 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return (u87) invokeV.objValue;
+    }
+
+    public final ue7 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return (ue7) invokeV.objValue;
+    }
+
+    public final f87 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (f87) invokeV.objValue;
+    }
+
+    public final Function2<u87, View, Unit> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.l;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    public final Function2<View, String, Unit> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.k;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    public final Function2<View, String, Unit> n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.j;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    public final ve7 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.f;
+        }
+        return (ve7) invokeV.objValue;
+    }
+
+    public final String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final List<u97> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.i;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.mb7
+    public void d(Object event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            ve7 ve7Var = this.f;
+            if (ve7Var != null) {
+                ve7Var.d(event);
+            }
+            ue7 ue7Var = this.g;
+            if (ue7Var != null) {
+                ue7Var.d(event);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
+            preLoadImageInfo.imgUrl = this.d.b().c();
+            preLoadImageInfo.procType = 28;
+            preLoadImageInfo.preloadType = 3;
+            ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
+            arrayList.add(preLoadImageInfo);
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

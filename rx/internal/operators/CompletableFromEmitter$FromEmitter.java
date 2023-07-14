@@ -1,20 +1,20 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.etb;
-import com.baidu.tieba.kxb;
-import com.baidu.tieba.ntb;
-import com.baidu.tieba.wsb;
+import com.baidu.tieba.b2c;
+import com.baidu.tieba.h6c;
+import com.baidu.tieba.k2c;
+import com.baidu.tieba.t1c;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes2.dex */
-public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements etb {
+public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements b2c {
     public static final long serialVersionUID = 5539301318568668881L;
-    public final wsb actual;
+    public final t1c actual;
     public final SequentialSubscription resource = new SequentialSubscription();
 
-    public CompletableFromEmitter$FromEmitter(wsb wsbVar) {
-        this.actual = wsbVar;
+    public CompletableFromEmitter$FromEmitter(t1c t1cVar) {
+        this.actual = t1cVar;
     }
 
     public void onError(Throwable th) {
@@ -26,18 +26,18 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
                 this.resource.unsubscribe();
             }
         }
-        kxb.j(th);
+        h6c.j(th);
     }
 
-    public void setCancellation(ntb ntbVar) {
-        setSubscription(new CancellableSubscription(ntbVar));
+    public void setCancellation(k2c k2cVar) {
+        setSubscription(new CancellableSubscription(k2cVar));
     }
 
-    public void setSubscription(etb etbVar) {
-        this.resource.update(etbVar);
+    public void setSubscription(b2c b2cVar) {
+        this.resource.update(b2cVar);
     }
 
-    @Override // com.baidu.tieba.etb
+    @Override // com.baidu.tieba.b2c
     public boolean isUnsubscribed() {
         return get();
     }
@@ -52,7 +52,7 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
         }
     }
 
-    @Override // com.baidu.tieba.etb
+    @Override // com.baidu.tieba.b2c
     public void unsubscribe() {
         if (compareAndSet(false, true)) {
             this.resource.unsubscribe();

@@ -2,6 +2,7 @@ package com.baidu.tieba.tbadkCore.data;
 
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,14 +16,14 @@ import com.google.gson.annotations.SerializedName;
 import org.json.JSONObject;
 import tbclient.ThemeBubble;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ThemeBubbleData {
     public static /* synthetic */ Interceptable $ic;
     public static final ThemeBubbleData DEFAULT;
     public transient /* synthetic */ FieldHolder $fh;
     @SerializedName(BigdayActivityConfig.JUMP_URL)
     public String jumpUrl;
-    @SerializedName("package_id")
+    @SerializedName(TableDefine.EmojiColumns.COLUMN_PACKAGE_ID)
     public int packageId;
     @SerializedName("props_id")
     public int propsId;
@@ -105,7 +106,7 @@ public class ThemeBubbleData {
         this.propsId = 0;
         this.packageId = 0;
         this.propsId = jSONObject.optInt("props_id");
-        this.packageId = jSONObject.optInt("package_id");
+        this.packageId = jSONObject.optInt(TableDefine.EmojiColumns.COLUMN_PACKAGE_ID);
         this.jumpUrl = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
     }
 

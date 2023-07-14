@@ -6,8 +6,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.f3b;
-import com.baidu.tieba.v3b;
+import com.baidu.tieba.dcb;
+import com.baidu.tieba.tcb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import com.baidu.voyager.impl.IVoyagerService;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VoyagerIPCManager {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
@@ -65,8 +65,8 @@ public class VoyagerIPCManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: com.baidu.voyager.impl.service.VoyagerIPCManager$1$a */
-                /* loaded from: classes8.dex */
-                public class a implements v3b {
+                /* loaded from: classes9.dex */
+                public class a implements tcb {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ IVoyagerCallback a;
@@ -89,7 +89,7 @@ public class VoyagerIPCManager {
                         this.a = iVoyagerCallback;
                     }
 
-                    @Override // com.baidu.tieba.v3b
+                    @Override // com.baidu.tieba.tcb
                     public void onFailure(String str, JSONObject jSONObject) {
                         IVoyagerCallback iVoyagerCallback;
                         String jSONObject2;
@@ -112,7 +112,7 @@ public class VoyagerIPCManager {
                         }
                     }
 
-                    @Override // com.baidu.tieba.v3b
+                    @Override // com.baidu.tieba.tcb
                     public void onSuccess(String str, JSONObject jSONObject) {
                         IVoyagerCallback iVoyagerCallback;
                         String jSONObject2;
@@ -137,8 +137,8 @@ public class VoyagerIPCManager {
                 }
 
                 /* renamed from: com.baidu.voyager.impl.service.VoyagerIPCManager$1$b */
-                /* loaded from: classes8.dex */
-                public class b implements v3b {
+                /* loaded from: classes9.dex */
+                public class b implements tcb {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ IVoyagerCallback a;
@@ -161,7 +161,7 @@ public class VoyagerIPCManager {
                         this.a = iVoyagerCallback;
                     }
 
-                    @Override // com.baidu.tieba.v3b
+                    @Override // com.baidu.tieba.tcb
                     public void onFailure(String str, JSONObject jSONObject) {
                         IVoyagerCallback iVoyagerCallback;
                         String jSONObject2;
@@ -184,7 +184,7 @@ public class VoyagerIPCManager {
                         }
                     }
 
-                    @Override // com.baidu.tieba.v3b
+                    @Override // com.baidu.tieba.tcb
                     public void onSuccess(String str, JSONObject jSONObject) {
                         IVoyagerCallback iVoyagerCallback;
                         String jSONObject2;
@@ -227,7 +227,7 @@ public class VoyagerIPCManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
                         try {
-                            f3b.n().q(list, str, j, i, i2, new JSONObject(str2));
+                            dcb.n().q(list, str, j, i, i2, new JSONObject(str2));
                         } catch (JSONException e) {
                             if (VoyagerIPCManager.a) {
                                 e.printStackTrace();
@@ -240,7 +240,7 @@ public class VoyagerIPCManager {
                 public void uploadFileListWithCallback(List<String> list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), iVoyagerCallback}) == null) {
-                        f3b.n().r(list, str, j, i, new a(this, iVoyagerCallback));
+                        dcb.n().r(list, str, j, i, new a(this, iVoyagerCallback));
                     }
                 }
 
@@ -249,7 +249,7 @@ public class VoyagerIPCManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3}) == null) {
                         try {
-                            f3b.n().s(str, str2, i, i2, new JSONObject(str3));
+                            dcb.n().s(str, str2, i, i2, new JSONObject(str3));
                         } catch (JSONException e) {
                             if (VoyagerIPCManager.a) {
                                 e.printStackTrace();
@@ -262,7 +262,7 @@ public class VoyagerIPCManager {
                 public void uploadZipFileWithCallback(String str, String str2, int i, IVoyagerCallback iVoyagerCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLIL(1048579, this, str, str2, i, iVoyagerCallback) == null) {
-                        f3b.n().t(str, str2, new b(this, iVoyagerCallback));
+                        dcb.n().t(str, str2, new b(this, iVoyagerCallback));
                     }
                 }
             }, false);

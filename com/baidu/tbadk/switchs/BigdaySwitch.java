@@ -1,29 +1,29 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ef;
-import com.baidu.tieba.r95;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.ff;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class BigdaySwitch extends ef {
+public class BigdaySwitch extends ff {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BIGDAY_KEY = "android_bigday_switch";
     public static final int OFF_TYPE = 0;
     public static final int ON_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ef
+    @Override // com.baidu.tieba.ff
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ef
+    @Override // com.baidu.tieba.ff
     /* renamed from: getCrashKeys */
     public String[] mo129getCrashKeys() {
         InterceptResult invokeV;
@@ -34,7 +34,7 @@ public class BigdaySwitch extends ef {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ef
+    @Override // com.baidu.tieba.ff
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class BigdaySwitch extends ef {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ef
+    @Override // com.baidu.tieba.ff
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? BIGDAY_KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ef
+    @Override // com.baidu.tieba.ff
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,12 +75,12 @@ public class BigdaySwitch extends ef {
         }
     }
 
-    @Override // com.baidu.tieba.ef
+    @Override // com.baidu.tieba.ff
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return r95.p().q("key_bigday_sync_switch", 0);
+            return da5.p().q("key_bigday_sync_switch", 0);
         }
         return invokeV.intValue;
     }

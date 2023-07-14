@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LoadErrorCode {
     public static final int APK_FILE_NOT_EXIST = 1009;
     public static final String COLON = ":";
@@ -85,7 +85,7 @@ public class LoadErrorCode {
     public volatile JSONArray mDownloadInfo;
     public volatile int mErrorCode;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Statistics {
         public static final boolean DEBUG = true;
         public static final String KEY_ERROR_CNT = "error_cnt";
@@ -103,7 +103,7 @@ public class LoadErrorCode {
         public static final String RECORD_RELATIVE_PATH = "/zeus/statistics/".replace((char) WebvttCueParser.CHAR_SLASH, File.separatorChar);
         public static final String RECORD_FILE_NAME = "/load_error.json".replace((char) WebvttCueParser.CHAR_SLASH, File.separatorChar);
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static class ErrorItem {
             public int mCount;
             public String mDetails;

@@ -9,10 +9,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.f55;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetMsg;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.xe;
+import com.baidu.tieba.o55;
+import com.baidu.tieba.ye;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,10 +96,10 @@ public class ForumRankModel extends BdBaseModel {
             ForumRankData forumRankData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                f55.d();
-                xe<String> e = f55.e("tb.forum_rank");
-                if (e != null) {
-                    str = e.get("forum_rank_cache_key_" + this.a.a);
+                o55.e();
+                ye<String> f = o55.f("tb.forum_rank");
+                if (f != null) {
+                    str = f.get("forum_rank_cache_key_" + this.a.a);
                 } else {
                     str = null;
                 }
@@ -113,8 +113,8 @@ public class ForumRankModel extends BdBaseModel {
                 if (StringUtils.isNull(postNetData)) {
                     return null;
                 }
-                if (e != null) {
-                    e.e("forum_rank_cache_key_" + this.a.a, postNetData, 86400000L);
+                if (f != null) {
+                    f.e("forum_rank_cache_key_" + this.a.a, postNetData, 86400000L);
                 }
                 return (ForumRankData) OrmObject.objectWithJsonStr(postNetData, ForumRankData.class);
             }
@@ -181,7 +181,7 @@ public class ForumRankModel extends BdBaseModel {
         this.c = bundle.getString("st_type");
     }
 
-    public void b0(Bundle bundle) {
+    public void c0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             bundle.putString("id", this.a);

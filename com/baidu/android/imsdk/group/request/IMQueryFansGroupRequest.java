@@ -182,7 +182,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
                                         e = e;
                                         mytask = this;
                                         arrayList = arrayList2;
-                                        LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
+                                        LogUtils.e(LogUtils.TAG, "IMQueryFansGroupRequest JSONException", e);
                                         i = 1010;
                                         str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                                         removeListener = ListenerManager.getInstance().removeListener(mytask.this$0.mKey);

@@ -1,74 +1,60 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ok3 extends mk3 {
+public class ok3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AshmemFileDescriptor a;
+    public volatile SwanKV b;
 
-    public ok3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948035090, "Lcom/baidu/tieba/ok3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948035090, "Lcom/baidu/tieba/ok3;");
+                return;
             }
         }
+        mk3.d();
     }
 
-    @Override // com.baidu.tieba.mk3
-    @SuppressLint({"BDThrowableCheck"})
-    public Bundle c(lk3 lk3Var) {
-        InterceptResult invokeL;
+    public AshmemFileDescriptor a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lk3Var)) == null) {
-            kk3 b = qk3.b(lk3Var.a);
-            if (b == null) {
-                if (!mk3.a) {
-                    return Bundle.EMPTY;
-                }
-                throw new IllegalArgumentException("illegal sp.");
-            }
-            int i = lk3Var.b;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                if (mk3.a) {
-                                    throw new IllegalArgumentException("wrong info params.");
-                                }
-                            } else {
-                                b.putFloat(lk3Var.c, Float.parseFloat(lk3Var.d));
-                            }
-                        } else {
-                            b.putString(lk3Var.c, lk3Var.d);
-                        }
-                    } else {
-                        b.putBoolean(lk3Var.c, Boolean.parseBoolean(lk3Var.d));
-                    }
-                } else {
-                    b.putLong(lk3Var.c, Long.parseLong(lk3Var.d));
-                }
-            } else {
-                b.putInt(lk3Var.c, Integer.parseInt(lk3Var.d));
-            }
-            if (mk3.a) {
-                Log.d("SwanAppSpDelegation", "Put: " + lk3Var);
-            }
-            return Bundle.EMPTY;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (Bundle) invokeL.objValue;
+        return (AshmemFileDescriptor) invokeV.objValue;
+    }
+
+    @NonNull
+    public SwanKV b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (SwanKV) invokeV.objValue;
+    }
+
+    public void c(@NonNull SwanKV swanKV) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanKV) == null) {
+            this.b = swanKV;
+        }
     }
 }

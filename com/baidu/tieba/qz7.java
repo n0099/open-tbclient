@@ -1,26 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.squareup.wire.Message;
 /* loaded from: classes7.dex */
-public class qz7 implements dz7 {
+public class qz7 implements f19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ez7 a;
-    public cz7 b;
+    public c28.c a;
 
-    public qz7(ez7 ez7Var) {
+    @Override // com.baidu.tieba.f19
+    public void c(long j, String str, Message message, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    public qz7(c28.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ez7Var};
+            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,60 +35,35 @@ public class qz7 implements dz7 {
                 return;
             }
         }
-        this.a = ez7Var;
-        this.b = new pz7(this);
+        this.a = cVar;
     }
 
-    @Override // com.baidu.tieba.dz7
-    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.f19
+    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
-            cz7 cz7Var = this.b;
-            if (cz7Var != null) {
-                return cz7Var.a(bdUniqueId, str, str2, str3);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
+            rz7 rz7Var = new rz7();
+            y09 y09Var = new y09();
+            y09Var.a = j;
+            y09Var.b = str;
+            u09 a = d19.d().a(y09Var);
+            if (a != null) {
+                a.b(z, message, z2, i);
             }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dz7
-    public boolean b(int i, oz7 oz7Var) {
-        InterceptResult invokeIL;
-        ez7 ez7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, oz7Var)) == null) {
-            if (oz7Var != null && (ez7Var = this.a) != null) {
-                ez7Var.setData(oz7Var.getDataList());
-                return true;
+            rz7Var.b(a);
+            c28.c cVar = this.a;
+            if (cVar != null) {
+                cVar.d(z, rz7Var, z2, "", str, true);
             }
-            return false;
         }
-        return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dz7
-    public boolean c(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.f19
+    public void b(long j, String str, String str2, int i) {
+        c28.c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ez7 ez7Var = this.a;
-            if (ez7Var != null) {
-                ez7Var.b(i);
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dz7
-    public void setData(List<xn> list) {
-        ez7 ez7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (ez7Var = this.a) != null) {
-            ez7Var.setData(list);
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) && (cVar = this.a) != null) {
+            cVar.b(str, str2, i, true, 1);
         }
     }
 }

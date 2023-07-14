@@ -1,55 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.Formatter;
-import java.util.Locale;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.lang.reflect.InvocationTargetException;
+import java.util.NoSuchElementException;
 /* loaded from: classes5.dex */
 public class b2b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947594487, "Lcom/baidu/tieba/b2b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (b()) {
+                try {
+                    return (String) Class.forName("okhttp3.internal.Version").getMethod(TTDownloadField.TT_USERAGENT, new Class[0]).invoke(null, new Object[0]);
+                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947594487, "Lcom/baidu/tieba/b2b;");
-                return;
-            }
+            return "";
         }
-        new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
+        return (String) invokeV.objValue;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.trim().length() != 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                Class.forName("okhttp3.OkHttpClient");
+                return true;
+            } catch (Exception unused) {
                 return false;
             }
-            return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static String b(int i) {
-        InterceptResult invokeI;
+    public static boolean c() throws RuntimeException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i < 1000) {
-                i = 1000;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String a = a();
+            if (!a.isEmpty()) {
+                String[] split = a.split("/");
+                if (split.length == 2) {
+                    String[] split2 = split[1].split("\\.");
+                    if (split2.length == 3) {
+                        try {
+                            if (Integer.parseInt(split2[0]) == 3) {
+                                if (Integer.parseInt(split2[1]) >= 9) {
+                                    return true;
+                                }
+                            }
+                            return false;
+                        } catch (NumberFormatException unused) {
+                            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
+                        }
+                    }
+                    throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
+                }
+                throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
             }
-            return new Formatter(new StringBuilder(), Locale.getDefault()).format("%ds", Integer.valueOf(i / 1000)).toString();
+            throw new NoSuchElementException();
         }
-        return (String) invokeI.objValue;
+        return invokeV.booleanValue;
     }
 }

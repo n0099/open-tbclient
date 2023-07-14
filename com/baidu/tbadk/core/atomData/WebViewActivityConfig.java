@@ -3,10 +3,10 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.TbConfig;
@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wi;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -226,18 +226,21 @@ public class WebViewActivityConfig extends IntentConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!wi.isEmpty(str)) {
-                if (str.indexOf("_client_version=") < 0) {
-                    if (wi.isEmpty(Uri.parse(str).getQuery())) {
-                        str = str + "?_client_version=" + TbConfig.getVersion();
-                    } else {
-                        str = str + "&_client_version=" + TbConfig.getVersion();
-                    }
-                }
-                if (str.indexOf("nohead=1") < 0) {
-                    return str + "&nohead=1";
-                }
+            if (!UrlUtils.isBaiduDomain(str)) {
                 return str;
+            }
+            if (xi.isEmpty(str)) {
+                return str;
+            }
+            if (!str.contains("_client_version=")) {
+                if (!str.contains("?")) {
+                    str = str + "?_client_version=" + TbConfig.getVersion();
+                } else {
+                    str = str + "&_client_version=" + TbConfig.getVersion();
+                }
+            }
+            if (!str.contains("nohead=1")) {
+                return str + "&nohead=1";
             }
             return str;
         }
@@ -266,7 +269,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                xi.Q(getContext(), getContext().getString(R.string.web_view_corrupted));
+                yi.R(getContext(), getContext().getString(R.string.web_view_corrupted));
                 return false;
             }
             return true;

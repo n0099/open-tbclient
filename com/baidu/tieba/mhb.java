@@ -1,66 +1,31 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-/* loaded from: classes6.dex */
-public final class mhb<TResult> implements bhb<TResult> {
+import com.bytedance.sdk.openadsdk.TTAdDislike;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+/* loaded from: classes7.dex */
+public class mhb implements TTAdDislike.DislikeInteractionCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ehb<TResult> a;
-    public Executor b;
-    public final Object c;
+    public final /* synthetic */ View a;
+    public final /* synthetic */ ahb b;
+    public final /* synthetic */ FunAdInteractionListener c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ hhb e;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fhb a;
-        public final /* synthetic */ mhb b;
-
-        public a(mhb mhbVar, fhb fhbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mhbVar, fhbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mhbVar;
-            this.a = fhbVar;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.ehb */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onSuccess(this.a.e());
-                    }
-                }
-            }
-        }
-    }
-
-    public mhb(Executor executor, ehb<TResult> ehbVar) {
+    public mhb(hhb hhbVar, View view2, ahb ahbVar, FunAdInteractionListener funAdInteractionListener, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, ehbVar};
+            Object[] objArr = {hhbVar, view2, ahbVar, funAdInteractionListener, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,26 +35,42 @@ public final class mhb<TResult> implements bhb<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = ehbVar;
-        this.b = executor;
+        this.e = hhbVar;
+        this.a = view2;
+        this.b = ahbVar;
+        this.c = funAdInteractionListener;
+        this.d = str;
     }
 
-    @Override // com.baidu.tieba.bhb
-    public final void cancel() {
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
+            LogPrinter.e("CSJNativeExpressAd dislike callback onCancel", new Object[0]);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onSelected(int i, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            LogPrinter.e("CSJNativeExpressAd dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
+            View view2 = this.a;
+            if (view2 != null && view2.getParent() != null) {
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
+            }
+            this.e.onAdClose(this.b);
+            FunAdInteractionListener funAdInteractionListener = this.c;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdClose(this.d);
             }
         }
     }
 
-    @Override // com.baidu.tieba.bhb
-    public final void onComplete(fhb<TResult> fhbVar) {
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onShow() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fhbVar) == null) && fhbVar.h() && !fhbVar.f()) {
-            this.b.execute(new a(this, fhbVar));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

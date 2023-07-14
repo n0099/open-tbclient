@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.metadata.deserialization;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface NameResolver {
     String getQualifiedClassName(int i);
 

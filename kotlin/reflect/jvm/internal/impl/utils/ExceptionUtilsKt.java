@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.utils;
 
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ExceptionUtilsKt {
     public static final boolean isProcessCanceledException(Throwable th) {
         Class<?> cls = th.getClass();

@@ -1,79 +1,84 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import java.util.ArrayList;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public interface ns2 extends os2 {
+public class ns2 extends ms2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public interface a {
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ ys2 b;
+
+        public a(ns2 ns2Var, List list, ys2 ys2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns2Var, list, ys2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = list;
+            this.b = ys2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (String str : this.a) {
+                    this.b.e(str);
+                }
+            }
+        }
     }
 
-    void D(int i);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ns2(sc3 sc3Var) {
+        super(sc3Var, "/swanAPI/removeComponentFromFullScreenSync");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((sc3) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    void E();
-
-    void F(long j);
-
-    void I(int i);
-
-    void J(int i);
-
-    void K(int i);
-
-    void M(boolean z);
-
-    void R();
-
-    void U(int i);
-
-    void X(int i);
-
-    void Y(@NonNull a aVar);
-
-    void Z();
-
-    void c0(boolean z);
-
-    void d();
-
-    void d0(long j, boolean z);
-
-    void e(int i);
-
-    void exitRoom();
-
-    void f();
-
-    void g(boolean z);
-
-    ArrayList<rs2> h();
-
-    void h0(String str);
-
-    void i(boolean z);
-
-    void j(long j);
-
-    void k0(long j);
-
-    void l0(boolean z);
-
-    void n();
-
-    void p(long j, boolean z);
-
-    void r(String str);
-
-    void setCameraFace(boolean z);
-
-    void t(boolean z);
-
-    void u(qs2 qs2Var);
-
-    ArrayList<ps2> v();
-
-    void x(boolean z);
-
-    void y(boolean z);
+    @Override // com.baidu.tieba.ms2
+    public boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull ys2 ys2Var, @NonNull List<String> list) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, ys2Var, list)) == null) {
+            pp3.a0(new a(this, list, ys2Var));
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
 }

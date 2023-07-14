@@ -1,111 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import com.baidu.prologue.business.data.SplashStyleRecorder;
-import com.baidu.tieba.am1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class ok1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static am1 a(@NonNull sk1 sk1Var) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        int b;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sk1Var)) == null) {
-            am1.b bVar = new am1.b(sk1Var.j(), sk1Var.g);
-            bVar.u("rsplash");
-            boolean z3 = false;
-            if (sk1Var.f == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            bVar.i(z);
-            bVar.f(b());
-            bVar.n(c());
-            if (sk1Var.f == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            bVar.p(z2);
-            bVar.o(d(sk1Var.m));
-            bVar.D(sk1Var.n * 1000);
-            bVar.B(1);
-            bVar.G(SplashStyleRecorder.a());
-            bVar.g(5);
-            bVar.z(false);
-            bVar.c(sk1Var.l);
-            bVar.e(25);
-            bVar.d(13);
-            bVar.C(72);
-            bVar.A(30);
-            bVar.F(68);
-            bVar.E(30);
-            bVar.h(17);
-            bVar.r(sk1Var.z);
-            if (sk1Var.A == 1) {
-                z3 = true;
-            }
-            bVar.y(z3);
-            bVar.b(sk1Var.B);
-            bVar.q(sk1Var.f());
-            bVar.s("跳转详情页或第三方应用");
-            if (sk1Var.l()) {
-                b = 47;
-            } else {
-                b = b() + 39;
-            }
-            bVar.t(b);
-            bVar.k(sk1Var.H);
-            bVar.m(sk1Var.G);
-            bVar.l(sk1Var.e());
-            bVar.j(sk1Var.X);
-            bVar.x(sk1Var.i());
-            bVar.w(sk1Var.h());
-            bVar.v(sk1Var.g());
-            return bVar.a();
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            k41.a().b("splash_sp_name").f("splash_launch_status", 2);
         }
-        return (am1) invokeL.objValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return ek1.a().b();
-        }
-        return invokeV.intValue;
-    }
-
-    @IdRes
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return ek1.a().c();
-        }
-        return invokeV.intValue;
-    }
-
-    @IdRes
-    public static int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i == 1) {
-                return ek1.a().h();
-            }
-            return ek1.a().g();
-        }
-        return invokeI.intValue;
     }
 }

@@ -1,25 +1,65 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.personPolymeric.constant.PersonStatus;
+import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class wl9 {
+public class wl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public final View a;
+    public final View b;
+    public final TextView c;
+    public PbFragment d;
+    public View.OnClickListener e;
 
-    public wl9(boolean z) {
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wl9 a;
+
+        public a(wl9 wl9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wl9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                wl9 wl9Var = this.a;
+                if (view2 == wl9Var.b && wl9Var.d != null && this.a.d.getBaseFragmentActivity() != null) {
+                    this.a.d.getBaseFragmentActivity().finish();
+                }
+            }
+        }
+    }
+
+    public wl9(PbFragment pbFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {pbFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,44 +69,25 @@ public abstract class wl9 {
                 return;
             }
         }
-        this.a = z;
+        this.e = new a(this);
+        this.d = pbFragment;
+        this.b = pbFragment.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f0916b2);
+        this.c = (TextView) this.d.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f0916b3);
+        this.a = this.d.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f0916af);
+        this.b.setOnClickListener(this.e);
     }
 
-    public PersonStatus g(UserData userData) {
-        InterceptResult invokeL;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userData)) == null) {
-            if (userData == null) {
-                if (this.a) {
-                    return PersonStatus.HOST_DEFAULT;
-                }
-                return PersonStatus.GUEST_DEFAULT;
-            } else if (userData.isBaijiahaoUser()) {
-                if (this.a) {
-                    return PersonStatus.HOST_BJH;
-                }
-                return PersonStatus.GUEST_BJH;
-            } else if (this.a) {
-                return PersonStatus.HOST_DEFAULT;
-            } else {
-                return PersonStatus.GUEST_DEFAULT;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c.setText(str);
         }
-        return (PersonStatus) invokeL.objValue;
     }
 
-    public PersonStatus h(dm9 dm9Var) {
-        InterceptResult invokeL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dm9Var)) == null) {
-            if (dm9Var != null && dm9Var.j() != null) {
-                return g(dm9Var.j());
-            }
-            if (this.a) {
-                return PersonStatus.HOST_DEFAULT;
-            }
-            return PersonStatus.GUEST_DEFAULT;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.setVisibility(0);
         }
-        return (PersonStatus) invokeL.objValue;
     }
 }

@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.face.platform.ConstPath;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tieba.l82;
+import android.os.Bundle;
+import com.baidu.tieba.bx2;
+import com.baidu.tieba.tu2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.nio.channels.Pipe;
 /* loaded from: classes7.dex */
-public class qu2 {
+public class qu2 extends tu2.f {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static l82.g b;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
+    public final nj4 e;
 
     static {
         InterceptResult invokeClinit;
@@ -32,72 +33,73 @@ public class qu2 {
                 return;
             }
         }
-        a = ms1.a;
+        f = fs1.a;
     }
 
-    public static void a(l82.g gVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qu2(String str, nj4 nj4Var) {
+        super("check_sign");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
-            b = gVar;
-        }
-    }
-
-    public static void b(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, editText, i) == null) {
-            e(editText, ConstPath.KEY_BLUR, i);
-        }
-    }
-
-    public static void d(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, editText, i) == null) {
-            e(editText, "confirm", i);
-        }
-    }
-
-    public static void f(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, editText, i) == null) {
-            e(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
-        }
-    }
-
-    public static void c(m82 m82Var, EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65539, null, m82Var, editText, i) == null) && editText != null && b != null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("value", editText.getText());
-                jSONObject.put("eventName", "change");
-                jSONObject.put("cursorOffset", editText.getSelectionStart());
-                jSONObject.put("keyCode", i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, nj4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            m82Var.j(editText.getText().toString());
-            m82Var.l(editText.getSelectionStart(), editText.getSelectionEnd());
-            b.a(String.valueOf(editText.getTag()), jSONObject);
         }
+        this.d = str;
+        this.e = nj4Var;
     }
 
-    public static void e(EditText editText, String str, int i) {
+    @Override // com.baidu.tieba.tu2.f
+    public boolean g(Pipe.SourceChannel sourceChannel, Bundle bundle) {
+        InterceptResult invokeLL;
+        on3 on3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i) == null) && editText != null && b != null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sourceChannel, bundle)) == null) {
+            ax2 d = ax2.d(bundle.getString("launch_id"));
+            bx2.b e = d.e();
+            e.b("SignChecker");
+            boolean z = true;
+            e.d(1);
+            long currentTimeMillis = System.currentTimeMillis();
             try {
-                jSONObject.put("value", editText.getText());
-                jSONObject.put("eventName", str);
-                jSONObject.put("cursorOffset", editText.getText().length());
-                jSONObject.put("keyboardHeight", "" + tp3.O(i));
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
+                try {
+                    on3Var = nf2.a(sourceChannel, this.d, this.e);
+                } catch (IOException e2) {
+                    if (f) {
+                        e2.printStackTrace();
+                    }
+                    on3 on3Var2 = new on3();
+                    on3Var2.k(11L);
+                    on3Var2.i(2300L);
+                    on3Var2.f("inputStream IOException:" + e2.toString());
+                    sn3.a().f(on3Var2);
+                    d.g("SignChecker", on3Var2.toString());
+                    iq3.a(sourceChannel);
+                    on3Var = on3Var2;
                 }
+                d.g("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
+                if (on3Var != null) {
+                    z = false;
+                }
+                if (on3Var != null) {
+                    d.g("SignChecker", on3Var.toString());
+                    c().putLong("result_error_code", on3Var.a());
+                }
+                d.g("SignChecker", "done: " + z);
+                return z;
+            } finally {
+                iq3.a(sourceChannel);
             }
-            b.a(String.valueOf(editText.getTag()), jSONObject);
         }
+        return invokeLL.booleanValue;
     }
 }

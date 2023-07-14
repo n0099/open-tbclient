@@ -15,14 +15,14 @@ import com.kwad.components.ad.reward.k.u;
 import com.kwad.components.core.i.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends e implements a.b {
     public AdTemplate mAdTemplate;
     public int[] oi;
     public com.kwad.components.ad.reward.a.a oy;
     public a oz;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void gn();
     }

@@ -1,25 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.tieba.video.editvideo.data.PendantData;
-import java.util.List;
+import android.webkit.JsPromptResult;
 /* loaded from: classes7.dex */
 public interface nda {
-    void T();
-
-    void g0(String str);
-
-    void h();
-
-    void m();
-
-    void n0(String str);
-
-    void n1(Bitmap bitmap);
-
-    void onNext();
-
-    void s(List<PendantData> list);
-
-    void z();
+    boolean onJsPrompt(String str, JsPromptResult jsPromptResult);
 }

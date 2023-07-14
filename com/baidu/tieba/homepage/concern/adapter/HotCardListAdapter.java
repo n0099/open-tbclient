@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.h05;
 import com.baidu.tieba.homepage.personalize.view.HotCardView;
-import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class HotCardListAdapter extends RecyclerView.Adapter<HotCardViewHolder> 
     public TbPageContext a;
     public List<ThreadData> b;
     public ThemeColorInfo c;
-    public yz4 d;
+    public h05 d;
 
     /* loaded from: classes6.dex */
     public class HotCardViewHolder extends RecyclerView.ViewHolder {
@@ -76,10 +76,10 @@ public class HotCardListAdapter extends RecyclerView.Adapter<HotCardViewHolder> 
         this.a = tbPageContext;
     }
 
-    public void n(yz4 yz4Var) {
+    public void o(h05 h05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, yz4Var) == null) {
-            this.d = yz4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, h05Var) == null) {
+            this.d = h05Var;
         }
     }
 
@@ -95,7 +95,7 @@ public class HotCardListAdapter extends RecyclerView.Adapter<HotCardViewHolder> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: l */
+    /* renamed from: m */
     public void onBindViewHolder(@NonNull HotCardViewHolder hotCardViewHolder, int i) {
         ThreadData threadData;
         Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class HotCardListAdapter extends RecyclerView.Adapter<HotCardViewHolder> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: m */
+    /* renamed from: n */
     public HotCardViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -118,9 +118,9 @@ public class HotCardListAdapter extends RecyclerView.Adapter<HotCardViewHolder> 
         return (HotCardViewHolder) invokeLI.objValue;
     }
 
-    public void o(List<ThreadData> list, ThemeColorInfo themeColorInfo) {
+    public void p(List<ThreadData> list, ThemeColorInfo themeColorInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, list, themeColorInfo) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, list, themeColorInfo) == null) {
             if (ListUtils.isNotEmpty(this.b)) {
                 this.b.clear();
             }

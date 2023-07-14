@@ -12,34 +12,29 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g61;
-import com.baidu.tieba.ip0;
-import com.baidu.tieba.vc1;
-import com.baidu.tieba.x71;
+import com.baidu.tieba.e71;
+import com.baidu.tieba.nc1;
+import com.baidu.tieba.sp0;
+import com.baidu.tieba.y81;
 /* loaded from: classes3.dex */
 public class NadIconTextButton extends AppCompatTextView {
 
     /* loaded from: classes3.dex */
-    public class a implements ip0 {
+    public class a implements sp0 {
+        @Override // com.baidu.tieba.sp0
+        public void a() {
+        }
+
         public a() {
         }
 
-        @Override // com.baidu.tieba.ip0
+        @Override // com.baidu.tieba.sp0
         public void b(Bitmap bitmap) {
             if (bitmap != null) {
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(NadIconTextButton.this.getResources(), bitmap);
-                bitmapDrawable.setBounds(0, 0, g61.c.a(NadIconTextButton.this.getContext(), 12.0f), g61.c.a(NadIconTextButton.this.getContext(), 12.0f));
+                bitmapDrawable.setBounds(0, 0, e71.c.a(NadIconTextButton.this.getContext(), 12.0f), e71.c.a(NadIconTextButton.this.getContext(), 12.0f));
                 NadIconTextButton.this.setCompoundDrawables(bitmapDrawable, null, null, null);
             }
-        }
-
-        @Override // com.baidu.tieba.ip0
-        public void a() {
-            Drawable drawable = ContextCompat.getDrawable(NadIconTextButton.this.getContext(), R.drawable.nad_sv_button_icon);
-            if (drawable != null) {
-                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            }
-            NadIconTextButton.this.setCompoundDrawables(drawable, null, null, null);
         }
     }
 
@@ -47,17 +42,17 @@ public class NadIconTextButton extends AppCompatTextView {
         this(context, null);
     }
 
-    public final void d(@Nullable x71 x71Var) {
-        if (x71Var != null && !TextUtils.isEmpty(x71Var.b)) {
-            setText(x71Var.b);
+    public final void h(@Nullable y81 y81Var) {
+        if (y81Var != null && !TextUtils.isEmpty(y81Var.b)) {
+            setText(y81Var.b);
         } else {
             setText(getContext().getString(R.string.nad_icon_text));
         }
     }
 
-    public void update(@Nullable x71 x71Var) {
-        d(x71Var);
-        c(x71Var);
+    public void update(@Nullable y81 y81Var) {
+        h(y81Var);
+        e(y81Var);
     }
 
     public NadIconTextButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -66,10 +61,10 @@ public class NadIconTextButton extends AppCompatTextView {
 
     public NadIconTextButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        a(context);
+        d(context);
     }
 
-    public final void a(@NonNull Context context) {
+    public final void d(@NonNull Context context) {
         setGravity(16);
         setTextSize(0, context.getResources().getDimension(R.dimen.nad_dimen_12dp));
         setTextColor(ContextCompat.getColor(context, R.color.nad_icon_text_color));
@@ -84,15 +79,14 @@ public class NadIconTextButton extends AppCompatTextView {
         setPadding(dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset, dimensionPixelOffset2);
     }
 
-    public final void c(@Nullable x71 x71Var) {
-        if (x71Var != null && !TextUtils.isEmpty(x71Var.a)) {
-            vc1.a().c(x71Var.a, new a());
-            return;
-        }
+    public final void e(@Nullable y81 y81Var) {
         Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.nad_sv_button_icon);
         if (drawable != null) {
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         }
         setCompoundDrawables(drawable, null, null, null);
+        if (y81Var != null && !TextUtils.isEmpty(y81Var.a)) {
+            nc1.a().c(y81Var.a, new a());
+        }
     }
 }

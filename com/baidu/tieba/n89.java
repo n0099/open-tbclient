@@ -1,154 +1,113 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
-import android.widget.TextView;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.widget.EditText;
+import android.widget.Toast;
+import com.baidu.adp.base.BdBaseActivity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.Post;
-import tbclient.User;
 /* loaded from: classes7.dex */
 public class n89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public TextView c;
-    public m89 d;
-    public m89 e;
-    public m89 f;
-    public View g;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void a(String str);
+    public class a extends rg<jn> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EditText a;
+        public final /* synthetic */ SpannableStringBuilder b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ EmotionGroupType d;
+        public final /* synthetic */ n89 e;
+
+        public a(n89 n89Var, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n89Var, editText, spannableStringBuilder, Integer.valueOf(i), emotionGroupType};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = n89Var;
+            this.a = editText;
+            this.b = spannableStringBuilder;
+            this.c = i;
+            this.d = emotionGroupType;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rg
+        public void onLoaded(jn jnVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, jnVar, str, i) == null) {
+                super.onLoaded((a) jnVar, str, i);
+                if (jnVar != null) {
+                    this.e.c(this.a, this.b, this.c, jnVar, this.d);
+                }
+            }
+        }
     }
 
-    public n89(Context context, a aVar) {
+    public n89() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void b(BdBaseActivity<?> bdBaseActivity, EditText editText, yd5 yd5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, yd5Var) == null) {
+            if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
+                Toast makeText = Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.too_many_face, 0);
+                GreyUtil.grey(makeText);
+                makeText.show();
                 return;
             }
-        }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f8, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906f3);
-        this.g = this.b.findViewById(R.id.obfuscated_res_0x7f0906f0);
-        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f090756);
-        this.d = new m89((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f0906f4), aVar);
-        this.e = new m89((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f0906f5), aVar);
-        this.f = new m89((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f0906f6), aVar);
-    }
-
-    public final User a(Post post, List<User> list) {
-        InterceptResult invokeLL;
-        Long l;
-        Long l2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, post, list)) == null) {
-            if (post == null || list == null || list.isEmpty() || (l = post.author_id) == null) {
-                return null;
+            String d = yd5Var.d();
+            EmotionGroupType type = yd5Var.getType();
+            if (d != null) {
+                sg.h().k(d, 20, new a(this, editText, new SpannableStringBuilder(d), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, d, Boolean.FALSE, null);
             }
-            long longValue = l.longValue();
-            for (User user : list) {
-                if (user != null && (l2 = user.id) != null && l2.longValue() == longValue) {
-                    return user;
-                }
+        }
+    }
+
+    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i, jn jnVar, EmotionGroupType emotionGroupType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{editText, spannableStringBuilder, Integer.valueOf(i), jnVar, emotionGroupType}) == null) {
+            Bitmap p = jnVar.p();
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
+            int width = p.getWidth();
+            if (emotionGroupType == EmotionGroupType.LOCAL) {
+                width = (int) (width * 0.5d);
             }
-            return null;
-        }
-        return (User) invokeLL.objValue;
-    }
-
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.color.common_color_10187);
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            this.d.c();
-            this.e.c();
-            this.f.c();
-        }
-    }
-
-    public void d(List<Post> list, List<User> list2) {
-        boolean z;
-        boolean update;
-        boolean update2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
-            if (list != null && !list.isEmpty()) {
-                this.g.setVisibility(0);
-                int size = list.size();
-                if (size == 1) {
-                    z = this.d.update(list.get(0), a(list.get(0), list2));
-                    this.e.d(false);
-                    this.f.d(false);
-                } else {
-                    if (size == 2) {
-                        boolean update3 = this.d.update(list.get(0), a(list.get(0), list2));
-                        boolean update4 = this.e.update(list.get(1), a(list.get(1), list2));
-                        this.f.d(false);
-                        update = update4;
-                        z = update3;
-                        update2 = false;
-                    } else if (size >= 3) {
-                        boolean update5 = this.d.update(list.get(0), a(list.get(0), list2));
-                        update = this.e.update(list.get(1), a(list.get(1), list2));
-                        update2 = this.f.update(list.get(2), a(list.get(2), list2));
-                        z = update5;
-                    } else {
-                        z = false;
-                    }
-                    if (z && !update && !update2) {
-                        this.c.setVisibility(8);
-                        return;
-                    } else {
-                        this.c.setVisibility(0);
-                        return;
-                    }
-                }
-                update2 = false;
-                update = false;
-                if (z) {
-                }
-                this.c.setVisibility(0);
-                return;
-            }
-            this.c.setVisibility(8);
-            this.d.d(false);
-            this.e.d(false);
-            this.f.d(false);
-            this.g.setVisibility(8);
+            bitmapDrawable.setBounds(0, 0, width, width);
+            bitmapDrawable.setGravity(119);
+            spannableStringBuilder.setSpan(new ImageSpan(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
+            editText.getText().insert(i, spannableStringBuilder);
         }
     }
 }

@@ -1,63 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.schemedispatch.forbid.SchemeForbidCheckUtils;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import java.io.File;
 /* loaded from: classes7.dex */
 public class sc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<String> a() {
-        InterceptResult invokeV;
+    public static synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String w = r95.p().w(SchemeForbidCheckUtils.SCHEME_WHITE_LIST_FILENAME, null);
-            if (StringUtils.isNull(w)) {
-                return null;
-            }
-            try {
-                return b(new JSONArray(w));
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static List<String> b(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                String optString = jSONArray.optString(i);
-                if (!StringUtils.isNull(optString)) {
-                    arrayList.add(optString);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            synchronized (sc5.class) {
+                File file = new File(FileHelper.getCacheDir() + "voice");
+                if (file.exists() && file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles == null) {
+                        return;
+                    }
+                    for (File file2 : listFiles) {
+                        file2.delete();
+                    }
                 }
             }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
     }
 
-    public static void c(JSONArray jSONArray) {
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, jSONArray) == null) {
-            if (jSONArray == null) {
-                r95.p().J(SchemeForbidCheckUtils.SCHEME_WHITE_LIST_FILENAME, "");
-            } else {
-                r95.p().J(SchemeForbidCheckUtils.SCHEME_WHITE_LIST_FILENAME, jSONArray.toString());
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true));
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static rc5 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            rc5 rc5Var = new rc5();
+            if (str == null) {
+                rc5Var.f(6);
+                rc5Var.g(rc5.a(rc5Var.b()));
+                return rc5Var;
+            }
+            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
+                rc5Var.f(7);
+                rc5Var.g(rc5.a(rc5Var.b()));
+                return rc5Var;
+            }
+            String b = fj.b(FileHelper.GetStreamFromTmpFile(str));
+            if (b == null) {
+                rc5Var.f(5);
+                rc5Var.g(rc5.a(rc5Var.b()));
+            } else {
+                String filePath = FileHelper.getFilePath(b, 1, true);
+                if (FileHelper.renameTo(str, filePath)) {
+                    rc5Var.i(filePath);
+                    rc5Var.h(b);
+                } else {
+                    rc5Var.f(1);
+                    rc5Var.g(rc5.a(rc5Var.b()));
+                }
+            }
+            return rc5Var;
+        }
+        return (rc5) invokeL.objValue;
     }
 }

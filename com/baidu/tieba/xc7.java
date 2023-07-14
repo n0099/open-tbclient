@@ -1,139 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
-import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
-import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
+import com.baidu.tieba.feed.component.CardAbstractView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xc7 {
+public class xc7 extends vb7<CardAbstractView, z67> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public final BdUniqueId b;
-    public b c;
-    public kb d;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(boolean z, bd7 bd7Var);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends kb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xc7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(xc7 xc7Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xc7Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xc7Var;
-        }
-
-        @Override // com.baidu.tieba.kb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                bd7 bd7Var = null;
-                boolean z = false;
-                if (responsedMessage != null && !responsedMessage.hasError() && responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() == this.a.b) {
-                    if (responsedMessage instanceof SearchPostForumHttpResponseMessage) {
-                        bd7Var = ((SearchPostForumHttpResponseMessage) responsedMessage).getSearchData();
-                    }
-                    if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
-                        bd7Var = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
-                    }
-                    if (this.a.c != null) {
-                        b bVar = this.a.c;
-                        if (bd7Var != null) {
-                            z = true;
-                        }
-                        bVar.a(z, bd7Var);
-                    }
-                } else if (this.a.c != null) {
-                    this.a.c.a(false, null);
-                }
-            }
-        }
-    }
-
-    public xc7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xc7(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466);
-        this.d = aVar;
-        this.a = tbPageContext;
-        this.b = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.d);
     }
 
-    public void e(b bVar) {
+    @Override // com.baidu.tieba.vb7, com.baidu.tieba.lc7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            zd7.l(a, null, 0);
+            return a;
         }
+        return (View) invokeL.objValue;
     }
 
-    public void c() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lc7
+    /* renamed from: e */
+    public void b(@NonNull CardAbstractView cardAbstractView, @NonNull z67 z67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardAbstractView, z67Var) == null) {
+            cardAbstractView.f(z67Var);
         }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (!xi.F()) {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
-            return;
-        }
-        c();
-        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
-        SearchPostForumRequestMessage searchPostForumRequestMessage = new SearchPostForumRequestMessage();
-        searchPostForumRequestMessage.setTag(this.b);
-        searchPostForumRequestMessage.set_word(str);
-        MessageManager.getInstance().sendMessage(searchPostForumRequestMessage);
     }
 }

@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ImplicitClassReceiver implements ImplicitReceiver, ThisClassReceiver {
     public final ClassDescriptor classDescriptor;
     public final ClassDescriptor declarationDescriptor;

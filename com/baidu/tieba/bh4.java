@@ -1,94 +1,153 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Point;
-import android.widget.ImageView;
-import com.baidu.mapapi.map.MapViewLayoutParams;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.zo3;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bh4 {
+public class bh4 implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListener, BaiduMap.OnMapRenderCallback, BaiduMap.OnMarkerClickListener, View.OnClickListener, BaiduMap.OnMapStatusChangeListener, BaiduMap.OnMyLocationClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public fh4 b;
 
-    /* loaded from: classes5.dex */
-    public static class a implements zo3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uy2 a;
-        public final /* synthetic */ mh4 b;
-        public final /* synthetic */ ih4 c;
-
-        public a(uy2 uy2Var, mh4 mh4Var, ih4 ih4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uy2Var, mh4Var, ih4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uy2Var;
-            this.b = mh4Var;
-            this.c = ih4Var;
-        }
-
-        @Override // com.baidu.tieba.zo3.b
-        public void a(String str, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-                if (bitmap == null) {
-                    c92.o("map", " icon is null ");
-                }
-                if (bitmap != null) {
-                    int i = this.a.d.c;
-                    if (i == -1) {
-                        i = bitmap.getWidth();
-                    }
-                    int i2 = this.a.d.d;
-                    if (i2 == -1) {
-                        i2 = bitmap.getHeight();
-                    }
-                    MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-                    builder.layoutMode(MapViewLayoutParams.ELayoutMode.absoluteMode);
-                    builder.width(i);
-                    builder.height(i2);
-                    builder.align(1, 8);
-                    zy2 zy2Var = this.a.d;
-                    builder.point(new Point(zy2Var.a, zy2Var.b));
-                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
-                    imageView.setImageBitmap(bitmap);
-                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    this.b.l.addView(imageView, builder.build());
-                    imageView.setOnClickListener(this.c);
-                    imageView.setClickable(this.a.c);
-                    kh4 kh4Var = new kh4();
-                    kh4Var.a = this.a;
-                    kh4Var.b = imageView;
-                    this.b.o.add(kh4Var);
-                }
-            }
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeStart(MapStatus mapStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mapStatus) == null) {
         }
     }
 
-    public static void a(mh4 mh4Var, uy2 uy2Var, ih4 ih4Var) {
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMyLocationClickListener
+    public boolean onMyLocationClick() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, mh4Var, uy2Var, ih4Var) == null) {
-            c92.i("map", "createControl start");
-            if (uy2Var != null && uy2Var.isValid()) {
-                zo3.e(uy2Var.b, new a(uy2Var, mh4Var, ih4Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947644955, "Lcom/baidu/tieba/bh4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            c92.i("map", "createControl end");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947644955, "Lcom/baidu/tieba/bh4;");
+                return;
+            }
+        }
+        boolean z = fs1.a;
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapLoadedCallback
+    public void onMapLoaded() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            v82.i("map", "onMapLoaded");
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapRenderCallback
+    public void onMapRenderFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ah4.d(this.b);
+            v82.i("map", "onMapRenderFinished");
+        }
+    }
+
+    public bh4(@NonNull fh4 fh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fh4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.b = fh4Var;
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
+    public boolean onMarkerClick(Marker marker) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, marker)) == null) {
+            eh4 H = this.b.H(marker);
+            if (H != null) {
+                ah4.e(marker, this.b);
+                H.b(this.b);
+                v82.i("map", "onMarkerClick marker id " + marker.getId());
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            ah4.b(view2, this.b);
+            v82.i("map", "Control View click");
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
+    public void onMapClick(LatLng latLng) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng) == null) {
+            ah4.c(this.b, latLng);
+            v82.i("map", "onMapClick LatLng " + latLng);
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChange(MapStatus mapStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mapStatus) == null) {
+            v82.i("map", "onMapStatusChange");
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeFinish(MapStatus mapStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, mapStatus) == null) {
+            ah4.f(this.b, mapStatus, this.a);
+            v82.i("map", "onMapStatusChangeFinish");
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, mapStatus, i) == null) {
+            this.a = i;
         }
     }
 }

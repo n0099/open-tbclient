@@ -486,7 +486,7 @@ public final class MaterialContainerTransform extends Transition {
 
     @StyleRes
     public static int getTransitionShapeAppearanceResId(Context context) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0407bb});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0407bd});
         int resourceId = obtainStyledAttributes.getResourceId(0, -1);
         obtainStyledAttributes.recycle();
         return resourceId;
@@ -619,9 +619,9 @@ public final class MaterialContainerTransform extends Transition {
             transitionValues.f1028view = TransitionUtils.findDescendantOrAncestorById(transitionValues.f1028view, i);
         } else if (view2 != null) {
             transitionValues.f1028view = view2;
-        } else if (transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f0917da) instanceof View) {
-            transitionValues.f1028view.setTag(R.id.obfuscated_res_0x7f0917da, null);
-            transitionValues.f1028view = (View) transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f0917da);
+        } else if (transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f0917ec) instanceof View) {
+            transitionValues.f1028view.setTag(R.id.obfuscated_res_0x7f0917ec, null);
+            transitionValues.f1028view = (View) transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f0917ec);
         }
         View view3 = transitionValues.f1028view;
         if (ViewCompat.isLaidOut(view3) || view3.getWidth() != 0 || view3.getHeight() != 0) {
@@ -646,8 +646,8 @@ public final class MaterialContainerTransform extends Transition {
         if (shapeAppearanceModel != null) {
             return shapeAppearanceModel;
         }
-        if (view2.getTag(R.id.obfuscated_res_0x7f0917da) instanceof ShapeAppearanceModel) {
-            return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f0917da);
+        if (view2.getTag(R.id.obfuscated_res_0x7f0917ec) instanceof ShapeAppearanceModel) {
+            return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f0917ec);
         }
         Context context = view2.getContext();
         int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);

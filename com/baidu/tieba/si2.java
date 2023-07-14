@@ -1,24 +1,49 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class si2 extends dm2 {
+public class si2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<cm2> d;
+    public String A;
+    public long B;
+    public long C;
+    public boolean D;
+    public int E;
+    public String F;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public int r;
+    public int s;
+    public String t;
+    public String u;
+    public String v;
+    public long w;
+    public int x;
+    public int y;
+    public int z;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public si2() {
-        super("combine");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,65 +51,20 @@ public class si2 extends dm2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new ArrayList();
+        this.B = PMSAppInfo.DEFAULT_SWAN_APP_PKG_MAX_AGE;
     }
 
-    @Override // com.baidu.tieba.cm2
-    public String c(ab2 ab2Var) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ab2Var)) == null) {
-            if (ab2Var != null && this.d.size() > 0) {
-                int i = 0;
-                StringBuilder sb = new StringBuilder();
-                for (cm2 cm2Var : this.d) {
-                    sb.append(cm2Var.d("event" + i, ab2Var));
-                    i++;
-                }
-                if (cm2.b) {
-                    Log.d("JSEventDispatcher", "combine msg - " + sb.toString());
-                }
-                return sb.toString();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanAppDbInfo{appId='" + this.a + "', appKey='" + this.b + "', errorCode=" + this.d + ", errorDetail='" + this.e + "', errorMsg='" + this.f + "', resumeDate='" + this.g + "', maxSwanVersion='" + this.j + "', minSwanVersion='" + this.k + "', name='" + this.l + "', version='" + this.q + "', type=" + this.r + ", isHaveZip=" + this.s + ", targetSwanVersion='" + this.v + "', mAppZipSize=" + this.w + ", mPendingApsErrcode=" + this.x + ", category=" + this.y + ", versionCode='" + this.A + "', maxAge=" + this.B + ", createTime=" + this.C + ", forceFetchMetaInfoFlag=" + this.D + ", payProtected=" + this.E + '}';
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.cm2
-    public void h(ab2 ab2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ab2Var) == null) && ab2Var != null && !ab2Var.isWebView() && this.d.size() > 0) {
-            if (cm2.b) {
-                Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
-            }
-            for (cm2 cm2Var : this.d) {
-                JSEvent e = cm2Var.e(ab2Var);
-                if (e != null) {
-                    j(ab2Var, e);
-                    if (cm2.b) {
-                        Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
-                    }
-                }
-            }
-        }
-    }
-
-    public si2 t(cm2 cm2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cm2Var)) == null) {
-            if (cm2Var != null && !this.d.contains(cm2Var)) {
-                this.d.add(cm2Var);
-            }
-            return this;
-        }
-        return (si2) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

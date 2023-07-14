@@ -438,10 +438,28 @@ public class UbsABTestHelper {
         return invokeV.booleanValue;
     }
 
-    public static boolean isShoubaiThreadTest() {
+    public static boolean isRecommendFeedTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) {
+            return isExistSid(UsbAbTestConst.KEY_RECOMMEND_FEED_TEST);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isSearchWebView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) {
+            return isExistSid(UsbAbTestConst.KEY_SEARCH_H5_TEST);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isShoubaiThreadTest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_SHOU_BAI_THREAD_TEST);
         }
         return invokeV.booleanValue;
@@ -451,7 +469,7 @@ public class UbsABTestHelper {
     public static boolean isShowMyPageDownloadCard() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_MYPAGE_EXPOSED_REMIND_CARD);
         }
         return invokeV.booleanValue;
@@ -461,7 +479,7 @@ public class UbsABTestHelper {
     public static boolean isShowVideoPlayDanmuABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) {
             return isExistSid(UsbAbTestConst.VIDEO_PLAY_DANMU_SHOW);
         }
         return invokeV.booleanValue;
@@ -471,7 +489,7 @@ public class UbsABTestHelper {
     public static boolean isUseTiebaNetABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65586, null)) == null) {
             return isABTestByKeys(TbNetABTest.ABTEST_GROUP_KEY, TbNetABTest.TB_NET_SID_B);
         }
         return invokeV.booleanValue;
@@ -481,7 +499,7 @@ public class UbsABTestHelper {
     public static boolean isVideoSetUrlAgainABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_VIDEO_SET_URL_AGAIN);
         }
         return invokeV.booleanValue;
@@ -491,7 +509,7 @@ public class UbsABTestHelper {
     public static boolean isVideoTabAutoPlay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65586, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_VIDEOTAB_AUTO_PLAY);
         }
         return invokeV.booleanValue;
@@ -501,7 +519,7 @@ public class UbsABTestHelper {
     public static boolean isWriteProtobufABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65589, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_WRITE_PROTO);
         }
         return invokeV.booleanValue;

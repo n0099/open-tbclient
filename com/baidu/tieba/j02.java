@@ -1,43 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.net.URLConnection;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j02 extends h02 {
+public class j02 extends yz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.f02
+    @Override // com.baidu.tieba.yz1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "File" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CheckSessionApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FileApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements vq3<fh3<JSONObject>> {
+    public class a implements ActivityResultConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nt1 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ j02 b;
 
-        public a(j02 j02Var, nt1 nt1Var, CallbackHandler callbackHandler, String str) {
+        public a(j02 j02Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j02Var, nt1Var, callbackHandler, str};
+                Object[] objArr = {j02Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,50 +59,35 @@ public class j02 extends h02 {
                     return;
                 }
             }
-            this.a = nt1Var;
-            this.b = callbackHandler;
-            this.c = str;
+            this.b = j02Var;
+            this.a = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vq3
-        /* renamed from: b */
-        public void a(fh3<JSONObject> fh3Var) {
-            JSONObject wrapCallbackParams;
+        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
+        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
+            InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fh3Var) == null) {
-                if (fh3Var.c() && j02.y(fh3Var.a)) {
-                    JSONObject optJSONObject = fh3Var.a.optJSONObject("data");
-                    if (optJSONObject != null && optJSONObject.optBoolean("result")) {
-                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
-                        vi3.T("checkSession", "success");
-                    } else {
-                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "session key expired");
-                        vi3.U("checkSession", "fail", "session key expired");
-                    }
-                } else {
-                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(fh3Var.b());
-                    this.a.g(this.b, wrapCallbackParams.toString());
-                    vi3.U("checkSession", "fail", "result failed");
-                }
-                this.b.handleSchemeDispatchCallback(this.c, wrapCallbackParams.toString());
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
+                this.b.d(this.a, new v32(0));
+                return true;
             }
+            return invokeLIL.booleanValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j02(@NonNull d02 d02Var) {
-        super(d02Var);
+    public j02(@NonNull wz1 wz1Var) {
+        super(wz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d02Var};
+            Object[] objArr = {wz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d02) newInitContext.callArgs[0]);
+                super((wz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -98,63 +95,75 @@ public class j02 extends h02 {
         }
     }
 
-    public static boolean y(JSONObject jSONObject) {
+    public final String x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject != null && TextUtils.equals(jSONObject.optString("errno"), "0")) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int lastIndexOf = str.lastIndexOf("/");
+            if (lastIndexOf > 0) {
+                String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));
+                if (!TextUtils.isEmpty(contentTypeFor)) {
+                    return contentTypeFor;
+                }
+                return "*/*";
             }
-            return false;
+            return "*/*";
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public c42 x(String str) {
+    public v32 y(String str) {
         InterceptResult invokeL;
+        Uri fromFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#checkSession", false);
-            vi3.T("checkSession", "create");
-            nt1 j = kv2.j();
-            CallbackHandler e = a().e();
-            cc3 b0 = cc3.b0();
-            if (b0 == null) {
-                j.g(e, UnitedSchemeUtility.wrapCallbackParams(1001, "swan app is null").toString());
-                vi3.U("checkSession", "fail", "empty swanApp");
-                return new c42(1001, "swan app is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#shareFile", false);
+            if (n()) {
+                v82.c("FileApi", "FileApi does not supported when app is invisible.");
+                return new v32(1001, "FileApi does not supported when app is invisible.");
             }
-            String O = b0.O();
-            if (TextUtils.isEmpty(O)) {
-                j.g(e, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
-                vi3.U("checkSession", "fail", "empty app key");
-                return new c42(1001, "empty app key");
+            Pair<v32, JSONObject> s = s(str);
+            v32 v32Var = (v32) s.first;
+            if (!v32Var.isSuccess()) {
+                return v32Var;
             }
-            JSONObject r = f02.r(str);
-            if (r == null) {
-                j.g(e, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
-                vi3.U("checkSession", "fail", "empty joParams");
-                return new c42(201, "empty joParams");
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("filePath");
+            String M = dj3.M(optString, vb3.g0());
+            if (!TextUtils.isEmpty(optString) && dj3.s(optString) == PathType.BD_FILE && !TextUtils.isEmpty(M)) {
+                String optString2 = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    v82.c("FileApi", "cb is required");
+                    return new v32(202, "cb is required");
+                }
+                File file = new File(M);
+                if (file.exists() && !file.isDirectory()) {
+                    SwanAppActivity activity = ix2.T().getActivity();
+                    if (activity == null) {
+                        v82.c("FileApi", "activity null");
+                        return new v32(1001, "activity null");
+                    }
+                    ActivityResultDispatcher resultDispatcher = activity.getResultDispatcher();
+                    Intent intent = new Intent();
+                    if (co3.i()) {
+                        fromFile = sp3.a(activity, file);
+                        intent.setFlags(3);
+                    } else {
+                        fromFile = Uri.fromFile(file);
+                    }
+                    intent.setAction("android.intent.action.SEND");
+                    intent.putExtra("android.intent.extra.STREAM", fromFile);
+                    intent.setType(x(M));
+                    resultDispatcher.addConsumer(new a(this, optString2));
+                    resultDispatcher.startActivityForResult(Intent.createChooser(intent, "分享到..."));
+                    return v32.f();
+                }
+                v82.c("FileApi", "file not exists");
+                return new v32(1001, "file not exists");
             }
-            String optString = r.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                j.g(e, UnitedSchemeUtility.wrapCallbackParams(201, "cb is empty").toString());
-                vi3.U("checkSession", "fail", "empty cb");
-                return new c42(201, "cb is empty");
-            }
-            Context context = getContext();
-            if (!b0.N().e(context)) {
-                j.g(e, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-                vi3.U("checkSession", "fail", "account not login");
-                return new c42(10004, "user not logged in");
-            }
-            vi3.T("checkSession", "checkSession");
-            ih3 g = bc3.K().x().a().b().g(context, O);
-            g.q("checkSession");
-            g.o(new a(this, j, e, optString));
-            g.call();
-            return new c42(0);
+            v82.c("FileApi", "a valid filePath is required");
+            return new v32(202, "a valid filePath is required");
         }
-        return (c42) invokeL.objValue;
+        return (v32) invokeL.objValue;
     }
 }

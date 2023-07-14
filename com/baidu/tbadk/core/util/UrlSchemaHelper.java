@@ -55,7 +55,7 @@ public class UrlSchemaHelper {
     public static final String JUMP_TO_POST_LIST;
     public static final String JUMP_TO_THIS_PAGE = "jump=open_in_this_page";
     public static final String JUMP_TO_VIDEO_SQUARE = "routertovideosquare:";
-    public static final String MEMBER_CENTER_URL = "mo/q/hybrid/tbvip";
+    public static final String MEMBER_CENTER_URL = "mo/q/hybrid-business-vip/tbvip";
     public static final String OPEN_GROUPCHAT_SCHEME = "com.baidu.tieba://unidispatch/router/portal";
     public static final String OPEN_PERSON_INFO = "open_personalCenter=1";
     public static final String PAY_MEMBER_PAGE = "/paywithnative";

@@ -1,111 +1,97 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tieba.downloadball.DownloadFloatBallManager;
+import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.VideoTemplate.DataRes;
-import tbclient.VideoTemplateContent;
 /* loaded from: classes8.dex */
-public class xha {
+public class xha extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<wha> a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    public final MainTabActivity a;
+    public final aga b;
+    public final pfa c;
 
-    public xha() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xha(MainTabActivity mainTabActivity, pfa pfaVar) {
+        super(2001371);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, pfaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
+        this.c = pfaVar;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && Build.VERSION.SDK_INT > 25) {
+            jn0.l().p();
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !MainTabActivity.W) {
+            a();
+            mz5.a(1);
+            wg5.u(HotEventData.getInstance());
         }
-        return (String) invokeV.objValue;
     }
 
-    public List<wha> c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        aga agaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void g(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
-            this.b = dataRes.topic_id.intValue();
-            this.c = dataRes.topic_name;
-            this.d = dataRes.back_url;
-            this.e = dataRes.video_template_url;
-            this.f = dataRes.activity_url;
-            List<VideoTemplateContent> list = dataRes.video_template_content;
-            if (list != null) {
-                this.a = new ArrayList();
-                for (int i = 0; i < list.size(); i++) {
-                    wha whaVar = new wha();
-                    whaVar.a(list.get(i));
-                    this.a.add(whaVar);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
+            b();
+            TbadkCoreApplication.getInst().syncHasFinish = true;
+            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                if (!TbSingleton.getInstance().mIsSplashClick && (agaVar = this.b) != null && agaVar.b() != null) {
+                    this.b.b().a();
+                }
+                aga agaVar2 = this.b;
+                if (agaVar2 != null && agaVar2.h() != null) {
+                    this.b.h().a();
                 }
             }
+            if (!MainTabActivity.W) {
+                new hx5(this.a).o();
+            }
+            cia f0 = this.a.f0();
+            if (f0 != null) {
+                f0.c();
+            }
+            if (da5.p().l(da5.t("key_new_god_pop_is_show"), false)) {
+                PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
+            }
+            MainTabActivity.W = true;
+            this.c.O();
+            DownloadFloatBallManager.k().r(false, true);
         }
     }
 }

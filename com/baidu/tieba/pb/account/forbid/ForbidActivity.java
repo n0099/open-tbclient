@@ -24,11 +24,11 @@ import com.baidu.tbadk.core.util.NetWorkErr;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b89;
-import com.baidu.tieba.c89;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.ge9;
+import com.baidu.tieba.he9;
+import com.baidu.tieba.p55;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     public TextView l;
     public BdListView m;
     public d n;
-    public g55 o;
+    public p55 o;
     public View.OnClickListener p;
 
     /* loaded from: classes7.dex */
@@ -63,19 +63,19 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         public final /* synthetic */ ForbidActivity a;
 
         /* loaded from: classes7.dex */
-        public class a implements b89.b {
+        public class a implements ge9.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
 
             /* renamed from: com.baidu.tieba.pb.account.forbid.ForbidActivity$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C0442a implements g55.e {
+            public class C0440a implements p55.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0442a(a aVar) {
+                public C0440a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,11 +93,11 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                     this.a = aVar;
                 }
 
-                @Override // com.baidu.tieba.g55.e
-                public void onClick(g55 g55Var) {
+                @Override // com.baidu.tieba.p55.e
+                public void onClick(p55 p55Var) {
                     Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeL(1048576, this, g55Var) == null) && g55Var != null) {
-                        g55Var.dismiss();
+                    if ((interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) && p55Var != null) {
+                        p55Var.dismiss();
                         this.a.a.a.getActivity().finish();
                     }
                 }
@@ -121,17 +121,17 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.b89.b
+            @Override // com.baidu.tieba.ge9.b
             public void a(ForbidResultData forbidResultData) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, forbidResultData) == null) {
                     ForbidActivity forbidActivity = this.a.a;
-                    forbidActivity.showToast(forbidActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0760));
+                    forbidActivity.showToast(forbidActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0769));
                     this.a.a.finish();
                 }
             }
 
-            @Override // com.baidu.tieba.b89.b
+            @Override // com.baidu.tieba.ge9.b
             public void b(ForbidResultData forbidResultData) {
                 Interceptable interceptable = $ic;
                 if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidResultData) != null) || forbidResultData == null) {
@@ -143,17 +143,17 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                     case NetWorkErr.ERROR_IS_REPEAT_FORBIDDEN /* 1211068 */:
                         if (this.a.a.o == null) {
                             ForbidActivity forbidActivity = this.a.a;
-                            forbidActivity.o = new g55(forbidActivity.getActivity());
+                            forbidActivity.o = new p55(forbidActivity.getActivity());
                         }
                         this.a.a.o.setMessage(str);
-                        this.a.a.o.setPositiveButton(R.string.obfuscated_res_0x7f0f0b32, new C0442a(this));
+                        this.a.a.o.setPositiveButton(R.string.obfuscated_res_0x7f0f0b3d, new C0440a(this));
                         this.a.a.o.setCanceledOnTouchOutside(false);
                         this.a.a.o.create(this.a.a.getPageContext());
                         this.a.a.o.show();
                         return;
                     default:
                         ForbidActivity forbidActivity2 = this.a.a;
-                        forbidActivity2.showToast(forbidActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f075e));
+                        forbidActivity2.showToast(forbidActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0767));
                         return;
                 }
             }
@@ -182,10 +182,10 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             ForbidActivity forbidActivity;
             View findViewById;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.b == null || this.a.n == null || wi.isEmpty(this.a.n.b()) || (findViewById = (forbidActivity = this.a).findViewById(forbidActivity.b.getCheckedRadioButtonId())) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.b == null || this.a.n == null || xi.isEmpty(this.a.n.b()) || (findViewById = (forbidActivity = this.a).findViewById(forbidActivity.b.getCheckedRadioButtonId())) == null) {
                 return;
             }
-            b89.b(this.a.c, this.a.d, this.a.e, this.a.g, this.a.j, (String) findViewById.getTag(), this.a.n.b(), this.a.h, this.a.i, new a(this));
+            ge9.b(this.a.c, this.a.d, this.a.e, this.a.g, this.a.j, (String) findViewById.getTag(), this.a.n.b(), this.a.h, this.a.i, new a(this));
         }
     }
 
@@ -307,10 +307,10 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d02db, (ViewGroup) null);
+                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d02e4, (ViewGroup) null);
                     eVar = new e(null);
-                    eVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dee);
-                    eVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906d7);
+                    eVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e0a);
+                    eVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906da);
                     view2.setTag(eVar);
                     view2.setOnClickListener(this.c);
                 } else {
@@ -361,13 +361,13 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, radioGroup, i) == null) {
                 ForbidActivity forbidActivity = this.a;
-                forbidActivity.O1(forbidActivity.b.getCheckedRadioButtonId());
+                forbidActivity.L1(forbidActivity.b.getCheckedRadioButtonId());
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements c89.b {
+    public class b implements he9.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForbidActivity a;
@@ -390,27 +390,27 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             this.a = forbidActivity;
         }
 
-        @Override // com.baidu.tieba.c89.b
+        @Override // com.baidu.tieba.he9.b
         public void a(ForbidTplData forbidTplData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, forbidTplData) == null) {
                 if (StringUtils.isNull(forbidTplData.error.errMsg)) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
                 } else {
                     this.a.showToast(forbidTplData.error.errMsg);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.c89.b
+        @Override // com.baidu.tieba.he9.b
         public void b(ForbidTplData forbidTplData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
                 this.a.l.setText(this.a.h);
                 int i = forbidTplData.type;
                 if (i == 1 || i == 2) {
-                    this.a.findViewById(R.id.obfuscated_res_0x7f091dd0).setVisibility(0);
-                    this.a.findViewById(R.id.obfuscated_res_0x7f091dcf).setVisibility(0);
+                    this.a.findViewById(R.id.obfuscated_res_0x7f091dea).setVisibility(0);
+                    this.a.findViewById(R.id.obfuscated_res_0x7f091de9).setVisibility(0);
                 }
                 this.a.n = new d(forbidTplData.reason);
                 this.a.m.setAdapter((ListAdapter) this.a.n);
@@ -465,7 +465,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         this.p = new c(this);
     }
 
-    public final void O1(int i) {
+    public final void L1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             for (int i2 = 0; i2 < 3; i2++) {
@@ -493,7 +493,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             this.j = intent.getStringExtra("post_id");
             this.h = intent.getStringExtra("name_show");
             this.i = intent.getStringExtra("portrait");
-            c89.b(this.c, this.f, new b(this));
+            he9.b(this.c, this.f, new b(this));
         }
     }
 
@@ -508,13 +508,13 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             } else {
                 z = false;
             }
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091f22);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091f54);
             getLayoutMode().l(z);
             getLayoutMode().k(findViewById);
             this.a.onChangeSkinType(getPageContext(), i);
             this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0106));
             this.m.setDivider(SkinManager.getDrawable(R.drawable.forbid_list_divider));
-            this.m.setDividerHeight(xi.d(getPageContext().getPageActivity(), 1.0f));
+            this.m.setDividerHeight(yi.d(getPageContext().getPageActivity(), 1.0f));
         }
     }
 
@@ -528,12 +528,12 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             if (currentAccount != null && currentAccount.length() > 0) {
                 NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
                 this.a = navigationBar;
-                navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f075f));
+                navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0768));
                 this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-                this.k = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f075d), this.p);
-                this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090b88);
-                this.m = (BdListView) findViewById(R.id.obfuscated_res_0x7f091525);
-                RadioGroup radioGroup = (RadioGroup) findViewById(R.id.obfuscated_res_0x7f090b87);
+                this.k = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f0766), this.p);
+                this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090b94);
+                this.m = (BdListView) findViewById(R.id.obfuscated_res_0x7f091539);
+                RadioGroup radioGroup = (RadioGroup) findViewById(R.id.obfuscated_res_0x7f090b93);
                 this.b = radioGroup;
                 radioGroup.setOnCheckedChangeListener(new a(this));
                 initData();

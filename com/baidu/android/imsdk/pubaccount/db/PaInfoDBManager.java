@@ -289,7 +289,7 @@ public class PaInfoDBManager extends DBBase {
 
     public void updateMarkTopList(@NonNull List<ChatSession> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, list) { // from class: com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -338,7 +338,7 @@ public class PaInfoDBManager extends DBBase {
 
     public void updateSubscribedPaList(@NonNull Map<Long, Integer> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, map) == null) && map.size() > 0) {
+        if ((interceptable == null || interceptable.invokeL(1048598, this, map) == null) && map.size() > 0) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, map) { // from class: com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1155,12 +1155,32 @@ public class PaInfoDBManager extends DBBase {
         return invokeCommon.intValue;
     }
 
+    public boolean updateDisturb(long j, int i) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            String str = TAG;
+            LogUtils.d(str, "updateDisturb, paid=" + j + ", markToped=" + i);
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("disturb", Integer.valueOf(i));
+            synchronized (DBBase.mSyncLock) {
+                z = true;
+                if (update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid =? ", new String[]{String.valueOf(j)}, contentValues) <= 0) {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeCommon.booleanValue;
+    }
+
     public boolean updateMarkTop(long j, int i, long j2) {
         InterceptResult invokeCommon;
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)})) == null) {
             String str = TAG;
             LogUtils.d(str, "updateMarkTop, paid=" + j + ", markToped=" + i + ", updateTime=" + j2);
             ContentValues contentValues = new ContentValues();
@@ -1189,7 +1209,7 @@ public class PaInfoDBManager extends DBBase {
         boolean z4;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{chatSession, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{chatSession, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             ContentValues contentValues = new ContentValues();
             if (z2) {
                 contentValues.put("shield", Integer.valueOf(chatSession.getShield()));
@@ -1231,7 +1251,7 @@ public class PaInfoDBManager extends DBBase {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE, Integer.valueOf(i));
             synchronized (DBBase.mSyncLock) {

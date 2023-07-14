@@ -2,7 +2,7 @@ package com.kwad.components.core.k;
 
 import androidx.annotation.NonNull;
 import com.kwad.components.core.response.model.AdResultData;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends b {
     @Override // com.kwad.components.core.k.b
     public void a(int i, String str, boolean z) {

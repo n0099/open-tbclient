@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.chatmessage;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatuser.ChatUser;
@@ -8,7 +9,6 @@ import com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener;
 import com.baidu.android.imsdk.chatuser.db.ChatUserDBManager;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.GroupInfo;
-import com.baidu.android.imsdk.group.GroupMember;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.media.request.IMFetchBusinessSessionMsg;
@@ -99,13 +99,8 @@ public class IMMediaBuildSessionListener implements IMListener {
                     }
                 } catch (Exception unused) {
                 }
-                if (chatSession.getLastMsgUid() > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(String.valueOf(chatSession.getLastMsgUid()));
-                    ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(this.this$0.mContext, groupInfo.getGroupId(), arrayList, 1);
-                    if (groupMember != null && groupMember.size() > 0) {
-                        chatSession.setLastMsgName(groupMember.get(0).getShowName());
-                    }
+                if (chatSession.getLastMsgUid() > 0 && !TextUtils.isEmpty(chatSession.getLastMsg())) {
+                    ChatMessageDBManager.getInstance(this.this$0.mContext).setChatSessionLastName(chatSession, String.valueOf(chatSession.getLastMsgUid()));
                 }
             }
         }

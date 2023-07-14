@@ -1,46 +1,103 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import kotlin.Unit;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jz6 {
+public final class jz6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public final List<kn> b;
-    public b c;
-    public iz6 d;
+    public final Context a;
+    public final String b;
+    public final xe7 c;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(mz6 mz6Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947900643, "Lcom/baidu/tieba/jz6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947900643, "Lcom/baidu/tieba/jz6;");
+                return;
+            }
+        }
+        d = new a(null);
     }
 
     /* loaded from: classes6.dex */
-    public class a implements ho {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jz6 a;
 
-        public a(jz6 jz6Var) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final String a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return context.getCacheDir().getAbsolutePath() + "/home_bottom_egg/";
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public final String b(Context context, String videoUrl) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, videoUrl)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                Intrinsics.checkNotNullParameter(videoUrl, "videoUrl");
+                return a(context) + fj.c(videoUrl);
+            }
+            return (String) invokeLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b extends wy5<Unit> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ File a;
+
+        public b(File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jz6Var};
+                Object[] objArr = {file};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,19 +107,21 @@ public class jz6 {
                     return;
                 }
             }
-            this.a = jz6Var;
+            this.a = file;
         }
 
-        @Override // com.baidu.tieba.ho
-        public void b(View view2, xn xnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, xnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (xnVar instanceof mz6)) {
-                mz6 mz6Var = (mz6) xnVar;
-                if (this.a.c != null) {
-                    this.a.c.a(mz6Var);
-                    TiebaStatic.log(new StatisticItem("c14585").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", mz6Var.a()).param("obj_locate", 2));
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                FileHelper.deleteFile(this.a);
             }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.wy5
+        public /* bridge */ /* synthetic */ Unit doInBackground() {
+            a();
+            return Unit.INSTANCE;
         }
     }
 
@@ -72,43 +131,124 @@ public class jz6 {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
+        Intrinsics.checkNotNullParameter(context, "context");
         this.a = context;
-        c();
+        this.b = d.a(context);
+        this.c = new xe7();
     }
 
-    public void d(b bVar) {
+    public final void a(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
+            az5.b(new b(file), null);
         }
     }
 
-    public List<kn> b() {
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            File file = new File(this.b);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+            DownloadData downloadData = new DownloadData();
+            downloadData.setUrl(str);
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.b);
+            sb.append("/");
+            String c = fj.c(str);
+            sb.append(c);
+            downloadData.setPath(sb.toString());
+            this.c.h(downloadData);
+            da5.p().J("key_home_bottom_egg_video_name", c);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:22:0x003f  */
+    /* JADX WARN: Removed duplicated region for block: B:46:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void c(String jsonStr) {
+        boolean z;
+        boolean z2;
+        String str;
+        boolean z3;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsonStr) == null) {
+            Intrinsics.checkNotNullParameter(jsonStr, "jsonStr");
+            boolean z4 = true;
+            if (jsonStr.length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return;
+            }
+            try {
+                jSONObject = new JSONObject(jsonStr);
+                if (jSONObject.optInt("is_video") == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+            } catch (Exception e) {
+                e = e;
+                z2 = false;
+            }
+            try {
+                str = jSONObject.optString("video_url");
+                Intrinsics.checkNotNullExpressionValue(str, "jsonObject.optString(\"video_url\")");
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                str = "";
+                if (!z2) {
+                }
+            }
+            if (!z2) {
+                if (str.length() > 0) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                if (z3) {
+                    if (!new File(this.b + fj.c(str)).exists()) {
+                        String oldVideoName = da5.p().w("key_home_bottom_egg_video_name", "");
+                        Intrinsics.checkNotNullExpressionValue(oldVideoName, "oldVideoName");
+                        if (oldVideoName.length() <= 0) {
+                            z4 = false;
+                        }
+                        if (z4) {
+                            File file = new File(this.b + oldVideoName);
+                            if (file.exists()) {
+                                a(file);
+                            }
+                        }
+                        b(str);
+                    }
+                }
+            }
+        }
+    }
+
+    public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            iz6 iz6Var = new iz6(this.a, mz6.e);
-            this.d = iz6Var;
-            iz6Var.setOnAdapterItemClickListener(new a(this));
-            this.b.add(this.d);
-        }
+        return (Context) invokeV.objValue;
     }
 }

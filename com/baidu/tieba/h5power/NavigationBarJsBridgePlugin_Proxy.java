@@ -3,11 +3,11 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d5a;
-import com.baidu.tieba.em6;
-import com.baidu.tieba.f5a;
-import com.baidu.tieba.h5a;
-import com.baidu.tieba.ty4;
+import com.baidu.tieba.in6;
+import com.baidu.tieba.my4;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.qda;
+import com.baidu.tieba.sda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,17 +19,17 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class NavigationBarJsBridgePlugin_Proxy extends d5a {
+public class NavigationBarJsBridgePlugin_Proxy extends oda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ty4 mJsBridge;
+    public my4 mJsBridge;
 
-    public NavigationBarJsBridgePlugin_Proxy(ty4 ty4Var) {
+    public NavigationBarJsBridgePlugin_Proxy(my4 my4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ty4Var};
+            Object[] objArr = {my4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,49 +39,49 @@ public class NavigationBarJsBridgePlugin_Proxy extends d5a {
                 return;
             }
         }
-        this.mJsBridge = ty4Var;
+        this.mJsBridge = my4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.d5a
-    public f5a dispatch(WebView webView, h5a h5aVar, f5a f5aVar) {
+    @Override // com.baidu.tieba.oda
+    public qda dispatch(WebView webView, sda sdaVar, qda qdaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, h5aVar, f5aVar)) == null) {
-            if (f5aVar == null) {
-                f5aVar = new f5a();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, sdaVar, qdaVar)) == null) {
+            if (qdaVar == null) {
+                qdaVar = new qda();
             }
-            String b = h5aVar.b();
-            h5aVar.e();
+            String b = sdaVar.b();
+            sdaVar.e();
             if (b.equals("navigationBar/isDisableGoBack")) {
-                f5aVar.s(true);
-                f5a c = this.mJsBridge.c(webView);
+                qdaVar.s(true);
+                qda c = this.mJsBridge.c(webView);
                 if (c != null) {
-                    f5aVar.y(c.f());
-                    f5aVar.u(c.b());
-                    f5aVar.o(c.a());
-                    f5aVar.x(c.e());
+                    qdaVar.y(c.f());
+                    qdaVar.u(c.b());
+                    qdaVar.o(c.a());
+                    qdaVar.x(c.e());
                 }
-                f5aVar.z(0);
+                qdaVar.z(0);
             }
-            return f5aVar;
+            return qdaVar;
         }
-        return (f5a) invokeLLL.objValue;
+        return (qda) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.d5a
-    public em6 getJsBridge() {
+    @Override // com.baidu.tieba.oda
+    public in6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (em6) invokeV.objValue;
+        return (in6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d5a
-    public List<f5a> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.oda
+    public List<qda> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

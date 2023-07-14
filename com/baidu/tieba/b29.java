@@ -1,59 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.memberCenter.tail.tool.TailToolController;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetSuggestionByAddrName.DataRes;
+import tbclient.Lbs;
 /* loaded from: classes5.dex */
-public class b29 extends oi5 {
+public class b29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<a> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b29(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title), 16, i);
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public void c(Lbs lbs) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lbs) != null) || lbs == null) {
+                return;
+            }
+            this.a = lbs.name;
+            String str = lbs.lat;
+            String str2 = lbs.lng;
+            this.b = lbs.sn;
+        }
+
+        public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.a = str;
+            }
+        }
+
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.b = str;
+            }
+        }
+    }
+
+    public b29() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = R.drawable.icon_mask_post_keyboard24_selection;
-        this.e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.h = R.drawable.icon_pure_post_more_tail64;
-        this.r = R.drawable.icon_pure_pic_vip64;
-        this.i = false;
-        this.j = true;
-        this.m = new TailToolController(context);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
+        this.a = new ArrayList<>();
     }
 
-    @Override // com.baidu.tieba.oi5
-    public boolean a() {
+    public ArrayList<a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            TiebaStatic.log(new StatisticItem("c15166").param("uid", TbadkCoreApplication.getCurrentAccount()));
-            return super.a();
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        List<Lbs> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) && (list = dataRes.poi_info) != null && !list.isEmpty()) {
+            for (Lbs lbs : list) {
+                a aVar = new a();
+                aVar.c(lbs);
+                this.a.add(aVar);
+            }
+        }
+    }
+
+    public void c(ArrayList<a> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            this.a = arrayList;
+        }
     }
 }

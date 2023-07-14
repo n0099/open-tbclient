@@ -3,11 +3,11 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d5a;
-import com.baidu.tieba.em6;
-import com.baidu.tieba.f5a;
-import com.baidu.tieba.h5a;
-import com.baidu.tieba.xy4;
+import com.baidu.tieba.in6;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.qda;
+import com.baidu.tieba.qy4;
+import com.baidu.tieba.sda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,17 +20,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class SubscriptionJsBridgePlugin_Proxy extends d5a {
+public class SubscriptionJsBridgePlugin_Proxy extends oda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xy4 mJsBridge;
+    public qy4 mJsBridge;
 
-    public SubscriptionJsBridgePlugin_Proxy(xy4 xy4Var) {
+    public SubscriptionJsBridgePlugin_Proxy(qy4 qy4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xy4Var};
+            Object[] objArr = {qy4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,79 +40,79 @@ public class SubscriptionJsBridgePlugin_Proxy extends d5a {
                 return;
             }
         }
-        this.mJsBridge = xy4Var;
+        this.mJsBridge = qy4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.d5a
-    public f5a dispatch(WebView webView, h5a h5aVar, f5a f5aVar) {
+    @Override // com.baidu.tieba.oda
+    public qda dispatch(WebView webView, sda sdaVar, qda qdaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, h5aVar, f5aVar)) == null) {
-            if (f5aVar == null) {
-                f5aVar = new f5a();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, sdaVar, qdaVar)) == null) {
+            if (qdaVar == null) {
+                qdaVar = new qda();
             }
-            String b = h5aVar.b();
-            JSONObject e = h5aVar.e();
+            String b = sdaVar.b();
+            JSONObject e = sdaVar.e();
             if (b.equals("subscription/gamePush")) {
-                f5aVar.s(true);
-                f5a c = this.mJsBridge.c(webView, e.optString("gameId"), e.optString("gameName"), e.optString("gameTime"), e.optString("gameType"));
+                qdaVar.s(true);
+                qda c = this.mJsBridge.c(webView, e.optString("gameId"), e.optString("gameName"), e.optString("gameTime"), e.optString("gameType"));
                 if (c != null) {
-                    f5aVar.y(c.f());
-                    f5aVar.u(c.b());
-                    f5aVar.o(c.a());
-                    f5aVar.x(c.e());
+                    qdaVar.y(c.f());
+                    qdaVar.u(c.b());
+                    qdaVar.o(c.a());
+                    qdaVar.x(c.e());
                 }
-                f5aVar.z(0);
+                qdaVar.z(0);
             } else if (b.equals("subscription/gamePushStatus")) {
-                f5aVar.s(true);
-                f5a e2 = this.mJsBridge.e(webView);
+                qdaVar.s(true);
+                qda e2 = this.mJsBridge.e(webView);
                 if (e2 != null) {
-                    f5aVar.y(e2.f());
-                    f5aVar.u(e2.b());
-                    f5aVar.o(e2.a());
-                    f5aVar.x(e2.e());
+                    qdaVar.y(e2.f());
+                    qdaVar.u(e2.b());
+                    qdaVar.o(e2.a());
+                    qdaVar.x(e2.e());
                 }
-                f5aVar.z(0);
+                qdaVar.z(0);
             } else if (b.equals("subscription/notifyNativeRefresh")) {
-                f5aVar.s(true);
-                f5a f = this.mJsBridge.f(webView, e.optString("key"), e.optString("data"));
+                qdaVar.s(true);
+                qda f = this.mJsBridge.f(webView, e.optString("key"), e.optString("data"), e.optBoolean("isNotifyH5"));
                 if (f != null) {
-                    f5aVar.y(f.f());
-                    f5aVar.u(f.b());
-                    f5aVar.o(f.a());
-                    f5aVar.x(f.e());
+                    qdaVar.y(f.f());
+                    qdaVar.u(f.b());
+                    qdaVar.o(f.a());
+                    qdaVar.x(f.e());
                 }
-                f5aVar.z(0);
+                qdaVar.z(0);
             } else if (b.equals("subscription/getViewPosition")) {
-                f5aVar.s(true);
-                f5a d = this.mJsBridge.d(webView, e.optString("viewId"), e.optString("data"));
+                qdaVar.s(true);
+                qda d = this.mJsBridge.d(webView, e.optString("viewId"), e.optString("data"));
                 if (d != null) {
-                    f5aVar.y(d.f());
-                    f5aVar.u(d.b());
-                    f5aVar.o(d.a());
-                    f5aVar.x(d.e());
+                    qdaVar.y(d.f());
+                    qdaVar.u(d.b());
+                    qdaVar.o(d.a());
+                    qdaVar.x(d.e());
                 }
-                f5aVar.z(0);
+                qdaVar.z(0);
             }
-            return f5aVar;
+            return qdaVar;
         }
-        return (f5a) invokeLLL.objValue;
+        return (qda) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.d5a
-    public em6 getJsBridge() {
+    @Override // com.baidu.tieba.oda
+    public in6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (em6) invokeV.objValue;
+        return (in6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d5a
-    public List<f5a> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.oda
+    public List<qda> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

@@ -477,7 +477,7 @@ public class NBSearchGallery extends BdAbsSpinner implements GestureDetector.OnG
     }
 
     public NBSearchGallery(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040306);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040307);
     }
 
     @Override // android.view.ViewGroup

@@ -1,7 +1,7 @@
 package com.baidu.tieba.feed;
 
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.q37;
+import com.baidu.tieba.z57;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class FeedAppStatic {
                 return;
             }
         }
-        q37.a.a(TbadkApplication.getInst().getContext());
+        z57.a.a(TbadkApplication.getInst().getContext());
     }
 
     public FeedAppStatic() {

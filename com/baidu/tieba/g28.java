@@ -1,191 +1,220 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.GodInfo;
-import tbclient.Personalized.DataRes;
-import tbclient.ThreadInfo;
-import tbclient.User;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+/* loaded from: classes6.dex */
 public class g28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public final List<fe5> c;
+    public final List<fe5> d;
 
-    /* loaded from: classes5.dex */
-    public static class a extends sx5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ xz7 c;
-
-        public a(String str, boolean z, xz7 xz7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), xz7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = z;
-            this.c = xz7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.sx5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            int i;
-            int i2;
-            int intValue;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    f55.d();
-                    xe<byte[]> c = f55.c("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
-                    if (c == null) {
-                        return Boolean.FALSE;
-                    }
-                    byte[] bArr = c.get("0");
-                    if (bArr != null && bArr.length != 0) {
-                        DataRes.Builder builder = new DataRes.Builder((DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class));
-                        if (builder.thread_list != null && builder.thread_list.size() > 0) {
-                            for (int i3 = 0; i3 < builder.thread_list.size(); i3++) {
-                                ThreadInfo threadInfo = builder.thread_list.get(i3);
-                                if (threadInfo != null && threadInfo.author != null && threadInfo.author.id.longValue() == vg.g(this.a, -1L)) {
-                                    ThreadInfo.Builder builder2 = new ThreadInfo.Builder(threadInfo);
-                                    User.Builder builder3 = new User.Builder(builder2.author);
-                                    if (this.b) {
-                                        i = 1;
-                                    } else {
-                                        i = 0;
-                                    }
-                                    builder3.is_like = Integer.valueOf(i);
-                                    if (this.b) {
-                                        i2 = 1;
-                                    } else {
-                                        i2 = 0;
-                                    }
-                                    builder3.has_concerned = Integer.valueOf(i2);
-                                    GodInfo.Builder builder4 = new GodInfo.Builder(builder3.god_data);
-                                    if (this.b) {
-                                        intValue = builder3.fans_num.intValue() + 1;
-                                        builder4.followed = 1;
-                                    } else {
-                                        intValue = builder3.fans_num.intValue() - 1;
-                                        builder4.followed = 0;
-                                    }
-                                    builder3.fans_num = Integer.valueOf(intValue);
-                                    builder3.god_data = builder4.build(true);
-                                    builder2.author = builder3.build(true);
-                                    builder.thread_list.set(i3, builder2.build(true));
-                                }
-                            }
-                            DataRes.Builder builder5 = new DataRes.Builder(builder.build(true));
-                            if (this.c != null) {
-                                this.c.g(builder5.thread_list);
-                            }
-                            c.g("0", builder5.build(true).toByteArray());
-                            return Boolean.TRUE;
-                        }
-                        return Boolean.FALSE;
-                    }
-                    return Boolean.FALSE;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return Boolean.FALSE;
-                }
-            }
-            return (Boolean) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements ww5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ww5
-        /* renamed from: a */
-        public void onReturnDataInUI(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-            }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public static void a(UpdateAttentionMessage updateAttentionMessage, xz7 xz7Var) {
+    public g28() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, updateAttentionMessage, xz7Var) == null) && updateAttentionMessage != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().c)) {
-            wx5.b(new a(updateAttentionMessage.getData().c, updateAttentionMessage.getData().d, xz7Var), new b());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 1;
+        this.b = "https://boxnovel.baidu.com/boxnovel/haokan";
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        j();
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<fe5> i = i();
+            int size = i.size();
+            if (size != this.c.size()) {
+                return true;
+            }
+            for (int i2 = 0; i2 < size; i2++) {
+                if (i.get(i2) != null && !i.get(i2).equals(this.c.get(i2))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public fe5 a(int i, String str, String str2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
+            fe5 fe5Var = new fe5();
+            fe5Var.a = i;
+            fe5Var.b = str;
+            fe5Var.c = str2;
+            fe5Var.d = str3;
+            return fe5Var;
+        }
+        return (fe5) invokeCommon.objValue;
+    }
+
+    public fe5 b(int i, String str, String str2) {
+        InterceptResult invokeILL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
+            fe5 fe5Var = new fe5();
+            fe5Var.a = i;
+            fe5Var.b = str;
+            fe5Var.c = str2;
+            if (i == 5) {
+                z = true;
+            } else {
+                z = false;
+            }
+            fe5Var.j(z);
+            return fe5Var;
+        }
+        return (fe5) invokeILL.objValue;
+    }
+
+    public final List<fe5> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(b(5, g(R.string.tab_name_topic_rank), ""));
+            arrayList.add(b(6, g(R.string.obfuscated_res_0x7f0f15b4), ""));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15b3), "game"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15b0), "digital"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15b1), "entertainment"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15b2), "films"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15ae), "campus"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15ad), "animes"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15b7), "sports"));
+            arrayList.add(a(202, g(R.string.obfuscated_res_0x7f0f15b5), "novel", this.b));
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @NonNull
+    public List<fe5> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<fe5> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            List<fe5> i = i();
+            if (!ListUtils.isEmpty(i)) {
+                this.c.addAll(i);
+            }
         }
     }
 
-    public static void b(DataRes.Builder builder, UpdateAttentionMessage updateAttentionMessage, xz7 xz7Var) {
-        User user;
-        int intValue;
+    public void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, builder, updateAttentionMessage, xz7Var) == null) && builder != null && updateAttentionMessage != null) {
-            int i = 0;
-            while (true) {
-                if (i >= builder.thread_list.size()) {
-                    break;
-                }
-                ThreadInfo threadInfo = builder.thread_list.get(i);
-                if (threadInfo != null && (user = threadInfo.author) != null && user.id.longValue() == vg.g(updateAttentionMessage.getData().c, -1L)) {
-                    ThreadInfo.Builder builder2 = new ThreadInfo.Builder(threadInfo);
-                    User.Builder builder3 = new User.Builder(builder2.author);
-                    builder3.is_like = Integer.valueOf(updateAttentionMessage.getData().d ? 1 : 0);
-                    builder3.has_concerned = Integer.valueOf(updateAttentionMessage.getData().d ? 1 : 0);
-                    GodInfo.Builder builder4 = new GodInfo.Builder(builder3.god_data);
-                    if (updateAttentionMessage.getData().d) {
-                        intValue = builder3.fans_num.intValue() + 1;
-                        builder4.followed = 1;
-                    } else {
-                        builder4.followed = 0;
-                        intValue = builder3.fans_num.intValue() - 1;
-                    }
-                    builder3.fans_num = Integer.valueOf(intValue);
-                    builder3.god_data = builder4.build(true);
-                    builder2.author = builder3.build(true);
-                    builder.thread_list.set(i, builder2.build(true));
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            List<fe5> list = this.c;
+            if (list != null) {
+                list.clear();
+            }
+            j();
+        }
+    }
+
+    public final String g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return TbadkCoreApplication.getInst().getString(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final List<fe5> i() {
+        InterceptResult invokeV;
+        boolean z;
+        int length;
+        fe5 fe5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            try {
+                JSONArray jSONArray = new JSONArray(da5.p().w("key_index_tab_info_list", "[]"));
+                List<fe5> arrayList2 = new ArrayList<>();
+                if (jSONArray.length() == 0) {
+                    arrayList2 = d();
+                    z = true;
                 } else {
-                    i++;
+                    z = false;
                 }
+                if (z) {
+                    length = arrayList2.size();
+                } else {
+                    length = jSONArray.length();
+                }
+                for (int i = 0; i < length; i++) {
+                    if (z) {
+                        fe5Var = arrayList2.get(i);
+                    } else {
+                        fe5Var = new fe5();
+                        fe5Var.i(jSONArray.getJSONObject(i));
+                    }
+                    if (!fe5Var.f()) {
+                        if (fe5Var.g() && arrayList.size() < 2) {
+                            arrayList.add(fe5Var);
+                        } else {
+                            this.d.add(fe5Var);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            a(updateAttentionMessage, xz7Var);
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 }

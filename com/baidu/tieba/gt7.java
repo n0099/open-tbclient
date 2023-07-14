@@ -1,104 +1,115 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.sportspage.notification.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.Calendar;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gt7 implements it7 {
+public class gt7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<it7> a;
-    public static final it7 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public CustomMessageListener b;
 
-    @Override // com.baidu.tieba.it7
-    public kn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
-            return null;
-        }
-        return (kn) invokeLL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gt7 a;
 
-    @Override // com.baidu.tieba.it7
-    public kn<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, bdUniqueId)) == null) {
-            return null;
-        }
-        return (kn) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.it7
-    public kn<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
-            return null;
-        }
-        return (kn) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.it7
-    public kn<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, baseFragmentActivity, bdUniqueId, str)) == null) {
-            return null;
-        }
-        return (kn) invokeLLL.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947805535, "Lcom/baidu/tieba/gt7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gt7 gt7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gt7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947805535, "Lcom/baidu/tieba/gt7;");
-                return;
+            this.a = gt7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+                try {
+                    JSONObject jSONObject = new JSONObject((String) customResponsedMessage.getData());
+                    String optString = jSONObject.optString("gameId");
+                    String optString2 = jSONObject.optString("gameName");
+                    String optString3 = jSONObject.optString("gameTime");
+                    String optString4 = jSONObject.optString("gameType");
+                    String w = da5.p().w("key_match_id_list_" + optString4, "");
+                    String str2 = "match_id_" + optString4 + "_" + optString;
+                    if (TextUtils.isEmpty(w)) {
+                        str = str2;
+                    } else {
+                        str = "," + str2;
+                    }
+                    if (TextUtils.isEmpty(w) || !w.contains(str2)) {
+                        da5.p().J("key_match_id_list_" + optString4, w + str);
+                    }
+                    Intent intent = new Intent(this.a.a.getPageActivity(), AlarmReceiver.class);
+                    intent.putExtra("KEY_MATCH_NAME", optString2);
+                    intent.putExtra("KEY_MATCH_TYPE", optString4);
+                    intent.putExtra("KEY_MATCH_ID", optString);
+                    PendingIntent broadcast = PendingIntent.getBroadcast(this.a.a.getPageActivity(), 0, intent, 0);
+                    Calendar calendar = Calendar.getInstance();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    calendar.setTimeInMillis(currentTimeMillis);
+                    long g = (wg.g(optString3, 0L) * 1000) - currentTimeMillis;
+                    if (g > 0) {
+                        calendar.add(14, (int) g);
+                    }
+                    ((AlarmManager) this.a.a.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }
-        a = new AtomicReference<>(null);
-        b = new gt7();
     }
 
-    public gt7() {
+    public gt7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static it7 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            it7 it7Var = a.get();
-            if (it7Var == null) {
-                return b;
-            }
-            return it7Var;
-        }
-        return (it7) invokeV.objValue;
+        a aVar = new a(this, 2921404);
+        this.b = aVar;
+        this.a = tbPageContext;
+        tbPageContext.registerListener(aVar);
     }
 }

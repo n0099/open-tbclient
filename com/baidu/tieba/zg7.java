@@ -1,89 +1,66 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zg7 implements li7 {
+public class zg7 extends ln<fh7, CardViewHolder<kh7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public os7 a;
+    public TbPageContext a;
 
-    public zg7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zg7(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.li7
-    public mi7 c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: s */
+    public CardViewHolder<kh7> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new bh7();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new kh7(this.a));
         }
-        return (mi7) invokeV.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.li7
-    public yr7 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fh7 fh7Var, CardViewHolder<kh7> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, frsFragment, noPressedRelativeLayout)) == null) {
-            if (!frsFragment.h4()) {
-                return new yr7(frsFragment, noPressedRelativeLayout);
-            }
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fh7Var, cardViewHolder})) == null) {
+            return cardViewHolder.getView();
         }
-        return (yr7) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.li7
-    public ni7 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, frsFragment, noPressedRelativeLayout)) == null) {
-            return new wr7(frsFragment, noPressedRelativeLayout);
-        }
-        return (ni7) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.li7
-    public ji7 b(FrsFragment frsFragment, Cdo cdo, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsFragment, cdo, z)) == null) {
-            return new vh7(frsFragment, cdo, z);
-        }
-        return (ji7) invokeLLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.li7
-    public os7 e(String str, FrsFragment frsFragment, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, str, frsFragment, i)) == null) {
-            if (frsFragment == null) {
-                return null;
-            }
-            ah7 ah7Var = new ah7(frsFragment, null, null, i);
-            this.a = ah7Var;
-            ah7Var.S(frsFragment.D3());
-            return this.a;
-        }
-        return (os7) invokeLLI.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

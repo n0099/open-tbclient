@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.view.Surface;
 /* loaded from: classes7.dex */
 public interface rm1 {
-    void a(sm1 sm1Var);
+    void a(Surface surface);
 
-    void c(qm1 qm1Var);
-
-    View getAdView();
-
-    void load();
+    void b();
 }

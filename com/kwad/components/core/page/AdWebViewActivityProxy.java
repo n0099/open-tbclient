@@ -30,7 +30,7 @@ import com.kwad.sdk.utils.u;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AdWebViewActivityProxy extends com.kwad.components.core.i.a implements c.a {
     public static final String KEY_LANDING_PAGE_TYPE = "key_landing_page_type";
     public static final String KEY_MINI_WINDOW = "key_mini_window";
@@ -48,30 +48,30 @@ public class AdWebViewActivityProxy extends com.kwad.components.core.i.a impleme
     public boolean mIsVPlusShown = false;
     public volatile boolean destroyed = false;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String FC;
         public String FD;
         public AdTemplate adTemplate;
 
         /* renamed from: com.kwad.components.core.page.AdWebViewActivityProxy$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public static class C0648a {
+        /* loaded from: classes10.dex */
+        public static class C0653a {
             public String FC;
             public String FD;
             public AdTemplate adTemplate;
 
-            public final C0648a N(AdTemplate adTemplate) {
+            public final C0653a N(AdTemplate adTemplate) {
                 this.adTemplate = adTemplate;
                 return this;
             }
 
-            public final C0648a ao(String str) {
+            public final C0653a ao(String str) {
                 this.FC = str;
                 return this;
             }
 
-            public final C0648a ap(String str) {
+            public final C0653a ap(String str) {
                 this.FD = str;
                 return this;
             }
@@ -93,14 +93,14 @@ public class AdWebViewActivityProxy extends com.kwad.components.core.i.a impleme
     }
 
     private com.kwad.components.core.page.widget.a buildDialog() {
-        return new com.kwad.components.core.page.widget.a(getActivity(), new a.InterfaceC0650a() { // from class: com.kwad.components.core.page.AdWebViewActivityProxy.3
-            @Override // com.kwad.components.core.page.widget.a.InterfaceC0650a
+        return new com.kwad.components.core.page.widget.a(getActivity(), new a.InterfaceC0655a() { // from class: com.kwad.components.core.page.AdWebViewActivityProxy.3
+            @Override // com.kwad.components.core.page.widget.a.InterfaceC0655a
             public final void a(DialogInterface dialogInterface) {
                 com.kwad.sdk.core.report.a.r(AdWebViewActivityProxy.this.mAdTemplate, 104);
                 dialogInterface.dismiss();
             }
 
-            @Override // com.kwad.components.core.page.widget.a.InterfaceC0650a
+            @Override // com.kwad.components.core.page.widget.a.InterfaceC0655a
             public final void b(DialogInterface dialogInterface) {
                 try {
                     AdWebViewActivityProxy.super.onBackPressed();
@@ -109,7 +109,7 @@ public class AdWebViewActivityProxy extends com.kwad.components.core.i.a impleme
                 com.kwad.sdk.core.report.a.r(AdWebViewActivityProxy.this.mAdTemplate, 105);
             }
 
-            @Override // com.kwad.components.core.page.widget.a.InterfaceC0650a
+            @Override // com.kwad.components.core.page.widget.a.InterfaceC0655a
             public final void c(DialogInterface dialogInterface) {
                 com.kwad.sdk.core.report.a.r(AdWebViewActivityProxy.this.mAdTemplate, 106);
                 dialogInterface.dismiss();
@@ -219,14 +219,14 @@ public class AdWebViewActivityProxy extends com.kwad.components.core.i.a impleme
         if (isFormAdExitInterceptEnable()) {
             try {
                 if (this.mKsExitInterceptDialogV2 == null) {
-                    this.mKsExitInterceptDialogV2 = new com.kwad.components.core.page.widget.a(getActivity(), new a.InterfaceC0650a() { // from class: com.kwad.components.core.page.AdWebViewActivityProxy.2
-                        @Override // com.kwad.components.core.page.widget.a.InterfaceC0650a
+                    this.mKsExitInterceptDialogV2 = new com.kwad.components.core.page.widget.a(getActivity(), new a.InterfaceC0655a() { // from class: com.kwad.components.core.page.AdWebViewActivityProxy.2
+                        @Override // com.kwad.components.core.page.widget.a.InterfaceC0655a
                         public final void a(DialogInterface dialogInterface) {
                             com.kwad.sdk.core.report.a.r(AdWebViewActivityProxy.this.mAdTemplate, 104);
                             dialogInterface.dismiss();
                         }
 
-                        @Override // com.kwad.components.core.page.widget.a.InterfaceC0650a
+                        @Override // com.kwad.components.core.page.widget.a.InterfaceC0655a
                         public final void b(DialogInterface dialogInterface) {
                             if (!AdWebViewActivityProxy.this.destroyed) {
                                 try {
@@ -238,7 +238,7 @@ public class AdWebViewActivityProxy extends com.kwad.components.core.i.a impleme
                             com.kwad.sdk.core.report.a.r(AdWebViewActivityProxy.this.mAdTemplate, 105);
                         }
 
-                        @Override // com.kwad.components.core.page.widget.a.InterfaceC0650a
+                        @Override // com.kwad.components.core.page.widget.a.InterfaceC0655a
                         public final void c(DialogInterface dialogInterface) {
                             com.kwad.sdk.core.report.a.r(AdWebViewActivityProxy.this.mAdTemplate, 106);
                             dialogInterface.dismiss();
@@ -271,7 +271,7 @@ public class AdWebViewActivityProxy extends com.kwad.components.core.i.a impleme
         } catch (Throwable unused) {
         }
         super.onCreate(bundle);
-        getActivity().setTheme(R.style.obfuscated_res_0x7f100242);
+        getActivity().setTheme(R.style.obfuscated_res_0x7f100243);
         this.destroyed = false;
         this.mContext = Wrapper.wrapContextIfNeed(getActivity());
         String stringExtra = getIntent().getStringExtra("key_template_json");
@@ -296,10 +296,10 @@ public class AdWebViewActivityProxy extends com.kwad.components.core.i.a impleme
             c cVar = new c(this.mContext, this.mAdTemplate, intExtra, true);
             this.landingPageViewHelper = cVar;
             cVar.a(this);
-            this.landingPageViewHelper.a(new c.C0649c().ar(com.kwad.sdk.core.response.a.b.bg(this.mAdTemplate) ? com.kwad.sdk.core.response.a.b.bf(this.mAdTemplate) : com.kwad.sdk.core.response.a.a.ar(bQ)).nI());
+            this.landingPageViewHelper.a(new c.C0654c().ar(com.kwad.sdk.core.response.a.b.bg(this.mAdTemplate) ? com.kwad.sdk.core.response.a.b.bf(this.mAdTemplate) : com.kwad.sdk.core.response.a.a.ar(bQ)).nI());
         } else {
             this.mNormalMode = true;
-            c.b nI = new c.C0649c().as(true).at(false).aq(stringExtra2).ar(stringExtra3).nI();
+            c.b nI = new c.C0654c().as(true).at(false).aq(stringExtra2).ar(stringExtra3).nI();
             c cVar2 = new c(this.mContext, this.mAdTemplate, 1, false);
             this.landingPageViewHelper = cVar2;
             cVar2.a(this);

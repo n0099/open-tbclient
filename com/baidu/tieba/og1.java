@@ -1,78 +1,147 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.pm.provider.BundleOpProvider;
-import com.baidu.nps.utils.ContextHolder;
-import com.baidu.searchbox.pms.db.PackageTable;
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.PolyActivity;
+import com.baidu.poly.widget.WechatSignAutoRenewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class og1 {
+public class og1 implements ij1 {
     public static /* synthetic */ Interceptable $ic;
+    public static og1 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public boolean b;
 
-    public static lg1 a(Uri uri) {
-        InterceptResult invokeL;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
-            lg1 lg1Var = new lg1();
-            if (uri != null) {
-                String queryParameter = uri.getQueryParameter("downloaded_size");
-                long j2 = 0;
-                if (!TextUtils.isEmpty(queryParameter)) {
-                    j = Long.valueOf(queryParameter).longValue();
-                } else {
-                    j = 0;
-                }
-                String queryParameter2 = uri.getQueryParameter(PackageTable.TOTAL_SIZE);
-                if (!TextUtils.isEmpty(queryParameter2)) {
-                    j2 = Long.valueOf(queryParameter2).longValue();
-                }
-                lg1Var.a = j;
-                lg1Var.b = j2;
-            }
-            return lg1Var;
-        }
-        return (lg1) invokeL.objValue;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static Uri b() {
+    /* loaded from: classes7.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ og1 this$0;
+
+        public b(og1 og1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {og1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = og1Var;
+        }
+
+        public /* synthetic */ b(og1 og1Var, a aVar) {
+            this(og1Var);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.b) {
+                this.this$0.b = false;
+                try {
+                    int intExtra = intent.getIntExtra("code", 0);
+                    Intent intent2 = new Intent(PolyActivity.g, WechatSignAutoRenewActivity.class);
+                    intent2.putExtra("code", intExtra);
+                    PolyActivity.g.startActivity(intent2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public og1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+    }
+
+    public static og1 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).build();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (og1.class) {
+                    if (c == null) {
+                        c = new og1();
+                    }
+                }
+            }
+            return c;
         }
-        return (Uri) invokeV.objValue;
+        return (og1) invokeV.objValue;
     }
 
-    public static Uri c(String str, long j, long j2) {
-        InterceptResult invokeCommon;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).appendQueryParameter("downloaded_size", String.valueOf(j)).appendQueryParameter(PackageTable.TOTAL_SIZE, String.valueOf(j2)).build();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new b(this, null);
+            PolyActivity.g.getApplicationContext().registerReceiver(this.a, new IntentFilter("com_baidu_poly_cashier_wechat_sign_auto_renew_receiver"));
         }
-        return (Uri) invokeCommon.objValue;
     }
 
-    public static Uri d(String str) {
-        InterceptResult invokeL;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
+            try {
+                PolyActivity.g.getApplicationContext().unregisterReceiver(this.a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        return (Uri) invokeL.objValue;
     }
 
-    public static Uri e(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ij1
+    public void a(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
+            ui1.b("WECHAT signWechatAutoRenew appId=" + str);
+            vg1 a2 = lg1.a();
+            if (a2 == null) {
+                return;
+            }
+            if (!a2.b(activity)) {
+                sj1.f(activity, "您没有安装微信，请选择其他支付方式");
+                activity.finish();
+                return;
+            }
+            this.b = true;
+            f();
+            e();
+            a2.a(activity, str, str2);
+            activity.finish();
         }
-        return (Uri) invokeL.objValue;
     }
 }

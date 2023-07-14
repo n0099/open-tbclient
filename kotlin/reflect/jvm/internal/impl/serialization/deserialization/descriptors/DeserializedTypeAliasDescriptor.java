@@ -28,7 +28,7 @@ import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutionKt;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DeserializedTypeAliasDescriptor extends AbstractTypeAliasDescriptor implements DeserializedMemberDescriptor {
     public Collection<? extends TypeAliasConstructorDescriptor> constructors;
     public final DeserializedContainerSource containerSource;
@@ -66,9 +66,9 @@ public final class DeserializedTypeAliasDescriptor extends AbstractTypeAliasDesc
         if (KotlinTypeKt.isError(getExpandedType())) {
             return null;
         }
-        ClassifierDescriptor mo2099getDeclarationDescriptor = getExpandedType().getConstructor().mo2099getDeclarationDescriptor();
-        if (mo2099getDeclarationDescriptor instanceof ClassDescriptor) {
-            classDescriptor = mo2099getDeclarationDescriptor;
+        ClassifierDescriptor mo2101getDeclarationDescriptor = getExpandedType().getConstructor().mo2101getDeclarationDescriptor();
+        if (mo2101getDeclarationDescriptor instanceof ClassDescriptor) {
+            classDescriptor = mo2101getDeclarationDescriptor;
         }
         return classDescriptor;
     }

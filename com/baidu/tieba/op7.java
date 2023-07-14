@@ -1,48 +1,86 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tieba.frs.FrsActivity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class op7 extends n65 {
+public class op7 extends io5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public op7() {
+    @Override // com.baidu.tieba.io5
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public op7(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        jo5 jo5Var = this.a;
+        jo5Var.e = i;
+        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) jo5Var.a;
+        specialFrsWebFragment.z2(i);
+        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
+            if (str.contains("&ufanS=1")) {
+                str = str + "&_client_version=" + TbConfig.getVersion();
+            } else if (str.contains("?ufanS=1")) {
+                str = str + "&_client_version=" + TbConfig.getVersion();
+            }
+        }
+        specialFrsWebFragment.P1(str);
     }
 
-    @Override // com.baidu.tieba.n65
-    public void a(@NonNull Context context, @NonNull f65 f65Var) {
+    @Override // com.baidu.tieba.io5
+    public jo5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, f65Var) == null) {
-            if (TbSingleton.getInstance().getFrsResponseData() == null) {
-                YunDialogLog.getInstance().b("YunDialogManager", "展示吧务管理弹窗失败：当前没有FRS吧数据");
-                d65.s("frsForumManage");
-            } else if (!(context instanceof FrsActivity)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "展示吧务管理弹窗失败：当前Activity非FrsActivity");
-                d65.s("frsForumManage");
-            } else {
-                if (!zq7.a(TbSingleton.getInstance().getFrsResponseData(), ((FrsActivity) context).v1())) {
-                    d65.s("frsForumManage");
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            jo5 jo5Var = new jo5();
+            jo5Var.a = new SpecialFrsWebFragment();
+            jo5Var.e = 101;
+            jo5Var.i = jo5.k;
+            return jo5Var;
         }
+        return (jo5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.io5
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
+        }
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 }

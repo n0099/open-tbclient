@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.l;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,10 +88,10 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
                 } else {
                     PollingModel pollingModel = this.a.e;
                     if (pollingModel != null) {
-                        pollingModel.C0(this.a.b);
+                        pollingModel.D0(this.a.b);
                     }
                 }
-                yg.a().postDelayed(this, this.a.c);
+                zg.a().postDelayed(this, this.a.c);
             }
         }
     }
@@ -113,7 +113,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         this.f = new b(this);
     }
 
-    public final PollingLifecycleHelper j(a loopCallback) {
+    public final PollingLifecycleHelper l(a loopCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, loopCallback)) == null) {
@@ -124,7 +124,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         return (PollingLifecycleHelper) invokeL.objValue;
     }
 
-    public final PollingLifecycleHelper l(long j) {
+    public final PollingLifecycleHelper m(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
@@ -139,7 +139,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, owner) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
-            yg.a().removeCallbacks(this.f);
+            zg.a().removeCallbacks(this.f);
             l.$default$onDestroy(this, owner);
         }
     }
@@ -154,10 +154,10 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
                 TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) owner;
                 this.e = new PollingModel(tbPageContextSupport.getPageContext(), tbPageContextSupport.getPageContext().getUniqueId());
                 if (this.a > 0) {
-                    yg.a().postDelayed(this.f, this.a);
+                    zg.a().postDelayed(this.f, this.a);
                     return;
                 } else {
-                    yg.a().post(this.f);
+                    zg.a().post(this.f);
                     return;
                 }
             }

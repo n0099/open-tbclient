@@ -1,9 +1,12 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
+import android.app.Activity;
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.KVStorageFactory;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.StartupCountStats;
 import com.baidu.searchbox.StartupCountStatsController;
 import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -11,13 +14,14 @@ import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.fw4;
-import com.baidu.tieba.im;
-import com.baidu.tieba.mo9;
-import com.baidu.tieba.pm;
+import com.baidu.tieba.image.ImageViewerActivity;
+import com.baidu.tieba.jm;
+import com.baidu.tieba.qm;
+import com.baidu.tieba.tu9;
+import com.baidu.tieba.yv4;
 /* loaded from: classes4.dex */
 public class InitSDKTask extends LaunchTask {
-    public mo9 cyberMediaContextDef = new mo9();
+    public tu9 cyberMediaContextDef = new tu9();
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -32,6 +36,7 @@ public class InitSDKTask extends LaunchTask {
     private void initCountStats() {
         StartupCountStatsController.resetDefaultUploadID();
         StartupCountStatsController.init();
+        registerStartupCountStats();
     }
 
     private void initCyberPlayerSdk() {
@@ -68,19 +73,32 @@ public class InitSDKTask extends LaunchTask {
 
     private void initTBTaskSDK() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            fw4.f().g(TbadkCoreApplication.getInst());
+            yv4.f().g(TbadkCoreApplication.getInst());
         }
     }
 
     private void initTurbonet() {
         try {
-            String a = pm.a("libturbonet.so");
+            String a = qm.a("libturbonet.so");
             if (FileUtils.exists(a)) {
-                im.d(TbadkCoreApplication.getInst().getApplicationContext().getClassLoader(), a);
+                jm.d(TbadkCoreApplication.getInst().getApplicationContext().getClassLoader(), a);
             }
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
+    }
+
+    private void registerStartupCountStats() {
+        StartupCountStats.setStartupCountStatsRule(new StartupCountStats.StatsRule() { // from class: com.baidu.searchbox.task.sync.appcreate.InitSDKTask.1
+            @Override // com.baidu.searchbox.StartupCountStats.StatsRule
+            @Nullable
+            public boolean shouldStats(Activity activity) {
+                if (activity instanceof ImageViewerActivity) {
+                    return false;
+                }
+                return super.shouldStats(activity);
+            }
+        });
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

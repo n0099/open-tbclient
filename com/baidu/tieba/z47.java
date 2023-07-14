@@ -1,95 +1,77 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.gif.NSGif;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
-import com.baidu.tieba.feed.component.uistate.CardVirtualHeadUiStateKt;
-import com.baidu.tieba.feed.helper.CommonOnClickKt;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tieba.faceshop.CollectEmotionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public final class z47 implements t87<z47> {
+public class z47 extends sj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n57 a;
-    public final x57 b;
-    public final String c;
-    public final String d;
-    public final Function2<View, String, Unit> e;
-    public final Function2<View, String, Boolean> f;
-    public final Function2<x57, View, Unit> g;
-    public final Function1<m67, Unit> h;
+    public ArrayList<String> e;
+    public Set<String> f;
 
-    @Override // com.baidu.tieba.t87
-    public String a() {
+    @Override // com.baidu.tieba.sj5
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "virtual_head" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "用户收藏表情" : (String) invokeV.objValue;
     }
 
-    public z47 d() {
+    @Override // com.baidu.tieba.sj5
+    public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (z47) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof z47) {
-                z47 z47Var = (z47) obj;
-                return Intrinsics.areEqual(this.a, z47Var.a) && Intrinsics.areEqual(this.b, z47Var.b) && Intrinsics.areEqual(this.c, z47Var.c) && Intrinsics.areEqual(this.d, z47Var.d) && Intrinsics.areEqual(this.e, z47Var.e) && Intrinsics.areEqual(this.f, z47Var.f) && Intrinsics.areEqual(this.g, z47Var.g) && Intrinsics.areEqual(this.h, z47Var.h);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            x57 x57Var = this.b;
-            int hashCode2 = (hashCode + (x57Var == null ? 0 : x57Var.hashCode())) * 31;
-            String str = this.c;
-            int hashCode3 = (hashCode2 + (str == null ? 0 : str.hashCode())) * 31;
-            String str2 = this.d;
-            return ((((((((hashCode3 + (str2 != null ? str2.hashCode() : 0)) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.g.hashCode()) * 31) + this.h.hashCode();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public String toString() {
+    @Override // com.baidu.tieba.sj5
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "CardVirtualHeadUiState(headData=" + this.a + ", feedBackData=" + this.b + ", schema=" + this.c + ", authorUserId=" + this.d + ", onItemClick=" + this.e + ", onImageClick=" + this.f + ", onFeedBackClick=" + this.g + ", onStat=" + this.h + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @JvmOverloads
-    public z47(n57 headData, x57 x57Var, String str, String str2, Function2<? super View, ? super String, Unit> onItemClick, Function2<? super View, ? super String, Boolean> onImageClick, Function2<? super x57, ? super View, Unit> onFeedBackClick, Function1<? super m67, Unit> onStat) {
+    @Override // com.baidu.tieba.sj5
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public z47() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {headData, x57Var, str, str2, onItemClick, onImageClick, onFeedBackClick, onStat};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -99,131 +81,238 @@ public final class z47 implements t87<z47> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(headData, "headData");
-        Intrinsics.checkNotNullParameter(onItemClick, "onItemClick");
-        Intrinsics.checkNotNullParameter(onImageClick, "onImageClick");
-        Intrinsics.checkNotNullParameter(onFeedBackClick, "onFeedBackClick");
-        Intrinsics.checkNotNullParameter(onStat, "onStat");
-        this.a = headData;
-        this.b = x57Var;
-        this.c = str;
-        this.d = str2;
-        this.e = onItemClick;
-        this.f = onImageClick;
-        this.g = onFeedBackClick;
-        this.h = onStat;
+        this.e = new ArrayList<>();
+        this.f = new HashSet();
+        w();
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ z47(n57 n57Var, x57 x57Var, String str, String str2, Function2 function2, Function2 function22, Function2 function23, Function1 function1, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(n57Var, x57Var, str, str2, r7, r8, r9, r10);
-        Function2<View, String, Unit> function24;
-        Function2 function25;
-        Function2<x57, View, Unit> function26;
-        Function1<m67, Unit> function12;
-        Function2 function27;
-        if ((i & 16) != 0) {
-            function24 = CommonOnClickKt.b();
-        } else {
-            function24 = function2;
-        }
-        if ((i & 32) != 0) {
-            function27 = CardVirtualHeadUiStateKt.a;
-            function25 = function27;
-        } else {
-            function25 = function22;
-        }
-        if ((i & 64) != 0) {
-            function26 = CommonOnClickKt.a();
-        } else {
-            function26 = function23;
-        }
-        if ((i & 128) != 0) {
-            function12 = CardUiStateKt.b();
-        } else {
-            function12 = function1;
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            t(2);
+            q(4);
+            jn jnVar = new jn(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_bar_collection), false);
+            super.s(jnVar);
+            super.r(jnVar);
+            x();
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.t87
-    public /* bridge */ /* synthetic */ z47 b() {
-        d();
-        return this;
+    @Override // com.baidu.tieba.sj5
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= this.e.size()) {
+                return null;
+            }
+            return this.e.get(i);
+        }
+        return (String) invokeI.objValue;
     }
 
-    public final String c() {
+    @Override // com.baidu.tieba.sj5
+    public boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return this.f.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sj5
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<String> arrayList = this.e;
+            if (arrayList != null && arrayList.size() != 0) {
+                return this.e.size();
+            }
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.sj5
+    public jn e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return super.d();
+        }
+        return (jn) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sj5
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return fn5.a();
         }
         return (String) invokeV.objValue;
     }
 
-    public final x57 e() {
+    @Override // com.baidu.tieba.sj5
+    public EmotionGroupType h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return EmotionGroupType.USER_COLLECT;
         }
-        return (x57) invokeV.objValue;
+        return (EmotionGroupType) invokeV.objValue;
     }
 
-    public final n57 f() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0052 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x006e */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2, types: [java.io.File] */
+    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.OutputStream] */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v8 */
+    /* JADX WARN: Type inference failed for: r9v10, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r9v4, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r9v5, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r9v7 */
+    /* JADX WARN: Type inference failed for: r9v8 */
+    /* JADX WARN: Type inference failed for: r9v9, types: [java.io.InputStream] */
+    @Override // com.baidu.tieba.sj5
+    public jn n(String str) {
+        InterceptResult invokeL;
+        ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            File u = u(str);
+            if (u == null) {
+                return null;
+            }
+            ?? file = new File(u.getAbsolutePath().replace("_s.jpg", "_b.gif"));
+            ?? exists = file.exists();
+            try {
+                if (exists == 0) {
+                    return null;
+                }
+                try {
+                    exists = new FileInputStream((File) file);
+                    try {
+                        byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                        try {
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = exists.read(bArr, 0, 1024);
+                                if (read != -1) {
+                                    byteArrayOutputStream.write(bArr, 0, read);
+                                } else {
+                                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                                    jn jnVar = new jn(NSGif.f(byteArray, 0, byteArray.length));
+                                    vg.c(exists);
+                                    vg.d(byteArrayOutputStream);
+                                    return jnVar;
+                                }
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            vg.c(exists);
+                            vg.d(byteArrayOutputStream);
+                            return null;
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        byteArrayOutputStream = null;
+                    } catch (Throwable th) {
+                        file = 0;
+                        th = th;
+                        vg.c(exists);
+                        vg.d(file);
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    exists = 0;
+                    byteArrayOutputStream = null;
+                } catch (Throwable th2) {
+                    file = 0;
+                    th = th2;
+                    exists = 0;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+            }
+        } else {
+            return (jn) invokeL.objValue;
         }
-        return (n57) invokeV.objValue;
     }
 
-    public final Function2<x57, View, Unit> g() {
-        InterceptResult invokeV;
+    public File u(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+            String replace2 = replace.substring(0, replace.indexOf(",")).replace("collect_", "");
+            if (replace2.contains("_")) {
+                replace2 = replace2.substring(replace2.indexOf("_") + 1);
+            }
+            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + fn5.d() + "/" + replace2 + "_s.jpg");
         }
-        return (Function2) invokeV.objValue;
+        return (File) invokeL.objValue;
     }
 
-    public final Function2<View, String, Boolean> h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sj5
+    public jn o(String str) {
+        InterceptResult invokeL;
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            if (fn5.f.equals(str)) {
+                return new jn(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_emotion_set_n), false);
+            }
+            File u = u(str);
+            if (u != null) {
+                bitmap = FileHelper.getImage(u.getAbsolutePath());
+            } else {
+                bitmap = null;
+            }
+            if (bitmap == null) {
+                return null;
+            }
+            return new jn(bitmap, false, str);
         }
-        return (Function2) invokeV.objValue;
+        return (jn) invokeL.objValue;
     }
 
-    public final Function2<View, String, Unit> i() {
-        InterceptResult invokeV;
+    public boolean v(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if (this.e != null && !TextUtils.isEmpty(str)) {
+                Iterator<String> it = this.e.iterator();
+                while (it.hasNext()) {
+                    if (it.next().contains(str)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
-        return (Function2) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final Function1<m67, Unit> j() {
-        InterceptResult invokeV;
+    public void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.h;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            List<CollectEmotionData> q = q47.o().q(TbadkCoreApplication.getCurrentAccountForEmotion());
+            this.e.clear();
+            this.f.clear();
+            for (CollectEmotionData collectEmotionData : q) {
+                this.e.add(collectEmotionData.getSharpText());
+                this.f.add(collectEmotionData.getSharpText());
+            }
         }
-        return (Function1) invokeV.objValue;
-    }
-
-    public final String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -65,7 +65,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00cc, viewGroup, false);
+        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00cb, viewGroup, false);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -132,13 +132,13 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d75);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d73);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d76);
-        this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d77);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d79);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091d7b);
-        this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d74);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d8f);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d8d);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d90);
+        this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d91);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d93);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091d95);
+        this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d8e);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.k = rotateAnimation;
         rotateAnimation.setDuration(120L);

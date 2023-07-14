@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.data.JSONLikeSerializable;
-import com.baidu.tieba.pz4;
-import com.baidu.tieba.xu9;
+import com.baidu.tieba.y2a;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class OpenWebViewDispatcher implements xu9 {
+public class OpenWebViewDispatcher implements y2a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_PREFIX = "com.baidu.tieba://unidispatch/tbwebview";
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class OpenWebViewDispatcher implements xu9 {
         }
     }
 
-    @Override // com.baidu.tieba.xu9
+    @Override // com.baidu.tieba.y2a
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext currentPageContext;
         String str;
@@ -80,8 +80,8 @@ public class OpenWebViewDispatcher implements xu9 {
                 bundle = new Bundle();
                 bundle.putString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE, str);
             }
-            pz4 j = pz4.j(context, optString);
-            j.p(optString2);
+            yz4 j = yz4.j(context, optString);
+            j.r(optString2);
             j.m(optBoolean);
             j.k(optBoolean2);
             j.c(optBoolean3);
@@ -111,7 +111,7 @@ public class OpenWebViewDispatcher implements xu9 {
                 }
                 j.f(hashMap);
             }
-            j.o();
+            j.p();
         } catch (Exception e) {
             BdLog.e(e);
         }

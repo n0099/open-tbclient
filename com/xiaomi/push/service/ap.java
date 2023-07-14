@@ -57,11 +57,11 @@ public class ap {
     }
 
     public static void a() {
-        dv.a m803a;
+        dv.a m805a;
         long currentTimeMillis = System.currentTimeMillis();
-        if ((f906a.getActiveCount() <= 0 || currentTimeMillis - a >= 1800000) && fg.m470a().m475a() && (m803a = bv.a().m803a()) != null && m803a.e() > 0) {
+        if ((f906a.getActiveCount() <= 0 || currentTimeMillis - a >= 1800000) && fg.m472a().m477a() && (m805a = bv.a().m805a()) != null && m805a.e() > 0) {
             a = currentTimeMillis;
-            a(m803a.m364a(), true);
+            a(m805a.m366a(), true);
         }
     }
 
@@ -72,26 +72,26 @@ public class ap {
     public static void b() {
         String a2 = a("/proc/self/net/tcp");
         if (!TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m175a("dump tcp for uid = " + Process.myUid());
-            com.xiaomi.channel.commonutils.logger.b.m175a(a2);
+            com.xiaomi.channel.commonutils.logger.b.m177a("dump tcp for uid = " + Process.myUid());
+            com.xiaomi.channel.commonutils.logger.b.m177a(a2);
         }
         String a3 = a("/proc/self/net/tcp6");
         if (TextUtils.isEmpty(a3)) {
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m175a("dump tcp6 for uid = " + Process.myUid());
-        com.xiaomi.channel.commonutils.logger.b.m175a(a3);
+        com.xiaomi.channel.commonutils.logger.b.m177a("dump tcp6 for uid = " + Process.myUid());
+        com.xiaomi.channel.commonutils.logger.b.m177a(a3);
     }
 
     public static boolean b(String str) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            com.xiaomi.channel.commonutils.logger.b.m175a("ConnectivityTest: begin to connect to " + str);
+            com.xiaomi.channel.commonutils.logger.b.m177a("ConnectivityTest: begin to connect to " + str);
             Socket socket = new Socket();
-            socket.connect(com.xiaomi.push.cs.m337a(str, 5222), 5000);
+            socket.connect(com.xiaomi.push.cs.m339a(str, 5222), 5000);
             socket.setTcpNoDelay(true);
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            com.xiaomi.channel.commonutils.logger.b.m175a("ConnectivityTest: connect to " + str + " in " + currentTimeMillis2);
+            com.xiaomi.channel.commonutils.logger.b.m177a("ConnectivityTest: connect to " + str + " in " + currentTimeMillis2);
             socket.close();
             return true;
         } catch (Throwable th) {

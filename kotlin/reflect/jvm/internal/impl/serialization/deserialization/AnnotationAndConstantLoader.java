@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.metadata.deserialization.NameResolver;
 import kotlin.reflect.jvm.internal.impl.protobuf.MessageLite;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.ProtoContainer;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface AnnotationAndConstantLoader<A, C> {
     List<A> loadCallableAnnotations(ProtoContainer protoContainer, MessageLite messageLite, AnnotatedCallableKind annotatedCallableKind);
 

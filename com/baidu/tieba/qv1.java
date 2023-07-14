@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes7.dex */
 public interface qv1 {
-    String a(Context context);
+    void a(String str, u83 u83Var);
 }

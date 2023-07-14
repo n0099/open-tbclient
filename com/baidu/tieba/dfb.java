@@ -1,42 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.efb;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 /* loaded from: classes5.dex */
-public class dfb implements Runnable {
+public class dfb implements AdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ int a;
-    public final /* synthetic */ efb.a b;
 
-    public dfb(efb.a aVar, int i) {
+    public dfb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = aVar;
-        this.a = i;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public void destroy(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.b(HonorPushErrorEnum.fromCode(this.a));
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public RippedAd getRippedAd(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            return null;
+        }
+        return (RippedAd) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public RippedAd getRippedAd(Object obj, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, obj, z)) == null) {
+            return null;
+        }
+        return (RippedAd) invokeLZ.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public void preParseRippedAd(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public void report(Object obj, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, str, Long.valueOf(j)}) == null) {
         }
     }
 }

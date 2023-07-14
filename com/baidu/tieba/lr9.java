@@ -1,187 +1,69 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class lr9 {
+public class lr9 extends ln<vs9, CardViewHolder<wt9>> {
     public static /* synthetic */ Interceptable $ic;
-    public static lr9 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public HashMap<String, String> b;
-    public ConcurrentHashMap<String, mr9> c;
+    public TbPageContext<?> a;
 
-    public lr9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lr9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), vs9.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new ConcurrentHashMap<>();
+        this.a = tbPageContext;
     }
 
-    public static lr9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (lr9.class) {
-                    if (d == null) {
-                        d = new lr9();
-                    }
-                }
-            }
-            return d;
-        }
-        return (lr9) invokeV.objValue;
-    }
-
-    public ConcurrentHashMap<String, mr9> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (ConcurrentHashMap) invokeV.objValue;
-    }
-
-    public mr9 c(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: s */
+    public CardViewHolder<wt9> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null || this.c == null) {
-                return null;
-            }
-            String str2 = hashMap.get(str);
-            if (TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            return this.c.get(str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new wt9(this.a));
         }
-        return (mr9) invokeL.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void f(String str) {
-        ConcurrentHashMap<String, mr9> concurrentHashMap;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vs9 vs9Var, CardViewHolder<wt9> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
-            Iterator<String> it = concurrentHashMap.keySet().iterator();
-            while (it.hasNext()) {
-                mr9 mr9Var = this.c.get(it.next());
-                if (mr9Var != null && str.equals(mr9Var.b)) {
-                    it.remove();
-                }
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vs9Var, cardViewHolder})) == null) {
+            cardViewHolder.b().i(vs9Var);
+            cardViewHolder.b().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
         }
-    }
-
-    public void g(boolean z) {
-        ConcurrentHashMap<String, mr9> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || (concurrentHashMap = this.c) == null) {
-            return;
-        }
-        for (String str : concurrentHashMap.keySet()) {
-            mr9 mr9Var = this.c.get(str);
-            if (mr9Var != null) {
-                mr9Var.e = z;
-            }
-        }
-    }
-
-    public mr9 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ConcurrentHashMap<String, mr9> concurrentHashMap = this.c;
-            if (concurrentHashMap == null) {
-                return null;
-            }
-            return concurrentHashMap.get(str);
-        }
-        return (mr9) invokeL.objValue;
-    }
-
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            HashMap<String, String> hashMap = this.b;
-            if (hashMap == null) {
-                return null;
-            }
-            return hashMap.get(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void i(HashMap<String, mr9> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            this.c.clear();
-            if (hashMap == null) {
-                return;
-            }
-            this.c.putAll(hashMap);
-        }
-    }
-
-    public void h(boolean z, String str) {
-        ConcurrentHashMap<String, mr9> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
-            for (String str2 : concurrentHashMap.keySet()) {
-                mr9 mr9Var = this.c.get(str2);
-                if (mr9Var != null && str.equals(mr9Var.b)) {
-                    mr9Var.e = z;
-                }
-            }
-        }
-    }
-
-    public void j(String str, String str2) {
-        HashMap<String, String> hashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.a) != null) {
-            hashMap.put(str, str2);
-        }
-    }
-
-    public void k(String str, String str2) {
-        HashMap<String, String> hashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.b) != null) {
-            hashMap.put(str, str2);
-        }
-    }
-
-    public void l(String str, HashMap<String, mr9> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hashMap) == null) {
-            if (this.c == null) {
-                this.c = new ConcurrentHashMap<>();
-            }
-            f(str);
-            this.c.putAll(hashMap);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

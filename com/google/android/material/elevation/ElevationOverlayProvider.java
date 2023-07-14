@@ -20,8 +20,8 @@ public class ElevationOverlayProvider {
     public final boolean elevationOverlayEnabled;
 
     public ElevationOverlayProvider(@NonNull Context context) {
-        this.elevationOverlayEnabled = MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f040298, false);
-        this.elevationOverlayColor = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040297, 0);
+        this.elevationOverlayEnabled = MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f040299, false);
+        this.elevationOverlayColor = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040298, 0);
         this.colorSurface = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040190, 0);
         this.displayDensity = context.getResources().getDisplayMetrics().density;
     }

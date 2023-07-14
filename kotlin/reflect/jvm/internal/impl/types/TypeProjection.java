@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.types;
 
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeArgumentMarker;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface TypeProjection extends TypeArgumentMarker {
     Variance getProjectionKind();
 

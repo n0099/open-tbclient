@@ -1,29 +1,182 @@
 package com.baidu.tieba;
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.request.BodyStyle;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public interface ju0 {
-    void a(int i);
+public class ju0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final byte[] g;
+    public static final ju0 h;
+    public transient /* synthetic */ FieldHolder $fh;
+    public BodyStyle a;
+    public String b;
+    public String c;
+    public byte[] d;
+    public File e;
+    public Map<String, String> f;
 
-    void onBufferEnd();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947895652, "Lcom/baidu/tieba/ju0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947895652, "Lcom/baidu/tieba/ju0;");
+                return;
+            }
+        }
+        byte[] bArr = new byte[0];
+        g = bArr;
+        h = d(null, bArr);
+        b(null, "");
+        c(null, new HashMap());
+    }
 
-    void onBufferStart();
+    public ju0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    void onEnd(int i);
+    public static ju0 b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            ju0 ju0Var = new ju0();
+            ju0Var.k(BodyStyle.STRING);
+            ju0Var.i(str);
+            ju0Var.h(str2);
+            return ju0Var;
+        }
+        return (ju0) invokeLL.objValue;
+    }
 
-    void onError(int i, int i2, String str);
+    public static ju0 c(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            ju0 ju0Var = new ju0();
+            ju0Var.k(BodyStyle.FORM);
+            ju0Var.i(str);
+            ju0Var.j(map);
+            return ju0Var;
+        }
+        return (ju0) invokeLL.objValue;
+    }
 
-    void onInfo(int i, int i2);
+    public static ju0 d(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr)) == null) {
+            ju0 ju0Var = new ju0();
+            ju0Var.k(BodyStyle.BYTE);
+            ju0Var.i(str);
+            ju0Var.g(bArr);
+            return ju0Var;
+        }
+        return (ju0) invokeLL.objValue;
+    }
 
-    void onPause();
+    public ju0 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (this.f == null) {
+                this.f = new HashMap();
+            }
+            this.f.put(str, str2);
+            return this;
+        }
+        return (ju0) invokeLL.objValue;
+    }
 
-    void onPrepared();
+    public static ju0 e(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
+            return c("application/x-www-form-urlencoded", map);
+        }
+        return (ju0) invokeL.objValue;
+    }
 
-    void onResume();
+    public static ju0 f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            return d("application/octet-stream", bArr);
+        }
+        return (ju0) invokeL.objValue;
+    }
 
-    void onSeekEnd();
+    public ju0 g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            this.d = bArr;
+            return this;
+        }
+        return (ju0) invokeL.objValue;
+    }
 
-    void onStart();
+    public ju0 h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (ju0) invokeL.objValue;
+    }
 
-    void onUpdateProgress(int i, int i2, int i3);
+    public ju0 i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.b = str;
+            return this;
+        }
+        return (ju0) invokeL.objValue;
+    }
 
-    void onVideoSizeChanged(int i, int i2);
+    public ju0 j(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
+            this.f = map;
+            return this;
+        }
+        return (ju0) invokeL.objValue;
+    }
+
+    public ju0 k(BodyStyle bodyStyle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bodyStyle)) == null) {
+            this.a = bodyStyle;
+            return this;
+        }
+        return (ju0) invokeL.objValue;
+    }
 }

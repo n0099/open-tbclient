@@ -17,27 +17,27 @@ import com.baidu.nadcore.max.uicomponent.NestedScrollComponent$nestedScrollServi
 import com.baidu.nadcore.max.uiwidget.basic.WebViewContainer;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c31;
-import com.baidu.tieba.g61;
-import com.baidu.tieba.hs0;
-import com.baidu.tieba.iq0;
-import com.baidu.tieba.ir0;
-import com.baidu.tieba.jq0;
-import com.baidu.tieba.kq0;
-import com.baidu.tieba.lj0;
-import com.baidu.tieba.lq0;
-import com.baidu.tieba.mk0;
-import com.baidu.tieba.mq0;
-import com.baidu.tieba.oq0;
-import com.baidu.tieba.pj0;
-import com.baidu.tieba.pq0;
-import com.baidu.tieba.qj0;
-import com.baidu.tieba.sq0;
+import com.baidu.tieba.ak0;
+import com.baidu.tieba.ar0;
+import com.baidu.tieba.dr0;
+import com.baidu.tieba.e71;
+import com.baidu.tieba.er0;
+import com.baidu.tieba.gr0;
+import com.baidu.tieba.hr0;
+import com.baidu.tieba.jr0;
+import com.baidu.tieba.mj0;
+import com.baidu.tieba.pk0;
+import com.baidu.tieba.sj0;
+import com.baidu.tieba.ss0;
+import com.baidu.tieba.tj0;
 import com.baidu.tieba.tq0;
+import com.baidu.tieba.tr0;
+import com.baidu.tieba.uq0;
 import com.baidu.tieba.vq0;
 import com.baidu.tieba.wq0;
-import com.baidu.tieba.xj0;
-import com.baidu.tieba.yq0;
+import com.baidu.tieba.xq0;
+import com.baidu.tieba.y31;
+import com.baidu.tieba.zq0;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -49,10 +49,10 @@ import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0097\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001?\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\bS\u0010\u0004J\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0005\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0004J\u0017\u0010\b\u001a\u00020\u00022\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\f\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\f\u0010\rJ\u0017\u0010\u000f\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u000f\u0010\u0010J\u001f\u0010\u0013\u001a\u00020\u00022\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0003\u001a\u00020\u0011H\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\u0017\u0010\u0016\u001a\u00020\u00022\u0006\u0010\u0015\u001a\u00020\u0011H\u0002¢\u0006\u0004\b\u0016\u0010\u0017J'\u0010\u0016\u001a\u00020\u00022\u0006\u0010\u0015\u001a\u00020\u00112\u0006\u0010\u0018\u001a\u00020\u00112\u0006\u0010\u0003\u001a\u00020\u0011H\u0002¢\u0006\u0004\b\u0016\u0010\u0019J\u0017\u0010\u001b\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\u001aH\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ\u0017\u0010\u001e\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\u001dH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\u0017\u0010\"\u001a\u00020\u00022\u0006\u0010!\u001a\u00020 H\u0002¢\u0006\u0004\b\"\u0010#J\u000f\u0010$\u001a\u00020\u0002H\u0002¢\u0006\u0004\b$\u0010\u0004J\u000f\u0010%\u001a\u00020\u0002H\u0016¢\u0006\u0004\b%\u0010\u0004J\u000f\u0010&\u001a\u00020\u0011H\u0002¢\u0006\u0004\b&\u0010'J'\u0010(\u001a\u00020\u00022\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0018\u001a\u00020\u00112\u0006\u0010\u0003\u001a\u00020\u0011H\u0002¢\u0006\u0004\b(\u0010\u0019J-\u0010+\u001a\u00020\u00022\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0018\u001a\u00020\u00112\u0006\u0010\u0003\u001a\u00020\u00112\u0006\u0010*\u001a\u00020)¢\u0006\u0004\b+\u0010,J\u0017\u0010-\u001a\u00020\u00022\u0006\u0010!\u001a\u00020 H\u0016¢\u0006\u0004\b-\u0010#J\u0017\u00100\u001a\u00020\u00022\u0006\u0010/\u001a\u00020.H\u0016¢\u0006\u0004\b0\u00101J\u000f\u00102\u001a\u00020\u0002H\u0016¢\u0006\u0004\b2\u0010\u0004J\u0017\u00103\u001a\u00020\u00022\u0006\u0010/\u001a\u00020.H\u0002¢\u0006\u0004\b3\u00101J\u0017\u00105\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u000204H\u0016¢\u0006\u0004\b5\u00106R\u0018\u00108\u001a\u0004\u0018\u0001078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u00109R\u0016\u0010:\u001a\u00020\u00118\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b:\u0010;R\u0016\u0010=\u001a\u00020<8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b=\u0010>R\u001d\u0010D\u001a\u00020?8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b@\u0010A\u001a\u0004\bB\u0010CR\u0016\u0010F\u001a\u00020E8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bF\u0010GR\u0018\u0010I\u001a\u0004\u0018\u00010H8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bI\u0010JR\u0018\u0010L\u001a\u0004\u0018\u00010K8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bL\u0010MR\u001d\u0010R\u001a\u00020N8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bO\u0010A\u001a\u0004\bP\u0010Q¨\u0006T"}, d2 = {"Lcom/baidu/nadcore/max/uicomponent/NestedScrollComponent;", "Lcom/baidu/nadcore/component/AbsComponentPlugin;", "", "autoScroll", "()V", "cancelScrollAnimator", "", "fraction", "changeMaskColor", "(F)V", "Lcom/baidu/nadcore/max/event/PanelViewEvent;", "event", "handlePanelEvent", "(Lcom/baidu/nadcore/max/event/PanelViewEvent;)V", "Lcom/baidu/nadcore/max/event/PopOverViewEvent;", "handlePopEvent", "(Lcom/baidu/nadcore/max/event/PopOverViewEvent;)V", "", "scrollDown", "handleScrollAnimateEnd", "(ZZ)V", "isShowUpHalf", "handleUpAction", "(Z)V", "forceAnim", "(ZZZ)V", "Lcom/baidu/nadcore/max/event/VideoViewEvent;", "handleVideoEvent", "(Lcom/baidu/nadcore/max/event/VideoViewEvent;)V", "Lcom/baidu/nadcore/max/event/WebViewEvent;", "handleWebEvent", "(Lcom/baidu/nadcore/max/event/WebViewEvent;)V", "Landroid/view/ViewGroup;", "parent", "initVideoLPStatus", "(Landroid/view/ViewGroup;)V", "initWebViewContainer", "injectService", "isScrollAnimatorRunning", "()Z", "moveViewWithAnim", "", "moveDistance", "moveViewWithDistance", "(ZZZI)V", "onCreateView", "Landroid/content/Intent;", "intent", "onNewIntent", "(Landroid/content/Intent;)V", "onRelease", "parseData", "Lcom/baidu/nadcore/component/api/IComponentEvent;", "receiveEvent", "(Lcom/baidu/nadcore/component/api/IComponentEvent;)V", "Lcom/baidu/nadcore/charge/AdAreaInfo;", "adAreaInfo", "Lcom/baidu/nadcore/charge/AdAreaInfo;", "hasUpScroll", "Z", "Lcom/baidu/nadcore/max/uiwidget/basic/WebViewContainer$OnScrollChangedCallback;", "mScrollCallback", "Lcom/baidu/nadcore/max/uiwidget/basic/WebViewContainer$OnScrollChangedCallback;", "com/baidu/nadcore/max/uicomponent/NestedScrollComponent$nestedScrollService$2$1", "nestedScrollService$delegate", "Lkotlin/Lazy;", "getNestedScrollService", "()Lcom/baidu/nadcore/max/uicomponent/NestedScrollComponent$nestedScrollService$2$1;", "nestedScrollService", "Lcom/baidu/nadcore/max/uiwidget/basic/WebViewContainer$OnUpListener;", "onUpListener", "Lcom/baidu/nadcore/max/uiwidget/basic/WebViewContainer$OnUpListener;", "Landroid/animation/ValueAnimator;", "scrollAnimator", "Landroid/animation/ValueAnimator;", "Lcom/baidu/nadcore/model/CmdPolicy;", "switchModel", "Lcom/baidu/nadcore/model/CmdPolicy;", "Lcom/baidu/nadcore/max/uiwidget/basic/WebViewContainer;", "webViewContainer$delegate", "getWebViewContainer", "()Lcom/baidu/nadcore/max/uiwidget/basic/WebViewContainer;", "webViewContainer", "<init>", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class NestedScrollComponent extends AbsComponentPlugin {
-    public hs0 e;
+    public ss0 e;
     public ValueAnimator f;
     public boolean g;
-    public pj0 h;
+    public sj0 h;
     public final Lazy d = LazyKt__LazyJVMKt.lazy(new Function0<WebViewContainer>() { // from class: com.baidu.nadcore.max.uicomponent.NestedScrollComponent$webViewContainer$2
         {
             super(0);
@@ -73,36 +73,36 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
         }
 
         /* loaded from: classes3.dex */
-        public static final class a implements tq0 {
+        public static final class a implements er0 {
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             public a() {
             }
 
-            @Override // com.baidu.tieba.tq0
-            public void i(MotionEvent event) {
+            @Override // com.baidu.tieba.er0
+            public void h(MotionEvent event) {
                 Intrinsics.checkNotNullParameter(event, "event");
-                NestedScrollComponent.this.G().dispatchTouchEvent(event);
+                NestedScrollComponent.this.E().dispatchTouchEvent(event);
             }
 
-            @Override // com.baidu.tieba.tq0
+            @Override // com.baidu.tieba.er0
             public WebViewContainer b() {
-                return NestedScrollComponent.this.G();
+                return NestedScrollComponent.this.E();
             }
 
-            @Override // com.baidu.tieba.tq0
+            @Override // com.baidu.tieba.er0
             public boolean g() {
                 boolean z;
                 z = NestedScrollComponent.this.g;
                 return z;
             }
 
-            @Override // com.baidu.tieba.tq0
+            @Override // com.baidu.tieba.er0
             public void f(boolean z, boolean z2, boolean z3, int i) {
                 NestedScrollComponent.this.U(z, z2, z3, i);
             }
 
-            @Override // com.baidu.tieba.tq0
-            public void j(boolean z, boolean z2, boolean z3) {
+            @Override // com.baidu.tieba.er0
+            public void i(boolean z, boolean z2, boolean z3) {
                 NestedScrollComponent.this.M(z, z2, z3);
             }
         }
@@ -117,30 +117,30 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
     public final WebViewContainer.c j = new c();
     public final WebViewContainer.d k = new g();
 
-    public final NestedScrollComponent$nestedScrollService$2.a E() {
+    public final NestedScrollComponent$nestedScrollService$2.a D() {
         return (NestedScrollComponent$nestedScrollService$2.a) this.i.getValue();
     }
 
-    public final WebViewContainer G() {
+    public final WebViewContainer E() {
         return (WebViewContainer) this.d.getValue();
     }
 
     /* loaded from: classes3.dex */
     public static final class a implements WebViewContainer.b {
-        public final /* synthetic */ wq0 a;
+        public final /* synthetic */ hr0 a;
 
-        public a(wq0 wq0Var) {
-            this.a = wq0Var;
+        public a(hr0 hr0Var) {
+            this.a = hr0Var;
         }
 
         @Override // com.baidu.nadcore.max.uiwidget.basic.WebViewContainer.b
         public final boolean a() {
             int i;
-            ir0 b;
-            Integer c;
-            wq0 wq0Var = this.a;
-            if (wq0Var != null && (b = wq0Var.b()) != null && (c = b.c()) != null) {
-                i = c.intValue();
+            tr0 b;
+            Integer b2;
+            hr0 hr0Var = this.a;
+            if (hr0Var != null && (b = hr0Var.b()) != null && (b2 = b.b()) != null) {
+                i = b2.intValue();
             } else {
                 i = -1;
             }
@@ -161,20 +161,20 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
         public boolean a(boolean z) {
             int i;
             if (z) {
-                int topMargin = NestedScrollComponent.this.G().getTopMargin();
-                vq0 vq0Var = (vq0) NestedScrollComponent.this.j().q(vq0.class);
-                if (vq0Var != null) {
-                    i = vq0Var.getVideoHeight();
+                int topMargin = NestedScrollComponent.this.E().getTopMargin();
+                gr0 gr0Var = (gr0) NestedScrollComponent.this.d().r(gr0.class);
+                if (gr0Var != null) {
+                    i = gr0Var.getVideoHeight();
                 } else {
                     i = 0;
                 }
                 if (topMargin <= i) {
-                    NestedScrollComponent.this.L(false);
+                    NestedScrollComponent.this.K(false);
                     return true;
                 }
             }
-            if (!z && NestedScrollComponent.this.G().getTopMargin() >= NestedScrollComponent.this.G().getMinTopMargin()) {
-                NestedScrollComponent.this.L(true);
+            if (!z && NestedScrollComponent.this.E().getTopMargin() >= NestedScrollComponent.this.E().getMinTopMargin()) {
+                NestedScrollComponent.this.K(true);
                 return true;
             }
             return false;
@@ -191,23 +191,23 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             float f;
             int i3;
             NestedScrollComponent nestedScrollComponent;
-            FrameLayout h;
-            vq0 vq0Var = (vq0) NestedScrollComponent.this.j().q(vq0.class);
-            if (vq0Var != null && (h = vq0Var.h()) != null) {
-                f = h.getY();
+            FrameLayout videoHolder;
+            gr0 gr0Var = (gr0) NestedScrollComponent.this.d().r(gr0.class);
+            if (gr0Var != null && (videoHolder = gr0Var.getVideoHolder()) != null) {
+                f = videoHolder.getY();
             } else {
                 f = 0.0f - i2;
             }
-            vq0 vq0Var2 = (vq0) NestedScrollComponent.this.j().q(vq0.class);
-            if (vq0Var2 != null) {
-                i3 = vq0Var2.getVideoHeight();
+            gr0 gr0Var2 = (gr0) NestedScrollComponent.this.d().r(gr0.class);
+            if (gr0Var2 != null) {
+                i3 = gr0Var2.getVideoHeight();
             } else {
                 i3 = 0;
             }
             float f2 = i3;
             float min = Math.min(Math.max(f, 0.0f - f2), 0.0f);
-            NestedScrollComponent.this.D((f2 - nestedScrollComponent.G().getTopMargin()) / (i3 - NestedScrollComponent.this.G().getMinTopMargin()));
-            NestedScrollComponent.this.j().g(new iq0(NestedEvent.MOVE_VIEW, min, i3, NestedScrollComponent.this.G().getTopMargin(), NestedScrollComponent.this.G().getMinTopMargin()));
+            NestedScrollComponent.this.A((f2 - nestedScrollComponent.E().getTopMargin()) / (i3 - NestedScrollComponent.this.E().getMinTopMargin()));
+            NestedScrollComponent.this.d().j(new tq0(NestedEvent.MOVE_VIEW, min, i3, NestedScrollComponent.this.E().getTopMargin(), NestedScrollComponent.this.E().getMinTopMargin()));
         }
     }
 
@@ -225,26 +225,26 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             int i2;
             int topMargin;
             float f;
-            FrameLayout h;
+            FrameLayout videoHolder;
             this.h = z;
-            vq0 vq0Var = (vq0) NestedScrollComponent.this.j().q(vq0.class);
-            if (vq0Var != null) {
-                i2 = vq0Var.getVideoHeight();
+            gr0 gr0Var = (gr0) NestedScrollComponent.this.d().r(gr0.class);
+            if (gr0Var != null) {
+                i2 = gr0Var.getVideoHeight();
             } else {
                 i2 = 0;
             }
             this.a = i2;
             if (z) {
-                topMargin = i2 - NestedScrollComponent.this.G().getTopMargin();
+                topMargin = i2 - NestedScrollComponent.this.E().getTopMargin();
             } else {
-                topMargin = NestedScrollComponent.this.G().getTopMargin() - NestedScrollComponent.this.G().getMinTopMargin();
+                topMargin = NestedScrollComponent.this.E().getTopMargin() - NestedScrollComponent.this.E().getMinTopMargin();
             }
             this.c = topMargin;
             this.d = z2 ? topMargin : i;
-            this.e = NestedScrollComponent.this.G().getTopMargin();
-            vq0 vq0Var2 = (vq0) NestedScrollComponent.this.j().q(vq0.class);
-            if (vq0Var2 != null && (h = vq0Var2.h()) != null) {
-                f = h.getY();
+            this.e = NestedScrollComponent.this.E().getTopMargin();
+            gr0 gr0Var2 = (gr0) NestedScrollComponent.this.d().r(gr0.class);
+            if (gr0Var2 != null && (videoHolder = gr0Var2.getVideoHolder()) != null) {
+                f = videoHolder.getY();
             } else {
                 f = 0.0f;
             }
@@ -261,16 +261,16 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
                     int i = (int) (this.d * (floatValue - this.b));
                     this.f += i;
                     this.e += i;
-                    NestedScrollComponent.this.G().scrollBy(0, -i);
-                    NestedScrollComponent.this.G().setTopMargin(this.e);
+                    NestedScrollComponent.this.E().scrollBy(0, -i);
+                    NestedScrollComponent.this.E().setTopMargin(this.e);
                 } else {
                     int i2 = (int) (this.d * (floatValue - this.b));
                     this.f -= i2;
                     this.e -= i2;
-                    NestedScrollComponent.this.G().scrollBy(0, i2);
-                    NestedScrollComponent.this.G().setTopMargin(this.e);
+                    NestedScrollComponent.this.E().scrollBy(0, i2);
+                    NestedScrollComponent.this.E().setTopMargin(this.e);
                 }
-                NestedScrollComponent.this.j().g(new iq0(NestedEvent.MOVE_VIEW, this.f, this.a, NestedScrollComponent.this.G().getTopMargin(), NestedScrollComponent.this.G().getMinTopMargin()));
+                NestedScrollComponent.this.d().j(new tq0(NestedEvent.MOVE_VIEW, this.f, this.a, NestedScrollComponent.this.E().getTopMargin(), NestedScrollComponent.this.E().getMinTopMargin()));
                 this.b = floatValue;
                 return;
             }
@@ -294,8 +294,8 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
         public void onAnimationEnd(Animator animation) {
             Intrinsics.checkNotNullParameter(animation, "animation");
             if (!this.b) {
-                NestedScrollComponent.this.D(0.0f);
-                NestedScrollComponent.this.j().g(new jq0(NestedEvent.SCROLL_FINISH));
+                NestedScrollComponent.this.A(0.0f);
+                NestedScrollComponent.this.d().j(new uq0(NestedEvent.SCROLL_FINISH));
                 return;
             }
             NestedScrollComponent.this.J(this.c, this.d);
@@ -312,7 +312,7 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
 
         @Override // java.lang.Runnable
         public final void run() {
-            NestedScrollComponent.this.Q(this.b);
+            NestedScrollComponent.this.P(this.b);
         }
     }
 
@@ -326,25 +326,25 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
         public void a(boolean z) {
             int i;
             double d;
-            int topMargin = NestedScrollComponent.this.G().getTopMargin();
-            vq0 vq0Var = (vq0) NestedScrollComponent.this.j().q(vq0.class);
+            int topMargin = NestedScrollComponent.this.E().getTopMargin();
+            gr0 gr0Var = (gr0) NestedScrollComponent.this.d().r(gr0.class);
             boolean z2 = false;
-            if (vq0Var != null) {
-                i = vq0Var.getVideoHeight();
+            if (gr0Var != null) {
+                i = gr0Var.getVideoHeight();
             } else {
                 i = 0;
             }
-            if (topMargin != NestedScrollComponent.this.G().getMinTopMargin() && topMargin != i) {
+            if (topMargin != NestedScrollComponent.this.E().getMinTopMargin() && topMargin != i) {
                 if (z) {
                     d = 0.8d;
                 } else {
                     d = 0.2d;
                 }
-                if ((NestedScrollComponent.this.G().getTopMargin() * 1.0d) / (i * 1.0d) >= d) {
+                if ((NestedScrollComponent.this.E().getTopMargin() * 1.0d) / (i * 1.0d) >= d) {
                     z2 = true;
                 }
-                NestedScrollComponent.this.j().g(new kq0(NestedEvent.SCROLL_UP, z));
-                NestedScrollComponent.this.L(z2);
+                NestedScrollComponent.this.d().j(new vq0(NestedEvent.SCROLL_UP, z));
+                NestedScrollComponent.this.K(z2);
                 return;
             }
             NestedScrollComponent.this.J(!z, false);
@@ -352,16 +352,9 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void A() {
-        super.A();
-        j().t(tq0.class, E());
-    }
-
-    public final void C() {
-        ValueAnimator valueAnimator = this.f;
-        if (valueAnimator != null) {
-            valueAnimator.cancel();
-        }
+    public void B() {
+        super.B();
+        d().u(er0.class, D());
     }
 
     public final boolean S() {
@@ -375,39 +368,46 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void onRelease() {
         super.onRelease();
-        C();
+        w();
     }
 
-    public final void D(float f2) {
+    public final void w() {
+        ValueAnimator valueAnimator = this.f;
+        if (valueAnimator != null) {
+            valueAnimator.cancel();
+        }
+    }
+
+    public final void A(float f2) {
         int i;
-        String e2 = lj0.e(0.6f * f2, "000000");
+        String e2 = mj0.e(0.6f * f2, "000000");
         Intrinsics.checkNotNullExpressionValue(e2, "AdUtil.getOpacityColor(currentOpacity, \"000000\")");
         if (f2 > 0.5d) {
             i = R.color.nad_max_webview_visivle_bg_color;
         } else {
             i = R.color.nad_max_webview_invisivle_bg_color;
         }
-        G().setBackgroundColor(lj0.f(e2, i));
+        E().setBackgroundColor(mj0.f(e2, i));
     }
 
-    public final void H(lq0 lq0Var) {
-        if (yq0.$EnumSwitchMapping$2[lq0Var.getType().ordinal()] == 1) {
+    public final void F(wq0 wq0Var) {
+        if (jr0.$EnumSwitchMapping$2[wq0Var.getType().ordinal()] == 1) {
             this.g = true;
         }
     }
 
-    public final void I(mq0 mq0Var) {
-        if (yq0.$EnumSwitchMapping$3[mq0Var.getType().ordinal()] == 1) {
+    public final void I(xq0 xq0Var) {
+        if (jr0.$EnumSwitchMapping$3[xq0Var.getType().ordinal()] == 1) {
             this.g = true;
         }
     }
 
-    public final void L(boolean z) {
+    public final void K(boolean z) {
         M(z, false, false);
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void P(ViewGroup parent) {
+    public void Q(ViewGroup parent) {
         Intrinsics.checkNotNullParameter(parent, "parent");
         parent.post(new f(parent));
     }
@@ -421,8 +421,8 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
     }
 
     public final void M(boolean z, boolean z2, boolean z3) {
-        hs0 hs0Var = this.e;
-        if (hs0Var != null && hs0Var.q()) {
+        ss0 ss0Var = this.e;
+        if (ss0Var != null && ss0Var.t()) {
             return;
         }
         T(z, z2, z3);
@@ -437,26 +437,26 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
         String str;
         float topMargin;
         if (z) {
-            j().g(new jq0(NestedEvent.UP_SHOW_VIDEO));
+            d().j(new uq0(NestedEvent.UP_SHOW_VIDEO));
         } else {
-            j().g(new jq0(NestedEvent.UP_SHOW_WEB));
+            d().j(new uq0(NestedEvent.UP_SHOW_WEB));
         }
-        vq0 vq0Var = (vq0) j().q(vq0.class);
-        if (vq0Var != null) {
-            i = vq0Var.getVideoHeight();
+        gr0 gr0Var = (gr0) d().r(gr0.class);
+        if (gr0Var != null) {
+            i = gr0Var.getVideoHeight();
         } else {
             i = 0;
         }
         if (z) {
-            G().scrollBy(0, -(i - G().getTopMargin()));
-            G().setTopMargin(i);
-            D(0.0f);
+            E().scrollBy(0, -(i - E().getTopMargin()));
+            E().setTopMargin(i);
+            A(0.0f);
         } else {
             this.g = true;
-            G().scrollBy(0, G().getTopMargin() - G().getMinTopMargin());
-            G().setTopMargin(G().getMinTopMargin());
-            sq0 sq0Var = (sq0) j().q(sq0.class);
-            if (sq0Var != null) {
+            E().scrollBy(0, E().getTopMargin() - E().getMinTopMargin());
+            E().setTopMargin(E().getMinTopMargin());
+            dr0 dr0Var = (dr0) d().r(dr0.class);
+            if (dr0Var != null) {
                 String str2 = ClogBuilder.LogType.VIDEO_LP_VIDEO_HIDE.type;
                 Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.LogType.VIDEO_LP_VIDEO_HIDE.type");
                 if (z2) {
@@ -464,46 +464,46 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
                 } else {
                     str = "1";
                 }
-                sq0Var.c(str2, "", str);
+                dr0Var.c(str2, "", str);
             }
-            D(1.0f);
+            A(1.0f);
         }
         if (z) {
             topMargin = 0.0f;
         } else {
-            topMargin = G().getTopMargin() - G().getMinTopMargin();
+            topMargin = E().getTopMargin() - E().getMinTopMargin();
         }
-        j().g(new iq0(NestedEvent.MOVE_VIEW, topMargin, i, G().getTopMargin(), G().getMinTopMargin()));
+        d().j(new tq0(NestedEvent.MOVE_VIEW, topMargin, i, E().getTopMargin(), E().getMinTopMargin()));
     }
 
-    public final void N(oq0 oq0Var) {
+    public final void N(zq0 zq0Var) {
         Map<String, String> map;
-        int i = yq0.$EnumSwitchMapping$1[oq0Var.getType().ordinal()];
+        int i = jr0.$EnumSwitchMapping$1[zq0Var.getType().ordinal()];
         boolean z = true;
         if (i != 1) {
             if (i == 2) {
-                pj0 pj0Var = this.h;
+                sj0 sj0Var = this.h;
                 Map<String, String> map2 = null;
-                if (pj0Var != null) {
-                    map = pj0Var.c;
+                if (sj0Var != null) {
+                    map = sj0Var.c;
                 } else {
                     map = null;
                 }
-                pj0 pj0Var2 = this.h;
-                if (pj0Var2 != null) {
-                    map2 = pj0Var2.b;
+                sj0 sj0Var2 = this.h;
+                if (sj0Var2 != null) {
+                    map2 = sj0Var2.b;
                 }
-                String a2 = qj0.a("leftslide", map, map2, "");
+                String a2 = tj0.a("leftslide", map, map2, "");
                 if (a2 != null && a2.length() != 0) {
                     z = false;
                 }
                 if (!z) {
-                    xj0.c(a2, getContext());
-                    sq0 sq0Var = (sq0) j().q(sq0.class);
-                    if (sq0Var != null) {
+                    ak0.c(a2, getContext());
+                    dr0 dr0Var = (dr0) d().r(dr0.class);
+                    if (dr0Var != null) {
                         String str = ClogBuilder.LogType.FREE_CLICK.type;
                         Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                        sq0Var.a(str, "leftslide");
+                        dr0Var.a(str, "leftslide");
                         return;
                     }
                     return;
@@ -512,48 +512,48 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             }
             return;
         }
-        w();
+        v();
     }
 
-    public final void O(pq0 pq0Var) {
-        ir0 b2;
-        View l;
-        wq0 wq0Var = (wq0) j().q(wq0.class);
-        if (yq0.$EnumSwitchMapping$0[pq0Var.getType().ordinal()] == 1) {
-            G().setInterceptScrollLister(new a(wq0Var));
-            if (wq0Var != null && (b2 = wq0Var.b()) != null && (l = b2.l()) != null) {
-                lj0.g(l);
-                G().addView(l, new FrameLayout.LayoutParams(-1, -1));
+    public final void O(ar0 ar0Var) {
+        tr0 b2;
+        View j;
+        hr0 hr0Var = (hr0) d().r(hr0.class);
+        if (jr0.$EnumSwitchMapping$0[ar0Var.getType().ordinal()] == 1) {
+            E().setInterceptScrollLister(new a(hr0Var));
+            if (hr0Var != null && (b2 = hr0Var.b()) != null && (j = b2.j()) != null) {
+                mj0.g(j);
+                E().addView(j, new FrameLayout.LayoutParams(-1, -1));
             }
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void x(mk0 event) {
+    public void x(pk0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
         super.x(event);
         String a2 = event.a();
-        if (Intrinsics.areEqual(a2, pq0.class.getSimpleName())) {
-            O((pq0) event);
-        } else if (Intrinsics.areEqual(a2, oq0.class.getSimpleName())) {
-            N((oq0) event);
-        } else if (Intrinsics.areEqual(a2, lq0.class.getSimpleName())) {
-            H((lq0) event);
-        } else if (Intrinsics.areEqual(a2, mq0.class.getSimpleName())) {
-            I((mq0) event);
+        if (Intrinsics.areEqual(a2, ar0.class.getSimpleName())) {
+            O((ar0) event);
+        } else if (Intrinsics.areEqual(a2, zq0.class.getSimpleName())) {
+            N((zq0) event);
+        } else if (Intrinsics.areEqual(a2, wq0.class.getSimpleName())) {
+            F((wq0) event);
+        } else if (Intrinsics.areEqual(a2, xq0.class.getSimpleName())) {
+            I((xq0) event);
         }
     }
 
-    public final void Q(ViewGroup viewGroup) {
+    public final void P(ViewGroup viewGroup) {
         View view2;
         ViewGroup.LayoutParams layoutParams;
         int i;
-        ir0 b2;
-        viewGroup.addView(G(), new FrameLayout.LayoutParams(-1, -1));
-        wq0 wq0Var = (wq0) j().q(wq0.class);
+        tr0 b2;
+        viewGroup.addView(E(), new FrameLayout.LayoutParams(-1, -1));
+        hr0 hr0Var = (hr0) d().r(hr0.class);
         FrameLayout.LayoutParams layoutParams2 = null;
-        if (wq0Var != null && (b2 = wq0Var.b()) != null) {
-            view2 = b2.l();
+        if (hr0Var != null && (b2 = hr0Var.b()) != null) {
+            view2 = b2.j();
         } else {
             view2 = null;
         }
@@ -569,41 +569,41 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
         if (layoutParams3 == null) {
             layoutParams3 = new FrameLayout.LayoutParams(-1, -1);
         }
-        vq0 vq0Var = (vq0) j().q(vq0.class);
-        if (vq0Var != null) {
-            i = vq0Var.getVideoHeight();
+        gr0 gr0Var = (gr0) d().r(gr0.class);
+        if (gr0Var != null) {
+            i = gr0Var.getVideoHeight();
         } else {
             i = 0;
         }
         layoutParams3.topMargin = i;
         layoutParams3.height = viewGroup.getMeasuredHeight();
-        G().setTopMargin(i);
-        G().setTopLimit(i);
-        hs0 hs0Var = this.e;
-        if (hs0Var != null && hs0Var.q()) {
-            G().setStyle(2);
+        E().setTopMargin(i);
+        E().setTopLimit(i);
+        ss0 ss0Var = this.e;
+        if (ss0Var != null && ss0Var.t()) {
+            E().setStyle(2);
         } else {
-            G().setStyle(3);
+            E().setStyle(3);
         }
         if (view2 != null) {
             view2.setLayoutParams(layoutParams3);
         }
-        wq0 wq0Var2 = (wq0) j().q(wq0.class);
-        if (wq0Var2 != null) {
-            wq0Var2.e(8);
+        hr0 hr0Var2 = (hr0) d().r(hr0.class);
+        if (hr0Var2 != null) {
+            hr0Var2.e(8);
         }
     }
 
     public final void R() {
-        G().setClipChildren(false);
-        G().setLayerType(2, null);
-        G().setOnScrollChangeListener(this.j);
-        G().setOnUpListener(this.k);
-        G().setHandleTopYMove(true);
-        G().setMinFlingVelocity(400);
-        G().setUpYVelocityRatio(3.5f);
-        G().setInterceptFlingListener(new b());
-        G().setMinTopMargin(g61.c.a(getContext(), 49.0f));
+        E().setClipChildren(false);
+        E().setLayerType(2, null);
+        E().setOnScrollChangeListener(this.j);
+        E().setOnUpListener(this.k);
+        E().setHandleTopYMove(true);
+        E().setMinFlingVelocity(400);
+        E().setUpYVelocityRatio(3.5f);
+        E().setInterceptFlingListener(new b());
+        E().setMinTopMargin(e71.c.a(getContext(), 49.0f));
     }
 
     public final void U(boolean z, boolean z2, boolean z3, int i) {
@@ -616,7 +616,7 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
         } else {
             z4 = false;
         }
-        C();
+        w();
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.f = ofFloat;
         if (ofFloat != null) {
@@ -654,56 +654,56 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             }
             String str2 = str;
             if (!TextUtils.isEmpty(str2)) {
-                this.e = hs0.q.a(c31.c(str2));
+                this.e = ss0.t.a(y31.c(str2));
             }
-            this.h = pj0.a(hashMap);
+            this.h = sj0.a(hashMap);
         }
     }
 
-    public final void w() {
+    public final void v() {
         int i;
-        vq0 vq0Var;
+        gr0 gr0Var;
         int i2;
         Map<String, String> map;
         if (!this.g) {
-            hs0 hs0Var = this.e;
-            if (hs0Var != null) {
-                i = hs0Var.a();
+            ss0 ss0Var = this.e;
+            if (ss0Var != null) {
+                i = ss0Var.a();
             } else {
                 i = 0;
             }
-            if (i <= 0 || (vq0Var = (vq0) j().q(vq0.class)) == null || !vq0Var.k()) {
+            if (i <= 0 || (gr0Var = (gr0) d().r(gr0.class)) == null || !gr0Var.j()) {
                 return;
             }
-            int l = vq0Var.l();
-            hs0 hs0Var2 = this.e;
-            if (hs0Var2 != null) {
-                i2 = hs0Var2.a();
+            int k = gr0Var.k();
+            ss0 ss0Var2 = this.e;
+            if (ss0Var2 != null) {
+                i2 = ss0Var2.a();
             } else {
                 i2 = 0;
             }
-            if (l < i2) {
+            if (k < i2) {
                 return;
             }
-            pj0 pj0Var = this.h;
+            sj0 sj0Var = this.h;
             Map<String, String> map2 = null;
-            if (pj0Var != null) {
-                map = pj0Var.c;
+            if (sj0Var != null) {
+                map = sj0Var.c;
             } else {
                 map = null;
             }
-            pj0 pj0Var2 = this.h;
-            if (pj0Var2 != null) {
-                map2 = pj0Var2.b;
+            sj0 sj0Var2 = this.h;
+            if (sj0Var2 != null) {
+                map2 = sj0Var2.b;
             }
-            String a2 = qj0.a("postplay", map, map2, "");
+            String a2 = tj0.a("postplay", map, map2, "");
             Intrinsics.checkNotNullExpressionValue(a2, "AreaChargeUtil.area2Cmd(… adAreaInfo?.mCmdMap, \"\")");
             if (!TextUtils.isEmpty(a2)) {
                 if (TextUtils.equals(a2, "AD_IMMERSIVE_VIDEO_SCROLL")) {
                     M(false, true, true);
                     return;
                 }
-                xj0.c(a2, getContext());
+                ak0.c(a2, getContext());
                 this.g = true;
             }
         }

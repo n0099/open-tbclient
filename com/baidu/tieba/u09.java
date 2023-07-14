@@ -1,35 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.squareup.wire.Message;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class u09 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface u09 {
+    int a();
 
-    public u09() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(boolean z, Message message, boolean z2, int i);
 
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            jSONObject.optString("error_code");
-            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-        }
-    }
+    List<ICardInfo> c();
+
+    boolean d();
+
+    boolean hasMore();
 }

@@ -10,7 +10,7 @@ import kotlin.reflect.jvm.internal.impl.builtins.PrimitiveType;
 import kotlin.reflect.jvm.internal.impl.descriptors.ModuleDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ConstantValueFactory {
     public static final ConstantValueFactory INSTANCE = new ConstantValueFactory();
 

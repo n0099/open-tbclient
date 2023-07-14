@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.protobuf;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class WireFormat {
     public static final int MESSAGE_SET_ITEM_TAG = makeTag(1, 3);
     public static final int MESSAGE_SET_ITEM_END_TAG = makeTag(1, 4);
@@ -18,7 +18,7 @@ public final class WireFormat {
         return (i << 3) | i2;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public enum FieldType {
         DOUBLE(JavaType.DOUBLE, 1),
         FLOAT(JavaType.FLOAT, 5),
@@ -80,7 +80,7 @@ public final class WireFormat {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public enum JavaType {
         INT(0),
         LONG(0L),

@@ -1,250 +1,181 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.ala.AlaSharedPrefConfig;
+import com.baidu.ala.AlaSharedPrefHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ah6 {
+public class ah6 extends ln<qh6, CardViewHolder<oi6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public int i;
-    public String j;
-    public String k;
-    public List<ch6> l;
-    public int m;
-    public long n;
+    public TbPageContext a;
+    public TextView b;
+    public String c;
+    public String d;
 
-    public ah6() {
+    public final void z(hh6 hh6Var, oi6 oi6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048583, this, hh6Var, oi6Var) != null) || hh6Var == null || oi6Var == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ah6 a;
+
+        public a(ah6 ah6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ah6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ah6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.a.u();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ah6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), qh6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = -1;
-        this.l = new ArrayList();
+        this.a = tbPageContext;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: x */
+    public CardViewHolder<oi6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new oi6(this.a));
         }
-        return (String) invokeV.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public final void A(TextView textView, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.k;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<ch6> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.l == null) {
-                this.l = new ArrayList();
+        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, textView, str, z) == null) && textView != null && this.a != null) {
+            if (z) {
+                textView.setText("");
+                Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801fc);
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                textView.setCompoundDrawables(null, null, drawable, null);
+                return;
             }
-            return this.l;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.b == 1) {
-                return true;
+            if (str != null) {
+                textView.setText(str);
+            } else {
+                textView.setText("");
             }
-            return false;
+            textView.setCompoundDrawables(null, null, null, null);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean l() {
-        InterceptResult invokeV;
+    public final void t(qh6 qh6Var, oi6 oi6Var) {
+        hh6 c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.c == 9) {
-                return true;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, qh6Var, oi6Var) == null) && (c = qh6Var.c()) != null && oi6Var != null) {
+            this.b = oi6Var.r();
+            this.c = c.b().user_id;
+            z(c, oi6Var);
+            oi6Var.y(8);
+            oi6Var.z(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f026f));
+            oi6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
+            A(this.b, this.d, false);
+            StatisticItem statisticItem = new StatisticItem("c13333");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+            String w = da5.p().w("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+            if (w == null) {
+                return;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.c == 10) {
-                return true;
+            if (w.endsWith("/")) {
+                w = w.substring(0, w.length() - 1);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) {
-            this.c = jSONObject.optInt("type");
-            this.d = jSONObject.optInt("mark_id");
-            this.e = jSONObject.optString("mark_name");
-            this.g = jSONObject.optString("description");
-            this.i = jSONObject.optInt("wear_status");
-            this.f = jSONObject.optString("mark_pic");
-            this.h = jSONObject.optInt("mark_rank");
-            jSONObject.optInt("width");
-            jSONObject.optInt("height");
-            jSONObject.optInt("weight");
-            this.j = jSONObject.optString("next_level_diff");
-            jSONObject.optString("mark_dir_level");
-            this.k = jSONObject.optString("expire_text");
-            jSONObject.optString(DiskUpdateListener.BEGIN_TIME);
-            jSONObject.optString("end_time");
-            JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    ch6 ch6Var = new ch6();
-                    ch6Var.e(optJSONArray.optJSONObject(i));
-                    this.l.add(ch6Var);
-                }
+            String str = this.c;
+            StringBuilder sb = new StringBuilder();
+            sb.append("id=");
+            sb.append(str);
+            if (!w.contains("?")) {
+                sb.insert(0, "?");
+            } else {
+                sb.insert(0, "&");
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
-            if (optJSONObject != null) {
-                this.m = vg.e(optJSONObject.optString("props_id"), -1);
-                this.n = vg.g(optJSONObject.optString("price"), 0L);
-                optJSONObject.optString("buy_cycle");
-                optJSONObject.optInt("buy_staus");
+            sb.insert(0, w);
+            nx4.s(this.a.getPageActivity(), sb.toString());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: y */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qh6 qh6Var, CardViewHolder<oi6> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qh6Var, cardViewHolder})) == null) {
+            if (cardViewHolder.b() == null) {
+                return null;
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("nobility_info");
-            if (optJSONObject2 != null) {
-                optJSONObject2.optInt("nobility_type");
-                optJSONObject2.optString("nobility_type_name");
-            }
+            t(qh6Var, cardViewHolder.b());
+            cardViewHolder.b().h().setOnClickListener(new a(this));
+            return cardViewHolder.b().h();
         }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.i = i;
-        }
+        return (View) invokeCommon.objValue;
     }
 }

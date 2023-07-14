@@ -3,11 +3,11 @@ package com.baidu.ugc.editvideo.record.source.multimedia;
 import android.animation.Animator;
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.tieba.n1b;
+import com.baidu.tieba.lab;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MultiMediaDataSourceRealTimer {
     public static final String TAG = "com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceRealTimer";
     public static final AtomicInteger nextSerialNumber = new AtomicInteger(0);
@@ -74,7 +74,7 @@ public class MultiMediaDataSourceRealTimer {
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface AnimatorUpdateListener {
         void onAnimationUpdate(long j);
     }
@@ -114,7 +114,7 @@ public class MultiMediaDataSourceRealTimer {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (MultiMediaDataSourceRealTimer.this.mBeginTime == 0) {
                     String str = MultiMediaDataSourceRealTimer.TAG;
-                    n1b.a(str, "TimerTask thread : " + Thread.currentThread().getName());
+                    lab.a(str, "TimerTask thread : " + Thread.currentThread().getName());
                     MultiMediaDataSourceRealTimer.this.mBeginTime = currentTimeMillis;
                 }
                 long j = currentTimeMillis + MultiMediaDataSourceRealTimer.this.mCurrentPlayTime;

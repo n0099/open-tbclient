@@ -1,32 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.ContextWrapper;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.os.Bundle;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.tieba.zb3;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public abstract class yb3 extends ContextWrapper implements fc3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yb3 {
+    public static final Set<String> p0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yb3() {
-        super(AppRuntime.getApplication());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void A(zb3.a aVar);
+
+    fe3 B();
+
+    boolean E();
+
+    void G();
+
+    String getAppId();
+
+    int k();
+
+    void l(Bundle bundle, String str);
+
+    SwanAppCores m();
+
+    String n(String... strArr);
+
+    void o(oq3<zb3.a> oq3Var);
+
+    void p(String str);
+
+    vb3 q();
+
+    void r(SwanAppActivity swanAppActivity);
+
+    void s();
+
+    void t(SwanAppActivity swanAppActivity);
+
+    void u(oq3<zb3.a> oq3Var);
+
+    void v(String str, Bundle bundle);
+
+    SwanAppActivity w();
+
+    ys1 x();
+
+    q83 y();
 }

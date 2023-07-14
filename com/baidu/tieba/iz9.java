@@ -1,31 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes6.dex */
-public class iz9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface iz9 extends IAdBaseAsyncController {
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_CLICK);
-            statisticItem.param("obj_source", str);
-            statisticItem.param("obj_type", str2);
-            TiebaStatic.log(statisticItem);
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(int i);
     }
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE);
-            statisticItem.param("obj_type", str);
-            TiebaStatic.log(statisticItem);
-        }
-    }
+    void a(TbPageContext<BaseFragmentActivity> tbPageContext);
+
+    void c(AdvertAppInfo advertAppInfo, boolean z);
+
+    @Nullable
+    iy9 i(AdvertAppInfo advertAppInfo);
+
+    void loadAd();
+
+    void m(AdvertAppInfo advertAppInfo);
 }

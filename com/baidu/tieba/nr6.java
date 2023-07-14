@@ -1,30 +1,23 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.compact.AlaLiveAttentionCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class nr6 implements w87 {
+public class nr6 extends vb7<AlaLiveAttentionCardView, a67> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, String> a;
 
-    @Override // com.baidu.tieba.w87
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW : (String) invokeV.objValue;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public nr6() {
+        super("ala_live_attention");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,66 +25,40 @@ public final class nr6 implements w87 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.w87
-    public Map<String, String> a(i57 businessInfo) {
+    @Override // com.baidu.tieba.vb7, com.baidu.tieba.lc7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            Map<String, String> a = businessInfo.a();
-            HashMap<String, String> hashMap = this.a;
-            String str = a.get("has_customstate");
-            String str2 = "";
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("obj_source", str);
-            if (Intrinsics.areEqual(a.get("has_customstate"), "1")) {
-                HashMap<String, String> hashMap2 = this.a;
-                String str3 = a.get("customstate_name");
-                if (str3 == null) {
-                    str3 = "";
-                }
-                hashMap2.put("obj_name", str3);
-            }
-            HashMap<String, String> hashMap3 = this.a;
-            String str4 = a.get("user_id");
-            if (str4 != null) {
-                str2 = str4;
-            }
-            hashMap3.put(TiebaStatic.Params.FRIEND_UID, str2);
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            AlaLiveAttentionCardView alaLiveAttentionCardView = new AlaLiveAttentionCardView(viewGroup.getContext());
+            zd7.i(alaLiveAttentionCardView, Integer.valueOf(zd7.e() * 2));
+            return alaLiveAttentionCardView;
         }
-        return (Map) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public final nr6 b(String locate) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lc7
+    /* renamed from: e */
+    public void b(@NonNull AlaLiveAttentionCardView alaLiveAttentionCardView, @NonNull a67 a67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
-            Intrinsics.checkNotNullParameter(locate, "locate");
-            this.a.put("obj_locate", locate);
-            return this;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, alaLiveAttentionCardView, a67Var) == null) {
+            Object obj = a67Var.a().a;
+            if (obj instanceof yp6) {
+                alaLiveAttentionCardView.setVisibility(0);
+                alaLiveAttentionCardView.update((yp6) obj);
+                return;
+            }
+            alaLiveAttentionCardView.setVisibility(8);
         }
-        return (nr6) invokeL.objValue;
-    }
-
-    public final nr6 c(String type) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, type)) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            this.a.put("obj_type", type);
-            return this;
-        }
-        return (nr6) invokeL.objValue;
     }
 }

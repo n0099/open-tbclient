@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,14 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class c2c {
     public static /* synthetic */ Interceptable $ic;
-    public static final c2c a;
+    public static final c2c b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicReference<d2c> a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +28,7 @@ public final class c2c {
                 return;
             }
         }
-        a = new c2c();
+        b = new c2c();
     }
 
     public c2c() {
@@ -43,46 +41,30 @@ public final class c2c {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicReference<>();
     }
 
-    public final int a(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
+    public static c2c a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && (themeColorConfig = payUIKitConfig.themeColorConfig) != null && themeColorConfig.getThemeResId() != null) {
-                Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
-                if (themeResId == null) {
-                    Intrinsics.throwNpe();
-                }
-                return themeResId.intValue();
-            }
-            return R.style.obfuscated_res_0x7f100161;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return invokeL.intValue;
+        return (c2c) invokeV.objValue;
     }
 
-    public final boolean b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Integer num;
+    public d2c b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.get() == null) {
+                this.a.compareAndSet(null, d2c.a());
             }
-            if (themeColorConfig != null) {
-                num = themeColorConfig.getThemeResId();
-            } else {
-                num = null;
-            }
-            if (num != null && num.intValue() == R.style.obfuscated_res_0x7f100161) {
-                return true;
-            }
-            return false;
+            return this.a.get();
         }
-        return invokeL.booleanValue;
+        return (d2c) invokeV.objValue;
     }
 }

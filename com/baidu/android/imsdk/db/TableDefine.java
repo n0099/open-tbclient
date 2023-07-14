@@ -33,9 +33,10 @@ public class TableDefine {
     public static final String DB_TABLE_RELIABLE_MESSAGE = "liveroom_message";
     public static final String DB_TABLE_STAT_LOG = "stat_log";
     public static final String DB_TABLE_STUDIO_USE_PA_MESSAGE = "studio_use_pa_message";
+    public static final String DB_TABLE_USED_EMOJI = "used_emoji";
     public static final String DB_TABLE_USERINFO = "userinfo";
     public static final String DB_TABLE_ZHIDAINFO = "zhida_info";
-    public static final int DB_VERSION = 79;
+    public static final int DB_VERSION = 80;
     public static final String SQL_COPY_TABLE_USERINFO = "INSERT INTO userinfo (uid, buid, username, sex, phone, user_detail, tiny_url, head_url, account_type, ip_exsit, ip, ip_isp, ip_country, ip_province, ip_city, ip_county, disturb, blacklist) SELECT uid, buid, username, sex, phone, user_detail, tiny_url, head_url, account_type, ip_exsit, ip, ip_isp, ip_country, ip_province, ip_city, ip_county, disturb, blacklist FROM userinfo_temp";
     public static final String SQL_CREATE_DUPLICATE_MESSAGE = "CREATE TABLE duplicate_message (_id INTEGER PRIMARY KEY AUTOINCREMENT , msgid LONG, category LONG, contacter LONG, msg_key TEXT, from_user LONG, input_time LONG, type LONG);";
     public static final String SQL_CREATE_MEDIA_MESSAGE_QUERY_MSGID_INDEX = "CREATE INDEX media_msgid_query ON media_message (category, contacter, msgid);";
@@ -53,6 +54,7 @@ public class TableDefine {
     public static final String SQL_CREATE_TABLE_BUSINESS_SESSION = "CREATE TABLE busisession (_id INTEGER PRIMARY KEY AUTOINCREMENT , business INTEGER, category INTEGER, contacter LONG, bduid LONG, name TEXT, last_msg TEXT, last_msg_time LONG, new_msg_sum INTEGER, icon_url TEXT,last_msg_id LONG, session_type INTEGER,last_dialogue_id LONG, last_resource_id TEXT,last_aid_type INTEGER,last_dialogue_status INTEGER,chat_type INTEGER,extra TEXT,v_portrait TEXT,last_ask_uk LONG, last_answer_uk LONG, last_msg_desc TEXT, msg_draft TEXT, last_dialogue_status_show TEXT, classtype INTEGER DEFAULT 0, classtitle TEXT, classshow INTEGER DEFAULT 0, classavatar TEXT, subscribe_status INTEGER DEFAULT 0, collect_status INTEGER DEFAULT 0, UNIQUE (business, contacter, session_type));";
     public static final String SQL_CREATE_TABLE_CHAT_SESSION = "CREATE TABLE chatrecord (_id LONG PRIMARY KEY,category INTEGER, contacter LONG, name TEXT, last_msg TEXT, last_msg_time LONG, last_open_time LONG, new_msg_sum INTEGER, weight INTEGER, show INTEGER,collection_type INTEGER,chat_type INTEGER,icon_url TEXT,msg_state INTEGER,paid LONG,isclicked INTEGER, classtype INTEGER DEFAULT 0, classtitle TEXT, classshow INTEGER DEFAULT 0, marktop INTEGER DEFAULT 0, marktoptime LONG, classavatar TEXT, nickname TEXT, game_vs_history TEXT, extra TEXT, v_portrait TEXT, certification TEXT, vip_id TEXT, shield INTEGER, is_stranger INTEGER DEFAULT 0, disturb INTEGER DEFAULT 0, last_msg_bduid LONG DEFAULT 0, last_msg_name TEXT, shield_time LONG, remind_type INTEGER DEFAULT 0, remind_msgid LONG DEFAULT 0, remind_uid LONG DEFAULT 0, remind_role_display_name TEXT, highlight_desc TEXT, highlight_priority INTEGER DEFAULT 0, highlight_data_id INTEGER DEFAULT 0, last_msgid_from_me LONG DEFAULT 0, map_type INTEGER DEFAULT -1);";
     public static final String SQL_CREATE_TABLE_DAILOG_RECORD = "CREATE TABLE dialog_record ( category INTEGER ,contacter LONG, localmsgid LONG, dialogueMsgid INTEGER, state INTEGER,update_time LONG,jump INTEGER,  PRIMARY KEY (category,contacter));";
+    public static final String SQL_CREATE_TABLE_EMOJI = "CREATE TABLE used_emoji (emoji_id TEXT, emoji_content TEXT, package_id INTEGER, category INTEGER, time LONG,  count INTEGER )";
     public static final String SQL_CREATE_TABLE_FRIEND_GROUP = "CREATE TABLE friendgroup (_id INTEGER PRIMARY KEY AUTOINCREMENT , friend_group_id LONG, friend_group_name TEXT);";
     public static final String SQL_CREATE_TABLE_FRIEND_REALTION = "CREATE TABLE friendrelation (_id LONG PRIMARY KEY, friend_group_id LONG, uid LONG, friend_status INTEGER, friend_status_reverse INTEGER );";
     public static final String SQL_CREATE_TABLE_GROUPINFO = "CREATE TABLE groupinfo (group_id LONG PRIMARY KEY, group_name TEXT, description TEXT, group_type INTEGER);";
@@ -266,6 +268,32 @@ public class TableDefine {
         public transient /* synthetic */ FieldHolder $fh;
 
         public DRColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static final class EmojiColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String COLUMN_CATEGORY = "category";
+        public static final String COLUMN_COUNT = "count";
+        public static final String COLUMN_EMOJI_CONTENT = "emoji_content";
+        public static final String COLUMN_EMOJI_ID = "emoji_id";
+        public static final String COLUMN_PACKAGE_ID = "package_id";
+        public static final String COLUMN_TIME = "time";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public EmojiColumns() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

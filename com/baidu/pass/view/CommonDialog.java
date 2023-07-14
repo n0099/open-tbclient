@@ -60,14 +60,14 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
 
         public CommonDialog build() {
             CharSequence charSequence;
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0745, (ViewGroup) null);
-            CommonDialog commonDialog = new CommonDialog(this.a, R.style.obfuscated_res_0x7f1003ef);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a0a);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a07);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091a08);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918c4);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cb7);
-            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091a0b);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d075d, (ViewGroup) null);
+            CommonDialog commonDialog = new CommonDialog(this.a, R.style.obfuscated_res_0x7f1003f1);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a21);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a1e);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091a1f);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918da);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cd1);
+            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091a22);
             textView.setText(this.c);
             if (TextUtils.isEmpty(this.b)) {
                 charSequence = "";
@@ -97,13 +97,13 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             attributes.height = -2;
             window.setAttributes(attributes);
             if (this.d) {
-                inflate.findViewById(R.id.obfuscated_res_0x7f091a09).setBackgroundResource(R.drawable.obfuscated_res_0x7f0810e4);
-                textView.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06090a));
-                textView2.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060903));
-                findViewById.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060909));
-                textView3.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060905));
-                textView4.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060907));
-                findViewById2.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060909));
+                inflate.findViewById(R.id.obfuscated_res_0x7f091a20).setBackgroundResource(R.drawable.obfuscated_res_0x7f0810f9);
+                textView.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060911));
+                textView2.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06090a));
+                findViewById.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060910));
+                textView3.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06090c));
+                textView4.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06090e));
+                findViewById2.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060910));
             }
             Context context = this.a;
             if (context instanceof Activity) {

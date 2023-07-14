@@ -1,7 +1,7 @@
 package com.baidu.ufosdk;
 
 import android.content.Intent;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IFeedbackManager {
     IFeedbackMethodCallback getFeedbackCallback();
 

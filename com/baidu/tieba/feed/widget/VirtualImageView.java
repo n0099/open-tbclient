@@ -10,11 +10,11 @@ import android.widget.RelativeLayout;
 import androidx.annotation.ColorInt;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ca7;
+import com.baidu.tieba.be7;
 import com.baidu.tieba.feed.widget.roundcorners.RoundFrameLayout;
 import com.baidu.tieba.feed.widget.roundcorners.RoundLinearLayout;
-import com.baidu.tieba.la7;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.ne7;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,9 +31,9 @@ import kotlin.jvm.internal.Intrinsics;
 public final class VirtualImageView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public la7 a;
-    public la7 b;
-    public la7 c;
+    public ne7 a;
+    public ne7 b;
+    public ne7 c;
 
     static {
         InterceptResult invokeClinit;
@@ -94,14 +94,14 @@ public final class VirtualImageView extends RelativeLayout {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        int g = xi.g(context, R.dimen.tbds94);
+        int g = yi.g(context, R.dimen.tbds94);
         float f = g;
         int i3 = (int) (1.2f * f);
         RoundFrameLayout roundFrameLayout = new RoundFrameLayout(context);
-        roundFrameLayout.setId(R.id.obfuscated_res_0x7f0905d3);
-        la7 la7Var = new la7(context);
-        this.a = la7Var;
-        roundFrameLayout.addView(la7Var.h(), new FrameLayout.LayoutParams(-1, -1));
+        roundFrameLayout.setId(R.id.obfuscated_res_0x7f0905d5);
+        ne7 ne7Var = new ne7(context);
+        this.a = ne7Var;
+        roundFrameLayout.addView(ne7Var.h(), new FrameLayout.LayoutParams(-1, -1));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g, g);
         roundFrameLayout.setRadius(f);
         layoutParams.addRule(13);
@@ -110,22 +110,22 @@ public final class VirtualImageView extends RelativeLayout {
         RoundLinearLayout roundLinearLayout = new RoundLinearLayout(context);
         roundLinearLayout.setOrientation(0);
         roundLinearLayout.setGravity(80);
-        roundLinearLayout.setId(R.id.obfuscated_res_0x7f0905d0);
-        this.b = new la7(context);
+        roundLinearLayout.setId(R.id.obfuscated_res_0x7f0905d1);
+        this.b = new ne7(context);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(i3, i3);
         layoutParams2.leftMargin = (-(i3 - g)) / 2;
         roundLinearLayout.addView(this.b.h(), layoutParams2);
         roundLinearLayout.setRadius(0.0f, 0.0f, f, f);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(g, -1);
-        layoutParams3.addRule(8, R.id.obfuscated_res_0x7f0905d3);
+        layoutParams3.addRule(8, R.id.obfuscated_res_0x7f0905d5);
         layoutParams3.addRule(10);
         layoutParams3.addRule(14);
         addView(roundLinearLayout, layoutParams3);
-        this.c = new la7(context);
-        int g2 = xi.g(context, R.dimen.tbds42);
+        this.c = new ne7(context);
+        int g2 = yi.g(context, R.dimen.tbds42);
         RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(g2, g2);
-        layoutParams4.addRule(8, R.id.obfuscated_res_0x7f0905d0);
-        layoutParams4.addRule(7, R.id.obfuscated_res_0x7f0905d0);
+        layoutParams4.addRule(8, R.id.obfuscated_res_0x7f0905d1);
+        layoutParams4.addRule(7, R.id.obfuscated_res_0x7f0905d1);
         addView(this.c.h(), layoutParams4);
         this.c.c(R.color.transparent);
     }
@@ -173,7 +173,7 @@ public final class VirtualImageView extends RelativeLayout {
                 return;
             }
             this.c.h().setVisibility(0);
-            ca7.a(this.c.h(), str);
+            be7.a(this.c.h(), str);
         }
     }
 

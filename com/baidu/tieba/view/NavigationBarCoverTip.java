@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,7 +65,7 @@ public class NavigationBarCoverTip extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                yg.a().removeCallbacks(this.a.c);
+                zg.a().removeCallbacks(this.a.c);
                 this.a.e();
             }
         }
@@ -304,7 +304,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            yg.a().removeCallbacks(this.c);
+            zg.a().removeCallbacks(this.c);
             clearAnimation();
             setVisibility(8);
             Activity activity = this.e;
@@ -353,8 +353,8 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            yg.a().removeCallbacks(this.c);
-            yg.a().postDelayed(this.c, i);
+            zg.a().removeCallbacks(this.c);
+            zg.a().postDelayed(this.c, i);
         }
     }
 
@@ -380,8 +380,8 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            yg.a().removeCallbacks(this.c);
-            yg.a().postDelayed(this.c, i);
+            zg.a().removeCallbacks(this.c);
+            zg.a().postDelayed(this.c, i);
         }
     }
 }

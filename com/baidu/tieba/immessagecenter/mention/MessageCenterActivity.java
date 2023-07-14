@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.c98;
-import com.baidu.tieba.dp8;
+import com.baidu.tieba.ev8;
 import com.baidu.tieba.h9;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
+import com.baidu.tieba.xd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.cs5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.gt5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
             if (baseFragment instanceof MessageCenterFragment) {
                 ((MessageCenterFragment) baseFragment).O1(intent);
             } else {
-                c98.l().c();
+                xd8.l().c();
             }
         }
     }
@@ -144,7 +144,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
                 return;
             }
             TbSingleton.getInstance().setNeedJoinChatRoom(true);
-            if (dp8.a()) {
+            if (ev8.a()) {
                 this.b = new MsgCenterContainerFragment();
             } else {
                 this.b = new MessageCenterFragment();

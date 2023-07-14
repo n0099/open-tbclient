@@ -1,93 +1,134 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.player.ExtAction;
-import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.event.SystemEvent;
-import com.baidu.searchbox.player.event.VideoEvent;
-import com.baidu.searchbox.player.plugin.AbsPlugin;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.bdeventbus.BdEventBus;
+import com.baidu.tieba.nu6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes8.dex */
-public final class wy8 extends AbsPlugin {
+public class wy8 extends pl1<nu6.a> {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static final Map<BdUniqueId, ConcurrentLinkedQueue<ku6>> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
-    public void onPlayerEventNotify(VideoEvent event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wy8(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948287027, "Lcom/baidu/tieba/wy8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948287027, "Lcom/baidu/tieba/wy8;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
+        a = new Object();
+        b = new HashMap();
     }
 
-    @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public int[] getSubscribeEvent() {
+    public wy8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pl1
+    /* renamed from: c */
+    public nu6.a createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new int[]{1, 4};
+            return new nu6.a() { // from class: com.baidu.tieba.uy8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.nu6.a
+                public final void a(BdUniqueId bdUniqueId) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, bdUniqueId) == null) {
+                        wy8.b(bdUniqueId);
+                    }
+                }
+            };
         }
-        return (int[]) invokeV.objValue;
+        return (nu6.a) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
-    @SuppressLint({"WrongConstant"})
-    public void onSystemEventNotify(VideoEvent event) {
-        boolean z;
+    public static void a(@NonNull ku6 ku6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            String action = event.getAction();
-            if (action.hashCode() == 1822725860 && action.equals(SystemEvent.ACTION_VOLUME_CHANGED)) {
-                BDVideoPlayer bindPlayer = getBindPlayer();
-                boolean z2 = true;
-                if (bindPlayer != null) {
-                    z = bindPlayer.isStop();
-                } else {
-                    z = true;
-                }
-                if (!z) {
-                    BDVideoPlayer bindPlayer2 = getBindPlayer();
-                    if (bindPlayer2 != null) {
-                        z2 = bindPlayer2.isComplete();
-                    }
-                    if (!z2) {
-                        ExtAction extAction = new ExtAction(event.getAction());
-                        extAction.put(5, Integer.valueOf(event.getIntExtra(4)));
-                        BDVideoPlayer bindPlayer3 = getBindPlayer();
-                        if (bindPlayer3 != null) {
-                            bindPlayer3.onInfo(0, 0, extAction);
-                        }
+        if (interceptable == null || interceptable.invokeL(65538, null, ku6Var) == null) {
+            BdUniqueId a2 = ku6Var.a();
+            ConcurrentLinkedQueue<ku6> concurrentLinkedQueue = b.get(a2);
+            if (concurrentLinkedQueue == null) {
+                synchronized (a) {
+                    concurrentLinkedQueue = b.get(a2);
+                    if (concurrentLinkedQueue == null) {
+                        concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
+                        b.put(a2, concurrentLinkedQueue);
                     }
                 }
+            }
+            synchronized (a) {
+                concurrentLinkedQueue.add(ku6Var);
+            }
+        }
+    }
+
+    public static void b(BdUniqueId bdUniqueId) {
+        ConcurrentLinkedQueue<ku6> concurrentLinkedQueue;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, bdUniqueId) == null) && (concurrentLinkedQueue = b.get(bdUniqueId)) != null) {
+            synchronized (a) {
+                Iterator<ku6> it = concurrentLinkedQueue.iterator();
+                while (it.hasNext()) {
+                    BdEventBus.Companion.getDefault().unregister(it.next());
+                }
+                concurrentLinkedQueue.clear();
+                b.remove(bdUniqueId);
+            }
+        }
+    }
+
+    public static void d(@NonNull ku6 ku6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ku6Var) == null) {
+            BdUniqueId a2 = ku6Var.a();
+            ConcurrentLinkedQueue<ku6> concurrentLinkedQueue = b.get(a2);
+            if (concurrentLinkedQueue == null) {
+                synchronized (a) {
+                    ConcurrentLinkedQueue<ku6> concurrentLinkedQueue2 = b.get(a2);
+                    if (concurrentLinkedQueue2 != null) {
+                        concurrentLinkedQueue2.remove(ku6Var);
+                    }
+                }
+                return;
+            }
+            synchronized (a) {
+                concurrentLinkedQueue.remove(ku6Var);
             }
         }
     }

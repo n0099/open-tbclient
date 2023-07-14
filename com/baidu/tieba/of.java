@@ -1,203 +1,534 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.res.Resources;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.guide.BuildException;
 import com.baidu.adp.lib.guide.Configuration;
+import com.baidu.adp.lib.guide.MaskView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pf;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class of {
+public class of implements View.OnKeyListener, View.OnClickListener, View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Configuration a;
-    public boolean b;
-    public List<mf> c;
-    public a d;
+    public MaskView b;
+    public nf[] c;
+    public boolean d;
+    public boolean e;
+    public pf.a f;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void onDismiss();
+    public class a implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ of a;
 
-        void onShown();
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
+
+        public a(of ofVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ofVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ofVar;
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && this.a.f != null) {
+                this.a.f.onShown();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ of b;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
+
+        public b(of ofVar, ViewGroup viewGroup) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ofVar, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ofVar;
+            this.a = viewGroup;
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                this.a.removeAllViews();
+                if (this.b.f != null) {
+                    this.b.f.onDismiss();
+                }
+                this.b.g();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ of a;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
+
+        public c(of ofVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ofVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ofVar;
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && this.a.f != null) {
+                this.a.f.onShown();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ of b;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
+
+        public d(of ofVar, ViewGroup viewGroup) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ofVar, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ofVar;
+            this.a = viewGroup;
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                this.a.removeView(this.b.b);
+                if (this.b.f != null) {
+                    this.b.f.onDismiss();
+                }
+                this.b.g();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448313014, "Lcom/baidu/tieba/of;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448313014, "Lcom/baidu/tieba/of;");
+            }
+        }
     }
 
     public of() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = new Configuration();
+        this.d = true;
+        this.e = false;
     }
 
-    public of a(mf mfVar) {
-        InterceptResult invokeL;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mfVar)) == null) {
-            if (!this.b) {
-                this.c.add(mfVar);
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (of) invokeL.objValue;
-    }
-
-    public of c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (!this.b) {
-                if (i >= 0 && i <= 255) {
-                    this.a.mAlpha = i;
-                    return this;
-                }
-                throw new BuildException("Illegal alpha value, should between [0-255]");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (of) invokeI.objValue;
-    }
-
-    public of d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            if (!this.b) {
-                this.a.mAutoDismiss = z;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (of) invokeZ.objValue;
-    }
-
-    public of e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (!this.b) {
-                if (i > 0) {
-                    this.a.mEnterAnimationId = i;
-                    return this;
-                }
-                throw new BuildException("Illegal animation resource id.");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (of) invokeI.objValue;
-    }
-
-    public of f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (!this.b) {
-                if (i > 0) {
-                    this.a.mExitAnimationId = i;
-                    return this;
-                }
-                throw new BuildException("Illegal animation resource id.");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (of) invokeI.objValue;
-    }
-
-    public of g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            if (!this.b) {
-                this.a.mKeyBackEventDismiss = z;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (of) invokeZ.objValue;
-    }
-
-    public of h(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
-            if (!this.b) {
-                this.d = aVar;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (of) invokeL.objValue;
-    }
-
-    public of i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.a.mOutsideTouchable = z;
-            return this;
-        }
-        return (of) invokeZ.objValue;
-    }
-
-    public of j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            if (!this.b) {
-                this.a.mOverlayTarget = z;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (of) invokeZ.objValue;
-    }
-
-    public of k(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
-            if (!this.b) {
-                if (view2 != null) {
-                    this.a.mTargetView = view2;
-                    return this;
-                }
-                throw new BuildException("Illegal view.");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (of) invokeL.objValue;
-    }
-
-    public nf b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            nf nfVar = new nf();
-            nfVar.i((mf[]) this.c.toArray(new mf[this.c.size()]));
-            nfVar.j(this.a);
-            nfVar.h(this.d);
-            this.c = null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a = null;
-            this.d = null;
-            this.b = true;
-            return nfVar;
+            this.c = null;
+            this.f = null;
         }
-        return (nf) invokeV.objValue;
+    }
+
+    public void h(pf.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    public void i(nf[] nfVarArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nfVarArr) == null) {
+            this.c = nfVarArr;
+        }
+    }
+
+    public void j(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, configuration) == null) {
+            this.a = configuration;
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void m(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
+            n(activity, true);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Configuration configuration;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, view2) == null) && (configuration = this.a) != null && configuration.mAutoDismiss) {
+            d();
+        }
+    }
+
+    public void d() {
+        MaskView maskView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (maskView = this.b) != null && (maskView.getParent() instanceof ViewGroup)) {
+            ViewGroup viewGroup = (ViewGroup) this.b.getParent();
+            if (this.a.mExitAnimationId != -1) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.b.getContext(), this.a.mExitAnimationId);
+                loadAnimation.setAnimationListener(new d(this, viewGroup));
+                this.b.startAnimation(loadAnimation);
+                return;
+            }
+            viewGroup.removeView(this.b);
+            pf.a aVar = this.f;
+            if (aVar != null) {
+                aVar.onDismiss();
+            }
+            g();
+        }
+    }
+
+    public void e(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null) {
+            return;
+        }
+        if (this.a.mExitAnimationId != -1) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(viewGroup.getContext(), this.a.mExitAnimationId);
+            loadAnimation.setAnimationListener(new b(this, viewGroup));
+            viewGroup.startAnimation(loadAnimation);
+            return;
+        }
+        viewGroup.removeAllViews();
+        pf.a aVar = this.f;
+        if (aVar != null) {
+            aVar.onDismiss();
+        }
+        g();
+    }
+
+    public final MaskView f(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            MaskView maskView = new MaskView(activity);
+            maskView.e(activity.getResources().getColor(this.a.mFullingColorId));
+            maskView.d(this.a.mAlpha);
+            maskView.g(this.a.mOverlayTarget);
+            maskView.setOnKeyListener(this);
+            int[] iArr = new int[2];
+            ((ViewGroup) activity.findViewById(16908290)).getLocationInWindow(iArr);
+            int i = iArr[1];
+            if (this.d && i == 0) {
+                try {
+                    Class<?> cls = Class.forName("com.android.internal.R$dimen");
+                    i = activity.getResources().getDimensionPixelSize(Integer.parseInt(cls.getField("status_bar_height").get(cls.newInstance()).toString()));
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e2) {
+                    e2.printStackTrace();
+                } catch (IllegalArgumentException e3) {
+                    e3.printStackTrace();
+                } catch (InstantiationException e4) {
+                    e4.printStackTrace();
+                } catch (NoSuchFieldException e5) {
+                    e5.printStackTrace();
+                } catch (NumberFormatException e6) {
+                    e6.printStackTrace();
+                } catch (SecurityException e7) {
+                    e7.printStackTrace();
+                }
+            }
+            Configuration configuration = this.a;
+            View view2 = configuration.mTargetView;
+            if (view2 != null) {
+                maskView.h(mf.b(view2, 0, i));
+            } else {
+                View findViewById = activity.findViewById(configuration.mTargetViewId);
+                if (findViewById != null) {
+                    maskView.h(mf.b(findViewById, 0, i));
+                }
+            }
+            View findViewById2 = activity.findViewById(this.a.mFullingViewId);
+            if (findViewById2 != null) {
+                maskView.f(mf.b(findViewById2, 0, i));
+            }
+            if (this.a.mOutsideTouchable) {
+                maskView.setClickable(false);
+            } else {
+                maskView.setOnClickListener(this);
+            }
+            if (this.a.mAutoDismiss) {
+                maskView.setOnTouchListener(this);
+            }
+            for (nf nfVar : this.c) {
+                maskView.addView(mf.a(activity.getLayoutInflater(), nfVar));
+            }
+            return maskView;
+        }
+        return (MaskView) invokeL.objValue;
+    }
+
+    public void n(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, activity, z) == null) {
+            o((ViewGroup) activity.findViewById(16908290), activity, z);
+        }
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, view2, motionEvent)) == null) {
+            Configuration configuration = this.a;
+            if (configuration != null && configuration.mAutoDismiss) {
+                d();
+                return false;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void o(ViewGroup viewGroup, Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048587, this, viewGroup, activity, z) == null) {
+            if (this.b == null) {
+                MaskView f = f(activity);
+                this.b = f;
+                f.i(this.e);
+                if (!z) {
+                    this.b.setFocusable(false);
+                    this.b.setFocusableInTouchMode(false);
+                    this.b.clearFocus();
+                }
+            }
+            if (this.b.getParent() == null) {
+                viewGroup.addView(this.b);
+                int i = this.a.mEnterAnimationId;
+                if (i != -1) {
+                    Animation loadAnimation = AnimationUtils.loadAnimation(activity, i);
+                    loadAnimation.setAnimationListener(new c(this));
+                    this.b.startAnimation(loadAnimation);
+                    return;
+                }
+                pf.a aVar = this.f;
+                if (aVar != null) {
+                    aVar.onShown();
+                }
+            }
+        }
+    }
+
+    @Override // android.view.View.OnKeyListener
+    public boolean onKey(View view2, int i, KeyEvent keyEvent) {
+        InterceptResult invokeLIL;
+        Configuration configuration;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048589, this, view2, i, keyEvent)) == null) {
+            if (i != 4 || keyEvent.getAction() != 1 || (configuration = this.a) == null || (!configuration.mAutoDismiss && !configuration.mKeyBackEventDismiss)) {
+                return false;
+            }
+            d();
+            return true;
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public void p(Activity activity, ViewGroup viewGroup, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(1048591, this, activity, viewGroup, z) != null) || viewGroup == null) {
+            return;
+        }
+        if (!z) {
+            viewGroup.setFocusable(false);
+            viewGroup.setFocusableInTouchMode(false);
+            viewGroup.clearFocus();
+        }
+        for (nf nfVar : this.c) {
+            View c2 = nfVar.c(activity.getLayoutInflater());
+            if (c2.getParent() == null) {
+                viewGroup.addView(c2);
+            }
+        }
+        int i = this.a.mEnterAnimationId;
+        if (i == -1) {
+            pf.a aVar = this.f;
+            if (aVar != null) {
+                aVar.onShown();
+                return;
+            }
+            return;
+        }
+        Animation animation = null;
+        try {
+            animation = AnimationUtils.loadAnimation(activity, i);
+        } catch (Resources.NotFoundException unused) {
+        }
+        if (animation == null) {
+            pf.a aVar2 = this.f;
+            if (aVar2 != null) {
+                aVar2.onShown();
+                return;
+            }
+            return;
+        }
+        animation.setAnimationListener(new a(this));
+        viewGroup.startAnimation(animation);
     }
 }

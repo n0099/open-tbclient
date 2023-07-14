@@ -50,6 +50,9 @@ public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandl
                 if (chatUser.getHasSpecialIdentity() == 0 && chatUser.getSubscribe() != 1 && chatUser.getSubscribe() != 3) {
                     jSONObject.put("stranger", 1);
                 }
+                if (chatUser.getDisturb() == 1) {
+                    jSONObject.put("disturb", chatUser.getDisturb());
+                }
             } catch (JSONException unused) {
             }
             return jSONObject.toString();

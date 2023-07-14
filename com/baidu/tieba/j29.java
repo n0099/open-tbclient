@@ -1,113 +1,74 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import android.widget.EditText;
-import android.widget.Toast;
-import com.baidu.adp.base.BdBaseActivity;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class j29 {
+public final class j29 extends i29<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a extends qg<in> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditText a;
-        public final /* synthetic */ SpannableStringBuilder b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ EmotionGroupType d;
-        public final /* synthetic */ j29 e;
-
-        public a(j29 j29Var, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j29Var, editText, spannableStringBuilder, Integer.valueOf(i), emotionGroupType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = j29Var;
-            this.a = editText;
-            this.b = spannableStringBuilder;
-            this.c = i;
-            this.d = emotionGroupType;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947831544, "Lcom/baidu/tieba/j29;")) == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qg
-        public void onLoaded(in inVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, inVar, str, i) == null) {
-                super.onLoaded((a) inVar, str, i);
-                if (inVar != null) {
-                    this.e.c(this.a, this.b, this.c, inVar, this.d);
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947831544, "Lcom/baidu/tieba/j29;");
         }
     }
 
-    public j29() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j29(String key) {
+        super(key);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {key};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void b(BdBaseActivity<?> bdBaseActivity, EditText editText, gd5 gd5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, gd5Var) == null) {
-            if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
-                Toast makeText = Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.too_many_face, 0);
-                GreyUtil.grey(makeText);
-                makeText.show();
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            String d = gd5Var.d();
-            EmotionGroupType type = gd5Var.getType();
-            if (d != null) {
-                rg.h().k(d, 20, new a(this, editText, new SpannableStringBuilder(d), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, d, Boolean.FALSE, null);
-            }
         }
+        Intrinsics.checkNotNullParameter(key, "key");
+        e(c() + "_match_last_text");
     }
 
-    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i, in inVar, EmotionGroupType emotionGroupType) {
+    public final boolean f(String text) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{editText, spannableStringBuilder, Integer.valueOf(i), inVar, emotionGroupType}) == null) {
-            Bitmap p = inVar.p();
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
-            int width = p.getWidth();
-            if (emotionGroupType == EmotionGroupType.LOCAL) {
-                width = (int) (width * 0.5d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, text)) == null) {
+            Intrinsics.checkNotNullParameter(text, "text");
+            return !TextUtils.equals(text, a(""));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void update(String text) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, text) == null) {
+            Intrinsics.checkNotNullParameter(text, "text");
+            if (f(text)) {
+                d(text);
             }
-            bitmapDrawable.setBounds(0, 0, width, width);
-            bitmapDrawable.setGravity(119);
-            spannableStringBuilder.setSpan(new ImageSpan(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
-            editText.getText().insert(i, spannableStringBuilder);
         }
     }
 }

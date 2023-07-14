@@ -1,37 +1,54 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class h28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public boolean c;
 
-    public static int a(int i, @NonNull List<xn> list, @NonNull String str) {
-        InterceptResult invokeILL;
+    public h28() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, list, str)) == null) {
-            if (!ListUtils.isEmpty(list) && i >= 0 && i < list.size()) {
-                while (i < list.size()) {
-                    i++;
-                    if (i >= list.size()) {
-                        return list.size();
-                    }
-                    if (list.get(i) instanceof yo6) {
-                        yo6 yo6Var = (yo6) list.get(i);
-                        if (yo6Var.getThreadData() == null || (!TextUtils.isEmpty(yo6Var.getThreadData().getTid()) && str.equals(yo6Var.getThreadData().getTid()))) {
-                        }
-                    }
-                    return i;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return -1;
         }
-        return invokeILL.intValue;
+        this.a = -1;
+        this.b = false;
+        this.c = false;
+    }
+
+    public void a(e28 e28Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, e28Var) == null) {
+            this.b = true;
+            int i = this.a;
+            if (i != -1 && this.c) {
+                e28Var.a(i);
+            }
+        }
+    }
+
+    public void b(int i, e28 e28Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, e28Var) == null) {
+            this.a = i;
+            if (this.b && this.c) {
+                e28Var.a(i);
+            }
+        }
     }
 }

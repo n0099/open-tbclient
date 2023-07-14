@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.r43;
+import com.baidu.searchbox.http.HttpManager;
+import okhttp3.Callback;
+import okhttp3.Request;
 /* loaded from: classes6.dex */
 public interface it1 {
-    void a(String str, r43.k kVar);
+    HttpManager a();
+
+    void call(HttpManager httpManager, Request request, Callback callback);
 }

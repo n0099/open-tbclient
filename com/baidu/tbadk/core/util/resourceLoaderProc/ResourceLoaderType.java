@@ -13,6 +13,7 @@ public class ResourceLoaderType {
     public static final int BIG_IMAGE = 27;
     public static final int EMOTIONS = 20;
     public static final int EMOTION_SHARE = 34;
+    public static final int FIXED_NINE_PATCH = 59;
     public static final int FLUTTER_SIMPLE = 44;
     public static final int FRS_ABSTRACT = 13;
     public static final int FRS_ABSTRACT_NO_CDN = 14;

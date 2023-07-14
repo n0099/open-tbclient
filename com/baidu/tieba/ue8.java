@@ -1,70 +1,22 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.view.TbImageAutoSwitch;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface ue8 {
-    void a(int i);
+public class ue8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    View b();
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == 5 || i == -1 || i == -9 || i == -2 || i == 8 || i == 7 || i == 6 : invokeI.booleanValue;
+    }
 
-    @NonNull
-    LinearLayout c();
-
-    void d(@NonNull String str, long j);
-
-    @NonNull
-    TextView e();
-
-    @NonNull
-    TextView f();
-
-    int g();
-
-    @NonNull
-    HeadImageView h();
-
-    @NonNull
-    int i();
-
-    @NonNull
-    int j();
-
-    LinearLayout k();
-
-    @NonNull
-    LinearLayout l();
-
-    @Nullable
-    RelativeLayout m();
-
-    @Nullable
-    RecyclerView n();
-
-    int o();
-
-    void onChangeSkinType(int i);
-
-    @NonNull
-    RelativeLayout p();
-
-    TextView q();
-
-    @Nullable
-    RelativeLayout r();
-
-    @NonNull
-    TbImageAutoSwitch s();
-
-    void t(int i);
-
-    LinearLayout u();
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 8 || i == 7 : invokeI.booleanValue;
+    }
 }

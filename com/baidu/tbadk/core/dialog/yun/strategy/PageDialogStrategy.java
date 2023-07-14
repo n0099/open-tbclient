@@ -7,9 +7,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.b75;
 import com.baidu.tieba.c;
-import com.baidu.tieba.ew8;
+import com.baidu.tieba.h29;
+import com.baidu.tieba.k75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class PageDialogStrategy implements b75 {
+public class PageDialogStrategy implements k75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,7 +62,7 @@ public class PageDialogStrategy implements b75 {
         }
     }
 
-    @Override // com.baidu.tieba.b75
+    @Override // com.baidu.tieba.k75
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -75,7 +75,7 @@ public class PageDialogStrategy implements b75 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.b75
+    @Override // com.baidu.tieba.k75
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class PageDialogStrategy implements b75 {
                 if (Build.VERSION.SDK_INT >= 26) {
                     obj = c.a(",", data.pageNameList);
                 }
-                ew8 yunDialogLog = YunDialogLog.getInstance();
+                h29 yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.c("YunDialogManager", "云弹窗命中页面限制策略，当前页面：" + data.currentPageName + "，配置限制页面：" + obj);
             }
             return contains;

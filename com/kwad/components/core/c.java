@@ -10,7 +10,7 @@ import com.kwad.components.ad.a.h;
 import com.kwad.sdk.api.KsExitInstallListener;
 import com.kwad.sdk.api.KsLoadManager;
 import com.kwad.sdk.api.KsScene;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c implements KsLoadManager {
     @Override // com.kwad.sdk.api.KsLoadManager
     public final String getBidRequestToken(KsScene ksScene) {

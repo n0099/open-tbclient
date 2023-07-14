@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import kotlin.jvm.internal.ByteCompanionObject;
 import kotlin.reflect.jvm.internal.impl.protobuf.MessageLite;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CodedInputStream {
     public final byte[] buffer;
     public final boolean bufferIsImmutable;
@@ -22,7 +22,7 @@ public final class CodedInputStream {
     public int sizeLimit;
     public int totalBytesRetired;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface RefillCallback {
         void onRefill();
     }

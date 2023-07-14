@@ -1,72 +1,141 @@
 package com.baidu.tieba;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e63 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final boolean b;
-    public static final boolean c;
+public class e63 implements oq3<HybridUbcFlow> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean b = true;
+    public static int c = -1;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686247, "Lcom/baidu/tieba/e63;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947686247, "Lcom/baidu/tieba/e63;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947686247, "Lcom/baidu/tieba/e63;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(e63 e63Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e63Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947686247, "Lcom/baidu/tieba/e63;");
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                pp3.Y();
+            }
+        }
+    }
+
+    public e63(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = ms1.a;
-        b = c("swan_perf_stat_rectify", 0);
-        c = c("swan_perf_stat_overlay_rectify", 0);
-        if (a) {
-            Log.d("SwanRectifyAbSwitcher", "670 data rectify on - " + b);
-            Log.d("SwanRectifyAbSwitcher", "670 data overlay rectify on - " + c);
-        }
+        this.a = str;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public final void b(@NonNull HybridUbcFlow hybridUbcFlow) {
+        UbcFlowEvent g;
+        UbcFlowEvent a2;
+        UbcFlowEvent a3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) != null) || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
-            jv2.g0().getSwitch(str, i);
-            if (a) {
-                Log.d("SwanRectifyAbSwitcher", str + " - " + i);
+        ii2 ii2Var = (ii2) hybridUbcFlow.k("fmp_data_record");
+        if ("fmp_callback".equals(this.a)) {
+            String name = e63.class.getName();
+            Log.d(name, "Current Record FMP - " + g.a + ":" + g.g());
+            if (ii2Var != null && (a3 = ii2Var.a()) != null) {
+                String name2 = e63.class.getName();
+                Log.d(name2, "First Page Record FMP - " + a3.a + ":" + a3.g());
             }
-            if (i == 1) {
-                return true;
+        } else if ("callback_on_submit".equals(this.a)) {
+            String name3 = e63.class.getName();
+            Log.d(name3, "Real Report FMP - " + g.a + ":" + g.g());
+            if (ii2Var != null && (a2 = ii2Var.a()) != null) {
+                String name4 = e63.class.getName();
+                Log.d(name4, "First Page Report FMP - " + a2.a + ":" + a2.g());
             }
-            return false;
         }
-        return invokeLI.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oq3
+    /* renamed from: c */
+    public synchronized void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+            synchronized (this) {
+                if (b) {
+                    if (c == -1) {
+                        cv2.g0().getSwitch("swan_next_env_delay", 600);
+                        c = 600;
+                    }
+                    pp3.b0(new a(this), c);
+                }
+                if (fs1.a) {
+                    String name = getClass().getName();
+                    Log.d(name, "enable=" + b + ", delay=" + c);
+                }
+                if ("fmp_callback".equals(this.a)) {
+                    b = false;
+                } else if ("callback_on_submit".equals(this.a)) {
+                    b = true;
+                }
+                if (fs1.a && hybridUbcFlow != null) {
+                    b(hybridUbcFlow);
+                }
+            }
+        }
     }
 }

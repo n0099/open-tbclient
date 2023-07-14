@@ -1,107 +1,79 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedLinkComponent;
-import tbclient.PbLinkInfo;
 /* loaded from: classes8.dex */
-public final class z67 {
+public final class z67 extends w77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final a87 f;
 
-    public static final void a(FeedLinkComponent feedLinkComponent, List<t87<? extends Object>> mutableList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, feedLinkComponent, mutableList) == null) {
-            Intrinsics.checkNotNullParameter(feedLinkComponent, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            List<PbLinkInfo> list = feedLinkComponent.links;
-            if (list != null) {
-                ArrayList arrayList = new ArrayList();
-                for (PbLinkInfo it : list) {
-                    Intrinsics.checkNotNullExpressionValue(it, "it");
-                    b67 b = b(it);
-                    if (b != null) {
-                        arrayList.add(b);
-                    }
-                }
-                if (arrayList.size() > 1) {
-                    mutableList.add(new s47(arrayList));
-                } else {
-                    mutableList.add(new v47((b67) arrayList.get(0)));
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948311982, "Lcom/baidu/tieba/z67;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948311982, "Lcom/baidu/tieba/z67;");
         }
     }
 
-    public static final b67 b(PbLinkInfo pbLinkInfo) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        int intValue;
-        String str6;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z67(a87 abstractData) {
+        super(null, null, 3, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pbLinkInfo)) == null) {
-            Intrinsics.checkNotNullParameter(pbLinkInfo, "<this>");
-            String str7 = pbLinkInfo.title;
-            if (str7 == null) {
-                str = "";
-            } else {
-                str = str7;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractData};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            String str8 = pbLinkInfo.to_url;
-            if (str8 == null) {
-                str2 = "";
-            } else {
-                str2 = str8;
-            }
-            String str9 = pbLinkInfo.pic_url;
-            if (str9 == null) {
-                str3 = "";
-            } else {
-                str3 = str9;
-            }
-            String str10 = pbLinkInfo.link_from;
-            if (str10 == null) {
-                str4 = "";
-            } else {
-                str4 = str10;
-            }
-            String str11 = pbLinkInfo.ext_txt;
-            if (str11 == null) {
-                str5 = "";
-            } else {
-                str5 = str11;
-            }
-            Integer num = pbLinkInfo.sort;
-            int i = 0;
-            if (num == null) {
-                intValue = 0;
-            } else {
-                intValue = num.intValue();
-            }
-            Integer num2 = pbLinkInfo.url_type;
-            if (num2 != null) {
-                i = num2.intValue();
-            }
-            String str12 = pbLinkInfo.content1;
-            if (str12 == null) {
-                str6 = "";
-            } else {
-                str6 = str12;
-            }
-            String str13 = pbLinkInfo.content2;
-            if (str13 == null) {
-                str13 = "";
-            }
-            return new b67(str, str2, str3, str4, str5, intValue, i, str6, str13);
         }
-        return (b67) invokeL.objValue;
+        Intrinsics.checkNotNullParameter(abstractData, "abstractData");
+        this.f = abstractData;
+    }
+
+    public final a87 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (a87) invokeV.objValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f.a().length() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

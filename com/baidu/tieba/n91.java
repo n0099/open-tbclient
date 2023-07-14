@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.aa1;
+import com.baidu.nadcore.webpanel.PanelScrollView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,55 +13,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class n91 extends m91 {
+public final class n91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public Handler b;
-    public final q91 c;
+    public u91 a;
+    public PanelScrollView b;
+    public final Activity c;
+    public final ViewGroup d;
 
-    /* loaded from: classes7.dex */
-    public static final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n91 a;
-        public final /* synthetic */ aa1.b b;
-
-        public a(n91 n91Var, aa1.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n91Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n91Var;
-            this.b = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.q(this.b.a());
-        }
-    }
-
-    public n91(q91 container) {
+    public n91(Activity activity, ViewGroup rootView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {container};
+            Object[] objArr = {activity, rootView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -71,112 +36,108 @@ public final class n91 extends m91 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(container, "container");
-        this.c = container;
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        Intrinsics.checkNotNullParameter(rootView, "rootView");
+        this.c = activity;
+        this.d = rootView;
+        this.a = o91.a().a(this.c);
+        this.b = new PanelScrollView(this.c);
     }
 
-    public final void o(aa1.b bVar) {
+    public final void a(w91 listener) {
+        PanelScrollView panelScrollView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) && !this.a && bVar != null && bVar.d()) {
-            if (this.b == null) {
-                this.b = new Handler();
+        if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            u91 u91Var = this.a;
+            if (u91Var != null && (panelScrollView = this.b) != null) {
+                panelScrollView.k(u91Var, listener);
             }
-            Handler handler = this.b;
-            if (handler != null) {
-                handler.postDelayed(new a(this, bVar), (long) (bVar.b() * 1000));
+            PanelScrollView panelScrollView2 = this.b;
+            if (panelScrollView2 != null) {
+                this.d.setClipChildren(false);
+                this.d.addView(panelScrollView2, new FrameLayout.LayoutParams(-1, -1));
             }
         }
     }
 
-    @Override // com.baidu.tieba.m91
-    public boolean b() {
+    public final PanelScrollView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (PanelScrollView) invokeV.objValue;
+    }
+
+    public final View.OnTouchListener c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (View.OnTouchListener) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            PanelScrollView panelScrollView = this.b;
+            if (panelScrollView != null) {
+                panelScrollView.r();
+            }
+            u91 u91Var = this.a;
+            if (u91Var != null) {
+                u91Var.onDestroy();
+            }
+        }
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            u91 u91Var = this.a;
+            if (u91Var != null) {
+                return u91Var.f();
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.m91
-    public void c() {
-        aa1.b bVar;
+    public final Activity getActivity() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            aa1.d l = this.c.l();
-            if (l != null) {
-                bVar = l.d();
-            } else {
-                bVar = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public final void d(String javaScript) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, javaScript) == null) {
+            Intrinsics.checkNotNullParameter(javaScript, "javaScript");
+            u91 u91Var = this.a;
+            if (u91Var != null) {
+                u91Var.q(javaScript);
             }
-            o(bVar);
-            super.c();
         }
     }
 
-    @Override // com.baidu.tieba.m91
-    public void d() {
+    public final void f(y91 nadWebPanelModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Handler handler = this.b;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
+        if (interceptable == null || interceptable.invokeL(1048581, this, nadWebPanelModel) == null) {
+            Intrinsics.checkNotNullParameter(nadWebPanelModel, "nadWebPanelModel");
+            u91 u91Var = this.a;
+            if (u91Var != null) {
+                u91Var.j(nadWebPanelModel);
             }
-            this.b = null;
-            this.a = false;
-            super.d();
-        }
-    }
-
-    @Override // com.baidu.tieba.m91
-    public void e(Intent intent) {
-        aa1.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            aa1.d l = this.c.l();
-            if (l != null) {
-                bVar = l.d();
-            } else {
-                bVar = null;
+            PanelScrollView panelScrollView = this.b;
+            if (panelScrollView != null) {
+                panelScrollView.setPanelData(nadWebPanelModel);
             }
-            o(bVar);
-            super.e(intent);
-        }
-    }
-
-    public final void p(aa1.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) && !this.a && bVar != null && bVar.e()) {
-            q(bVar.a());
-        }
-    }
-
-    public final void q(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || this.a || TextUtils.isEmpty(str)) {
-            return;
-        }
-        s31.b(str);
-        this.a = true;
-    }
-
-    @Override // com.baidu.tieba.m91
-    public void g(AbsNadBrowserView webView, String str) {
-        aa1.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            AbsNadBrowserView m = this.c.m();
-            if (m != null && !m.v() && !this.a) {
-                aa1.d l = this.c.l();
-                if (l != null) {
-                    bVar = l.d();
-                } else {
-                    bVar = null;
-                }
-                p(bVar);
-            }
-            super.g(webView, str);
         }
     }
 }

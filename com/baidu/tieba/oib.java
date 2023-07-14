@@ -1,67 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.lib;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.ChannelNativeAds;
 /* loaded from: classes7.dex */
-public class oib {
+public class oib implements lib.e {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ ChannelNativeAds.GdtADStatusChangeListener a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948034625, "Lcom/baidu/tieba/oib;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public oib(pib pibVar, ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948034625, "Lcom/baidu/tieba/oib;");
-        }
-    }
-
-    public static String a(String str, String str2, Context context) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, context)) == null) {
-            return b(context).getString(str, str2);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static void c(String str, String str2, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, context) == null) {
-            b(context).edit().putString(str, str2).apply();
-        }
-    }
-
-    public static synchronized SharedPreferences b(Context context) {
-        InterceptResult invokeL;
-        SharedPreferences sharedPreferences;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (oib.class) {
-                if (a == null) {
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        a = context.createDeviceProtectedStorageContext().getSharedPreferences("aegis", 0);
-                    } else {
-                        a = context.getApplicationContext().getSharedPreferences("aegis", 0);
-                    }
-                }
-                sharedPreferences = a;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pibVar, gdtADStatusChangeListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return sharedPreferences;
         }
-        return (SharedPreferences) invokeL.objValue;
+        this.a = gdtADStatusChangeListener;
+    }
+
+    @Override // com.baidu.tieba.lib.e
+    public void onADStatusChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.onADStatusChanged();
+        }
     }
 }

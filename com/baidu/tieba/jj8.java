@@ -1,208 +1,71 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.immessagecenter.chatgroup.data.RecentlyBotSkillInfoDto;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class jj8 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile jj8 a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "1";
+    public static String b = "2";
+    public static String c = "3";
+    public static String d = "1";
+    public static String e = "2";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jj8() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947885329, "Lcom/baidu/tieba/jj8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947885329, "Lcom/baidu/tieba/jj8;");
         }
     }
 
-    public static jj8 f() {
-        InterceptResult invokeV;
+    public static void a(long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (jj8.class) {
-                    if (a == null) {
-                        a = new jj8();
-                    }
-                }
-            }
-            return a;
-        }
-        return (jj8) invokeV.objValue;
-    }
-
-    @NonNull
-    public final String i() {
-        InterceptResult invokeV;
-        String w;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                w = r95.p().w("key_group_bot_skill_info", "");
-            }
-            return w;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public final String a(@NonNull List<RecentlyBotSkillInfoDto> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return "";
-            }
-            return DataExt.toJson(list);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public final List<RecentlyBotSkillInfoDto> b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return DataExt.toEntityList(str, RecentlyBotSkillInfoDto.class);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @NonNull
-    public final List<RecentlyBotSkillInfoDto> d(@NonNull List<RecentlyBotSkillInfoDto> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            synchronized (this) {
-                if (10 >= list.size()) {
-                    return list;
-                }
-                return list.subList(0, 10);
-            }
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final void j(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            synchronized (this) {
-                r95.p().J("key_group_bot_skill_info", str);
-            }
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), str, str2, str3}) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_DIALOG_SHOW);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("fname", str);
+            statisticItem.param("obj_source", str2);
+            statisticItem.param("obj_locate", str3);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public RecentlyBotSkillInfoDto c(@NonNull String str, int i, @NonNull String str2, @NonNull String str3, @NonNull String str4, @NonNull String str5, int i2) {
-        InterceptResult invokeCommon;
+    public static void b(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), str2, str3, str4, str5, Integer.valueOf(i2)})) == null) {
-            RecentlyBotSkillInfoDto recentlyBotSkillInfoDto = new RecentlyBotSkillInfoDto();
-            recentlyBotSkillInfoDto.setBotUk(str);
-            recentlyBotSkillInfoDto.setSkillId(i);
-            recentlyBotSkillInfoDto.setBotName(str2);
-            recentlyBotSkillInfoDto.setSkillName(str3);
-            recentlyBotSkillInfoDto.setAvatar(str4);
-            recentlyBotSkillInfoDto.setDesc(str5);
-            recentlyBotSkillInfoDto.setFuncType(i2);
-            recentlyBotSkillInfoDto.setTimeStamp(System.currentTimeMillis());
-            return recentlyBotSkillInfoDto;
+        if (interceptable == null || interceptable.invokeJL(65538, null, j, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_LIST_CREATE_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
         }
-        return (RecentlyBotSkillInfoDto) invokeCommon.objValue;
     }
 
-    public List<RecentlyBotSkillInfoDto> e(List<BotsDTO.BotListDTO> list) {
-        InterceptResult invokeL;
+    public static void c(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            String i = i();
-            if (!TextUtils.isEmpty(i) && !ListUtils.isEmpty(list)) {
-                int i2 = 0;
-                ArrayList arrayList = new ArrayList();
-                List<RecentlyBotSkillInfoDto> b = b(i);
-                synchronized (this) {
-                    for (RecentlyBotSkillInfoDto recentlyBotSkillInfoDto : b) {
-                        if (recentlyBotSkillInfoDto != null && i2 < 3) {
-                            for (BotsDTO.BotListDTO botListDTO : list) {
-                                if (i2 < 3 && botListDTO != null && botListDTO.getUser() != null && !TextUtils.isEmpty(botListDTO.getUser().getUk()) && recentlyBotSkillInfoDto.getBotUk().equals(botListDTO.getUser().getUk()) && !ListUtils.isEmpty(botListDTO.getSkill())) {
-                                    for (BotsDTO.BotListDTO.SkillDTO skillDTO : botListDTO.getSkill()) {
-                                        if (i2 < 3 && skillDTO != null && skillDTO.isShow() && skillDTO.getType() == recentlyBotSkillInfoDto.getSkillId()) {
-                                            recentlyBotSkillInfoDto.setDesc(skillDTO.getDesc());
-                                            recentlyBotSkillInfoDto.setSkillName(skillDTO.getName());
-                                            recentlyBotSkillInfoDto.setBotName(botListDTO.getUser().getNameShow());
-                                            recentlyBotSkillInfoDto.setAvatar(botListDTO.getUser().getPortrait());
-                                            recentlyBotSkillInfoDto.setFuncType(skillDTO.getFuncType());
-                                            arrayList.add(recentlyBotSkillInfoDto);
-                                            i2++;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return arrayList;
-            }
-            return new ArrayList();
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final Boolean g(@NonNull RecentlyBotSkillInfoDto recentlyBotSkillInfoDto, @NonNull List<RecentlyBotSkillInfoDto> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, recentlyBotSkillInfoDto, list)) == null) {
-            synchronized (this) {
-                if (list.contains(recentlyBotSkillInfoDto)) {
-                    list.remove(recentlyBotSkillInfoDto);
-                    list.add(0, recentlyBotSkillInfoDto);
-                    return Boolean.TRUE;
-                }
-                return Boolean.FALSE;
-            }
-        }
-        return (Boolean) invokeLL.objValue;
-    }
-
-    public void h(@NonNull RecentlyBotSkillInfoDto recentlyBotSkillInfoDto) {
-        List<RecentlyBotSkillInfoDto> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, recentlyBotSkillInfoDto) == null) {
-            String i = i();
-            if (!TextUtils.isEmpty(i)) {
-                list = b(i);
-            } else {
-                list = null;
-            }
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (!g(recentlyBotSkillInfoDto, list).booleanValue()) {
-                list.add(0, recentlyBotSkillInfoDto);
-            }
-            String a2 = a(d(list));
-            if (!TextUtils.isEmpty(a2)) {
-                j(a2);
-            }
+        if (interceptable == null || interceptable.invokeJL(65539, null, j, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_LIST_MANAGE_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

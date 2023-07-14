@@ -2,61 +2,19 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.ru2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class bh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-
-    /* loaded from: classes5.dex */
-    public static class a extends PrefetchEvent.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(@Nullable Map<String, String> map, String str) {
-            super(map, str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Map) objArr2[0], (String) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -71,88 +29,58 @@ public class bh2 {
                 return;
             }
         }
-        l = ms1.a;
+        a = fs1.a;
     }
 
-    public bh2() {
+    public static ah2 a(PMSAppInfo pMSAppInfo, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pMSAppInfo, str)) == null) {
+            if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || pMSAppInfo.appCategory != 0) {
+                return null;
             }
-        }
-    }
-
-    public static bh2 a(iy1<?> iy1Var, PrefetchEvent prefetchEvent, cc3 cc3Var) {
-        InterceptResult invokeLLL;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, iy1Var, prefetchEvent, cc3Var)) == null) {
-            if (l) {
-                j = System.currentTimeMillis();
+            File i = ru2.e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
+            if (!i.exists()) {
+                if (a) {
+                    Log.w("PrefetchUtils", "aiapp dir not exist ");
+                }
+                return null;
+            }
+            ah2 ah2Var = new ah2();
+            if (new File(i, "app.json").exists()) {
+                if (a) {
+                    Log.d("PrefetchUtils", "find main pkg's app config file");
+                }
+                ah2Var.a = i;
+                return ah2Var;
+            } else if (TextUtils.isEmpty(str)) {
+                return null;
             } else {
-                j = 0;
+                String g = np3.g(str);
+                int lastIndexOf = g.lastIndexOf(File.separator);
+                if (lastIndexOf >= 0) {
+                    g = g.substring(0, lastIndexOf);
+                }
+                if (!new File(i, g).exists()) {
+                    return null;
+                }
+                int lastIndexOf2 = g.lastIndexOf(File.separator);
+                while (lastIndexOf2 >= 0) {
+                    g = g.substring(0, lastIndexOf2);
+                    if (new File(i, g + File.separator + "app.json").exists()) {
+                        if (a) {
+                            Log.d("PrefetchUtils", "isInDependentPkg=true, pagePath=" + g);
+                        }
+                        ah2Var.b = true;
+                        ah2Var.c = g;
+                        ah2Var.a = new File(i, g);
+                        return ah2Var;
+                    }
+                    lastIndexOf2 = g.lastIndexOf(File.separator);
+                }
+                return null;
             }
-            bh2 bh2Var = new bh2();
-            bh2Var.h = iy1Var.a();
-            bh2Var.a = prefetchEvent.appPath;
-            bh2Var.b = prefetchEvent.pageUrl;
-            bh2Var.f = prefetchEvent.rootPath;
-            SwanAppConfigData Q = cc3Var.Q();
-            bh2Var.c = prefetchEvent.pageType;
-            String c = mc3.c(prefetchEvent.appPath, up3.f(uf3.b(prefetchEvent.pageUrl)));
-            bh2Var.g = c;
-            rc3 b = rc3.b(c, Q.e);
-            bh2Var.k = b.r;
-            bh2Var.d = b.g;
-            bh2Var.e = prefetchEvent.isT7Available;
-            bh2Var.i = prefetchEvent.sConsole;
-            if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {
-                bh2Var.j = prefetchEvent.userActionApis;
-            }
-            if (l) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SlavePreloadEvent", "build slave preload event cost - " + (currentTimeMillis - j) + "ms");
-            }
-            return bh2Var;
         }
-        return (bh2) invokeLLL.objValue;
-    }
-
-    public a b() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (l) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            TreeMap treeMap = new TreeMap();
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.h);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
-            treeMap.put("pagePath", this.b);
-            treeMap.put("pageType", this.c);
-            treeMap.put("onReachBottomDistance", this.d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.e));
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.i);
-            treeMap.put("root", this.f);
-            treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, this.j);
-            a83.a(treeMap, "slave preload ready event");
-            uf3.a(this.b, treeMap);
-            treeMap.put("pageConfig", this.g);
-            if (l) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SlavePreloadEvent", "build slave preload msg cost - " + (currentTimeMillis - j) + "ms");
-            }
-            return new a(treeMap, "preload");
-        }
-        return (a) invokeV.objValue;
+        return (ah2) invokeLL.objValue;
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -240,7 +240,7 @@ public class BdTopToast extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            yg.a().removeCallbacks(this.g);
+            zg.a().removeCallbacks(this.g);
             if (getContext() == null) {
                 return;
             }
@@ -303,9 +303,9 @@ public class BdTopToast extends LinearLayout {
             e();
             startAnimation(this.e);
             if (this.h >= 0) {
-                yg.a().postDelayed(this.g, this.h);
+                zg.a().postDelayed(this.g, this.h);
             } else {
-                yg.a().postDelayed(this.g, 5000L);
+                zg.a().postDelayed(this.g, 5000L);
             }
         }
     }

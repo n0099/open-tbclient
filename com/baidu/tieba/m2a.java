@@ -1,19 +1,26 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class m2a {
+public final class m2a implements qc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<j2a> a;
+
+    @Override // com.baidu.tieba.qc7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c10734" : (String) invokeV.objValue;
+    }
 
     public m2a() {
         Interceptable interceptable = $ic;
@@ -25,26 +32,26 @@ public abstract class m2a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public final List<j2a> b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qc7
+    public Map<String, String> a(d87 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.putAll(d2a.a.a(businessInfo));
+            String str = a.get("is_vertical_video");
+            if (str == null) {
+                str = "0";
+            }
+            hashMap.put(TiebaStatic.Params.IS_VERTICAL, str);
+            return hashMap;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final void a(j2a action) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, action) == null) {
-            Intrinsics.checkNotNullParameter(action, "action");
-            this.a.add(action);
-        }
+        return (Map) invokeL.objValue;
     }
 }

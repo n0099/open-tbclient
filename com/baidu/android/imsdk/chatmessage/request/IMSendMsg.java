@@ -20,7 +20,7 @@ import com.baidu.android.imsdk.ubc.MessageUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.k80;
+import com.baidu.tieba.l80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -119,12 +119,12 @@ public class IMSendMsg extends Message {
                         i = 0;
                     }
                     jSONObject.put("user_type", i);
-                    jSONObject.put(RequestContants.EXTRA_TO_USER, sendMsgParam.getToUser());
+                    jSONObject.put("to_user", sendMsgParam.getToUser());
                     jSONObject.put("contacter_pass_uk", sendMsgParam.getContacterPassUk());
                     jSONObject.put("contacter_uk", sendMsgParam.getContacterUk());
                     jSONObject.put("contacter_bduid", sendMsgParam.getContacterBduid());
-                    jSONObject.put(RequestContants.EXTRA_CONTACTER_USER_TYPE, sendMsgParam.getContacterUserType());
-                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, sendMsgParam.getContacterPaUid());
+                    jSONObject.put("contacter_user_type", sendMsgParam.getContacterUserType());
+                    jSONObject.put("contacter_pa_uid", sendMsgParam.getContacterPaUid());
                     jSONObject.put("origin_id", Utility.getTriggerId(context));
                     jSONObject.put("msg_expires", chatMsg.getExpiresTime());
                     if (RequestParamManager.getMediaByUserType(sendMsgParam.getContacterUserType())) {
@@ -267,7 +267,7 @@ public class IMSendMsg extends Message {
                             jSONObject.put("business_type", chatMsg.getBusinessType());
                             jSONObject.put("dialogue_id", chatMsg.getDialogueId());
                             jSONObject.put("category", chatMsg.getCategory());
-                            jSONObject.put(RequestContants.EXTRA_TO_USER, contacter);
+                            jSONObject.put("to_user", contacter);
                             jSONObject.put("to_bduid", chatMsg.getToBduid());
                             jSONObject.put("bduid", chatMsg.getSenderUid());
                             jSONObject.put("session_type", chatMsg.getSessionType());
@@ -311,7 +311,7 @@ public class IMSendMsg extends Message {
                         jSONObject.put(str2, otherParameters.get(str2));
                     }
                 }
-                jSONObject.put(RequestContants.EXTRA_TO_USER, contacter);
+                jSONObject.put("to_user", contacter);
                 if ((chatMsg.getContacter() & 17592186044416L) != 0) {
                     jSONObject.put(Constants.EXTRA_PAUID_TYPE, contacter);
                 }
@@ -541,7 +541,7 @@ public class IMSendMsg extends Message {
                         debugInfo.msgId = msgId;
                         debugInfo.clientSource = chatMsg.getSource();
                         this.ubcData.setDebugInfo(debugInfo);
-                        k80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                        l80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                     }
                 }
                 if (jSONObject.has("auto_risk_control_status")) {
@@ -608,7 +608,7 @@ public class IMSendMsg extends Message {
                     debugInfo2.msgId = msgId;
                     debugInfo2.clientSource = chatMsg2.getSource();
                     this.ubcData.setDebugInfo(debugInfo2);
-                    k80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    l80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
             } catch (Exception e6) {
                 e = e6;
@@ -641,7 +641,7 @@ public class IMSendMsg extends Message {
                 debugInfo22.msgId = msgId;
                 debugInfo22.clientSource = chatMsg22.getSource();
                 this.ubcData.setDebugInfo(debugInfo22);
-                k80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                l80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
             }
             if (i5 != 0 && !z) {
                 context2 = context;
@@ -679,7 +679,7 @@ public class IMSendMsg extends Message {
             debugInfo222.msgId = msgId;
             debugInfo222.clientSource = chatMsg222.getSource();
             this.ubcData.setDebugInfo(debugInfo222);
-            k80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            l80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 }

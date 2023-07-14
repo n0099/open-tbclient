@@ -25,17 +25,17 @@ import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.ViewSingleClickCompat;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.dp8;
+import com.baidu.tieba.ep8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
-import com.baidu.tieba.lh8;
-import com.baidu.tieba.mg8;
-import com.baidu.tieba.nj8;
-import com.baidu.tieba.oj8;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.lm8;
+import com.baidu.tieba.ml8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +59,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final int h;
     public final int i;
     @NonNull
-    public mg8 j;
+    public ml8 j;
     public View.OnClickListener k;
 
     /* loaded from: classes6.dex */
@@ -90,11 +90,11 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            this.a = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908be);
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908bf);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908bd);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908c1);
-            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908c6);
+            this.a = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908bf);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908c0);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908be);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908c2);
+            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908c7);
         }
     }
 
@@ -125,10 +125,10 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof lh8)) {
-                lh8 lh8Var = (lh8) view2.getTag();
-                AbilityItem a = lh8Var.a();
-                this.a.x(a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof lm8)) {
+                lm8 lm8Var = (lm8) view2.getTag();
+                AbilityItem a = lm8Var.a();
+                this.a.y(a);
                 String str = "";
                 if (a.getStyleConf() != null && a.getStyleConf().getContent() != null) {
                     str = a.getStyleConf().getContent();
@@ -137,28 +137,28 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
                 if ("call_robot".equals(a.getType())) {
                     int i = 0;
                     View view3 = null;
-                    if (lh8Var.b() != null) {
-                        i = lh8Var.b().intValue();
+                    if (lm8Var.b() != null) {
+                        i = lm8Var.b().intValue();
                     }
-                    if (lh8Var.c() != null) {
-                        view3 = lh8Var.c();
+                    if (lm8Var.c() != null) {
+                        view3 = lm8Var.c();
                     }
                     String obj = a.getConfMap().get("skill_id").toString();
                     if (view3 != null) {
-                        this.a.r(obj, view3, i);
+                        this.a.s(obj, view3, i);
                     }
                 }
-                oj8.i("c15187", str2, this.a.c, this.a.s(a), this.a.t(a), this.a.d, this.a.e);
+                ep8.j("c15187", str2, this.a.c, this.a.t(a), this.a.u(a), this.a.d, this.a.e);
             }
         }
     }
 
-    public DirectChatAdapter(Context context, @NonNull mg8 mg8Var) {
+    public DirectChatAdapter(Context context, @NonNull ml8 ml8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, mg8Var};
+            Object[] objArr = {context, ml8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -171,7 +171,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.f = new ArrayList();
         this.k = new a(this);
         this.a = context;
-        this.j = mg8Var;
+        this.j = ml8Var;
         this.h = context.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
         this.g = context.getResources().getDimensionPixelSize(R.dimen.M_W_X004);
         this.i = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
@@ -180,26 +180,26 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: B */
+    /* renamed from: C */
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d026a, viewGroup, false));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
+            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d026d, viewGroup, false));
         }
         return (ViewHolder) invokeLI.objValue;
     }
 
-    public void C(long j) {
+    public void D(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
             this.d = j;
         }
     }
 
-    public final void D(@NonNull ViewHolder viewHolder) {
+    public final void E(@NonNull ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, viewHolder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, viewHolder) == null) {
             viewHolder.d.setVisibility(8);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             int i = this.i;
@@ -210,23 +210,23 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
-    public void E(long j) {
+    public void F(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             this.c = j;
         }
     }
 
-    public void F(String str) {
+    public void G(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.e = str;
         }
     }
 
-    public final void I(@NonNull ViewHolder viewHolder) {
+    public final void J(@NonNull ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewHolder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, viewHolder) == null) {
             viewHolder.c.setVisibility(8);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             int i = this.i;
@@ -237,38 +237,63 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
-    public void J(@NonNull List<AbilityItem> list) {
+    public void L(@NonNull List<AbilityItem> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.b = list;
+        }
+    }
+
+    public void A(@NonNull AbilityItem.StyleConf styleConf, @NonNull ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, styleConf, viewHolder) == null) {
+            Uri x = x(styleConf, viewHolder);
+            if (x == null) {
+                J(viewHolder);
+                return;
+            }
+            viewHolder.c.setVisibility(0);
+            Glide.with(viewHolder.c.getContext()).load(x).placeholder((int) R.drawable.pic_use_header_40_n).into(viewHolder.c);
+        }
+    }
+
+    public final void z(@NonNull String str, @NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048595, this, str, view2) == null) {
+            da5 p = da5.p();
+            if (!p.l("sp_key_direct_show_red" + str, false)) {
+                view2.setVisibility(0);
+            } else {
+                view2.setVisibility(8);
+            }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: A */
+    /* renamed from: B */
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         AbilityItem abilityItem;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, viewHolder, i) == null) && (abilityItem = (AbilityItem) ListUtils.getItem(this.b, i)) != null && abilityItem.getStyleConf() != null) {
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder, i) == null) && (abilityItem = (AbilityItem) ListUtils.getItem(this.b, i)) != null && abilityItem.getStyleConf() != null) {
             AbilityItem.StyleConf styleConf = abilityItem.getStyleConf();
-            z(styleConf, viewHolder);
+            A(styleConf, viewHolder);
             if (!TextUtils.isEmpty(styleConf.getContent())) {
                 viewHolder.d.setVisibility(0);
                 viewHolder.d.setText(styleConf.getContent());
             } else {
-                D(viewHolder);
+                E(viewHolder);
             }
             viewHolder.e.setVisibility(8);
             if ("call_robot".equals(abilityItem.getType())) {
-                y(abilityItem.getConfMap().get("skill_id").toString(), viewHolder.e);
+                z(abilityItem.getConfMap().get("skill_id").toString(), viewHolder.e);
             }
             String content = styleConf.getContent();
             if (!TextUtils.isEmpty(content) && !this.f.contains(content)) {
-                oj8.i("c15186", content, this.c, s(abilityItem), t(abilityItem), this.d, this.e);
+                ep8.j("c15186", content, this.c, t(abilityItem), u(abilityItem), this.d, this.e);
                 this.f.add(content);
             }
-            viewHolder.b.setTag(new lh8(abilityItem, Integer.valueOf(i), viewHolder.e));
+            viewHolder.b.setTag(new lm8(abilityItem, Integer.valueOf(i), viewHolder.e));
             ViewSingleClickCompat.setOnClickListener(viewHolder.b, this.k);
             RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) viewHolder.a.getLayoutParams();
             if (i == 0) {
@@ -280,23 +305,23 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
-    public final void G(@NonNull ViewHolder viewHolder) {
+    public final void H(@NonNull ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, viewHolder) == null) {
-            s75 d = s75.d(viewHolder.b);
+        if (interceptable == null || interceptable.invokeL(1048583, this, viewHolder) == null) {
+            d85 d = d85.d(viewHolder.b);
             d.o(R.string.J_X01);
             d.f(R.color.CAM_X0208);
-            s75 d2 = s75.d(viewHolder.d);
+            d85 d2 = d85.d(viewHolder.d);
             d2.C(R.dimen.T_X08);
             d2.D(R.string.F_X02);
             d2.x(R.color.CAM_X0105);
         }
     }
 
-    public final String s(AbilityItem abilityItem) {
+    public final String t(AbilityItem abilityItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, abilityItem)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, abilityItem)) == null) {
             if (abilityItem != null && abilityItem.getConfMap() != null && abilityItem.getConfMap().get("bot_uk") != null) {
                 return BIMManager.getBdUidFromBdUK(abilityItem.getConfMap().get("bot_uk").toString());
             }
@@ -305,13 +330,13 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         return (String) invokeL.objValue;
     }
 
-    public final void H(@NonNull ViewHolder viewHolder, @NonNull String str, @NonNull String str2) {
+    public final void I(@NonNull ViewHolder viewHolder, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, viewHolder, str, str2) == null) {
-            s75 d = s75.d(viewHolder.b);
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewHolder, str, str2) == null) {
+            d85 d = d85.d(viewHolder.b);
             d.o(R.string.J_X01);
             d.g(str);
-            s75 d2 = s75.d(viewHolder.d);
+            d85 d2 = d85.d(viewHolder.d);
             d2.C(R.dimen.T_X08);
             d2.D(R.string.F_X02);
             viewHolder.d.setTextColor(Color.parseColor(str2));
@@ -322,31 +347,31 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return ListUtils.getCount(this.b);
         }
         return invokeV.intValue;
     }
 
-    public final void r(@NonNull String str, @NonNull View view2, int i) {
+    public final void s(@NonNull String str, @NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048589, this, str, view2, i) == null) {
-            r95 p = r95.p();
+        if (interceptable == null || interceptable.invokeLLI(1048590, this, str, view2, i) == null) {
+            da5 p = da5.p();
             p.A("sp_key_direct_show_red" + str, true);
             view2.setVisibility(8);
             notifyItemChanged(i);
         }
     }
 
-    public final String t(AbilityItem abilityItem) {
+    public final String u(AbilityItem abilityItem) {
         InterceptResult invokeL;
         String str;
         GroupChatFragment u1;
-        BotsDTO B0;
+        BotsDTO E0;
         BotsDTO.BotListDTO findBotByUk;
         BotsDTO.BotListDTO.SkillDTO cloneSkillById;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, abilityItem)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, abilityItem)) == null) {
             if (abilityItem == null || abilityItem.getConfMap() == null || abilityItem.getConfMap().get("bot_uk") == null) {
                 str = "";
             } else {
@@ -361,7 +386,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
                 }
             }
             Context context = this.a;
-            if (!(context instanceof GroupChatActivity) || (u1 = ((GroupChatActivity) context).u1()) == null || u1.g2() == null || (B0 = u1.g2().B0()) == null || (findBotByUk = B0.findBotByUk(str)) == null || (cloneSkillById = findBotByUk.cloneSkillById(i)) == null) {
+            if (!(context instanceof GroupChatActivity) || (u1 = ((GroupChatActivity) context).u1()) == null || u1.h2() == null || (E0 = u1.h2().E0()) == null || (findBotByUk = E0.findBotByUk(str)) == null || (cloneSkillById = findBotByUk.cloneSkillById(i)) == null) {
                 return "";
             }
             return cloneSkillById.getName();
@@ -369,14 +394,14 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         return (String) invokeL.objValue;
     }
 
-    public final Uri u(@NonNull AbilityItem.StyleConf styleConf, @NonNull ViewHolder viewHolder) {
+    public final Uri x(@NonNull AbilityItem.StyleConf styleConf, @NonNull ViewHolder viewHolder) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, styleConf, viewHolder)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, styleConf, viewHolder)) == null) {
             int skinType = TbadkApplication.getInst().getSkinType();
             if (styleConf.getDay() == null || styleConf.getDay().getContentColor() == null || styleConf.getDay().getBackgroundColor() == null || styleConf.getDark() == null || styleConf.getDark().getContentColor() == null || styleConf.getDark().getBackgroundColor() == null) {
-                G(viewHolder);
+                H(viewHolder);
             }
             if (skinType == 4) {
                 if (styleConf.getDark() != null && !TextUtils.isEmpty(styleConf.getDark().getIcon())) {
@@ -385,7 +410,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
                     str = null;
                 }
                 if (styleConf.getDark() != null && !TextUtils.isEmpty(styleConf.getDark().getBackgroundColor()) && !TextUtils.isEmpty(styleConf.getDark().getContentColor())) {
-                    H(viewHolder, styleConf.getDark().getBackgroundColor(), styleConf.getDark().getContentColor());
+                    I(viewHolder, styleConf.getDark().getBackgroundColor(), styleConf.getDark().getContentColor());
                 }
             } else {
                 if (styleConf.getDay() != null && !TextUtils.isEmpty(styleConf.getDay().getIcon())) {
@@ -394,7 +419,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
                     str = null;
                 }
                 if (styleConf.getDay() != null && !TextUtils.isEmpty(styleConf.getDay().getBackgroundColor()) && !TextUtils.isEmpty(styleConf.getDay().getContentColor())) {
-                    H(viewHolder, styleConf.getDay().getBackgroundColor(), styleConf.getDay().getContentColor());
+                    I(viewHolder, styleConf.getDay().getBackgroundColor(), styleConf.getDay().getContentColor());
                 }
             }
             if (StringUtils.isNull(str)) {
@@ -405,10 +430,10 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         return (Uri) invokeLL.objValue;
     }
 
-    public final void x(@NonNull AbilityItem abilityItem) {
+    public final void y(@NonNull AbilityItem abilityItem) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, abilityItem) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, abilityItem) == null) {
             Map<String, Object> confMap = abilityItem.getConfMap();
             if (confMap != null && confMap.containsKey(BigdayActivityConfig.JUMP_URL) && (confMap.get(BigdayActivityConfig.JUMP_URL) instanceof String)) {
                 str = (String) confMap.get(BigdayActivityConfig.JUMP_URL);
@@ -418,36 +443,11 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
             if (!StringUtils.isNull(str) && str.contains("vmagic-mobile#/identity")) {
                 Context context = this.a;
                 if (context instanceof TbPageContextSupport) {
-                    nj8.a(((TbPageContextSupport) context).getPageContext(), str, 2);
+                    dp8.a(((TbPageContextSupport) context).getPageContext(), str, 2);
                     return;
                 }
             }
             this.j.d(abilityItem, null, GroupInputViewController.SourceType.DIRECT_CHAT);
-        }
-    }
-
-    public final void y(@NonNull String str, @NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, str, view2) == null) {
-            r95 p = r95.p();
-            if (!p.l("sp_key_direct_show_red" + str, false)) {
-                view2.setVisibility(0);
-            } else {
-                view2.setVisibility(8);
-            }
-        }
-    }
-
-    public void z(@NonNull AbilityItem.StyleConf styleConf, @NonNull ViewHolder viewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, styleConf, viewHolder) == null) {
-            Uri u = u(styleConf, viewHolder);
-            if (u == null) {
-                I(viewHolder);
-                return;
-            }
-            viewHolder.c.setVisibility(0);
-            Glide.with(viewHolder.c.getContext()).load(u).placeholder((int) R.drawable.pic_use_header_40_n).into(viewHolder.c);
         }
     }
 }

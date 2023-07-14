@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m24;
-import com.baidu.tieba.y24;
+import com.baidu.tieba.f24;
+import com.baidu.tieba.r24;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
@@ -26,7 +26,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
 
         public a(GamenowRecommendPopViewAdapter gamenowRecommendPopViewAdapter, View view2) {
             super(view2);
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090957);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090958);
             this.b = (TextView) view2.findViewById(R.id.tv_name);
         }
     }
@@ -38,7 +38,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: k */
+    /* renamed from: l */
     public void onBindViewHolder(a aVar, int i) {
         GameGuideConfigInfo.RecommendGameInfo recommendGameInfo = this.b.get(i);
         if (recommendGameInfo == null) {
@@ -51,9 +51,9 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: l */
+    /* renamed from: m */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00b1, viewGroup, false));
+        a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00b0, viewGroup, false));
         aVar.itemView.setOnClickListener(this);
         return aVar;
     }
@@ -73,7 +73,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
         if (TextUtils.isEmpty(recommendGameInfo.appKey)) {
             return;
         }
-        y24.n().b("gbBDialogClick", "3", recommendGameInfo.appKey, String.valueOf(intValue));
-        m24.n().A(recommendGameInfo.appKey, recommendGameInfo.appName, recommendGameInfo.iconUrl, intValue);
+        r24.n().b("gbBDialogClick", "3", recommendGameInfo.appKey, String.valueOf(intValue));
+        f24.n().A(recommendGameInfo.appKey, recommendGameInfo.appName, recommendGameInfo.iconUrl, intValue);
     }
 }

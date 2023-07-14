@@ -1,45 +1,109 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class q93 {
+public class q93 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Bitmap a;
 
-    public q93(String id, String text, Bitmap img) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {id, text, img};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948046622, "Lcom/baidu/tieba/q93;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948046622, "Lcom/baidu/tieba/q93;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(id, "id");
-        Intrinsics.checkNotNullParameter(text, "text");
-        Intrinsics.checkNotNullParameter(img, "img");
-        this.a = img;
+        a = fs1.a;
     }
 
-    public final Bitmap a() {
-        InterceptResult invokeV;
+    public static JSONObject a(List<String> list, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, list, f)) == null) {
+            if (a) {
+                Log.d("PublisherCompress", "start compress");
+            }
+            ArrayList arrayList = new ArrayList();
+            vb3 M = vb3.M();
+            if (M == null) {
+                return null;
+            }
+            for (String str : list) {
+                if (!TextUtils.isEmpty(str)) {
+                    File file = new File(str);
+                    File k = to3.k(file.getName());
+                    if (to3.b(file, k, (int) (100.0f * f))) {
+                        arrayList.add(k);
+                    }
+                }
+            }
+            return b(arrayList, M);
         }
-        return (Bitmap) invokeV.objValue;
+        return (JSONObject) invokeLF.objValue;
+    }
+
+    public static JSONObject b(ArrayList<File> arrayList, vb3 vb3Var) {
+        InterceptResult invokeLL;
+        String J;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, vb3Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            boolean w0 = vb3Var.w0();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                JSONArray jSONArray2 = new JSONArray();
+                Iterator<File> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    File next = it.next();
+                    if (next != null) {
+                        if (w0) {
+                            J = fo2.Z(next.getAbsolutePath());
+                        } else {
+                            J = dj3.J(next.getAbsolutePath(), vb3Var.b);
+                        }
+                        if (a) {
+                            Log.d("PublisherCompress", "isSwanGame: " + w0 + "; path: " + J);
+                        }
+                        jSONArray.put(J);
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("path", J);
+                        jSONObject2.put("size", next.length());
+                        jSONArray2.put(jSONObject2);
+                    }
+                }
+                jSONObject.put("tempFilePaths", jSONArray);
+                jSONObject.put("tempFiles", jSONArray2);
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("PublisherCompress", "wrapParams failed");
+                    e.printStackTrace();
+                }
+            }
+            if (a) {
+                Log.e("PublisherCompress", jSONObject.toString());
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
     }
 }

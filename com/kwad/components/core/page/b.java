@@ -22,7 +22,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.kwad.components.core.page.recycle.a {
     public WebView Fv;
     public com.kwad.components.core.widget.d Fw;
@@ -32,7 +32,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
     public LinearLayout mWebTipBarLayout;
     public TextView mWebTipBarTitle;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends com.kwad.components.core.page.recycle.d {
         public e Fz;
         public AdTemplate mAdTemplate;
@@ -47,7 +47,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
         @Override // com.kwad.components.core.page.recycle.d
         public final com.kwad.components.core.page.recycle.c a(ViewGroup viewGroup, int i) {
             if (i == 1) {
-                View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d047c, viewGroup, false);
+                View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0487, viewGroup, false);
                 Presenter presenter = new Presenter();
                 presenter.a(new com.kwad.components.core.page.kwai.b());
                 return new com.kwad.components.core.page.recycle.c(inflate, presenter, this.Fz);
@@ -92,9 +92,9 @@ public final class b extends com.kwad.components.core.page.recycle.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void t(View view2) {
-        this.mWebTipBarLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091425);
-        this.mWebTipBarTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091426);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091427);
+        this.mWebTipBarLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091439);
+        this.mWebTipBarTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09143a);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09143b);
         this.mWebTipBarCloseBtn = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.b.1
             @Override // android.view.View.OnClickListener
@@ -135,7 +135,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
 
     @Override // com.kwad.components.core.page.recycle.a
     public final int nw() {
-        return R.layout.obfuscated_res_0x7f0d047d;
+        return R.layout.obfuscated_res_0x7f0d0488;
     }
 
     @Override // com.kwad.components.core.page.recycle.a, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -184,7 +184,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
                 }
                 if (detailWebRecycleView.getChildCount() > 1) {
                     View view4 = detailWebRecycleView.findViewHolderForAdapterPosition(1).itemView;
-                    b.this.Fv = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f09141b);
+                    b.this.Fv = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f09142f);
                     b.this.t(view4);
                 }
                 com.kwad.sdk.core.e.b.d("AdRecycleWebFragment", "onGlobalLayout");

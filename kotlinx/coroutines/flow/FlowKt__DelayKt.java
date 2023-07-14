@@ -57,8 +57,8 @@ public final /* synthetic */ class FlowKt__DelayKt {
 
     @FlowPreview
     /* renamed from: debounce-HG0u8IE */
-    public static final <T> Flow<T> m2319debounceHG0u8IE(Flow<? extends T> flow, long j) {
-        return FlowKt.debounce(flow, DelayKt.m2278toDelayMillisLRDsOJo(j));
+    public static final <T> Flow<T> m2321debounceHG0u8IE(Flow<? extends T> flow, long j) {
+        return FlowKt.debounce(flow, DelayKt.m2280toDelayMillisLRDsOJo(j));
     }
 
     @FlowPreview
@@ -76,7 +76,7 @@ public final /* synthetic */ class FlowKt__DelayKt {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function1
             public final Long invoke(T t) {
-                return Long.valueOf(DelayKt.m2278toDelayMillisLRDsOJo(function1.invoke(t).m2195unboximpl()));
+                return Long.valueOf(DelayKt.m2280toDelayMillisLRDsOJo(function1.invoke(t).m2197unboximpl()));
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -109,8 +109,8 @@ public final /* synthetic */ class FlowKt__DelayKt {
 
     @FlowPreview
     /* renamed from: sample-HG0u8IE */
-    public static final <T> Flow<T> m2320sampleHG0u8IE(Flow<? extends T> flow, long j) {
-        return FlowKt.sample(flow, DelayKt.m2278toDelayMillisLRDsOJo(j));
+    public static final <T> Flow<T> m2322sampleHG0u8IE(Flow<? extends T> flow, long j) {
+        return FlowKt.sample(flow, DelayKt.m2280toDelayMillisLRDsOJo(j));
     }
 
     @FlowPreview

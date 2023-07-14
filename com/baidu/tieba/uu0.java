@@ -1,36 +1,81 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.InteractiveEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-@JvmName(name = "InteractiveABConfig")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class uu0 {
+public abstract class uu0 extends tu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uu0(@NonNull ly0 ly0Var, @Nullable Context context) {
+        super(ly0Var, context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (vu0.a() != 1) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ly0Var, context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ly0) objArr2[0], (Context) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public static final boolean b() {
+    @Override // com.baidu.tieba.su0
+    @NonNull
+    public my0 E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (vu0.a() != 0 && vu0.a() != 2) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.v == null) {
+                this.v = this.y.a();
             }
-            return true;
+            return this.v;
         }
-        return invokeV.booleanValue;
+        return (my0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.su0
+    public void h0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            E().a(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.su0
+    public void F0(@Nullable g01 g01Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g01Var) == null) {
+            super.F0(E().b(this, g01Var));
+        }
+    }
+
+    @Override // com.baidu.tieba.tu0
+    @CallSuper
+    public void F1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            E().c(this, z);
+            mx0 w = ax0.w(InteractiveEvent.ACTION_SWITCH_INTERACTIVE_KERNEL);
+            w.n(9, Boolean.valueOf(z));
+            q0(w);
+        }
     }
 }

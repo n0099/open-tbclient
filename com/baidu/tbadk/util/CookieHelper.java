@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.qp5;
-import com.baidu.tieba.u05;
+import com.baidu.tieba.d15;
+import com.baidu.tieba.uq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,12 +61,12 @@ public class CookieHelper {
                 b = currentAccountInfo.getBDUSS();
             } else {
                 if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                    b = qp5.b();
+                    b = uq5.b();
                 }
                 return null;
             }
             if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b)) {
-                AccountData e = u05.e();
+                AccountData e = d15.e();
                 if (e == null) {
                     return null;
                 }

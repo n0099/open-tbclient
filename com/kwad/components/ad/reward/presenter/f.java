@@ -2,7 +2,7 @@ package com.kwad.components.ad.reward.presenter;
 
 import com.kwad.components.core.m.f;
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class f extends a implements f.a {
     public com.kwad.components.ad.reward.j.a eF;
     public AdInfo mAdInfo;

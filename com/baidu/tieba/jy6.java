@@ -1,28 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jy6 implements gr5 {
+public class jy6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile iy6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
 
-    public jy6() {
+    public static synchronized iy6 a() {
+        InterceptResult invokeV;
+        iy6 iy6Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (jy6.class) {
+                if (a == null) {
+                    a = new iy6();
+                }
+                iy6Var = a;
             }
+            return iy6Var;
         }
+        return (iy6) invokeV.objValue;
     }
 }

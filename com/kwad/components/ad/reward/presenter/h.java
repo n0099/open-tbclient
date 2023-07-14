@@ -10,7 +10,7 @@ import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class h extends a implements com.kwad.components.ad.reward.presenter.platdetail.actionbar.a {
     public RewardActionBarControl ml;
     @Nullable
@@ -66,7 +66,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
             if (this.pK == null) {
                 this.pK = new com.kwad.components.ad.reward.k.g(this.nM);
             }
-            this.pK.e((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913b7));
+            this.pK.e((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913cb));
             this.pK.b(u.D(adTemplate));
         }
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
@@ -76,7 +76,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
             }
             this.pN.f(this.nM.mRootContainer);
             this.pN.b(u.D(adTemplate));
-            com.kwad.components.ad.reward.presenter.platdetail.actionbar.d.a(getContext(), bQ, this.pM, R.dimen.obfuscated_res_0x7f0704ca, false);
+            com.kwad.components.ad.reward.presenter.platdetail.actionbar.d.a(getContext(), bQ, this.pM, R.dimen.obfuscated_res_0x7f0704d1, false);
         }
         this.nM.ml.a(this);
     }
@@ -84,7 +84,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091237);
+        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09124b);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

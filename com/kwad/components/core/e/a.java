@@ -7,12 +7,12 @@ import com.kwad.sdk.utils.g;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
 
     /* renamed from: com.kwad.components.core.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static final class C0644a {
+    /* loaded from: classes10.dex */
+    public static final class C0649a {
         public static final a Ez = new a((byte) 0);
     }
 
@@ -66,7 +66,7 @@ public final class a {
     }
 
     public static a ng() {
-        return C0644a.Ez;
+        return C0649a.Ez;
     }
 
     public final void init(Context context) {

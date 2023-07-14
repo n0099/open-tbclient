@@ -1,119 +1,174 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.List;
+import tbclient.AlaLiveInfo;
+import tbclient.DislikeInfo;
 /* loaded from: classes6.dex */
-public class ki9 {
+public class ki9 implements yn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId q;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public NavigationBar b;
-    public BdTypeListView c;
-    public ii9 d;
-    public qo6<kj9> e;
+    public String a;
+    public int b;
+    public String c;
+    public String d;
+    public int e;
+    public long f;
+    public MetaData g;
+    public HashMap<String, MetaData> h;
+    public boolean i;
+    public String j;
+    public String k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public s35 o;
+    public YyExtData p;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ki9 a;
-
-        public a(ki9 ki9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947914190, "Lcom/baidu/tieba/ki9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ki9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ki9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a.getPageActivity().finish();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947914190, "Lcom/baidu/tieba/ki9;");
+                return;
             }
         }
+        q = BdUniqueId.gen();
     }
 
-    public ki9(TbPageContext tbPageContext) {
+    public ki9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.l = false;
+        this.m = false;
+        this.n = false;
     }
 
-    public void e(List<xn> list) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.c.setData(list);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = null;
+            this.b = 0;
+            this.c = null;
+            this.d = null;
+            this.e = 0;
+            this.f = 0L;
+            this.g = null;
+            this.h = null;
+            this.i = false;
+            this.j = null;
+            this.k = null;
+            this.n = false;
+            this.l = false;
         }
     }
 
-    public void f(qo6<kj9> qo6Var) {
+    @Override // com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qo6Var) == null) {
-            this.e = qo6Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return q;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(AlaLiveInfo alaLiveInfo) {
+        boolean z;
+        HashMap<String, MetaData> hashMap;
+        MetaData metaData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) && alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.live_status.intValue() == 1 && alaLiveInfo.pb_display_type.intValue() == 1) {
+            this.a = alaLiveInfo.user_info.user_name;
+            this.c = alaLiveInfo.description;
+            String str = alaLiveInfo.cover_wide;
+            this.d = str;
+            if (str == null || TextUtils.isEmpty(str)) {
+                this.d = alaLiveInfo.cover;
+            }
+            this.b = alaLiveInfo.audience_count.intValue();
+            this.e = alaLiveInfo.live_status.intValue();
+            this.f = alaLiveInfo.live_id.longValue();
+            if (alaLiveInfo.live_from.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.i = z;
+            this.j = alaLiveInfo.third_live_type;
+            this.k = alaLiveInfo.third_room_id;
+            YyExtData yyExtData = new YyExtData();
+            this.p = yyExtData;
+            yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
+            Long l = alaLiveInfo.user_info.user_id;
+            if (l != null && l.longValue() > 0 && (hashMap = this.h) != null && (metaData = hashMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
+                this.g = metaData;
+                metaData.setIsLike(metaData.hadConcerned());
+            }
+            List<DislikeInfo> list = alaLiveInfo.dislike_info;
+            if (ListUtils.getCount(list) > 0) {
+                SparseArray<String> sparseArray = new SparseArray<>();
+                SparseArray<String> sparseArray2 = new SparseArray<>();
+                for (DislikeInfo dislikeInfo : list) {
+                    if (dislikeInfo != null) {
+                        sparseArray.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.dislike_reason);
+                        sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
+                    }
+                }
+                s35 s35Var = new s35();
+                this.o = s35Var;
+                s35Var.j(sparseArray);
+                this.o.g = sparseArray2;
+            } else {
+                this.o = null;
+            }
+            this.l = true;
         }
     }
 
-    public final void b() {
+    public void c(HashMap<String, MetaData> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f103b));
-            this.b.showBottomLine();
-            this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void c(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.b = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091bed);
-            BdTypeListView bdTypeListView = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091bec);
-            this.c = bdTypeListView;
-            this.d = new ii9(this.a, bdTypeListView, this.e);
-            b();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d.a();
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
-            this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+            this.h = hashMap;
         }
     }
 }

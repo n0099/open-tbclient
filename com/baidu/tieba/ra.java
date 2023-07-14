@@ -74,12 +74,12 @@ public class ra {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                ti.a(byteArrayInputStream, byteArrayOutputStream);
+                ui.a(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
-                ug.d(byteArrayOutputStream);
-                ug.c(byteArrayInputStream);
+                vg.d(byteArrayOutputStream);
+                vg.c(byteArrayInputStream);
             }
         }
         return (byte[]) invokeLII.objValue;
@@ -92,12 +92,12 @@ public class ra {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                ti.c(byteArrayInputStream, byteArrayOutputStream);
+                ui.c(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
-                ug.d(byteArrayOutputStream);
-                ug.c(byteArrayInputStream);
+                vg.d(byteArrayOutputStream);
+                vg.c(byteArrayInputStream);
             }
         }
         return (byte[]) invokeLII.objValue;
@@ -177,7 +177,7 @@ public class ra {
                 if (qaVar.d() && saVar.d > 0) {
                     if (ta.a().b() != null) {
                         try {
-                            byte[] a2 = fj.a(ta.a().b(), saVar.b, saVar.c, saVar.d);
+                            byte[] a2 = gj.a(ta.a().b(), saVar.b, saVar.c, saVar.d);
                             saVar.b = a2;
                             saVar.c = 0;
                             saVar.d = a2.length;
@@ -233,7 +233,7 @@ public class ra {
                 encodeInBackGround = a(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = fj.c(ta.a().b(), encodeInBackGround);
+                encodeInBackGround = gj.c(ta.a().b(), encodeInBackGround);
             }
             return qa.i(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         }

@@ -1,135 +1,134 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
-import android.os.Process;
+import android.provider.Settings;
 import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 /* loaded from: classes6.dex */
-public final class l71 {
+public class l71 {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
-    public static String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onEvent(String str, String str2);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947895683, "Lcom/baidu/tieba/l71;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a(@NonNull Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (g(activity)) {
+                return c(activity);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947895683, "Lcom/baidu/tieba/l71;");
-                return;
-            }
+            return 0;
         }
-        b = new String[]{"lib/arm64-v8a", "lib/armeabi", "lib/x86", "lib/mips"};
+        return invokeL.intValue;
     }
 
-    public static boolean d() {
+    public static int c(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int identifier = context.getResources().getIdentifier("navigation_bar_height", EMABTest.TYPE_DIMEN, "android");
+            if (identifier > 0) {
+                return context.getResources().getDimensionPixelSize(identifier);
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    @RequiresApi(api = 17)
+    public static int d(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (h(context)) {
+                return 0;
+            }
+            return a((Activity) context);
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean g(@NonNull Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
+            View findViewById = activity.findViewById(16908336);
+            if (findViewById == null || findViewById.getVisibility() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @RequiresApi(api = 17)
+    public static boolean h(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (Settings.Global.getInt(context.getContentResolver(), b(), 0) == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @NonNull
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = Build.BRAND;
+            if (TextUtils.isEmpty(str) || str.equalsIgnoreCase("HUAWEI")) {
+                return "navigationbar_is_min";
+            }
+            if (str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
+                return "force_fsg_nav_bar";
+            }
+            if (!str.equalsIgnoreCase("VIVO") && !str.equalsIgnoreCase("OPPO")) {
+                return "navigationbar_is_min";
+            }
+            return "navigation_gesture_on";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
-            }
-            if (i < 21) {
+            if (i != 29 && i != 30) {
                 return false;
             }
-            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
-            if (strArr.length <= 0) {
-                return false;
-            }
-            return Build.CPU_ABI.equals(strArr[0]);
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public static long a(InputStream inputStream, OutputStream outputStream, int i) {
-        InterceptResult invokeLLI;
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, inputStream, outputStream, i)) == null) {
-            if (inputStream != null && outputStream != null) {
-                try {
-                    byte[] bArr = new byte[i * 1024];
-                    long j = 0;
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            outputStream.write(bArr, 0, read);
-                            j += read;
-                        } else {
-                            outputStream.flush();
-                            return j;
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String d = rk0.c().a().d();
+            if (TextUtils.isEmpty(d)) {
+                return false;
             }
-            return 0L;
-        }
-        return invokeLLI.longValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!str.startsWith("lib")) {
-                str2 = "lib" + str;
-            } else {
-                str2 = str;
+            if (!d.contains("MI 8") && !d.contains("MI 9")) {
+                return false;
             }
-            if (!str.endsWith(".so")) {
-                return str2 + ".so";
-            }
-            return str2;
+            return true;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so") && (split = str.split("\\.")) != null && split.length == 2) {
-                return split[0].substring(3);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(String str, String str2) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && (aVar = a) != null) {
-            aVar.onEvent(str, str2);
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && !TextUtils.isEmpty(str)) {
-            e("24", str);
-        }
+        return invokeV.booleanValue;
     }
 }

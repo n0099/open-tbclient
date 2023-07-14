@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MusicData extends MusicBaseBean {
     public static final String MUSIC_DATA_KEY = "musicData";
     public static final String MUSIC_LOC_HOME_TAB = "music_home_";
@@ -164,30 +164,6 @@ public class MusicData extends MusicBaseBean {
         }
     }
 
-    public static MusicData parseNetBean(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
-        }
-        MusicData musicData = new MusicData();
-        musicData.id = jSONObject.optString("id");
-        musicData.icon = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-        musicData.title = jSONObject.optString("name");
-        musicData.singer = jSONObject.optString("singer");
-        musicData.duration = jSONObject.optString("duration");
-        musicData.collectStatus = jSONObject.optString(TableDefine.BusiSessionColumns.COLUMN_COLLECT_STATUS);
-        musicData.musicType = jSONObject.optInt("ai_switch");
-        boolean z = false;
-        if (jSONObject.optInt("music_compilation", 0) == 1) {
-            z = true;
-        }
-        musicData.isMusicCompilation = z;
-        JSONObject optJSONObject = jSONObject.optJSONObject("refrain_info");
-        if (optJSONObject != null) {
-            musicData.startPosition = optJSONObject.optInt("start_time");
-        }
-        return musicData;
-    }
-
     public static String toJSON(MusicData musicData) {
         int i;
         if (musicData == null) {
@@ -243,6 +219,30 @@ public class MusicData extends MusicBaseBean {
             e.printStackTrace();
         }
         return jSONObject.toString();
+    }
+
+    public static MusicData parseNetBean(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
+        }
+        MusicData musicData = new MusicData();
+        musicData.id = jSONObject.optString("id");
+        musicData.icon = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+        musicData.title = jSONObject.optString("name");
+        musicData.singer = jSONObject.optString("singer");
+        musicData.duration = jSONObject.optString("duration");
+        musicData.collectStatus = jSONObject.optString(TableDefine.BusiSessionColumns.COLUMN_COLLECT_STATUS);
+        musicData.musicType = jSONObject.optInt("ai_switch");
+        boolean z = false;
+        if (jSONObject.optInt("music_compilation", 0) == 1) {
+            z = true;
+        }
+        musicData.isMusicCompilation = z;
+        JSONObject optJSONObject = jSONObject.optJSONObject("refrain_info");
+        if (optJSONObject != null) {
+            musicData.startPosition = optJSONObject.optInt("start_time");
+        }
+        return musicData;
     }
 
     public static String toJSONFromNetBean(MusicData musicData) {

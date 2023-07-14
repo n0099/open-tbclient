@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.types;
 import java.util.List;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class UnresolvedType extends ErrorType {
     public final String presentableName;
 

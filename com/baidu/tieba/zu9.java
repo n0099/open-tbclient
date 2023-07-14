@@ -1,44 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 /* loaded from: classes8.dex */
 public class zu9 {
     public static /* synthetic */ Interceptable $ic;
-    public static zu9 b;
+    public static zu9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
+    public LinkedHashMap<String, Integer> a;
+    public CustomMessageListener b;
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void a(HashMap<String, String> hashMap);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948372587, "Lcom/baidu/tieba/zu9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948372587, "Lcom/baidu/tieba/zu9;");
+        }
     }
 
     /* loaded from: classes8.dex */
-    public class a extends sx5<Object> {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zu9 a;
 
-        public a(zu9 zu9Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zu9 zu9Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zu9Var};
+                Object[] objArr = {zu9Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -47,100 +63,14 @@ public class zu9 {
             this.a = zu9Var;
         }
 
-        @Override // com.baidu.tieba.sx5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Reader reader;
-            Throwable th;
-            InputStream inputStream;
-            BufferedReader bufferedReader;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    try {
-                        inputStream = TbadkCoreApplication.getInst().getAssets().open("schema_map1.txt");
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                    try {
-                        bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                String[] split = readLine.split(",");
-                                if (split.length == 2 && split[0] != null && split[1] != null) {
-                                    this.a.a.put(split[0], split[1]);
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                e.printStackTrace();
-                                ug.c(inputStream);
-                                ug.e(bufferedReader);
-                                return null;
-                            }
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        bufferedReader = null;
-                    } catch (Throwable th3) {
-                        reader = null;
-                        th = th3;
-                        ug.c(inputStream);
-                        ug.e(reader);
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    inputStream = null;
-                    bufferedReader = null;
-                } catch (Throwable th4) {
-                    reader = null;
-                    th = th4;
-                    inputStream = null;
-                }
-                ug.c(inputStream);
-                ug.e(bufferedReader);
-                return null;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+                return;
             }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements ww5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ zu9 b;
-
-        public b(zu9 zu9Var, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zu9Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = zu9Var;
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.ww5
-        public void onReturnDataInUI(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.a.a(this.b.a);
-            }
+            this.a.a.clear();
         }
     }
 
@@ -148,43 +78,71 @@ public class zu9 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        new HashMap();
+        this.a = new LinkedHashMap<>(150, 0.75f, true);
+        this.b = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.b);
     }
 
-    public static zu9 c() {
+    public int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Integer num = this.a.get(str);
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.a.remove(str);
+    }
+
+    public static zu9 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
                 synchronized (zu9.class) {
-                    if (b == null) {
-                        b = new zu9();
+                    if (c == null) {
+                        c = new zu9();
                     }
                 }
             }
-            return b;
+            return c;
         }
         return (zu9) invokeV.objValue;
     }
 
-    public void b(c cVar) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            if (!this.a.isEmpty()) {
-                cVar.a(this.a);
-            } else {
-                wx5.b(new a(this), new b(this, cVar));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public void update(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            if (i == 0 && this.a.containsKey(str)) {
+                return;
             }
+            this.a.put(str, Integer.valueOf(i));
         }
     }
 }

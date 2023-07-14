@@ -19,7 +19,7 @@ public class by implements Runnable {
                 aVar.run();
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m175a("Sync job exception :" + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m177a("Sync job exception :" + e.getMessage());
         }
         this.a.f961a = false;
     }

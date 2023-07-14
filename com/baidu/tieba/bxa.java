@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class bxa implements Runnable {
+public class bxa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a();
+    public int a;
+    public List<hz7> b;
+    public List<String> c;
+    public int d;
+    public List<r25> e;
 
     public bxa() {
         Interceptable interceptable = $ic;
@@ -22,22 +25,9 @@ public abstract class bxa implements Runnable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                a();
-            } catch (Exception e) {
-                hxa.e(e);
-                if (e.getMessage() != null) {
-                    zwa.b(e.getMessage());
-                }
-            }
-        }
+        this.a = 0;
     }
 }

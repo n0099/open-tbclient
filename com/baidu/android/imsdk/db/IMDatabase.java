@@ -114,7 +114,7 @@ public class IMDatabase {
             synchronized (IMDatabase.class) {
                 String path2 = context.getDatabasePath(TableDefine.DB_NAME_PREFIX + str + "_" + j + ".db").getPath();
                 if (mDbHelper == null) {
-                    mDbHelper = new DbOpenHelper(context, path2, 79);
+                    mDbHelper = new DbOpenHelper(context, path2, 80);
                 } else {
                     try {
                         path = mDbHelper.getReadableDatabase().getPath();
@@ -124,7 +124,7 @@ public class IMDatabase {
                     if (!path.equals(path2)) {
                         mDbHelper.close();
                         mDbHelper = null;
-                        mDbHelper = new DbOpenHelper(context, path2, 79);
+                        mDbHelper = new DbOpenHelper(context, path2, 80);
                     }
                 }
                 dbOpenHelper = mDbHelper;

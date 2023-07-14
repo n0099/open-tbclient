@@ -16,9 +16,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bo;
-import com.baidu.tieba.fl;
+import com.baidu.tieba.co;
 import com.baidu.tieba.g9;
+import com.baidu.tieba.gl;
 import com.baidu.tieba.h9;
 import com.baidu.tieba.kb;
 import com.baidu.tieba.l9;
@@ -26,8 +26,8 @@ import com.baidu.tieba.m9;
 import com.baidu.tieba.n9;
 import com.baidu.tieba.p9;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.rg;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,13 +77,13 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         }
     }
 
-    public bo onGetPreLoadListView() {
+    public co onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return null;
         }
-        return (bo) invokeV.objValue;
+        return (co) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -114,9 +114,9 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     }
 
     @Override // com.baidu.tieba.q9
-    public void onPreLoad(bo boVar) {
+    public void onPreLoad(co coVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, boVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, coVar) == null) {
         }
     }
 
@@ -197,8 +197,8 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         if ((interceptable != null && interceptable.invokeL(65537, this, view2) != null) || view2 == null) {
             return;
         }
-        if (view2 instanceof fl) {
-            ((fl) view2).refresh();
+        if (view2 instanceof gl) {
+            ((gl) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;
@@ -273,7 +273,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPause();
-            rg.h().e(this.mId);
+            sg.h().e(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
@@ -292,7 +292,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            bo onGetPreLoadListView = onGetPreLoadListView();
+            co onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }
@@ -353,7 +353,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            xi.Q(getApplicationContext(), str);
+            yi.R(getApplicationContext(), str);
         }
     }
 
@@ -368,7 +368,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
-            rg.h().b(this.mId);
+            sg.h().b(this.mId);
             h9.f().l(getPageContext().getPageActivity());
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }

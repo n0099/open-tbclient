@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dg9;
 import com.baidu.tieba.pb.fragment.VideoFragmentController;
-import com.baidu.tieba.u89;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.y99;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.ze9;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,13 +154,13 @@ public final class VideoFragmentController {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final y99 d() {
+    public final dg9 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (y99) this.a.getValue();
+            return (dg9) this.a.getValue();
         }
-        return (y99) invokeV.objValue;
+        return (dg9) invokeV.objValue;
     }
 
     public final ImageView e() {
@@ -184,7 +184,7 @@ public final class VideoFragmentController {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            yg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.w99
+            zg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.bg9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -277,7 +277,7 @@ public final class VideoFragmentController {
             WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_topbar_return40, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             ImageView imageView2 = this.b;
             Intrinsics.checkNotNull(imageView2);
-            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.x99
+            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cg9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -296,14 +296,14 @@ public final class VideoFragmentController {
         }
     }
 
-    public final Bundle g(u89 u89Var) {
+    public final Bundle g(ze9 ze9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, u89Var)) == null) {
-            if (u89Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ze9Var)) == null) {
+            if (ze9Var == null) {
                 return null;
             }
-            ThreadData N = u89Var.N();
+            ThreadData N = ze9Var.N();
             Intrinsics.checkNotNullExpressionValue(N, "pbData.thread");
             VideoItemData videoItemData = new VideoItemData();
             videoItemData.buildWithThreadData(N);
@@ -320,11 +320,11 @@ public final class VideoFragmentController {
     public final void n(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, activity) == null) && activity != null) {
-            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f0907a1);
+            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f0907a2);
             if (findViewById != null) {
                 findViewById.setBackgroundResource(R.color.CAM_X0611);
             }
-            View findViewById2 = activity.findViewById(R.id.obfuscated_res_0x7f0907b1);
+            View findViewById2 = activity.findViewById(R.id.obfuscated_res_0x7f0907b2);
             if (findViewById2 != null) {
                 findViewById2.setBackgroundResource(R.color.CAM_X0611);
             }

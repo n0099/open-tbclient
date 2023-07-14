@@ -1,48 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ry9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+public interface ry9 {
+    ln<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
 
-    public ry9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    my9 b();
 
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", StringUtil.NULL_STRING);
-                return;
-            }
-            try {
-                this.a = jSONObject.optString("banner_pic");
-                this.b = jSONObject.optString("banner_url");
-            } catch (Exception e) {
-                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e.toString());
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
+    void c(AdvertAppInfo advertAppInfo, p09<?> p09Var, String str, String str2, int i, int i2);
+
+    hy9 d();
+
+    ln<?, ?> e(qy9 qy9Var, BdUniqueId bdUniqueId);
+
+    void f();
+
+    List<AdvertAppInfo> g();
+
+    ln<?, ?> h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
+
+    IAdBaseAsyncController i(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
+
+    oy9 j();
+
+    void k(AdvertAppInfo advertAppInfo);
+
+    void l(HashMap<String, String> hashMap, Context context);
 }

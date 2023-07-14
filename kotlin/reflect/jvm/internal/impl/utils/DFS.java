@@ -7,10 +7,10 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 import kotlin.jvm.functions.Function1;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DFS {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class AbstractNodeHandler<N, R> implements NodeHandler<N, R> {
         @Override // kotlin.reflect.jvm.internal.impl.utils.DFS.NodeHandler
         public void afterChildren(N n) {
@@ -22,12 +22,12 @@ public class DFS {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface Neighbors<N> {
         Iterable<? extends N> getNeighbors(N n);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface NodeHandler<N, R> {
         void afterChildren(N n);
 
@@ -36,7 +36,7 @@ public class DFS {
         R result();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface Visited<N> {
         boolean checkAndMarkVisited(N n);
     }
@@ -121,7 +121,7 @@ public class DFS {
         throw new IllegalArgumentException(String.format("Argument for @NotNull parameter '%s' of %s.%s must not be null", objArr));
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class CollectingNodeHandler<N, R, C extends Iterable<R>> extends AbstractNodeHandler<N, C> {
         public final C result;
 
@@ -165,14 +165,14 @@ public class DFS {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class NodeHandlerWithListResult<N, R> extends CollectingNodeHandler<N, R, LinkedList<R>> {
         public NodeHandlerWithListResult() {
             super(new LinkedList());
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class VisitedWithSet<N> implements Visited<N> {
         public final Set<N> visited;
 

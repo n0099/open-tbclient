@@ -1,25 +1,35 @@
 package com.baidu.tieba;
+
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface x29 {
-    void a(int i, String str);
+public class x29 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i, String str);
-
-    void c();
-
-    void d();
-
-    void e(String str);
-
-    void f(int i, int i2, String str);
-
-    void g();
-
-    void h(int i, String str);
-
-    void i(int i, String str);
-
-    void j();
-
-    void k(String str);
+    public static void a(TextView textView, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, textView, str, str2) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            String lowerCase = str.toLowerCase();
+            String lowerCase2 = str2.trim().toLowerCase();
+            textView.setText(str);
+            int indexOf = lowerCase.indexOf(lowerCase2);
+            if (indexOf >= 0) {
+                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0107));
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, lowerCase2.length() + indexOf, 33);
+                if (indexOf > 0) {
+                    spannableStringBuilder.setSpan(new StyleSpan(1), 0, indexOf, 33);
+                }
+                spannableStringBuilder.setSpan(new StyleSpan(1), indexOf + lowerCase2.length(), lowerCase.length(), 33);
+                textView.setText(spannableStringBuilder);
+            }
+        }
+    }
 }

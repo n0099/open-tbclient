@@ -8,7 +8,7 @@ import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VideoCloudSetting {
     public static final String DEFAULT_ERROR_LOG_CLOSE_ALL = "close_all";
     public static final String DEFAULT_ERROR_LOG_ENABLE_ALL = "enable_all";
@@ -41,7 +41,7 @@ public class VideoCloudSetting {
     public static final int SETTING_HOST = 1;
     public static final String TAG = "VideoCloudSettings";
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum MatchedType {
         FAILED,
         AND_NEED_CHECK_NEXT,
@@ -49,7 +49,7 @@ public class VideoCloudSetting {
         SUCCESS
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class VideoCloudSettingItem {
         public boolean mIsCloseAll;
         public boolean mIsEnableAll;
@@ -167,7 +167,7 @@ public class VideoCloudSetting {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class VideoSettings {
         public SparseArray<VideoCloudSettingItem> mItems = new SparseArray<>();
 

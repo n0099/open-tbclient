@@ -1,56 +1,125 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class k37 implements xn {
+public class k37 implements r37 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+    public m37 a;
+    public boolean b;
+    public boolean c;
+    public j37 d;
+    public boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862234, "Lcom/baidu/tieba/k37;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947862234, "Lcom/baidu/tieba/k37;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    public k37() {
+    public k37(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = false;
+        this.e = false;
+        this.a = new m37();
+        this.e = z;
+    }
+
+    @Override // com.baidu.tieba.r37
+    public void a(String str, s37 s37Var) {
+        j37 j37Var;
+        j37 j37Var2;
+        float f;
+        float f2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, s37Var) != null) || s37Var == null) {
+            return;
+        }
+        if (this.b) {
+            File file = new File(s37Var.a);
+            Bitmap decodeFile = BitmapFactory.decodeFile(s37Var.a);
+            if (file.exists() && decodeFile != null) {
+                float height = decodeFile.getHeight();
+                float width = decodeFile.getWidth();
+                float f3 = height * 1.0f;
+                float f4 = f3 / width;
+                if (f4 > 1.0f) {
+                    f = 1.7777778f;
+                } else {
+                    f = 0.75f;
+                }
+                float f5 = 0.0f;
+                if (f4 > f) {
+                    float f6 = f * width;
+                    f2 = (height - f6) * 0.5f;
+                    height = f6;
+                } else {
+                    float f7 = f3 / f;
+                    f5 = (width - f7) * 0.5f;
+                    width = f7;
+                    f2 = 0.0f;
+                }
+                s37Var.a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f5, (int) f2, (int) width, (int) height), 95);
+            }
+        }
+        if ("default".equals(str)) {
+            if (!this.c && (j37Var2 = this.d) != null) {
+                j37Var2.a0(s37Var.a);
+            }
+        } else if ("manual".equals(str) && (j37Var = this.d) != null) {
+            j37Var.a0(s37Var.a);
         }
     }
 
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void b(t37 t37Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t37Var, str) == null) {
+            this.a.a(str, this.e).a(t37Var, this);
         }
-        return (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r37
+    public void onError(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            BdLog.e("get cover error ! type : " + str + ", err : " + str2);
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void e(j37 j37Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, j37Var) == null) {
+            this.d = j37Var;
+        }
     }
 }

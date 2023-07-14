@@ -1,43 +1,54 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.view.Window;
-import android.view.WindowManager;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class nca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AbsDelegateAdapterList a;
+    public Context b;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public nca(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return 2038;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, absDelegateAdapterList};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i;
         }
-        return invokeI.intValue;
+        this.b = context;
+        this.a = absDelegateAdapterList;
     }
 
-    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
+    public AbsDelegateAdapterList a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(65537, null, i, layoutParams, window) == null) && layoutParams != null && window != null) {
-            try {
-                Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
-                if (declaredField != null) {
-                    declaredField.set(layoutParams, Integer.valueOf(i));
-                    window.setAttributes(layoutParams);
-                }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (NoSuchFieldException e2) {
-                e2.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (AbsDelegateAdapterList) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (Context) invokeV.objValue;
     }
 }

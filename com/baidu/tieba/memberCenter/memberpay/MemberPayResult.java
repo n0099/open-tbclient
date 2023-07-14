@@ -5,7 +5,7 @@ import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.s2a;
+import com.baidu.tieba.dba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MemberPayResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class MemberPayResult {
     public b c;
     public g d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class MemberPayResult {
         public String c;
         public List<a> d;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class VipPayPrivilegeData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DYNAMIC_DISAPPEAR_CLICK = "click";
@@ -218,15 +218,15 @@ public class MemberPayResult {
                     return SkinManager.getColor(WAIT_TIP_COLOR_ID);
                 }
                 if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                    return s2a.f(this.dynamicColorDark);
+                    return dba.f(this.dynamicColorDark);
                 }
-                return s2a.f(this.dynamicColor);
+                return dba.f(this.dynamicColor);
             }
             return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -290,7 +290,7 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -324,7 +324,7 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -358,7 +358,7 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -423,7 +423,7 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -476,7 +476,7 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -508,7 +508,7 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -537,7 +537,7 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

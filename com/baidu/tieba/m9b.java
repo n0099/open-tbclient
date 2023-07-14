@@ -1,79 +1,278 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
+import android.graphics.SurfaceTexture;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.q9b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.qq.e.ads.nativ.NativeExpressADView;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class m9b extends FunNativeAd2Bridger<cab, View> {
+public class m9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ h9b b;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public float e;
+    public float f;
+    public q9b g;
+    public q9b.f h;
+    public q9b.b i;
+    public q9b.e j;
+    public w9b k;
+    public String l;
+    public int m;
+    public SurfaceTexture n;
+    public int o;
+    public int p;
+    public x9b q;
+    public boolean r;
+    public boolean s;
+    public int t;
+    public int u;
+    public boolean v;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m9b(h9b h9bVar, ReporterPidLoader reporterPidLoader) {
-        super(reporterPidLoader);
+    public m9b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {h9bVar, reporterPidLoader};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = h9bVar;
+        this.a = RecordConstants.VIDEO_CONSTANT_WIDTH;
+        this.b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+        this.c = RecordConstants.DEFAULT_BIT_RATE_GTE_API18;
+        this.d = 1;
+        this.e = 1.0f;
+        this.f = 0.0f;
+        this.p = -100;
+        this.s = false;
+        this.t = 10000;
+        this.u = 30;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, cab cabVar, BaseNativeAd2<cab, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, cabVar, baseNativeAd2, funAdInteractionListener}) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(cab cabVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cabVar)) == null) {
-            return (View) cabVar.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, cab cabVar, BaseNativeAd2<cab, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, cabVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            cab cabVar2 = cabVar;
-            this.b.onShowStart(cabVar2);
-            if (((NativeExpressADView) cabVar2.a).getBoundData().getAdPatternType() == 2) {
-                h9b h9bVar = this.b;
-                h9bVar.getClass();
-                ((NativeExpressADView) cabVar2.a).setMediaListener(new k9b(h9bVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            q9b q9bVar = this.g;
+            if (q9bVar != null) {
+                q9bVar.c();
+                this.g.l(null);
             }
-            expressInflater.inflate();
+            return this.l;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.f = f;
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.o = i;
+        }
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) || i <= 0 || i2 <= 0) {
+            return;
+        }
+        if (this.o <= 0) {
+            this.o = RecordConstants.VIDEO_CONSTANT_WIDTH;
+        }
+        this.a = i;
+        this.b = i2;
+        if (i2 > i) {
+            int i3 = this.o;
+            i2 = ((i2 * i3) / i) - (((i3 * i2) / i) % 16);
+            i = i3;
+        } else if (i2 < i) {
+            int i4 = this.o;
+            i = ((i * i4) / i2) - (((i4 * i) / i2) % 16);
+            i2 = i4;
+        }
+        this.a = i;
+        this.b = i2;
+    }
+
+    public void e(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, surfaceTexture) == null) {
+            this.n = surfaceTexture;
+        }
+    }
+
+    public void f(q9b.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.i = bVar;
+        }
+    }
+
+    public void g(q9b.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
+            this.j = eVar;
+        }
+    }
+
+    public void h(w9b w9bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, w9bVar) == null) {
+            this.k = w9bVar;
+        }
+    }
+
+    public void i(x9b x9bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, x9bVar) == null) {
+            this.q = x9bVar;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.l = str;
+            try {
+                q9b q9bVar = new q9b();
+                this.g = q9bVar;
+                q9bVar.d(this.e);
+                this.g.B(this.p);
+                if (this.f != 0.0f) {
+                    this.g.A(this.f);
+                }
+                this.g.l(this.h);
+                this.g.i(this.i);
+                this.g.k(this.j);
+                this.g.r(this.q);
+                this.g.E(this.r);
+                this.g.I(this.s);
+                this.g.s(this.v);
+            } catch (Throwable th) {
+                fab.c("VideoRecorder", th.toString());
+            }
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.v = z;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.r = z;
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.m++;
+            try {
+                if (this.g != null && this.g.u(2)) {
+                    File file = new File(this.l);
+                    if (!file.getParentFile().exists()) {
+                        file.getParentFile().mkdirs();
+                    }
+                    if (this.f == 90.0f || this.f == 270.0f) {
+                        int i = this.a;
+                        this.a = this.b;
+                        this.b = i;
+                    }
+                    this.g.j(new q9b.d(file, this.a, this.b, this.c, this.u, null, this.n.getTimestamp(), this.t));
+                }
+                if (this.g == null || this.m % this.d != 0 || this.k == null) {
+                    return;
+                }
+                this.k.a(this.g, this.n);
+            } catch (Throwable th) {
+                fab.c("VideoRecorder", th.toString());
+            }
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.u = i;
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.s = z;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.t = i;
+        }
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            q9b q9bVar = this.g;
+            if (q9bVar != null) {
+                return q9bVar.u(1);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.p = i;
+        }
+    }
+
+    public void t(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048595, this, f) == null) {
+            this.e = f;
+            if (Math.abs(f - 3.0f) < 0.01f) {
+                this.d = 2;
+                return;
+            }
+            int i = (Math.abs(this.e - 2.0f) > 0.01f ? 1 : (Math.abs(this.e - 2.0f) == 0.01f ? 0 : -1));
+            this.d = 1;
         }
     }
 }

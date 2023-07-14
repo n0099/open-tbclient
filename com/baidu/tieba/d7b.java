@@ -1,42 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.MainThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTSplashAd;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class d7b extends q7b<f8b> {
+public class d7b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<AudioPlayData> a;
+    public List<AudioPlayData> b;
+    public l7b c;
+    public int d;
+    public b e;
 
     /* loaded from: classes5.dex */
-    public class a implements TTAdNative.SplashAdListener {
+    public class a extends a9b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d7b a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ AudioPlayData b;
+        public final /* synthetic */ d7b c;
 
-        public a(d7b d7bVar) {
+        public a(d7b d7bVar, String str, AudioPlayData audioPlayData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d7bVar};
+                Object[] objArr = {d7bVar, str, audioPlayData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,188 +42,146 @@ public class d7b extends q7b<f8b> {
                     return;
                 }
             }
-            this.a = d7bVar;
+            this.c = d7bVar;
+            this.a = str;
+            this.b = audioPlayData;
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        @MainThread
-        public void onError(int i, String str) {
+        @Override // com.baidu.tieba.a9b, com.baidu.tieba.z8b
+        public void onExceptionThrown(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJSplashAd onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.c.e == null) {
+                return;
+            }
+            this.c.e.onFailed(str);
+        }
+
+        @Override // com.baidu.tieba.a9b
+        public void onFinishedWriting(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                AudioPlayData audioPlayData = new AudioPlayData(this.a, 0, (int) abb.b(this.a), this.b.volume);
+                if (this.c.b == null) {
+                    this.c.b = new ArrayList();
+                }
+                this.c.b.add(audioPlayData);
+                d7b.c(this.c);
+                this.c.f();
             }
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
-        @MainThread
-        public void onSplashAdLoad(TTSplashAd tTSplashAd) {
+        @Override // com.baidu.tieba.a9b, com.baidu.tieba.z8b
+        public void onProgressChanged(int i, double d, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTSplashAd) == null) {
-                LogPrinter.d();
-                tTSplashAd.getMediaExtraInfo();
-                this.a.onAdLoaded(new f8b(tTSplashAd), new String[0]);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
             }
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
-        @MainThread
-        public void onTimeout() {
+        @Override // com.baidu.tieba.a9b, com.baidu.tieba.z8b
+        public void onTrackEnd(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.e();
-                this.a.onError(0, "Load Timeout");
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements TTSplashAd.AdInteractionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final f8b a;
-        public final String b;
-        public boolean c;
-        public boolean d;
-        public final /* synthetic */ d7b e;
+    public interface b {
+        void onFailed(String str);
 
-        public b(d7b d7bVar, f8b f8bVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d7bVar, f8bVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = d7bVar;
-            this.a = f8bVar;
-            this.b = str;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdClicked(View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-                LogPrinter.d();
-                this.e.onAdClicked((d7b) this.a, this.d, new String[0]);
-                this.d = true;
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdShow(View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-                LogPrinter.d();
-                this.e.onAdShow((d7b) this.a, this.c, new String[0]);
-                this.c = true;
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdSkip() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.e.onAdClose(this.a);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdTimeOver() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.e.onAdClose(this.a);
-            }
-        }
+        void onSuccess(List<AudioPlayData> list);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d7b(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, false, true);
+    public d7b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static /* synthetic */ int c(d7b d7bVar) {
+        int i = d7bVar.d;
+        d7bVar.d = i + 1;
+        return i;
+    }
+
+    public final void f() {
+        AudioPlayData audioPlayData;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (kab.c(this.a, this.d) == null) {
+                b bVar = this.e;
+                if (bVar != null) {
+                    bVar.onSuccess(this.b);
+                    return;
+                }
                 return;
             }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            f8b f8bVar = (f8b) obj;
-        }
-    }
-
-    @Override // com.baidu.tieba.q7b
-    public void f(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            int expressHeight = (int) ((funAdSlot.getExpressHeight() * context.getResources().getDisplayMetrics().density) + 0.5f);
-            this.e.loadSplashAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setImageAcceptedSize((int) ((funAdSlot.getExpressWidth() * context.getResources().getDisplayMetrics().density) + 0.5f), expressHeight).setExpressViewAcceptedSize(funAdSlot.getExpressWidth(), funAdSlot.getExpressHeight()).build(), new a(this), 5000);
-        }
-    }
-
-    public final boolean m(ViewGroup viewGroup, f8b f8bVar, TTSplashAd.AdInteractionListener adInteractionListener) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, f8bVar, adInteractionListener)) == null) {
-            View splashView = ((TTSplashAd) f8bVar.a).getSplashView();
-            Log.d("feifei", "price:" + f8bVar.a());
-            if (splashView.getParent() != null) {
-                ((ViewGroup) splashView.getParent()).removeView(splashView);
+            AudioPlayData audioPlayData2 = this.a.get(this.d);
+            if (!FileUtils.isExists(audioPlayData2.audioPath)) {
+                String str = audioPlayData2.audioPath;
+                int i = audioPlayData2.start;
+                audioPlayData = new AudioPlayData(str, i, audioPlayData2.end - i, audioPlayData2.volume);
+                if (this.b == null) {
+                    arrayList = new ArrayList();
+                    this.b = arrayList;
+                }
+                this.b.add(audioPlayData);
+                this.d++;
+                f();
+            } else if (audioPlayData2.mSpeed == 1.0f) {
+                audioPlayData = new AudioPlayData(audioPlayData2.audioPath, audioPlayData2.start, audioPlayData2.end, audioPlayData2.volume);
+                if (this.b == null) {
+                    arrayList = new ArrayList();
+                    this.b = arrayList;
+                }
+                this.b.add(audioPlayData);
+                this.d++;
+                f();
+            } else {
+                String str2 = FileUtils.removeExtention(audioPlayData2.audioPath) + "_speed.aac";
+                try {
+                    l7b l7bVar = new l7b(audioPlayData2.audioPath, str2, null);
+                    this.c = l7bVar;
+                    l7bVar.S(new a(this, str2, audioPlayData2));
+                    this.c.D(null);
+                    this.c.G(audioPlayData2.mSpeed);
+                    this.c.B(audioPlayData2.start);
+                    this.c.R(audioPlayData2.end);
+                    this.c.I();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            viewGroup.removeAllViews();
-            viewGroup.addView(splashView);
-            onShowStart(f8bVar);
-            ((TTSplashAd) f8bVar.a).setSplashInteractionListener(adInteractionListener);
-            return true;
         }
-        return invokeLLL.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            f8b f8bVar = (f8b) obj;
-            m(viewGroup, f8bVar, new b(this, f8bVar, str));
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.e = bVar;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public void h(List<AudioPlayData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
-            f8b f8bVar = (f8b) obj;
-            n7b n7bVar = new n7b((TTSplashAd) f8bVar.a);
-            m(viewGroup, f8bVar, new f7b(this, f8bVar, str, n7bVar));
-            return n7bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
-        return (FunSplashAd) invokeLLLL.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            f();
+        }
     }
 }

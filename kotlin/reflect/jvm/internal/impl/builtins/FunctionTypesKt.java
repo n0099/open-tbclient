@@ -48,7 +48,7 @@ public final class FunctionTypesKt {
         if (kotlinType != null) {
             FqName fqName = KotlinBuiltIns.FQ_NAMES.extensionFunctionType;
             Intrinsics.checkExpressionValueIsNotNull(fqName, "KotlinBuiltIns.FQ_NAMES.extensionFunctionType");
-            if (annotations.mo2094findAnnotation(fqName) == null) {
+            if (annotations.mo2096findAnnotation(fqName) == null) {
                 Annotations.Companion companion = Annotations.Companion;
                 FqName fqName2 = KotlinBuiltIns.FQ_NAMES.extensionFunctionType;
                 Intrinsics.checkExpressionValueIsNotNull(fqName2, "KotlinBuiltIns.FQ_NAMES.extensionFunctionType");
@@ -73,9 +73,9 @@ public final class FunctionTypesKt {
         Annotations annotations = kotlinType.getAnnotations();
         FqName fqName = KotlinBuiltIns.FQ_NAMES.parameterName;
         Intrinsics.checkExpressionValueIsNotNull(fqName, "KotlinBuiltIns.FQ_NAMES.parameterName");
-        AnnotationDescriptor mo2094findAnnotation = annotations.mo2094findAnnotation(fqName);
-        if (mo2094findAnnotation != null) {
-            Object singleOrNull = CollectionsKt___CollectionsKt.singleOrNull(mo2094findAnnotation.getAllValueArguments().values());
+        AnnotationDescriptor mo2096findAnnotation = annotations.mo2096findAnnotation(fqName);
+        if (mo2096findAnnotation != null) {
+            Object singleOrNull = CollectionsKt___CollectionsKt.singleOrNull(mo2096findAnnotation.getAllValueArguments().values());
             if (!(singleOrNull instanceof StringValue)) {
                 singleOrNull = null;
             }
@@ -168,9 +168,9 @@ public final class FunctionTypesKt {
 
     public static final boolean isBuiltinFunctionalType(KotlinType kotlinType) {
         FunctionClassDescriptor.Kind kind;
-        ClassifierDescriptor mo2099getDeclarationDescriptor = kotlinType.getConstructor().mo2099getDeclarationDescriptor();
-        if (mo2099getDeclarationDescriptor != null) {
-            kind = getFunctionalClassKind(mo2099getDeclarationDescriptor);
+        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
+        if (mo2101getDeclarationDescriptor != null) {
+            kind = getFunctionalClassKind(mo2101getDeclarationDescriptor);
         } else {
             kind = null;
         }
@@ -182,9 +182,9 @@ public final class FunctionTypesKt {
 
     public static final boolean isFunctionType(KotlinType kotlinType) {
         FunctionClassDescriptor.Kind kind;
-        ClassifierDescriptor mo2099getDeclarationDescriptor = kotlinType.getConstructor().mo2099getDeclarationDescriptor();
-        if (mo2099getDeclarationDescriptor != null) {
-            kind = getFunctionalClassKind(mo2099getDeclarationDescriptor);
+        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
+        if (mo2101getDeclarationDescriptor != null) {
+            kind = getFunctionalClassKind(mo2101getDeclarationDescriptor);
         } else {
             kind = null;
         }
@@ -196,9 +196,9 @@ public final class FunctionTypesKt {
 
     public static final boolean isSuspendFunctionType(KotlinType kotlinType) {
         FunctionClassDescriptor.Kind kind;
-        ClassifierDescriptor mo2099getDeclarationDescriptor = kotlinType.getConstructor().mo2099getDeclarationDescriptor();
-        if (mo2099getDeclarationDescriptor != null) {
-            kind = getFunctionalClassKind(mo2099getDeclarationDescriptor);
+        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
+        if (mo2101getDeclarationDescriptor != null) {
+            kind = getFunctionalClassKind(mo2101getDeclarationDescriptor);
         } else {
             kind = null;
         }
@@ -212,7 +212,7 @@ public final class FunctionTypesKt {
         Annotations annotations = kotlinType.getAnnotations();
         FqName fqName = KotlinBuiltIns.FQ_NAMES.extensionFunctionType;
         Intrinsics.checkExpressionValueIsNotNull(fqName, "KotlinBuiltIns.FQ_NAMES.extensionFunctionType");
-        if (annotations.mo2094findAnnotation(fqName) != null) {
+        if (annotations.mo2096findAnnotation(fqName) != null) {
             return true;
         }
         return false;

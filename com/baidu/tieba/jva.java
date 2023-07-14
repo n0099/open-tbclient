@@ -1,142 +1,105 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class jva {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile eva a;
-    public static bva b;
-    public static dva c;
-    public static cva d;
-    public static dua e;
-    public static hua f;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public du6 b;
 
-    public jva() {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jva a;
+
+        public a(jva jvaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jvaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jvaVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a();
+            }
+        }
+    }
+
+    public jva(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = tbPageContext;
+    }
+
+    public void a() {
+        du6 du6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (du6Var = this.b) != null) {
+            du6Var.h();
         }
     }
 
-    public static eva d() {
-        InterceptResult invokeV;
+    public void b(View view2) {
+        TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (jva.class) {
-                if (a == null) {
-                    a = iva.a();
-                }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && (tbPageContext = this.a) != null && view2 != null) {
+            if (this.b == null) {
+                du6 du6Var = new du6(tbPageContext, view2);
+                this.b = du6Var;
+                du6Var.L(R.drawable.pic_sign_tip_down);
+                this.b.v(1);
+                this.b.o(32);
+                this.b.l(2);
+                this.b.y(false);
+                this.b.m(new a(this));
+                int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070359);
+                int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
+                int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                int dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds50);
+                int dimensionPixelSize5 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds6);
+                this.b.E(dimensionPixelSize3, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2);
+                this.b.Q(-dimensionPixelSize4);
+                this.b.R(-dimensionPixelSize5);
+                this.b.n(3000);
             }
-            return a;
+            String string = this.a.getResources().getString(R.string.write_activity_tip_content);
+            this.b.D(R.drawable.icon_pure_guide_haowu16);
+            this.b.u(true);
+            this.b.T(string, "commodity_tip_show_controller");
         }
-        return (eva) invokeV.objValue;
-    }
-
-    public static bva a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            bva bvaVar = b;
-            if (bvaVar != null) {
-                return bvaVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                b = a.a();
-            }
-            return b;
-        }
-        return (bva) invokeV.objValue;
-    }
-
-    public static cva b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            cva cvaVar = d;
-            if (cvaVar != null) {
-                return cvaVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                d = a.e();
-            }
-            return d;
-        }
-        return (cva) invokeV.objValue;
-    }
-
-    public static dva c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            dva dvaVar = c;
-            if (dvaVar != null) {
-                return dvaVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                c = a.b();
-            }
-            return c;
-        }
-        return (dva) invokeV.objValue;
-    }
-
-    public static dua e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            dua duaVar = e;
-            if (duaVar != null) {
-                return duaVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                e = a.c();
-            }
-            return e;
-        }
-        return (dua) invokeV.objValue;
-    }
-
-    public static hua f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            hua huaVar = f;
-            if (huaVar != null) {
-                return huaVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                f = a.d();
-            }
-            return f;
-        }
-        return (hua) invokeV.objValue;
     }
 }

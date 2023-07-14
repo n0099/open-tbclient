@@ -39,19 +39,19 @@ public class LikeForumCreateViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091f39);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091f6b);
         this.a = findViewById;
-        this.b = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09186b);
+        this.b = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091881);
         this.c = (ImageView) this.a.findViewById(R.id.forum_avatar);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bc7);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bd3);
     }
 
-    public void a() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f080994, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f080998, WebPManager.ResourceStateType.NORMAL);
         }
     }
 }

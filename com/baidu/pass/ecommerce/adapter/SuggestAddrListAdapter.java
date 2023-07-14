@@ -17,7 +17,7 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
 
     @Override // com.baidu.pass.ecommerce.common.adapter.CommonAdapter
     public int getItemLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0572;
+        return R.layout.obfuscated_res_0x7f0d057e;
     }
 
     /* loaded from: classes3.dex */
@@ -28,15 +28,15 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
 
         public AddrListItemViewHolder(View view2) {
             super(view2);
-            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f09203a);
-            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f092039);
-            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f092036);
+            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f09206c);
+            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f09206b);
+            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f092068);
             Resources resources = view2.getContext().getResources();
             if (SuggestAddrListAdapter.this.isDarkMode) {
-                view2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609b4));
-                this.tvName.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a0f));
-                this.tvAddress.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a0d));
-                this.bottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609aa));
+                view2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609bb));
+                this.tvName.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a16));
+                this.tvAddress.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a14));
+                this.bottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609b1));
             }
         }
 
@@ -47,7 +47,7 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
             int indexOf = optString.indexOf(SuggestAddrListAdapter.this.queryContent);
             if (indexOf >= 0) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(optString);
-                spannableStringBuilder.setSpan(new ForegroundColorSpan(this.tvName.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060a15)), indexOf, SuggestAddrListAdapter.this.queryContent.length() + indexOf, 33);
+                spannableStringBuilder.setSpan(new ForegroundColorSpan(this.tvName.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060a1c)), indexOf, SuggestAddrListAdapter.this.queryContent.length() + indexOf, 33);
                 this.tvName.setText(spannableStringBuilder);
             } else {
                 this.tvName.setText(optString);

@@ -1,93 +1,42 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
-public class mmb {
+import com.google.ar.core.InstallActivity;
+/* loaded from: classes7.dex */
+public final class mmb implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean a;
-    public static final LinkedList<snb> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ InstallActivity a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947978887, "Lcom/baidu/tieba/mmb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947978887, "Lcom/baidu/tieba/mmb;");
-                return;
-            }
-        }
-        a = new AtomicBoolean(false);
-        b = new LinkedList<>();
-    }
-
-    public mmb() {
+    public mmb(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = installActivity;
     }
 
-    public static void a(snb snbVar) {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, snbVar) == null) {
-            synchronized (mmb.class) {
-                if (b.size() == 0) {
-                    c(snbVar);
-                }
-                if (!b.contains(snbVar)) {
-                    b.add(snbVar);
-                }
-            }
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
         }
-    }
-
-    public static void c(snb snbVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, snbVar) == null) && snbVar != null) {
-            snbVar.S0(a.get());
-        }
-    }
-
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            TLog.h("PlayerGlobalOptions", " setAudioFocusEnable:" + z);
-            a.set(z);
-            dnb.h(z);
-            synchronized (mmb.class) {
-                if (b.size() > 0) {
-                    Iterator<snb> it = b.iterator();
-                    while (it.hasNext()) {
-                        snb next = it.next();
-                        if (next != null) {
-                            next.S0(z);
-                        }
-                    }
-                }
-            }
-        }
+        this.a.h();
+        this.a.n();
     }
 }

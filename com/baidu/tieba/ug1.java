@@ -1,42 +1,27 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.payment.PaymentManager;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class ug1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tg1 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Bundle bundle) {
+    public static synchronized tg1 a() {
+        InterceptResult invokeV;
+        tg1 tg1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
-            if (bundle == null) {
-                PaymentManager.i(3, "闪付返回信息为空");
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ug1.class) {
+                if (a == null) {
+                    a = new tg1();
+                }
+                tg1Var = a;
             }
-            String string = bundle.getString("statusCode");
-            try {
-                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
-            } catch (NumberFormatException e) {
-                PaymentManager.i(3, e.getMessage());
-            }
+            return tg1Var;
         }
-    }
-
-    public static void b(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
-            sg1.a().g(bundle);
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
-            sg1.a().h("");
-        }
+        return (tg1) invokeV.objValue;
     }
 }

@@ -18,7 +18,7 @@ import com.baidu.ufosdk.v1;
 import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FeedbackManager implements IFeedbackManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile FeedbackManager d;
@@ -34,7 +34,7 @@ public class FeedbackManager implements IFeedbackManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "4.1.9.1" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

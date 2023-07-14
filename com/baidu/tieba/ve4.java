@@ -1,99 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.n02;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.games.view.button.userinfo.UserInfoButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-@Service
 /* loaded from: classes8.dex */
-public class ve4 extends n02 implements ot1 {
+public class ve4 extends se4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<n02.a> a;
 
-    public ve4() {
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve4 a;
+
+        public a(ve4 ve4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || pe4.b() == null) {
+                return;
+            }
+            this.a.a = new UserInfoButton(pe4.b(), this.a);
+            this.a.a.setType(this.a.type);
+            this.a.a.setButtonText(this.a.text);
+            this.a.a.setImageUrl(this.a.image);
+            this.a.a.setApiButtonStyle(this.a.style);
+            this.a.y();
+            this.a.J();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ve4(JsObject jsObject, fj2 fj2Var) {
+        super(jsObject, fj2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsObject, fj2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((JsObject) objArr2[0], (fj2) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        pp3.e0(new a(this));
     }
 
-    @Nullable
-    public static ve4 c() {
-        InterceptResult invokeV;
-        z74 z74Var;
+    public final void J() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            lb2 U = px2.T().U();
-            if (U == null || (z74Var = (z74) U.n(z74.class)) == null) {
-                return null;
-            }
-            return z74Var.w3();
-        }
-        return (ve4) invokeV.objValue;
-    }
-
-    public synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Iterator<n02.a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().a();
-                }
-                this.a.clear();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ot1
-    public n02 getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return c();
-        }
-        return (n02) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.n02
-    public synchronized void a(n02.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            synchronized (this) {
-                if (!this.a.contains(aVar)) {
-                    this.a.add(aVar);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.n02
-    public synchronized void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            synchronized (this) {
-                Iterator<n02.a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().b(i);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !sc4.d()) {
+            pc4.l("Button shows early.");
         }
     }
 }

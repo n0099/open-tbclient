@@ -8,11 +8,11 @@ import android.media.MediaFormat;
 import android.os.Build;
 import android.os.Message;
 import android.view.Surface;
-import com.baidu.tieba.aob;
-import com.baidu.tieba.umb;
-import com.baidu.tieba.vnb;
-import com.baidu.tieba.wnb;
-import com.baidu.tieba.zob;
+import com.baidu.tieba.rvb;
+import com.baidu.tieba.swb;
+import com.baidu.tieba.twb;
+import com.baidu.tieba.wxb;
+import com.baidu.tieba.xwb;
 import com.yy.transvod.player.common.AVframe;
 import com.yy.transvod.player.log.TLog;
 import com.yy.transvod.player.mediacodec.MediaInfo;
@@ -22,7 +22,7 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 @TargetApi(16)
 /* loaded from: classes10.dex */
-public abstract class MediaCodecFilter extends aob {
+public abstract class MediaCodecFilter extends xwb {
     public final String A = MediaCodecFilter.class.getSimpleName();
     public MediaCodec B = null;
     public MediaCodec.BufferInfo C = null;
@@ -30,7 +30,7 @@ public abstract class MediaCodecFilter extends aob {
     public ByteBuffer[] E = null;
     public Surface F = null;
     public WeakReference<SurfaceTexture> G = null;
-    public WeakReference<zob> H = new WeakReference<>(null);
+    public WeakReference<wxb> H = new WeakReference<>(null);
     public c I = new c();
     public b J = null;
     public int K = 0;
@@ -125,7 +125,7 @@ public abstract class MediaCodecFilter extends aob {
         }
     }
 
-    @Override // com.baidu.tieba.aob
+    @Override // com.baidu.tieba.xwb
     public void B() {
         if (this.B != null) {
             while (!this.r.b() && N(100000L) == 1) {
@@ -140,7 +140,7 @@ public abstract class MediaCodecFilter extends aob {
         }
     }
 
-    @Override // com.baidu.tieba.aob
+    @Override // com.baidu.tieba.xwb
     public void C() {
         MediaCodec mediaCodec = this.B;
         if (mediaCodec != null) {
@@ -149,7 +149,7 @@ public abstract class MediaCodecFilter extends aob {
         }
     }
 
-    @Override // com.baidu.tieba.aob
+    @Override // com.baidu.tieba.xwb
     public int D(MediaSample mediaSample) {
         MediaFormat mediaFormat;
         SurfaceTexture surfaceTexture;
@@ -180,12 +180,12 @@ public abstract class MediaCodecFilter extends aob {
                 }
                 ByteBuffer wrap = ByteBuffer.wrap(bArr);
                 if (aVframe.f == 2000) {
-                    mediaFormat = wnb.b((int) aVframe.j, (int) aVframe.k, wrap, false);
+                    mediaFormat = twb.b((int) aVframe.j, (int) aVframe.k, wrap, false);
                 } else {
                     mediaFormat = null;
                 }
                 if (aVframe.f == 2002) {
-                    mediaFormat = wnb.c((int) aVframe.j, (int) aVframe.k, wrap, false);
+                    mediaFormat = twb.c((int) aVframe.j, (int) aVframe.k, wrap, false);
                 }
                 b bVar = new b(mediaFormat);
                 if (bVar.b()) {
@@ -198,10 +198,10 @@ public abstract class MediaCodecFilter extends aob {
                     if (this.B != null) {
                         O();
                     }
-                    zob zobVar = this.H.get();
-                    if (zobVar != null && zobVar.y() != null) {
-                        if (zobVar != null) {
-                            surfaceTexture = zobVar.y();
+                    wxb wxbVar = this.H.get();
+                    if (wxbVar != null && wxbVar.y() != null) {
+                        if (wxbVar != null) {
+                            surfaceTexture = wxbVar.y();
                         } else {
                             surfaceTexture = null;
                         }
@@ -232,9 +232,9 @@ public abstract class MediaCodecFilter extends aob {
                 b bVar3 = this.J;
                 if (bVar3 == null || bVar3.b()) {
                     TLog.l(this, "VideoHwDecodeFilter pre create by no csd0.....");
-                    MediaSample b2 = umb.f().b(null, wrap);
+                    MediaSample b2 = rvb.f().b(null, wrap);
                     int L = L(b2);
-                    umb.f().e(b2);
+                    rvb.f().e(b2);
                     if (L == 1) {
                         this.J = bVar;
                         TLog.l(this, "VideoHwDecodeFilter pre create by no csd0, reconfig sucess, time cost: " + (System.currentTimeMillis() - currentTimeMillis));
@@ -292,7 +292,7 @@ public abstract class MediaCodecFilter extends aob {
                 byteBuffer.clear();
                 if (mediaInfo.a == 10) {
                     try {
-                        remaining = wnb.k(mediaInfo.k, byteBuffer, mediaSample.d);
+                        remaining = twb.k(mediaInfo.k, byteBuffer, mediaSample.d);
                     } catch (IllegalArgumentException e) {
                         e.printStackTrace();
                         m(51);
@@ -330,7 +330,7 @@ public abstract class MediaCodecFilter extends aob {
                 TLog.c(this, sb.toString());
                 throw new RuntimeException("unexpected buffer.");
             }
-            TLog.c(this, "mCodec.dequeueInputBuffer() failed. type:" + vnb.a[this.q.a] + " result " + dequeueInputBuffer + " pts:" + mediaSample.l);
+            TLog.c(this, "mCodec.dequeueInputBuffer() failed. type:" + swb.a[this.q.a] + " result " + dequeueInputBuffer + " pts:" + mediaSample.l);
             this.I.b();
             if (!this.I.a()) {
                 return 0;
@@ -477,7 +477,7 @@ public abstract class MediaCodecFilter extends aob {
         }
     }
 
-    @Override // com.baidu.tieba.aob, com.baidu.tieba.job, com.baidu.tieba.rmb.a
+    @Override // com.baidu.tieba.xwb, com.baidu.tieba.gxb, com.baidu.tieba.ovb.a
     public void handleMessage(Message message) {
         if (message.what != 1002) {
             super.handleMessage(message);

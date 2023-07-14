@@ -18,7 +18,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.widget.KSRatingBar;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class n extends d implements View.OnClickListener {
     public KsLogoView bq;
     public TextView eQ;
@@ -36,7 +36,7 @@ public final class n extends d implements View.OnClickListener {
     public TextView vQ;
     public ViewStub vk;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String kY;
         public String np;
@@ -101,7 +101,7 @@ public final class n extends d implements View.OnClickListener {
         if (this.vM.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = this.vM.getLayoutParams();
             if (cB) {
-                int dimensionPixelSize = this.vM.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704dc);
+                int dimensionPixelSize = this.vM.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e4);
                 layoutParams.width = -1;
                 layoutParams.height = dimensionPixelSize;
             } else {
@@ -113,15 +113,15 @@ public final class n extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f0912f6);
-        this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912fa);
-        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912f9);
-        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912fd);
-        this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f0912fc);
-        this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912f7);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912f8);
-        this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f0912f5);
-        this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912f4);
+        this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f09130a);
+        this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f09130e);
+        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09130d);
+        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091311);
+        this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f091310);
+        this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09130b);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09130c);
+        this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091309);
+        this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091308);
         this.vM.setOnClickListener(this);
         this.vQ.setOnClickListener(this);
         this.vP.setOnClickListener(this);
@@ -171,12 +171,12 @@ public final class n extends d implements View.OnClickListener {
         ViewGroup.LayoutParams layoutParams = this.nC.getLayoutParams();
         int i = 18;
         if (layoutParams != null) {
-            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704dd);
+            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e5);
             if (!cB) {
-                dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e0);
+                dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e7);
                 i = 14;
             } else if (am) {
-                dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704df);
+                dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e6);
                 i = 24;
             }
             layoutParams.width = dimensionPixelSize;
@@ -212,7 +212,7 @@ public final class n extends d implements View.OnClickListener {
         ViewGroup.MarginLayoutParams marginLayoutParams = layoutParams instanceof ViewGroup.MarginLayoutParams ? (ViewGroup.MarginLayoutParams) layoutParams : null;
         if (z) {
             if (marginLayoutParams != null) {
-                marginLayoutParams.bottomMargin = fR().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704da);
+                marginLayoutParams.bottomMargin = fR().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e1);
             }
             this.vM.setBackgroundColor(-1);
             this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06079b));

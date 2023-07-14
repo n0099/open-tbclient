@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
@@ -195,7 +194,7 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                     jSONObject.put("contacter_type", this.mContactorType);
                 }
                 if (this.mContactorPauid > 0) {
-                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.mContactorPauid);
+                    jSONObject.put("contacter_pa_uid", this.mContactorPauid);
                 }
                 if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
@@ -225,7 +224,7 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:139:0x0329  */
+    /* JADX WARN: Removed duplicated region for block: B:139:0x0326  */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -262,26 +261,25 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                     i2 = jSONObject.optInt("has_more", 0);
                     try {
                         i3 = jSONObject.optInt("total_unread_num", 0);
-                    } catch (JSONException e) {
-                        e = e;
-                        str = TAG;
-                        hashMap = hashMap3;
-                        hashMap2 = hashMap5;
-                        i3 = 0;
-                        i4 = 0;
-                        i5 = 0;
-                        LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);
-                        i6 = 1010;
-                        iMMediaGetChatSessionRequest = this;
-                        ChatSessionManagerImpl chatSessionManagerImpl = ChatSessionManagerImpl.getInstance(iMMediaGetChatSessionRequest.mContext);
-                        boolean z = true;
-                        if (i2 != 1) {
+                        try {
+                            iMMediaGetChatSessionRequest2.writeServerUnreadnum(i3);
+                            i4 = jSONObject.optInt("consult_unread_num", 0);
+                        } catch (JSONException e) {
+                            e = e;
+                            str = TAG;
+                            hashMap = hashMap3;
+                            hashMap2 = hashMap5;
+                            i4 = 0;
+                            i5 = 0;
+                            LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);
+                            i6 = 1010;
+                            iMMediaGetChatSessionRequest = this;
+                            ChatSessionManagerImpl chatSessionManagerImpl = ChatSessionManagerImpl.getInstance(iMMediaGetChatSessionRequest.mContext);
+                            boolean z = true;
+                            if (i2 != 1) {
+                            }
+                            chatSessionManagerImpl.onMediaGetChatSessionRequest(i6, z, iMMediaGetChatSessionRequest.readTotalUnreadnum(i3), i4, i5, hashMap, hashMap4, hashMap2, iMMediaGetChatSessionRequest.mKey);
                         }
-                        chatSessionManagerImpl.onMediaGetChatSessionRequest(i6, z, iMMediaGetChatSessionRequest.readTotalUnreadnum(i3), i4, i5, hashMap, hashMap4, hashMap2, iMMediaGetChatSessionRequest.mKey);
-                    }
-                    try {
-                        iMMediaGetChatSessionRequest2.writeServerUnreadnum(i3);
-                        i4 = jSONObject.optInt("consult_unread_num", 0);
                         try {
                             i5 = jSONObject.optInt("top_has_more");
                             try {
@@ -313,7 +311,7 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                                             chatSessionManagerImpl2.onMediaGetChatSessionRequest(i6, z2, iMMediaGetChatSessionRequest.readTotalUnreadnum(i3), i4, i5, hashMap, hashMap4, hashMap2, iMMediaGetChatSessionRequest.mKey);
                                         }
                                         long j2 = j;
-                                        long optLong = jSONObject2.optLong(RequestContants.EXTRA_CONTACTER_PA_UID);
+                                        long optLong = jSONObject2.optLong("contacter_pa_uid");
                                         int optInt3 = jSONObject2.optInt("content_type");
                                         String optString = jSONObject2.optString("content");
                                         int optInt4 = jSONObject2.optInt("unread_num");
@@ -395,13 +393,10 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                                                                                     chatSessionManagerImpl22.onMediaGetChatSessionRequest(i6, z22, iMMediaGetChatSessionRequest.readTotalUnreadnum(i3), i4, i5, hashMap, hashMap4, hashMap2, iMMediaGetChatSessionRequest.mKey);
                                                                                 }
                                                                             }
-                                                                            String recommendDescription = parseChatMsg.getRecommendDescription();
+                                                                            str2 = parseChatMsg.getRecommendDescription();
                                                                             str3 = parseChatMsg.getExtLog();
-                                                                            str2 = recommendDescription;
                                                                         }
-                                                                        if (TextUtils.isEmpty(str2) || StringUtil.NULL_STRING.equalsIgnoreCase(str2)) {
-                                                                            str2 = IMConstants.IM_GROUP_MSG_DEFAULT_RECOMMEND_DESC;
-                                                                        }
+                                                                        str2 = (TextUtils.isEmpty(str2) || StringUtil.NULL_STRING.equalsIgnoreCase(str2)) ? "" : "";
                                                                         ChatSession chatSession = new ChatSession(i8, optLong3, j2, "");
                                                                         chatSession.setNewMsgSum(optInt4);
                                                                         chatSession.setLastMsgTime(optLong2);
@@ -633,6 +628,7 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                         str = TAG;
                         hashMap = hashMap3;
                         hashMap2 = hashMap5;
+                        i3 = 0;
                         i4 = 0;
                         i5 = 0;
                         LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);

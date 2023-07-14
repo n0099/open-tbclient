@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+@Service
 /* loaded from: classes8.dex */
-public class u88 {
+public final class u88 implements tp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<MetaData> a;
 
     public u88() {
         Interceptable interceptable = $ic;
@@ -25,26 +25,17 @@ public class u88 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
     }
 
-    @NonNull
-    public ArrayList<MetaData> b() {
+    @Override // com.baidu.tieba.tp5
+    public List<LaunchTask> asyncList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return CollectionsKt__CollectionsKt.mutableListOf(new t88());
         }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void a(MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, metaData) == null) {
-            this.a.add(metaData);
-        }
+        return (List) invokeV.objValue;
     }
 }

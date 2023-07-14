@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Slot implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CATEGORY = "id";
@@ -40,7 +40,7 @@ public class Slot implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Parcelable.Creator<Slot> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

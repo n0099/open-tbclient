@@ -1,148 +1,178 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
+import com.baidu.tieba.pb4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class id4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile id4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public mj2 a;
-    public gd4 b;
+    public pb4 a;
 
-    public id4(mj2 mj2Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947849648, "Lcom/baidu/tieba/id4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947849648, "Lcom/baidu/tieba/id4;");
+                return;
+            }
+        }
+        b = fs1.a;
+    }
+
+    public id4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mj2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = mj2Var;
-        this.b = new gd4();
     }
 
-    @NonNull
-    public md4 c(String str) {
+    public static id4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (id4.class) {
+                    if (c == null) {
+                        c = new id4();
+                    }
+                }
+            }
+            return c;
+        }
+        return (id4) invokeV.objValue;
+    }
+
+    public String a(String str) {
         InterceptResult invokeL;
+        pb4 pb4Var;
+        pb4.c cVar;
+        HashMap<String, String> hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String c2 = c(str, 1);
+            if (TextUtils.isEmpty(c2) || (pb4Var = this.a) == null || (cVar = pb4Var.d) == null || (hashMap = cVar.a) == null) {
+                return null;
+            }
+            return hashMap.get(c2);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0023  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(String str, int i) {
+        InterceptResult invokeLI;
+        pb4 pb4Var;
+        pb4.b bVar;
+        List<pb4.a> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str) && (pb4Var = this.a) != null && (bVar = pb4Var.c) != null && (list = bVar.a) != null) {
+                for (pb4.a aVar : list) {
+                    if (TextUtils.equals(aVar.a, str) || TextUtils.equals(aVar.b, str)) {
+                        if (i != 0) {
+                            if (i != 1) {
+                                if (i != 2) {
+                                    if (i != 3) {
+                                        return aVar.b;
+                                    }
+                                    return aVar.d;
+                                }
+                                return aVar.c;
+                            }
+                            return aVar.b;
+                        }
+                        return aVar.a;
+                    }
+                    while (r0.hasNext()) {
+                    }
+                }
+            }
+            return null;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public void f(String str, boolean z) {
+        pb4 pb4Var;
+        pb4.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (pb4Var = this.a) != null && (bVar = pb4Var.c) != null && bVar.b != null) {
+            if (b) {
+                Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
+            }
+            this.a.c.b.put(str, Boolean.valueOf(z));
+        }
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        pb4.b bVar;
+        HashMap<String, Boolean> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (str == null) {
-                return md4.b("parameter error: the key cannot be null.");
+            String c2 = c(str, 1);
+            if (TextUtils.isEmpty(c2)) {
+                return false;
             }
-            Object obj = null;
-            String p = this.b.p(str, null);
-            if (p != null) {
-                obj = this.a.A(Base64.decode(p, 2), true);
-            }
-            if (obj == null) {
-                obj = md4.h();
-            }
-            return md4.i(obj);
-        }
-        return (md4) invokeL.objValue;
-    }
-
-    @NonNull
-    public md4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.b.j();
-            yn3.h.update();
-            return md4.i(null);
-        }
-        return (md4) invokeV.objValue;
-    }
-
-    @NonNull
-    public ld4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String[] n = this.b.n();
-            ld4 ld4Var = new ld4();
-            ld4Var.keys = n;
-            ld4Var.currentSize = this.b.m() / 1024;
-            ld4Var.limitSize = this.b.s() / 1024;
-            ld4Var.errMsg = jd4.b("getStorageInfoSync");
-            return ld4Var;
-        }
-        return (ld4) invokeV.objValue;
-    }
-
-    public final void d(JsSerializeValue jsSerializeValue) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, jsSerializeValue) == null) && jsSerializeValue != null) {
-            jsSerializeValue.release();
-        }
-    }
-
-    @NonNull
-    public md4 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str == null) {
-                return md4.b("parameter error: the key cannot be null.");
-            }
-            this.b.u(str);
-            yn3.h.update();
-            return md4.i(null);
-        }
-        return (md4) invokeL.objValue;
-    }
-
-    @NonNull
-    public md4 f(String str, JsSerializeValue jsSerializeValue) {
-        InterceptResult invokeLL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, jsSerializeValue)) == null) {
-            if (str == null) {
-                d(jsSerializeValue);
-                return md4.b("parameter error: the key cannot be null.");
-            } else if (jsSerializeValue == null) {
-                return md4.i(null);
-            } else {
-                byte[] K = this.a.K(jsSerializeValue, true);
-                d(jsSerializeValue);
-                if (K == null) {
-                    return md4.b("parameter error: the data parse failed.");
+            pb4 pb4Var = this.a;
+            if (pb4Var != null && (bVar = pb4Var.c) != null && (hashMap = bVar.b) != null && hashMap.containsKey(c2)) {
+                if (b) {
+                    Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
                 }
-                String encodeToString = Base64.encodeToString(K, 2);
-                String p = this.b.p(str, null);
-                int length2 = str.getBytes().length;
-                int length3 = encodeToString.length() + length2;
-                if (p == null) {
-                    length = 0;
-                } else {
-                    length = p.length() + length2;
-                }
-                if (this.b.s() - this.b.m() < length3 - length) {
-                    return md4.b("storage error: the storage space insufficient.");
-                }
-                boolean t = this.b.t(str, encodeToString);
-                yn3.h.update();
-                if (t) {
-                    return md4.i(null);
-                }
-                return md4.b("storage error: the storage is invalid.");
+                return this.a.c.b.get(c2).booleanValue();
             }
+            if (b) {
+                Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
+            }
+            String g0 = vb3.g0();
+            if (vb3.M() == null) {
+                return false;
+            }
+            String k0 = vb3.M().k0();
+            if (TextUtils.isEmpty(g0) || TextUtils.isEmpty(k0)) {
+                return false;
+            }
+            boolean n = sj4.i().n(g0, k0, c2);
+            if (n) {
+                f(c2, true);
+            }
+            return n;
         }
-        return (md4) invokeLL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void e(pb4 pb4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pb4Var) == null) {
+            this.a = pb4Var;
+        }
     }
 }

@@ -1,87 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.lcs.LCSStatisticsResponseMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import java.util.List;
 /* loaded from: classes8.dex */
-public interface vn5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaLiveSdk", "IMSdkService");
-    public static final Comparator<ChatMsg> b = new a();
+public class vn5 {
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(@NonNull Context context, long j, long j2, int i, boolean z, boolean z2, @Nullable io5 io5Var, @NonNull ho5 ho5Var);
-
-    void b(long j);
-
-    void c(@NonNull Context context, long j, @Nullable ko5 ko5Var);
-
-    void d(@NonNull Context context, long j, @NonNull fo5 fo5Var);
-
-    void e(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull fo5 fo5Var);
-
-    void f(@NonNull go5 go5Var);
-
-    void g(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull fo5 fo5Var);
-
-    void h(@NonNull go5 go5Var);
-
-    void i(@NonNull Context context, long j, @NonNull co5 co5Var);
-
-    void j(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull eo5 eo5Var);
-
-    void k(@NonNull Context context, long j, @NonNull ChatMsg chatMsg, @NonNull jo5 jo5Var);
-
-    void l(@NonNull Context context, long j, @NonNull fo5 fo5Var);
-
-    void m(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull eo5 eo5Var);
-
-    void n(@NonNull Context context, long j, @NonNull do5 do5Var);
-
-    /* loaded from: classes8.dex */
-    public static class a implements Comparator<ChatMsg> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948246572, "Lcom/baidu/tieba/vn5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948246572, "Lcom/baidu/tieba/vn5;");
+                return;
             }
         }
+        boolean z = false;
+        if (da5.p().q("key_lcs_log_switch", 0) == 1) {
+            z = true;
+        }
+        a = z;
+        if (z) {
+            a();
+        }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ChatMsg chatMsg, ChatMsg chatMsg2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMsg, chatMsg2)) == null) {
-                if (TextUtils.equals(chatMsg.getMsgKey(), chatMsg2.getMsgKey())) {
-                    return 0;
-                }
-                if (chatMsg.getMsgId() - chatMsg2.getMsgId() > 0) {
-                    return 1;
-                }
-                return -1;
-            }
-            return invokeLL.intValue;
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_LCS_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.LCS_STATISTICS_URL);
+            tbHttpMessageTask.setResponsedClass(LCSStatisticsResponseMessage.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            messageManager.registerTask(tbHttpMessageTask);
         }
+    }
+
+    public static void b(int i, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            c(i, i2, i3, i4, i5, 0);
+        }
+    }
+
+    public static void c(int i, int i2, int i3, int i4, int i5, int i6) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) != null) || !a) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
+        httpMessage.addParam("cmd", i);
+        httpMessage.addParam("lcs_status", i2);
+        httpMessage.addParam("online_status", i3);
+        httpMessage.addParam("status_change_name", i4);
+        httpMessage.addParam("status_change_trigger", i5);
+        httpMessage.addParam("lcs_vailable", i6);
+        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
     }
 }

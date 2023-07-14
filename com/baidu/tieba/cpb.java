@@ -1,140 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.os.Message;
-import android.view.Surface;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class cpb extends zob implements gpb {
+public final class cpb {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface K;
 
-    @Override // com.baidu.tieba.wob
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        String a(apb apbVar);
     }
 
-    @Override // com.baidu.tieba.wob
-    public void d(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
-        }
-    }
-
-    public cpb(Context context, qob qobVar, int i, int i2, jnb jnbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, qobVar, Integer.valueOf(i), Integer.valueOf(i2), jnbVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947683860, "Lcom/baidu/tieba/cpb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947683860, "Lcom/baidu/tieba/cpb;");
                 return;
             }
         }
-        this.K = null;
-        A(context, qobVar, i, i2, jnbVar);
+        a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.zob
-    public void A(Context context, Object obj, int i, int i2, jnb jnbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, obj, Integer.valueOf(i), Integer.valueOf(i2), jnbVar}) == null) {
-            super.A(context, obj, i, i2, jnbVar);
-            if (obj != null && (obj instanceof qob)) {
-                ((qob) obj).b(this);
-            }
-        }
-    }
-
-    public final void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            X(true);
-            if (this.d != null) {
-                if (this.a.available()) {
-                    this.d.g(2402);
-                    this.d.f(2402);
-                }
-                TLog.h("[OutputExternalSetSurfaceRender]", "do send surfaceCreated.");
-                this.d.g(2401);
-                this.d.f(2401);
-            }
-        }
-    }
-
-    public final void Z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            X(false);
-            if (this.d != null && this.a.available()) {
-                TLog.h("[OutputExternalSetSurfaceRender]", "do send surfaceDestroyed.");
-                this.d.g(2402);
-                this.d.f(2402);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gpb
-    public void a(Surface surface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, surface) == null) {
-            this.K = surface;
-            this.I.set(true);
-            Y();
-        }
-    }
-
-    @Override // com.baidu.tieba.gpb
-    public void b(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048580, this, i, i2, i3) == null) {
-            TLog.h("[OutputExternalSetSurfaceRender]", String.format("surfaceChanged(%d, %d, %d).", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)));
-            D();
-            this.I.set(true);
-            U();
-            rmb rmbVar = this.d;
-            if (rmbVar != null) {
-                rmbVar.g(2404);
-                this.d.sendMessage(Message.obtain(null, 2404, i2, i3));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.wob
-    public Object getWindow() {
+    public static Map<String, a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.K;
-        }
-        return invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Map) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gpb
-    public void surfaceDestroyed() {
+    public static void b(String str, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Z();
-            D();
-            this.I.set(false);
-            U();
-            this.K = null;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) {
+            a.put(str, aVar);
         }
     }
 }

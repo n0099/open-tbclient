@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.r;
 import java.util.Observable;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class b extends Observable implements c, com.kwad.sdk.core.b {
     public boolean tX = false;
     public String tY;

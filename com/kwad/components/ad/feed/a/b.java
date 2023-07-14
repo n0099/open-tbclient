@@ -33,11 +33,11 @@ public abstract class b extends a implements View.OnClickListener {
     }
 
     private void bh() {
-        findViewById(R.id.obfuscated_res_0x7f091230).setVisibility(0);
-        findViewById(R.id.obfuscated_res_0x7f09122f).setVisibility(8);
-        this.di = (TextView) findViewById(R.id.obfuscated_res_0x7f09129d);
-        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09129f);
-        this.dj = findViewById(R.id.obfuscated_res_0x7f0912a0);
+        findViewById(R.id.obfuscated_res_0x7f091244).setVisibility(0);
+        findViewById(R.id.obfuscated_res_0x7f091243).setVisibility(8);
+        this.di = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b1);
+        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b3);
+        this.dj = findViewById(R.id.obfuscated_res_0x7f0912b4);
         this.di.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
         this.cE.setText(com.kwad.sdk.core.response.a.a.al(this.mAdInfo));
         this.dj.setOnClickListener(this);
@@ -46,15 +46,15 @@ public abstract class b extends a implements View.OnClickListener {
     }
 
     private void bi() {
-        findViewById(R.id.obfuscated_res_0x7f09122f).setVisibility(0);
-        findViewById(R.id.obfuscated_res_0x7f091230).setVisibility(8);
-        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091246);
-        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f09124a);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091242);
+        findViewById(R.id.obfuscated_res_0x7f091243).setVisibility(0);
+        findViewById(R.id.obfuscated_res_0x7f091244).setVisibility(8);
+        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f09125a);
+        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f09125e);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091256);
         this.dh = textView;
         com.kwad.sdk.b.kwai.a.a(this, this.cw, this.cx, textView);
         this.cx.setText(com.kwad.sdk.core.response.a.a.ae(this.mAdInfo));
-        this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080e12);
+        this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080e1d);
         KSImageLoader.loadAppIcon(this.cw, com.kwad.sdk.core.response.a.a.bn(this.mAdInfo), this.mAdTemplate, 8);
         this.dh.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
         bf();
@@ -70,12 +70,12 @@ public abstract class b extends a implements View.OnClickListener {
 
     @Override // com.kwad.components.core.widget.b
     public final void bg() {
-        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f09122b);
-        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912a2)).setRatio(0.56f);
-        this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f091231);
-        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f09122d);
-        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09122e);
-        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091244);
+        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f09123f);
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912b6)).setRatio(0.56f);
+        this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f091245);
+        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091241);
+        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091242);
+        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091258);
     }
 
     @Override // com.kwad.components.core.widget.b
@@ -134,7 +134,7 @@ public abstract class b extends a implements View.OnClickListener {
             i = 101;
         }
         g(false);
-        com.kwad.components.core.c.a.a.a(new a.C0641a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b() { // from class: com.kwad.components.ad.feed.a.b.1
+        com.kwad.components.core.c.a.a.a(new a.C0646a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b() { // from class: com.kwad.components.ad.feed.a.b.1
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 b.this.aq(i);

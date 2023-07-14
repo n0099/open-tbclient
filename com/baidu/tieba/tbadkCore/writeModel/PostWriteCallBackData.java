@@ -9,11 +9,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.AdverSegmentData;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tbadk.data.VideoEasterEggData;
-import com.baidu.tieba.h45;
+import com.baidu.tieba.p45;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.vg;
 import com.baidu.tieba.video.VideoTitleData;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PostWriteCallBackData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COPY_TW_ZHIBO_TAG = 3;
@@ -48,7 +48,7 @@ public class PostWriteCallBackData implements Serializable {
     public AdverSegmentData mAdverSegmentData;
     public ContriInfo mContriInfo;
     public int mFrom;
-    public h45 mReplyPrivacyTip;
+    public p45 mReplyPrivacyTip;
     public VideoEasterEggData mVideoEasterEggData;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
@@ -167,7 +167,7 @@ public class PostWriteCallBackData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return vg.e(this.inviteesNumber, 0);
+            return wg.e(this.inviteesNumber, 0);
         }
         return invokeV.intValue;
     }
@@ -217,13 +217,13 @@ public class PostWriteCallBackData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public h45 getReplyPrivacyTip() {
+    public p45 getReplyPrivacyTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.mReplyPrivacyTip;
         }
-        return (h45) invokeV.objValue;
+        return (p45) invokeV.objValue;
     }
 
     public ArrayList<String> getSensitiveWords() {
@@ -503,10 +503,10 @@ public class PostWriteCallBackData implements Serializable {
         }
     }
 
-    public void setReplyPrivacyTip(h45 h45Var) {
+    public void setReplyPrivacyTip(p45 p45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, h45Var) == null) {
-            this.mReplyPrivacyTip = h45Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, p45Var) == null) {
+            this.mReplyPrivacyTip = p45Var;
         }
     }
 

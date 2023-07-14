@@ -1,126 +1,203 @@
 package com.baidu.tieba;
 
+import android.app.Application;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.cookie.CookieManager;
+import android.util.Pair;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.browser.exception.TbWebViewException;
+import com.baidu.tieba.em6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import okhttp3.Response;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class rk6 implements nk6<Pair<String, Map<String, String>>, Response> {
+public class rk6 {
     public static /* synthetic */ Interceptable $ic;
+    public static m2c<String, Pair<Boolean, String>> a;
+    public static final List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HttpManager a;
 
     /* loaded from: classes7.dex */
-    public class a extends ResponseCallback<Response> {
+    public static class a implements dm6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mtb a;
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: parseResponse  reason: avoid collision after fix types in other method */
-        public Response parseResponse2(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) ? response : (Response) invokeLI.objValue;
-        }
-
-        public a(rk6 rk6Var, mtb mtbVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rk6Var, mtbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = mtbVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(Response response, int i) {
+        @Override // com.baidu.tieba.dm6
+        public boolean a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, response, i) == null) {
-                this.a.call(response, null);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return !TextUtils.isEmpty(str);
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948124556, "Lcom/baidu/tieba/rk6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948124556, "Lcom/baidu/tieba/rk6;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public /* bridge */ /* synthetic */ Response parseResponse(Response response, int i) throws Exception {
-            parseResponse2(response, i);
-            return response;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                this.a.call(null, exc);
-            }
-        }
+        b = new ArrayList();
     }
 
     public rk6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = HttpManager.getDefault(tl6.getContext());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nk6
-    @Nullable
-    /* renamed from: c */
-    public Response a(Pair<String, Map<String, String>> pair) throws Exception {
+    public static List<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            em6.a aVar = new em6.a();
+            aVar.c(new a());
+            hm6.b().c(aVar);
+        }
+    }
+
+    public static /* synthetic */ void f() {
+        c();
+        zm6.a().execute(new Runnable() { // from class: com.baidu.tieba.qk6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // java.lang.Runnable
+            public final void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    en6.a();
+                }
+            }
+        });
+        sk6.g().i();
+    }
+
+    public static void b(final Application application, rk6 rk6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, application, rk6Var) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (xm6.getContext() == null) {
+                xm6.b(application);
+            }
+            if (ym6.a()) {
+                an6.a().f(new Runnable() { // from class: com.baidu.tieba.nk6
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            WebView.setWebContentsDebuggingEnabled(true);
+                        }
+                    }
+                });
+            }
+            an6.a().c(new Runnable() { // from class: com.baidu.tieba.ok6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        rk6.f();
+                    }
+                }
+            });
+            an6.a().f(new Runnable() { // from class: com.baidu.tieba.pk6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        sk6.g().h(application);
+                    }
+                }
+            });
+            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                jm6.n().r();
+            }
+            vn6.b("newHybrid", "init WebView Env 耗时：" + (System.currentTimeMillis() - currentTimeMillis) + "ms");
+        }
+    }
+
+    public static void d(m2c<String, Pair<Boolean, String>> m2cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, m2cVar) == null) {
+            a = m2cVar;
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            ym6.b(z);
+        }
+    }
+
+    public static Pair<Boolean, String> i(String str) throws TbWebViewException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair)) == null) {
-            if (pair != null && !TextUtils.isEmpty(pair.first)) {
-                return this.a.getRequest().url(pair.first).tag(this).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).followRedirects(false).followSslRedirects(false).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeSync();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            m2c<String, Pair<Boolean, String>> m2cVar = a;
+            if (m2cVar == null) {
+                if (!ym6.a()) {
+                    return new Pair<>(Boolean.FALSE, null);
+                }
+                throw new TbWebViewException("TBWebKit need call initUserAgent first !");
             }
-            return null;
+            return m2cVar.call(str);
         }
-        return (Response) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nk6
-    /* renamed from: d */
-    public void b(Pair<String, Map<String, String>> pair, mtb<Response, Exception> mtbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, pair, mtbVar) == null) {
-            if (pair != null && !TextUtils.isEmpty(pair.first)) {
-                this.a.getRequest().url(pair.first).tag(this).followRedirects(false).followSslRedirects(false).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeAsync(new a(this, mtbVar));
-            } else {
-                mtbVar.call(null, new IllegalArgumentException("url is null !"));
-            }
-        }
+        return (Pair) invokeL.objValue;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.magicmusic.effect;
 
 import com.baidu.ugc.editvideo.magicmusic.EffectType;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BaseEffect implements Serializable, Cloneable {
     public static final int TYPE_FILTER = 1;
     public static final int TYPE_PARTICLE = 3;

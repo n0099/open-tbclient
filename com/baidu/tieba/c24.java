@@ -1,96 +1,141 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class c24 implements k94 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "hasDownloadApk";
+public class c24 extends Dialog {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public DialogInterface.OnClickListener a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947622852, "Lcom/baidu/tieba/c24;")) == null) {
-            return;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c24 a;
+
+        public a(c24 c24Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c24Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c24Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947622852, "Lcom/baidu/tieba/c24;");
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                c24 c24Var = this.a;
+                DialogInterface.OnClickListener onClickListener = c24Var.a;
+                if (onClickListener != null) {
+                    onClickListener.onClick(c24Var, -2);
+                }
+            }
         }
     }
 
-    public c24() {
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c24 a;
+
+        public b(c24 c24Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c24Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c24Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                c24 c24Var = this.a;
+                DialogInterface.OnClickListener onClickListener = c24Var.a;
+                if (onClickListener != null) {
+                    onClickListener.onClick(c24Var, -1);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c24(@NonNull Context context) {
+        super(context, R.style.obfuscated_res_0x7f100001);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "com.baidu.gamenow";
+        this.a = null;
     }
 
-    @Override // com.baidu.tieba.k94
-    public boolean a(Object obj) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof Download)) {
-                return false;
-            }
-            Download download = (Download) obj;
-            if (TextUtils.equals(g24.a, download.getKeyByUser())) {
-                return true;
-            }
-            return TextUtils.isEmpty(cp3.d(download.getFromParam()).optString("apk_id"));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0926b5);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0926da);
+            rf4.a(textView);
+            rf4.a(textView2);
+            textView.setOnClickListener(new a(this));
+            textView2.setOnClickListener(new b(this));
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.k94
-    public void b(Object obj) {
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) != null) || !(obj instanceof Download)) {
-            return;
-        }
-        k24 k24Var = new k24((Download) obj);
-        y24.n().f("reallyDownloaded", new x24(), k24Var.m(), k24Var.j(), k24Var.l());
-    }
-
-    @Override // com.baidu.tieba.k94
-    public void c(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || !(obj instanceof Download)) {
-            return;
-        }
-        Download download = (Download) obj;
-        k24 k24Var = new k24(download);
-        y24.n().f("statusInstalled", new x24(), download.getKeyByUser(), k24Var.j(), k24Var.l());
-        if (TextUtils.equals(k24Var.m(), this.a)) {
-            qk3.a().putBoolean(b, true);
-            y24.n().p(13, k24Var.m(), k24Var.h(), k24Var.l());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d00ad);
+            setCancelable(false);
+            a();
         }
     }
 }

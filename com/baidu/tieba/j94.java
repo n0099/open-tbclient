@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.m54;
+import android.app.Activity;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface j94 {
-    void b(m54.d dVar);
+    void a(@NonNull Activity activity, i84 i84Var, m94 m94Var);
 }

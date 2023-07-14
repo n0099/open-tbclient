@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class st2 extends wp2<nu2> {
+public class st2 extends pp2<gu2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.wp2
+    @Override // com.baidu.tieba.pp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "isPlaying" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setMuted" : (String) invokeV.objValue;
     }
 
     public st2() {
@@ -36,14 +36,17 @@ public class st2 extends wp2<nu2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wp2
+    @Override // com.baidu.tieba.pp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull nu2 nu2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull gu2 gu2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, nu2Var) == null) {
-            command.ret = nu2Var.isPlaying() ? 1 : 0;
-            String str = command.what;
-            d(nu2Var, str, "isPlaying: " + nu2Var.isPlaying(), false);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gu2Var) == null) {
+            Object obj = command.obj;
+            if (obj instanceof Boolean) {
+                gu2Var.l(((Boolean) obj).booleanValue());
+                String str = command.what;
+                d(gu2Var, str, "setMuted:" + command.obj, false);
+            }
         }
     }
 }

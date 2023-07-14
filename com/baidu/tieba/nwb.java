@@ -1,52 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.lvb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public abstract class nwb<E> extends awb<E> {
+public abstract class nwb {
     public static /* synthetic */ Interceptable $ic;
-    public static final Integer f;
     public transient /* synthetic */ FieldHolder $fh;
+    public lvb a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948018288, "Lcom/baidu/tieba/nwb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948018288, "Lcom/baidu/tieba/nwb;");
-                return;
-            }
-        }
-        f = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    public abstract void A(yub yubVar);
+
+    public abstract void B(dvb dvbVar);
+
+    public abstract void C(evb evbVar);
+
+    public abstract void D(fvb fvbVar);
+
+    public abstract void E(int i);
+
+    public abstract void F(int i, long j);
+
+    public abstract void G();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract long g();
+
+    public abstract long h();
+
+    public abstract Object i();
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "12.1.0.34" : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nwb(int i) {
-        super(i);
+    public abstract int k();
+
+    public abstract int l();
+
+    public abstract void m();
+
+    public abstract void n();
+
+    public abstract void o();
+
+    public abstract void p();
+
+    public abstract void q(Executor executor, lvb.d dVar);
+
+    public abstract void r(long j);
+
+    public abstract void s(qub qubVar);
+
+    public abstract void t(qub qubVar);
+
+    public abstract void u(int i);
+
+    public abstract void v(int i);
+
+    public abstract void w(Executor executor, sub subVar);
+
+    public abstract void x(tub tubVar);
+
+    public abstract void y(vub vubVar);
+
+    public abstract void z(xub xubVar);
+
+    public nwb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        Math.min(i / 4, f.intValue());
     }
 }

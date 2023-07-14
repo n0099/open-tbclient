@@ -1,36 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public interface h87 {
+public class h87 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<p97> a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(View view2, t87<?> t87Var, s87<?, ?> s87Var);
+    public h87() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
     }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(@NonNull t87<?> t87Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(@NonNull t87<?> t87Var, @NonNull s87<?, ?> s87Var, int i);
-
-        void b(@NonNull RecyclerView recyclerView);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d {
-        boolean a(View view2, t87<?> t87Var, s87<?, ?> s87Var);
-    }
-
-    void c(b bVar);
-
-    void e(c cVar);
-
-    void i(a aVar);
 }

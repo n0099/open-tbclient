@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.media.AudioManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +9,92 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.log.TLog;
+import java.lang.ref.WeakReference;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public abstract class awb<E> extends bwb<E> {
+public class awb {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
-    public static final long d;
-    public static final int e;
+    public static AtomicBoolean a;
+    public static AtomicBoolean b;
+    public static Context c;
+    public static final LinkedList<WeakReference<b>> d;
+    public static AtomicBoolean e;
+    public static final LinkedList<WeakReference<rub>> f;
+    public static AudioManager.OnAudioFocusChangeListener g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final E[] b;
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void c(boolean z);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a implements AudioManager.OnAudioFocusChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.media.AudioManager.OnAudioFocusChangeListener
+        public void onAudioFocusChange(int i) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i != -2 && i != -1) {
+                    if (i == 1) {
+                        awb.a.set(true);
+                        awb.b.set(true);
+                        awb.j(true);
+                        TLog.h("[AudioFocusListener]", "mOnAudioFocusChangeListener AUDIOFOCUS_GAIN,mIsFocusGain=" + awb.a.get());
+                    }
+                } else {
+                    awb.a.set(false);
+                    awb.b.set(false);
+                    awb.j(false);
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("mOnAudioFocusChangeListener ");
+                    if (i == -1) {
+                        str = "AUDIOFOCUS_LOSS";
+                    } else {
+                        str = "AUDIOFOCUS_LOSS_TRANSIENT";
+                    }
+                    sb.append(str);
+                    sb.append(", pause audio rendering,mIsFocusGain=");
+                    sb.append(awb.a.get());
+                    TLog.h("[AudioFocusListener]", sb.toString());
+                }
+                synchronized (awb.e) {
+                    Iterator it = awb.f.iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        WeakReference weakReference = (WeakReference) it.next();
+                        if (weakReference.get() != null) {
+                            TLog.h("[AudioFocusListener]", "mOnAudioFocusChangeListener mExtraListener: " + weakReference.get() + ",mIsFocusGain:" + awb.a.get() + ",focusChange:" + i);
+                            ((rub) weakReference.get()).onAudioFocusChange(i);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,117 +109,196 @@ public abstract class awb<E> extends bwb<E> {
                 return;
             }
         }
-        c = Integer.getInteger("sparse.shift", 0).intValue();
-        int b = axb.a.b(Object[].class);
-        if (4 == b) {
-            e = c + 2;
-        } else if (8 == b) {
-            e = c + 3;
-        } else {
-            throw new IllegalStateException("Unknown pointer size");
-        }
-        d = axb.a.a(Object[].class) + (32 << (e - c));
+        a = new AtomicBoolean(false);
+        b = new AtomicBoolean(false);
+        c = null;
+        d = new LinkedList<>();
+        e = new AtomicBoolean(false);
+        f = new LinkedList<>();
+        g = new a();
     }
 
-    public awb(int i) {
+    public awb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        int b = dwb.b(i);
-        this.a = b - 1;
-        this.b = (E[]) new Object[(b << c) + 64];
-    }
-
-    public final long a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return b(j, this.a);
-        }
-        return invokeJ.longValue;
-    }
-
-    public final E d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            return e(this.b, j);
-        }
-        return (E) invokeJ.objValue;
-    }
-
-    public final long b(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return d + ((j & j2) << e);
-        }
-        return invokeCommon.longValue;
-    }
-
-    public final E c(E[] eArr, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, eArr, j)) == null) {
-            return (E) axb.a.e(eArr, j);
-        }
-        return (E) invokeLJ.objValue;
-    }
-
-    public final E e(E[] eArr, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, eArr, j)) == null) {
-            return (E) axb.a.f(eArr, j);
-        }
-        return (E) invokeLJ.objValue;
-    }
-
-    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            if (poll() == null && isEmpty()) {
-                return;
             }
         }
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public Iterator<E> iterator() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    public final void f(E[] eArr, long j, E e2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            axb.a.j(eArr, j, e2);
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a.set(false);
+            b.set(false);
+            Context context = c;
+            if (context == null) {
+                TLog.d("[AudioFocusListener]", "abandonAudioFocus called,mAppContext==null,mIsFocusGain:" + a.get());
+                return;
+            }
+            ((AudioManager) context.getSystemService("audio")).abandonAudioFocus(g);
+            TLog.h("[AudioFocusListener]", "abandonAudioFocus called.,mIsFocusGain:" + a.get() + ",mIsRequestFocusGain:" + b.get());
         }
     }
 
-    public final void g(E[] eArr, long j, E e2) {
+    public static void g(Context context, b bVar) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            axb.a.h(eArr, j, e2);
+        if (interceptable == null || interceptable.invokeLL(65544, null, context, bVar) == null) {
+            synchronized (awb.class) {
+                if (c == null) {
+                    c = context;
+                }
+                Iterator<WeakReference<b>> it = d.iterator();
+                while (true) {
+                    if (it.hasNext()) {
+                        if (bVar == it.next().get()) {
+                            z = false;
+                            break;
+                        }
+                    } else {
+                        z = true;
+                        break;
+                    }
+                }
+                if (z) {
+                    d.add(new WeakReference<>(bVar));
+                }
+            }
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
+            e.set(z);
+            TLog.h("AudioFocus", " enableAutoControl:" + z + ",mIsFocusGain:" + a.get());
+        }
+    }
+
+    public static void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            TLog.h("AudioFocus", " forceGainFocus start enableAutoControl:" + e.get() + ",mIsFocusGain:" + a.get() + " mIsRequestFocusGain:" + b.get());
+            if (!e.get()) {
+                a.set(true);
+                TLog.h("AudioFocus", " forceGainFocus enableAutoControl:" + e.get() + ",mIsFocusGain:" + a.get());
+                return;
+            }
+            synchronized (awb.class) {
+                if (!b.get()) {
+                    a();
+                    l();
+                }
+            }
+            TLog.h("AudioFocus", " forceGainFocus end enableAutoControl:" + e.get() + ",mIsFocusGain:" + a.get() + " mIsRequestFocusGain:" + b.get());
+        }
+    }
+
+    public static void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
+            LinkedList linkedList = new LinkedList();
+            synchronized (awb.class) {
+                Iterator<WeakReference<b>> it = d.iterator();
+                while (it.hasNext()) {
+                    b bVar = it.next().get();
+                    if (bVar != null) {
+                        linkedList.add(bVar);
+                    }
+                }
+            }
+            if (!linkedList.isEmpty()) {
+                Iterator it2 = linkedList.iterator();
+                while (it2.hasNext()) {
+                    ((b) it2.next()).c(z);
+                }
+            }
+        }
+    }
+
+    public static synchronized void k(b bVar) {
+        WeakReference<b> weakReference;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, bVar) == null) {
+            synchronized (awb.class) {
+                Iterator<WeakReference<b>> it = d.iterator();
+                while (true) {
+                    if (it.hasNext()) {
+                        weakReference = it.next();
+                        if (weakReference.get() == bVar) {
+                            break;
+                        }
+                    } else {
+                        weakReference = null;
+                        break;
+                    }
+                }
+                if (weakReference != null) {
+                    d.remove(weakReference);
+                }
+                if (d.isEmpty()) {
+                    if (c == null) {
+                        return;
+                    }
+                    if (e.get()) {
+                        a();
+                    }
+                    c = null;
+                }
+            }
+        }
+    }
+
+    public static void m(rub rubVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, null, rubVar) == null) {
+            synchronized (e) {
+                TLog.h("AudioFocus", " setFocusChangeExtraListener:" + rubVar);
+                boolean z = true;
+                Iterator<WeakReference<rub>> it = f.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    } else if (rubVar == it.next().get()) {
+                        z = false;
+                        break;
+                    }
+                }
+                if (z) {
+                    f.add(new WeakReference<>(rubVar));
+                }
+            }
+        }
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+            Context context = c;
+            if (context == null) {
+                TLog.d("[AudioFocusListener]", "requestAudioFocus called,mAppContext==null,mIsFocusGain:" + a.get());
+                return;
+            }
+            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+            if (audioManager == null) {
+                TLog.d("[AudioFocusListener]", "requestAudioFocus called,audioManager==null,mIsFocusGain:" + a.get());
+            } else if (audioManager.requestAudioFocus(g, 3, 1) != 1) {
+                a.set(false);
+                b.set(false);
+                TLog.h("[AudioFocusListener]", "reqeustAudioFocus result != AUDIOFOCUS_REQUEST_GRANTED, pause audio render.,mIsFocusGain:" + a.get());
+            } else {
+                a.set(true);
+                b.set(true);
+                j(true);
+                TLog.h("[AudioFocusListener]", "reqeustAudioFocus AUDIOFOCUS_REQUEST_GRANTED.,mIsFocusGain:" + a.get());
+            }
         }
     }
 }

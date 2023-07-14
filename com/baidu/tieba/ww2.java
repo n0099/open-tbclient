@@ -1,91 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.os.Parcelable;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.SwanAppClearCacheErrorActivity;
-import com.baidu.swan.apps.SwanAppErrorActivity;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
-import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
-import com.baidu.swan.apps.view.SwanAppErrorDialog;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.di3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import java.io.File;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
+import java.util.ConcurrentModificationException;
 /* loaded from: classes8.dex */
-public class ww2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static boolean b;
-    public static final long c;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ww2 {
+    public static final xw2<Boolean> a = new d(Boolean.FALSE);
+    public static final xw2<Integer> b = new e(0);
+    public static final xw2<Long> c = new f(0L);
+    public static final xw2<Float> d = new g(Float.valueOf(0.0f));
+    public static final xw2<String> e = new h();
+    public static final xw2<String[]> f = new a();
+    public static final xw2<Bundle> g = new b();
+    public static final xw2<Parcelable> h = new c();
 
     /* loaded from: classes8.dex */
-    public static class c extends ProviderDelegation {
+    public static class a extends xw2<String[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes8.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Bundle a;
-
-            public a(c cVar, Bundle bundle) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, bundle};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bundle;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                    return;
-                }
-                ww2.j(this.a.getString("arg_title"), this.a.getString("arg_message"), this.a.getInt("arg_match_target_down", SwanAppProcessInfo.UNKNOWN.index));
-            }
-        }
-
-        public c() {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,71 +41,31 @@ public class ww2 {
             }
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: f */
+        public String[] c(Bundle bundle, String str, String[] strArr) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                if (bundle != null) {
-                    wp3.e0(new a(this, bundle));
-                    return null;
-                }
-                return null;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, strArr)) == null) {
+                return bundle.getStringArray(str);
             }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a implements z83 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ Set b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-
-        public a(int i, Set set, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), set, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = set;
-            this.c = str;
-            this.d = str2;
+            return (String[]) invokeLLL.objValue;
         }
 
-        @Override // com.baidu.tieba.z83
-        public void a(String str, b93 b93Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: g */
+        public void e(Bundle bundle, String str, String[] strArr) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, b93Var) == null) && b93Var.b.index == this.a && this.b.contains(str)) {
-                d93.k().h(this);
-                ww2.i(this.c, this.d);
-            }
-        }
-
-        @Override // com.baidu.tieba.z83
-        public void timeout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ww2.i(this.c, this.d);
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, strArr) == null) {
+                bundle.putStringArray(str, strArr);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class b implements DialogInterface.OnDismissListener {
+    public static class b extends xw2<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -181,264 +83,315 @@ public class ww2 {
             }
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: f */
+        public Bundle c(Bundle bundle, String str, Bundle bundle2) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
-                return;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, bundle2)) == null) {
+                return bundle.getBundle(str);
             }
-            boolean unused = ww2.b = false;
+            return (Bundle) invokeLLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: g */
+        public void e(Bundle bundle, String str, Bundle bundle2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, bundle2) == null) {
+                bundle.putBundle(str, bundle2);
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284919, "Lcom/baidu/tieba/ww2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public static class c extends xw2<Parcelable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948284919, "Lcom/baidu/tieba/ww2;");
-                return;
-            }
-        }
-        a = ms1.a;
-        b = false;
-        c = TimeUnit.SECONDS.toMillis(1L);
-    }
-
-    public static boolean h(@NonNull Context context, @Nullable String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !SwanAppNetworkUtils.i(context) && !jx2.d(str)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static String d(@NonNull Context context, String str, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
-            if (h(context, str)) {
-                return "type_network_error";
-            }
-            if (j == 2205) {
-                return "type_2205";
-            }
-            if (j == 49) {
-                return "type_0049";
-            }
-            return "type_normal";
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static void e(Context context, @NonNull vn3 vn3Var, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65541, null, context, vn3Var, i, str) == null) {
-            f(context, vn3Var, i, str, null);
-        }
-    }
-
-    public static void f(Context context, @NonNull vn3 vn3Var, int i, String str, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, vn3Var, Integer.valueOf(i), str, bundle}) == null) {
-            h53.k(vn3Var);
-            g(context, vn3Var, i, str, false, bundle);
-        }
-    }
-
-    public static void g(Context context, @NonNull vn3 vn3Var, int i, String str, boolean z, Bundle bundle) {
-        boolean z2;
-        String a2;
-        File a3;
-        String c2;
-        SwanAppProcessInfo swanAppProcessInfo;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, vn3Var, Integer.valueOf(i), str, Boolean.valueOf(z), bundle}) != null) || context == null) {
-            return;
-        }
-        if ((context instanceof SwanAppActivity) && ((SwanAppActivity) context).isDestroyed()) {
-            c92.k("LaunchError", "launch activity closed, ignore launch error");
-            return;
-        }
-        SwanLauncher.p("LaunchError", "处理调起错误 errorCode=" + vn3Var);
-        String i2 = hl3.i(px2.T().getCoreVersion(), i);
-        long h = vn3Var.h();
-        String r = vn3Var.r();
-        if (1020 == h && !TextUtils.isEmpty(r)) {
-            z2 = true;
-        } else {
-            z2 = false;
-        }
-        if (z2) {
-            a2 = r;
-        } else {
-            a2 = ao4.b().a(h);
-        }
-        String format = String.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f01d1), wp3.D(), i2, String.valueOf(vn3Var.a()));
-        if (!jv2.T().a(context, str, vn3Var)) {
-            if (i == 0) {
-                String d = d(context, str, h);
-                ForbiddenInfo forbiddenInfo = new ForbiddenInfo(bc3.K().q().W(), a2, format);
-                forbiddenInfo.enableSlidingFlag = -1;
-                ur3.c().n(vn3Var);
-                l(context, d, vn3Var, forbiddenInfo, bundle);
-            } else if (i == 1) {
-                if (z2) {
-                    c2 = r;
-                } else {
-                    c2 = ao4.b().c(h);
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if (z) {
-                    swanAppProcessInfo = SwanAppProcessInfo.current();
-                } else {
-                    swanAppProcessInfo = SwanAppProcessInfo.UNKNOWN;
-                }
-                m(context, str, a2, c2, format, swanAppProcessInfo.index);
             }
         }
-        StringBuilder sb = new StringBuilder();
-        String b2 = qo3.b(qo3.a(), "yyyy-MM-dd HH:mm:ss");
-        if (!TextUtils.isEmpty(str)) {
-            sb.append(b2);
-            sb.append(": ");
-            sb.append(str);
-            sb.append("\r\n");
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: f */
+        public Parcelable c(Bundle bundle, String str, Parcelable parcelable) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, parcelable)) == null) {
+                return bundle.getParcelable(str);
+            }
+            return (Parcelable) invokeLLL.objValue;
         }
-        sb.append(b2);
-        sb.append(": ");
-        sb.append(format);
-        sb.append("\r\n");
-        xo3.c(sb.toString(), false);
-        if (ms1.a) {
-            String y = wp3.y();
-            if (!TextUtils.isEmpty(y) && (a3 = ro3.a()) != null) {
-                File file = new File(a3.getPath(), "error_dialog_info.txt");
-                gs4.j(file);
-                StringBuilder sb2 = new StringBuilder();
-                if (!TextUtils.isEmpty(format)) {
-                    sb2.append(format);
-                    sb2.append("\n");
-                }
-                sb2.append(y);
-                sb2.append("\n");
-                gs4.N(sb2.toString(), file);
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: g */
+        public void e(Bundle bundle, String str, Parcelable parcelable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, parcelable) == null) {
+                bundle.putParcelable(str, parcelable);
             }
         }
     }
 
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) && !b) {
-            BaseActivityDialog.e r = SwanAppErrorDialog.r();
-            r.C(str);
-            r.y(new b());
-            r.v(str2);
-            r.z(R.string.obfuscated_res_0x7f0f0148, null);
-            r.D();
-            b = true;
-        }
-    }
+    /* loaded from: classes8.dex */
+    public static class d extends xw2<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static void j(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65546, null, str, str2, i) == null) {
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-                return;
-            }
-            if (!ProcessUtils.isMainProcess()) {
-                Bundle bundle = new Bundle();
-                bundle.putString("arg_title", str);
-                bundle.putString("arg_message", str2);
-                bundle.putInt("arg_match_target_down", i);
-                p83.c(c.class, bundle);
-                return;
-            }
-            if (a) {
-                Log.d("LaunchError", "show normal err dialog, isShowing=" + b);
-            }
-            if (!SwanAppProcessInfo.checkProcessId(i)) {
-                i(str, str2);
-                return;
-            }
-            d93.k().c(new a(i, Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline"), str, str2), c);
-        }
-    }
-
-    public static void k(@NonNull Context context, @NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, context, str, str2) == null) {
-            String format = String.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f150f), str, str2);
-            if (a) {
-                Log.d("LaunchError", "show normal err toast: " + format);
-            }
-            ub3 g = ub3.g(AppRuntime.getAppContext(), format);
-            g.q(Integer.MAX_VALUE);
-            g.F();
-        }
-    }
-
-    public static void l(Context context, String str, vn3 vn3Var, ForbiddenInfo forbiddenInfo, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65548, null, context, str, vn3Var, forbiddenInfo, bundle) == null) {
-            Intent intent = new Intent();
-            if (bundle != null) {
-                intent.putExtras(bundle);
-            }
-            int g = a23.g();
-            int i = 0;
-            if (!wp3.O()) {
-                i = a23.h(context);
-            }
-            intent.putExtra("swan_error_type", str);
-            intent.putExtra("swan_error_code", String.valueOf(vn3Var.a()));
-            intent.putExtra("swan_error_forbidden_info", forbiddenInfo);
-            intent.putExtra("swan_error_menu_notice_count", g);
-            intent.putExtra("swan_error_menu_privacy_count", i);
-            PMSAppInfo f0 = bc3.K().q().W().f0();
-            if (f0 != null) {
-                ur3.c().n(vn3Var);
-                intent.putExtra(DeepLinkItem.DEEPLINK_WEBURL_KEY, f0.webUrl);
-                intent.putExtra("webPermit", f0.webPermit);
-            }
-            if (TextUtils.equals(str, "type_2205") && wp3.G()) {
-                intent.setComponent(new ComponentName(context, SwanAppClearCacheErrorActivity.class));
-            } else {
-                intent.setComponent(new ComponentName(context, SwanAppErrorActivity.class));
-            }
-            if (!(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            context.startActivity(intent);
-        }
-    }
-
-    public static void m(Context context, String str, String str2, String str3, String str4, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{context, str, str2, str3, str4, Integer.valueOf(i)}) == null) {
-            if (h(context, str)) {
-                if (fp3.a(context)) {
-                    ub3.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01cc).G();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(Boolean bool) {
+            super(bool);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bool};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                if (a) {
-                    Log.w("LaunchError", "show network err toast: areNotificationsEnabled false");
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: f */
+        public Boolean c(Bundle bundle, String str, Boolean bool) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, bool)) == null) {
+                return Boolean.valueOf(bundle.getBoolean(str, bool.booleanValue()));
+            }
+            return (Boolean) invokeLLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: g */
+        public void e(Bundle bundle, String str, Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, bool) == null) {
+                bundle.putBoolean(str, bool.booleanValue());
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class e extends xw2<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(Integer num) {
+            super(num);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {num};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                j(str2, str4, i);
-            } else if (fp3.a(context)) {
-                k(context, str3, str4);
-            } else {
-                if (a) {
-                    Log.w("LaunchError", "handleLaunchError: areNotificationsEnabled false");
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: f */
+        public Integer c(Bundle bundle, String str, Integer num) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, num)) == null) {
+                return Integer.valueOf(bundle.getInt(str, num.intValue()));
+            }
+            return (Integer) invokeLLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: g */
+        public void e(Bundle bundle, String str, Integer num) {
+            String O;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, num) == null) {
+                try {
+                    bundle.putInt(str, num.intValue());
+                } catch (ConcurrentModificationException e) {
+                    di3.b bVar = new di3.b(10011);
+                    if (vb3.M() == null) {
+                        O = "null appKey";
+                    } else {
+                        O = vb3.M().O();
+                    }
+                    bVar.h(O);
+                    bVar.k(str);
+                    bVar.i(Log.getStackTraceString(e));
+                    bVar.m();
                 }
-                j(str2, str4, i);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class f extends xw2<Long> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(Long l) {
+            super(l);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: f */
+        public Long c(Bundle bundle, String str, Long l) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, l)) == null) {
+                return Long.valueOf(bundle.getLong(str, l.longValue()));
+            }
+            return (Long) invokeLLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: g */
+        public void e(Bundle bundle, String str, Long l) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, l) == null) {
+                bundle.putLong(str, l.longValue());
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class g extends xw2<Float> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(Float f) {
+            super(f);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: f */
+        public Float c(Bundle bundle, String str, Float f) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, f)) == null) {
+                return Float.valueOf(bundle.getFloat(str, f.floatValue()));
+            }
+            return (Float) invokeLLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: g */
+        public void e(Bundle bundle, String str, Float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, f) == null) {
+                bundle.putFloat(str, f.floatValue());
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class h extends xw2<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: f */
+        public String c(Bundle bundle, String str, String str2) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, str2)) == null) {
+                return bundle.getString(str, str2);
+            }
+            return (String) invokeLLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xw2
+        /* renamed from: g */
+        public void e(Bundle bundle, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, str2) == null) {
+                bundle.putString(str, str2);
             }
         }
     }

@@ -23,7 +23,7 @@ import kotlin.reflect.jvm.internal.impl.types.UnwrappedType;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.model.CaptureStatus;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class NewKotlinTypeCheckerImpl implements NewKotlinTypeChecker {
     public final KotlinTypeRefiner kotlinTypeRefiner;
     public final OverridingUtil overridingUtil;
@@ -86,9 +86,9 @@ public final class NewKotlinTypeCheckerImpl implements NewKotlinTypeChecker {
             UnwrappedType unwrappedType2 = unwrappedType;
             if (capturedTypeConstructorImpl.getNewTypeConstructor() == null) {
                 TypeProjection projection2 = capturedTypeConstructorImpl.getProjection();
-                Collection<KotlinType> mo2100getSupertypes = capturedTypeConstructorImpl.mo2100getSupertypes();
-                ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2100getSupertypes, 10));
-                for (KotlinType kotlinType : mo2100getSupertypes) {
+                Collection<KotlinType> mo2102getSupertypes = capturedTypeConstructorImpl.mo2102getSupertypes();
+                ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2102getSupertypes, 10));
+                for (KotlinType kotlinType : mo2102getSupertypes) {
                     arrayList.add(kotlinType.unwrap());
                 }
                 capturedTypeConstructorImpl.setNewTypeConstructor(new NewCapturedTypeConstructor(projection2, arrayList, null, 4, null));
@@ -100,17 +100,17 @@ public final class NewKotlinTypeCheckerImpl implements NewKotlinTypeChecker {
             }
             return new NewCapturedType(captureStatus, newTypeConstructor, unwrappedType2, simpleType.getAnnotations(), simpleType.isMarkedNullable());
         } else if (constructor instanceof IntegerValueTypeConstructor) {
-            Collection<KotlinType> mo2100getSupertypes2 = ((IntegerValueTypeConstructor) constructor).mo2100getSupertypes();
-            ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2100getSupertypes2, 10));
-            for (KotlinType kotlinType2 : mo2100getSupertypes2) {
+            Collection<KotlinType> mo2102getSupertypes2 = ((IntegerValueTypeConstructor) constructor).mo2102getSupertypes();
+            ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2102getSupertypes2, 10));
+            for (KotlinType kotlinType2 : mo2102getSupertypes2) {
                 arrayList2.add(TypeUtils.makeNullableAsSpecified(kotlinType2, simpleType.isMarkedNullable()));
             }
             return KotlinTypeFactory.simpleTypeWithNonTrivialMemberScope(simpleType.getAnnotations(), new IntersectionTypeConstructor(arrayList2), CollectionsKt__CollectionsKt.emptyList(), false, simpleType.getMemberScope());
         } else if ((constructor instanceof IntersectionTypeConstructor) && simpleType.isMarkedNullable()) {
             IntersectionTypeConstructor intersectionTypeConstructor2 = (IntersectionTypeConstructor) constructor;
-            Collection<KotlinType> mo2100getSupertypes3 = intersectionTypeConstructor2.mo2100getSupertypes();
-            ArrayList arrayList3 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2100getSupertypes3, 10));
-            for (KotlinType kotlinType3 : mo2100getSupertypes3) {
+            Collection<KotlinType> mo2102getSupertypes3 = intersectionTypeConstructor2.mo2102getSupertypes();
+            ArrayList arrayList3 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2102getSupertypes3, 10));
+            for (KotlinType kotlinType3 : mo2102getSupertypes3) {
                 arrayList3.add(TypeUtilsKt.makeNullable(kotlinType3));
                 z2 = true;
             }

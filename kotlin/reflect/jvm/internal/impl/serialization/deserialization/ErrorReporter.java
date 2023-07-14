@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.serialization.deserialization;
 import java.util.List;
 import kotlin.reflect.jvm.internal.impl.descriptors.CallableMemberDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ErrorReporter {
     public static final ErrorReporter DO_NOTHING = new ErrorReporter() { // from class: kotlin.reflect.jvm.internal.impl.serialization.deserialization.ErrorReporter.1
         public static /* synthetic */ void $$$reportNull$$$0(int i) {

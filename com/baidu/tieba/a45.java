@@ -1,39 +1,98 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.RecomPostTopic;
-/* loaded from: classes4.dex */
-public class a45 {
+import java.util.List;
+import tbclient.PbPage.RecommendBook;
+/* loaded from: classes5.dex */
+public class a45 extends yca {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId p1;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
+    public String g1;
+    public String h1;
+    public String i1;
+    public String j1;
+    public String k1;
+    public String l1;
+    public List<String> m1;
+    public String n1;
+    public String o1;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947565223, "Lcom/baidu/tieba/a45;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947565223, "Lcom/baidu/tieba/a45;");
+                return;
+            }
+        }
+        p1 = BdUniqueId.gen();
+    }
 
     public a45() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a(RecomPostTopic recomPostTopic) {
+    @Override // com.baidu.tieba.yca, com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, recomPostTopic) != null) || recomPostTopic == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return p1;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean z1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!StringUtils.isNull(this.j1)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void A1(RecommendBook recommendBook) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, recommendBook) != null) || recommendBook == null) {
             return;
         }
-        this.a = recomPostTopic.recom_title;
-        this.b = recomPostTopic.recom_topic;
-        this.c = recomPostTopic.uniq_topicid.longValue();
+        this.g1 = recommendBook.recommend_text;
+        this.h1 = recommendBook.suggest_text;
+        this.i1 = recommendBook.suggest_url;
+        this.j1 = recommendBook.book_id;
+        recommendBook.book_type.intValue();
+        this.k1 = recommendBook.book_cover;
+        this.l1 = recommendBook.book_title;
+        this.m1 = recommendBook.book_tips;
+        this.n1 = recommendBook.botton_text;
+        this.o1 = recommendBook.subscript_icon;
     }
 }

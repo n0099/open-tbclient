@@ -22,7 +22,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SessionMonitorEngine implements INoProGuard {
     public static final boolean DEBUG = false;
     public static final String LOG_TAG = "SessionMonitorEngine";
@@ -43,14 +43,14 @@ public class SessionMonitorEngine implements INoProGuard {
     public a sFrameworkBehaviorProvider;
     public WeakReference<IPrototype> sImplement;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface IExtraInfoCollector extends INoProGuard {
         JSONObject onPageSessionFinished(WebView webView, String str);
 
         void onPageSessionStarted(WebView webView, String str, boolean z, boolean z2, boolean z3);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface IPrototype extends INoProGuard {
         void OnAppEnterBackground();
 
@@ -73,7 +73,7 @@ public class SessionMonitorEngine implements INoProGuard {
         void recordImmediately(String str, String str2);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface PageSessionObserver extends INoProGuard {
         void onPageSessionDataRecord(WebView webView, String str, String str2, int i, String str3);
     }
@@ -345,30 +345,30 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordFrameworkBehaviorValue(int i, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0558a(aVar, (byte) 0);
+            aVar.a = new a.C0562a(aVar, (byte) 0);
         }
         if (i == 9) {
             aVar.a.a();
             aVar.a.f = true;
         }
-        a.C0558a c0558a = aVar.a;
-        if (c0558a.f) {
+        a.C0562a c0562a = aVar.a;
+        if (c0562a.f) {
             switch (i) {
                 case 7:
-                    c0558a.a = ((Boolean) obj).booleanValue();
+                    c0562a.a = ((Boolean) obj).booleanValue();
                     return;
                 case 8:
-                    c0558a.b = ((Boolean) obj).booleanValue();
+                    c0562a.b = ((Boolean) obj).booleanValue();
                     return;
                 case 9:
-                    c0558a.c = ((Long) obj).longValue();
+                    c0562a.c = ((Long) obj).longValue();
                     return;
                 case 10:
-                    c0558a.d = ((Long) obj).longValue();
+                    c0562a.d = ((Long) obj).longValue();
                     aVar.a.f = true;
                     return;
                 case 11:
-                    c0558a.e = ((Boolean) obj).booleanValue();
+                    c0562a.e = ((Boolean) obj).booleanValue();
                     return;
                 default:
                     return;
@@ -378,9 +378,9 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j) {
         a aVar = this.sFrameworkBehaviorProvider;
-        a.C0558a c0558a = aVar.a;
-        if (c0558a != null) {
-            aVar.a.g.put(str, Long.valueOf(j + (c0558a.g.containsKey(str) ? aVar.a.g.get(str).longValue() : 0L)));
+        a.C0562a c0562a = aVar.a;
+        if (c0562a != null) {
+            aVar.a.g.put(str, Long.valueOf(j + (c0562a.g.containsKey(str) ? aVar.a.g.get(str).longValue() : 0L)));
         }
     }
 
@@ -495,17 +495,17 @@ public class SessionMonitorEngine implements INoProGuard {
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0558a(aVar, (byte) 0);
+            aVar.a = new a.C0562a(aVar, (byte) 0);
         }
-        a.C0558a c0558a = aVar.a;
-        if (c0558a.c == -1) {
-            c0558a.a();
+        a.C0562a c0562a = aVar.a;
+        if (c0562a.c == -1) {
+            c0562a.a();
         }
-        a.C0558a c0558a2 = aVar.a;
-        if (c0558a2.f) {
+        a.C0562a c0562a2 = aVar.a;
+        if (c0562a2.f) {
             return;
         }
-        c0558a2.f = true;
+        c0562a2.f = true;
     }
 
     public void updateCuidIfNeeded() {

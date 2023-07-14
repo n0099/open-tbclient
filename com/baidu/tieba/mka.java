@@ -1,154 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.sla;
-import com.baidu.tieba.tr6;
+import android.content.Intent;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsTabInfo;
-import tbclient.SimpleForum;
-/* loaded from: classes6.dex */
-public class mka implements tr6 {
+import com.baidu.ufosdk.FeedbackConfigurations;
+import com.baidu.ufosdk.FeedbackManager;
+import com.baidu.ufosdk.IConfigurations;
+/* loaded from: classes7.dex */
+public class mka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sla a;
-    public ArrayList<TransmitForumData> b;
-    public List<SimpleForum> c;
-    public tr6.a d;
-    public boolean e;
-    public int f;
-    public sla.b g;
 
-    /* loaded from: classes6.dex */
-    public class a implements sla.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mka a;
-
-        public a(mka mkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mkaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mkaVar;
+    public static Intent a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            b();
+            return FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).getFeedbackIntentWithCategory(0, "https://ufosdk.baidu.com/ufosdk/helpCenter/qtbMBmwrIBtM25TGeonQxQ%3D%3D");
         }
-
-        @Override // com.baidu.tieba.sla.b
-        public void a(List<SimpleForum> list, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLI(1048576, this, list, i) != null) {
-                return;
-            }
-            this.a.c = list;
-            this.a.f = i;
-            this.a.h();
-        }
-
-        @Override // com.baidu.tieba.sla.b
-        public void onError() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.g();
-            }
-        }
+        return (Intent) invokeV.objValue;
     }
 
-    public mka() {
+    public static void b() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            FeedbackConfigurations.Builder builder = new FeedbackConfigurations.Builder();
+            if (TbadkCoreApplication.getInst().getVersionName() != null) {
+                str = TbadkCoreApplication.getInst().getVersionName();
+            } else {
+                str = "";
             }
-        }
-        this.b = new ArrayList<>();
-        this.g = new a(this);
-        BdUniqueId gen = BdUniqueId.gen();
-        sla slaVar = new sla(gen);
-        this.a = slaVar;
-        slaVar.i(this.g);
-        this.a.j(gen);
-    }
-
-    @Override // com.baidu.tieba.tr6
-    public void a(tr6.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.d = aVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.tr6
-    public void b() {
-        sla slaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d != null && (slaVar = this.a) != null) {
-            this.e = false;
-            slaVar.l(null);
-            this.a.k(null);
-            this.a.h();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e) {
-            return;
-        }
-        tr6.a aVar = this.d;
-        if (aVar != null) {
-            aVar.a(null, false, 2, 0);
-        }
-        this.e = true;
-    }
-
-    public final void h() {
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.clear();
-            if (ListUtils.getCount(this.c) > 0) {
-                for (SimpleForum simpleForum : this.c) {
-                    if (simpleForum != null && (l = simpleForum.id) != null && l.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
-                        TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
-                        transmitForumData.tabItemDatas = new ArrayList<>();
-                        for (FrsTabInfo frsTabInfo : simpleForum.tab_info) {
-                            if (frsTabInfo != null && frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_id.intValue() > 0 && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                                transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
-                            }
-                        }
-                        this.b.add(transmitForumData);
-                    }
-                }
+            builder.setAppIdentifier(TbadkCoreApplication.getInst().getPackageName(), str);
+            builder.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                builder.setAccount(TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentAccount());
             }
-            tr6.a aVar = this.d;
-            if (aVar != null) {
-                aVar.a(this.b, true, 2, this.f);
+            int i = 0;
+            builder.setFeedbackBackbar(0);
+            IConfigurations build = builder.build();
+            if (TbadkCoreApplication.getInst().getSkinType() != 0) {
+                i = 1;
             }
+            build.setThemeMode(i);
+            FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).initFeedbackSDK(build);
         }
     }
 }

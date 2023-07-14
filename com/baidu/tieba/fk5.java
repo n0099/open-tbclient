@@ -1,55 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ThemeColorInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class fk5 {
+public class fk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ei5 a;
+    public int b;
 
-    public static final boolean a() {
-        InterceptResult invokeV;
-        boolean z;
+    public fk5(ei5 ei5Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (uk5.b.a().a("show_write_tip")) {
-                ah5 a = tk5.b.a().a();
-                if (a != null && a.b == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    return true;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ei5Var, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.a = ei5Var;
+        this.b = i;
     }
 
-    public static final int b(boolean z) {
-        InterceptResult invokeZ;
-        ThemeColorInfo themeColorInfo;
+    public ei5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            if (!z) {
-                return SkinManager.getColor(R.color.CAM_X0110);
-            }
-            ah5 a = tk5.b.a().a();
-            if (a != null) {
-                themeColorInfo = a.f;
-            } else {
-                themeColorInfo = null;
-            }
-            if (a() && themeColorInfo != null) {
-                return SkinManager.getColorFromServerColor(themeColorInfo, R.color.CAM_X0301);
-            }
-            return SkinManager.getColor(R.color.CAM_X0302);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeZ.intValue;
+        return (ei5) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 }

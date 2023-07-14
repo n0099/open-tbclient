@@ -1,191 +1,130 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.AtomicFile;
-import android.util.SparseArray;
-import androidx.annotation.NonNull;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.channels.FileChannel;
-import java.nio.channels.FileLock;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class mq3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
+/* loaded from: classes7.dex */
+public abstract class mq3<OuT> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final pq3<OuT> a;
+    public OuT b;
 
-    /* JADX WARN: Removed duplicated region for block: B:101:0x015e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0149  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean a(@NonNull JSONArray jSONArray, @NonNull File file, int i) {
-        InterceptResult invokeLLI;
-        FileOutputStream fileOutputStream;
-        FileChannel fileChannel;
-        FileLock fileLock;
-        AtomicFile atomicFile;
-        JSONArray optJSONArray;
+    public abstract void c();
+
+    /* loaded from: classes7.dex */
+    public static class a extends mq3<OuT> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CountDownLatch c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(pq3 pq3Var, CountDownLatch countDownLatch) {
+            super(pq3Var, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pq3Var, countDownLatch};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((pq3) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = countDownLatch;
+        }
+
+        @Override // com.baidu.tieba.mq3
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.countDown();
+            }
+        }
+    }
+
+    public mq3(pq3<OuT> pq3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, jSONArray, file, i)) == null) {
-            StringBuilder sb = new StringBuilder();
-            AtomicFile atomicFile2 = null;
-            r1 = null;
-            FileLock fileLock2 = null;
-            FileChannel fileChannel2 = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pq3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.a = pq3Var;
+    }
+
+    public static <OuT> OuT b(pq3<OuT> pq3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pq3Var)) == null) {
+            return (OuT) a(Looper.getMainLooper(), pq3Var);
+        }
+        return (OuT) invokeL.objValue;
+    }
+
+    public /* synthetic */ mq3(pq3 pq3Var, a aVar) {
+        this(pq3Var);
+    }
+
+    public static <OuT> OuT a(Looper looper, pq3<OuT> pq3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, pq3Var)) == null) {
+            if (pq3Var == null) {
+                return null;
+            }
+            if (looper != null && Thread.currentThread() != looper.getThread()) {
+                CountDownLatch countDownLatch = new CountDownLatch(1);
+                a aVar = new a(pq3Var, countDownLatch);
+                new Handler(looper).post(aVar);
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    v82.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e);
+                    e.printStackTrace();
+                }
+                return aVar.b;
+            }
+            return pq3Var.create();
+        }
+        return (OuT) invokeLL.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-                    SparseArray sparseArray = new SparseArray(i);
-                    ArrayList arrayList = new ArrayList();
-                    for (int i2 = 0; i2 < i; i2++) {
-                        arrayList.add(bufferedReader.readLine());
-                    }
-                    for (int i3 = 0; i3 < i; i3++) {
-                        String str = (String) arrayList.get(i3);
-                        if (TextUtils.isEmpty(str) || (optJSONArray = new JSONObject(str).optJSONArray("descriptions")) == null) {
-                            return false;
-                        }
-                        HashMap hashMap = new HashMap();
-                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                            JSONObject jSONObject = (JSONObject) optJSONArray.get(i4);
-                            hashMap.put(jSONObject.optString("name"), jSONObject);
-                        }
-                        sparseArray.put(i3, hashMap);
-                    }
-                    for (int i5 = 0; i5 < jSONArray.length(); i5++) {
-                        JSONObject jSONObject2 = (JSONObject) jSONArray.get(i5);
-                        String optString = jSONObject2.optString("name");
-                        int i6 = 0;
-                        while (true) {
-                            if (i6 >= i) {
-                                break;
-                            } else if (((Map) sparseArray.get(i6)).containsKey(optString)) {
-                                ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
-                                break;
-                            } else {
-                                if (i6 == i - 1) {
-                                    ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
-                                }
-                                i6++;
-                            }
-                        }
-                    }
-                    for (int i7 = 0; i7 < i; i7++) {
-                        JSONObject jSONObject3 = new JSONObject((String) arrayList.get(i7));
-                        JSONArray jSONArray2 = new JSONArray();
-                        jSONObject3.optJSONArray("descriptions");
-                        for (Map.Entry entry : ((Map) sparseArray.get(i7)).entrySet()) {
-                            jSONArray2.put(entry.getValue());
-                        }
-                        jSONObject3.put("descriptions", jSONArray2);
-                        if (i7 != i - 1) {
-                            sb.append(jSONObject3.toString());
-                            sb.append("\n");
-                        } else {
-                            sb.append(jSONObject3.toString());
-                        }
-                    }
-                    bufferedReader.close();
-                    atomicFile = new AtomicFile(file);
-                    try {
-                        atomicFile.startWrite();
-                        fileOutputStream = atomicFile.startWrite();
-                        try {
-                            fileChannel = fileOutputStream.getChannel();
-                        } catch (IOException | JSONException unused) {
-                            fileChannel = null;
-                            fileLock = fileChannel;
-                            atomicFile2 = atomicFile;
-                            if (atomicFile2 != null) {
-                                if (fileLock != null) {
-                                    try {
-                                        fileLock.release();
-                                    } catch (IOException unused2) {
-                                    }
-                                }
-                                atomicFile2.failWrite(fileOutputStream);
-                            }
-                            if (fileChannel != null) {
-                                try {
-                                    fileChannel.close();
-                                } catch (IOException unused3) {
-                                }
-                            }
-                            return false;
-                        }
-                    } catch (IOException | JSONException unused4) {
-                        fileOutputStream = null;
-                        fileChannel = null;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    if (fileChannel2 != null) {
-                        try {
-                            fileChannel2.close();
-                        } catch (IOException unused5) {
-                        }
-                    }
-                    throw th;
+                    this.b = this.a.create();
+                } catch (Exception e) {
+                    v82.o("Awaiting", "catch: " + e + "\n" + Log.getStackTraceString(e));
                 }
-                try {
-                    try {
-                        fileLock = fileChannel.lock();
-                    } catch (IOException | JSONException unused6) {
-                        fileLock = fileLock2;
-                    }
-                    try {
-                        fileOutputStream.write(sb.toString().getBytes());
-                        if (fileLock != null) {
-                            fileLock.release();
-                        } else {
-                            fileLock2 = fileLock;
-                        }
-                        atomicFile.finishWrite(fileOutputStream);
-                        if (fileChannel != null) {
-                            try {
-                                fileChannel.close();
-                                return true;
-                            } catch (IOException unused7) {
-                                return true;
-                            }
-                        }
-                        return true;
-                    } catch (IOException | JSONException unused8) {
-                        atomicFile2 = atomicFile;
-                        if (atomicFile2 != null) {
-                        }
-                        if (fileChannel != null) {
-                        }
-                        return false;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileChannel2 = fileChannel;
-                    if (fileChannel2 != null) {
-                    }
-                    throw th;
-                }
-            } catch (IOException | JSONException unused9) {
-                fileOutputStream = null;
-                fileChannel = null;
-                fileLock = null;
+            } finally {
+                c();
             }
-        } else {
-            return invokeLLI.booleanValue;
         }
     }
 }

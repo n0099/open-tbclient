@@ -1,23 +1,32 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.tieba.ll4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
-import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes7.dex */
-public class ox3 implements mm4 {
+public class ox3 implements tv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.tv2
+    public Map<Class, Object> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
 
     public ox3() {
         Interceptable interceptable = $ic;
@@ -33,37 +42,50 @@ public class ox3 implements mm4 {
         }
     }
 
-    @Override // com.baidu.tieba.ll4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, ll4.a aVar) {
+    @Override // com.baidu.tieba.tv2
+    public void a(sc3 sc3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            if (PMSConstants.a(nj4.b())) {
-                fl4.b(str, map, map2, jSONObject, new fv3(aVar));
-            } else {
-                fl4.b(str, map, map2, jSONObject, new ml4(aVar));
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, sc3Var) == null) {
+            kx3.b().a(sc3Var);
+            kx3.a().a(sc3Var);
         }
     }
 
-    @Override // com.baidu.tieba.mm4
-    public yl4 c(String str, int i) throws Exception {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.tv2
+    public Map<String, Object> b(@NonNull wz1 wz1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            return wl4.a(str, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wz1Var)) == null) {
+            Map<String, Object> b = kx3.b().b(wz1Var);
+            Map<String, Object> b2 = kx3.a().b(wz1Var);
+            HashMap hashMap = new HashMap();
+            if (b != null) {
+                hashMap.putAll(b);
+            }
+            if (b2 != null) {
+                hashMap.putAll(b2);
+            }
+            return hashMap;
         }
-        return (yl4) invokeLI.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ll4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, ll4.a aVar) {
+    @Override // com.baidu.tieba.tv2
+    public Map<String, Object> c(@NonNull wz1 wz1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
-            if (PMSConstants.a(nj4.b())) {
-                fl4.a(str, map, map2, new fv3(aVar));
-            } else {
-                fl4.a(str, map, map2, new ml4(aVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wz1Var)) == null) {
+            Map<String, Object> c = kx3.b().c(wz1Var);
+            Map<String, Object> c2 = kx3.a().c(wz1Var);
+            HashMap hashMap = new HashMap();
+            if (c != null) {
+                hashMap.putAll(c);
             }
+            if (c2 != null) {
+                hashMap.putAll(c2);
+            }
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 }

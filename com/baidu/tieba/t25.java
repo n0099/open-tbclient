@@ -1,97 +1,24 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import org.json.JSONObject;
-import tbclient.ForumShowInfo;
-import tbclient.ForumShowInfoTag;
-import tbclient.ThemeColorInfo;
-/* loaded from: classes7.dex */
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.ActivityHead;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.Size;
+/* loaded from: classes8.dex */
 public class t25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public ArrayList<w25> a;
     public String b;
-    public long c;
-    public a d;
-
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ThemeColorInfo a;
-        public ThemeColorInfo b;
-        public String c;
-
-        public a(t25 t25Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t25Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void e(ForumShowInfoTag forumShowInfoTag) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, forumShowInfoTag) != null) || forumShowInfoTag == null) {
-                return;
-            }
-            this.c = forumShowInfoTag.text;
-            this.a = forumShowInfoTag.text_color;
-            this.b = forumShowInfoTag.bg_color;
-        }
-
-        public ThemeColorInfo a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (ThemeColorInfo) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.c;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public ThemeColorInfo c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a;
-            }
-            return (ThemeColorInfo) invokeV.objValue;
-        }
-
-        public void d(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            this.c = jSONObject.optString("text");
-            this.a = zca.j(jSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-            this.b = zca.j(jSONObject.optJSONObject("bg_color"));
-        }
-    }
+    public w15 c;
 
     public t25() {
         Interceptable interceptable = $ic;
@@ -103,26 +30,28 @@ public class t25 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    public String a() {
+    public w15 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return (w15) invokeV.objValue;
     }
 
-    public a b() {
+    public ArrayList<w25> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.a;
         }
-        return (a) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
     public String c() {
@@ -134,51 +63,61 @@ public class t25 {
         return (String) invokeV.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public void d(ActivityHead activityHead, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!wi.isEmpty(this.a) && this.c > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeLJ(1048579, this, activityHead, j) != null) || activityHead == null) {
             return;
         }
-        this.a = jSONObject.optString("content");
-        this.c = jSONObject.optLong(RecordVideoActivityConfig.SHOW_TYPE, -1L);
-        JSONObject optJSONObject = jSONObject.optJSONObject("tag");
-        if (optJSONObject != null) {
-            a aVar = new a(this);
-            this.d = aVar;
-            aVar.d(optJSONObject);
+        activityHead.activity_type.intValue();
+        String str = activityHead.activity_title;
+        Size size = activityHead.top_size;
+        if (size != null) {
+            size.width.intValue();
         }
+        Size size2 = activityHead.top_size;
+        if (size2 != null) {
+            size2.height.intValue();
+        }
+        this.b = activityHead.obj_id;
+        f(activityHead.head_imgs);
+        w15 w15Var = new w15();
+        w15Var.a = activityHead.pull_down_pic_android;
+        w15Var.b = activityHead.pull_down_url;
+        w15Var.c = activityHead.pull_down_interval.intValue();
+        w15Var.d = activityHead.pull_down_exposure_url;
+        w15Var.e = activityHead.pull_down_click_url;
+        w15Var.f = activityHead.pull_down_schema;
+        w15Var.g = activityHead.pull_down_package_name;
+        w15Var.h = activityHead.is_ad.booleanValue();
+        w15Var.i = activityHead.obj_id;
+        w15Var.j = j;
+        this.c = w15Var;
     }
 
-    public void f(ForumShowInfo forumShowInfo) {
+    public void e(HeadImgs headImgs) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, forumShowInfo) != null) || forumShowInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, headImgs) != null) || headImgs == null) {
             return;
         }
-        this.a = forumShowInfo.content;
-        this.c = forumShowInfo.show_type.longValue();
-        if (forumShowInfo.tag != null) {
-            a aVar = new a(this);
-            this.d = aVar;
-            aVar.e(forumShowInfo.tag);
+        w25 w25Var = new w25();
+        w25Var.o(headImgs);
+        this.a.add(w25Var);
+    }
+
+    public void f(List<HeadImgs> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        for (HeadImgs headImgs : list) {
+            e(headImgs);
         }
     }
 
-    public void g(String str) {
+    public void g(ArrayList<w25> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
+            this.a = arrayList;
         }
     }
 }

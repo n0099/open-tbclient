@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
-import rx.subjects.ReplaySubject$ReplayProducer;
+import android.graphics.SurfaceTexture;
 /* loaded from: classes8.dex */
-public interface txb<T> {
-    void a(ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer);
+public interface txb {
+    void c();
 
-    void complete();
+    void d(SurfaceTexture surfaceTexture);
 
-    void error(Throwable th);
-
-    void next(T t);
+    Object getWindow();
 }

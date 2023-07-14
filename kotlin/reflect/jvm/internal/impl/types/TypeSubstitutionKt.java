@@ -4,7 +4,7 @@ import java.util.List;
 import kotlin.NoWhenBranchMatchedException;
 import kotlin.jvm.JvmOverloads;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TypeSubstitutionKt {
     public static final SimpleType asSimpleType(KotlinType kotlinType) {
         UnwrappedType unwrap = kotlinType.unwrap();

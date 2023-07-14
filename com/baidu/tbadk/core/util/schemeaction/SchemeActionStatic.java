@@ -7,8 +7,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkAction;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
-import com.baidu.tieba.m20;
-import com.baidu.tieba.yu9;
+import com.baidu.tieba.n20;
+import com.baidu.tieba.z2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -106,7 +106,7 @@ public class SchemeActionStatic {
                 public void deal(TbPageContext<?> tbPageContext, UriBuilder uriBuilder, Bundle bundle) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, tbPageContext, uriBuilder, bundle) == null) {
-                        yu9.b(tbPageContext, new String[]{uriBuilder.getUriString()});
+                        z2a.b(tbPageContext, new String[]{uriBuilder.getUriString()});
                     }
                 }
             });
@@ -120,7 +120,7 @@ public class SchemeActionStatic {
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty(DeepLinkItem.DEEPLINK_APPURL_KEY, str);
             jsonObject.addProperty(DeepLinkItem.DEEPLINK_WEBURL_KEY, str2);
-            return UrlUtils.appendParam(SchemeActionName.SCHEME_ACTION_DEEPLINK, "params", m20.a(jsonObject.toString()));
+            return UrlUtils.appendParam(SchemeActionName.SCHEME_ACTION_DEEPLINK, "params", n20.a(jsonObject.toString()));
         }
         return (String) invokeLL.objValue;
     }

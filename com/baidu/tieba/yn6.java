@@ -1,185 +1,137 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.security.MessageDigest;
 /* loaded from: classes8.dex */
-public class yn6 extends sn6<xv6> {
+public class yn6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView i;
-    public LinearLayout j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public LinearLayout n;
-    public ImageView o;
-    public ImageView p;
-    public ImageView q;
-    public ImageView r;
-    public ImageView s;
-    public TextView t;
-    public xv6 u;
-    public View v;
 
-    @Override // com.baidu.tieba.sn6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b0 : invokeV.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yn6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948335976, "Lcom/baidu/tieba/yn6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948335976, "Lcom/baidu/tieba/yn6;");
                 return;
             }
         }
-        r(h());
+        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && e() != null) {
-            e().a(h(), this.u);
-        }
-    }
-
-    @Override // com.baidu.tieba.sn6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
-                SkinManager.setBackgroundResource(this.v, R.color.CAM_X0205);
-                SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(this.l, R.color.CAM_X0107, 1);
-                SkinManager.setViewTextColor(this.m, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(this.t, R.color.CAM_X0107, 1);
-                t(this.u);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
             }
-            this.a = i;
-        }
-    }
-
-    public final void r(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905ad);
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0905ae);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905b8);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905af);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905b1);
-            this.n = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0905b7);
-            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905b2);
-            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905b3);
-            this.q = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905b4);
-            this.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905b5);
-            this.s = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905b6);
-            this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905ac);
-            this.i.setDefaultResource(17170445);
-            this.i.setDefaultBgResource(R.color.CAM_X0205);
-            this.i.setDrawBorder(true);
-            this.i.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.i.setBorderWidth(this.c.getResources().getDimensionPixelSize(R.dimen.tbds1));
-            this.i.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds26));
-            h().setOnClickListener(this);
-            this.v = view2.findViewById(R.id.obfuscated_res_0x7f0908f8);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sn6
-    /* renamed from: s */
-    public void i(xv6 xv6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, xv6Var) == null) && xv6Var != null && xv6Var.c() != null) {
-            this.u = xv6Var;
-            this.i.N(xv6Var.c().avatar, 10, false);
-            this.k.setText(xv6Var.c().game_name);
-            this.l.setText(xv6Var.c().title_small);
-            this.m.setText(String.valueOf(xv6Var.c().game_score));
-            t(xv6Var);
-            this.t.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0810, StringHelper.numberUniform(xv6Var.c().game_score_num)));
-        }
-    }
-
-    public final void t(xv6 xv6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, xv6Var) != null) || xv6Var == null) {
-            return;
-        }
-        SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_empty_bg);
-        SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_empty_bg);
-        SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_empty_bg);
-        SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_empty_bg);
-        SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_empty_bg);
-        if (xv6Var.c().game_score > 0.0d) {
-            if (xv6Var.c().game_score < 2.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (xv6Var.c().game_score == 2.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (xv6Var.c().game_score < 4.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (xv6Var.c().game_score == 4.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (xv6Var.c().game_score < 6.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (xv6Var.c().game_score == 6.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (xv6Var.c().game_score < 8.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (xv6Var.c().game_score == 8.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (xv6Var.c().game_score < 10.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (xv6Var.c().game_score == 10.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (byte b : bArr) {
+                sb.append(a[(b & 240) >>> 4]);
+                sb.append(a[b & 15]);
             }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileInputStream fileInputStream2 = null;
+            try {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    String c = c(fileInputStream);
+                    bo6.a(fileInputStream);
+                    return c;
+                } catch (Exception unused) {
+                    bo6.a(fileInputStream);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    bo6.a(fileInputStream2);
+                    throw th;
+                }
+            } catch (Exception unused2) {
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static String c(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
+            }
+            byte[] bArr = new byte[1024];
+            try {
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            messageDigest.update(bArr, 0, read);
+                        } else {
+                            String a2 = a(messageDigest.digest());
+                            bo6.a(inputStream);
+                            return a2;
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    bo6.a(inputStream);
+                    return null;
+                }
+            } catch (Throwable th) {
+                bo6.a(inputStream);
+                throw th;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static boolean d(File file, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str)) == null) {
+            try {
+                String b = b(file);
+                if (b != null) {
+                    if (TextUtils.equals(b.toLowerCase(), str.toLowerCase())) {
+                        return true;
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

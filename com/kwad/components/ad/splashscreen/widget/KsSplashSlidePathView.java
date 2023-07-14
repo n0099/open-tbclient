@@ -10,7 +10,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KsSplashSlidePathView extends ImageView {
     public Path Be;
     public Paint Bf;
@@ -22,7 +22,7 @@ public class KsSplashSlidePathView extends ImageView {
     public a Bl;
     public GestureDetector kE;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(float f, float f2, float f3, float f4);
 

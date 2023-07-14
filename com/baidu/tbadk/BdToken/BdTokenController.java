@@ -35,25 +35,25 @@ import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
 import com.baidu.tbadk.switchs.DuTokenNewSwitch;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.al5;
-import com.baidu.tieba.dv4;
-import com.baidu.tieba.fv4;
-import com.baidu.tieba.ju4;
+import com.baidu.tieba.ay5;
+import com.baidu.tieba.az5;
+import com.baidu.tieba.cu4;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.e65;
+import com.baidu.tieba.fu4;
+import com.baidu.tieba.g65;
+import com.baidu.tieba.gca;
+import com.baidu.tieba.iv4;
+import com.baidu.tieba.jv4;
 import com.baidu.tieba.kb;
-import com.baidu.tieba.mu4;
-import com.baidu.tieba.pv4;
-import com.baidu.tieba.qv4;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.sv4;
-import com.baidu.tieba.sx5;
-import com.baidu.tieba.v3a;
-import com.baidu.tieba.v55;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.ww5;
-import com.baidu.tieba.wx5;
-import com.baidu.tieba.x55;
-import com.baidu.tieba.yg;
-import com.baidu.tieba.zu4;
+import com.baidu.tieba.lv4;
+import com.baidu.tieba.su4;
+import com.baidu.tieba.wu4;
+import com.baidu.tieba.wy5;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.yu4;
+import com.baidu.tieba.zg;
+import com.baidu.tieba.zl5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -76,20 +76,20 @@ public class BdTokenController {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public long b;
-    public zu4 c;
-    public ju4 d;
+    public su4 c;
+    public cu4 d;
     public AtomicBoolean e;
     public AtomicBoolean f;
-    public qv4 g;
+    public jv4 g;
     @Nullable
     public SyncToken h;
     @Nullable
     public String i;
     public int j;
-    public ju4.b k;
+    public cu4.b k;
 
     /* loaded from: classes4.dex */
-    public class e implements ww5<String> {
+    public class e implements ay5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -149,15 +149,15 @@ public class BdTokenController {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ww5
+        @Override // com.baidu.tieba.ay5
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (!wi.isEmpty(str)) {
+                if (!xi.isEmpty(str)) {
                     BdTokenController.J().v(str);
                 } else if (this.a > 0) {
-                    yg.a().postDelayed(new a(this), this.a);
+                    zg.a().postDelayed(new a(this), this.a);
                 } else {
                     this.b.Y();
                 }
@@ -172,7 +172,7 @@ public class BdTokenController {
         public final /* synthetic */ BdTokenController a;
 
         /* loaded from: classes4.dex */
-        public class a extends sx5<String> {
+        public class a extends wy5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ i a;
@@ -196,7 +196,7 @@ public class BdTokenController {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.sx5
+            @Override // com.baidu.tieba.wy5
             public String doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -208,7 +208,7 @@ public class BdTokenController {
         }
 
         /* loaded from: classes4.dex */
-        public class b implements ww5<String> {
+        public class b implements ay5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ i a;
@@ -232,7 +232,7 @@ public class BdTokenController {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ww5
+            @Override // com.baidu.tieba.ay5
             /* renamed from: a */
             public void onReturnDataInUI(String str) {
                 Interceptable interceptable = $ic;
@@ -269,7 +269,7 @@ public class BdTokenController {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                    wx5.b(new a(this), new b(this));
+                    az5.b(new a(this), new b(this));
                     return;
                 }
                 this.a.v(this.a.H());
@@ -301,7 +301,7 @@ public class BdTokenController {
     }
 
     /* loaded from: classes4.dex */
-    public class a extends BdAsyncTask<String, Integer, pv4> {
+    public class a extends BdAsyncTask<String, Integer, iv4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdTokenController a;
@@ -327,7 +327,7 @@ public class BdTokenController {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public pv4 doInBackground(String... strArr) {
+        public iv4 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -335,44 +335,44 @@ public class BdTokenController {
                     return null;
                 }
                 String str = strArr[0];
-                if (wi.isEmpty(str)) {
+                if (xi.isEmpty(str)) {
                     return null;
                 }
                 if (this.a.g == null) {
-                    this.a.g = new qv4();
+                    this.a.g = new jv4();
                 }
                 return this.a.g.a(str);
             }
-            return (pv4) invokeL.objValue;
+            return (iv4) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(pv4 pv4Var) {
+        public void onPostExecute(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pv4Var) == null) {
-                super.onPostExecute(pv4Var);
-                if (pv4Var == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iv4Var) == null) {
+                super.onPostExecute(iv4Var);
+                if (iv4Var == null) {
                     this.a.A();
-                } else if (pv4Var.d) {
+                } else if (iv4Var.d) {
                     this.a.y();
-                    if (!this.a.C(pv4Var.e)) {
-                        if (!StringUtils.isNull(pv4Var.a)) {
+                    if (!this.a.C(iv4Var.e)) {
+                        if (!StringUtils.isNull(iv4Var.a)) {
                             this.a.A();
-                            this.a.X(pv4Var.a, pv4Var.c);
+                            this.a.X(iv4Var.a, iv4Var.c);
                             return;
                         }
                         this.a.A();
                         return;
                     }
-                    this.a.O(pv4Var.e);
-                    sv4.b(pv4Var.c, pv4Var.e);
-                } else if (StringUtils.isNull(pv4Var.a)) {
+                    this.a.O(iv4Var.e);
+                    lv4.b(iv4Var.c, iv4Var.e);
+                } else if (StringUtils.isNull(iv4Var.a)) {
                     this.a.A();
                 } else {
-                    this.a.W(pv4Var.a);
-                    this.a.X(pv4Var.a, pv4Var.c);
+                    this.a.W(iv4Var.a);
+                    this.a.X(iv4Var.a, iv4Var.c);
                 }
             }
         }
@@ -415,7 +415,7 @@ public class BdTokenController {
                     return null;
                 }
                 String str2 = strArr[0];
-                if (wi.isEmpty(str2) || (matcher = BdTokenController.m.matcher(str2)) == null || !matcher.find() || matcher.groupCount() < 2) {
+                if (xi.isEmpty(str2) || (matcher = BdTokenController.m.matcher(str2)) == null || !matcher.find() || matcher.groupCount() < 2) {
                     return null;
                 }
                 String group = matcher.group(1);
@@ -423,7 +423,7 @@ public class BdTokenController {
                 if (TextUtils.isEmpty(group2)) {
                     return null;
                 }
-                UserData e = al5.d().e();
+                UserData e = zl5.d().e();
                 if (e != null) {
                     str = e.getTiebaUid();
                 } else {
@@ -460,7 +460,7 @@ public class BdTokenController {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements ju4.b {
+    public class c implements cu4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdTokenController a;
@@ -483,20 +483,20 @@ public class BdTokenController {
             this.a = bdTokenController;
         }
 
-        @Override // com.baidu.tieba.ju4.b
-        public void a(boolean z, fv4 fv4Var) {
+        @Override // com.baidu.tieba.cu4.b
+        public void a(boolean z, yu4 yu4Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, fv4Var) != null) || !z || fv4Var == null || fv4Var.d()) {
+            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, yu4Var) != null) || !z || yu4Var == null || yu4Var.d()) {
                 return;
             }
             this.a.y();
-            this.a.B(fv4Var.a(), fv4Var.c());
-            this.a.D(fv4Var);
+            this.a.B(yu4Var.a(), yu4Var.c());
+            this.a.D(yu4Var);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d extends sx5<String> {
+    public class d extends wy5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -517,7 +517,7 @@ public class BdTokenController {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sx5
+        @Override // com.baidu.tieba.wy5
         public String doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -592,7 +592,7 @@ public class BdTokenController {
 
         @Override // com.baidu.tieba.kb
         public void onMessage(ResponsedMessage responsedMessage) {
-            mu4 decryptData;
+            fu4 decryptData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.e.compareAndSet(true, false);
@@ -606,22 +606,22 @@ public class BdTokenController {
                 if (decryptData == null) {
                     return;
                 }
-                sv4.c(responsedMessage.getError(), decryptData.g());
+                lv4.c(responsedMessage.getError(), decryptData.g());
                 GrowthStatsUtil.statisticClipBoard(decryptData.f());
                 this.a.y();
                 int g = decryptData.g();
                 if (g != 1 && g != 0) {
                     if (g == 2) {
-                        sv4.e();
+                        lv4.e();
                         this.a.B(decryptData.e(), decryptData.f());
                     } else if (g == 4 || g != 3 || StringUtils.isNull(decryptData.f())) {
                     } else {
-                        sv4.e();
+                        lv4.e();
                         this.a.C(decryptData.f());
                         this.a.O(decryptData.f());
                     }
                 } else if (MessageManager.getInstance().findTask(2921361) != null && !decryptData.g.equals(TbadkCoreApplication.getInst().getCurAiAppid())) {
-                    sv4.e();
+                    lv4.e();
                     TbadkCoreApplication.getInst().setCurAiAppid(null);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921377, decryptData));
                 }
@@ -681,11 +681,11 @@ public class BdTokenController {
                     return;
                 }
                 this.a.y();
-                dv4.c().b();
+                wu4.e().d();
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 TbPageContext I = this.a.I(currentActivity);
                 if (currentActivity != null && I != null) {
-                    x55.g(Collections.singletonList(new v55(I, currentActivity, userData, mVar)));
+                    g65.g(Collections.singletonList(new e65(I, currentActivity, userData, mVar)));
                 }
             }
         }
@@ -724,11 +724,11 @@ public class BdTokenController {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 if (strArr != null && strArr.length >= 1) {
                     String str = strArr[0];
-                    if (wi.isEmpty(str)) {
+                    if (xi.isEmpty(str)) {
                         return null;
                     }
                     String K = this.a.K();
-                    if (!wi.isEmpty(K) && (matcher = Pattern.compile(K).matcher(str)) != null && matcher.find()) {
+                    if (!xi.isEmpty(K) && (matcher = Pattern.compile(K).matcher(str)) != null && matcher.find()) {
                         return str;
                     }
                 }
@@ -789,7 +789,7 @@ public class BdTokenController {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 if (strArr != null && strArr.length >= 1) {
                     String str = strArr[0];
-                    if (!wi.isEmpty(str) && (matcher = BdTokenController.n.matcher(str)) != null && matcher.find()) {
+                    if (!xi.isEmpty(str) && (matcher = BdTokenController.n.matcher(str)) != null && matcher.find()) {
                         return str;
                     }
                 }
@@ -929,8 +929,8 @@ public class BdTokenController {
     public final void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            v3a.h(309626, DecryptCodeSocketRespMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, v3a.a(TbConfig.DECRYPT_CODE_URL, 309626));
+            gca.h(309626, DecryptCodeSocketRespMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, gca.a(TbConfig.DECRYPT_CODE_URL, 309626));
             tbHttpMessageTask.setResponsedClass(DecryptCodeHttpRespMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -949,8 +949,8 @@ public class BdTokenController {
     public final void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            v3a.h(309702, TiebaUidCheckSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, v3a.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
+            gca.h(309702, TiebaUidCheckSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, gca.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
             tbHttpMessageTask.setResponsedClass(TiebaUidCheckHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -1006,7 +1006,7 @@ public class BdTokenController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return new String(Base64.decode(r95.p().w("key_baidu_password_re", "LipcXlsjJGEtekEtWjAtOV9dezUsfVxeezAsMX1bXF4kXXsxfS4q"), 0));
+            return new String(Base64.decode(da5.p().w("key_baidu_password_re", "LipcXlsjJGEtekEtWjAtOV9dezUsfVxeezAsMX1bXF4kXXsxfS4q"), 0));
         }
         return (String) invokeV.objValue;
     }
@@ -1016,7 +1016,7 @@ public class BdTokenController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             String topActivityClassName = UtilHelper.getTopActivityClassName();
-            if (!wi.isEmpty(topActivityClassName) && topActivityClassName.equals(SpeedRuntimeProvider.MAIN_ACTIVITY_NAME) && TbSingleton.getInstance().isRecommendPage()) {
+            if (!xi.isEmpty(topActivityClassName) && topActivityClassName.equals(SpeedRuntimeProvider.MAIN_ACTIVITY_NAME) && TbSingleton.getInstance().isRecommendPage()) {
                 return true;
             }
             return false;
@@ -1046,7 +1046,7 @@ public class BdTokenController {
 
     public void E(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || wi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || xi.isEmpty(str)) {
             return;
         }
         new a(this).execute(str);
@@ -1054,7 +1054,7 @@ public class BdTokenController {
 
     public void F(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || wi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || xi.isEmpty(str)) {
             return;
         }
         new k(this).execute(str);
@@ -1062,7 +1062,7 @@ public class BdTokenController {
 
     public void G(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || wi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || xi.isEmpty(str)) {
             return;
         }
         new b(this).execute(str);
@@ -1106,7 +1106,7 @@ public class BdTokenController {
 
     public void u(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048601, this, str) != null) || wi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048601, this, str) != null) || xi.isEmpty(str)) {
             return;
         }
         new j(this).execute(str);
@@ -1137,7 +1137,7 @@ public class BdTokenController {
     public void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
-            if (!wi.isEmpty(str) && str.contains("^sZqulxTVsT$")) {
+            if (!xi.isEmpty(str) && str.contains("^sZqulxTVsT$")) {
                 w(str);
             } else {
                 A();
@@ -1148,7 +1148,7 @@ public class BdTokenController {
     public final void B(String str, String str2) {
         TbPageContext<?> I;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && !wi.isEmpty(str2) && (I = I(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && !xi.isEmpty(str2) && (I = I(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
             UrlManager.getInstance().dealOneLink(I, str, new String[]{str2});
         }
     }
@@ -1184,7 +1184,7 @@ public class BdTokenController {
         Uri parse;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (wi.isEmpty(str) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (parse = Uri.parse(str)) == null) {
+            if (xi.isEmpty(str) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (parse = Uri.parse(str)) == null) {
                 return false;
             }
             if (str.startsWith(BdUniDispatchSchemeController.SCHEME)) {
@@ -1201,24 +1201,24 @@ public class BdTokenController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
             if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                wx5.b(new d(this), new e(this, j2));
+                az5.b(new d(this), new e(this, j2));
                 return;
             }
             String H = H();
-            if (!wi.isEmpty(H)) {
+            if (!xi.isEmpty(H)) {
                 J().v(H);
             } else if (j2 > 0) {
-                yg.a().postDelayed(new f(this), j2);
+                zg.a().postDelayed(new f(this), j2);
             } else {
                 Y();
             }
         }
     }
 
-    public final void D(fv4 fv4Var) {
+    public final void D(yu4 yu4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, fv4Var) == null) && fv4Var != null && fv4Var.b() != null && !wi.isEmpty(fv4Var.b().a) && N()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, fv4Var.b().a));
+        if ((interceptable == null || interceptable.invokeL(1048579, this, yu4Var) == null) && yu4Var != null && yu4Var.b() != null && !xi.isEmpty(yu4Var.b().a) && N()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, yu4Var.b().a));
         }
     }
 
@@ -1229,10 +1229,10 @@ public class BdTokenController {
             S();
             U();
             T();
-            ju4 ju4Var = new ju4();
-            this.d = ju4Var;
-            ju4Var.g(this.k);
-            this.c = new zu4();
+            cu4 cu4Var = new cu4();
+            this.d = cu4Var;
+            cu4Var.g(this.k);
+            this.c = new su4();
             if (z) {
                 j2 = 4000;
             } else {
@@ -1248,7 +1248,7 @@ public class BdTokenController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             String clipBoardContent = UtilHelper.getClipBoardContent();
-            if (wi.isEmpty(clipBoardContent)) {
+            if (xi.isEmpty(clipBoardContent)) {
                 return false;
             }
             if (!P(K(), clipBoardContent) && !clipBoardContent.contains("^sZqulxTVsT$") && !Q(l, clipBoardContent) && !Q(n, clipBoardContent) && !Q(m, clipBoardContent)) {
@@ -1302,8 +1302,8 @@ public class BdTokenController {
     public final void X(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048598, this, str, str2) == null) && !this.e.get()) {
-            sv4.b = str;
-            sv4.d(str2);
+            lv4.b = str;
+            lv4.d(str2);
             this.e.compareAndSet(false, true);
             DecryptCodeReqMsg decryptCodeReqMsg = new DecryptCodeReqMsg();
             decryptCodeReqMsg.setCode(str);
@@ -1318,8 +1318,8 @@ public class BdTokenController {
             return;
         }
         FastRequest fastRequest = new FastRequest(I, CmdConfigHttp.CMD_HTTP_DEL_TOKEN_INFO, TbConfig.DEL_TOKEN_INFO);
-        fastRequest.V("token", str);
-        fastRequest.V("is_server", Integer.valueOf(z ? 1 : 0));
-        fastRequest.W();
+        fastRequest.W("token", str);
+        fastRequest.W("is_server", Integer.valueOf(z ? 1 : 0));
+        fastRequest.X();
     }
 }

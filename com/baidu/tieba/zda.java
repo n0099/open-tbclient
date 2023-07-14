@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import android.util.Log;
-import android.view.Surface;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.afx.recode.OutputSurface;
-import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,29 +13,47 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.FaceUnityUtils;
-import com.faceunity.gles.FullFrameRect;
-import com.faceunity.gles.Texture2dProgram;
-import com.faceunity.wrapper.faceunity;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class zda implements SurfaceTexture.OnFrameAvailableListener {
+public class zda extends aea {
     public static /* synthetic */ Interceptable $ic;
-    public static int m;
-    public static int n;
-    public static int[] o;
     public transient /* synthetic */ FieldHolder $fh;
-    public SurfaceTexture a;
-    public Surface b;
-    public Object c;
-    public boolean d;
-    public Context e;
-    public String f;
-    public int g;
-    public int h;
-    public FullFrameRect i;
-    public FullFrameRect j;
-    public int k;
-    public final float[] l;
+    public volatile HashMap<String, Long> d;
+
+    /* loaded from: classes8.dex */
+    public static class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory() != null) {
+                TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().e();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -52,139 +68,56 @@ public class zda implements SurfaceTexture.OnFrameAvailableListener {
                 return;
             }
         }
-        o = new int[]{0, 0, 0};
+        MessageManager.getInstance().registerListener(new a(2005016));
     }
 
-    public Surface d() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                this.c.clear();
+                this.d.clear();
+            }
         }
-        return (Surface) invokeV.objValue;
     }
 
-    public zda(Context context, String str, int i, int i2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zda(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
-        this.f = "normal";
-        this.l = new float[16];
-        this.e = context;
-        this.f = str;
-        this.g = i;
-        this.h = i2;
-        f();
+        this.d = new HashMap<>();
     }
 
-    public void a() {
+    public long f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                while (!this.d) {
-                    try {
-                        this.c.wait(500L);
-                        if (!this.d) {
-                            throw new RuntimeException("Surface frame wait timed out");
-                        }
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                synchronized (this) {
+                    if (this.d.get(str) == null) {
+                        return 0L;
                     }
+                    return this.d.get(str).longValue();
                 }
-                this.d = false;
-            }
-            b("before updateTexImage");
-            this.a.updateTexImage();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.release();
-            this.b = null;
-            this.a = null;
-            FullFrameRect fullFrameRect = this.i;
-            if (fullFrameRect != null) {
-                fullFrameRect.release(false);
-                this.i = null;
-            }
-            faceunity.fuDestroyItem(n);
-            int[] iArr = o;
-            n = 0;
-            iArr[1] = 0;
-            faceunity.fuDestroyItem(m);
-            int[] iArr2 = o;
-            m = 0;
-            iArr2[0] = 0;
-            faceunity.fuOnDeviceLost();
-        }
-    }
-
-    public void b(String str) {
-        int glGetError;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || (glGetError = GLES20.glGetError()) == 0) {
-            return;
-        }
-        Log.e(OutputSurface.TAG, str + ": glError " + glGetError);
-        throw new RuntimeException(str + ": glError " + glGetError);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.updateTexImage();
-            this.a.getTransformMatrix(this.l);
-            faceunity.fuItemSetParam(m, TbFileVideoActivityConfig.FILTER_NAME, this.f);
-            faceunity.fuItemSetParam(m, "eye_bright", 0.0d);
-            faceunity.fuItemSetParam(m, "tooth_whiten", 0.0d);
-            this.i.drawFrame(faceunity.fuBeautifyImage(this.k, 1, this.g, this.h, 0, o), this.l);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.i = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-            Log.d(OutputSurface.TAG, "onSurfaceCreated: ");
-            FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-            this.j = fullFrameRect;
-            this.k = fullFrameRect.createTextureObject();
-            this.a = new SurfaceTexture(this.k);
-            this.b = new Surface(this.a);
-            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.e);
-            m = upFaceUnity;
-            o[0] = upFaceUnity;
-            this.a.setOnFrameAvailableListener(this);
-        }
-    }
-
-    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
-            Log.d(OutputSurface.TAG, "new frame available");
-            synchronized (this.c) {
-                if (!this.d) {
-                    this.d = true;
-                    this.c.notifyAll();
-                } else {
-                    throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
-                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return 0L;
             }
         }
+        return invokeL.longValue;
     }
 }

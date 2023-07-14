@@ -1,25 +1,46 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import com.qq.e.comm.adevent.AdEventType;
 /* loaded from: classes8.dex */
 public class vl5 implements wl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wl5 a;
+    public View a;
+    public ImageView b;
+    public ImageView c;
+    public TextView d;
+    public LinearLayout e;
 
-    public vl5(wl5 wl5Var) {
+    @Override // com.baidu.tieba.wl5
+    public void onClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public vl5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wl5Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,83 +50,38 @@ public class vl5 implements wl5 {
                 return;
             }
         }
-        this.a = wl5Var;
+        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_rule_copy, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
+        this.d = (TextView) this.a.findViewById(R.id.floating_view_title);
+        this.c = (ImageView) this.a.findViewById(R.id.floating_view_arrow);
+        this.e = (LinearLayout) this.a.findViewById(R.id.floating_view_main);
+        this.d.setText(R.string.frs_forum_rule_return_info);
+        b();
     }
 
     @Override // com.baidu.tieba.wl5
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-            return this.a.skip(j);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null) {
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(AdEventType.VIDEO_LOADING).tlRadius(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
+            this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_manage_postdelete_cancel32, WebPManager.ResourceStateType.NORMAL));
         }
-        return invokeJ.longValue;
     }
 
     @Override // com.baidu.tieba.wl5
-    public InputStream a() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            reset();
-            return this.a.a();
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wl5
-    public int available() throws IOException {
+    public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.available();
+            View view2 = this.a;
+            if (view2 != null) {
+                return view2;
+            }
+            return LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.wl5
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.close();
-        }
-    }
-
-    @Override // com.baidu.tieba.wl5
-    public byte peek() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.peek();
-        }
-        return invokeV.byteValue;
-    }
-
-    @Override // com.baidu.tieba.wl5
-    public int position() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.position();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.wl5
-    public void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a.reset();
-        }
-    }
-
-    @Override // com.baidu.tieba.wl5
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i, i2)) == null) {
-            return this.a.read(bArr, i, i2);
-        }
-        return invokeLII.intValue;
+        return (View) invokeV.objValue;
     }
 }

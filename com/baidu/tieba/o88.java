@@ -1,28 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import tbclient.ActivityPage.DataRes;
+import tbclient.ActivityPage.HotTopic;
+import tbclient.ActivityPage.RecommendForumList;
+import tbclient.ActivityPage.RecommendUserList;
+import tbclient.ActivityPage.SpecialColumnList;
+import tbclient.BannerImage;
+import tbclient.Page;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
 public class o88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public int e;
+    public boolean a;
+    public int b;
+    public ArrayList<ThreadData> c;
+    public h25 d;
+    public h35 e;
+    public k45 f;
+    public o45 g;
+    public p88 h;
+    public SpecialColumnListData i;
 
     public o88() {
         Interceptable interceptable = $ic;
@@ -34,161 +45,158 @@ public class o88 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = true;
+        this.b = 1;
     }
 
-    public String a() {
+    public h25 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.d;
         }
-        return (String) invokeV.objValue;
+        return (h25) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+            return this.b;
         }
         return invokeV.intValue;
     }
 
-    public String c() {
+    public h35 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.e;
         }
-        return (String) invokeV.objValue;
+        return (h35) invokeV.objValue;
     }
 
-    public String d() {
+    public p88 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+            return this.h;
         }
-        return (String) invokeV.objValue;
+        return (p88) invokeV.objValue;
     }
 
-    public boolean e() {
+    public k45 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return (k45) invokeV.objValue;
     }
 
-    public final boolean f() {
+    public o45 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (o45) invokeV.objValue;
+    }
+
+    public SpecialColumnListData g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
-                return true;
-            }
-            return false;
+            return this.i;
+        }
+        return (SpecialColumnListData) invokeV.objValue;
+    }
+
+    public ArrayList<ThreadData> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public void j(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = this.a;
-            if (str != null) {
-                return str.hashCode();
-            }
-            return 0;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public static o88 g(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
-            if (obj instanceof Map) {
-                Map map = (Map) obj;
-                o88 o88Var = new o88();
-                try {
-                    o88Var.a = (String) map.get("user_id");
-                    o88Var.b = (String) map.get("username");
-                    o88Var.c = (String) map.get("avatar");
-                    o88Var.d = ((Boolean) map.get("is_free")).booleanValue();
-                    o88Var.e = ((Integer) map.get("pos")).intValue();
-                } catch (Exception unused) {
-                    Log.d("GameMatchUser", "Flutter Data Parser Error!");
-                }
-                if (o88Var.f()) {
-                    return o88Var;
-                }
-                return null;
+        Page page = dataRes.page_info;
+        if (page != null) {
+            this.b = page.current_page.intValue();
+            boolean z = true;
+            if (page.has_more.intValue() != 1) {
+                z = false;
             }
-            return null;
+            this.a = z;
         }
-        return (o88) invokeL.objValue;
-    }
-
-    @NonNull
-    public static List<o88> h(HashMap hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Object obj = hashMap.get("imUserList");
-            if (obj instanceof List) {
-                int i = 0;
-                while (true) {
-                    List list = (List) obj;
-                    if (i >= list.size()) {
-                        break;
-                    }
-                    o88 g = g(list.get(i));
-                    if (g != null) {
-                        arrayList.add(g);
-                    }
-                    i++;
-                }
-            }
-            return arrayList;
+        this.c = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
+        for (ThreadInfo threadInfo : dataRes.thread_list) {
+            ThreadData threadData = new ThreadData();
+            threadData.parserProtobuf(threadInfo);
+            threadData.insertItemToTitleOrAbstractText();
+            this.c.add(threadData);
         }
-        return (List) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || o88.class != obj.getClass()) {
-                return false;
-            }
-            String str = this.a;
-            String str2 = ((o88) obj).a;
-            if (str != null) {
-                return str.equals(str2);
-            }
-            if (str2 == null) {
-                return true;
-            }
-            return false;
+        List<BannerImage> list = dataRes.banner_image;
+        if (!ListUtils.isEmpty(list)) {
+            h25 h25Var = new h25();
+            this.d = h25Var;
+            h25Var.parserProtobuf(list);
         }
-        return invokeL.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "GameMatchUser{userId='" + this.a + "', showName='" + this.b + "', avatar='" + this.c + "', isFree='" + this.d + "', pos='" + this.e + "'}";
+        List<BannerImage> list2 = dataRes.grid;
+        if (ListUtils.getCount(list2) >= 4) {
+            h35 h35Var = new h35();
+            this.e = h35Var;
+            h35Var.parserProtobuf(list2);
         }
-        return (String) invokeV.objValue;
+        RecommendForumList recommendForumList = dataRes.recommend_forum;
+        if (recommendForumList != null && ListUtils.getCount(recommendForumList.forum_list) >= 5) {
+            k45 k45Var = new k45();
+            this.f = k45Var;
+            k45Var.f(recommendForumList.forum_list);
+            k45 k45Var2 = this.f;
+            k45Var2.f = recommendForumList.class_name;
+            k45Var2.floorPosition = recommendForumList.floor_position.intValue();
+            this.f.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11de);
+            this.f.e = R.color.CAM_X0108;
+        }
+        RecommendUserList recommendUserList = dataRes.recommend_user;
+        if (recommendUserList != null && ListUtils.getCount(recommendUserList.user_list) >= 4) {
+            o45 o45Var = new o45();
+            this.g = o45Var;
+            o45Var.d(recommendUserList.user_list);
+            this.g.floorPosition = recommendUserList.floor_position.intValue();
+            this.g.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11f5);
+            this.g.b = R.color.CAM_X0108;
+        }
+        HotTopic hotTopic = dataRes.hot_topic;
+        if (hotTopic != null && ListUtils.getCount(hotTopic.topic_list) >= 4) {
+            p88 p88Var = new p88();
+            this.h = p88Var;
+            p88Var.e(hotTopic);
+        }
+        SpecialColumnList specialColumnList = dataRes.special_column;
+        if (specialColumnList != null && ListUtils.getCount(specialColumnList.item_list) >= 3) {
+            SpecialColumnListData specialColumnListData = new SpecialColumnListData();
+            this.i = specialColumnListData;
+            specialColumnListData.parserProtobuf(specialColumnList);
+        }
     }
 }

@@ -1,131 +1,49 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
+import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
-import com.baidu.swan.gamecenter.network.models.ReservationGameInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.tieba.x44;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes8.dex */
-public class v44 {
+public class v44 extends EventTargetImpl implements y44, x44.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    @V8JavascriptField
+    public String adUnitId;
+    public fj2 b;
+    public String c;
+    public boolean d;
+    public gz3 e;
+    public l04 f;
+    public boolean g;
+    public Map<String, String> h;
+    public c54 i;
+    public kz3 j;
+    @V8JavascriptField
+    public x44 style;
 
     /* loaded from: classes8.dex */
-    public class a implements p44<List<ReservationGameInfo>> {
+    public class a implements kz3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ v44 b;
+        public final /* synthetic */ v44 a;
 
-        @Override // com.baidu.tieba.p44
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
-
-        public a(v44 v44Var, String[] strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v44Var, strArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = v44Var;
-            this.a = strArr;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p44
-        /* renamed from: a */
-        public void onSuccess(List<ReservationGameInfo> list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(list);
-            ArrayList arrayList2 = new ArrayList(Arrays.asList(this.a));
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                ReservationGameInfo reservationGameInfo = (ReservationGameInfo) it.next();
-                boolean z = reservationGameInfo.auto_download;
-                String str = reservationGameInfo.app_id;
-                if (z) {
-                    String str2 = reservationGameInfo.download_url;
-                    String str3 = reservationGameInfo.package_id;
-                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
-                        this.b.e(str2, str3, str);
-                        o44.b().c(str);
-                        if (arrayList2.remove(str)) {
-                            this.b.f(arrayList2);
-                        }
-                    }
-                } else if (arrayList2.remove(str)) {
-                    this.b.f(arrayList2);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final v44 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-394398379, "Lcom/baidu/tieba/v44$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-394398379, "Lcom/baidu/tieba/v44$b;");
-                    return;
-                }
-            }
-            a = new v44();
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements v34 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.v34
-        public void a(x34 x34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, x34Var) == null) {
-            }
-        }
-
-        public c(v44 v44Var) {
+        public a(v44 v44Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,87 +55,272 @@ public class v44 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = v44Var;
+        }
+
+        @Override // com.baidu.tieba.kz3
+        public void b(boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || this.a.i == null) {
+                return;
+            }
+            if (z) {
+                this.a.i.c();
+            } else {
+                this.a.i.b("3010010");
+            }
+        }
+
+        @Override // com.baidu.tieba.kz3
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                JSEvent jSEvent = new JSEvent("error");
+                jSEvent.data = w44.a(str);
+                this.a.dispatchEvent(jSEvent);
+                e14.k(this.a.h, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.kz3
+        public void a(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
+                String str2 = "gdtbanner";
+                if (z) {
+                    this.a.dispatchEvent(new JSEvent("load"));
+                    if (!this.a.g) {
+                        str2 = SpeedStatsUtils.UBC_VALUE_BANNER;
+                    }
+                    t44.b(str2, "success");
+                    return;
+                }
+                if (!this.a.g) {
+                    str2 = SpeedStatsUtils.UBC_VALUE_BANNER;
+                }
+                t44.c(str2, "fail", str);
+            }
+        }
+
+        @Override // com.baidu.tieba.kz3
+        public void c(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+                JSEvent jSEvent = new JSEvent("resize");
+                jSEvent.data = w44.b(i, i2);
+                this.a.dispatchEvent(jSEvent);
+            }
+        }
+
+        @Override // com.baidu.tieba.kz3
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.g) {
+                t44.b("gdtbanner", "click");
+            }
+        }
+
+        @Override // com.baidu.tieba.kz3
+        public void onClose() {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.a.destroy();
+                ie4 A = ie4.A();
+                String str2 = this.a.adUnitId;
+                A.K(str2, "" + System.currentTimeMillis());
+                if (this.a.g) {
+                    str = "gdtbanner";
+                } else {
+                    str = SpeedStatsUtils.UBC_VALUE_BANNER;
+                }
+                t44.b(str, "close");
             }
         }
     }
 
-    public v44() {
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v44 a;
+
+        public b(v44 v44Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v44Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v44Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                JSEvent jSEvent = new JSEvent("error");
+                jSEvent.data = w44.a(this.a.c);
+                this.a.dispatchEvent(jSEvent);
+                e14.k(this.a.h, this.a.c);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v44(fj2 fj2Var, JsObject jsObject) {
+        super(fj2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fj2Var, jsObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static final v44 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (v44) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !jv2.h0().e(jv2.c())) {
-            return;
-        }
-        String string = qk3.a().getString("reservation_apk_ids", "");
-        if (TextUtils.isEmpty(string)) {
-            return;
-        }
-        String[] split = string.split(",");
-        if (split.length == 0) {
-            return;
-        }
-        o44.b().d(new a(this, split));
-    }
-
-    public final void e(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                b34.n().H(str, str2, str3, new c(this));
                 return;
             }
-            x83 y = bc3.K().y();
-            if (y != null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("url", str);
-                    jSONObject.put("packageName", str2);
-                    jSONObject.put("apkId", str3);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        }
+        this.style = null;
+        this.h = new TreeMap();
+        this.j = new a(this);
+        this.b = fj2Var;
+        c42 F = c42.F(jsObject);
+        if (F != null) {
+            this.adUnitId = F.B("adUnitId");
+            this.a = F.B("appSid");
+            c42 w = F.w("style");
+            if (w != null) {
+                this.style = new x44(w);
+            }
+        }
+        boolean e = p14.e();
+        this.g = e;
+        if (e) {
+            this.a = p14.a();
+            this.adUnitId = p14.b();
+        }
+        String str = this.a;
+        String str2 = this.adUnitId;
+        boolean z = this.g;
+        String str3 = SpeedStatsUtils.UBC_VALUE_BANNER;
+        Map<String, String> a2 = e14.a(SpeedStatsUtils.UBC_VALUE_BANNER, "game", str, str2, z);
+        this.h = a2;
+        e14.m("loadApi", a2);
+        if (!B()) {
+            return;
+        }
+        if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.a) && this.style != null) {
+            r44 r44Var = new r44();
+            this.f = r44Var;
+            gz3 gz3Var = new gz3(this.a, this.adUnitId, this.j, r44Var);
+            this.e = gz3Var;
+            gz3Var.F(this.h);
+            x44 x44Var = this.style;
+            if (x44Var != null) {
+                this.e.E(x44Var.left, x44Var.top, x44Var.width, x44Var.height);
+                this.style.b(this);
+            }
+            t44.b(this.g ? "gdtbanner" : str3, null);
+            return;
+        }
+        fj2Var.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
+    }
+
+    @Override // com.baidu.tieba.x44.a
+    public void i(String str) {
+        gz3 gz3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !this.d && !TextUtils.isEmpty(str) && !str.equals("height") && this.style != null && (gz3Var = this.e) != null) {
+            gz3Var.H(str);
+        }
+    }
+
+    public final boolean B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.c)) {
+                ie4 A = ie4.A();
+                if (!A.k()) {
+                    if (!A.l()) {
+                        if (A.t(this.adUnitId)) {
+                            this.c = "3010011";
+                        }
+                    } else {
+                        this.c = "3010013";
+                    }
+                } else {
+                    this.c = "3010012";
                 }
-                Bundle bundle = new Bundle();
-                bundle.putString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "startDownload");
-                bundle.putString("data", jSONObject.toString());
-                bundle.putString("ubc_params", new b44().a());
-                y.W(bundle, p34.class);
+            }
+            if (!TextUtils.isEmpty(this.c)) {
+                this.b.postOnJSThread(new b(this));
+                t44.c(SpeedStatsUtils.UBC_VALUE_BANNER, "reject", this.c);
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JavascriptInterface
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = true;
+            removeEventListener("error", null);
+            removeEventListener("load", null);
+            removeEventListener("resize", null);
+            gz3 gz3Var = this.e;
+            if (gz3Var != null) {
+                gz3Var.y();
+                this.e = null;
             }
         }
     }
 
-    public final void f(ArrayList<String> arrayList) {
+    @JavascriptInterface
+    public void hide() {
+        gz3 gz3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < arrayList.size(); i++) {
-                stringBuffer.append(arrayList.get(i));
-                if (i < arrayList.size() - 1) {
-                    stringBuffer.append(",");
-                }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (gz3Var = this.e) != null) {
+            gz3Var.B();
+        }
+    }
+
+    @JavascriptInterface
+    public void showAd(JsObject jsObject) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
+            if (this.g) {
+                str = "gdtbanner";
+            } else {
+                str = SpeedStatsUtils.UBC_VALUE_BANNER;
             }
-            qk3.a().putString("reservation_apk_ids", stringBuffer.toString());
+            t44.d(str);
+            e14.m("showApi", this.h);
+            if (B() && this.e != null) {
+                ie4.A().E();
+                this.i = c54.d(c42.F(jsObject));
+                this.e.G(jsObject);
+            }
         }
     }
 }

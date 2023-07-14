@@ -1,9 +1,22 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import android.database.Cursor;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface xz2<T> {
-    void e(String str);
+public final class xz2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void f(List<T> list);
+    public static void a(Cursor cursor) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, cursor) == null) && cursor != null) {
+            try {
+                if (!cursor.isClosed()) {
+                    cursor.close();
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
 }

@@ -1,38 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
 /* loaded from: classes7.dex */
-public final class qi0 extends un0 {
+public class qi0 extends eo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public String a;
-    @JvmField
-    public String b;
-    @JvmField
-    public String c;
-    @JvmField
-    public String d;
-    @JvmField
-    public String e;
-    @JvmField
-    public String f;
-    @JvmField
-    public String g;
-    @JvmField
-    public boolean h;
-    @JvmField
-    public String i;
+    public final xr0 a;
 
-    public qi0() {
+    public qi0(xr0 xr0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xr0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,6 +25,6 @@ public final class qi0 extends un0 {
                 return;
             }
         }
-        AdDownloadStatus adDownloadStatus = AdDownloadStatus.NONE;
+        this.a = xr0Var;
     }
 }

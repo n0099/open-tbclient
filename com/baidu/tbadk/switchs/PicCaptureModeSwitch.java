@@ -21,7 +21,7 @@ public final class PicCaptureModeSwitch extends BaseNormalSwitch {
     public static int type;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ef
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ff
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

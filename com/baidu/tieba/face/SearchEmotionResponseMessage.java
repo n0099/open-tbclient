@@ -2,8 +2,8 @@ package com.baidu.tieba.face;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.f47;
 import com.baidu.tieba.face.data.EmotionImageData;
-import com.baidu.tieba.w17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w17 mData;
+    public f47 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchEmotionResponseMessage(int i) {
@@ -73,7 +73,7 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                this.mData = new w17();
+                this.mData = new f47();
                 JSONObject optJSONObject = jSONObject.optJSONObject("page");
                 if (optJSONObject != null) {
                     this.mData.f(optJSONObject.optInt("current_pn"));
@@ -84,12 +84,12 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public w17 getData() {
+    public f47 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (w17) invokeV.objValue;
+        return (f47) invokeV.objValue;
     }
 }

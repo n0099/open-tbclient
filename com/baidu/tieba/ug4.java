@@ -1,93 +1,94 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.widget.ImageView;
+import com.baidu.mapapi.map.MapViewLayoutParams;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.so3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ug4 extends og4<oy2> {
+public class ug4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948210023, "Lcom/baidu/tieba/ug4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public static class a implements so3.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ny2 a;
+        public final /* synthetic */ fh4 b;
+        public final /* synthetic */ bh4 c;
+
+        public a(ny2 ny2Var, fh4 fh4Var, bh4 bh4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ny2Var, fh4Var, bh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948210023, "Lcom/baidu/tieba/ug4;");
-                return;
+            this.a = ny2Var;
+            this.b = fh4Var;
+            this.c = bh4Var;
+        }
+
+        @Override // com.baidu.tieba.so3.b
+        public void a(String str, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+                if (bitmap == null) {
+                    v82.o("map", " icon is null ");
+                }
+                if (bitmap != null) {
+                    int i = this.a.d.c;
+                    if (i == -1) {
+                        i = bitmap.getWidth();
+                    }
+                    int i2 = this.a.d.d;
+                    if (i2 == -1) {
+                        i2 = bitmap.getHeight();
+                    }
+                    MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+                    builder.layoutMode(MapViewLayoutParams.ELayoutMode.absoluteMode);
+                    builder.width(i);
+                    builder.height(i2);
+                    builder.align(1, 8);
+                    sy2 sy2Var = this.a.d;
+                    builder.point(new Point(sy2Var.a, sy2Var.b));
+                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                    imageView.setImageBitmap(bitmap);
+                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    this.b.l.addView(imageView, builder.build());
+                    imageView.setOnClickListener(this.c);
+                    imageView.setClickable(this.a.c);
+                    dh4 dh4Var = new dh4();
+                    dh4Var.a = this.a;
+                    dh4Var.b = imageView;
+                    this.b.o.add(dh4Var);
+                }
             }
         }
-        boolean z = ms1.a;
     }
 
-    public ug4() {
+    public static void a(fh4 fh4Var, ny2 ny2Var, bh4 bh4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLL(65536, null, fh4Var, ny2Var, bh4Var) == null) {
+            v82.i("map", "createControl start");
+            if (ny2Var != null && ny2Var.isValid()) {
+                so3.e(ny2Var.b, new a(ny2Var, fh4Var, bh4Var));
             }
+            v82.i("map", "createControl end");
         }
-    }
-
-    public static ug4 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new ug4();
-        }
-        return (ug4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.og4
-    public boolean b(Context context, oy2 oy2Var, ly2 ly2Var, cc3 cc3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, oy2Var, ly2Var, cc3Var, jSONObject)) == null) {
-            return e(context, oy2Var, ly2Var, cc3Var, jSONObject);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, oy2 oy2Var, ly2 ly2Var, cc3 cc3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, oy2Var, ly2Var, cc3Var, jSONObject)) == null) {
-            c92.i("map", "GetScaleAction start");
-            ky1 A = px2.T().A(oy2Var.c);
-            if (!(A instanceof iy1)) {
-                c92.c("map", "WebViewManager is null");
-                return false;
-            }
-            mh4 d = lg4.b().c((iy1) A).d(oy2Var.b);
-            if (d == null) {
-                c92.c("map", "can not find map by id " + oy2Var.b);
-                return false;
-            }
-            try {
-                jSONObject.put("scale", d.l.getMap().getMapStatus().zoom);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            c92.i("map", "GetScaleAction end");
-            return true;
-        }
-        return invokeLLLLL.booleanValue;
     }
 }

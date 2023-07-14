@@ -1,60 +1,32 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.webkit.WebView;
+import androidx.collection.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.browser.exception.JsInterfaceException;
+import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
-public class gl6 {
+/* loaded from: classes6.dex */
+public class gl6 extends hl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, ol6> a;
-    public final Map<String, ol6> b;
+    public final WebView a;
+    public final Map<String, AbsJsInterface> b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final gl6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-772058886, "Lcom/baidu/tieba/gl6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-772058886, "Lcom/baidu/tieba/gl6$b;");
-                    return;
-                }
-            }
-            a = new gl6(null);
-        }
-    }
-
-    public gl6() {
+    public gl6(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -64,131 +36,92 @@ public class gl6 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
-        this.b = new ConcurrentHashMap();
-    }
-
-    public static gl6 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (gl6) invokeV.objValue;
-    }
-
-    public /* synthetic */ gl6(a aVar) {
-        this();
-    }
-
-    public ol6 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.b.get(str);
-        }
-        return (ol6) invokeL.objValue;
-    }
-
-    public ol6 g(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
-            if (uri != null && !TextUtils.isEmpty(uri.getPath())) {
-                return this.a.get(uri.getPath());
-            }
-            return null;
-        }
-        return (ol6) invokeL.objValue;
+        this.a = webView;
+        this.b = new ArrayMap();
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b.remove(str);
-        }
-    }
-
-    public void j(Map<String, ol6> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map) == null) {
-            this.a.clear();
-            if (!tm6.b(map)) {
-                this.a.putAll(map);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            vn6.c("newHybrid", "remove k:" + str);
+            AbsJsInterface absJsInterface = this.b.get(str);
+            if (absJsInterface != null) {
+                absJsInterface.deAttachWebView();
             }
+            this.a.removeJavascriptInterface(str);
         }
     }
 
-    public void a(String str, ol6 ol6Var) {
+    public static gl6 g(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, ol6Var) == null) {
-            this.b.put(str, ol6Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, webView)) == null) {
+            return new gl6(webView);
         }
+        return (gl6) invokeL.objValue;
     }
 
-    public void k(String str, Map<String, ol6> map) {
+    @Override // com.baidu.tieba.fl6
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, map) == null) {
-            i(str);
-            this.a.putAll(map);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (String str : this.b.keySet()) {
+                h(str);
+            }
+            this.b.clear();
         }
     }
 
+    @Override // com.baidu.tieba.fl6
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !tm6.b(this.a)) {
-            for (String str : this.a.keySet()) {
-                ol6 ol6Var = this.a.get(str);
-                if (ol6Var != null) {
-                    ew8 hybridLog = HybridLog.getInstance();
-                    hybridLog.c("Offline", "设置所有离线包可用：" + str);
-                    ol6Var.g = true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Map<String, Class<? extends AbsJsInterface>> b = ln6.a().b();
+            if (!b.isEmpty()) {
+                try {
+                    e(b);
+                } catch (JsInterfaceException e) {
+                    if (!ym6.a()) {
+                        ((wn6) ServiceManager.getService(wn6.a)).a(e);
+                        return;
+                    }
+                    throw e;
                 }
             }
         }
     }
 
-    public void c(String str) {
+    public final void e(Map<String, Class<? extends AbsJsInterface>> map) throws JsInterfaceException {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        ew8 hybridLog = HybridLog.getInstance();
-        hybridLog.c("Offline", "设置单个离线包可用：" + str);
-        for (String str2 : this.a.keySet()) {
-            ol6 ol6Var = this.a.get(str2);
-            if (ol6Var != null && str.equals(ol6Var.c)) {
-                ol6Var.g = true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            if (d()) {
+                for (Map.Entry<String, Class<? extends AbsJsInterface>> entry : map.entrySet()) {
+                    Class<? extends AbsJsInterface> value = entry.getValue();
+                    if (c(value)) {
+                        try {
+                            f(entry.getKey(), value);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        throw new JsInterfaceException("This object has not offer method javascript to call ,please check addJavascriptInterface annotation was be added");
+                    }
+                }
+                return;
             }
+            throw new JsInterfaceException("The injected object is not safe, give up injection");
         }
     }
 
-    public void d(String str) {
+    @SuppressLint({"JavascriptInterface"})
+    public final void f(String str, Class<? extends AbsJsInterface> cls) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        ew8 hybridLog = HybridLog.getInstance();
-        hybridLog.c("Offline", "设置单个离线包禁用：" + str);
-        for (String str2 : this.a.keySet()) {
-            ol6 ol6Var = this.a.get(str2);
-            if (ol6Var != null && str.equals(ol6Var.c)) {
-                ol6Var.g = false;
-            }
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Iterator<String> it = this.a.keySet().iterator();
-        while (it.hasNext()) {
-            ol6 ol6Var = this.a.get(it.next());
-            if (ol6Var != null && str.equals(ol6Var.c)) {
-                it.remove();
-            }
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cls) == null) {
+            vn6.c("newHybrid", "inject k:" + str + "  v:" + cls);
+            AbsJsInterface newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+            newInstance.attachWebView(this.a);
+            this.b.put(str, newInstance);
+            this.a.addJavascriptInterface(newInstance, str);
         }
     }
 }

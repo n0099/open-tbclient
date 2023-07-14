@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class e2c {
     public static /* synthetic */ Interceptable $ic;
-    public static final e2c a;
+    public static final AtomicReference<e2c> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final x1c a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +29,33 @@ public final class e2c {
                 return;
             }
         }
-        a = new e2c();
+        b = new AtomicReference<>();
+    }
+
+    public static e2c a() {
+        e2c e2cVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            do {
+                e2c e2cVar2 = b.get();
+                if (e2cVar2 != null) {
+                    return e2cVar2;
+                }
+                e2cVar = new e2c();
+            } while (!b.compareAndSet(null, e2cVar));
+            return e2cVar;
+        }
+        return (e2c) invokeV.objValue;
+    }
+
+    public static x1c b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a().a;
+        }
+        return (x1c) invokeV.objValue;
     }
 
     public e2c() {
@@ -44,29 +68,14 @@ public final class e2c {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @TargetApi(17)
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context != null && (context instanceof Activity)) {
-                Activity activity = (Activity) context;
-                if (activity.isFinishing()) {
-                    RLog.warn("ViewUtils", "activity is finishing");
-                    return false;
-                } else if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-            RLog.warn("ViewUtils", "mContext is null or not activity");
-            return false;
+        x1c b2 = c2c.a().b().b();
+        if (b2 != null) {
+            this.a = b2;
+        } else {
+            this.a = new f2c(Looper.getMainLooper());
         }
-        return invokeL.booleanValue;
     }
 }

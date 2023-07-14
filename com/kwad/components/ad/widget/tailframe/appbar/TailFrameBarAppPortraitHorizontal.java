@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TailFrameBarAppPortraitHorizontal extends a {
     public TailFrameBarAppPortraitHorizontal(Context context) {
         this(context, null);
@@ -37,6 +37,6 @@ public class TailFrameBarAppPortraitHorizontal extends a {
 
     @Override // com.kwad.components.ad.widget.tailframe.appbar.a
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d04e4;
+        return R.layout.obfuscated_res_0x7f0d04ef;
     }
 }

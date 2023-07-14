@@ -1,12 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import java.io.IOException;
+import android.content.Context;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface x5a {
-    void a(a6a a6aVar);
+public class x5a {
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static Context b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    VideoFinishResult b(String str, int i) throws IOException;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948252741, "Lcom/baidu/tieba/x5a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948252741, "Lcom/baidu/tieba/x5a;");
+                return;
+            }
+        }
+        a = AppConfig.isDebug();
+        b = AppRuntime.getAppContext();
+    }
 
-    void cancel();
+    public static Context a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
+        }
+        return (Context) invokeV.objValue;
+    }
 }

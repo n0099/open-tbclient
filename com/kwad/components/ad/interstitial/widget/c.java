@@ -28,7 +28,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c extends b {
     public com.kwad.components.core.widget.kwai.b aM;
     public final com.kwad.sdk.core.h.b bX;
@@ -117,7 +117,7 @@ public final class c extends b {
                 this.is = i;
             }
         };
-        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d049d, this);
+        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04a8, this);
         this.mContext = context;
         initView();
     }
@@ -229,10 +229,10 @@ public final class c extends b {
     }
 
     private void initView() {
-        this.f8if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0912e7);
-        this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0912e8);
-        this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0912d1);
-        this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913b6);
+        this.f8if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0912fb);
+        this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0912fc);
+        this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0912e5);
+        this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913ca);
         this.aM = new com.kwad.components.core.widget.kwai.b(this.mRootView, 100);
     }
 
@@ -253,8 +253,8 @@ public final class c extends b {
                 c.this.f8if.a(i, eVar);
             }
         });
-        this.ig.a(new a.InterfaceC0609a() { // from class: com.kwad.components.ad.interstitial.widget.c.4
-            @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0609a
+        this.ig.a(new a.InterfaceC0614a() { // from class: com.kwad.components.ad.interstitial.widget.c.4
+            @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0614a
             public final void dL() {
                 if (c.this.io) {
                     return;

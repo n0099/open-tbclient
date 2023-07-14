@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
-import com.baidu.tieba.ng8;
+import com.baidu.tieba.nl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -717,7 +717,7 @@ public final class AbilityItem implements Serializable {
                     return false;
                 }
                 try {
-                    e = ng8.e(this.toUk);
+                    e = nl8.e(this.toUk);
                 } catch (Exception e2) {
                     BdLog.e(e2);
                 }

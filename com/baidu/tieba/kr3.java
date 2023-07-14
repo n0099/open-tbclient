@@ -1,66 +1,19 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.gb3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kr3 implements gb3.c {
+public class kr3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ kr3 b;
-
-        public a(kr3 kr3Var, ViewGroup viewGroup) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kr3Var, viewGroup};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = kr3Var;
-            this.a = viewGroup;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.a == null) {
-                    this.b.a = new FrameLayout(this.a.getContext());
-                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f060449);
-                }
-                this.a.removeView(this.b.a);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                layoutParams.gravity = 17;
-                this.a.addView(this.b.a, layoutParams);
-            }
-        }
-    }
+    public int a;
+    public int b;
+    public int c;
 
     public kr3() {
         Interceptable interceptable = $ic;
@@ -75,53 +28,68 @@ public class kr3 implements gb3.c {
                 return;
             }
         }
-        this.a = null;
+        this.a = 0;
     }
 
-    public final void e(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
-            viewGroup.removeView(frameLayout);
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 
-    public final void f(gb3 gb3Var) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gb3Var) == null) {
-            Context context = gb3Var.getContext();
-            if (gb3Var.getContext() instanceof ContextWrapper) {
-                context = ((ContextWrapper) gb3Var.getContext()).getBaseContext();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if ((this.a & 1) == 1) {
+                return true;
             }
-            if (context instanceof Activity) {
-                lo3.b((Activity) context, gb3Var);
-            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @NonNull
+    public kr3 a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            this.a = i | this.a;
+            return this;
+        }
+        return (kr3) invokeI.objValue;
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a = (~i) & this.a;
         }
     }
 
-    public final void d(ViewGroup viewGroup, View view2) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) != null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b = i;
         }
-        view2.post(new a(this, viewGroup));
     }
 
-    @Override // com.baidu.tieba.gb3.c
-    public void a(gb3 gb3Var, gb3.b bVar) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, gb3Var, bVar) != null) || gb3Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
-        }
-        f(gb3Var);
-        ViewGroup viewGroup = (ViewGroup) gb3Var.findViewById(16908290);
-        if (viewGroup != null) {
-            if (jv2.M().a()) {
-                d(viewGroup, bVar.r);
-            } else {
-                e(viewGroup);
-            }
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c = i;
         }
     }
 }

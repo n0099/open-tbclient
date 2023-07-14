@@ -1,23 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface is6 {
-    public static final ServiceReference a = new ServiceReference("tieba.core", "eventbus");
+public class is6 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile hs6 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        public static final ServiceReference a = new ServiceReference("tieba.core", "eventbus.autorelease");
-
-        void a(@NonNull BdUniqueId bdUniqueId);
+    public static synchronized hs6 a() {
+        InterceptResult invokeV;
+        hs6 hs6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (is6.class) {
+                if (a == null) {
+                    a = new hs6();
+                }
+                hs6Var = a;
+            }
+            return hs6Var;
+        }
+        return (hs6) invokeV.objValue;
     }
-
-    <T extends hs6> void a(@NonNull Object obj, @NonNull js6<T> js6Var);
-
-    <T extends hs6> void b(@Nullable T t);
-
-    void unregister(@NonNull Object obj);
 }

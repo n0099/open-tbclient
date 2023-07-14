@@ -1,94 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.uz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Hottopic.RelateForum;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public class m68 extends wo6 {
+public final class m68 implements uz4.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<xn> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947924730, "Lcom/baidu/tieba/m68;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.uz4.c
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSearchGlobalHistory" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a extends wy5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947924730, "Lcom/baidu/tieba/m68;");
-                return;
-            }
+            this.a = str;
         }
-        b = BdUniqueId.gen();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.wy5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                xda.o(this.a);
+                return Boolean.TRUE;
+            }
+            return (Boolean) invokeV.objValue;
+        }
     }
 
     public m68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = null;
     }
 
-    public int getCount() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.uz4.c
+    public void a(String data) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<xn> list = this.a;
-            if (list != null && list.size() != 0) {
-                return this.a.size();
+        if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            h29 defaultLog = DefaultLog.getInstance();
+            defaultLog.c("BaseActivity", "收到H5通知，记录搜索历史：" + data);
+            try {
+                str = new JSONObject(data).optString("value", data);
+                Intrinsics.checkNotNullExpressionValue(str, "json.optString(\"value\", data)");
+            } catch (Exception e) {
+                h29 defaultLog2 = DefaultLog.getInstance();
+                defaultLog2.c("BaseActivity", "记录搜索历史失败：" + e);
+                str = "";
             }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void parserProtobuf(List<RelateForum> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && list.size() != 0) {
-            this.showTopDivider = true;
-            this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.recommend_relative_forum);
-            this.a = new ArrayList();
-            for (RelateForum relateForum : list) {
-                if (!StringUtils.isNull(relateForum.forum_name)) {
-                    RelateForumItemData relateForumItemData = new RelateForumItemData();
-                    relateForumItemData.parserProtobuf(relateForum);
-                    this.a.add(relateForumItemData);
-                }
+            if (!TextUtils.isEmpty(str)) {
+                az5.b(new a(str), null);
             }
         }
     }

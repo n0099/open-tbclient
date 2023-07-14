@@ -23,7 +23,7 @@ import kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptor
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.types.checker.NewKotlinTypeChecker;
 import kotlin.reflect.jvm.internal.impl.types.checker.NewKotlinTypeCheckerImpl;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DeserializationComponents {
     public final AdditionalClassPartsProvider additionalClassPartsProvider;
     public final AnnotationAndConstantLoader<AnnotationDescriptor, ConstantValue<?>> annotationAndConstantLoader;

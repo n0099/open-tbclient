@@ -1,208 +1,161 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.player.helper.NetUtils;
+import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
+import com.baidu.tieba.dp0;
+import com.baidu.tieba.gv0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import kotlin.Pair;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+@JvmName(name = "VideoClarity")
 /* loaded from: classes5.dex */
-public class b31 {
+public final class b31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean f(Object obj) {
-        InterceptResult invokeL;
+    public static final Pair<Integer, Integer> a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? obj == null : invokeL.booleanValue;
-    }
-
-    public static void n(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, exc) == null) {
-        }
-    }
-
-    public static <T> void a(List<T> list, T t, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, list, t, i) != null) || f(list) || !e(list, i)) {
-            return;
-        }
-        try {
-            list.add(i, t);
-        } catch (Exception e) {
-            n(e);
-        }
-    }
-
-    public static <T> boolean b(List<T> list, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, t)) == null) {
-            if (f(list)) {
-                return false;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65536, null, i, i2, i3)) == null) {
+            if (i <= 0) {
+                return new Pair<>(0, Integer.valueOf(i2));
             }
-            try {
-                return list.add(t);
-            } catch (Exception e) {
-                n(e);
-                return false;
+            if (i >= i3) {
+                return new Pair<>(Integer.valueOf(i3 - 1), Integer.valueOf(i2));
             }
+            return new Pair<>(Integer.valueOf(i), Integer.valueOf(i2));
         }
-        return invokeLL.booleanValue;
+        return (Pair) invokeIII.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.Collection<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void c(Collection<T> collection, Collection<T> collection2) {
+    public static final Pair<Integer, Integer> b(int i, Pair<Integer, Integer> pair, int i2, int i3, double d, ClarityUrlList clarityUrlList, int i4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, collection, collection2) == null) && collection2 != 0 && collection != null) {
-            collection.addAll(collection2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pair, Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d), clarityUrlList, Integer.valueOf(i4)})) == null) {
+            if (i < 0) {
+                return c(pair, i2, i3, d);
+            }
+            return e(clarityUrlList.size(), i, i4, i2);
         }
+        return (Pair) invokeCommon.objValue;
     }
 
-    @Nullable
-    public static <T> T d(List<T> list, int i) {
-        InterceptResult invokeLI;
+    public static final Pair<Integer, Integer> c(Pair<Integer, Integer> defaultClarity, int i, int i2, double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
-            if (g(list) || !e(list, i)) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{defaultClarity, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
+            Intrinsics.checkNotNullParameter(defaultClarity, "defaultClarity");
+            if (!NetUtils.c()) {
+                return a(defaultClarity.getFirst().intValue(), 2, i);
             }
-            try {
-                return list.get(i);
-            } catch (Exception e) {
-                n(e);
-                return null;
-            }
+            return d(i2, i, d, defaultClarity.getSecond().intValue());
         }
-        return (T) invokeLI.objValue;
+        return (Pair) invokeCommon.objValue;
     }
 
-    public static <T> boolean e(List<T> list, int i) {
-        InterceptResult invokeLI;
+    public static final Pair<Integer, Integer> d(int i, int i2, double d, int i3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i)) == null) {
-            if (f(list) || i < 0) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Integer.valueOf(i3)})) == null) {
+            if (!hv0.g()) {
+                return a(i3, 4, i2);
             }
-            try {
-                if (i >= list.size()) {
-                    return false;
+            dp0 a = dp0.a.a();
+            Intrinsics.checkNotNullExpressionValue(a, "IPlayerSpeedScoreManager.Impl.getInstance()");
+            float staticDeviceScore = a.getStaticDeviceScore();
+            boolean z = false;
+            if (staticDeviceScore > 0 && staticDeviceScore < 0.3d) {
+                z = true;
+            }
+            if (z) {
+                return a(i, 3, i2);
+            }
+            if (d > 5.6f) {
+                return a(i, 6, i2);
+            }
+            return a(i3, 4, i2);
+        }
+        return (Pair) invokeCommon.objValue;
+    }
+
+    public static final c11 g(ClarityUrlList list, int i, double d, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{list, Integer.valueOf(i), Double.valueOf(d), Boolean.valueOf(z)})) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            Pair<Integer, Integer> a = hv0.a(list);
+            int size = list.size();
+            Pair<Integer, Integer> h = h(z, list, b(i, a, size, size - 1, d, list, 0));
+            c11 c11Var = new c11();
+            c11Var.a = h.getFirst().intValue();
+            c11Var.b = h.getSecond().intValue();
+            return c11Var;
+        }
+        return (c11) invokeCommon.objValue;
+    }
+
+    public static final Pair<Integer, Integer> e(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3, i4)) == null) {
+            if (i <= i2) {
+                return a(i3, 4, i4);
+            }
+            return a((i4 - i2) - 1, 1, i4);
+        }
+        return (Pair) invokeIIII.objValue;
+    }
+
+    public static final int f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i != -2) {
+                return i;
+            }
+            if (Intrinsics.areEqual(hv0.c(), gv0.a.a)) {
+                return c31.f();
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public static final Pair<Integer, Integer> h(boolean z, ClarityUrlList list, Pair<Integer, Integer> selectedClarity) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), list, selectedClarity})) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            Intrinsics.checkNotNullParameter(selectedClarity, "selectedClarity");
+            if (!z) {
+                ClarityUrlList.c cVar = list.get(selectedClarity.getFirst().intValue());
+                Intrinsics.checkNotNullExpressionValue(cVar, "list[result.first]");
+                String selectKey = cVar.c();
+                String d = hv0.d();
+                Intrinsics.checkNotNullExpressionValue(selectKey, "selectKey");
+                if (StringsKt__StringsKt.contains$default((CharSequence) d, (CharSequence) selectKey, false, 2, (Object) null)) {
+                    int i = 0;
+                    for (ClarityUrlList.c entity : list) {
+                        String d2 = hv0.d();
+                        Intrinsics.checkNotNullExpressionValue(entity, "entity");
+                        String c = entity.c();
+                        Intrinsics.checkNotNullExpressionValue(c, "entity.key");
+                        if (!StringsKt__StringsKt.contains$default((CharSequence) d2, (CharSequence) c, false, 2, (Object) null)) {
+                            return new Pair<>(Integer.valueOf(i), 0);
+                        }
+                        i++;
+                    }
+                    return selectedClarity;
                 }
-                return true;
-            } catch (Exception e) {
-                n(e);
-                return false;
+                return selectedClarity;
             }
+            return selectedClarity;
         }
-        return invokeLI.booleanValue;
-    }
-
-    @Nullable
-    public static <T> T i(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, list, i)) == null) {
-            if (g(list) || !e(list, i)) {
-                return null;
-            }
-            try {
-                return list.remove(i);
-            } catch (Exception e) {
-                n(e);
-                return null;
-            }
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> boolean j(List<T> list, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, t)) == null) {
-            if (g(list)) {
-                return false;
-            }
-            try {
-                return list.remove(t);
-            } catch (Exception e) {
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> boolean k(List<T> list, Collection<?> collection) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, list, collection)) == null) {
-            if (f(list)) {
-                return false;
-            }
-            try {
-                return list.removeAll(collection);
-            } catch (Exception e) {
-                Log.e("CollectionUtils", "throw exception when List removeAll");
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> void m(List<T> list, Comparator<? super T> comparator) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65548, null, list, comparator) != null) || f(list)) {
-            return;
-        }
-        try {
-            Collections.sort(list, comparator);
-        } catch (Exception e) {
-            Log.e("CollectionUtils", "throw exception when List sort");
-            n(e);
-        }
-    }
-
-    public static <T> boolean g(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            if (!f(list) && !list.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <K, V> boolean h(Map<K, V> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
-            if (!f(map) && !map.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <T> int l(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
-            if (!f(list) && !list.isEmpty()) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
+        return (Pair) invokeCommon.objValue;
     }
 }

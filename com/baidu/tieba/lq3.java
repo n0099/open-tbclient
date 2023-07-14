@@ -1,103 +1,102 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
+import java.util.Queue;
 /* loaded from: classes6.dex */
-public class lq3 {
+public class lq3 implements kq3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Queue<jq3> a;
+    public jq3 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947951483, "Lcom/baidu/tieba/lq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947951483, "Lcom/baidu/tieba/lq3;");
+    public lq3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ms1.a;
+        this.a = new ArrayDeque();
     }
 
-    public static List<JSONObject> a(String str) {
-        InterceptResult invokeL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String schemesDes = SchemeCollecter.getSchemesDes(str, 0);
-            ArrayList arrayList = new ArrayList();
-            try {
-                JSONObject jSONObject = new JSONObject(schemesDes);
-                arrayList.add(jSONObject);
-                int i = jSONObject.getInt("totalSlices");
-                for (int i2 = 1; i2 < i; i2++) {
-                    arrayList.add(new JSONObject(SchemeCollecter.getSchemesDes(str, i2)));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                if (this.b != null) {
+                    return;
                 }
-                return arrayList;
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("SwanAppCompat", "getDescriptions", e);
-                    return null;
-                }
-                return null;
+                e();
             }
         }
-        return (List) invokeL.objValue;
     }
 
-    @Nullable
-    public static List<JSONObject> b(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    public synchronized void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            List<JSONObject> a2 = a(str);
-            if (a2 != null && !a2.isEmpty()) {
-                for (JSONObject jSONObject : a2) {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("descriptions");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                            if (optJSONObject != null) {
-                                Iterator<rw2> it = qw2.b().iterator();
-                                while (true) {
-                                    if (it.hasNext()) {
-                                        rw2 next = it.next();
-                                        String optString = optJSONObject.optString("name");
-                                        if (next.a(str, optString)) {
-                                            try {
-                                                optJSONArray.put(i, next.c(optString, optJSONObject));
-                                                break;
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.b != null) {
+                    this.b.a();
+                    this.b = null;
                 }
-                return a2;
+                this.a.clear();
             }
-            return null;
         }
-        return (List) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.kq3
+    public void a(jq3 jq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jq3Var) == null) {
+            synchronized (this.a) {
+                if (jq3Var == this.b) {
+                    e();
+                }
+            }
+        }
+    }
+
+    public void d(jq3 jq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jq3Var) == null) {
+            if (jq3Var != null) {
+                synchronized (this.a) {
+                    Queue<jq3> queue = this.a;
+                    jq3Var.b(this);
+                    queue.offer(jq3Var);
+                }
+            }
+            b();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this.a) {
+                this.b = null;
+                if (this.a.isEmpty()) {
+                    return;
+                }
+                jq3 poll = this.a.poll();
+                this.b = poll;
+                if (poll == null) {
+                    e();
+                } else {
+                    pp3.a0(poll);
+                }
+            }
+        }
     }
 }

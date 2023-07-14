@@ -1,109 +1,135 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
+import android.app.Activity;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.TextView;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.personPolymeric.PersonPolymericActivity;
-import com.baidu.tieba.personPolymeric.holder.PersonCommentHolder;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Pattern;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class il9 extends kn<PersonPostModel.PostInfoList, PersonCommentHolder> {
+public final class il9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public TbPageContext<PersonPolymericActivity> b;
-    public boolean c;
+    public final Activity a;
+    public View b;
+    public TBLottieAnimationView c;
+    public TextView d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public il9(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947857491, "Lcom/baidu/tieba/il9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947857491, "Lcom/baidu/tieba/il9;");
+        }
+    }
+
+    public il9(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
+        this.a = activity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public PersonCommentHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PersonCommentHolder(LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07cb, viewGroup, false), this.b, this.c);
-        }
-        return (PersonCommentHolder) invokeL.objValue;
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, PersonCommentHolder personCommentHolder) {
-        t(i, view2, viewGroup, postInfoList, personCommentHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, PersonCommentHolder personCommentHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, postInfoList, personCommentHolder})) == null) {
-            if (postInfoList != null && personCommentHolder != null) {
-                if (this.a == null) {
-                    this.a = postInfoList.user_portrait;
-                }
-                personCommentHolder.c(postInfoList, false, this.a);
-                personCommentHolder.a.setContent(postInfoList.content);
-                if (Pattern.compile("^回复：").matcher(postInfoList.title).find()) {
-                    personCommentHolder.b.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
-                } else {
-                    personCommentHolder.b.setText(postInfoList.title);
-                }
-                personCommentHolder.b.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
-                if (postInfoList.thread_type == 33) {
-                    personCommentHolder.b.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
-                } else {
-                    personCommentHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                }
-                SkinManager.setBackgroundResource(personCommentHolder.b, R.drawable.person_post_line);
-                SkinManager.setViewTextColor(personCommentHolder.b, R.color.common_color_10039, 1);
-                int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
-                personCommentHolder.b.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-                personCommentHolder.a(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.c;
+            if (tBLottieAnimationView != null) {
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_full_screen_refresh);
             }
-            return view2;
+            TextView textView = this.d;
+            if (textView != null) {
+                d85.d(textView).x(R.color.CAM_X0108);
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.c;
+            if (tBLottieAnimationView != null && tBLottieAnimationView.isAnimating()) {
+                tBLottieAnimationView.cancelAnimation();
+            }
+            View view2 = this.b;
+            if (view2 != null) {
+                view2.setVisibility(8);
+            }
+            DefaultLog.getInstance().c("PbFragmentLoadingManager", "隐藏最上层loading");
+        }
+    }
+
+    public final Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public final void c(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.c;
+            if (tBLottieAnimationView != null) {
+                Intrinsics.checkNotNull(tBLottieAnimationView);
+                if (tBLottieAnimationView.isAnimating()) {
+                    return;
+                }
+            }
+            if (view2 != null) {
+                this.b = view2;
+                if (view2 != null) {
+                    view2.setVisibility(0);
+                }
+                TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0927dc);
+                this.c = tBLottieAnimationView2;
+                if (tBLottieAnimationView2 != null) {
+                    SkinManager.setLottieAnimation(tBLottieAnimationView2, R.raw.lottie_full_screen_refresh);
+                    TBLottieAnimationView tBLottieAnimationView3 = this.c;
+                    if (tBLottieAnimationView3 != null) {
+                        tBLottieAnimationView3.setRepeatCount(-1);
+                    }
+                    TBLottieAnimationView tBLottieAnimationView4 = this.c;
+                    if (tBLottieAnimationView4 != null) {
+                        tBLottieAnimationView4.setSpeed(1.2f);
+                    }
+                    TBLottieAnimationView tBLottieAnimationView5 = this.c;
+                    if (tBLottieAnimationView5 != null) {
+                        tBLottieAnimationView5.playAnimation();
+                    }
+                }
+                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927dd);
+            }
+            DefaultLog.getInstance().c("PbFragmentLoadingManager", "显示最上层loading");
+        }
     }
 }

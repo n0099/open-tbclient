@@ -26,18 +26,18 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.TbLiveCyberView;
-import com.baidu.tieba.bo9;
-import com.baidu.tieba.q75;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.b85;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.iu9;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class TbLiveContainer extends FrameLayout implements bo9 {
+public class TbLiveContainer extends FrameLayout implements iu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbLiveCyberView a;
@@ -50,14 +50,14 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
     public String h;
     public final CustomMessageListener i;
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -166,10 +166,10 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
         }
         this.d = false;
         this.i = new a(this, 2000994);
-        c();
+        d();
     }
 
-    public void b(ThreadData threadData) {
+    public void c(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
             this.b.setVisibility(8);
@@ -206,7 +206,7 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
         }
         this.d = false;
         this.i = new a(this, 2000994);
-        c();
+        d();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -230,13 +230,13 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
         }
         this.d = false;
         this.i = new a(this, 2000994);
-        c();
+        d();
     }
 
-    public void d(int i) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            s75 d = s75.d(this.c);
+            d85 d = d85.d(this.c);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0201);
         }
@@ -256,10 +256,10 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.c.getLayoutParams();
             int i = 0;
             if (alaInfoData.isVertialLive()) {
-                layoutParams.height = (((xi.l(getContext()) - ((UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.M_W_X005)) * 2)) * 9) / 16) - (xi.g(getContext(), R.dimen.M_H_X003) * 2);
+                layoutParams.height = (((yi.l(getContext()) - ((UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.M_W_X005)) * 2)) * 9) / 16) - (yi.g(getContext(), R.dimen.M_H_X003) * 2);
                 layoutParams.width = (this.b.getLayoutParams().height * 9) / 16;
-                layoutParams2.rightMargin = xi.g(getContext(), R.dimen.M_W_X004);
-                i = xi.g(getContext(), R.dimen.L_X02);
+                layoutParams2.rightMargin = yi.g(getContext(), R.dimen.M_W_X004);
+                i = yi.g(getContext(), R.dimen.L_X02);
             } else {
                 layoutParams.height = -1;
                 layoutParams.width = -1;
@@ -269,7 +269,7 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
         }
     }
 
-    public void c() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.view_live_container, (ViewGroup) null);
@@ -277,13 +277,13 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
             this.b = (RoundRelativeLayout) inflate.findViewById(R.id.frame_video);
             this.c = (ViewGroup) inflate.findViewById(R.id.stroke_background);
             addView(inflate, new ViewGroup.LayoutParams(-1, -1));
-            this.b.setRoundLayoutRadius(q75.B(R.string.J_X05));
+            this.b.setRoundLayoutRadius(b85.B(R.string.J_X05));
             this.b.setVisibility(8);
             this.a.setOuterListener(new b(this));
         }
     }
 
-    public void e() {
+    public void f() {
         ThreadData threadData;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (threadData = this.e) == null || threadData.getThreadAlaInfo() == null || this.f == 0) {
@@ -314,7 +314,7 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
         TiebaStatic.log(statisticItem);
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -338,7 +338,7 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -348,7 +348,7 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -358,7 +358,7 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -368,7 +368,7 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -379,12 +379,12 @@ public class TbLiveContainer extends FrameLayout implements bo9 {
         }
     }
 
-    @Override // com.baidu.tieba.bo9
+    @Override // com.baidu.tieba.iu9
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.a.n();
-            e();
+            f();
             this.f = 0L;
             this.b.setVisibility(8);
             MessageManager.getInstance().unRegisterListener(this.i);

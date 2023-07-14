@@ -1,30 +1,30 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.da5;
 import com.baidu.tieba.debugtool.annotation.Modify;
-import com.baidu.tieba.ef;
-import com.baidu.tieba.r95;
+import com.baidu.tieba.ff;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class KsPrivacySwitch extends ef {
+public class KsPrivacySwitch extends ff {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "splash_ad_ks_switch";
     public static final int TYPE_OFF = 0;
     public static final int TYPE_OPEN = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ef
+    @Override // com.baidu.tieba.ff
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ef
+    @Override // com.baidu.tieba.ff
     /* renamed from: getCrashKeys */
     public String[] mo129getCrashKeys() {
         InterceptResult invokeV;
@@ -35,7 +35,7 @@ public class KsPrivacySwitch extends ef {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ef
+    @Override // com.baidu.tieba.ff
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class KsPrivacySwitch extends ef {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ef
+    @Override // com.baidu.tieba.ff
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,14 +55,14 @@ public class KsPrivacySwitch extends ef {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ef
+    @Override // com.baidu.tieba.ff
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY_SWITCH : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ef
+    @Override // com.baidu.tieba.ff
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class KsPrivacySwitch extends ef {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (r95.p().q("pref_key_splash_ks_privacy_enable", 0) != 1) {
+            if (da5.p().q("pref_key_splash_ks_privacy_enable", 0) != 1) {
                 return false;
             }
             return true;

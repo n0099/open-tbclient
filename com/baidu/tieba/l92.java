@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,11 +21,12 @@ public abstract class l92 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public static volatile l92 b;
-    public static ii3 c;
+    public static bi3 c;
     public static Timer d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void f(String str);
+    public abstract void h(String str);
 
     /* loaded from: classes6.dex */
     public class a extends TimerTask {
@@ -55,10 +57,10 @@ public abstract class l92 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (l92.a) {
-                    Log.d("LocalDebugStatistic", "timer: send local debug ubc flow");
+                    Log.d("RemoteDebugStatistic", "timer: send remote debug ubc flow");
                 }
-                this.a.c();
-                this.a.h();
+                this.a.e();
+                this.a.n();
             }
         }
     }
@@ -91,13 +93,13 @@ public abstract class l92 {
         }
 
         @Override // com.baidu.tieba.l92
-        public void f(String str) {
+        public void h(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
                 return;
             }
             if (l92.a) {
-                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
+                Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
             }
             char c = 65535;
             int hashCode = str.hashCode();
@@ -115,28 +117,26 @@ public abstract class l92 {
             if (c != 0) {
                 if (c != 1) {
                     if (c != 2) {
-                        if (l92.c != null) {
-                            ji3.d(l92.c, str, d());
+                        bi3 bi3Var = l92.c;
+                        if (bi3Var != null) {
+                            ci3.d(bi3Var, str, f());
                             return;
                         }
                         return;
                     }
-                    if (l92.c != null) {
-                        ji3.d(l92.c, "downloadfail", d());
-                    }
-                    c();
-                    h();
+                    e();
+                    n();
                     return;
                 }
-                if (l92.c != null) {
-                    ji3.d(l92.c, "downloadsuccess", d());
+                bi3 bi3Var2 = l92.c;
+                if (bi3Var2 != null) {
+                    ci3.b(bi3Var2);
                 }
-                c();
-                h();
+                n();
                 return;
             }
-            i();
-            ji3.d(l92.c, str, d());
+            p(true);
+            ci3.d(l92.c, str, f());
         }
     }
 
@@ -168,39 +168,56 @@ public abstract class l92 {
         }
 
         @Override // com.baidu.tieba.l92
-        public void f(String str) {
+        public void h(String str) {
+            SwanAppActivity w;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && !n92.k().m()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && !m92.c()) {
                 if (l92.a) {
-                    Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
+                    Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
                 }
                 char c = 65535;
                 int hashCode = str.hashCode();
-                if (hashCode != 900970612) {
-                    if (hashCode == 1415552890 && str.equals("unzipstart")) {
-                        c = 0;
+                boolean z = true;
+                if (hashCode != 511060680) {
+                    if (hashCode == 900970612 && str.equals("pageready")) {
+                        c = 1;
                     }
-                } else if (str.equals("pageready")) {
-                    c = 1;
+                } else if (str.equals("loadmaster")) {
+                    c = 0;
                 }
                 if (c != 0) {
                     if (c != 1) {
-                        if (l92.c != null) {
-                            ji3.d(l92.c, str, d());
+                        bi3 bi3Var = l92.c;
+                        if (bi3Var != null) {
+                            ci3.d(bi3Var, str, f());
                             return;
                         }
                         return;
-                    } else if (l92.c != null) {
-                        ji3.d(l92.c, str, d());
-                        c();
-                        h();
-                        return;
-                    } else {
+                    }
+                    bi3 bi3Var2 = l92.c;
+                    if (bi3Var2 != null) {
+                        ci3.d(bi3Var2, str, f());
+                        e();
+                        n();
                         return;
                     }
+                    return;
                 }
-                i();
-                ji3.d(l92.c, str, d());
+                if (vb3.b0() != null && (w = vb3.b0().w()) != null && !w.isFinishing()) {
+                    z = false;
+                }
+                p(z);
+                if (z) {
+                    bi3 bi3Var3 = l92.c;
+                    ci3.d(bi3Var3, str + "-destroy", f());
+                    boolean unused = l92.e = false;
+                } else if (l92.e) {
+                    bi3 bi3Var4 = l92.c;
+                    ci3.d(bi3Var4, str + "-preload", f());
+                    boolean unused2 = l92.e = false;
+                } else {
+                    ci3.d(l92.c, str, f());
+                }
             }
         }
     }
@@ -218,7 +235,7 @@ public abstract class l92 {
                 return;
             }
         }
-        a = ms1.a;
+        a = fs1.a;
     }
 
     public l92() {
@@ -235,7 +252,43 @@ public abstract class l92 {
         }
     }
 
-    public void h() {
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            yi3 yi3Var = new yi3();
+            yi3Var.a = "swan";
+            yi3Var.b = "launch";
+            yi3Var.c = "remote-debug";
+            yi3Var.e = "appready";
+            oi3.onEvent(yi3Var);
+        }
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            yi3 yi3Var = new yi3();
+            yi3Var.a = "swan";
+            yi3Var.b = "launch";
+            yi3Var.c = "remote-debug";
+            yi3Var.e = "loadmaster";
+            oi3.onEvent(yi3Var);
+        }
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            yi3 yi3Var = new yi3();
+            yi3Var.a = "swan";
+            yi3Var.b = "launch";
+            yi3Var.c = "remote-debug";
+            yi3Var.e = "downloadstart";
+            oi3.onEvent(yi3Var);
+        }
+    }
+
+    public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Timer timer = d;
@@ -248,18 +301,25 @@ public abstract class l92 {
         }
     }
 
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            e = true;
+        }
+    }
+
     public /* synthetic */ l92(a aVar) {
         this();
     }
 
-    public static l92 e() {
+    public static l92 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             if (b == null) {
-                synchronized (px2.class) {
+                synchronized (ix2.class) {
                     if (b == null) {
-                        if (ll1.g()) {
+                        if (el1.g()) {
                             b = new b(null);
                         } else {
                             b = new c(null);
@@ -272,16 +332,16 @@ public abstract class l92 {
         return (l92) invokeV.objValue;
     }
 
-    public String d() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
-            } catch (JSONException e) {
+            } catch (JSONException e2) {
                 if (a) {
-                    Log.d("LocalDebugStatistic", "add event content fail", e);
+                    Log.d("RemoteDebugStatistic", "add event content fail", e2);
                 }
             }
             return jSONObject.toString();
@@ -289,28 +349,10 @@ public abstract class l92 {
         return (String) invokeV.objValue;
     }
 
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || c != null) {
-            return;
-        }
-        c = vi3.c("1153");
-        a aVar = new a(this);
-        Timer timer = new Timer();
-        d = timer;
-        try {
-            timer.schedule(aVar, 40000L);
-        } catch (Exception e) {
-            if (a) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void g(JSONArray jSONArray) {
+    public static void i(JSONArray jSONArray) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
+        if ((interceptable == null || interceptable.invokeL(65544, null, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
             JSONObject optJSONObject = jSONArray.optJSONObject(0);
             if (optJSONObject != null) {
                 str = optJSONObject.optString("actionId");
@@ -318,13 +360,61 @@ public abstract class l92 {
                 str = "";
             }
             if (!TextUtils.isEmpty(str) && b != null) {
-                b.f(str);
+                b.h(str);
             }
         }
     }
 
-    public void c() {
-        String appId;
+    public static void m(tw2 tw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, tw2Var) == null) {
+            yi3 yi3Var = new yi3();
+            yi3Var.j(tw2Var);
+            yi3Var.a = oi3.n(tw2Var.G());
+            yi3Var.b = "launch";
+            yi3Var.c = "remote-debug";
+            yi3Var.e = "downloadsuccess";
+            oi3.onEvent(yi3Var);
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || c != null) {
+            return;
+        }
+        bi3 c2 = oi3.c("1153");
+        c = c2;
+        if (!z) {
+            ci3.d(c2, "downloadstart", f());
+            ci3.d(c, "downloadsuccess", f());
+        }
+        Timer timer = new Timer();
+        d = timer;
+        timer.schedule(new a(this), 40000L);
+    }
+
+    public static void j(tw2 tw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, tw2Var) == null) {
+            tw2Var.s0().putString("aiapp_extra_need_download", "1");
+            tw2Var.s0().putString("aiapp_extra_pkg_downloading", "0");
+            tw2Var.s0().putLong("launch_flag_for_statistic", System.currentTimeMillis());
+            yi3 yi3Var = new yi3();
+            yi3Var.a = oi3.n(tw2Var.G());
+            yi3Var.j(tw2Var);
+            yi3Var.b = "launch";
+            yi3Var.o = "1";
+            yi3Var.c = "remote-debug";
+            JSONObject k = oi3.k(tw2Var.W());
+            yi3Var.d(tw2Var.s0().getString("ubc"));
+            yi3Var.b(k);
+            oi3.onEvent(yi3Var);
+        }
+    }
+
+    public void e() {
+        String O;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || c == null) {
             return;
@@ -332,23 +422,23 @@ public abstract class l92 {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            cc3 b0 = cc3.b0();
+            vb3 b0 = vb3.b0();
             if (b0 == null) {
-                appId = "";
+                O = "";
             } else {
-                appId = b0.getAppId();
+                O = b0.O();
             }
-            jSONObject2.putOpt("appid", appId);
-            jSONObject2.putOpt("from", "local-debug");
-            ui3.a(jSONObject2);
+            jSONObject2.putOpt("appid", O);
+            jSONObject2.putOpt("from", "remote-debug");
+            ni3.a(jSONObject2);
             jSONObject.putOpt("from", "swan");
             jSONObject.putOpt("ext", jSONObject2);
         } catch (JSONException unused) {
             if (a) {
-                Log.d("LocalDebugStatistic", "page ready statistic value is invalid ");
+                Log.d("RemoteDebugStatistic", "page ready statistic value is invalid ");
             }
         }
-        ji3.f(c, jSONObject.toString());
-        ji3.c(c);
+        ci3.f(c, jSONObject.toString());
+        ci3.c(c);
     }
 }

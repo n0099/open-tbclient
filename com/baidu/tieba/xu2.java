@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tieba.av2;
-import com.baidu.tieba.ix2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.channels.Pipe;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public class xu2 extends av2.f {
+public class xu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final int a;
+    public static final int b;
+    public static final ThreadPoolExecutor c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
-    public final uj4 e;
 
     static {
         InterceptResult invokeClinit;
@@ -33,73 +29,19 @@ public class xu2 extends av2.f {
                 return;
             }
         }
-        f = ms1.a;
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        a = availableProcessors;
+        b = (availableProcessors * 2) + 1;
+        int i = b;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 10000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        c = threadPoolExecutor;
+        threadPoolExecutor.allowCoreThreadTimeOut(true);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xu2(String str, uj4 uj4Var) {
-        super("check_sign");
+    public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, uj4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
+            c.execute(runnable);
         }
-        this.d = str;
-        this.e = uj4Var;
-    }
-
-    @Override // com.baidu.tieba.av2.f
-    public boolean g(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        InterceptResult invokeLL;
-        vn3 vn3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sourceChannel, bundle)) == null) {
-            hx2 d = hx2.d(bundle.getString("launch_id"));
-            ix2.b e = d.e();
-            e.b("SignChecker");
-            boolean z = true;
-            e.d(1);
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                try {
-                    vn3Var = uf2.a(sourceChannel, this.d, this.e);
-                } catch (IOException e2) {
-                    if (f) {
-                        e2.printStackTrace();
-                    }
-                    vn3 vn3Var2 = new vn3();
-                    vn3Var2.k(11L);
-                    vn3Var2.i(2300L);
-                    vn3Var2.f("inputStream IOException:" + e2.toString());
-                    zn3.a().f(vn3Var2);
-                    d.g("SignChecker", vn3Var2.toString());
-                    pq3.a(sourceChannel);
-                    vn3Var = vn3Var2;
-                }
-                d.g("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
-                if (vn3Var != null) {
-                    z = false;
-                }
-                if (vn3Var != null) {
-                    d.g("SignChecker", vn3Var.toString());
-                    c().putLong("result_error_code", vn3Var.a());
-                }
-                d.g("SignChecker", "done: " + z);
-                return z;
-            } finally {
-                pq3.a(sourceChannel);
-            }
-        }
-        return invokeLL.booleanValue;
     }
 }

@@ -108,7 +108,7 @@ public final class ItemClickJumpUtil {
             HashMap hashMap = new HashMap(1);
             hashMap.put("itemID", itemId);
             hashMap.put("source", Integer.valueOf(i));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "GameItemDetailsPage", hashMap)));
+            UrlSchemaJumpHelper.checkFlutterInitJump(new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "GameItemDetailsPage", hashMap));
         }
     }
 }

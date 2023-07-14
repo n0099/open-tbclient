@@ -1,52 +1,78 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gy6 implements uq5 {
+public final class gy6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final gy6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
 
-    public gy6(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public interface a extends z41 {
+        Cursor b(String str, String... strArr);
+
+        /* synthetic */ long insert(g51 g51Var);
+
+        /* synthetic */ boolean query(g51 g51Var, x41... x41VarArr);
+
+        @Override // com.baidu.tieba.z41
+        /* synthetic */ int update(g51 g51Var, x41... x41VarArr);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947810309, "Lcom/baidu/tieba/gy6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947810309, "Lcom/baidu/tieba/gy6;");
                 return;
             }
         }
-        this.a = str;
-        this.b = i;
+        a = new gy6();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public gy6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return invokeV.intValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public final x41 a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            return new x41(i, "", "", i2, 0);
         }
-        return (String) invokeV.objValue;
+        return (x41) invokeII.objValue;
+    }
+
+    public final LongColumn b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new LongColumn(a(3, i));
+        }
+        return (LongColumn) invokeI.objValue;
     }
 }

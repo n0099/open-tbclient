@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +11,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qy2 extends oy2 {
+public class qy2 implements u13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public ArrayList<String> B;
-    public String z;
+    public ArrayList<oy2> a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
     public qy2() {
         Interceptable interceptable = $ic;
@@ -32,17 +33,19 @@ public class qy2 extends oy2 {
                 return;
             }
         }
-        this.z = "";
-        this.A = "";
+        this.b = 1;
+        this.c = -16777216;
+        this.d = 0;
+        this.e = 0;
     }
 
-    @Override // com.baidu.tieba.s72, com.baidu.tieba.b23
+    @Override // com.baidu.tieba.u13
     public boolean isValid() {
         InterceptResult invokeV;
-        vy2 vy2Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && (vy2Var = this.j) != null && vy2Var.isValid()) {
+            ArrayList<oy2> arrayList = this.a;
+            if (arrayList != null && !arrayList.isEmpty()) {
                 return true;
             }
             return false;
@@ -50,32 +53,38 @@ public class qy2 extends oy2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.oy2, com.baidu.tieba.s72, com.baidu.tieba.b23
+    @Override // com.baidu.tieba.u13
     public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
+        int length;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("points")) {
             return;
         }
-        super.a(jSONObject);
-        if (jSONObject.has("scale")) {
-            this.k = jSONObject.optDouble("scale", 18.0d);
+        JSONArray optJSONArray = jSONObject.optJSONArray("points");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
         }
-        if (jSONObject.has("name")) {
-            this.z = jSONObject.optString("name");
-        }
-        if (jSONObject.has("address")) {
-            this.A = jSONObject.optString("address");
-        }
-        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
-            int length = optJSONArray.length();
-            this.B = new ArrayList<>();
+        if (length > 0) {
+            this.a = new ArrayList<>(length);
             for (int i = 0; i < length; i++) {
-                this.B.add(optJSONArray.optString(i));
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    oy2 oy2Var = new oy2();
+                    oy2Var.a(optJSONObject);
+                    if (oy2Var.isValid()) {
+                        this.a.add(oy2Var);
+                    }
+                }
             }
         }
-        if (jSONObject.has("naviPreference")) {
-            jSONObject.optInt("naviPreference", -1);
+        ArrayList<oy2> arrayList = this.a;
+        if (arrayList != null && arrayList.size() > 0) {
+            this.b = (int) Math.abs(iy2.b(jSONObject.optInt("strokeWidth", 1)));
+            this.c = iy2.a(jSONObject.optString("strokeColor"), -16777216);
+            this.d = iy2.a(jSONObject.optString("fillColor"), 0);
+            this.e = jSONObject.optInt("zIndex", 0);
         }
     }
 }

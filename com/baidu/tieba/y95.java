@@ -1,60 +1,116 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class y95 extends ImageSpan {
-    public static /* synthetic */ Interceptable $ic;
+public class y95 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static x95 a = null;
+    public static int b = 0;
+    public static int c = 0;
+    public static int d = 0;
+    public static int e = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y95(Drawable drawable, int i) {
-        super(drawable, i);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948285012, "Lcom/baidu/tieba/y95;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948285012, "Lcom/baidu/tieba/y95;");
+        }
+    }
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            x95 x95Var = a;
+            if (x95Var == null) {
+                return -1;
             }
+            return x95Var.getCurrentTabType();
         }
-        this.a = 0;
-        this.b = 2;
+        return invokeV.intValue;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public static Class<?> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            super.draw(canvas, charSequence, i, i2, f + this.a, i3, i4, i5, paint);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            x95 x95Var = a;
+            if (x95Var == null) {
+                return null;
+            }
+            return x95Var.d();
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            x95 x95Var = a;
+            if (x95Var == null) {
+                return null;
+            }
+            return x95Var.f();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void d(Context context) {
+        x95 x95Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) != null) || (x95Var = a) == null) {
+            return;
+        }
+        x95Var.a(context);
+    }
+
+    public static void h(x95 x95Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, x95Var) == null) {
+            a = x95Var;
         }
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public static void e(Context context, int i) {
+        x95 x95Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.a + this.b;
+        if ((interceptable != null && interceptable.invokeLI(65541, null, context, i) != null) || (x95Var = a) == null) {
+            return;
         }
-        return invokeCommon.intValue;
+        x95Var.b(context, i);
+    }
+
+    public static void f(Context context, int i, boolean z) {
+        x95 x95Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (x95Var = a) == null) {
+            return;
+        }
+        x95Var.c(context, i, z);
+    }
+
+    public static void g(Context context, int i, boolean z) {
+        x95 x95Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (x95Var = a) == null) {
+            return;
+        }
+        x95Var.e(context, i, z);
     }
 }

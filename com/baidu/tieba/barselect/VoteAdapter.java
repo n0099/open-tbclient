@@ -4,10 +4,10 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.aj6;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
-import com.baidu.tieba.fi6;
-import com.baidu.tieba.wh6;
-import com.baidu.tieba.yh6;
+import com.baidu.tieba.cj6;
+import com.baidu.tieba.jj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,8 +19,8 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public yh6 b;
-    public List<wh6> c;
+    public cj6 b;
+    public List<aj6> c;
     public int d;
 
     public VoteAdapter(TbPageContext tbPageContext) {
@@ -47,28 +47,28 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<wh6> list = this.c;
+            List<aj6> list = this.c;
             if (list != null && list.size() > i && this.c.get(i).i() == 1 && i == 0) {
-                return fi6.c;
+                return jj6.c;
             }
             return 0;
         }
         return invokeI.intValue;
     }
 
-    public void m(int i) {
+    public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.d = i;
         }
     }
 
-    public void n(yh6 yh6Var) {
+    public void o(cj6 cj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, yh6Var) == null) {
-            this.b = yh6Var;
-            if (yh6Var != null) {
-                this.c = yh6Var.b();
+        if (interceptable == null || interceptable.invokeL(1048581, this, cj6Var) == null) {
+            this.b = cj6Var;
+            if (cj6Var != null) {
+                this.c = cj6Var.b();
             }
             this.d = -1;
             notifyDataSetChanged();
@@ -80,7 +80,7 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<wh6> list = this.c;
+            List<aj6> list = this.c;
             if (list != null) {
                 return list.size();
             }
@@ -89,7 +89,7 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return invokeV.intValue;
     }
 
-    public int k() {
+    public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -100,7 +100,7 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: l */
+    /* renamed from: m */
     public VoteViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) && (viewHolder instanceof VoteViewHolder)) {
-            ((VoteViewHolder) viewHolder).a(i, this.b);
+            ((VoteViewHolder) viewHolder).b(i, this.b);
         }
     }
 }

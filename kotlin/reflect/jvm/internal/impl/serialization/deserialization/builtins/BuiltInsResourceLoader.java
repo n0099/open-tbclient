@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.serialization.deserialization.builtins;
 
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BuiltInsResourceLoader {
     public final InputStream loadResource(String str) {
         InputStream resourceAsStream;

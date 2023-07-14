@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.nio.FloatBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Drawable2d {
     public static final FloatBuffer FULL_RECTANGLE_BUF;
     public static final float[] FULL_RECTANGLE_COORDS;
@@ -29,7 +29,7 @@ public class Drawable2d {
     public static final FloatBuffer FULL_RECTANGLE_TEX_BUF2 = GlUtil.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS);
     public static final FloatBuffer FULL_RECTANGLE_LINE_BUF = GlUtil.createFloatBuffer(FULL_RECTANGLE_LINE_COORDS);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum Prefab {
         TRIANGLE,
         RECTANGLE,
@@ -38,7 +38,7 @@ public class Drawable2d {
     }
 
     /* renamed from: com.baidu.ugc.editvideo.faceunity.gles.Drawable2d$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Drawable2d$Prefab;
 

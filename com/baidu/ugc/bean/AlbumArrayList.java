@@ -1,7 +1,7 @@
 package com.baidu.ugc.bean;
 
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AlbumArrayList<E> extends ArrayList<LocalAlbumInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.ugc.bean.LocalAlbumInfo */

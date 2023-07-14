@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.myGiftList;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.nu7;
+import com.baidu.tieba.dz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetMyGift.GetMyGiftResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GetPersonalGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nu7 giftListData;
+    public dz7 giftListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetPersonalGiftListHttpResponseMessage(int i) {
@@ -50,24 +50,24 @@ public class GetPersonalGiftListHttpResponseMessage extends TbHttpResponsedMessa
             setError(error.errorno.intValue());
             setErrorString(getMyGiftResIdl.error.usermsg);
         }
-        nu7 nu7Var = new nu7();
-        this.giftListData = nu7Var;
-        nu7Var.f(getMyGiftResIdl.data);
+        dz7 dz7Var = new dz7();
+        this.giftListData = dz7Var;
+        dz7Var.f(getMyGiftResIdl.data);
     }
 
-    public nu7 getGiftListData() {
+    public dz7 getGiftListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.giftListData;
         }
-        return (nu7) invokeV.objValue;
+        return (dz7) invokeV.objValue;
     }
 
-    public void setGiftListData(nu7 nu7Var) {
+    public void setGiftListData(dz7 dz7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nu7Var) == null) {
-            this.giftListData = nu7Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dz7Var) == null) {
+            this.giftListData = dz7Var;
         }
     }
 }

@@ -1,53 +1,96 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.NewHottopic.TimeLine;
-import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes7.dex */
 public class o48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<n48> b;
+    public List<yn> a;
+    @NonNull
+    public final q68 b;
 
-    public o48() {
+    public o48(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = new q68(tbPageContext);
+    }
+
+    public final boolean a(int i, @NonNull String str) {
+        InterceptResult invokeIL;
+        int a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            if (ListUtils.isEmpty(this.a) || (a = b78.a(i, this.a, str)) < 0) {
+                return false;
+            }
+            if (a < this.a.size() && (this.a.get(a) instanceof RecommendBarCardModel)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @NonNull
+    public q68 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (q68) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.k();
         }
     }
 
-    public void a(long j, TimeLine timeLine) {
-        Long l;
+    public void d(int i, @NonNull ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJL(1048576, this, j, timeLine) == null) && timeLine != null && !ListUtils.isEmpty(timeLine.timeline_info)) {
-            this.a = timeLine.title;
-            this.b = new ArrayList();
-            int i = 0;
-            for (TimeLineInfo timeLineInfo : timeLine.timeline_info) {
-                if (timeLineInfo != null && (((l = timeLineInfo.tid) != null && l.longValue() != 0) || !TextUtils.isEmpty(timeLineInfo.title) || !TextUtils.isEmpty(timeLineInfo.bg_color) || !TextUtils.isEmpty(timeLineInfo.show_time) || !TextUtils.isEmpty(timeLineInfo.small_title))) {
-                    n48 n48Var = new n48();
-                    n48Var.a = j;
-                    n48Var.f = i;
-                    n48Var.a(timeLineInfo);
-                    this.b.add(n48Var);
-                    i++;
-                }
-            }
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, threadData) == null) && !TextUtils.isEmpty(threadData.getTid()) && a(i, threadData.getTid())) {
+            this.b.n(threadData);
+        }
+    }
+
+    public void e(@Nullable String str, long j, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), str2}) == null) {
+            this.b.o(str, j, str2);
+        }
+    }
+
+    public void f(List<yn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.a = list;
         }
     }
 }

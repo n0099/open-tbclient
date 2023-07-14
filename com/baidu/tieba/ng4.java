@@ -1,27 +1,93 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ng4 {
+public class ng4 extends hg4<hy2> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile mg4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized mg4 a() {
-        InterceptResult invokeV;
-        mg4 mg4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ng4.class) {
-                if (a == null) {
-                    a = new mg4();
-                }
-                mg4Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948001486, "Lcom/baidu/tieba/ng4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return mg4Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948001486, "Lcom/baidu/tieba/ng4;");
+                return;
+            }
         }
-        return (mg4) invokeV.objValue;
+        boolean z = fs1.a;
+    }
+
+    public ng4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static ng4 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new ng4();
+        }
+        return (ng4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hg4
+    public boolean b(Context context, hy2 hy2Var, ey2 ey2Var, vb3 vb3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, hy2Var, ey2Var, vb3Var, jSONObject)) == null) {
+            return e(context, hy2Var, ey2Var, vb3Var, jSONObject);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final boolean e(Context context, hy2 hy2Var, ey2 ey2Var, vb3 vb3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hy2Var, ey2Var, vb3Var, jSONObject)) == null) {
+            v82.i("map", "GetScaleAction start");
+            dy1 A = ix2.T().A(hy2Var.c);
+            if (!(A instanceof by1)) {
+                v82.c("map", "WebViewManager is null");
+                return false;
+            }
+            fh4 d = eg4.b().c((by1) A).d(hy2Var.b);
+            if (d == null) {
+                v82.c("map", "can not find map by id " + hy2Var.b);
+                return false;
+            }
+            try {
+                jSONObject.put("scale", d.l.getMap().getMapStatus().zoom);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            v82.i("map", "GetScaleAction end");
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

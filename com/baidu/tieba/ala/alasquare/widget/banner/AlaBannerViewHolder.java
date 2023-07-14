@@ -11,11 +11,11 @@ public abstract class AlaBannerViewHolder<T> extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(int i, T t);
+    public abstract void b(int i, T t);
 
-    public abstract void b(View view2);
+    public abstract void c(View view2);
 
-    public abstract void c(int i);
+    public abstract void d(int i);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaBannerViewHolder(View view2) {
@@ -35,6 +35,6 @@ public abstract class AlaBannerViewHolder<T> extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        b(view2);
+        c(view2);
     }
 }

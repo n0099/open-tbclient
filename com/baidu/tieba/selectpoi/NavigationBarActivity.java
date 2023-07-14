@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h05;
+import com.baidu.tieba.q05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public RelativeLayout d;
     public RelativeLayout e;
 
-    public boolean x1() {
+    public boolean u1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -99,7 +99,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i);
             }
-            h05 layoutMode = getLayoutMode();
+            q05 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -119,7 +119,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
             this.a = (NavigationBar) findViewById(R.id.navigation_bar);
             this.d = (RelativeLayout) findViewById(R.id.navigation_bar_root);
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            if (x1()) {
+            if (u1()) {
                 this.b = (NoNetworkView) ((ViewStub) findViewById(R.id.no_network_viewstub)).inflate();
             }
         }
@@ -130,7 +130,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            if (x1()) {
+            if (u1()) {
                 layoutParams.addRule(3, R.id.no_network_view);
             } else {
                 layoutParams.addRule(3, R.id.no_network_viewstub);
@@ -147,7 +147,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            x1();
+            u1();
             RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
             this.e = relativeLayout;
             relativeLayout.addView(view2, new ViewGroup.LayoutParams(-1, -1));

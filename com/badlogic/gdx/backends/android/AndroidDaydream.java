@@ -422,7 +422,7 @@ public class AndroidDaydream extends DreamService implements z1 {
             boolean d = this.graphics.d();
             this.graphics.u(true);
             this.graphics.r();
-            this.input.d0();
+            this.input.c0();
             this.graphics.h();
             this.graphics.j();
             this.graphics.u(d);

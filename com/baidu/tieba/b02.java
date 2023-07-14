@@ -1,57 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.aj2;
-import com.baidu.tieba.bq3;
-import com.baidu.tieba.ca2;
-import com.baidu.tieba.cg2;
-import com.baidu.tieba.f32;
-import com.baidu.tieba.hl3;
-import com.baidu.tieba.if3;
-import com.baidu.tieba.km2;
-import com.baidu.tieba.mk2;
-import com.baidu.tieba.ph2;
-import com.baidu.tieba.vt1;
-import com.baidu.tieba.ww2;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b02 {
+public class b02 extends a02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static HashMap<Class, Object> a() {
+    @Override // com.baidu.tieba.yz1
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            HashMap<Class, Object> hashMap = new HashMap<>();
-            hashMap.put(if3.b.class, new if3.b());
-            hashMap.put(aj2.f.class, new aj2.f());
-            hashMap.put(aj2.g.class, new aj2.g());
-            hashMap.put(cg2.a.class, new cg2.a());
-            hashMap.put(ph2.a.class, new ph2.a());
-            hashMap.put(bq3.c.class, new bq3.c());
-            hashMap.put(hl3.b.class, new hl3.b());
-            hashMap.put(ww2.c.class, new ww2.c());
-            hashMap.put(p33.class, new p33());
-            hashMap.put(lz1.class, new lz1());
-            hashMap.put(mz1.class, new mz1());
-            hashMap.put(ok3.class, new ok3());
-            hashMap.put(nk3.class, new nk3());
-            hashMap.put(rk3.class, new rk3());
-            hashMap.put(gl2.class, new gl2());
-            hashMap.put(mk2.c.class, new mk2.c());
-            hashMap.put(z13.class, new z13());
-            hashMap.put(f32.b.class, new f32.b());
-            hashMap.put(vt1.a.class, new vt1.a());
-            hashMap.put(ma2.class, new ma2());
-            hashMap.put(km2.a.class, new km2.a());
-            hashMap.put(km2.b.class, new km2.b());
-            hashMap.put(c53.class, new c53());
-            hashMap.put(ca2.b.class, new ca2.b());
-            return hashMap;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "BaiduAccountApi" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b02(@NonNull wz1 wz1Var) {
+        super(wz1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wz1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((wz1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (HashMap) invokeV.objValue;
+    }
+
+    public static boolean y(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            boolean h = SwanAppAllianceLoginHelper.d.h();
+            if (!h) {
+                sv1 h0 = cv2.h0();
+                if (h0 instanceof vt1) {
+                    return ((vt1) h0).k(context);
+                }
+                return h;
+            }
+            return h;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public v32 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#isBaiduAccountSync", false);
+            if (vb3.b0() == null) {
+                return new v32(1001, "swan app is null");
+            }
+            boolean y = y(getContext());
+            JSONObject jSONObject = new JSONObject();
+            vo3.f(jSONObject, "isBaiduAccount", Boolean.valueOf(y));
+            return new v32(0, jSONObject);
+        }
+        return (v32) invokeV.objValue;
     }
 }

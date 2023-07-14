@@ -7,7 +7,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.FunctionDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.ValueParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
 import kotlin.reflect.jvm.internal.impl.util.Check;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class NoDefaultAndVarargsCheck implements Check {
     public static final NoDefaultAndVarargsCheck INSTANCE = new NoDefaultAndVarargsCheck();
     public static final String description = description;

@@ -1,138 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
-import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
-import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class qw6 extends lw6 implements NetModel.k {
+public final class qw6 extends yv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DownloadManagerNetModel b;
-    public rw6 c;
-    public sw6 d;
-    public ow6 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qw6(BaseFragment baseFragment, int i) {
-        super(baseFragment, i);
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public qw6(tv6 context) {
+        super(context, r3, null, 4, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, Integer.valueOf(i)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((BaseFragment) objArr2[0], ((Integer) objArr2[1]).intValue());
+                super((tv6) objArr2[0], (k0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new rw6(1, i);
-        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.c);
-        this.b = downloadManagerNetModel;
-        downloadManagerNetModel.w0(this);
-        this.b.setUniqueId(baseFragment.getUniqueId());
+        Intrinsics.checkNotNullParameter(context, "context");
+        k0 b = k0.i(dw6.class).b();
+        Intrinsics.checkNotNullExpressionValue(b, "one(ActionComponent::class.java).get()");
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void L(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+    @Override // com.baidu.tieba.yv6
+    public void l(h0 entity, float f) {
+        ov6 a;
+        dw6 a2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
-            return;
-        }
-        sw6 sw6Var = null;
-        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
-            sw6Var = (sw6) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
-        }
-        if (sw6Var != null && f(sw6Var)) {
-            return;
-        }
-        e(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void w(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048582, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
-            return;
-        }
-        sw6 sw6Var = null;
-        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
-            sw6Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
-        }
-        if (sw6Var != null && f(sw6Var)) {
-            return;
-        }
-        e(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
-    }
-
-    @Override // com.baidu.tieba.lw6
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.c();
-            this.b.loadData();
-        }
-    }
-
-    @Override // com.baidu.tieba.lw6
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.b();
-            this.b.loadData();
-        }
-    }
-
-    @Override // com.baidu.tieba.lw6
-    public void d(ow6 ow6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ow6Var) == null) {
-            this.e = ow6Var;
-        }
-    }
-
-    public final void e(int i, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && i != 0) {
-            this.e.b(i, str);
-        }
-    }
-
-    public final boolean f(sw6 sw6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sw6Var)) == null) {
-            if (sw6Var == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeLF(1048576, this, entity, f) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            aw6 b = yw6.b(entity);
+            if (b == null || (a = b.a()) == null || (a2 = yw6.a(entity)) == null) {
+                return;
             }
-            if (this.c.a() != 1) {
-                this.d.a(sw6Var);
-            } else {
-                this.d = sw6Var;
+            if (xw6.b(this) >= a.e().k()) {
+                a2.h(true);
+                a2.c(xw6.b(this) - a.e().k());
+                return;
             }
-            ow6 ow6Var = this.e;
-            sw6 sw6Var2 = this.d;
-            ow6Var.a(sw6Var2.a, sw6Var2.b, sw6Var2.c.intValue());
-            return true;
+            a2.h(false);
         }
-        return invokeL.booleanValue;
     }
 }

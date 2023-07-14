@@ -1,155 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.lqb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 /* loaded from: classes5.dex */
-public class fqb extends InputStream {
+public class fqb {
     public static /* synthetic */ Interceptable $ic;
+    public static lqb a;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int b;
-    public int c;
-    public final nqb d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public fqb(InputStream inputStream) throws IOException {
-        this(inputStream, 16384, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (byte[]) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774194, "Lcom/baidu/tieba/fqb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947774194, "Lcom/baidu/tieba/fqb;");
                 return;
             }
         }
+        a = new lqb();
     }
 
-    public fqb(InputStream inputStream, int i, byte[] bArr) throws IOException {
+    public static <TResult> TResult a(cqb<TResult> cqbVar) throws ExecutionException, InterruptedException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i), bArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cqbVar)) == null) {
+            lqb.c("await must not be called on the UI thread");
+            if (cqbVar.g()) {
+                return (TResult) lqb.b(cqbVar);
             }
+            lqb.b bVar = new lqb.b();
+            cqbVar.c(bVar);
+            cqbVar.b(bVar);
+            bVar.a.await();
+            return (TResult) lqb.b(cqbVar);
         }
-        nqb nqbVar = new nqb();
-        this.d = nqbVar;
-        if (i > 0) {
-            if (inputStream != null) {
-                this.a = new byte[i];
-                this.b = 0;
-                this.c = 0;
-                try {
-                    nqb.c(nqbVar, inputStream);
-                    if (bArr != null) {
-                        hqb.s(this.d, bArr);
-                        return;
-                    }
-                    return;
-                } catch (BrotliRuntimeException e) {
-                    throw new IOException("Brotli decoder initialization failed", e);
-                }
-            }
-            throw new IllegalArgumentException("source is null");
-        }
-        throw new IllegalArgumentException("Bad buffer size:" + i);
+        return (TResult) invokeL.objValue;
     }
 
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    public static <TResult> cqb<TResult> b(Callable<TResult> callable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nqb.a(this.d);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(eqb.a(), callable) : (cqb) invokeL.objValue;
     }
 
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
+    public static <TResult> cqb<TResult> call(Callable<TResult> callable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c >= this.b) {
-                byte[] bArr = this.a;
-                int read = read(bArr, 0, bArr.length);
-                this.b = read;
-                this.c = 0;
-                if (read == -1) {
-                    return -1;
-                }
-            }
-            byte[] bArr2 = this.a;
-            int i = this.c;
-            this.c = i + 1;
-            return bArr2[i] & 255;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-            if (i >= 0) {
-                if (i2 >= 0) {
-                    int i3 = i + i2;
-                    if (i3 <= bArr.length) {
-                        if (i2 == 0) {
-                            return 0;
-                        }
-                        int max = Math.max(this.b - this.c, 0);
-                        if (max != 0) {
-                            max = Math.min(max, i2);
-                            System.arraycopy(this.a, this.c, bArr, i, max);
-                            this.c += max;
-                            i += max;
-                            i2 -= max;
-                            if (i2 == 0) {
-                                return max;
-                            }
-                        }
-                        try {
-                            this.d.Z = bArr;
-                            this.d.U = i;
-                            this.d.V = i2;
-                            this.d.W = 0;
-                            hqb.i(this.d);
-                            if (this.d.W == 0) {
-                                return -1;
-                            }
-                            return this.d.W + max;
-                        } catch (BrotliRuntimeException e) {
-                            throw new IOException("Brotli stream decoding failed", e);
-                        }
-                    }
-                    throw new IllegalArgumentException("Buffer overflow: " + i3 + " > " + bArr.length);
-                }
-                throw new IllegalArgumentException("Bad length: " + i2);
-            }
-            throw new IllegalArgumentException("Bad offset: " + i);
-        }
-        return invokeLII.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(eqb.b(), callable) : (cqb) invokeL.objValue;
     }
 }

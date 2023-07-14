@@ -1,200 +1,163 @@
 package com.baidu.tieba;
 
-import android.graphics.Path;
-import androidx.exifinterface.media.ExifInterface;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import java.util.StringTokenizer;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import kotlin.text.StringsKt__StringsKt;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.win.opensdk.PBDrawVideo;
+import com.win.opensdk.PBDrawVideoListener;
+import com.win.opensdk.PBError;
 /* loaded from: classes5.dex */
-public final class ejb {
+public class ejb extends ReporterPidLoader<PBDrawVideo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public Path b;
+    public final FunNativeAdListenerHelper<PBDrawVideo, PBDrawVideoListener> e;
 
-    public ejb(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ejb(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
+        this.e = new FunNativeAdListenerHelper<>(this);
     }
 
-    public final void a(Path path) {
-        boolean z;
-        Set set;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, path) == null) {
-            Path path2 = this.b;
-            if (path2 != null) {
-                path.set(path2);
-                return;
-            }
-            Path path3 = new Path();
-            StringTokenizer stringTokenizer = new StringTokenizer(this.a, "MLHVCSQRAZmlhvcsqraz", true);
-            String str = "";
-            while (stringTokenizer.hasMoreTokens()) {
-                String segment = stringTokenizer.nextToken();
-                Intrinsics.checkExpressionValueIsNotNull(segment, "segment");
-                if (segment.length() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    set = fjb.a;
-                    if (set.contains(segment)) {
-                        if (Intrinsics.areEqual(segment, "Z") || Intrinsics.areEqual(segment, "z")) {
-                            b(path3, segment, new StringTokenizer("", ""));
-                        }
-                        str = segment;
-                    } else {
-                        b(path3, str, new StringTokenizer(segment, " "));
-                    }
-                }
-            }
-            this.b = path3;
-            path.set(path3);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            PBDrawVideo pBDrawVideo = new PBDrawVideo(context.getApplicationContext(), this.mPid.pid);
+            pBDrawVideo.setDrawVideoListener(new a(this, pBDrawVideo));
+            pBDrawVideo.load();
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0097  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x009b  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00ae  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00b8  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00d1  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00d5  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00e8  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00f0  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0103  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x010b  */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x011e  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0122  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void b(Path path, String str, StringTokenizer stringTokenizer) {
-        kjb kjbVar;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, path, str, stringTokenizer) == null) {
-            float f = 0.0f;
-            float f2 = 0.0f;
-            float f3 = 0.0f;
-            float f4 = 0.0f;
-            float f5 = 0.0f;
-            float f6 = 0.0f;
-            int i = 0;
-            while (stringTokenizer.hasMoreTokens()) {
-                try {
-                    String s = stringTokenizer.nextToken();
-                    Intrinsics.checkExpressionValueIsNotNull(s, "s");
-                    if (s.length() == 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (!z) {
-                        if (i == 0) {
-                            f = Float.parseFloat(s);
-                        }
-                        if (i == 1) {
-                            f2 = Float.parseFloat(s);
-                        }
-                        if (i == 2) {
-                            f3 = Float.parseFloat(s);
-                        }
-                        if (i == 3) {
-                            f4 = Float.parseFloat(s);
-                        }
-                        if (i == 4) {
-                            f5 = Float.parseFloat(s);
-                        }
-                        if (i == 5) {
-                            f6 = Float.parseFloat(s);
-                        }
-                        i++;
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            float f7 = f;
-            float f8 = f2;
-            float f9 = f3;
-            float f10 = f4;
-            kjb kjbVar2 = new kjb(0.0f, 0.0f, 0.0f);
-            if (Intrinsics.areEqual(str, "M")) {
-                path.moveTo(f7, f8);
-                kjbVar2 = new kjb(f7, f8, 0.0f);
-            } else if (Intrinsics.areEqual(str, "m")) {
-                path.rMoveTo(f7, f8);
-                kjbVar = new kjb(kjbVar2.a() + f7, kjbVar2.b() + f8, 0.0f);
-                if (!Intrinsics.areEqual(str, "L")) {
-                    path.lineTo(f7, f8);
-                } else if (Intrinsics.areEqual(str, "l")) {
-                    path.rLineTo(f7, f8);
-                }
-                if (!Intrinsics.areEqual(str, "C")) {
-                    path.cubicTo(f7, f8, f9, f10, f5, f6);
-                } else if (Intrinsics.areEqual(str, "c")) {
-                    path.rCubicTo(f7, f8, f9, f10, f5, f6);
-                }
-                if (!Intrinsics.areEqual(str, "Q")) {
-                    path.quadTo(f7, f8, f9, f10);
-                } else if (Intrinsics.areEqual(str, "q")) {
-                    path.rQuadTo(f7, f8, f9, f10);
-                }
-                if (!Intrinsics.areEqual(str, IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
-                    path.lineTo(f7, kjbVar.b());
-                } else if (Intrinsics.areEqual(str, "h")) {
-                    path.rLineTo(f7, 0.0f);
-                }
-                if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
-                    path.lineTo(kjbVar.a(), f7);
-                } else if (Intrinsics.areEqual(str, "v")) {
-                    path.rLineTo(0.0f, f7);
-                }
-                if (!Intrinsics.areEqual(str, "Z")) {
-                    path.close();
-                    return;
-                } else if (Intrinsics.areEqual(str, "z")) {
-                    path.close();
-                    return;
-                } else {
+    /* loaded from: classes5.dex */
+    public class a implements PBDrawVideoListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PBDrawVideo a;
+        public final /* synthetic */ ejb b;
+
+        public a(ejb ejbVar, PBDrawVideo pBDrawVideo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ejbVar, pBDrawVideo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            kjbVar = kjbVar2;
-            if (!Intrinsics.areEqual(str, "L")) {
-            }
-            if (!Intrinsics.areEqual(str, "C")) {
-            }
-            if (!Intrinsics.areEqual(str, "Q")) {
-            }
-            if (!Intrinsics.areEqual(str, IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
-            }
-            if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
-            }
-            if (!Intrinsics.areEqual(str, "Z")) {
+            this.b = ejbVar;
+            this.a = pBDrawVideo;
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
+                LogPrinter.e("onError code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
+                this.b.onError(pBError.getCode(), pBError.getMsg());
             }
         }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.b.onAdLoaded(this.a, new String[0]);
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.b.e.onAdClick(this.a);
+            }
+        }
+
+        @Override // com.win.opensdk.PBDrawVideoListener
+        public void onDisplayed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.b.e.onAdShow(this.a);
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        PBDrawVideo pBDrawVideo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBDrawVideo = (PBDrawVideo) obj) != null) {
+            this.e.destroy(pBDrawVideo);
+            pBDrawVideo.destroy();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, obj)) == null) {
+            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (PBDrawVideo) obj, new fjb(this, this));
+        }
+        return (FunNativeAd2) invokeLLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            PBDrawVideo pBDrawVideo = (PBDrawVideo) obj;
+            this.e.startShow(pBDrawVideo, str, this.mPid, null, null);
+            View drawVideoView = pBDrawVideo.getDrawVideoView();
+            if (drawVideoView.getParent() != null) {
+                ((ViewGroup) drawVideoView.getParent()).removeView(drawVideoView);
+            }
+            viewGroup.removeAllViews();
+            viewGroup.addView(drawVideoView);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

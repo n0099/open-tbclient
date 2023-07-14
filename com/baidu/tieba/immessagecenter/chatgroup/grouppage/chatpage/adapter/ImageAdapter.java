@@ -15,14 +15,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.hc8;
+import com.baidu.tieba.ic8;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg;
-import com.baidu.tieba.m78;
-import com.baidu.tieba.n78;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import java.util.List;
 public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m78 l;
+    public hc8 l;
     public String m;
 
     /* loaded from: classes6.dex */
@@ -64,7 +64,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void a(@Nullable View.OnClickListener onClickListener) {
+        public void b(@Nullable View.OnClickListener onClickListener) {
             ChatImageWithTailView chatImageWithTailView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) && (chatImageWithTailView = this.a) != null) {
@@ -73,7 +73,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void b(@Nullable View.OnLongClickListener onLongClickListener) {
+        public void c(@Nullable View.OnLongClickListener onLongClickListener) {
             ChatImageWithTailView chatImageWithTailView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onLongClickListener) == null) && (chatImageWithTailView = this.a) != null) {
@@ -122,7 +122,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 CommonMsgField commonMsgField = this.a.getCommonMsgField();
                 long roomId = commonMsgField.getRoomId();
                 long forumId = commonMsgField.getForumId();
-                this.b.l = new m78(this.b.mContext, this.b.m, forumId, null, roomId, false);
+                this.b.l = new hc8(this.b.mContext, this.b.m, forumId, null, roomId, false);
                 this.b.l.execute(new String[0]);
             }
         }
@@ -157,7 +157,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
             ChatImageWithTailView chatImageWithTailView = new ChatImageWithTailView(context);
             chatImageWithTailView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
             chatImageWithTailView.e(false);
-            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090e6c);
+            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090e7b);
             return chatImageWithTailView;
         }
         return (ChatImageWithTailView) invokeL.objValue;
@@ -201,7 +201,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 } else {
                     chatImageWithTailView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 }
-                baseImageMsg.setThumbSize(n78.d(chatImageWithTailView, thumbUrl, f0.second, R.drawable.icon_pic_im_image_default));
+                baseImageMsg.setThumbSize(ic8.d(chatImageWithTailView, thumbUrl, f0.second, R.drawable.icon_pic_im_image_default));
             }
         }
     }
@@ -215,8 +215,8 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
             }
             String[] split = str.split(",");
             if (split != null && split.length > 1) {
-                int d = (int) vg.d(split[0], 0.0f);
-                int d2 = (int) vg.d(split[1], 0.0f);
+                int d = (int) wg.d(split[0], 0.0f);
+                int d2 = (int) wg.d(split[1], 0.0f);
                 if (d > 0 && d2 > 0) {
                     return Pair.create(Boolean.FALSE, str);
                 }
@@ -234,7 +234,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), viewGroup, baseImageMsg, holder, list, Integer.valueOf(i2)}) == null) {
             viewGroup.setBackgroundColor(SkinManager.getColor(R.color.transparent));
-            holder.a(new a(this, baseImageMsg));
+            holder.b(new a(this, baseImageMsg));
             e0((ChatImageWithTailView) holder.getView(), baseImageMsg);
         }
     }

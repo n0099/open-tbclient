@@ -1,33 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.webview.view.NadBrowserStateView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class ab1 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$2;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$3;
+public class ab1 extends pa1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ta1 a;
 
-    static {
-        int[] iArr = new int[NadBrowserStateView.ViewState.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NadBrowserStateView.ViewState.LOADING.ordinal()] = 1;
-        $EnumSwitchMapping$0[NadBrowserStateView.ViewState.ERROR.ordinal()] = 2;
-        int[] iArr2 = new int[NadBrowserStateView.ViewState.values().length];
-        $EnumSwitchMapping$1 = iArr2;
-        iArr2[NadBrowserStateView.ViewState.LOADING.ordinal()] = 1;
-        $EnumSwitchMapping$1[NadBrowserStateView.ViewState.ERROR.ordinal()] = 2;
-        int[] iArr3 = new int[NadBrowserStateView.ViewState.values().length];
-        $EnumSwitchMapping$2 = iArr3;
-        iArr3[NadBrowserStateView.ViewState.LOADING.ordinal()] = 1;
-        $EnumSwitchMapping$2[NadBrowserStateView.ViewState.ERROR.ordinal()] = 2;
-        int[] iArr4 = new int[NadBrowserStateView.ViewState.values().length];
-        $EnumSwitchMapping$3 = iArr4;
-        iArr4[NadBrowserStateView.ViewState.LOADING.ordinal()] = 1;
-        $EnumSwitchMapping$3[NadBrowserStateView.ViewState.ERROR.ordinal()] = 2;
+    public ab1(@NonNull ta1 ta1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ta1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = ta1Var;
+    }
+
+    @Override // com.baidu.tieba.pa1
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.m();
+            if (this.a.l() != null && this.a.l().k() != null) {
+                String c = this.a.l().k().c();
+                if (!TextUtils.isEmpty(c)) {
+                    this.a.m().setUserAgentString(c);
+                }
+            }
+        }
     }
 }

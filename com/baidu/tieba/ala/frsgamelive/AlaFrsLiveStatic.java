@@ -20,11 +20,11 @@ import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
-import com.baidu.tieba.me6;
-import com.baidu.tieba.se7;
-import com.baidu.tieba.te6;
-import com.baidu.tieba.te7;
-import com.baidu.tieba.ue6;
+import com.baidu.tieba.qf6;
+import com.baidu.tieba.xf6;
+import com.baidu.tieba.yf6;
+import com.baidu.tieba.yi7;
+import com.baidu.tieba.zi7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,18 +70,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof te7)) {
+            if (!(data instanceof zi7)) {
                 return;
             }
-            te7 te7Var = (te7) data;
-            me6 me6Var = new me6(true);
-            me6Var.b().e = 2;
-            me6Var.h(te7Var.c());
-            me6Var.i(te7Var.d());
-            me6Var.g(te7Var.b());
-            me6Var.j(1);
-            me6Var.k(false);
-            te7Var.a(me6Var);
+            zi7 zi7Var = (zi7) data;
+            qf6 qf6Var = new qf6(true);
+            qf6Var.b().e = 2;
+            qf6Var.h(zi7Var.c());
+            qf6Var.i(zi7Var.d());
+            qf6Var.g(zi7Var.b());
+            qf6Var.j(1);
+            qf6Var.k(false);
+            zi7Var.a(qf6Var);
         }
     }
 
@@ -118,19 +118,19 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof se7)) {
+            if (!(data instanceof yi7)) {
                 return;
             }
-            se7 se7Var = (se7) data;
-            me6 me6Var = new me6(true);
-            me6Var.b().e = 9;
-            me6Var.h(se7Var.c());
-            me6Var.i(se7Var.d());
-            me6Var.g(se7Var.b());
-            me6Var.j(1);
-            me6Var.k(true);
-            if (se7Var.h(9)) {
-                se7Var.a(me6Var);
+            yi7 yi7Var = (yi7) data;
+            qf6 qf6Var = new qf6(true);
+            qf6Var.b().e = 9;
+            qf6Var.h(yi7Var.c());
+            qf6Var.i(yi7Var.d());
+            qf6Var.g(yi7Var.b());
+            qf6Var.j(1);
+            qf6Var.k(true);
+            if (yi7Var.h(9)) {
+                yi7Var.a(qf6Var);
             }
         }
     }
@@ -168,18 +168,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof te7)) {
+            if (!(data instanceof zi7)) {
                 return;
             }
-            te7 te7Var = (te7) data;
-            me6 me6Var = new me6(false);
-            me6Var.b().e = 1;
-            me6Var.h(te7Var.c());
-            me6Var.i(te7Var.d());
-            me6Var.g(te7Var.b());
-            me6Var.j(2);
-            me6Var.k(false);
-            te7Var.a(me6Var);
+            zi7 zi7Var = (zi7) data;
+            qf6 qf6Var = new qf6(false);
+            qf6Var.b().e = 1;
+            qf6Var.h(zi7Var.c());
+            qf6Var.i(zi7Var.d());
+            qf6Var.g(zi7Var.b());
+            qf6Var.j(2);
+            qf6Var.k(false);
+            zi7Var.a(qf6Var);
         }
     }
 
@@ -216,16 +216,16 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof te7)) {
+            if (!(data instanceof zi7)) {
                 return;
             }
-            te7 te7Var = (te7) data;
-            ue6 ue6Var = new ue6();
-            ue6Var.b().e = 3;
-            ue6Var.g(te7Var.c());
-            ue6Var.h(te7Var.d());
-            ue6Var.i(false);
-            te7Var.a(ue6Var);
+            zi7 zi7Var = (zi7) data;
+            yf6 yf6Var = new yf6();
+            yf6Var.b().e = 3;
+            yf6Var.g(zi7Var.c());
+            yf6Var.h(zi7Var.d());
+            yf6Var.i(false);
+            zi7Var.a(yf6Var);
         }
     }
 
@@ -262,18 +262,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof se7)) {
+            if (!(data instanceof yi7)) {
                 return;
             }
-            se7 se7Var = (se7) data;
-            ue6 ue6Var = new ue6();
-            ue6Var.b().e = 8;
-            ue6Var.b().b = R.string.obfuscated_res_0x7f0f027f;
-            ue6Var.g(se7Var.c());
-            ue6Var.h(se7Var.d());
-            ue6Var.i(true);
-            if (se7Var.h(8)) {
-                se7Var.a(ue6Var);
+            yi7 yi7Var = (yi7) data;
+            yf6 yf6Var = new yf6();
+            yf6Var.b().e = 8;
+            yf6Var.b().b = R.string.obfuscated_res_0x7f0f027f;
+            yf6Var.g(yi7Var.c());
+            yf6Var.h(yi7Var.d());
+            yf6Var.i(true);
+            if (yi7Var.h(8)) {
+                yi7Var.a(yf6Var);
             }
         }
     }
@@ -311,15 +311,15 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof se7)) {
+            if (!(data instanceof yi7)) {
                 return;
             }
-            se7 se7Var = (se7) data;
-            te6 te6Var = new te6();
-            te6Var.i(se7Var.c());
-            te6Var.j(se7Var.d());
-            te6Var.h(se7Var.b());
-            te6Var.g(se7Var);
+            yi7 yi7Var = (yi7) data;
+            xf6 xf6Var = new xf6();
+            xf6Var.i(yi7Var.c());
+            xf6Var.j(yi7Var.d());
+            xf6Var.h(yi7Var.b());
+            xf6Var.g(yi7Var);
         }
     }
 

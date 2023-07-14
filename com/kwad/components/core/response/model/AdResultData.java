@@ -20,7 +20,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AdResultData extends BaseResultData implements b {
     public static final String TAG = "AdResultData";
     public static final long serialVersionUID = -818939163644825380L;
@@ -71,7 +71,7 @@ public class AdResultData extends BaseResultData implements b {
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public AdResultData m169clone() {
+    public AdResultData m171clone() {
         AdResultData adResultData = new AdResultData();
         try {
             adResultData.parseJson(new JSONObject(toJson().toString()));

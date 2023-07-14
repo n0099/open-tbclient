@@ -1,71 +1,183 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class vn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> c;
+    public static volatile vn4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
+    public a a;
+    public volatile Set<String> b;
 
-    public vn4(int i, int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static class a extends fs4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_nohistoryapps");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948246541, "Lcom/baidu/tieba/vn4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948246541, "Lcom/baidu/tieba/vn4;");
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i5;
-        this.e = i4;
+        c = new HashSet();
+        d = null;
+        c.add("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
+        c.add("g4X7FfGEDt7G1ksLibU22o0wB2p49W0D");
+        c.add("VlKQRMSyT32ln2AG84dmTjW6qldpGsNk");
+        c.add("pjwYb22xF6hUcKpZKsiqvnhUhsoUvLfT");
     }
 
-    @NonNull
+    public String[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Set<String> set = c;
+            if (this.b != null) {
+                set = this.b;
+            }
+            String[] strArr = new String[set.size()];
+            int i = 0;
+            for (String str : set) {
+                strArr[i] = str;
+                i++;
+            }
+            return strArr;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            String string = this.a.getString("appids", "");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(string);
+                HashSet hashSet = new HashSet();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    hashSet.add(jSONArray.optString(i));
+                }
+                this.b = hashSet;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public vn4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.a = new a();
+        d();
+    }
+
     public static vn4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new vn4(24, 70, 1440, 720, 30);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (vn4.class) {
+                    if (d == null) {
+                        d = new vn4();
+                    }
+                }
+            }
+            return d;
         }
         return (vn4) invokeV.objValue;
     }
 
-    @NonNull
-    public static vn4 b(String str) {
-        InterceptResult invokeL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return a();
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                return new vn4(jSONObject.optInt("clean_check_hour", 24), jSONObject.optInt("hold_history_max_count", 70), jSONObject.optInt("history_force_clean_hour", 1440), jSONObject.optInt("force_clean_hour", 720), jSONObject.optInt("hold_max_count", 30));
-            } catch (JSONException unused) {
-                return a();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getString("version", "0");
         }
-        return (vn4) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appids")) == null) {
+            return;
+        }
+        f(optJSONArray, optString);
+    }
+
+    public final void f(JSONArray jSONArray, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, jSONArray, str) == null) && jSONArray != null && !TextUtils.isEmpty(str)) {
+            HashSet hashSet = new HashSet();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                hashSet.add(jSONArray.optString(i));
+            }
+            this.b = hashSet;
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.clear();
+            edit.putString("version", str);
+            edit.putString("appids", jSONArray.toString());
+            edit.apply();
+        }
     }
 }

@@ -14,7 +14,7 @@ import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
 import kotlin.reflect.jvm.internal.impl.metadata.deserialization.BinaryVersion;
 import kotlin.reflect.jvm.internal.impl.metadata.deserialization.NameResolver;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ProtoBasedClassDataFinder implements ClassDataFinder {
     public final Map<ClassId, ProtoBuf.Class> classIdToProto;
     public final Function1<ClassId, SourceElement> classSource;

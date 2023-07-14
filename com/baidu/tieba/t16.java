@@ -1,24 +1,27 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.graphics.BitmapRegionDecoder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Iterator;
-/* loaded from: classes7.dex */
-public class t16 implements s16 {
+import java.io.IOException;
+/* loaded from: classes8.dex */
+public class t16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashSet<LoadingLayout> a;
+    public final int[] a;
+    public Context b;
 
-    public t16() {
+    public t16(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,68 +31,31 @@ public class t16 implements s16 {
                 return;
             }
         }
-        this.a = new HashSet<>();
+        this.a = new int[2];
+        this.b = context;
     }
 
-    public void a(LoadingLayout loadingLayout) {
+    public BitmapRegionDecoder a(byte[] bArr) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, loadingLayout) == null) && loadingLayout != null) {
-            this.a.add(loadingLayout);
-        }
-    }
-
-    @Override // com.baidu.tieba.s16
-    public void setLastUpdatedLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setLastUpdatedLabel(charSequence);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr != null && bArr.length > 0) {
+                BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, false);
+                this.a[0] = newInstance.getWidth();
+                this.a[1] = newInstance.getHeight();
+                return newInstance;
             }
+            return null;
         }
+        return (BitmapRegionDecoder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.s16
-    public void setLoadingDrawable(Drawable drawable) {
+    public int[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setLoadingDrawable(drawable);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-    }
-
-    @Override // com.baidu.tieba.s16
-    public void setPullLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setPullLabel(charSequence);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s16
-    public void setRefreshingLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setRefreshingLabel(charSequence);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s16
-    public void setReleaseLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setReleaseLabel(charSequence);
-            }
-        }
+        return (int[]) invokeV.objValue;
     }
 }

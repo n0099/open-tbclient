@@ -1,27 +1,62 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class at3 {
+public class at3 implements bw1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zs3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized zs3 a() {
-        InterceptResult invokeV;
-        zs3 zs3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (at3.class) {
-                if (a == null) {
-                    a = new zs3();
-                }
-                zs3Var = a;
-            }
-            return zs3Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947626665, "Lcom/baidu/tieba/at3;")) == null) {
+            return;
         }
-        return (zs3) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947626665, "Lcom/baidu/tieba/at3;");
+        }
+    }
+
+    public at3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bw1
+    public void a(Context context, String str, String str2, ls1 ls1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, context, str, str2, ls1Var) != null) || ls1Var == null) {
+            return;
+        }
+        if (!(context instanceof Activity)) {
+            ls1Var.a(0);
+        } else {
+            wr3.e((Activity) context, ls1Var);
+        }
     }
 }

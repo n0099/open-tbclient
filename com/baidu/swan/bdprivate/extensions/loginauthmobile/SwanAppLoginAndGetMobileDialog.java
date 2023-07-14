@@ -24,7 +24,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jv2;
+import com.baidu.tieba.cv2;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
@@ -40,9 +40,9 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void B0(boolean z);
-
         void onLoginResult(int i);
+
+        void x0(boolean z);
     }
 
     public abstract void J1();
@@ -97,7 +97,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     public void I1() {
         b bVar = this.a;
         if (bVar != null) {
-            bVar.B0(this.g);
+            bVar.x0(this.g);
         }
         dismissAllowingStateLoss();
     }
@@ -117,7 +117,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     public void onDestroyView() {
         b bVar = this.a;
         if (bVar != null) {
-            bVar.B0(this.g);
+            bVar.x0(this.g);
         }
         super.onDestroyView();
     }
@@ -125,7 +125,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     @Override // androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        boolean a2 = jv2.M().a();
+        boolean a2 = cv2.M().a();
         if (a2 != this.c) {
             L1(a2);
         }
@@ -179,7 +179,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     public void onDismiss(DialogInterface dialogInterface) {
         b bVar = this.a;
         if (bVar != null) {
-            bVar.B0(this.g);
+            bVar.x0(this.g);
         }
         super.onDismiss(dialogInterface);
     }

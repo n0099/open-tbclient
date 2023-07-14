@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.iba;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,14 +17,14 @@ import tbclient.Error;
 import tbclient.GetBgList.DataRes;
 import tbclient.GetBgList.GetBgListResIdl;
 import tbclient.ThemeBgProp;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BackgroundListSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public List<DressItemData> mBackgroundList;
     public int mIsDefault;
-    public iba mRecommand;
+    public zja mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundListSocketResponseMessage() {
@@ -65,9 +65,9 @@ public class BackgroundListSocketResponseMessage extends SocketResponsedMessage 
             DataRes dataRes = getBgListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    iba ibaVar = new iba();
-                    this.mRecommand = ibaVar;
-                    ibaVar.d(getBgListResIdl.data.recommend);
+                    zja zjaVar = new zja();
+                    this.mRecommand = zjaVar;
+                    zjaVar.d(getBgListResIdl.data.recommend);
                 }
                 this.mIsDefault = getBgListResIdl.data.is_default.intValue();
                 if (getBgListResIdl.data.bgs != null) {
@@ -109,13 +109,13 @@ public class BackgroundListSocketResponseMessage extends SocketResponsedMessage 
         return invokeV.booleanValue;
     }
 
-    public iba getRecommand() {
+    public zja getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (iba) invokeV.objValue;
+        return (zja) invokeV.objValue;
     }
 
     public boolean hasMore() {

@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,16 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class c83 {
+public abstract class c83 implements a83<y73> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
-    public int b;
-    public String c;
-    public Bundle d;
+    public String a;
 
-    public abstract void b(@NonNull Bundle bundle);
+    @Override // com.baidu.tieba.a83
+    public abstract /* synthetic */ void onEvent(@NonNull T t);
 
     static {
         InterceptResult invokeClinit;
@@ -37,14 +33,7 @@ public abstract class c83 {
                 return;
             }
         }
-        e = ms1.a;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d(this.d);
-        }
+        b = fs1.a;
     }
 
     public c83() {
@@ -57,26 +46,26 @@ public abstract class c83 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new Bundle();
-        this.c = "";
-        this.d = new Bundle();
     }
 
-    public void d(@Nullable Bundle bundle) {
+    @Override // com.baidu.tieba.a83
+    @SuppressLint({"BDThrowableCheck"})
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            if (e) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                return this.a;
             }
-            if (!k83.a(this.c)) {
-                if (e) {
-                    Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.b + " observer: " + this.c);
-                }
-                d83.c(this.b, this.c, bundle);
+            String str = System.currentTimeMillis() + "" + hashCode();
+            this.a = str;
+            if (b && d83.a(str)) {
+                throw new RuntimeException("illegal observer id");
             }
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 }

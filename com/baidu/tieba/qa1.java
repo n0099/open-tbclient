@@ -1,41 +1,182 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.os.Handler;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.db1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class qa1 {
+public final class qa1 extends pa1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public Handler b;
+    public final ta1 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948085000, "Lcom/baidu/tieba/qa1;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public static final class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qa1 a;
+        public final /* synthetic */ db1.b b;
+
+        public a(qa1 qa1Var, db1.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qa1Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qa1Var;
+            this.b = bVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948085000, "Lcom/baidu/tieba/qa1;");
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.q(this.b.a());
         }
     }
 
-    @JvmStatic
-    public static final na1 a() {
+    public qa1(ta1 container) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {container};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(container, "container");
+        this.c = container;
+    }
+
+    public final void o(db1.b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) && !this.a && bVar != null && bVar.d()) {
+            if (this.b == null) {
+                this.b = new Handler();
+            }
+            Handler handler = this.b;
+            if (handler != null) {
+                handler.postDelayed(new a(this, bVar), (long) (bVar.b() * 1000));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pa1
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            na1 na1Var = na1.a;
-            Intrinsics.checkNotNullExpressionValue(na1Var, "INativeWebViewCreator.EMPTY");
-            return na1Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.b();
         }
-        return (na1) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pa1
+    public void c() {
+        db1.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            db1.d l = this.c.l();
+            if (l != null) {
+                bVar = l.d();
+            } else {
+                bVar = null;
+            }
+            o(bVar);
+            super.c();
+        }
+    }
+
+    @Override // com.baidu.tieba.pa1
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Handler handler = this.b;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+            }
+            this.b = null;
+            this.a = false;
+            super.d();
+        }
+    }
+
+    @Override // com.baidu.tieba.pa1
+    public void e(Intent intent) {
+        db1.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+            db1.d l = this.c.l();
+            if (l != null) {
+                bVar = l.d();
+            } else {
+                bVar = null;
+            }
+            o(bVar);
+            super.e(intent);
+        }
+    }
+
+    public final void p(db1.b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) && !this.a && bVar != null && bVar.e()) {
+            q(bVar.a());
+        }
+    }
+
+    public final void q(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        o41.b(str);
+        this.a = true;
+    }
+
+    @Override // com.baidu.tieba.pa1
+    public void g(AbsNadBrowserView webView, String str) {
+        db1.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            AbsNadBrowserView m = this.c.m();
+            if (m != null && !m.w() && !this.a) {
+                db1.d l = this.c.l();
+                if (l != null) {
+                    bVar = l.d();
+                } else {
+                    bVar = null;
+                }
+                p(bVar);
+            }
+            super.g(webView, str);
+        }
     }
 }

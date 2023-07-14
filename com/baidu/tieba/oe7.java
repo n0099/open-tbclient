@@ -1,23 +1,29 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class oe7 extends SparseArray<ze7> {
+public final class oe7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
+    public final c67.c a;
+    public final View b;
 
-    public oe7() {
+    public oe7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,65 +33,27 @@ public class oe7 extends SparseArray<ze7> {
                 return;
             }
         }
-        this.a = null;
+        Intrinsics.checkNotNullParameter(context, "context");
+        c67.c b = c67.a().b();
+        this.a = b;
+        View create = b.create(context);
+        Intrinsics.checkNotNullExpressionValue(create, "resolver.create(context)");
+        this.b = create;
     }
 
-    public void b() {
+    public final void a(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i = 0; i < size(); i++) {
-                ze7 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.R(null);
-                    valueAt.s();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.a.a(this.b, list);
         }
     }
 
-    public void d() {
+    public final View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (int i = 0; i < size(); i++) {
-                ze7 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-    }
-
-    public void a(int i, ze7 ze7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, ze7Var) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            put(i, ze7Var);
-        }
-    }
-
-    public ze7 c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            return get(i);
-        }
-        return (ze7) invokeI.objValue;
-    }
-
-    public void e(df7 df7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, df7Var) == null) {
-            for (int i = 0; i < size(); i++) {
-                ze7 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.R(df7Var);
-                }
-            }
-        }
+        return (View) invokeV.objValue;
     }
 }

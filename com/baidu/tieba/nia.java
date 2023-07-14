@@ -1,21 +1,122 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import android.app.Application;
+import android.content.Context;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface nia {
-    void K0(CloudMusicData.MusicTagList musicTagList);
+public class nia {
+    public static /* synthetic */ Interceptable $ic;
+    public static nia b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    void M(boolean z);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(Application application);
 
-    void O();
+        void b(Context context);
 
-    void b1(int i);
+        void c(Context context, WebView webView, WebChromeClient webChromeClient);
 
-    void h0(mia miaVar);
+        void d(Context context, String str, boolean z);
+    }
 
-    void n0(int i);
+    public nia() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = c();
+    }
 
-    void o(boolean z);
+    public static nia b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (nia.class) {
+                    if (b == null) {
+                        b = new nia();
+                    }
+                }
+            }
+            return b;
+        }
+        return (nia) invokeV.objValue;
+    }
 
-    void r0(int i);
+    public final a c() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (e() && (runTask = MessageManager.getInstance().runTask(2156671, a.class)) != null) {
+                return (a) runTask.getData();
+            }
+            return null;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (da5.p().q("pref_key_stat_sdk_enable", 1) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(Context context) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.b(context);
+        }
+    }
+
+    public void d(Application application) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.a(application);
+        }
+    }
+
+    public void f(Context context, String str, boolean z) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(1048580, this, context, str, z) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.d(context, str, z);
+        }
+    }
+
+    public void g(Context context, WebView webView, WebChromeClient webChromeClient) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, context, webView, webChromeClient) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.c(context, webView, webChromeClient);
+        }
+    }
 }

@@ -1,75 +1,105 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.lcs.LCSStatisticsResponseMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes8.dex */
-public class wm5 {
+public class wm5 extends FilterInputStream implements vm5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948275402, "Lcom/baidu/tieba/wm5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948275402, "Lcom/baidu/tieba/wm5;");
+    @Override // com.baidu.tieba.vm5
+    public InputStream a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (InputStream) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wm5(InputStream inputStream) {
+        super(inputStream);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((InputStream) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = false;
-        if (r95.p().q("key_lcs_log_switch", 0) == 1) {
-            z = true;
-        }
-        a = z;
-        if (z) {
-            a();
+        try {
+            inputStream.reset();
+        } catch (IOException unused) {
         }
     }
 
-    public static void a() {
+    @Override // com.baidu.tieba.vm5
+    public byte peek() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_LCS_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.LCS_STATISTICS_URL);
-            tbHttpMessageTask.setResponsedClass(LCSStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte read = (byte) read();
+            this.a++;
+            return read;
+        }
+        return invokeV.byteValue;
+    }
+
+    @Override // com.baidu.tieba.vm5
+    public int position() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream, com.baidu.tieba.vm5
+    public synchronized void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                super.reset();
+                this.a = 0;
+            }
         }
     }
 
-    public static void b(int i, int i2, int i3, int i4, int i5) {
+    @Override // java.io.FilterInputStream, java.io.InputStream, com.baidu.tieba.vm5
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            c(i, i2, i3, i4, i5, 0);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            int read = super.read(bArr, i, i2);
+            this.a += Math.max(0, read);
+            return read;
         }
+        return invokeLII.intValue;
     }
 
-    public static void c(int i, int i2, int i3, int i4, int i5, int i6) {
+    @Override // java.io.FilterInputStream, java.io.InputStream, com.baidu.tieba.vm5
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) != null) || !a) {
-            return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            long skip = super.skip(j);
+            this.a = (int) (this.a + skip);
+            return skip;
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
-        httpMessage.addParam("cmd", i);
-        httpMessage.addParam("lcs_status", i2);
-        httpMessage.addParam("online_status", i3);
-        httpMessage.addParam("status_change_name", i4);
-        httpMessage.addParam("status_change_trigger", i5);
-        httpMessage.addParam("lcs_vailable", i6);
-        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
+        return invokeJ.longValue;
     }
 }

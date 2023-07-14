@@ -1,84 +1,102 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class or1 {
+public class or1 implements pr1 {
     public static /* synthetic */ Interceptable $ic;
+    public static or1 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public pr1 a;
+    public boolean b;
 
-    public static void a(InputStream inputStream, OutputStream outputStream) {
+    public or1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, inputStream, outputStream) == null) {
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-            byte[] bArr = new byte[2048];
-            while (true) {
-                int read = inputStream.read(bArr, 0, 2048);
-                if (read != -1) {
-                    gZIPOutputStream.write(bArr, 0, read);
-                } else {
-                    gZIPOutputStream.flush();
-                    gZIPOutputStream.finish();
-                    gZIPOutputStream.close();
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = false;
     }
 
-    public static void c(InputStream inputStream, OutputStream outputStream) {
+    public static or1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, inputStream, outputStream) == null) {
-            GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
-            byte[] bArr = new byte[2048];
-            while (true) {
-                int read = gZIPInputStream.read(bArr, 0, 2048);
-                if (read != -1) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    gZIPInputStream.close();
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (or1.class) {
+                    if (c == null) {
+                        c = new or1();
+                    }
                 }
             }
+            return c;
         }
+        return (or1) invokeV.objValue;
     }
 
-    public static byte[] b(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.pr1
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            a(byteArrayInputStream, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.flush();
-            byteArrayOutputStream.close();
-            byteArrayInputStream.close();
-            return byteArray;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            pr1 pr1Var = this.a;
+            if (pr1Var == null) {
+                return null;
+            }
+            try {
+                return pr1Var.a();
+            } catch (Throwable unused) {
+                return null;
+            }
         }
-        return (byte[]) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.pr1
+    public void a(Context context, qr1 qr1Var) {
+        pr1 sr1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            c(byteArrayInputStream, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.flush();
-            byteArrayOutputStream.close();
-            byteArrayInputStream.close();
-            return byteArray;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, qr1Var) == null) {
+            try {
+                if (this.b) {
+                    return;
+                }
+                this.b = true;
+                int ordinal = com.baidu.sso.u.a.a(Build.MANUFACTURER).ordinal();
+                if (ordinal != 0) {
+                    if (ordinal == 1) {
+                        sr1Var = new sr1();
+                    } else if (ordinal == 2) {
+                        sr1Var = new as1();
+                    } else if (ordinal == 3) {
+                        sr1Var = new yr1();
+                    } else if (ordinal == 4) {
+                        sr1Var = new ur1();
+                    }
+                    this.a = sr1Var;
+                } else {
+                    this.a = null;
+                }
+                if (this.a != null) {
+                    this.a.a(context, qr1Var);
+                }
+            } catch (Throwable unused) {
+            }
         }
-        return (byte[]) invokeL.objValue;
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fi9;
-import com.baidu.tieba.xn;
+import com.baidu.tieba.lo9;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public ImageView b;
     public TextView c;
     public int d;
-    public xn e;
+    public yn e;
     public View.OnClickListener f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -47,34 +47,34 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
         this.d = 3;
         this.a = view2.findViewById(R.id.obfuscated_res_0x7f090139);
         this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090132);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092500);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092534);
     }
 
-    public void a(xn xnVar) {
+    public void b(yn ynVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, xnVar) != null) || !(xnVar instanceof fi9)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ynVar) != null) || !(ynVar instanceof lo9)) {
             return;
         }
-        this.e = xnVar;
-        fi9 fi9Var = (fi9) xnVar;
+        this.e = ynVar;
+        lo9 lo9Var = (lo9) ynVar;
         SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
-        if (fi9Var.a() > 0) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f099a), Integer.valueOf(fi9Var.a())));
+        if (lo9Var.a() > 0) {
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09a5), Integer.valueOf(lo9Var.a())));
         }
         getView().setOnClickListener(this.f);
-        c(TbadkCoreApplication.getInst().getSkinType());
+        d(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public xn b() {
+    public yn c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.e;
         }
-        return (xn) invokeV.objValue;
+        return (yn) invokeV.objValue;
     }
 
-    public void c(int i) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.d != i) {
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0110, 1);
@@ -83,7 +83,7 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void d(View.OnClickListener onClickListener) {
+    public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             this.f = onClickListener;

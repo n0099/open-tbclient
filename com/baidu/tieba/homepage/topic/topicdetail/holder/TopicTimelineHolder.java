@@ -34,7 +34,7 @@ public class TopicTimelineHolder<T extends View> extends RecyclerView.ViewHolder
         this.a = t;
     }
 
-    public T a() {
+    public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

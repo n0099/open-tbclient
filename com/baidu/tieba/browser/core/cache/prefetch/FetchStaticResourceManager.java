@@ -1,12 +1,13 @@
 package com.baidu.tieba.browser.core.cache.prefetch;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ol6;
-import com.baidu.tieba.pl6;
-import com.baidu.tieba.rm6;
+import com.baidu.tieba.am6;
+import com.baidu.tieba.sm6;
 import com.baidu.tieba.tm6;
-import com.baidu.tieba.wk6;
+import com.baidu.tieba.vn6;
+import com.baidu.tieba.xn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,8 +42,8 @@ public final class FetchStaticResourceManager extends BdAsyncTask<String, Intege
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            Map<String, ol6> e = pl6.c().e();
-            if (!tm6.b(e)) {
+            Map<String, sm6> e = tm6.c().e();
+            if (!xn6.b(e)) {
                 String[] strArr = new String[e.size()];
                 e.keySet().toArray(strArr);
                 d(strArr);
@@ -97,12 +98,12 @@ public final class FetchStaticResourceManager extends BdAsyncTask<String, Intege
                         }
                         this.this$0 = this;
                         put("BdLoadMode", "preFetch");
-                        put(ETAG.KEY_EXTENSION, "html");
+                        put(ETAG.KEY_EXTENSION, IMConstants.IM_RECEIVE_SERVER_COMMON_TYPE_HTML);
                     }
                 };
                 for (String str : strArr) {
-                    rm6.b("newHybrid", "预加载静态资源：" + str);
-                    wk6.g().b(str, str, hashMap);
+                    vn6.b("newHybrid", "预加载静态资源：" + str);
+                    am6.g().b(str, str, hashMap);
                 }
                 return Arrays.asList(strArr);
             }

@@ -426,9 +426,9 @@ public class PackageControl {
         return true;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0054 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0064 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0046 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0053 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0063 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0045 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v0, types: [com.baidu.searchbox.pms.db.PackageControl] */
     /* JADX WARN: Type inference failed for: r6v11 */
@@ -602,9 +602,9 @@ public class PackageControl {
         return queryItems(str, str2, str3, "", 10);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x005e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0072 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x004c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x005d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0071 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x004b */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r9v11, types: [java.lang.String] */
     public List<PackageInfo> queryItems(String str, String str2, String str3, String str4, int i) {
@@ -660,9 +660,9 @@ public class PackageControl {
         return list;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0038 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0037 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0011 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:6:0x0022 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:6:0x0021 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v0, types: [android.util.Pair, java.lang.Object] */
     /* JADX WARN: Type inference failed for: r0v10 */

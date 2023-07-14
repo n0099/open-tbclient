@@ -1,161 +1,89 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.provider.FontsContractCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class rn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<Class<?>, ArrayList<zn0>> a;
-    public final ConcurrentHashMap<Object, ArrayList<zn0>> b;
 
-    public rn0() {
+    public static String a(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
+        double d;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            y31.f(jSONObject, "downStatus", str);
+            try {
+                d = Double.parseDouble(str2) * 100.0d;
+            } catch (Exception unused) {
+                d = 0.0d;
             }
+            y31.e(jSONObject, "process", Math.round(d));
+            y31.f(jSONObject, "uri", str3);
+            y31.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
+            return jSONObject.toString();
         }
-        this.a = new ConcurrentHashMap<>();
-        this.b = new ConcurrentHashMap<>();
+        return (String) invokeLLLL.objValue;
     }
 
-    public final void a(@NonNull zn0 zn0Var) {
-        boolean z;
+    public static void b(@Nullable jk0 jk0Var, boolean z, @Nullable Map<String, String> map) {
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zn0Var) == null) {
-            synchronized (this) {
-                ArrayList<zn0> arrayList = this.a.get(zn0Var.b);
-                boolean z2 = true;
-                if (arrayList == null) {
-                    arrayList = new ArrayList<>();
-                    this.a.put(zn0Var.b, arrayList);
-                } else {
-                    Iterator<zn0> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        if (it.next().a == zn0Var.a) {
-                            z = true;
-                            break;
-                        }
-                    }
-                }
-                z = false;
-                if (!z) {
-                    arrayList.add(zn0Var);
-                }
-                ArrayList<zn0> arrayList2 = this.b.get(zn0Var.a);
-                if (arrayList2 == null) {
-                    arrayList2 = new ArrayList<>();
-                    this.b.put(zn0Var.a, arrayList2);
-                } else {
-                    Iterator<zn0> it2 = arrayList2.iterator();
-                    while (it2.hasNext()) {
-                        if (it2.next().d == zn0Var.d) {
-                            break;
-                        }
-                    }
-                }
-                z2 = false;
-                if (!z2) {
-                    arrayList2.add(zn0Var);
-                }
-            }
-        }
-    }
-
-    public <T extends un0> void b(@Nullable T t) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) != null) || t == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{jk0Var, Boolean.valueOf(z), map}) != null) || jk0Var == null) {
             return;
         }
-        synchronized (this) {
-            ArrayList<zn0> arrayList = this.a.get(t.getClass());
-            if (arrayList != null) {
-                Iterator<zn0> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    zn0 next = it.next();
-                    f(next, next.d, t);
-                }
+        if (map == null) {
+            map = new HashMap<>();
+        }
+        if (z) {
+            str = "0";
+        } else {
+            str = "202";
+        }
+        z31.e(map, "status", str);
+        if (z) {
+            str2 = "调用成功";
+        } else {
+            str2 = "";
+        }
+        z31.e(map, "message", str2);
+        jk0Var.a(z, map);
+    }
+
+    public static void c(@Nullable jk0 jk0Var, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLLL(65538, null, jk0Var, str, str2, str3, str4) != null) || jk0Var == null) {
+            return;
+        }
+        HashMap hashMap = new HashMap();
+        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, str);
+        JSONObject jSONObject = new JSONObject();
+        y31.f(jSONObject, "uri", str2);
+        y31.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
+        y31.f(jSONObject, "downStatus", str4);
+        hashMap.put("data", jSONObject.toString());
+        b(jk0Var, true, hashMap);
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
+            return y31.c(str).optString("bt_info");
         }
-    }
-
-    public <T extends un0> void c(@NonNull Object obj, int i, @NonNull xn0<T> xn0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, xn0Var) == null) {
-            a(new zn0(i, obj, xn0Var.a(), xn0Var));
-        }
-    }
-
-    public <T extends un0> void d(@NonNull Object obj, @NonNull xn0<T> xn0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, obj, xn0Var) == null) {
-            c(obj, 0, xn0Var);
-        }
-    }
-
-    public final void e(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            synchronized (this) {
-                ArrayList<zn0> arrayList = this.b.get(obj);
-                if (arrayList != null) {
-                    Iterator<zn0> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        zn0 next = it.next();
-                        ArrayList<zn0> arrayList2 = this.a.get(next.b);
-                        if (arrayList2 != null) {
-                            arrayList2.remove(next);
-                        }
-                    }
-                    arrayList.clear();
-                    this.b.remove(obj);
-                }
-            }
-        }
-    }
-
-    public final <T extends un0> void f(zn0 zn0Var, xn0<T> xn0Var, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, zn0Var, xn0Var, t) == null) {
-            int i = zn0Var.c;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            pn0.b().a(zn0Var, xn0Var, t);
-                            return;
-                        }
-                        return;
-                    }
-                    qn0.b().a(zn0Var, xn0Var, t);
-                    return;
-                }
-                yn0.b().a(zn0Var, xn0Var, t);
-                return;
-            }
-            xn0Var.onEvent(t);
-        }
-    }
-
-    public void g(@NonNull Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-            e(obj);
-        }
+        return (String) invokeL.objValue;
     }
 }

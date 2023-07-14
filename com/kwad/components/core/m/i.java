@@ -8,7 +8,7 @@ import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import java.lang.reflect.Field;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class i {
     public static void destroyActivity(Context context, Window window) {
         if (window == null) {

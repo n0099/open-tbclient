@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.g78;
-import com.baidu.tieba.ic8;
+import com.baidu.tieba.bc8;
+import com.baidu.tieba.eh8;
 /* loaded from: classes6.dex */
-public interface ISendVoiceView extends g78 {
+public interface ISendVoiceView extends bc8 {
     void setRecoding(boolean z);
 
-    void setTouchCallBack(ic8 ic8Var);
+    void setTouchCallBack(eh8 eh8Var);
 }

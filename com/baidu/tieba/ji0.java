@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,18 +11,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-import org.json.JSONObject;
 @Service
 /* loaded from: classes6.dex */
-public class ji0 extends yj0 {
+public class ji0 extends bk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yj0
+    @Override // com.baidu.tieba.bk0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "registerDeeplink" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "pcharge" : (String) invokeV.objValue;
     }
 
     public ji0() {
@@ -40,22 +38,13 @@ public class ji0 extends yj0 {
         }
     }
 
-    @Override // com.baidu.tieba.yj0
-    public boolean b(@NonNull Context context, @NonNull ck0 ck0Var, @Nullable Map<String, Object> map, @Nullable gk0 gk0Var) {
+    @Override // com.baidu.tieba.bk0
+    public boolean b(@NonNull Context context, @NonNull fk0 fk0Var, @Nullable Map<String, Object> map, @Nullable jk0 jk0Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ck0Var, map, gk0Var)) == null) {
-            super.b(context, ck0Var, map, gk0Var);
-            String str = (String) d31.b(ck0Var.d(), "params");
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            JSONObject c = c31.c(str);
-            String optString = c.optString("packageName");
-            String optString2 = c.optString("deeplinkUrl");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                sl0.b(optString, optString2);
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fk0Var, map, jk0Var)) == null) {
+            super.b(context, fk0Var, map, jk0Var);
+            ak0.e((String) z31.b(fk0Var.d(), "lp_cmd"), context, map, jk0Var);
             return true;
         }
         return invokeLLLL.booleanValue;

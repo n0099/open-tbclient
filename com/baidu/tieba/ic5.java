@@ -1,11 +1,23 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes6.dex */
 public interface ic5 {
-    void a();
+    int getFansNum();
 
-    void b(AccountData accountData);
+    boolean getIsLike();
 
-    void c(AccountData accountData);
+    int getLikeStatus();
+
+    String getPortrait();
+
+    String getUserId();
+
+    boolean isGod();
+
+    void setFansNum(int i);
+
+    void setIsFromNetWork(boolean z);
+
+    void setIsLike(boolean z);
+
+    void setLikeStatus(int i);
 }

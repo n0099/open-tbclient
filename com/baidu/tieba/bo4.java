@@ -1,73 +1,60 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class bo4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile bo4 a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static String b = "0";
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public bo4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947651682, "Lcom/baidu/tieba/bo4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947651682, "Lcom/baidu/tieba/bo4;");
+                return;
+            }
+        }
+        ej4 b2 = gj4.b();
+        if (b2 != null) {
+            b = b2.i().getString("key_h2_heart_beat_version", "0");
         }
     }
 
-    public static bo4 a() {
-        InterceptResult invokeV;
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (bo4.class) {
-                    if (a == null) {
-                        a = new bo4();
-                    }
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            ej4 b2 = gj4.b();
+            if (b2 != null) {
+                return b2.i().getInt("key_h2_heart_beat_timespan", i);
             }
-            return a;
+            return i;
         }
-        return (bo4) invokeV.objValue;
+        return invokeI.longValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public static long b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (nj4.b() == null) {
-                return "0";
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            ej4 b2 = gj4.b();
+            if (b2 != null) {
+                return b2.i().getInt("key_h2_heart_beat_timeout", i);
             }
-            return nj4.b().i().getString("local_debug_version", "0");
+            return i;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && nj4.b() != null) {
-            nj4.b().i().putString("local_debug_version", optString);
-            nj4.b().i().putString("enable_local_debug_switch", optJSONObject.optString("enable_local_debug_switch"));
-            nj4.b().i().putString("error_url", optJSONObject.optString("error_url"));
-            nj4.b().i().putString("auth_white_list", optJSONObject.optString("auth_white_list"));
-        }
+        return invokeI.longValue;
     }
 }

@@ -19,30 +19,30 @@ public final class CompletionStateKt {
             if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
                 th = StackTraceRecoveryKt.recoverFromStackFrame(th, (CoroutineStackFrame) continuation);
             }
-            return Result.m844constructorimpl(ResultKt.createFailure(th));
+            return Result.m846constructorimpl(ResultKt.createFailure(th));
         }
         Result.Companion companion2 = Result.Companion;
-        return Result.m844constructorimpl(obj);
+        return Result.m846constructorimpl(obj);
     }
 
     public static final <T> Object toState(Object obj, Function1<? super Throwable, Unit> function1) {
-        Throwable m847exceptionOrNullimpl = Result.m847exceptionOrNullimpl(obj);
-        if (m847exceptionOrNullimpl == null) {
+        Throwable m849exceptionOrNullimpl = Result.m849exceptionOrNullimpl(obj);
+        if (m849exceptionOrNullimpl == null) {
             if (function1 != null) {
                 return new CompletedWithCancellation(obj, function1);
             }
             return obj;
         }
-        return new CompletedExceptionally(m847exceptionOrNullimpl, false, 2, null);
+        return new CompletedExceptionally(m849exceptionOrNullimpl, false, 2, null);
     }
 
     public static final <T> Object toState(Object obj, CancellableContinuation<?> cancellableContinuation) {
-        Throwable m847exceptionOrNullimpl = Result.m847exceptionOrNullimpl(obj);
-        if (m847exceptionOrNullimpl != null) {
+        Throwable m849exceptionOrNullimpl = Result.m849exceptionOrNullimpl(obj);
+        if (m849exceptionOrNullimpl != null) {
             if (DebugKt.getRECOVER_STACK_TRACES() && (cancellableContinuation instanceof CoroutineStackFrame)) {
-                m847exceptionOrNullimpl = StackTraceRecoveryKt.recoverFromStackFrame(m847exceptionOrNullimpl, (CoroutineStackFrame) cancellableContinuation);
+                m849exceptionOrNullimpl = StackTraceRecoveryKt.recoverFromStackFrame(m849exceptionOrNullimpl, (CoroutineStackFrame) cancellableContinuation);
             }
-            obj = new CompletedExceptionally(m847exceptionOrNullimpl, false, 2, null);
+            obj = new CompletedExceptionally(m849exceptionOrNullimpl, false, 2, null);
         }
         return obj;
     }

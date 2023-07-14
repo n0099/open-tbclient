@@ -1,70 +1,45 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.menu.BaseMenuView;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lr3 implements di4 {
+public class lr3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
 
-    public lr3() {
+    public static void a(@NonNull kr3 kr3Var, @NonNull b23 b23Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, kr3Var, b23Var) == null) {
+            kr3Var.f(b23Var.d());
+            kr3Var.g(b23Var.e());
+            if (b23Var.g()) {
+                kr3Var.a(1);
+            } else {
+                kr3Var.e(1);
             }
         }
-        this.a = null;
     }
 
-    @Override // com.baidu.tieba.di4
-    public void a(BaseMenuView baseMenuView) {
+    public static FrameLayout.LayoutParams b(@NonNull cy1 cy1Var, @NonNull b23 b23Var) {
+        InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, baseMenuView) != null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cy1Var, b23Var)) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b23Var.f(), b23Var.c());
+            int i2 = 0;
+            if (b23Var.g()) {
+                i2 = cy1Var.getWebViewScrollX();
+                i = cy1Var.getWebViewScrollY();
+            } else {
+                i = 0;
+            }
+            layoutParams.leftMargin = b23Var.d() + i2;
+            layoutParams.topMargin = b23Var.e() + i;
+            return layoutParams;
         }
-        if (jv2.M().a()) {
-            b(baseMenuView);
-        } else {
-            c(baseMenuView);
-        }
-    }
-
-    public final void b(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof FrameLayout)) {
-            return;
-        }
-        if (this.a == null) {
-            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            this.a = frameLayout;
-            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f060449);
-        }
-        viewGroup.removeView(this.a);
-        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
-    }
-
-    public final void c(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
-            viewGroup.removeView(frameLayout);
-            this.a = null;
-        }
+        return (FrameLayout.LayoutParams) invokeLL.objValue;
     }
 }

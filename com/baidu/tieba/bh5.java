@@ -1,94 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.tbadk.data.IconStampData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public final class bh5 {
+public class bh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final boolean b;
 
-    public boolean equals(Object obj) {
+    public static String c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return null;
+                        }
+                        return "reply_7_times.mp4";
+                    }
+                    return "post_7_times.mp4";
+                }
+                return "reply_1_times.mp4";
+            }
+            return "post_1_times.mp4";
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static boolean a(IconStampData iconStampData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iconStampData)) == null) {
+            if (iconStampData == null) {
+                return false;
             }
-            if (obj instanceof bh5) {
-                bh5 bh5Var = (bh5) obj;
-                return this.a == bh5Var.a && this.b == bh5Var.b;
+            String c = c(iconStampData.stampType);
+            if (TextUtils.isEmpty(c)) {
+                return false;
             }
-            return false;
+            File file = new File(qm.b(c));
+            if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) || !file.exists()) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static void b(boolean z) {
+        String c;
+        String c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int a = b.a(this.a) * 31;
-            boolean z = this.b;
-            int i = z;
-            if (z != 0) {
-                i = 1;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            if (z) {
+                c = c(1);
+                c2 = c(3);
+            } else {
+                c = c(2);
+                c2 = c(4);
             }
-            return a + i;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "GroupChatFinishData(roomId=" + this.a + ", needShowGroupList=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public bh5(long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            if (!TextUtils.isEmpty(c) && !TextUtils.isEmpty(c2)) {
+                String str = BdBaseApplication.getInst().getResHashMap().get(c2);
+                if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) || StringUtils.isNull(str)) {
+                    RequestParams requestParams = new RequestParams();
+                    requestParams.setRunType(mm.a);
+                    requestParams.setRunNode("aps");
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add("com.baidu.tieba.resloader." + c);
+                    arrayList.add("com.baidu.tieba.resloader." + c2);
+                    requestParams.addChannel(new lm(arrayList, (DefaultDownloadCallback) null));
+                    PmsManager.getInstance().execute(requestParams);
+                }
             }
         }
-        this.a = j;
-        this.b = z;
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
     }
 }

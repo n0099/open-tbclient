@@ -29,14 +29,14 @@ import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.lm9;
 import com.baidu.tieba.mb;
-import com.baidu.tieba.mm9;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.xn;
+import com.baidu.tieba.rs9;
+import com.baidu.tieba.ss9;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,7 +71,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public lm9 mCardNullPolymericData;
+    public rs9 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -80,8 +80,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public ResponsedMessage<?> mResponsedMessage;
     public HttpMessageListener pageHttpListener;
     public mb pageSocketListener;
-    public final ArrayList<xn> postList;
-    public final ArrayList<xn> threadList;
+    public final ArrayList<yn> postList;
+    public final ArrayList<yn> threadList;
     public int view_card_num;
 
     /* loaded from: classes7.dex */
@@ -458,7 +458,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes7.dex */
-    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, xn {
+    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, yn {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniqueId POST_INFO;
         public transient /* synthetic */ FieldHolder $fh;
@@ -509,7 +509,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             POST_INFO = BdUniqueId.gen();
         }
 
-        @Override // com.baidu.tieba.xn
+        @Override // com.baidu.tieba.yn
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1066,16 +1066,16 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         return invokeII.intValue;
     }
 
-    public static ArrayList<xn> mergeDynamicThreadByTime(ArrayList<xn> arrayList) {
+    public static ArrayList<yn> mergeDynamicThreadByTime(ArrayList<yn> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, arrayList)) == null) {
             String yearBytime = StringHelper.getYearBytime(System.currentTimeMillis());
-            Iterator<xn> it = arrayList.iterator();
+            Iterator<yn> it = arrayList.iterator();
             String str = "";
             String str2 = "";
             while (it.hasNext()) {
-                xn next = it.next();
+                yn next = it.next();
                 if (next instanceof CardPersonDynamicThreadData) {
                     CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                     cardPersonDynamicThreadData.D = true;
@@ -1110,15 +1110,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new mm9());
+            this.postList.add(new ss9());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            lm9 lm9Var = new lm9();
-            this.mCardNullPolymericData = lm9Var;
-            this.postList.add(lm9Var);
+            rs9 rs9Var = new rs9();
+            this.mCardNullPolymericData = rs9Var;
+            this.postList.add(rs9Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {
@@ -1220,8 +1220,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(z);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int l2 = xi.l(TbadkCoreApplication.getInst().getApp());
-            int j = xi.j(TbadkCoreApplication.getInst().getApp());
+            int l2 = yi.l(TbadkCoreApplication.getInst().getApp());
+            int j = yi.j(TbadkCoreApplication.getInst().getApp());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             if (TbImageHelper.getInstance().isShowBigImage()) {
                 i2 = 2;
@@ -1276,8 +1276,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(false);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int l2 = xi.l(TbadkCoreApplication.getInst().getApp());
-            int j = xi.j(TbadkCoreApplication.getInst().getApp());
+            int l2 = yi.l(TbadkCoreApplication.getInst().getApp());
+            int j = yi.j(TbadkCoreApplication.getInst().getApp());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             if (TbImageHelper.getInstance().isShowBigImage()) {
                 i = 2;

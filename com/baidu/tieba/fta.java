@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface fta {
-    void a(long j);
+    void c();
 
-    void b(Exception exc, long j);
+    boolean d();
 
-    void onComplete(long j);
+    void e();
+
+    void f();
+
+    void play();
 }

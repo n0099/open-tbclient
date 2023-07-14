@@ -522,7 +522,7 @@ public class SpeedStats {
         }
         boolean z = true;
         this.isMainPageStatsEnd = true;
-        bc.b().d();
+        bc.b().e();
         this.mSpeedStatsManager.addStatsTimeStamp(6000);
         if (!SmartLaunchStats.hasTriedToFindFirstAvailableTime() && !hasForegroundToBackground()) {
             SmartLaunchStats.tryToFindFirstIdleTimeStamp();
@@ -615,7 +615,7 @@ public class SpeedStats {
             return;
         }
         this.isSchemePushStatsEnd = true;
-        bc.b().d();
+        bc.b().e();
         if (this.mSpeedStatsManager.getStatsFlag() == 2 || this.mSpeedStatsManager.getStatsFlag() == 1) {
             this.mStartMainActivityType = i;
             this.mUbcPage = str;

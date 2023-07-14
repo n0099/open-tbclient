@@ -1,11 +1,11 @@
 package com.kwad.components.ad.reward.h;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements com.kwad.sdk.core.webview.kwai.a {
     public a tK;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
     }
 

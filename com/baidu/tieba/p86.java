@@ -1,138 +1,218 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
+import android.content.Context;
+import android.text.Editable;
 import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 /* loaded from: classes7.dex */
-public class p86 extends BdAsyncTask<Void, Void, Boolean> {
+public class p86 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdInfo a;
+    public EditText a;
+    public TextView b;
+    public ImageView c;
+    public TextWatcher d;
+    public c e;
+    public Context f;
+    public TbPageContext<?> g;
+    public View.OnClickListener h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948015963, "Lcom/baidu/tieba/p86;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948015963, "Lcom/baidu/tieba/p86;");
-                return;
-            }
-        }
-        b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
-        c = File.separator;
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(String str);
     }
 
-    public p86() {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p86 a;
+
+        public a(p86 p86Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p86Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p86Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2 == this.a.b) {
+                    String charSequence2String = xi.charSequence2String(this.a.a.getText(), null);
+                    if (StringUtils.isNULL(charSequence2String)) {
+                        return;
+                    }
+                    if (charSequence2String.trim().length() == 0) {
+                        if (charSequence2String.length() > 0) {
+                            this.a.g.showToast(R.string.obfuscated_res_0x7f0f0a8a);
+                            return;
+                        }
+                        return;
+                    }
+                    this.a.i(charSequence2String.trim());
+                    this.a.b.setClickable(false);
+                } else if (view2 == this.a.c) {
+                    this.a.k("");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements TextWatcher {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p86 a;
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        public b(p86 p86Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p86Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p86Var;
+        }
+
+        @Override // android.text.TextWatcher
+        public void afterTextChanged(Editable editable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
+                if (TextUtils.isEmpty(editable)) {
+                    this.a.c.setVisibility(8);
+                } else {
+                    this.a.c.setVisibility(0);
+                }
+            }
+        }
+    }
+
+    public p86(TbPageContext<?> tbPageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.h = new a(this);
+        this.g = tbPageContext;
+        this.f = tbPageContext.getPageActivity();
+        this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091908);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09190c);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091907);
+        this.b.setOnClickListener(this.h);
+        this.c.setOnClickListener(this.h);
+        b bVar = new b(this);
+        this.d = bVar;
+        this.a.addTextChangedListener(bVar);
+        f(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0111, 1);
+            this.a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            SkinManager.setImageResource(this.c, R.drawable.icon_search_close);
         }
     }
 
-    public final void b(boolean z, File file) {
+    public final void i(String str) {
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, file) == null) {
-            if (z && file != null) {
-                File file2 = new File(b + c + (ej.c(this.a.adVideoUrl) + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION));
-                if (file2.exists()) {
-                    file2.delete();
-                }
-                if (file.renameTo(file2)) {
-                    this.a.videoLocalPath = file2.getAbsolutePath();
-                } else {
-                    this.a.videoLocalPath = "";
-                }
-            } else {
-                this.a.videoLocalPath = "";
-            }
-            u86.f(this.a);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (cVar = this.e) != null) {
+            cVar.a(str);
         }
     }
 
-    public void c(AdInfo adInfo) {
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adInfo) == null) {
-            this.a = adInfo;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b.setClickable(z);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
-        if (r12.equalsIgnoreCase(r11.a.videoMd5) == false) goto L26;
-     */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Boolean doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        File file;
-        boolean z;
-        boolean c2;
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
-            String str = b + c + "advideo.temp";
-            file = new File(str);
-            if (file.exists()) {
-                file.delete();
-            }
-            z = false;
-            try {
-                new File(b).mkdirs();
-                if (!file.createNewFile()) {
-                    b(false, null);
-                    return Boolean.FALSE;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            zf zfVar = new zf();
-            zfVar.b().s(this.a.adVideoUrl);
-            c2 = new wf(zfVar).c(str, null, 3, 3000, -1, -1, true, true);
-            try {
-                if (TextUtils.isEmpty(this.a.videoMd5)) {
-                    b(c2, file);
-                    return Boolean.valueOf(c2);
-                }
-                String b2 = ej.b(new FileInputStream(str));
-                if (TextUtils.isEmpty(b2)) {
-                    c2 = false;
-                }
-            } catch (FileNotFoundException e2) {
-                e2.printStackTrace();
-            }
-        } else {
-            return (Boolean) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.setText(str);
         }
-        z = c2;
-        b(z, file);
-        return Boolean.valueOf(z);
+    }
+
+    public void l(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.e = cVar;
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            yi.A(this.f, this.a);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.removeTextChangedListener(this.d);
+        }
     }
 }

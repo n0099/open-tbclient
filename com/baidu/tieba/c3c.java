@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.u1c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,145 +9,150 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.model.NativeOperationParams;
-import tv.athena.revenue.payui.webview.UrlPageParams;
+import rx.internal.util.UtilityFunctions;
 /* loaded from: classes5.dex */
-public class c3c {
+public final class c3c<T, U> implements u1c.b<T, T>, n2c<U, U, Boolean> {
     public static /* synthetic */ Interceptable $ic;
-    public static Gson c;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public Handler b;
+    public final m2c<? super T, ? extends U> a;
+    public final n2c<? super U, ? super U, Boolean> b;
 
     /* loaded from: classes5.dex */
-    public interface c {
-        void b(NativeOperationParams nativeOperationParams);
-
-        void c(UrlPageParams urlPageParams);
-
-        void e(UrlPageParams urlPageParams);
-
-        String getToken();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a extends a2c<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ UrlPageParams b;
-        public final /* synthetic */ c3c c;
+        public U e;
+        public boolean f;
+        public final /* synthetic */ a2c g;
+        public final /* synthetic */ c3c h;
 
-        public a(c3c c3cVar, int i, UrlPageParams urlPageParams) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(c3c c3cVar, a2c a2cVar, a2c a2cVar2) {
+            super(a2cVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c3cVar, Integer.valueOf(i), urlPageParams};
+                Object[] objArr = {c3cVar, a2cVar, a2cVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a2c) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = c3cVar;
-            this.a = i;
-            this.b = urlPageParams;
+            this.h = c3cVar;
+            this.g = a2cVar2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.v1c
+        public void onCompleted() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.a != null) {
-                if (this.a == 1) {
-                    this.c.a.e(this.b);
-                }
-                if (this.a == 3) {
-                    this.c.a.c(this.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.g.onCompleted();
+            }
+        }
+
+        @Override // com.baidu.tieba.v1c
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                this.g.onError(th);
+            }
+        }
+
+        @Override // com.baidu.tieba.v1c
+        public void onNext(T t) {
+            Object obj;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                try {
+                    U call = this.h.a.call(t);
+                    U u = this.e;
+                    this.e = call;
+                    if (this.f) {
+                        try {
+                            if (!this.h.b.call(u, call).booleanValue()) {
+                                this.g.onNext(t);
+                                return;
+                            } else {
+                                e(1L);
+                                return;
+                            }
+                        } catch (Throwable th) {
+                            g2c.g(th, this.g, obj);
+                            return;
+                        }
+                    }
+                    this.f = true;
+                    this.g.onNext(t);
+                } catch (Throwable th2) {
+                    g2c.g(th2, this.g, t);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final c3c<?, ?> a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ c3c c;
 
-        public b(c3c c3cVar, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c3cVar, Integer.valueOf(i), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-937875592, "Lcom/baidu/tieba/c3c$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-937875592, "Lcom/baidu/tieba/c3c$b;");
                     return;
                 }
             }
-            this.c = c3cVar;
-            this.a = i;
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.a != null) {
-                this.c.a.b(new NativeOperationParams(this.a, this.b));
-            }
+            a = new c3c<>(UtilityFunctions.b());
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625270, "Lcom/baidu/tieba/c3c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947625270, "Lcom/baidu/tieba/c3c;");
-                return;
-            }
-        }
-        c = new Gson();
-    }
-
-    @JavascriptInterface
-    public String getToken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c cVar = this.a;
-            if (cVar != null) {
-                return cVar.getToken();
-            }
-            RLog.error("YYPaySdkJsInterface", "getToken() mOnJsCallInterface null", new Object[0]);
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public c3c(c cVar) {
+    public c3c(m2c<? super T, ? extends U> m2cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
+            Object[] objArr = {m2cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = m2cVar;
+        this.b = this;
+    }
+
+    public a2c<? super T> call(a2c<? super T> a2cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a2cVar)) == null) {
+            return new a(this, a2cVar, a2cVar);
+        }
+        return (a2c) invokeL.objValue;
+    }
+
+    public c3c(n2c<? super U, ? super U, Boolean> n2cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {n2cVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -159,78 +162,39 @@ public class c3c {
                 return;
             }
         }
-        this.b = new Handler(Looper.getMainLooper());
-        this.a = cVar;
+        this.a = UtilityFunctions.b();
+        this.b = n2cVar;
     }
 
-    public final void b(Runnable runnable) {
+    public static <T> c3c<T, T> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                runnable.run();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return (c3c<T, T>) b.a;
+        }
+        return (c3c) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tieba.n2c
+    public Boolean call(U u, U u2) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u, u2)) == null) {
+            if (u != u2 && (u == null || !u.equals(u2))) {
+                z = false;
             } else {
-                this.b.post(runnable);
+                z = true;
             }
+            return Boolean.valueOf(z);
         }
+        return (Boolean) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0069  */
-    /* JADX WARN: Removed duplicated region for block: B:35:? A[RETURN, SYNTHETIC] */
-    @JavascriptInterface
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void callAndroid(int i, String str) {
-        String str2;
-        UrlPageParams urlPageParams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            RLog.info("YYPaySdkJsInterface", "callAndroid: code=" + i);
-            switch (i) {
-                case 1:
-                case 3:
-                    if (i == 1) {
-                        str2 = "CODE_OPEN_URL_PAGE";
-                    } else {
-                        str2 = "CODE_UPFATE_TOP_INFO";
-                    }
-                    UrlPageParams urlPageParams2 = null;
-                    try {
-                        urlPageParams = (UrlPageParams) c.fromJson(str, (Class<Object>) UrlPageParams.class);
-                        try {
-                            RLog.info("YYPaySdkJsInterface", "%s params: %s", str2, urlPageParams);
-                        } catch (Throwable th) {
-                            th = th;
-                            urlPageParams2 = urlPageParams;
-                            RLog.error("YYPaySdkJsInterface", str2 + " error,", th);
-                            urlPageParams = urlPageParams2;
-                            if (this.a == null) {
-                            }
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                    if (this.a == null) {
-                        b(new a(this, i, urlPageParams));
-                        return;
-                    }
-                    return;
-                case 2:
-                default:
-                    return;
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                    if (this.a != null) {
-                        b(new b(this, i, str));
-                        return;
-                    }
-                    return;
-            }
-        }
+    @Override // com.baidu.tieba.u1c.b, com.baidu.tieba.m2c
+    public /* bridge */ /* synthetic */ Object call(Object obj) {
+        return call((a2c) ((a2c) obj));
     }
 }

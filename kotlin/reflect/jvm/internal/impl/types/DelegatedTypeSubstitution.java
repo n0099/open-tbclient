@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.types;
 
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DelegatedTypeSubstitution extends TypeSubstitution {
     public final TypeSubstitution substitution;
 
@@ -16,8 +16,8 @@ public class DelegatedTypeSubstitution extends TypeSubstitution {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
     /* renamed from: get */
-    public TypeProjection mo2104get(KotlinType kotlinType) {
-        return this.substitution.mo2104get(kotlinType);
+    public TypeProjection mo2106get(KotlinType kotlinType) {
+        return this.substitution.mo2106get(kotlinType);
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution

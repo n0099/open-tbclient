@@ -1,34 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Message;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetInfluenceRank.DataRes;
-import tbclient.NewGodInfo;
-import tbclient.RankRuler;
-import tbclient.User;
 /* loaded from: classes5.dex */
 public class ez6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cz6 a;
-    public List<dz6> b;
-    public dz6 c;
-    public String d;
-    public String e;
-    public long f;
-    public boolean g;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public b e;
+    public Handler.Callback f;
+    public Handler g;
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(int i, int i2);
+
+        void b(int i, int i2);
+
+        void c(int i, int i2);
+
+        void d(int i, int i2);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ez6 a;
+
+        public a(ez6 ez6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ez6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ez6Var;
+        }
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                int i = message.arg1;
+                int i2 = message.arg2;
+                int i3 = message.what;
+                if (i3 != 0) {
+                    if (i3 != 1) {
+                        if (i3 != 2) {
+                            if (i3 != 3) {
+                                return false;
+                            }
+                            this.a.e.c(i, i2);
+                            return true;
+                        }
+                        this.a.e.d(i, i2);
+                        return true;
+                    }
+                    this.a.e.b(i, i2);
+                    return true;
+                }
+                this.a.e.a(i, i2);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     public ez6() {
         Interceptable interceptable = $ic;
@@ -43,120 +99,129 @@ public class ez6 {
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.g = true;
+        this.f = new a(this);
+        this.g = new Handler(this.f);
     }
 
-    public final dz6 a(User user) {
+    public void d(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public final void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            this.g.removeMessages(2);
+            if (!this.g.hasMessages(2)) {
+                Message message = new Message();
+                message.what = 2;
+                message.arg1 = i;
+                message.arg2 = i2;
+                this.g.sendMessageDelayed(message, 60L);
+            }
+        }
+    }
+
+    public final void e(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.g.removeMessages(0);
+            if (!this.g.hasMessages(1)) {
+                Message message = new Message();
+                message.what = 1;
+                message.arg1 = i;
+                message.arg2 = i2;
+                this.g.sendMessageDelayed(message, 60L);
+            }
+        }
+    }
+
+    public final void f(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            this.g.removeMessages(3);
+            if (!this.g.hasMessages(3)) {
+                Message message = new Message();
+                message.what = 3;
+                message.arg1 = i;
+                message.arg2 = i2;
+                this.g.sendMessageDelayed(message, 60L);
+            }
+        }
+    }
+
+    public final void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            this.g.removeMessages(1);
+            if (!this.g.hasMessages(0)) {
+                Message message = new Message();
+                message.what = 0;
+                message.arg1 = i;
+                message.arg2 = i2;
+                this.g.sendMessageDelayed(message, 60L);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0012, code lost:
+        if (r0 != 3) goto L11;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean c(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        NewGodInfo newGodInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, user)) == null) {
-            if (user == null) {
-                return null;
-            }
-            dz6 dz6Var = new dz6();
-            dz6Var.a = user.level_influence;
-            dz6Var.c = b(user);
-            boolean z = true;
-            if (!dz6Var.g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
-                dz6Var.d = user.new_god_data.field_name + fy5.b(user.new_god_data);
-                dz6Var.h = true;
-            }
-            if (user.influence == null) {
-                dz6Var.e = "";
-            } else {
-                dz6Var.e = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a78), StringHelper.numFormatOverWanNa(user.influence.intValue()));
-            }
-            MetaData metaData = new MetaData();
-            metaData.parserProtobuf(user);
-            Integer num = user.has_concerned;
-            metaData.setIsLike((num == null || num.intValue() == 0) ? false : false);
-            dz6Var.f = metaData;
-            if (metaData.getAvater() != null && metaData.getAvater().startsWith("http")) {
-                dz6Var.b = metaData.getAvater();
-            } else {
-                dz6Var.b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
-            }
-            return dz6Var;
-        }
-        return (dz6) invokeL.objValue;
-    }
-
-    public void c(DataRes dataRes) {
-        long longValue;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        this.a = new cz6();
-        boolean z = false;
-        if (!ListUtils.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
-            this.a.b = b(dataRes.user_rank.get(0));
-            MetaData metaData = new MetaData();
-            metaData.parserProtobuf(dataRes.user_rank.get(0));
-            this.a.c = metaData;
-            String avatarH = metaData.getAvatarH();
-            if (TextUtils.isEmpty(avatarH)) {
-                avatarH = metaData.getAvater();
-            }
-            if (avatarH != null && avatarH.startsWith("http")) {
-                this.a.e = avatarH;
-            } else {
-                this.a.e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
-            }
-        }
-        cz6 cz6Var = this.a;
-        Long l = dataRes.timestamp;
-        long j = 0;
-        if (l == null) {
-            longValue = 0;
-        } else {
-            longValue = l.longValue();
-        }
-        cz6Var.d = longValue;
-        this.a.f = dataRes.field_info;
-        if (!ListUtils.isEmpty(dataRes.user_rank)) {
-            for (User user : dataRes.user_rank) {
-                if (user != null) {
-                    this.b.add(a(user));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2) {
+                        float rawX = motionEvent.getRawX();
+                        float rawY = motionEvent.getRawY();
+                        if (this.c == 0.0f || this.d == 0.0f) {
+                            this.c = motionEvent.getRawX();
+                            float rawY2 = motionEvent.getRawY();
+                            this.d = rawY2;
+                            this.a = this.c;
+                            this.b = rawY2;
+                        }
+                        int i = (int) (rawY - this.b);
+                        int i2 = (int) (rawY - this.d);
+                        if (this.e != null) {
+                            if (i > 0) {
+                                e(i2, i);
+                            } else {
+                                g(i2, i);
+                            }
+                        }
+                        this.a = rawX;
+                        this.b = rawY;
+                    }
                 }
+                if (this.e != null) {
+                    int i3 = (int) (this.a - this.c);
+                    int i4 = (int) (this.b - this.d);
+                    if (Math.abs(i3) >= Math.abs(i4)) {
+                        f(i3, (int) this.c);
+                    } else {
+                        b(i3, i4);
+                    }
+                }
+                this.c = 0.0f;
+                this.d = 0.0f;
+            } else {
+                this.c = motionEvent.getRawX();
+                float rawY3 = motionEvent.getRawY();
+                this.d = rawY3;
+                this.a = this.c;
+                this.b = rawY3;
             }
+            return true;
         }
-        this.c = a(dataRes.current_user);
-        RankRuler rankRuler = dataRes.rank_description;
-        if (rankRuler != null) {
-            this.d = rankRuler.top_link;
-            this.e = rankRuler.bottom_link;
-        }
-        Long l2 = dataRes.timestamp;
-        if (l2 != null) {
-            j = l2.longValue();
-        }
-        this.f = j;
-        Boolean bool = dataRes.has_more;
-        if (bool != null) {
-            z = bool.booleanValue();
-        }
-        this.g = z;
-    }
-
-    public final String b(User user) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, user)) == null) {
-            String str = "";
-            if (user == null) {
-                return "";
-            }
-            if (TextUtils.isEmpty("")) {
-                str = user.name_show;
-            }
-            if (TextUtils.isEmpty(str)) {
-                return TbadkCoreApplication.getInst().getString(R.string.user_name_default_txt);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,171 +1,132 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.GroupChatBottomSheetController;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.chatdialog.GroupChatDialogFragment;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes8.dex */
-public class zd8 implements xl1<vo5> {
+public class zd8 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static volatile SQLiteDatabase b;
+    public static HashMap<String, SQLiteDatabase> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements vo5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public GroupChatBottomSheetController b;
-        @Nullable
-        public GroupChatDialogFragment c;
-
-        /* renamed from: com.baidu.tieba.zd8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0549a implements bf8 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0549a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // com.baidu.tieba.bf8
-            public void a(boolean z) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                    this.a.c = null;
-                }
-            }
-        }
-
-        public a(zd8 zd8Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948356219, "Lcom/baidu/tieba/zd8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zd8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948356219, "Lcom/baidu/tieba/zd8;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.vo5
-        public void onChangeSkinType(int i) {
-            GroupChatBottomSheetController groupChatBottomSheetController;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (groupChatBottomSheetController = this.b) != null) {
-                groupChatBottomSheetController.a(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.ap5
-        public void a(@NonNull TbPageContext tbPageContext, @Nullable List<Long> list, long j, String str, long j2, boolean z, FragmentManager fragmentManager, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, list, Long.valueOf(j), str, Long.valueOf(j2), Boolean.valueOf(z), fragmentManager, str2, str3}) == null) {
-                GroupChatDialogFragment groupChatDialogFragment = this.c;
-                if (groupChatDialogFragment == null) {
-                    GroupChatDialogFragment groupChatDialogFragment2 = new GroupChatDialogFragment(j, str, j2, list, z, str2, str3);
-                    this.c = groupChatDialogFragment2;
-                    groupChatDialogFragment2.show(fragmentManager, str3);
-                    this.c.V1(new C0549a(this));
-                    return;
-                }
-                groupChatDialogFragment.U1(j, str, j2, list, z, str2);
-            }
-        }
-
-        @Override // com.baidu.tieba.vo5
-        public boolean isEnable() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return ep8.a();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.vo5
-        public void onDestroy() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                GroupChatBottomSheetController groupChatBottomSheetController = this.b;
-                if (groupChatBottomSheetController != null) {
-                    groupChatBottomSheetController.b();
-                }
-                this.b = null;
-            }
-        }
-
-        @Override // com.baidu.tieba.vo5
-        public void onPause() {
-            GroupChatBottomSheetController groupChatBottomSheetController;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (groupChatBottomSheetController = this.b) != null) {
-                groupChatBottomSheetController.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.vo5
-        public void onResume() {
-            GroupChatBottomSheetController groupChatBottomSheetController;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (groupChatBottomSheetController = this.b) != null) {
-                groupChatBottomSheetController.d();
-            }
-        }
+        c = new HashMap<>();
     }
 
-    public zd8() {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            try {
+                try {
+                    if (!TextUtils.isEmpty(str)) {
+                        ae8.d().f();
+                        Iterator<String> it = b().iterator();
+                        while (it.hasNext()) {
+                            String next = it.next();
+                            if (next != null) {
+                                if (next.equals("tb_message_center")) {
+                                    ContentValues contentValues = new ContentValues();
+                                    contentValues.put("is_hidden", (Integer) 1);
+                                    ae8.d().update("tb_message_center", contentValues, null, null);
+                                } else if (!next.equals("tb_new_friends")) {
+                                    ae8.d().delete(next, null, null);
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
+                    e.printStackTrace();
+                }
+            } finally {
+                ae8.d().b();
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xl1
-    /* renamed from: a */
-    public vo5 getService() {
+    public static LinkedList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            SQLiteDatabase c2 = c();
+            LinkedList<String> linkedList = new LinkedList<>();
+            Cursor cursor = null;
+            try {
+                if (c2 != null) {
+                    try {
+                        cursor = c2.rawQuery("select * from sqlite_master where type='table'", null);
+                        if (cursor != null) {
+                            cursor.moveToFirst();
+                            while (cursor.moveToNext()) {
+                                linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
+                            }
+                        }
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.getAllTables", new Object[0]);
+                        e.printStackTrace();
+                    }
+                }
+                return linkedList;
+            } finally {
+                zi.a(cursor);
+            }
         }
-        return (vo5) invokeV.objValue;
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public static synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (zd8.class) {
+                try {
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getImDataBase", new Object[0]);
+                }
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return null;
+                }
+                String str = TbadkCoreApplication.getCurrentAccount() + ".db";
+                if (c.containsKey(str)) {
+                    return c.get(str);
+                }
+                if (b != null && str.equals(a) && b.isOpen()) {
+                    return b;
+                }
+                if (b != null) {
+                    zi.b(b);
+                }
+                yd8 yd8Var = new yd8(TbadkCoreApplication.getInst().getApp(), str);
+                a = str;
+                b = yd8Var.getWritableDatabase();
+                return b;
+            }
+        }
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

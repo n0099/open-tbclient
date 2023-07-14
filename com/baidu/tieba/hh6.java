@@ -1,68 +1,122 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.ala.data.AlaLiveInfoData;
+import com.baidu.ala.data.AlaUserInfoData;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hh6 implements xn {
+public class hh6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947823763, "Lcom/baidu/tieba/hh6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947823763, "Lcom/baidu/tieba/hh6;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
+    public AlaUserInfoData a;
+    public nh6 b;
+    public vh6 c;
+    public List<AlaLiveInfoData> d;
+    public List<uh6> e;
+    public boolean f;
+    public final fh6 g;
+    public wh6 h;
 
     public hh6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = false;
+        this.a = new AlaUserInfoData();
+        this.b = new nh6();
+        this.c = new vh6();
+        this.g = new fh6();
+        this.d = new ArrayList();
+        this.e = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
+    public fh6 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return (fh6) invokeV.objValue;
+    }
+
+    public AlaUserInfoData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
+            return this.a;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (AlaUserInfoData) invokeV.objValue;
     }
 
-    public void a(JSONObject jSONObject) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optString("effect_type_name");
-        jSONObject.optInt("effect_type");
+        try {
+            JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+            JSONObject optJSONObject = jSONObject2.optJSONObject(SourceConstant.SOURCE_USER_INFO);
+            if (optJSONObject != null) {
+                this.a = (AlaUserInfoData) OrmObject.objectWithJson(optJSONObject, AlaUserInfoData.class);
+            }
+            JSONArray optJSONArray = jSONObject2.optJSONArray("watch_list");
+            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
+                uh6 uh6Var = new uh6();
+                uh6Var.a(optJSONArray.getJSONObject(i));
+                this.e.add(uh6Var);
+            }
+            JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
+            for (int i2 = 0; optJSONArray2 != null && optJSONArray2.length() < i2; i2++) {
+                AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
+                alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i2));
+                this.d.add(alaLiveInfoData);
+            }
+            this.b.a(jSONObject2.optJSONObject("media"));
+            this.c.parserJson(jSONObject2.optJSONObject("privacy_set"));
+            this.g.parserJson(jSONObject2.optJSONObject("authority_info"));
+            JSONObject optJSONObject2 = jSONObject2.optJSONObject("dating_room");
+            if (optJSONObject2 != null) {
+                wh6 wh6Var = new wh6();
+                this.h = wh6Var;
+                wh6Var.a(optJSONObject2);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.f = z;
+        }
     }
 }

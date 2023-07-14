@@ -1,31 +1,32 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class xya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public String f;
-    public int g;
-    public String h;
+    public Context a;
+    public Bitmap b;
+    public Rect c;
 
-    public xya() {
+    public xya(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,95 +36,47 @@ public class xya {
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.f = "";
-        this.g = 0;
+        this.a = context;
+        this.c = new Rect();
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean b(String str) {
+    public boolean b(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            if (motionEvent == null) {
                 return false;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.a = jSONObject.optString("name");
-                this.b = jSONObject.optString("id");
-                this.c = jSONObject.optString("image");
-                this.d = jSONObject.optString("url");
-                this.e = jSONObject.optInt("progress");
-                this.f = jSONObject.optString("downloadPerSize");
-                this.g = jSONObject.optInt("status");
-                this.h = jSONObject.optString("savePath");
-                return true;
-            } catch (JSONException unused) {
+            Rect rect = this.c;
+            int i = rect.left;
+            int i2 = rect.right;
+            int i3 = rect.top;
+            int i4 = rect.bottom;
+            if (motionEvent.getX(0) < i || motionEvent.getX(0) > i2 || motionEvent.getY(0) < i3 || motionEvent.getY(0) > i4) {
                 return false;
             }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public void c(String str) {
+    public void a(Canvas canvas, float f, float f2) {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f = str;
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) != null) || (bitmap = this.b) == null) {
+            return;
         }
+        this.c.left = (int) (f - (bitmap.getWidth() / 2));
+        this.c.right = (int) (f + (this.b.getWidth() / 2));
+        this.c.top = (int) (f2 - (this.b.getHeight() / 2));
+        this.c.bottom = (int) (f2 + (this.b.getHeight() / 2));
+        canvas.drawBitmap(this.b, (Rect) null, this.c, (Paint) null);
     }
 
-    public void d(int i) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = BitmapHelper.getResBitmap(this.a, i);
         }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public JSONObject g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", this.a);
-                jSONObject.put("id", this.b);
-                jSONObject.put("image", this.c);
-                jSONObject.put("url", this.d);
-                jSONObject.put("progress", this.e);
-                jSONObject.put("downloadPerSize", this.f);
-                jSONObject.put("status", this.g);
-                jSONObject.put("savePath", this.h);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

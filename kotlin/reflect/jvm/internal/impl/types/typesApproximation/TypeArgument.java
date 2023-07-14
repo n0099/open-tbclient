@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.types.typesApproximation;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeChecker;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TypeArgument {
     public final KotlinType inProjection;
     public final KotlinType outProjection;

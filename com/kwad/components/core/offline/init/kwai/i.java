@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import androidx.annotation.Nullable;
 import com.kwad.components.offline.api.core.api.IOfflineCompoWrapper;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class i extends IOfflineCompoWrapper {
     public i(String str) {
         super(str);

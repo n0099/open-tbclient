@@ -73,30 +73,6 @@ public class PackageManagerCompat {
         return (String) invokeL.objValue;
     }
 
-    public static Bundle getBundleFromKit(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (ContextHolder.getKitContext() != null) {
-                context = ContextHolder.getKitContext();
-            }
-            if (context == null) {
-                Logger.v("PackageUtils", "the kitContext is null");
-                return Bundle.EMPTY;
-            } else if (context.getApplicationInfo() == null) {
-                Logger.v("PackageUtils", "the kit applicationInfo is null");
-                return Bundle.EMPTY;
-            } else {
-                Bundle bundle = context.getApplicationInfo().metaData;
-                if (bundle == null) {
-                    return Bundle.EMPTY;
-                }
-                return bundle;
-            }
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
     public static String getAppVersion(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -144,6 +120,30 @@ public class PackageManagerCompat {
                 return bundle;
             } catch (PackageManager.NameNotFoundException | RuntimeException e) {
                 Logger.w("PackageUtils", "NameNotFoundException:", e);
+                return bundle;
+            }
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    public static Bundle getBundleFromKit(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (ContextHolder.getKitContext() != null) {
+                context = ContextHolder.getKitContext();
+            }
+            if (context == null) {
+                Logger.v("PackageUtils", "the kitContext is null");
+                return Bundle.EMPTY;
+            } else if (context.getApplicationInfo() == null) {
+                Logger.v("PackageUtils", "the kit applicationInfo is null");
+                return Bundle.EMPTY;
+            } else {
+                Bundle bundle = context.getApplicationInfo().metaData;
+                if (bundle == null) {
+                    return Bundle.EMPTY;
+                }
                 return bundle;
             }
         }

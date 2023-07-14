@@ -1,211 +1,88 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.funad.view.FunAdAgreeView;
-import com.baidu.tieba.pb.ejection.EjectionAnimationView;
-import com.baidu.tieba.view.WaterRippleView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tieba.bq5;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class st7 {
+public class st7 implements k75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public int b;
-    public FrameLayout c;
-    public WaterRippleView d;
-    public EjectionAnimationView e;
-    public PopupWindow f;
 
-    /* loaded from: classes7.dex */
-    public class a implements t99 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ st7 a;
-
-        @Override // com.baidu.tieba.t99
-        public /* synthetic */ void onStart() {
-            s99.a(this);
-        }
-
-        public a(st7 st7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {st7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = st7Var;
-        }
-
-        @Override // com.baidu.tieba.t99
-        public void onStop() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.setVisibility(8);
-                if (this.a.f != null && this.a.f.isShowing()) {
-                    ah.d(this.a.f, this.a.a);
-                }
-            }
-        }
-    }
-
-    public st7(Activity activity) {
+    public st7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 0;
-        this.a = activity;
-        e();
-        f();
     }
 
-    public void h(FunAdAgreeView funAdAgreeView) {
-        WaterRippleView waterRippleView;
+    @Override // com.baidu.tieba.k75
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, funAdAgreeView) != null) || funAdAgreeView == null || (waterRippleView = this.d) == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.put("dialogName", "frsGroupChatGuide");
+            hashMap.putAll(map);
+            hashMap.putAll(map2);
+            return hashMap;
         }
-        ViewParent parent = waterRippleView.getParent();
-        if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.d);
-        }
+        return (Map) invokeLLL.objValue;
     }
 
-    public void i(boolean z) {
-        PopupWindow popupWindow;
+    @Override // com.baidu.tieba.k75
+    public boolean b(@NonNull Map<String, Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (popupWindow = this.f) != null) {
-            popupWindow.setClippingEnabled(z);
-        }
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return UtilHelper.getImmersiveStickyBarHeight() + UtilHelper.getScreenHeight(this.a);
-        }
-        return invokeV.intValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.e.l();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new FrameLayout(this.a);
-            this.e = new EjectionAnimationView(this.a);
-            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            this.e.setEjectionAnimationViewCallback(new a(this));
-            this.c.addView(this.e);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            PopupWindow popupWindow = new PopupWindow();
-            this.f = popupWindow;
-            popupWindow.setContentView(this.c);
-            this.f.setHeight(d());
-            this.f.setWidth(-1);
-            this.f.setOutsideTouchable(false);
-            this.f.setFocusable(false);
-            this.f.setTouchable(false);
-            GreyUtil.grey(this.f);
-        }
-    }
-
-    public final void g(View view2, Rect rect) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, rect) == null) && ah.m(this.f, view2, this.b, 0, 0)) {
-            this.e.setAnchorPosition((rect.right + rect.left) / 2, (rect.bottom + rect.top) / 2);
-            this.e.k();
-        }
-    }
-
-    public void j(View view2, List<Bitmap> list, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, view2, list, rect) == null) {
-            this.e.setVisibility(0);
-            this.e.setBitmaps(list);
-            g(view2, rect);
-        }
-    }
-
-    public void k(LinearLayout linearLayout, FunAdAgreeView funAdAgreeView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, linearLayout, funAdAgreeView) == null) && linearLayout != null && funAdAgreeView != null) {
-            if (funAdAgreeView.getWidth() != 0 && funAdAgreeView.getHeight() != 0) {
-                WaterRippleView waterRippleView = this.d;
-                if (waterRippleView == null) {
-                    this.d = new WaterRippleView(this.a);
-                } else {
-                    ViewParent parent = waterRippleView.getParent();
-                    if (parent instanceof ViewGroup) {
-                        ((ViewGroup) parent).removeView(this.d);
-                    }
-                }
-                linearLayout.getGlobalVisibleRect(new Rect());
-                Rect rect = new Rect();
-                funAdAgreeView.getImgAgree().getGlobalVisibleRect(rect);
-                int centerX = rect.centerX();
-                int centerY = rect.centerY();
-                int g = xi.g(this.a, R.dimen.tbds166);
-                int i = centerX - g;
-                int i2 = centerY - g;
-                int i3 = g * 2;
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i3);
-                layoutParams.addRule(13, -1);
-                layoutParams.setMargins(i, i2, 0, 0);
-                this.c.addView(this.d, layoutParams);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            boolean z = false;
+            if (!LooperBlockSwitch.getIsOn()) {
+                return false;
             }
-            BdLog.e("FunAdAgreeView not measured");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!(currentActivity instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "吧主弹窗策略校验失败：当前Activity非FrsActivity");
+                return false;
+            }
+            FrsFragment v1 = ((FrsActivity) currentActivity).v1();
+            if (v1 == null) {
+                YunDialogLog.getInstance().b("YunDialogManager", "群聊引导弹窗校验失败：当前FrsFragment为空");
+                return false;
+            }
+            bq5.b R3 = v1.R3();
+            if (R3 == null) {
+                YunDialogLog.getInstance().b("YunDialogManager", "群聊引导弹窗校验失败：当前OptFragment为空");
+                return false;
+            }
+            if (!da5.p().l("key_chat_group_guide_show", false) && R3.p0()) {
+                z = true;
+            }
+            if (!z) {
+                YunDialogLog.getInstance().b("YunDialogManager", "群聊引导弹窗策略校验失败：已经显示过");
+            }
+            return z;
         }
+        return invokeL.booleanValue;
     }
 }

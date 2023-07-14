@@ -1,100 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigHTTPResMsg;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigReqMsg;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigSocketResMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.pass.biometrics.base.http.HttpClientWrap;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class iv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gv4<hv4> a;
-    public boolean b;
-    public BdUniqueId c;
-    public kb d;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public String e;
+    public final Map<String, String> f;
+    public final List<nv4> g;
 
-    /* loaded from: classes6.dex */
-    public class a extends kb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iv4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(iv4 iv4Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iv4Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iv4Var;
-        }
-
-        @Override // com.baidu.tieba.kb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.b = false;
-                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.d() != responsedMessage.getOrginalMessage().getTag()) {
-                    return;
-                }
-                if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    hv4 hv4Var = null;
-                    if (responsedMessage instanceof ActiveConfigSocketResMsg) {
-                        hv4Var = ((ActiveConfigSocketResMsg) responsedMessage).getData();
-                    } else if (responsedMessage instanceof ActiveConfigHTTPResMsg) {
-                        hv4Var = ((ActiveConfigHTTPResMsg) responsedMessage).getData();
-                    }
-                    if ((responsedMessage.getOrginalMessage().getExtra() instanceof ActiveConfigReqMsg) && ((ActiveConfigReqMsg) responsedMessage.getOrginalMessage().getExtra()).launtchType == 0) {
-                        r95.p().H("pref_key_active_config_info", System.currentTimeMillis());
-                    }
-                    if (hv4Var != null && hv4Var.g != null && this.a.a != null) {
-                        this.a.a.a(hv4Var);
-                    }
-                    if (hv4Var != null && this.a.c()) {
-                        r95.p().H("pref_key_last_register_mission", System.currentTimeMillis());
-                        tu4.b().i(hv4Var);
-                        if (this.a.a != null) {
-                            this.a.a.onSuccess(hv4Var);
-                        }
-                    }
-                    p95.e().j(hv4Var);
-                } else if (this.a.a != null) {
-                    this.a.a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
-                }
-            }
-        }
-    }
-
-    public iv4(BdUniqueId bdUniqueId) {
+    public iv4(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -104,64 +40,69 @@ public class iv4 {
                 return;
             }
         }
-        this.b = false;
-        this.d = new a(this, CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637);
-        this.c = bdUniqueId;
-        e();
-        this.d.setTag(d());
-        MessageManager.getInstance().registerListener(this.d);
-    }
-
-    public void g(gv4<hv4> gv4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, gv4Var) == null) {
-            this.a = gv4Var;
-        }
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !UtilHelper.isSameDay(r95.p().r("pref_key_last_register_mission", 0L), System.currentTimeMillis());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public BdUniqueId d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            v3a.h(309637, ActiveConfigSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, v3a.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
-            tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void f(boolean z, boolean z2, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) != null) || this.b) {
+        this.f = new LinkedHashMap();
+        this.g = new ArrayList();
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
+            a();
+            b();
+            c();
             return;
         }
-        if (!z) {
-            this.b = true;
+        this.d = false;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.add(new tv4());
+            this.g.add(new rv4());
+            this.g.add(new pv4());
+            this.g.add(new uv4());
+            this.g.add(new sv4());
+            this.g.add(new vv4());
+            this.g.add(new qv4());
         }
-        r95.p().H("pref_key_last_active_config", System.currentTimeMillis());
-        ActiveConfigReqMsg activeConfigReqMsg = new ActiveConfigReqMsg();
-        activeConfigReqMsg.setFirstUp(z);
-        activeConfigReqMsg.setSchemaUp(z2);
-        activeConfigReqMsg.launtchType = i;
-        activeConfigReqMsg.setTag(d());
-        MessageManager.getInstance().sendMessage(activeConfigReqMsg);
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || StringUtils.isNull(this.b)) {
+            return;
+        }
+        String valueOf = String.valueOf(this.b.charAt(0));
+        String[] split = this.b.split("@");
+        for (nv4 nv4Var : this.g) {
+            if (valueOf.equals(nv4Var.b())) {
+                String a = nv4Var.a(split, this.f);
+                this.e = a;
+                if (!StringUtils.isNull(a)) {
+                    this.d = true;
+                    return;
+                }
+                return;
+            }
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f.put("@d", BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
+            this.f.put("@n", BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
+            this.f.put("@v", BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
+            this.f.put("@rid", HttpClientWrap.f);
+            this.f.put("@sid", TiebaStatic.Params.WISE_SAMPLE_ID);
+            this.f.put("@c", TiebaStatic.Params.QD);
+            this.f.put("@p", "obj_source");
+            this.f.put("@eq", TiebaStatic.Params.EQID);
+            this.f.put("@1p", "obj_param1");
+            this.f.put("@2p", TiebaStatic.Params.OBJ_PARAM2);
+            this.f.put("@m", "obj_name");
+            this.f.put("@re", "refer");
+            this.f.put("@lo", "obj_locate");
+        }
     }
 }

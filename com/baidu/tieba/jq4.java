@@ -1,203 +1,136 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.view.LayoutInflater;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public class jq4<K, V> extends oq4<K, V> implements Map<K, V> {
+public class jq4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public nq4<K, V> h;
 
     /* loaded from: classes6.dex */
-    public class a extends nq4<K, V> {
+    public interface a {
+        void a(LayoutInflater layoutInflater, nq4 nq4Var);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jq4 d;
 
-        public a(jq4 jq4Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jq4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.d = jq4Var;
         }
 
-        @Override // com.baidu.tieba.nq4
-        public int e(Object obj) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.jq4.a
+        public void a(LayoutInflater layoutInflater, nq4 nq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-                return this.d.e(obj);
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.nq4
-        public int f(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                return this.d.g(obj);
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.nq4
-        public void h(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-                this.d.i(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.nq4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.clear();
-            }
-        }
-
-        @Override // com.baidu.tieba.nq4
-        public Map<K, V> c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.d;
-            }
-            return (Map) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.nq4
-        public int d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.d.c;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.nq4
-        public Object b(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-                return this.d.b[(i << 1) + i2];
-            }
-            return invokeII.objValue;
-        }
-
-        @Override // com.baidu.tieba.nq4
-        public void g(K k, V v) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, k, v) == null) {
-                this.d.put(k, v);
-            }
-        }
-
-        @Override // com.baidu.tieba.nq4
-        public V i(int i, V v) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, v)) == null) {
-                return this.d.j(i, v);
-            }
-            return (V) invokeIL.objValue;
-        }
-    }
-
-    public jq4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, nq4Var) == null) {
+                kq4.a(layoutInflater, nq4Var);
             }
         }
     }
 
-    @Override // java.util.Map
-    public Set<Map.Entry<K, V>> entrySet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return l().l();
-        }
-        return (Set) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class c extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // java.util.Map
-    public Set<K> keySet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return l().m();
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public final nq4<K, V> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.h == null) {
-                this.h = new a(this);
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return this.h;
         }
-        return (nq4) invokeV.objValue;
-    }
 
-    @Override // java.util.Map
-    public Collection<V> values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return l().n();
-        }
-        return (Collection) invokeV.objValue;
-    }
-
-    public boolean m(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) {
-            return nq4.p(this, collection);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Map
-    public void putAll(Map<? extends K, ? extends V> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            b(this.c + map.size());
-            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
-                put(entry.getKey(), entry.getValue());
+        @Override // com.baidu.tieba.jq4.b, com.baidu.tieba.jq4.a
+        public void a(LayoutInflater layoutInflater, nq4 nq4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, nq4Var) == null) {
+                lq4.b(layoutInflater, nq4Var);
             }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.jq4.c, com.baidu.tieba.jq4.b, com.baidu.tieba.jq4.a
+        public void a(LayoutInflater layoutInflater, nq4 nq4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, nq4Var) == null) {
+                mq4.a(layoutInflater, nq4Var);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947891932, "Lcom/baidu/tieba/jq4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947891932, "Lcom/baidu/tieba/jq4;");
+                return;
+            }
+        }
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 21) {
+            a = new d();
+        } else if (i >= 11) {
+            a = new c();
+        } else {
+            a = new b();
+        }
+    }
+
+    public static void a(LayoutInflater layoutInflater, nq4 nq4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, nq4Var) == null) {
+            a.a(layoutInflater, nq4Var);
         }
     }
 }

@@ -8,7 +8,7 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c extends com.kwad.components.ad.reward.presenter.a implements b.a {
     public AdTemplate mAdTemplate;
     public boolean oB = false;
@@ -40,7 +40,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
             return;
         }
         AdInfo bQ = d.bQ(this.mAdTemplate);
-        ViewGroup viewGroup = (ViewGroup) this.nM.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091380);
+        ViewGroup viewGroup = (ViewGroup) this.nM.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091394);
         if (viewGroup == null) {
             return;
         }

@@ -4,7 +4,7 @@ import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,7 +82,7 @@ public final class VoiceMsgContent {
                     VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                     VoiceMsgContent voiceMsgContent = this.this$0;
                     voiceModel.setDuration(voiceMsgContent.a());
-                    if (!wi.isEmpty(voiceMsgContent.f()) && (parse = Uri.parse(voiceMsgContent.f())) != null) {
+                    if (!xi.isEmpty(voiceMsgContent.f()) && (parse = Uri.parse(voiceMsgContent.f())) != null) {
                         String lastPathSegment = parse.getLastPathSegment();
                         if (lastPathSegment == null) {
                             lastPathSegment = "";

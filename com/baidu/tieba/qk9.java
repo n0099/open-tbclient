@@ -1,31 +1,140 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbPostShareDialogConfig;
+import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.ep5;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class qk9 implements ep5, PersonPostModel.d, PersonPostModel.c {
+public class qk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public PersonPostModel a;
-    @Nullable
-    public ep5.a b;
+    public TbPageContext a;
+    public b b;
 
-    public qk9(@NonNull TbPageContext tbPageContext) {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(ze9 ze9Var, ThreadData threadData, yca ycaVar, a36 a36Var);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qk9 a;
+
+        public a(qk9 qk9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qk9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qk9Var;
+        }
+
+        @Override // com.baidu.tieba.qk9.b
+        public void a(ze9 ze9Var, ThreadData threadData, yca ycaVar, a36 a36Var) {
+            String e;
+            String tid;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, ze9Var, threadData, ycaVar, a36Var) == null) {
+                if ((ze9Var != null || threadData != null) && ycaVar != null && this.a.a != null) {
+                    if (ze9Var != null) {
+                        String str2 = ze9Var.L(false)[0];
+                        if (!StringUtils.isNull(str2) && str2.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
+                            str2 = str2.substring(37);
+                        }
+                        ThreadData N = ze9Var.N();
+                        if (N == null) {
+                            return;
+                        }
+                        String str3 = str2;
+                        threadData = N;
+                        e = str3;
+                    } else {
+                        e = this.a.e(threadData);
+                    }
+                    mf9 mf9Var = new mf9();
+                    mf9Var.h(threadData.getAbstract());
+                    if (!StringUtils.isNull(e)) {
+                        mf9Var.k(e);
+                    }
+                    mf9Var.l(threadData.getThreadType());
+                    mf9Var.g(a36Var);
+                    mf9Var.i(ycaVar);
+                    String title = threadData.getTitle();
+                    if (StringUtils.isNull(title)) {
+                        title = threadData.getAbstract();
+                    }
+                    mf9Var.h(title);
+                    if (threadData.isUgcThreadType()) {
+                        tid = threadData.getBaijiahaoData().oriUgcTid;
+                        str = "?share=9105&fr=dshare&dtype=" + threadData.getBaijiahaoData().oriUgcType + "&dvid=" + threadData.getBaijiahaoData().oriUgcVid + "&nid=" + threadData.getBaijiahaoData().oriUgcNid;
+                    } else {
+                        tid = threadData.getTid();
+                        str = "?share=9105&fr=share";
+                    }
+                    mf9Var.j(this.a.d(TbConfig.HTTPS_PB_PREFIX + tid + (str + "&post_id=" + ycaVar.S() + "&share_from=comment&post_sort=1")));
+                    ShareItem shareItem = new ShareItem();
+                    shareItem.k0 = 1;
+                    shareItem.k = true;
+                    shareItem.u = tid;
+                    shareItem.f0 = ycaVar.S();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("tid", tid);
+                    bundle.putString("pid", ycaVar.S());
+                    bundle.putInt("source", 1);
+                    shareItem.r(bundle);
+                    PbPostShareDialogConfig pbPostShareDialogConfig = new PbPostShareDialogConfig(this.a.a.getPageActivity(), shareItem, true, mf9Var);
+                    pbPostShareDialogConfig.setIsCopyLink(false);
+                    pbPostShareDialogConfig.setHideMode(pbPostShareDialogConfig.hideMode | 32);
+                    this.a.a.sendMessage(new CustomMessage(2001276, pbPostShareDialogConfig));
+                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
+                    statisticItem.param("tid", tid);
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                    if (threadData.getForumData() != null) {
+                        statisticItem.param("fid", threadData.getForumData().a);
+                    }
+                    if (threadData.getTopAgreePost() != null) {
+                        statisticItem.param("post_id", ycaVar.S());
+                    }
+                    statisticItem.param("obj_locate", 21);
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+    }
+
+    public qk9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,51 +149,61 @@ public class qk9 implements ep5, PersonPostModel.d, PersonPostModel.c {
                 return;
             }
         }
-        this.a = new PersonPostModel(tbPageContext, tbPageContext.getUniqueId(), this, false, 1);
+        this.b = new a(this);
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
-    public void B0(PersonPostModel personPostModel, boolean z) {
-        ep5.a aVar;
+    public final Bitmap d(String str) {
+        InterceptResult invokeL;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) && (aVar = this.b) != null) {
-            aVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
+                return null;
+            }
+            return (Bitmap) runTask.getData();
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ep5
-    public void a(@Nullable ep5.a aVar) {
+    public final String e(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.ep5
-    public void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, metaData, num, num2, num3, num4, l, num5}) == null) {
-            this.a.fetchPostByBeginThreadId(str, this, metaData, num, num2, num3, num4, l, num5);
-        }
-    }
-
-    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-    public void s0(PersonPostModel personPostModel, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, personPostModel, z) == null) && this.b != null) {
-            ArrayList arrayList = new ArrayList();
-            Iterator<xn> it = personPostModel.threadList.iterator();
-            while (it.hasNext()) {
-                xn next = it.next();
-                if (next instanceof CardPersonDynamicThreadData) {
-                    ThreadData threadData = ((CardPersonDynamicThreadData) next).getThreadData();
-                    if (!TextUtils.equals(threadData.getTid(), "0")) {
-                        arrayList.add(threadData);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData)) == null) {
+            String str = null;
+            if (threadData == null) {
+                return null;
+            }
+            if (threadData.getThreadAlaInfo() != null && !TextUtils.isEmpty(threadData.getThreadAlaInfo().cover)) {
+                return threadData.getThreadAlaInfo().cover;
+            }
+            if (threadData.getMedias() == null) {
+                return null;
+            }
+            ArrayList<MediaData> medias = threadData.getMedias();
+            int size = medias.size();
+            int i = 0;
+            while (true) {
+                if (i >= size) {
+                    break;
+                }
+                MediaData mediaData = medias.get(i);
+                if (mediaData != null && (mediaData.getType() == 3 || mediaData.getType() == 5)) {
+                    if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
+                        str = mediaData.getThumbnails_url();
+                        break;
+                    } else if (!StringUtils.isNull(mediaData.getPicUrl())) {
+                        str = mediaData.getPicUrl();
+                        break;
                     }
                 }
+                i++;
             }
-            this.b.b(arrayList, personPostModel.getDataResMap());
-            this.b.a();
+            if (str == null && threadData.getThreadVideoInfo() != null && !TextUtils.isEmpty(threadData.getThreadVideoInfo().thumbnail_url)) {
+                return threadData.getThreadVideoInfo().thumbnail_url;
+            }
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 }

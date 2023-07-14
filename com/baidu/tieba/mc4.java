@@ -3,14 +3,21 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class mc4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile mc4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ji4 a;
-    public boolean b;
+    public int a;
+    public volatile ArrayList<lc4> b;
 
     public mc4() {
         Interceptable interceptable = $ic;
@@ -25,44 +32,76 @@ public class mc4 {
                 return;
             }
         }
-        this.b = true;
+        this.b = new ArrayList<>(20);
     }
 
-    public void a() {
+    public static mc4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c(false);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(true);
-        }
-    }
-
-    public void b(ji4 ji4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ji4Var) == null) {
-            this.a = ji4Var;
-            c(this.b);
-        }
-    }
-
-    public final void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-            ji4 ji4Var = this.a;
-            if (ji4Var == null) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (mc4.class) {
+                    if (c == null) {
+                        c = new mc4();
+                    }
+                }
             }
-            if (z) {
-                ji4Var.d(4, 1);
-            } else {
-                ji4Var.l(4);
+            return c;
+        }
+        return (mc4) invokeV.objValue;
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b.clear();
+                this.a = 0;
             }
         }
+    }
+
+    public synchronized void a(lc4 lc4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, lc4Var) == null) {
+            synchronized (this) {
+                if (lc4Var == null) {
+                    return;
+                }
+                if (this.b.size() < 20) {
+                    this.b.add(lc4Var);
+                } else {
+                    this.a++;
+                }
+            }
+        }
+    }
+
+    public synchronized JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                int size = this.b.size();
+                if (size == 0) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("dropcnt", this.a);
+                    jSONObject.put("errorcnt", size);
+                    JSONArray jSONArray = new JSONArray();
+                    jSONObject.put("errors", jSONArray);
+                    Iterator<lc4> it = this.b.iterator();
+                    while (it.hasNext()) {
+                        jSONArray.put(it.next().a());
+                    }
+                } catch (JSONException unused) {
+                }
+                this.b.clear();
+                return jSONObject;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

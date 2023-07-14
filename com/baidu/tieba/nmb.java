@@ -1,126 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import android.animation.ValueAnimator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.ar.core.InstallActivity;
 /* loaded from: classes7.dex */
-public class nmb {
+public final class nmb implements ValueAnimator.AnimatorUpdateListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public transient rob j;
-    public transient qob k;
-    public int l;
-    public boolean m;
-    public int n;
-    public int o;
+    public final /* synthetic */ int a;
+    public final /* synthetic */ int b;
+    public final /* synthetic */ int c;
+    public final /* synthetic */ InstallActivity d;
 
-    public nmb() {
+    public nmb(InstallActivity installActivity, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = 1;
-        this.c = 1;
-        this.d = 0;
-        this.e = 1;
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.i = false;
-        this.k = null;
-        this.l = 0;
-        this.m = false;
-        this.n = 1;
-        this.o = 4000;
+        this.d = installActivity;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
     }
 
-    public static nmb a(String str) {
-        InterceptResult invokeL;
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public final void onAnimationUpdate(ValueAnimator valueAnimator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            nmb nmbVar = new nmb();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                nmbVar.a = jSONObject.optString("cacheDirectory");
-                nmbVar.b = jSONObject.optInt("avcCodec");
-                nmbVar.c = jSONObject.optInt("hevcCodec");
-                nmbVar.d = jSONObject.optInt("audioCodec");
-                nmbVar.e = jSONObject.optInt("videoSeekMode");
-                nmbVar.f = jSONObject.optBoolean("clearRender");
-                nmbVar.g = jSONObject.optBoolean("usingSurfaceView");
-                nmbVar.h = jSONObject.optBoolean("hardDecodeOutputToBuffer");
-                nmbVar.i = jSONObject.optBoolean("forceNotCrop");
-                nmbVar.l = jSONObject.optInt("samplerFilter");
-                nmbVar.m = jSONObject.optBoolean("isSubProcess");
-                nmbVar.n = jSONObject.optInt("pcdnCatonTime");
-                nmbVar.o = jSONObject.optInt("pcdnCatonCount");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return nmbVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+            float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
+            float animatedFraction2 = valueAnimator.getAnimatedFraction();
+            int i = this.b;
+            this.d.getWindow().setLayout((int) ((this.a * animatedFraction) + (i * animatedFraction2)), (int) ((this.c * animatedFraction) + (i * animatedFraction2)));
+            this.d.getWindow().getDecorView().refreshDrawableState();
         }
-        return (nmb) invokeL.objValue;
-    }
-
-    public static String b(nmb nmbVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, nmbVar)) == null) {
-            if (nmbVar == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cacheDirectory", nmbVar.a);
-                jSONObject.put("avcCodec", nmbVar.b);
-                jSONObject.put("hevcCodec", nmbVar.c);
-                jSONObject.put("audioCodec", nmbVar.d);
-                jSONObject.put("videoSeekMode", nmbVar.e);
-                jSONObject.put("clearRender", nmbVar.f);
-                jSONObject.put("usingSurfaceView", nmbVar.g);
-                jSONObject.put("hardDecodeOutputToBuffer", nmbVar.h);
-                jSONObject.put("forceNotCrop", nmbVar.i);
-                jSONObject.put("samplerFilter", nmbVar.l);
-                jSONObject.put("isSubProcess", nmbVar.m);
-                jSONObject.put("pcdnCatonTime", nmbVar.n);
-                jSONObject.put("pcdnCatonCount", nmbVar.o);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PlayerOptions [cacheDirectory=" + this.a + ", avcCodec=" + this.b + ", hevcCodec=" + this.c + ", audioCodec=" + this.d + ", videoSeekMode=" + this.e + ", clearRender=" + this.f + ", usingSurfaceView=" + this.g + ", hardDecodeOutputToBuffer=" + this.h + ", forceNotCrop=" + this.i + ", samplerFilter=" + this.l + ", isSubProcess=" + this.m + ", pcdnCatonTime=" + this.n + ", pcdnCatonCount=" + this.o + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
     }
 }

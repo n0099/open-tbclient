@@ -1,52 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class u8a extends CustomMessageListener {
+public final class u8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity a;
+    public tu6 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u8a(MainTabActivity mainTabActivity) {
-        super(2921654);
+    public u8a(tu6 spriteAnimData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {spriteAnimData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
+        Intrinsics.checkNotNullParameter(spriteAnimData, "spriteAnimData");
+        this.a = spriteAnimData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public final tu6 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            ij5 ij5Var = null;
-            if (customResponsedMessage.getData() instanceof ij5) {
-                ij5Var = (ij5) customResponsedMessage.getData();
-            }
-            if (ij5Var != null && ij5Var.b() == 0) {
-                MainTabActivity mainTabActivity = this.a;
-                new hj5(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f0922fc), ij5Var).m();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (tu6) invokeV.objValue;
     }
 }

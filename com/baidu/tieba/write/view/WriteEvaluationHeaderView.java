@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -243,7 +243,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h.c();
+            return this.h.d();
         }
         return invokeV.booleanValue;
     }
@@ -269,16 +269,16 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a1b, (ViewGroup) this, true);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09119e);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0911a0);
-            this.e = findViewById(R.id.obfuscated_res_0x7f092a07);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09119d);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09119f);
-            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f0911aa);
-            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f0911a7);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a35, (ViewGroup) this, true);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0911b0);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0911b2);
+            this.e = findViewById(R.id.obfuscated_res_0x7f092a3d);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911af);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0911b1);
+            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f0911bc);
+            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f0911b9);
             this.h = rankStarView;
-            rankStarView.setStarSpacing(xi.g(getContext(), R.dimen.tbds30));
+            rankStarView.setStarSpacing(yi.g(getContext(), R.dimen.tbds30));
             this.h.setClickable(true);
             this.h.setStarChangListener(this);
             this.g.N();
@@ -298,7 +298,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         EMTextView eMTextView = this.b;
         if (eMTextView != null) {
             SkinManager.setViewTextColor(eMTextView, (int) R.color.CAM_X0109);
-            s75 d = s75.d(this.b);
+            d85 d = d85.d(this.b);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0206);
         }
@@ -319,11 +319,11 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         }
         RankStarView rankStarView = this.h;
         if (rankStarView != null) {
-            rankStarView.e(skinType);
+            rankStarView.f(skinType);
         }
         RankStarView rankStarView2 = this.h;
         if (rankStarView2 != null) {
-            rankStarView2.e(TbadkCoreApplication.getInst().getSkinType());
+            rankStarView2.f(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

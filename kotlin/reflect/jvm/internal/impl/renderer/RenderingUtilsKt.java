@@ -4,7 +4,7 @@ import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.name.FqNameUnsafe;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RenderingUtilsKt {
     public static final String render(FqNameUnsafe fqNameUnsafe) {
         List<Name> pathSegments = fqNameUnsafe.pathSegments();

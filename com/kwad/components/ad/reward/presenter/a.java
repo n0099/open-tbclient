@@ -2,7 +2,7 @@ package com.kwad.components.ad.reward.presenter;
 
 import android.app.Activity;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends Presenter {
     public com.kwad.components.ad.reward.k nM;
 

@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.android.imsdk.chatmessage.request.RequestContants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
@@ -189,7 +188,7 @@ public class MessageClueUpateMsg extends NotifyMsg implements Parcelable, NoProG
                 this.mFromUid = jSONObject.optLong("from_uid");
                 this.mChangeMsgid = jSONObject.optLong("msgid");
                 this.mStatus = jSONObject.optInt("status");
-                this.mContacterPauid = jSONObject.optLong(RequestContants.EXTRA_CONTACTER_PA_UID, 0L);
+                this.mContacterPauid = jSONObject.optLong("contacter_pa_uid", 0L);
                 return true;
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "JSONException", e);

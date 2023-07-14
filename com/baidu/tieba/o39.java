@@ -1,72 +1,45 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NavigationBarShadowView;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.myCollection.ThreadFragment;
+import com.baidu.searchbox.live.impl.IMasterSwitchCallback;
+import com.baidu.searchbox.live.impl.LiveNpsGetSwitchManager;
+import com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback;
+import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
+import com.baidu.searchbox.live.nps.LiveNpsLoadingCallback;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.view.NpsPluginLoadingDialogActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.lang.ref.WeakReference;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class o39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
-    public NavigationBarShadowView b;
-    public BdListView c;
-    public View d;
-    public ba5 e;
-    public NoDataView f;
-    public n39 g;
-    public RelativeLayout h;
-    public ProgressBar i;
-    public g55 j;
-    public g55.e k;
-    public c l;
-    public boolean m;
-    public AbsListView.OnScrollListener n;
-
-    public int g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f092155 : R.id.obfuscated_res_0x7f090f50 : invokeZ.intValue;
-    }
-
-    public int h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f092157 : R.id.obfuscated_res_0x7f0916b9 : invokeZ.intValue;
-    }
-
-    public int i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f092156 : R.id.obfuscated_res_0x7f090f52 : invokeZ.intValue;
-    }
+    public WeakReference<NpsPluginLoadingDialogActivity> a;
+    public int b;
+    public boolean c;
 
     /* loaded from: classes7.dex */
-    public class a implements AbsListView.OnScrollListener {
+    public class a implements LiveNpsLoadingCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o39 a;
@@ -89,69 +62,55 @@ public class o39 {
             this.a = o39Var;
         }
 
-        @Override // android.widget.AbsListView.OnScrollListener
-        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
+        public void onLoadingEnd(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) && i == 0) {
-                View childAt = absListView.getChildAt(0);
-                if (this.a.b != null && childAt != null && childAt.getTop() == 0) {
-                    this.a.b.a();
+            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
+                return;
+            }
+            this.a.c = false;
+            this.a.f();
+        }
+
+        @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
+        public void onLoadingProgress(long j, long j2) {
+            float f;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                BdLog.d("[onDownloadUpdate] package:, current:" + j + ",total:" + j2);
+                if (j2 <= 0) {
+                    f = 0.0f;
+                } else {
+                    f = (((float) j) * 100.0f) / ((float) j2);
                 }
+                this.a.b = (int) f;
+                o39 o39Var = this.a;
+                o39Var.J(o39Var.i());
             }
         }
 
-        @Override // android.widget.AbsListView.OnScrollListener
-        public void onScrollStateChanged(AbsListView absListView, int i) {
-            NavigationBarShadowView navigationBarShadowView;
+        @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
+        public void onLoadingStart() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) && (navigationBarShadowView = this.a.b) != null && i == 1) {
-                navigationBarShadowView.c();
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.c = true;
+                this.a.p(TbadkCoreApplication.getInst());
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements g55.e {
+    public class b implements IMasterSwitchCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ow4 a;
 
-        public b(o39 o39Var) {
+        public b(o39 o39Var, ow4 ow4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.g55.e
-        public void onClick(g55 g55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, g55Var) == null) {
-                g55Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public p39 a;
-
-        public c(p39 p39Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p39Var};
+                Object[] objArr = {o39Var, ow4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -161,25 +120,89 @@ public class o39 {
                     return;
                 }
             }
-            this.a = p39Var;
+            this.a = ow4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            p39 p39Var;
+        @Override // com.baidu.searchbox.live.impl.IMasterSwitchCallback
+        public void switchCallback(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (p39Var = this.a) != null) {
-                p39Var.w(Boolean.TRUE);
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (!xi.isEmpty(str)) {
+                    TbSingleton.getInstance().setYyCloudSwitch(str);
+                }
+                if (this.a != null) {
+                    if ("yy".equals(str)) {
+                        this.a.a(true);
+                    } else if ("baidu".equals(str)) {
+                        this.a.a(false);
+                    } else {
+                        this.a.onFail();
+                    }
+                }
             }
         }
     }
 
-    public o39(ThreadFragment threadFragment, View view2) {
+    /* loaded from: classes7.dex */
+    public class c implements ILiveFileSizeCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long[] a;
+
+        public c(o39 o39Var, long[] jArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o39Var, jArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jArr;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback
+        public void getFileSize(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                this.a[0] = j;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final o39 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-595576940, "Lcom/baidu/tieba/o39$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-595576940, "Lcom/baidu/tieba/o39$d;");
+                    return;
+                }
+            }
+            a = new o39(null);
+        }
+    }
+
+    public o39() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadFragment, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -189,290 +212,348 @@ public class o39 {
                 return;
             }
         }
-        this.a = null;
-        this.c = null;
-        this.d = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.m = false;
-        this.n = new a(this);
-        this.a = threadFragment.getBaseFragmentActivity();
-        this.b = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091894);
-        this.i = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091d2e);
-        this.h = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a01);
-        this.f = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.COLLECTION, xi.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070395)), NoDataViewFactory.e.b(R.string.obfuscated_res_0x7f0f0c36, R.string.obfuscated_res_0x7f0f0c37), null);
-        n39 n39Var = new n39(threadFragment.getPageContext());
-        this.g = n39Var;
-        n39Var.notifyDataSetChanged();
-        this.e = new ba5(threadFragment.getPageContext());
-        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f09150b);
-        this.c = bdListView;
-        bdListView.setPullRefresh(this.e);
-        this.e.f(threadFragment);
-        this.d = new TextView(this.a.getActivity());
-        this.d.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + xi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07041a)));
-        this.c.w(this.d, 0);
-        this.c.setAdapter((ListAdapter) this.g);
-        this.c.setOnSrollToBottomListener(threadFragment);
-        this.c.setOnItemClickListener(threadFragment);
-        this.c.setOnScrollListener(this.n);
-        this.g.k(threadFragment);
-        this.g.r(threadFragment);
-        this.g.q(threadFragment);
+        this.b = 0;
+        this.c = false;
+        LiveNPSPluginManager.getInstance().setLoadingCallback(new a(this));
+        p19.e(TbadkCoreApplication.getInst());
     }
 
-    public void a(boolean z) {
+    public /* synthetic */ o39(a aVar) {
+        this();
+    }
+
+    public void J(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.g.l(z);
-            this.g.notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeL(1048585, this, npsPluginLoadingDialogActivity) == null) && npsPluginLoadingDialogActivity != null) {
+            npsPluginLoadingDialogActivity.v1(this.b);
         }
     }
 
-    public void b(boolean z) {
+    public void e(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            BdListViewHelper.c(this.d, BdListViewHelper.HeadType.DEFAULT, z);
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+            LiveNPSPluginManager.getInstance().clearResourceFile(context);
         }
     }
 
-    public void q(g55.e eVar) {
+    public long k(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, eVar) == null) {
-            this.k = eVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+            long[] jArr = {0};
+            LiveNPSPluginManager.getInstance().getLiveResourceFileSize(context, new c(this, jArr));
+            return jArr[0];
+        }
+        return invokeL.longValue;
+    }
+
+    public void l(@Nullable ow4 ow4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, ow4Var) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
+            return;
+        }
+        LiveNpsGetSwitchManager.INSTANCE.getMasterSwitch("", new b(this, ow4Var));
+    }
+
+    public void o(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, npsPluginLoadingDialogActivity) == null) {
+            this.a = new WeakReference<>(npsPluginLoadingDialogActivity);
+            J(npsPluginLoadingDialogActivity);
         }
     }
 
-    public void r(boolean z) {
+    public void q(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.m = z;
-        }
-    }
-
-    public void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            if (i == 0) {
-                this.c.E();
-                return;
+        if (interceptable == null || interceptable.invokeL(1048597, this, context) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startAdminListActivity(context);
             }
-            this.g.p(true);
-            this.g.notifyDataSetChanged();
         }
     }
 
-    public void w(ArrayList<MarkData> arrayList) {
+    public void t(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, arrayList) == null) {
-            this.g.j(arrayList);
+        if (interceptable == null || interceptable.invokeL(1048600, this, context) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startForbiddenListActivity(context);
+            }
         }
     }
 
-    public void c() {
-        BdListView bdListView;
+    public void z(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdListView = this.c) != null) {
-            bdListView.z(0L);
+        if (interceptable == null || interceptable.invokeL(1048606, this, context) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startPatronageActivity(context);
+            }
         }
     }
 
-    public void j() {
+    public void A(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.i.setVisibility(8);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startPatronsActivity(context, str);
+            }
         }
     }
 
-    public boolean k() {
+    public void B(@NonNull Context context, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startPayActivity(context, str);
+            }
+        }
+    }
+
+    public void D(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().dispatchYYLiveRouter(context, "yylive?url=yymobile%3a%2f%2fMobileLive%2fPreViewPage%3fneedLogin%3d1");
+            }
+        }
+    }
+
+    public void E(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startYYCustomerServiceActivity(context, str);
+            }
+        }
+    }
+
+    public void F(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startYYFeedbackActivity(context, str);
+            }
+        }
+    }
+
+    public void H(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, str) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startYuYinCreateLiveRoomActivity(context, str);
+            }
+        }
+    }
+
+    public void h(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, context, str) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().dispatchYYLiveRouter(context, str);
+            }
+        }
+    }
+
+    public void x(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048604, this, context, str) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startLiveShowActivity(context, str);
+            }
+        }
+    }
+
+    public static o39 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.m;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d.a;
+        }
+        return (o39) invokeV.objValue;
+    }
+
+    public boolean I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (Build.VERSION.SDK_INT < 21) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void m() {
+    public final void f() {
+        NpsPluginLoadingDialogActivity i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.g.notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (i = i()) != null) {
+            i.finish();
+            this.a = null;
         }
     }
 
-    public void s() {
+    public final NpsPluginLoadingDialogActivity i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            WeakReference<NpsPluginLoadingDialogActivity> weakReference = this.a;
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            return null;
+        }
+        return (NpsPluginLoadingDialogActivity) invokeV.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f.d(this.a.getPageContext());
-            this.c.removeHeaderView(this.f);
-            this.c.addHeaderView(this.f);
-            this.f.setVisibility(0);
+            this.a = null;
+            LiveNPSPluginManager.getInstance().cancelLoading();
         }
     }
 
-    public void u() {
+    public void C(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.i.setVisibility(0);
-        }
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && this.f.isShown()) {
-            this.f.d(this.a.getPageContext());
-        }
-    }
-
-    public void d(boolean z, String str, p39 p39Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), str, p39Var}) == null) {
-            if (z) {
-                BaseFragmentActivity baseFragmentActivity = this.a;
-                baseFragmentActivity.showToast(baseFragmentActivity.getPageContext().getString(R.string.delete_success));
-                if (p39Var != null && p39Var.n() != null) {
-                    this.g.j(p39Var.n());
-                    if (p39Var.n().size() == 0) {
-                        if (this.l == null) {
-                            this.l = new c(p39Var);
-                        } else {
-                            yg.a().removeCallbacks(this.l);
-                        }
-                        yg.a().postDelayed(this.l, 600L);
-                    }
-                } else {
-                    this.i.setVisibility(8);
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
             } else {
-                this.a.showToast(str);
-            }
-            this.g.m(false);
-            this.i.setVisibility(8);
-        }
-    }
-
-    public void e(String str, p39 p39Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048580, this, str, p39Var, z) == null) {
-            this.g.p(true);
-            if (str != null) {
-                this.a.showToast(str);
-            }
-            if (p39Var != null) {
-                if (p39Var.p() < 20) {
-                    this.g.n(false);
-                    this.g.m(true);
-                } else {
-                    this.g.n(true);
-                    this.g.m(true);
-                }
-                this.g.j(p39Var.n());
-                p(p39Var, z);
-            }
-            this.g.p(false);
-            this.g.notifyDataSetChanged();
-            if (k()) {
-                r(false);
+                LiveNPSPluginManager.getInstance().startRealAuthActivity(context, str, str2);
             }
         }
     }
 
-    public void f(boolean z, String str, boolean z2) {
+    public void g(Context context, String str, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), str, Boolean.valueOf(z2)}) == null) {
-            this.a.closeLoadingDialog();
-            if (str != null) {
-                this.a.showToast(str);
-            }
-            if (z2) {
-                t();
-            }
-            this.g.notifyDataSetChanged();
-        }
-    }
-
-    public void l(MarkData markData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, markData) == null) && markData != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.getPageContext().getPageActivity()).createNormalConfig(vg.g(markData.getUesrId(), 0L), false, markData.isGod())));
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
-            ba5 ba5Var = this.e;
-            if (ba5Var != null) {
-                ba5Var.H(i);
-            }
-            m();
-            NoDataView noDataView = this.f;
-            if (noDataView != null) {
-                noDataView.f(this.a.getPageContext(), i);
-                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0201);
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, context, str, map) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().dispatchHostEvent(context, str, map);
             }
         }
     }
 
-    public void o() {
+    public void r(Application application, String str, Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            g55 g55Var = this.j;
-            if (g55Var != null) {
-                g55Var.dismiss();
-                this.j = null;
-            }
-            ProgressBar progressBar = this.i;
-            if (progressBar != null) {
-                progressBar.setVisibility(8);
-            }
-            if (this.l != null) {
-                yg.a().removeCallbacks(this.l);
-            }
-            n39 n39Var = this.g;
-            if (n39Var != null) {
-                n39Var.i();
+        if (interceptable == null || interceptable.invokeLLL(1048598, this, application, str, uri) == null) {
+            if (I()) {
+                yi.R(application, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startAudioMasterActivity(application, str);
             }
         }
     }
 
-    public void p(p39 p39Var, boolean z) {
+    public void s(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048591, this, p39Var, z) == null) {
-            if (p39Var == null) {
-                s();
-            } else if (p39Var.m() > 0) {
-                this.f.setVisibility(8);
-                this.c.removeHeaderView(this.f);
-                this.g.notifyDataSetChanged();
-            } else if (p39Var.m() == 0 && !z) {
-                s();
+        if (interceptable == null || interceptable.invokeLLI(1048599, this, context, str, i) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startFansListActivity(context, str, i);
             }
         }
     }
 
-    public final void t() {
+    public void u(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            if (this.j == null) {
-                g55 g55Var = new g55(this.a.getPageContext().getPageActivity());
-                this.j = g55Var;
-                g55Var.setTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f158b));
-                this.j.setMessage(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e0f));
-                if (this.k != null) {
-                    this.j.setPositiveButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f123c), this.k);
-                }
-                this.j.setNegativeButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f04be), new b(this));
-                this.j.create(this.a.getPageContext());
-                this.j.setCanceledOnTouchOutside(true);
+        if (interceptable == null || interceptable.invokeLLL(1048601, this, context, str, str2) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startGuardianListActivity(context, str, str2);
             }
-            this.j.show();
+        }
+    }
+
+    public void G(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+                return;
+            }
+            if (BdLog.isDebugMode()) {
+                BdLog.e("YYStartLiveRoom|" + str);
+            }
+            LiveNPSPluginManager.getInstance().startYYLiveActivity(context, str);
+        }
+    }
+
+    public void p(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048596, this, context) != null) || i() != null) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        Intent intent = new Intent(context, NpsPluginLoadingDialogActivity.class);
+        intent.putExtra("dialogId", currentTimeMillis);
+        if (!(context instanceof Activity)) {
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        }
+        context.startActivity(intent);
+    }
+
+    public void v(Context context, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startLiveExpActivity(context, j, i);
+            }
+        }
+    }
+
+    public void w(Context context, String str, String str2, String str3, Uri uri) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLLL(1048603, this, context, str, str2, str3, uri) != null) || I()) {
+            return;
+        }
+        LiveNPSPluginManager.getInstance().startLiveMediaActivity(context, str, str2, str3, uri);
+    }
+
+    public void y(Context context, String str, String str2, Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048605, this, context, str, str2, map) == null) {
+            if (I()) {
+                yi.R(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startYuYinActivity(context, str, str2, map);
+            }
         }
     }
 }

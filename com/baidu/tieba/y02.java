@@ -1,44 +1,53 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class y02 extends v02 {
+public class y02 extends yz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View f;
+    public int g;
+    public ViewTreeObserver.OnGlobalLayoutListener h;
 
-    @Override // com.baidu.tieba.f02
+    @Override // com.baidu.tieba.yz1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Keyboard" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigationBarApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SoftKeyboardApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ib2 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ y02 d;
+        public final /* synthetic */ y02 a;
 
-        public a(y02 y02Var, ib2 ib2Var, String str, String str2) {
+        public a(y02 y02Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y02Var, ib2Var, str, str2};
+                Object[] objArr = {y02Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,161 +57,59 @@ public class y02 extends v02 {
                     return;
                 }
             }
-            this.d = y02Var;
-            this.a = ib2Var;
-            this.b = str;
-            this.c = str2;
+            this.a = y02Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ib2 ib2Var = this.a;
-                boolean z = true;
-                if (!((ib2Var == null || !ib2Var.y2(this.b, true)) ? false : false)) {
-                    c92.c("NavigationBarApi", "set title fail");
-                    this.d.d(this.c, new c42(1001));
-                }
-                this.d.d(this.c, new c42(0));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ib2 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ JSONObject e;
-        public final /* synthetic */ y02 f;
-
-        public b(y02 y02Var, ib2 ib2Var, String str, String str2, String str3, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y02Var, ib2Var, str, str2, str3, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                Rect rect = new Rect();
+                this.a.f.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.a.g == height) {
                     return;
                 }
-            }
-            this.f = y02Var;
-            this.a = ib2Var;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-            this.e = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ib2 ib2Var = this.a;
-                if (ib2Var != null && ib2Var.G2(this.b, true)) {
-                    if (!this.a.w2(SwanAppConfigData.t(this.d), true)) {
-                        c92.c("NavigationBarApi", "set title background fail");
-                        this.f.d(this.c, new c42(1001));
-                        return;
+                if (this.a.g - height > 180) {
+                    HashMap hashMap = new HashMap();
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("height", mp3.O(this.a.g - height));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    JSONObject jSONObject = this.e;
-                    if (jSONObject != null) {
-                        this.a.u2(jSONObject.optInt("duration"), this.e.optString("timingFunc"));
-                        c92.i("NavigationBarApi", "set action bar animator");
+                    hashMap.put("data", jSONObject.toString());
+                    ix2.T().u(new wl2("keyboardHeightChange", hashMap));
+                    this.a.g = height;
+                } else if (height - this.a.g > 180) {
+                    HashMap hashMap2 = new HashMap();
+                    JSONObject jSONObject2 = new JSONObject();
+                    try {
+                        jSONObject2.put("height", 0);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                     }
-                    this.f.d(this.c, new c42(0));
-                    return;
+                    hashMap2.put("data", jSONObject2.toString());
+                    ix2.T().u(new wl2("keyboardHeightChange", hashMap2));
+                    this.a.g = height;
                 }
-                c92.c("NavigationBarApi", "set title color fail");
-                this.f.d(this.c, new c42(1001));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ib2 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ y02 d;
-
-        public c(y02 y02Var, ib2 ib2Var, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y02Var, ib2Var, str, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = y02Var;
-            this.a = ib2Var;
-            this.b = str;
-            this.c = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean U1;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ib2 ib2Var = this.a;
-                if (ib2Var == null) {
-                    c92.c("NavigationBarApi", "swanAppFragment is null");
-                    this.d.d(this.b, new c42(1001));
-                    return;
-                }
-                if (this.c) {
-                    U1 = ib2Var.P2();
-                } else {
-                    U1 = ib2Var.U1();
-                }
-                if (!U1) {
-                    if (this.c) {
-                        str = "show";
-                    } else {
-                        str = "hide";
-                    }
-                    c92.c("NavigationBarApi", str + " navigation loading progressbar fail");
-                    this.d.d(this.b, new c42(1001));
-                    return;
-                }
-                this.d.d(this.b, new c42(0));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y02(@NonNull d02 d02Var) {
-        super(d02Var);
+    public y02(@NonNull wz1 wz1Var) {
+        super(wz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d02Var};
+            Object[] objArr = {wz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d02) newInitContext.callArgs[0]);
+                super((wz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -210,110 +117,61 @@ public class y02 extends v02 {
         }
     }
 
-    public c42 B(String str) {
-        InterceptResult invokeL;
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#showNavigationBarLoading", false);
-            cc3 b0 = cc3.b0();
-            if (b0 != null && b0.n0()) {
-                return new c42(1001, "ui operation does not supported when app is invisible.");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SwanAppActivity activity = ix2.T().getActivity();
+            if (activity == null) {
+                v82.c("SoftKeyboardApi", "activity is null");
+                return;
             }
-            return x(str, true);
+            this.f = activity.getWindow().getDecorView();
+            Rect rect = new Rect();
+            this.f.getWindowVisibleDisplayFrame(rect);
+            this.g = rect.height();
+            if (this.h == null) {
+                this.h = new a(this);
+                this.f.getViewTreeObserver().addOnGlobalLayoutListener(this.h);
+            }
         }
-        return (c42) invokeL.objValue;
     }
 
-    public c42 A(String str) {
-        InterceptResult invokeL;
+    public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#setNavigationBarTitle", false);
-            Pair<c42, JSONObject> s = s(str);
-            c42 c42Var = (c42) s.first;
-            if (!c42Var.isSuccess()) {
-                return c42Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.h != null) {
+                this.f.getViewTreeObserver().removeOnGlobalLayoutListener(this.h);
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return new c42(1001);
-            }
-            String optString = jSONObject.optString("title");
-            lb2 U = px2.T().U();
-            if (U == null) {
-                c92.c("NavigationBarApi", "manager is null");
-                return new c42(1001);
-            }
-            String optString2 = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString2)) {
-                p("cb is empty", null, true);
-                return new c42(1001, "cb is empty");
-            }
-            wp3.e0(new a(this, U.m(), optString, optString2));
-            return c42.f();
+            this.h = null;
+            this.g = 0;
         }
-        return (c42) invokeL.objValue;
     }
 
-    public c42 z(String str) {
-        InterceptResult invokeL;
+    public v32 C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#setNavigationBarColor", false);
-            lb2 U = px2.T().U();
-            if (U == null) {
-                c92.c("NavigationBarApi", "manager is null");
-                return new c42(1001);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#startKeyboardHeightChange", false);
+            if (vb3.b0() == null) {
+                return new v32(1001, "swan app is null");
             }
-            Pair<c42, JSONObject> s = s(str);
-            c42 c42Var = (c42) s.first;
-            if (!c42Var.isSuccess()) {
-                return c42Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                p("cb is empty", null, true);
-                return new c42(1001, "cb is empty");
-            }
-            wp3.e0(new b(this, U.m(), jSONObject.optString("frontColor"), optString, jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR), jSONObject.optJSONObject("animation")));
-            return c42.f();
+            A();
+            return v32.f();
         }
-        return (c42) invokeL.objValue;
+        return (v32) invokeV.objValue;
     }
 
-    public final c42 x(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public v32 D() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-            lb2 U = px2.T().U();
-            if (U == null) {
-                c92.c("NavigationBarApi", "manager is null");
-                return new c42(1001);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            q("#stopKeyboardHeightChange", false);
+            if (vb3.b0() == null) {
+                return new v32(1001, "swan app is null");
             }
-            Pair<c42, JSONObject> s = s(str);
-            c42 c42Var = (c42) s.first;
-            if (!c42Var.isSuccess()) {
-                return c42Var;
-            }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                p("cb is empty", null, true);
-                return new c42(1001, "cb is empty");
-            }
-            wp3.e0(new c(this, U.m(), optString, z));
-            return c42.f();
+            B();
+            return v32.f();
         }
-        return (c42) invokeLZ.objValue;
-    }
-
-    public c42 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            q("#hideNavigationBarLoading", false);
-            return x(str, false);
-        }
-        return (c42) invokeL.objValue;
+        return (v32) invokeV.objValue;
     }
 }

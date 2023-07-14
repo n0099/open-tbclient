@@ -1,52 +1,105 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.activity.PayCommonWebActivity;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class n1c {
+public class n1c implements m1c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    public static void a(PayFlowType payFlowType, int i, int i2, PayUIKitConfig payUIKitConfig, Activity activity, String str, String str2) {
-        String str3;
+    public n1c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{payFlowType, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig, activity, str, str2}) == null) {
-            boolean z = false;
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                if (TextUtils.isEmpty(str)) {
-                    RLog.error("PayWebActivityUtils", "startPayWebActivity error url null", new Object[0]);
-                    return;
-                }
-                if (str2 != null && !str2.isEmpty()) {
-                    str3 = str2;
-                } else {
-                    str3 = "";
-                }
-                Intent intent = new Intent(activity, PayCommonWebActivity.class);
-                intent.putExtra(H5PayConstant.EXTRA_TITLE, str3);
-                intent.putExtra(H5PayConstant.EXTRA_URL, str);
-                intent.putExtra(H5PayConstant.EXTRA_APP_ID, i);
-                intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, i2);
-                if (str.equals(y0c.f(payUIKitConfig))) {
-                    intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 1);
-                    z = true;
-                }
-                RLog.info("PayWebActivityUtils", "startPayWebActivity payFlowType:" + payFlowType + " isWalletActivity:" + z);
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = d2c.a(str);
-                }
-                PayCommonWebActivity.B(activity, payFlowType, intent, i, i2, str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            RLog.error("PayWebActivityUtils", "startPayWebActivity error mPayUIKitConfig null", new Object[0]);
         }
+        if (str != null) {
+            this.a = str;
+            return;
+        }
+        throw new IllegalArgumentException();
+    }
+
+    @Override // com.baidu.tieba.m1c
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            for (String str2 : str.replaceAll(" ", "").split(",")) {
+                if (this.a.equals(str2)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.m1c
+    public m1c a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new n1c(c());
+        }
+        return (m1c) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m1c
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.m1c
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && n1c.class == obj.getClass()) {
+                return this.a.equals(((n1c) obj).a);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.ugc.editvideo.record;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RecordConstants {
     public static int AUDIO_ENCODE_BIT_RATE = 128000;
     public static final int AUDIO_ENCODE_CHANNEL_COUNT = 1;

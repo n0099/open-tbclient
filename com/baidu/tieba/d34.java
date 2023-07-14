@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.content.IntentFilter;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,9 +12,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d34 extends i44 {
+public class d34 extends b44 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AppDownloadNetworkStateReceiver c;
 
     static {
         InterceptResult invokeClinit;
@@ -26,12 +30,12 @@ public class d34 extends i44 {
                 return;
             }
         }
-        boolean z = ms1.a;
+        boolean z = fs1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d34() {
-        super("getDownloadConfig");
+        super("resumeAllDownloadWhileWifi");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,30 +51,24 @@ public class d34 extends i44 {
         }
     }
 
-    @Override // com.baidu.tieba.i44
-    public c42 a(JSONObject jSONObject, gp2 gp2Var) {
+    @Override // com.baidu.tieba.b44
+    public v32 a(JSONObject jSONObject, zo2 zo2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, gp2Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zo2Var)) == null) {
             if (jSONObject == null) {
-                gp2Var.onFail(202, "params may be error");
+                zo2Var.onFail(202, "params may be error");
                 return null;
             }
-            if (jSONObject.has("wifiResumeDownloadFlag")) {
-                m34.a().c(jSONObject.optBoolean("wifiResumeDownloadFlag", false));
+            if (this.c == null) {
+                this.c = new AppDownloadNetworkStateReceiver();
             }
-            if (jSONObject.has("install_guide_switch")) {
-                r34.r(jSONObject.optBoolean("install_guide_switch"));
-            }
-            if (jSONObject.has("install_guide_count")) {
-                r34.q(jSONObject.optInt("install_guide_count"));
-            }
-            if (jSONObject.has("get_install_result")) {
-                r34.s(jSONObject.optBoolean("get_install_result"));
-            }
-            gp2Var.onSuccess(null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
+            cv2.c().registerReceiver(this.c, intentFilter);
+            zo2Var.onSuccess(null);
             return null;
         }
-        return (c42) invokeLL.objValue;
+        return (v32) invokeLL.objValue;
     }
 }

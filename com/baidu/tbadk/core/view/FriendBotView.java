@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.data.FriendBotPostConfigData;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.u79;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.zd9;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -249,7 +249,7 @@ public class FriendBotView extends RelativeLayout {
     private void setBotTextColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
-            s75 d2 = s75.d(this.b);
+            d85 d2 = d85.d(this.b);
             d2.C(R.dimen.T_X09);
             d2.D(R.string.F_X01);
             this.b.setTextColor(i);
@@ -373,7 +373,7 @@ public class FriendBotView extends RelativeLayout {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            r95.p().H("friend_bot_guide_show", System.currentTimeMillis());
+            da5.p().H("friend_bot_guide_show", System.currentTimeMillis());
         }
     }
 
@@ -434,7 +434,7 @@ public class FriendBotView extends RelativeLayout {
         Map<String, Long> b2;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (b2 = u79.b()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (b2 = zd9.b()) == null) {
             return;
         }
         Iterator<Map.Entry<String, Long>> it = b2.entrySet().iterator();
@@ -448,7 +448,7 @@ public class FriendBotView extends RelativeLayout {
                 it.remove();
             }
         }
-        r95.p().J("friend_bot_sha_time_tids", new JSONObject(b2).toString());
+        da5.p().J("friend_bot_sha_time_tids", new JSONObject(b2).toString());
     }
 
     public void g() {
@@ -473,8 +473,8 @@ public class FriendBotView extends RelativeLayout {
                 this.a.p();
                 q();
                 this.d = false;
-                yg.a().removeCallbacks(this.g);
-                yg.a().postDelayed(this.g, 30000L);
+                zg.a().removeCallbacks(this.g);
+                zg.a().postDelayed(this.g, 30000L);
                 n();
             }
         }
@@ -485,12 +485,12 @@ public class FriendBotView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             String str = "friend_bot_sha_time" + this.f;
-            Map<String, Long> b2 = u79.b();
+            Map<String, Long> b2 = zd9.b();
             if (b2 != null && b2.containsKey(str)) {
                 long currentTimeMillis = System.currentTimeMillis() - b2.get(str).longValue();
                 if (currentTimeMillis >= 0 && currentTimeMillis < 30000) {
-                    yg.a().removeCallbacks(this.g);
-                    yg.a().postDelayed(this.g, 30000 - currentTimeMillis);
+                    zg.a().removeCallbacks(this.g);
+                    zg.a().postDelayed(this.g, 30000 - currentTimeMillis);
                     return true;
                 }
             }
@@ -517,7 +517,7 @@ public class FriendBotView extends RelativeLayout {
                 return false;
             }
             if (intValue == 1) {
-                long r = r95.p().r("pb_friend_bot_show", 0L);
+                long r = da5.p().r("pb_friend_bot_show", 0L);
                 if (r < 0) {
                     return true;
                 }
@@ -535,12 +535,12 @@ public class FriendBotView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             String str = "friend_bot_sha_time" + this.f;
-            Map b2 = u79.b();
+            Map b2 = zd9.b();
             if (b2 == null) {
                 b2 = new HashMap();
             }
             b2.put(str, Long.valueOf(System.currentTimeMillis()));
-            r95.p().J("friend_bot_sha_time_tids", new JSONObject(b2).toString());
+            da5.p().J("friend_bot_sha_time_tids", new JSONObject(b2).toString());
         }
     }
 
@@ -610,7 +610,7 @@ public class FriendBotView extends RelativeLayout {
                 this.a.setAlpha(1.0f);
                 this.a.k(botDynamicResource);
                 this.a.o();
-                r95.p().H("pb_friend_bot_show", System.currentTimeMillis());
+                da5.p().H("pb_friend_bot_show", System.currentTimeMillis());
             }
         }
     }

@@ -1,20 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import android.net.http.SslError;
+import android.os.Message;
+import android.view.KeyEvent;
+import android.webkit.SslErrorHandler;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class jc1 {
+public abstract class jc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
+
+    public abstract void a(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
+
+    public abstract hc1 b(AbsNadBrowserView absNadBrowserView, String str);
+
+    public abstract void c(AbsNadBrowserView absNadBrowserView, String str);
+
+    public abstract boolean d(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    public abstract boolean e(AbsNadBrowserView absNadBrowserView, String str);
+
+    public abstract void f(AbsNadBrowserView absNadBrowserView, String str);
+
+    public abstract void g(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
+
+    public abstract void h(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
+
+    public abstract void i(AbsNadBrowserView absNadBrowserView, fc1 fc1Var, String str, String str2);
+
+    public abstract void j(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
+
+    public abstract void k(AbsNadBrowserView absNadBrowserView, float f, float f2);
+
+    public abstract void l(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    public abstract void m(AbsNadBrowserView absNadBrowserView, String str, boolean z);
 
     public jc1() {
         Interceptable interceptable = $ic;
@@ -27,80 +52,6 @@ public final class jc1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public final long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public final long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public final long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public final long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = 0L;
-            this.b = 0L;
-            this.c = 0L;
-            this.d = 0L;
-        }
-    }
-
-    public final void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public final void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public final void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public final void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.a = j;
         }
     }
 }

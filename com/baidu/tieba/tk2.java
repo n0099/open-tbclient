@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes8.dex */
-public class tk2 extends qk2 {
+public class tk2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tk2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public tk2() {
@@ -27,13 +26,38 @@ public class tk2 extends qk2 {
         }
     }
 
-    @Override // com.baidu.tieba.by2
-    public LifecycleProcessType b() {
+    public static tk2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return LifecycleProcessType.MAIN;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (tk2.class) {
+                    if (a == null) {
+                        a = new tk2();
+                    }
+                }
+            }
+            return a;
         }
-        return (LifecycleProcessType) invokeV.objValue;
+        return (tk2) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            v82.k("SwanRecoveryManager", "RecoverPlatform");
+            bl2 bl2Var = new bl2();
+            bl2Var.a = 1;
+            rk2.c(bl2Var);
+        }
+    }
+
+    public int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return zk2.c(i);
+        }
+        return invokeI.intValue;
     }
 }

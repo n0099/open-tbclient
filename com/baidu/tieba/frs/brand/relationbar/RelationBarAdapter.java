@@ -57,21 +57,21 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: k */
+    /* renamed from: l */
     public void onBindViewHolder(RelationBarHolder relationBarHolder, int i) {
         OriForumInfo oriForumInfo;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, relationBarHolder, i) != null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.b, i)) == null) {
             return;
         }
-        RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.a();
+        RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.b();
         relationBarCellView.setData(oriForumInfo);
         relationBarCellView.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: l */
+    /* renamed from: m */
     public RelationBarHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

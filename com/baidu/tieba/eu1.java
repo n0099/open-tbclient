@@ -1,16 +1,28 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jw1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.File;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class eu1 implements hw1 {
+public class eu1 implements jw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.jw1
+    public void b(Context context, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3) == null) {
+        }
+    }
 
     public eu1() {
         Interceptable interceptable = $ic;
@@ -26,13 +38,40 @@ public class eu1 implements hw1 {
         }
     }
 
-    @Override // com.baidu.tieba.hw1
-    public InputStream a(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jw1
+    public void a(HashMap<String, String> hashMap, File file, jw1.a aVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            return new fqb(inputStream);
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, hashMap, file, aVar, str) == null) {
+            e(aVar);
         }
-        return (InputStream) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.jw1
+    public void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, jw1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, bitmap, hashMap, fileArr, aVar) == null) {
+            e(aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.jw1
+    public void c(HashMap<String, String> hashMap, File file, jw1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, hashMap, file, aVar) == null) {
+            e(aVar);
+        }
+    }
+
+    public final void e(jw1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("result", "success");
+                aVar.onResult(jSONObject.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

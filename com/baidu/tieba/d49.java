@@ -1,117 +1,40 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.newdetail.HotTopicDetailActivity;
+import com.baidu.searchbox.live.imp.LiveUserSecurityBehaviorServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityBehaviorService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d49 {
+public final class d49 extends pl1<LiveUserSecurityBehaviorService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, Object obj, int i, String str2) {
+    public d49() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            if (obj instanceof b45) {
-                statisticItem.param("fid", ((b45) obj).f());
-            } else if (obj instanceof v49) {
-                v49 v49Var = (v49) obj;
-                ThreadData threadData = v49Var.h;
-                if (threadData != null) {
-                    statisticItem.param("tid", threadData.getTid());
-                }
-                statisticItem.param("obj_locate", v49Var.a());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            statisticItem.param("topic_id", str2);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
         }
     }
 
-    public static void b(h49 h49Var, l15 l15Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pl1
+    /* renamed from: a */
+    public LiveUserSecurityBehaviorService createService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, h49Var, l15Var) == null) {
-            d(h49Var, l15Var, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new LiveUserSecurityBehaviorServiceImpl();
         }
-    }
-
-    public static void c(h49 h49Var, l15 l15Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, h49Var, l15Var) == null) {
-            d(h49Var, l15Var, false);
-        }
-    }
-
-    public static void d(h49 h49Var, l15 l15Var, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65539, null, h49Var, l15Var, z) == null) && l15Var != null && l15Var.getThreadData() != null) {
-            ThreadData threadData = l15Var.getThreadData();
-            boolean s = h49Var.s();
-            if (z) {
-                if (s) {
-                    str = "c13823";
-                } else {
-                    str = "c13822";
-                }
-            } else if (s) {
-                str = "c13824";
-            } else {
-                str = "c13821";
-            }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("tid", threadData.getTid());
-            statisticItem.param("fid", threadData.getFid());
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (h49Var.t().getOrignalPage() instanceof HotTopicDetailActivity) {
-                statisticItem.param("topic_id", ((HotTopicDetailActivity) h49Var.t().getOrignalPage()).z1());
-            }
-            statisticItem.eventStat();
-        }
-    }
-
-    public static void e(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) != null) || threadData == null) {
-            return;
-        }
-        new StatisticItem("c13022").addParam("tid", threadData.getTid()).addParam("fid", threadData.getFid()).addParam("fname", threadData.getForum_name()).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_TO, 2).eventStat();
-    }
-
-    public static void f(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("topic_id", tbPageContext.getOrignalPage().z1());
-            statisticItem.eventStat();
-        }
-    }
-
-    public static void g(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("topic_id", str2);
-            statisticItem.eventStat();
-        }
-    }
-
-    public static void h(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("topic_id", tbPageContext.getOrignalPage().z1());
-            statisticItem.eventStat();
-        }
+        return (LiveUserSecurityBehaviorService) invokeV.objValue;
     }
 }

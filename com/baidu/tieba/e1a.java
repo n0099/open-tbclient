@@ -1,23 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class e1a {
+public abstract class e1a implements qc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public ArrayList<e1a> e;
+
+    public abstract String b();
+
+    @Override // com.baidu.tieba.qc7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c13696" : (String) invokeV.objValue;
+    }
 
     public e1a() {
         Interceptable interceptable = $ic;
@@ -33,29 +39,27 @@ public class e1a {
         }
     }
 
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.qc7
+    public Map<String, String> a(d87 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
-            this.b = jSONObject.optString("menu_name");
-            this.c = jSONObject.optString("menu_id");
-            String str = null;
-            String optString = jSONObject.optString("default_logo_url", null);
-            this.d = optString;
-            if (optString != null) {
-                str = this.d + "?v=2";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null) {
+                currentAccount = "";
             }
-            this.d = str;
-            if (jSONObject.has("child_menu_list")) {
-                ArrayList<e1a> arrayList = new ArrayList<>();
-                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    e1a e1aVar = new e1a();
-                    e1aVar.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(e1aVar);
-                }
-                this.e = arrayList;
+            hashMap.put("uid", currentAccount);
+            String str = a.get("is_video_work");
+            if (str == null) {
+                str = "0";
             }
+            hashMap.put("obj_source", str);
+            hashMap.put(TiebaStatic.Params.IS_FOLLOW, b());
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 }

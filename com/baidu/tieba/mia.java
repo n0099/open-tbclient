@@ -1,15 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-/* loaded from: classes6.dex */
-public interface mia {
-    void a();
+import android.app.Application;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class mia {
+    public static /* synthetic */ Interceptable $ic;
+    public static mia c;
+    public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    public boolean b;
 
-    void b(CloudMusicData.MusicTagList.MusicList musicList, int i);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(Application application);
+    }
 
-    void c();
+    public mia() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+        this.a = c();
+    }
 
-    void d(CloudMusicData.MusicTagList musicTagList);
+    public static mia b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (mia.class) {
+                    if (c == null) {
+                        c = new mia();
+                    }
+                }
+            }
+            return c;
+        }
+        return (mia) invokeV.objValue;
+    }
 
-    void e(int i);
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (da5.p().q("pref_key_jpush_sdk_enable", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final a c() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (a() && (runTask = MessageManager.getInstance().runTask(2156672, a.class)) != null) {
+                return (a) runTask.getData();
+            }
+            return null;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public void d(Application application) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && !this.b && (aVar = this.a) != null) {
+            aVar.a(application);
+            this.b = true;
+        }
+    }
 }

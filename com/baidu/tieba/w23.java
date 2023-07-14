@@ -1,80 +1,22 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class w23 {
+public final class w23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
+    public static final List<u23> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public Set<Integer> b;
-
-    public abstract boolean a(Bitmap bitmap, Rect rect);
-
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static w23 a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-                return b(str, 0.5d);
-            }
-            return (w23) invokeL.objValue;
-        }
-
-        public static w23 b(String str, double d) {
-            InterceptResult invokeCommon;
-            char c;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Double.valueOf(d)})) == null) {
-                int hashCode = str.hashCode();
-                if (hashCode != -2129978548) {
-                    if (hashCode != -585839565) {
-                        if (hashCode == 544848403 && str.equals("hsv_parser")) {
-                            c = 1;
-                        }
-                        c = 65535;
-                    } else {
-                        if (str.equals("solid_parser")) {
-                            c = 2;
-                        }
-                        c = 65535;
-                    }
-                } else {
-                    if (str.equals("simple_parser")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c != 2) {
-                            return new y23();
-                        }
-                        return new z23();
-                    }
-                    return new x23(d);
-                }
-                return new y23();
-            }
-            return (w23) invokeCommon.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -89,62 +31,61 @@ public abstract class w23 {
                 return;
             }
         }
-        c = ms1.a;
+        a = vb3.v;
+        b = Arrays.asList(new u23());
     }
 
-    public w23() {
+    @NonNull
+    public static JSONObject b() {
+        JSONObject jSONObject;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                jSONObject = a();
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                    v82.k("SwanNaUseMapManager", ">>> NAUseMapException: " + e.getMessage());
+                }
+                jSONObject = null;
             }
+            if (jSONObject == null) {
+                return new JSONObject();
+            }
+            return jSONObject;
         }
-        this.a = 1.0d;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public boolean b(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
+    public static JSONObject a() throws JSONException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
-            if (bitmap == null || rect == null || rect.top < 0 || rect.bottom < 0 || rect.left < 0 || rect.right < 0) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            JSONObject jSONObject = new JSONObject("{\"pages\":{},\"window\":{\"navigationBarBackgroundColor\":{},\"navigationBarTextStyle\":{},\"navigationBarTitleText\":{},\"navigationStyle\":{},\"backgroundColor\":{},\"backgroundTextStyle\":{},\"enablePullDownRefresh\":{},\"onReachBottomDistance\":{}},\"networkTimeout\":{\"request\":{},\"connectSocket\":{},\"uploadFile\":{},\"downloadFile\":{}},\"tabBar\":{\"color\":{},\"backgroundColor\":{},\"borderStyle\":{},\"list\":{},\"selectedColor\":{}},\"swanCookie\":{}}");
+            if (a) {
+                v82.i("SwanNaUseMapManager", ">>> before intercept: " + jSONObject);
             }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            int i = rect.top;
-            int i2 = rect.bottom;
-            if (i >= i2 || i2 > height) {
-                return false;
+            c(jSONObject);
+            if (a) {
+                v82.i("SwanNaUseMapManager", ">>> after intercept: " + jSONObject);
             }
-            int i3 = rect.left;
-            int i4 = rect.right;
-            if (i3 >= i4 || i4 > width) {
-                return false;
-            }
-            return true;
+            return jSONObject;
         }
-        return invokeLL.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public void c(int i) {
+    public static void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            Set<Integer> set = this.b;
-            if (set == null) {
-                this.b = new TreeSet();
-            } else {
-                set.clear();
+        if ((interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) && jSONObject != null && jSONObject.length() != 0) {
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                for (u23 u23Var : b) {
+                    if (u23Var.a(keys.next())) {
+                        keys.remove();
+                    }
+                }
             }
-            if (c) {
-                Log.d("ErrorPageParser", "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
-            }
-            this.b.add(Integer.valueOf(i));
         }
     }
 }

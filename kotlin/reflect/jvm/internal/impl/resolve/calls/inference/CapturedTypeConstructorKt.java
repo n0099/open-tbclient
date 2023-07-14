@@ -20,7 +20,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
 import kotlin.reflect.jvm.internal.impl.types.TypeProjectionImpl;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CapturedTypeConstructorKt {
     public static final TypeProjection createCapturedIfNeeded(final TypeProjection typeProjection, TypeParameterDescriptor typeParameterDescriptor) {
         if (typeParameterDescriptor != null && typeProjection.getProjectionKind() != Variance.INVARIANT) {
@@ -72,18 +72,18 @@ public final class CapturedTypeConstructorKt {
 
             @Override // kotlin.reflect.jvm.internal.impl.types.DelegatedTypeSubstitution, kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
             /* renamed from: get */
-            public TypeProjection mo2104get(KotlinType kotlinType) {
+            public TypeProjection mo2106get(KotlinType kotlinType) {
                 TypeProjection createCapturedIfNeeded;
-                TypeProjection mo2104get = super.mo2104get(kotlinType);
+                TypeProjection mo2106get = super.mo2106get(kotlinType);
                 TypeParameterDescriptor typeParameterDescriptor = null;
-                if (mo2104get == null) {
+                if (mo2106get == null) {
                     return null;
                 }
-                ClassifierDescriptor mo2099getDeclarationDescriptor = kotlinType.getConstructor().mo2099getDeclarationDescriptor();
-                if (mo2099getDeclarationDescriptor instanceof TypeParameterDescriptor) {
-                    typeParameterDescriptor = mo2099getDeclarationDescriptor;
+                ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
+                if (mo2101getDeclarationDescriptor instanceof TypeParameterDescriptor) {
+                    typeParameterDescriptor = mo2101getDeclarationDescriptor;
                 }
-                createCapturedIfNeeded = CapturedTypeConstructorKt.createCapturedIfNeeded(mo2104get, typeParameterDescriptor);
+                createCapturedIfNeeded = CapturedTypeConstructorKt.createCapturedIfNeeded(mo2106get, typeParameterDescriptor);
                 return createCapturedIfNeeded;
             }
         };

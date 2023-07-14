@@ -19,7 +19,7 @@ public final class al extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo295a() {
+    public String mo297a() {
         return this.f898a;
     }
 

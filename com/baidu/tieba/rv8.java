@@ -1,74 +1,31 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class rv8 {
+public abstract class rv8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ArrayList<TransmitForumData> b;
-    public final CustomMessageListener c;
+    public final cw8<T> a;
+    public Function2<? super View, ? super cw8<T>, Unit> b;
+    public Function2<? super View, ? super cw8<T>, Unit> c;
 
-    /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rv8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(rv8 rv8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rv8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rv8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ArrayList)) {
-                this.a.b.clear();
-                this.a.b.addAll((ArrayList) customResponsedMessage.getData());
-            }
-        }
-    }
-
-    public rv8(TbPageContext tbPageContext) {
+    public rv8(cw8<T> data) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {data};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,49 +35,118 @@ public class rv8 {
                 return;
             }
         }
-        this.b = new ArrayList<>();
-        this.c = new a(this, 2016563);
-        this.a = tbPageContext;
-        MessageManager.getInstance().registerListener(this.c);
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
     }
 
-    public List<TransmitForumData> b() {
+    public boolean f(rv8<?> other) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, other)) == null) {
+            Intrinsics.checkNotNullParameter(other, "other");
+            if (this.a.e().c() != 2 && other.a.e().c() != 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final cw8<T> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (List) invokeV.objValue;
+        return (cw8) invokeV.objValue;
     }
 
-    public void c() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.cw8<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.cw8<T>, kotlin.Unit> */
+    public final Function2<View, cw8<T>, Unit> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zr6.c().i();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (Function2<? super View, ? super cw8<T>, Unit>) this.b;
         }
+        return (Function2) invokeV.objValue;
     }
 
-    public void d() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.cw8<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.cw8<T>, kotlin.Unit> */
+    public final Function2<View, cw8<T>, Unit> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (Function2<? super View, ? super cw8<T>, Unit>) this.c;
         }
+        return (Function2) invokeV.objValue;
     }
 
-    public void e(long j, String str, ShareItem shareItem) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, shareItem}) == null) {
-            if (j <= 0 && TextUtils.isEmpty(str)) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return Objects.hashCode(this.a);
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v10 */
+    /* JADX WARN: Type inference failed for: r1v11 */
+    /* JADX WARN: Type inference failed for: r1v12 */
+    /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.CharSequence] */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        rv8 rv8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.a.getPageActivity(), 24007);
-            CustomMessage customMessage = new CustomMessage(2002001, selectForumActivityConfig);
-            selectForumActivityConfig.setFrom(1);
-            selectForumActivityConfig.setForumList(this.b);
-            selectForumActivityConfig.setLiveId(j);
-            selectForumActivityConfig.setYyAnchorBdUid(str);
-            shareItem.q(true);
-            MessageManager.getInstance().sendMessage(customMessage);
+            cw8<T> cw8Var = (cw8<T>) false;
+            if (obj instanceof rv8) {
+                rv8Var = (rv8) obj;
+            } else {
+                rv8Var = null;
+            }
+            if (this instanceof tv8) {
+                String a = ((tv8) this).c().g().a();
+                ?? r1 = cw8Var;
+                if (rv8Var != null) {
+                    cw8<T> cw8Var2 = rv8Var.a;
+                    r1 = cw8Var;
+                    if (cw8Var2 != null) {
+                        bw8 g = cw8Var2.g();
+                        r1 = cw8Var;
+                        if (g != null) {
+                            r1 = (cw8<T>) g.a();
+                        }
+                    }
+                }
+                return TextUtils.equals(a, r1);
+            }
+            cw8<T> cw8Var3 = this.a;
+            cw8<T> cw8Var4 = cw8Var;
+            if (rv8Var != null) {
+                cw8Var4 = rv8Var.a;
+            }
+            return Objects.equals(cw8Var3, cw8Var4);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void g(Function2<? super View, ? super cw8<T>, Unit> function2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, function2) == null) {
+            this.b = function2;
+        }
+    }
+
+    public final void h(Function2<? super View, ? super cw8<T>, Unit> function2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, function2) == null) {
+            this.c = function2;
         }
     }
 }

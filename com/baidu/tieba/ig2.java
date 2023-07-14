@@ -1,8 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.xg2;
+import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes6.dex */
 public interface ig2 {
-    boolean a(@NonNull xg2.a aVar);
+    void a(ImageRequest imageRequest);
+
+    void b(ImageRequest imageRequest);
+
+    void c(ImageRequest imageRequest, Throwable th);
+
+    void onCancel(String str);
 }

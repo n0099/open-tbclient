@@ -1,123 +1,31 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.content.Context;
+import android.os.Build;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-@TargetApi(18)
-/* loaded from: classes7.dex */
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes8.dex */
 public class tda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public c f;
-    public xda g;
-    public vda h;
-    public wda i;
-    public volatile boolean j;
-    public volatile boolean k;
-    public volatile boolean l;
+    public final ArrayList<oda> a;
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void onGenFilterVideoFail(int i, String str);
-
-        void onGenFilterVideoRecordError(int i, String str);
-
-        void onGenFilterVideoSuccess(String str);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends xda {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tda f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(tda tdaVar, Context context, String str, String str2, wda wdaVar, c cVar) {
-            super(context, str, str2, wdaVar, cVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tdaVar, context, str, str2, wdaVar, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (wda) objArr2[3], (c) objArr2[4]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = tdaVar;
-        }
-
-        @Override // com.baidu.tieba.xda
-        public void k() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.j = true;
-                this.f.d();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends vda {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tda f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(tda tdaVar, Context context, String str, wda wdaVar, c cVar) {
-            super(context, str, wdaVar, cVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tdaVar, context, str, wdaVar, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (wda) objArr2[2], (c) objArr2[3]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = tdaVar;
-        }
-
-        @Override // com.baidu.tieba.vda
-        public void k() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.k = true;
-                this.f.d();
-            }
-        }
-    }
-
-    public tda(Context context, String str, String str2, String str3) {
+    public tda() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,99 +35,108 @@ public class tda {
                 return;
             }
         }
-        this.e = false;
-        this.a = context;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
+        this.a = new ArrayList<>();
     }
 
-    public void h(c cVar) {
+    public void a(oda odaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f = cVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, odaVar) == null) {
+            this.a.add(odaVar);
         }
     }
 
-    public final void d() {
+    public final void b(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.j && this.k && !this.l) {
-            this.i.f();
-            this.l = true;
-            g();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            xda xdaVar = this.g;
-            if (xdaVar != null) {
-                xdaVar.interrupt();
-                this.g = null;
-            }
-            vda vdaVar = this.h;
-            if (vdaVar != null) {
-                vdaVar.interrupt();
-                this.h = null;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) {
+            h29 hybridLog = HybridLog.getInstance();
+            hybridLog.c("JsBridge", "callJsMethod methodName:" + str + " param:" + str2);
+            if (webView != null && !xi.isEmpty(str) && !xi.isEmpty(str2)) {
+                if (Build.VERSION.SDK_INT >= 19) {
+                    webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+                    return;
+                }
+                webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
             }
         }
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public qda c(sda sdaVar, qda qdaVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f != null) {
-                File file = new File(this.c);
-                if (file.exists() && file.length() > 0) {
-                    this.f.onGenFilterVideoSuccess(this.c);
-                } else {
-                    this.f.onGenFilterVideoFail(223, "Err empty outputFile");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sdaVar, qdaVar)) == null) {
+            if (qdaVar == null) {
+                qdaVar = new qda();
+            }
+            if ("notification".equals(sdaVar.c()) && "addObserver".equals(sdaVar.a())) {
+                Iterator<oda> it = this.a.iterator();
+                while (it.hasNext()) {
+                    qdaVar = it.next().addObserver(sdaVar.d(), qdaVar, true);
+                    if (qdaVar.j()) {
+                        return qdaVar;
+                    }
+                }
+                if (!qdaVar.j()) {
+                    qdaVar.z(202);
+                    qdaVar.v(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
+                }
+            } else {
+                String c = sdaVar.c();
+                if (!xi.isEmpty(c) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(c)) {
+                    qdaVar.z(201);
+                    return qdaVar;
+                }
+                Iterator<oda> it2 = this.a.iterator();
+                while (it2.hasNext()) {
+                    qdaVar = it2.next().dispatch(sdaVar, qdaVar);
+                    if (qdaVar.i()) {
+                        return qdaVar;
+                    }
+                }
+                if (!qdaVar.i()) {
+                    qdaVar.z(202);
                 }
             }
-            this.e = false;
+            return qdaVar;
+        }
+        return (qda) invokeLL.objValue;
+    }
+
+    public void d(WebView webView, qda qdaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, qdaVar) != null) || webView == null || qdaVar == null || !qdaVar.k()) {
+            return;
+        }
+        b(webView, qdaVar.c(), qdaVar.d());
+    }
+
+    public void e(WebView webView, List<qda> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
+            for (qda qdaVar : list) {
+                if (qdaVar != null && qdaVar.k()) {
+                    b(webView, qdaVar.c(), qdaVar.d());
+                }
+            }
         }
     }
 
-    public void i() {
+    public List<qda> f(WebView webView, String str, HashMap hashMap) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.e) {
-            return;
-        }
-        this.e = true;
-        this.j = false;
-        this.k = false;
-        this.l = false;
-        try {
-            File file = new File(new File(this.c).getParent());
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, hashMap)) == null) {
+            List<qda> list = null;
+            if (xi.isEmpty(str)) {
+                return null;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            c cVar = this.f;
-            if (cVar != null) {
-                cVar.onGenFilterVideoFail(222, r29.a(e));
+            Iterator<oda> it = this.a.iterator();
+            while (it.hasNext()) {
+                list = it.next().processNotification(webView, str, hashMap);
+                if (!ListUtils.isEmpty(list)) {
+                    break;
+                }
             }
+            return list;
         }
-        try {
-            this.i = new wda(this.c);
-            a aVar = new a(this, this.a, this.b, this.d, this.i, this.f);
-            this.g = aVar;
-            aVar.start();
-            b bVar = new b(this, this.a, this.b, this.i, this.f);
-            this.h = bVar;
-            bVar.start();
-        } catch (Exception unused) {
-        }
+        return (List) invokeLLL.objValue;
     }
 }

@@ -1,20 +1,18 @@
 package com.baidu.android.imsdk.chatmessage.request.params;
 
 import android.content.Context;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.box.IMBoxManager;
 import com.baidu.android.imsdk.chatmessage.response.FetchMsgResponse;
 import com.baidu.android.imsdk.chatuser.ChatUser;
+import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
 import com.baidu.android.imsdk.chatuser.IGetUserListener;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.pubaccount.IGetPaInfoListener;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,6 +35,7 @@ public class FetchMsgParam extends BaseRequestParam {
     public int fetchTriggerReason;
     public long lastMsgId;
     public long lastMsgRowId;
+    public PaInfo paInfo;
     public String screenKey;
     public long to;
     public int triggerReason;
@@ -163,10 +162,19 @@ public class FetchMsgParam extends BaseRequestParam {
         return invokeV.longValue;
     }
 
-    public BIMValueCallBack<FetchMsgResponse> getRequestCallBack() {
+    public PaInfo getPaInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.paInfo;
+        }
+        return (PaInfo) invokeV.objValue;
+    }
+
+    public BIMValueCallBack<FetchMsgResponse> getRequestCallBack() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.fetchMsgRequestCallback;
         }
         return (BIMValueCallBack) invokeV.objValue;
@@ -175,7 +183,7 @@ public class FetchMsgParam extends BaseRequestParam {
     public String getScreenKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.screenKey;
         }
         return (String) invokeV.objValue;
@@ -184,7 +192,7 @@ public class FetchMsgParam extends BaseRequestParam {
     public long getTo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.to;
         }
         return invokeV.longValue;
@@ -193,7 +201,7 @@ public class FetchMsgParam extends BaseRequestParam {
     public int getTriggerReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.triggerReason;
         }
         return invokeV.intValue;
@@ -238,13 +246,12 @@ public class FetchMsgParam extends BaseRequestParam {
         return (FetchMsgParam) invokeCommon.objValue;
     }
 
-    public static void newInstance(@NonNull Context context, long j, long j2, int i, int i2, long j3, long j4, String str, BIMValueCallBack<FetchMsgResponse> bIMValueCallBack, FetchMsgParamConstruct fetchMsgParamConstruct) {
+    public static void newInstance(@NonNull Context context, long j, long j2, int i, int i2, long j3, long j4, PaInfo paInfo, String str, BIMValueCallBack<FetchMsgResponse> bIMValueCallBack, FetchMsgParamConstruct fetchMsgParamConstruct) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j3), Long.valueOf(j4), str, bIMValueCallBack, fetchMsgParamConstruct}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j3), Long.valueOf(j4), paInfo, str, bIMValueCallBack, fetchMsgParamConstruct}) == null) {
             if (context != null && (j3 != 0 || j4 != 0)) {
-                int i3 = (j4 > 0L ? 1 : (j4 == 0L ? 0 : -1));
-                if (i3 > 0) {
+                if (j4 > 0) {
                     z = true;
                 } else {
                     z = false;
@@ -265,58 +272,59 @@ public class FetchMsgParam extends BaseRequestParam {
                 fetchMsgParam.setRequestCallBack(bIMValueCallBack);
                 fetchMsgParam.setScreenKey(str);
                 if (z) {
-                    if (i3 <= 0) {
-                        LogUtils.e(TAG, "getSendMsgParam paUid invalid");
+                    LogUtils.d(TAG, "FetchMsgParamConstruct pa :" + paInfo);
+                    if (paInfo == null) {
+                        PaInfo paInfoSync = IMBoxManager.getPaInfoSync(context, j4);
+                        if (paInfoSync == null) {
+                            IMBoxManager.getPaInfo(context, j4, new IGetPaInfoListener(fetchMsgParam, fetchMsgParamConstruct) { // from class: com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ FetchMsgParam val$fetchMsgParam;
+                                public final /* synthetic */ FetchMsgParamConstruct val$paramConstruct;
+
+                                {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {fetchMsgParam, fetchMsgParamConstruct};
+                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                        int i3 = newInitContext.flag;
+                                        if ((i3 & 1) != 0) {
+                                            int i4 = i3 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.val$fetchMsgParam = fetchMsgParam;
+                                    this.val$paramConstruct = fetchMsgParamConstruct;
+                                }
+
+                                @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfoListener
+                                public void onGetPaInfoResult(int i3, String str2, PaInfo paInfo2) {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i3, str2, paInfo2) == null) {
+                                        if (paInfo2 != null) {
+                                            FetchMsgParam.constructParamByPainfo(this.val$fetchMsgParam, paInfo2);
+                                        } else {
+                                            LogUtils.e(FetchMsgParam.TAG, "getSendMsgParam paUid invalid");
+                                        }
+                                        this.val$paramConstruct.construct(this.val$fetchMsgParam);
+                                    }
+                                }
+                            });
+                            return;
+                        }
+                        constructParamByPainfo(fetchMsgParam, paInfoSync);
                         fetchMsgParamConstruct.construct(fetchMsgParam);
                         return;
                     }
-                    PaInfo paInfoSync = IMBoxManager.getPaInfoSync(context, j4);
-                    if (paInfoSync == null) {
-                        IMBoxManager.getPaInfo(context, j4, new IGetPaInfoListener(fetchMsgParam, fetchMsgParamConstruct) { // from class: com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ FetchMsgParam val$fetchMsgParam;
-                            public final /* synthetic */ FetchMsgParamConstruct val$paramConstruct;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {fetchMsgParam, fetchMsgParamConstruct};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i4 = newInitContext.flag;
-                                    if ((i4 & 1) != 0) {
-                                        int i5 = i4 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.val$fetchMsgParam = fetchMsgParam;
-                                this.val$paramConstruct = fetchMsgParamConstruct;
-                            }
-
-                            @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfoListener
-                            public void onGetPaInfoResult(int i4, String str2, PaInfo paInfo) {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i4, str2, paInfo) == null) {
-                                    if (paInfo != null) {
-                                        FetchMsgParam.constructParamByPainfo(this.val$fetchMsgParam, paInfo);
-                                    } else {
-                                        LogUtils.e(FetchMsgParam.TAG, "getSendMsgParam paUid invalid");
-                                    }
-                                    this.val$paramConstruct.construct(this.val$fetchMsgParam);
-                                }
-                            }
-                        });
-                        return;
-                    }
-                    constructParamByPainfo(fetchMsgParam, paInfoSync);
+                    constructParamByPainfo(fetchMsgParam, paInfo);
                     fetchMsgParamConstruct.construct(fetchMsgParam);
                     return;
                 }
-                BIMManager.getBdUkFromImUK(context, j3, new IGetUserListener(fetchMsgParam, fetchMsgParamConstruct) { // from class: com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam.2
+                ChatUserManagerImpl.getInstance(context).getUser(j3, 0, new IGetUserListener(fetchMsgParam, fetchMsgParamConstruct) { // from class: com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ FetchMsgParam val$fetchMsgParam;
@@ -329,9 +337,9 @@ public class FetchMsgParam extends BaseRequestParam {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {fetchMsgParam, fetchMsgParamConstruct};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -342,17 +350,11 @@ public class FetchMsgParam extends BaseRequestParam {
                     }
 
                     @Override // com.baidu.android.imsdk.chatuser.IGetUserListener
-                    public void onGetUserResult(int i4, long j5, ChatUser chatUser) {
+                    public void onGetUserResult(int i3, long j5, ChatUser chatUser) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), Long.valueOf(j5), chatUser}) == null) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), Long.valueOf(j5), chatUser}) == null) {
                             if (chatUser != null) {
-                                String bdUk = chatUser.getBdUk();
-                                if (TextUtils.isEmpty(bdUk)) {
-                                    bdUk = "0";
-                                }
-                                this.val$fetchMsgParam.setContacterBduid(Long.valueOf(Utility.transBDUK(bdUk)).longValue());
-                            } else {
-                                LogUtils.e(FetchMsgParam.TAG, "getSendMsgParam imUk invalid");
+                                this.val$fetchMsgParam.setContacterBduid(chatUser.getBuid());
                             }
                             this.val$paramConstruct.construct(this.val$fetchMsgParam);
                         }
@@ -360,32 +362,47 @@ public class FetchMsgParam extends BaseRequestParam {
                 });
                 return;
             }
-            LogUtils.d(TAG, "getFetchMsgParam failed, param invalid");
+            LogUtils.d(TAG, "getFetchMsgParam failed, param invalid :" + context + ", contacterUk :" + j3 + ", contacterPaUid :" + j4);
+            fetchMsgParamConstruct.construct(null);
+            bIMValueCallBack.onResult(1005, "param error", new FetchMsgResponse());
+        }
+    }
+
+    public static void newInstance(@NonNull Context context, long j, long j2, int i, int i2, long j3, long j4, String str, BIMValueCallBack<FetchMsgResponse> bIMValueCallBack, FetchMsgParamConstruct fetchMsgParamConstruct) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j3), Long.valueOf(j4), str, bIMValueCallBack, fetchMsgParamConstruct}) == null) {
+            newInstance(context, j, j2, i, i2, j3, j4, null, str, bIMValueCallBack, fetchMsgParamConstruct);
+        }
+    }
+
+    public static void newInstanceByPa(@NonNull Context context, long j, long j2, int i, int i2, long j3, PaInfo paInfo, String str, BIMValueCallBack<FetchMsgResponse> bIMValueCallBack, FetchMsgParamConstruct fetchMsgParamConstruct) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j3), paInfo, str, bIMValueCallBack, fetchMsgParamConstruct}) == null) {
+            if (context != null && j3 > 0) {
+                newInstance(context, j, j2, i, i2, 0L, j3, paInfo, str, bIMValueCallBack, fetchMsgParamConstruct);
+                return;
+            }
+            LogUtils.d(TAG, "getSendMsgParam failed, param invalid");
             fetchMsgParamConstruct.construct(null);
         }
     }
 
     public static void newInstanceByPa(@NonNull Context context, long j, long j2, int i, int i2, long j3, String str, BIMValueCallBack<FetchMsgResponse> bIMValueCallBack, FetchMsgParamConstruct fetchMsgParamConstruct) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j3), str, bIMValueCallBack, fetchMsgParamConstruct}) == null) {
-            if (context != null && j3 > 0) {
-                newInstance(context, j, j2, i, i2, 0L, j3, str, bIMValueCallBack, fetchMsgParamConstruct);
-                return;
-            }
-            LogUtils.d(TAG, "getSendMsgParam failed, param invalid");
-            fetchMsgParamConstruct.construct(null);
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j3), str, bIMValueCallBack, fetchMsgParamConstruct}) == null) {
+            newInstance(context, j, j2, i, i2, 0L, j3, null, str, bIMValueCallBack, fetchMsgParamConstruct);
         }
     }
 
     public static void newInstanceByUk(@NonNull Context context, long j, long j2, int i, int i2, long j3, String str, BIMValueCallBack<FetchMsgResponse> bIMValueCallBack, FetchMsgParamConstruct fetchMsgParamConstruct) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j3), str, bIMValueCallBack, fetchMsgParamConstruct}) == null) {
-            if (context != null && j3 > 0) {
-                newInstance(context, j, j2, i, i2, j3, 0L, str, bIMValueCallBack, fetchMsgParamConstruct);
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j3), str, bIMValueCallBack, fetchMsgParamConstruct}) == null) {
+            if (j3 <= 0) {
+                LogUtils.d(TAG, "getSendMsgParam failed, param invalid");
+                fetchMsgParamConstruct.construct(null);
                 return;
             }
-            LogUtils.d(TAG, "getSendMsgParam failed, param invalid");
-            fetchMsgParamConstruct.construct(null);
+            newInstance(context, j, j2, i, i2, j3, 0L, str, bIMValueCallBack, fetchMsgParamConstruct);
         }
     }
 
@@ -393,7 +410,7 @@ public class FetchMsgParam extends BaseRequestParam {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             if ((super.isValid() && getBeginMsgId() >= 0) || (getEndMsgId() >= 0 && getCategory() >= 0)) {
                 return true;
             }
@@ -404,112 +421,119 @@ public class FetchMsgParam extends BaseRequestParam {
 
     public void onRequestResult(int i, String str, FetchMsgResponse fetchMsgResponse) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(1048592, this, i, str, fetchMsgResponse) == null) && getRequestCallBack() != null) {
+        if ((interceptable == null || interceptable.invokeILL(1048593, this, i, str, fetchMsgResponse) == null) && getRequestCallBack() != null) {
             getRequestCallBack().onResult(i, str, fetchMsgResponse);
         }
     }
 
     public void setBeginMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
             this.beginMsgId = j;
         }
     }
 
     public void setCategory(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             this.category = i;
         }
     }
 
     public void setContacterBduid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
             this.contacterBduid = j;
         }
     }
 
     public void setContacterPa(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
             this.contacterPa = j;
         }
     }
 
     public void setContacterUk(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
             this.contacterUk = j;
         }
     }
 
     public void setContacterUserType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             this.contacterUserType = i;
         }
     }
 
     public void setCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
             this.count = i;
         }
     }
 
     public void setEndMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
             this.endMsgId = j;
         }
     }
 
     public void setFetchTriggerReason(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             this.fetchTriggerReason = i;
         }
     }
 
     public void setLastMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
             this.lastMsgId = j;
         }
     }
 
     public void setLastMsgRowId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
             this.lastMsgRowId = j;
+        }
+    }
+
+    public void setPaInfo(PaInfo paInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, paInfo) == null) {
+            this.paInfo = paInfo;
         }
     }
 
     public void setRequestCallBack(BIMValueCallBack<FetchMsgResponse> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, bIMValueCallBack) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, bIMValueCallBack) == null) {
             this.fetchMsgRequestCallback = bIMValueCallBack;
         }
     }
 
     public void setScreenKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
             this.screenKey = str;
         }
     }
 
     public void setTo(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048608, this, j) == null) {
             this.to = j;
         }
     }
 
     public void setTriggerReason(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
             this.triggerReason = i;
         }
     }

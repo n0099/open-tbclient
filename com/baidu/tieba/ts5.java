@@ -1,20 +1,181 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.content.Context;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.network.outback.IOutbackClientIPProvider;
+import com.baidu.searchbox.network.outback.IOutbackContext;
+import com.baidu.searchbox.network.outback.core.CallFactory;
+import com.baidu.searchbox.network.outback.statistics.IAdditionalRecord;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.BdNetTypeSwitch;
+import com.baidu.tieba.f70;
+import com.baidu.tieba.j80;
+import com.baidu.tieba.k80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
+import okhttp3.OkHttpClient;
+import okhttp3.internal.tls.OkHostnameVerifier;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class ts5 extends ys5 {
+public class ts5 implements IOutbackContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ss5 b;
-    public boolean c;
-    public boolean d;
+    public HashMap<String, CallFactory.CallFactoryProducer> a;
+    public CallFactory.CallFactoryProducer b;
+    public CallFactory.CallFactoryProducer c;
+    public CallFactory.CallFactoryProducer d;
+    public int e;
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public IOutbackClientIPProvider getClientIPProvider() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (IOutbackClientIPProvider) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements HostnameVerifier {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(ts5 ts5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ts5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // javax.net.ssl.HostnameVerifier
+        public boolean verify(String str, SSLSession sSLSession) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                return OkHostnameVerifier.INSTANCE.verify(str, sSLSession);
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements IAdditionalRecord {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public long getAppLaunchTimeStamp() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0L;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public String getClientIPV6() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public String getHttpDnsAreaInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public long getHttpDnsAreaInfoLastUpdateTime() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return 0L;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public int getIpStack() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public int getNetworkQuality() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public String getProcessName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public b(ts5 ts5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ts5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     public ts5() {
         Interceptable interceptable = $ic;
@@ -26,51 +187,75 @@ public class ts5 extends ys5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = SwitchManager.getInstance().findType(BdNetTypeSwitch.KEY);
+        TbadkCoreApplication.getInst().setBdNetType(this.e);
+        a();
+        OkHttpClient build = new OkHttpClient.Builder().hostnameVerifier(new a(this)).build();
+        f70.b bVar = new f70.b();
+        bVar.p(build);
+        this.b = bVar.n();
+        this.c = new k80.a().a();
+        this.d = new j80.a().a();
+        HashMap<String, CallFactory.CallFactoryProducer> hashMap = new HashMap<>();
+        this.a = hashMap;
+        hashMap.put(this.b.getEngineName(), this.b);
+        this.a.put(this.c.getEngineName(), this.c);
+        this.a.put(this.d.getEngineName(), this.d);
     }
 
-    public int b() {
+    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public CallFactory.CallFactoryProducer getBackupCallFactoryProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ss5 ss5Var = this.b;
-            if (ss5Var != null) {
-                return ss5Var.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (CallFactory.CallFactoryProducer) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return AppRuntime.getAppContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public CallFactory.CallFactoryProducer getDefaultCallFactoryProducer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (BdNetTypeSwitch.isOkHttp(this.e)) {
+                return this.b;
             }
-            return -1;
+            return this.c;
         }
-        return invokeV.intValue;
+        return (CallFactory.CallFactoryProducer) invokeV.objValue;
     }
 
-    public void c() {
-        ss5 ss5Var;
-        dt5 dt5Var;
+    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public IAdditionalRecord getIAdditionalRecord() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d && (ss5Var = this.b) != null && ss5Var.b() >= 0 && (dt5Var = (dt5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
-            dt5Var.e(this);
-            this.d = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new b(this);
         }
+        return (IAdditionalRecord) invokeV.objValue;
     }
 
-    public void e() {
-        ss5 ss5Var;
+    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public HashMap<String, CallFactory.CallFactoryProducer> getOutbackEngines() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && Build.VERSION.SDK_INT >= 16 && (ss5Var = this.b) != null) {
-            ss5Var.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
         }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.c && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            this.c = true;
-            if (Build.VERSION.SDK_INT >= 16) {
-                if (this.b == null) {
-                    this.b = new ss5();
-                }
-                this.b.c();
-            }
-        }
+        return (HashMap) invokeV.objValue;
     }
 }

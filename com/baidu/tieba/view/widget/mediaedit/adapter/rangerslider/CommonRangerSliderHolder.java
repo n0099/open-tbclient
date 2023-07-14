@@ -37,10 +37,10 @@ public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
             }
         }
         this.b = view2;
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092899);
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0928cf);
     }
 
-    public void a(Bitmap bitmap) {
+    public void b(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) && bitmap != null && !bitmap.isRecycled()) {
             this.a.setImageBitmap(bitmap);

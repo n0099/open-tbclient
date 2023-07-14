@@ -1,108 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.AsyncTask;
+import android.app.Activity;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.qq.e.ads.nativ.NativeExpressADView;
 /* loaded from: classes6.dex */
-public class kib extends AsyncTask<Context, Integer, Boolean> {
+public class kib extends FunNativeAd2Bridger<ajb, View> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ fib b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947915461, "Lcom/baidu/tieba/kib;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947915461, "Lcom/baidu/tieba/kib;");
-                return;
-            }
-        }
-        a = kib.class.getSimpleName();
-    }
-
-    public kib() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kib(fib fibVar, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fibVar, reporterPidLoader};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = fibVar;
     }
 
-    @Override // android.os.AsyncTask
-    public void onPreExecute() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, ajb ajbVar, BaseNativeAd2<ajb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            mib.b(a, "onPreExecute");
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ajbVar, baseNativeAd2, funAdInteractionListener}) == null) {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(Context... contextArr) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(ajb ajbVar) {
         InterceptResult invokeL;
-        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contextArr)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                inputStream = hib.m(contextArr[0]);
-            } catch (Exception e) {
-                String str = a;
-                mib.d(str, "doInBackground: exception : " + e.getMessage());
-                inputStream = null;
-            }
-            String str2 = a;
-            mib.b(str2, "doInBackground: get bks from hms tss cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-            if (inputStream != null) {
-                lib.b(inputStream);
-                return Boolean.TRUE;
-            }
-            return Boolean.FALSE;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ajbVar)) == null) {
+            return (View) ajbVar.a;
         }
-        return (Boolean) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: b */
-    public void onPostExecute(Boolean bool) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, ajb ajbVar, BaseNativeAd2<ajb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-            if (bool.booleanValue()) {
-                mib.e(a, "onPostExecute: upate done");
-            } else {
-                mib.d(a, "onPostExecute: upate failed");
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ajbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            ajb ajbVar2 = ajbVar;
+            this.b.onShowStart(ajbVar2);
+            if (((NativeExpressADView) ajbVar2.a).getBoundData().getAdPatternType() == 2) {
+                fib fibVar = this.b;
+                fibVar.getClass();
+                ((NativeExpressADView) ajbVar2.a).setMediaListener(new iib(fibVar));
             }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: c */
-    public void onProgressUpdate(Integer... numArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr) == null) {
-            mib.e(a, "onProgressUpdate");
+            expressInflater.inflate();
         }
     }
 }

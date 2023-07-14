@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.easteregg.data.EasterEggAdData;
-import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
+import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
+import com.baidu.tieba.jx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes5.dex */
-public final class bx6 implements if5 {
+public final class bx6 extends ax6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ax6 a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bx6() {
+        super(new BottomRetainer(0.5f), new hx6());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,33 +21,11 @@ public final class bx6 implements if5 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((jx6) objArr[0], (jx6.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            }
-        }
-        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
-        this.a = new ax6(inst);
-    }
-
-    @Override // com.baidu.tieba.if5
-    public void parseJson(JSONObject json) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            try {
-                JSONObject optJSONObject2 = json.optJSONObject("floating_icon");
-                if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("easter_egg")) != null) {
-                    EasterEggAdDataHolder.b.a().c(EasterEggAdData.Companion.b(optJSONObject));
-                    ax6 ax6Var = this.a;
-                    String jSONObject = optJSONObject.toString();
-                    Intrinsics.checkNotNullExpressionValue(jSONObject, "easterEggJsonObject.toString()");
-                    ax6Var.c(jSONObject);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }

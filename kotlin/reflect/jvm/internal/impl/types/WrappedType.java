@@ -4,7 +4,7 @@ import java.util.List;
 import kotlin.TypeCastException;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class WrappedType extends KotlinType {
     public abstract KotlinType getDelegate();
 

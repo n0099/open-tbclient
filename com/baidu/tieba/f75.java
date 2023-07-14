@@ -1,37 +1,31 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.data.LevePopData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class f75 implements b75 {
+public final class f75 extends v65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947717061, "Lcom/baidu/tieba/f75;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947717061, "Lcom/baidu/tieba/f75;");
+    public static final void f(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
         }
     }
 
@@ -39,70 +33,105 @@ public final class f75 implements b75 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.b75
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.v65
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialog_url", dialogData.getDialogUrl());
-            hashMap.putAll(extraData);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            m65.u("userGrowth");
         }
-        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.b75
-    public boolean b(Map<String, ? extends Object> map) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.v65
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            Object obj = map.get("dialog_url");
-            if ((obj instanceof String) && !TextUtils.isEmpty((CharSequence) obj)) {
-                Object obj2 = map.get("check_preheat");
-                if (obj2 != null && Intrinsics.areEqual("1", obj2.toString()) && !wy5.b().e((String) obj)) {
-                    YunDialogLog.getInstance().b("HybridCheckStrategy", "H5弹窗未预热完成");
-                    return false;
-                }
-                try {
-                    Object obj3 = map.get("init_offline_module");
-                    if ((obj3 instanceof String) && !TextUtils.isEmpty((CharSequence) obj3)) {
-                        ew8 yunDialogLog = YunDialogLog.getInstance();
-                        yunDialogLog.c("HybridCheckStrategy", "主动初始化离线包:" + obj3);
-                        HashSet hashSet = new HashSet();
-                        hashSet.add(obj3);
-                        nz4.d(hashSet);
-                        ew8 yunDialogLog2 = YunDialogLog.getInstance();
-                        yunDialogLog2.c("HybridCheckStrategy", "离线包主动初始化完成:" + obj3);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            m65.n("userGrowth");
+        }
+    }
+
+    public static final void g(LevePopData levePopData, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, levePopData, view2) == null) {
+            nx4.v(view2.getContext(), null, levePopData.getBtn_scheme(), true);
+        }
+    }
+
+    @Override // com.baidu.tieba.v65
+    public void b(TBAlertBuilder builder) {
+        String cancel_btn_text;
+        String btn_text;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, builder) == null) {
+            Intrinsics.checkNotNullParameter(builder, "builder");
+            final LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
+            RelativeLayout relativeLayout = new RelativeLayout(getActivity());
+            View view2 = new View(getActivity());
+            d85 d = d85.d(view2);
+            d.n(1);
+            d.o(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds127));
+            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds149), 0, 0);
+            relativeLayout.addView(view2, layoutParams);
+            ImageView imageView = new ImageView(getActivity());
+            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_usergrouth_home, WebPManager.ResourceStateType.NORMAL));
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams2.addRule(14);
+            relativeLayout.addView(imageView, layoutParams2);
+            builder.x(levePopData.getTitle());
+            builder.q(levePopData.getDesc());
+            builder.o(true);
+            builder.l(relativeLayout);
+            TBAlertConfig.a[] aVarArr = new TBAlertConfig.a[2];
+            if (StringUtils.isNull(levePopData.getCancel_btn_text())) {
+                cancel_btn_text = TbadkCoreApplication.getInst().getString(R.string.guide_popup_window_known);
+            } else {
+                cancel_btn_text = levePopData.getCancel_btn_text();
+            }
+            aVarArr[0] = new TBAlertConfig.a(cancel_btn_text, TBAlertConfig.OperateBtnStyle.SECONDARY, new View.OnClickListener() { // from class: com.baidu.tieba.s65
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
+                        f75.f(view3);
                     }
-                } catch (Exception e) {
-                    ew8 yunDialogLog3 = YunDialogLog.getInstance();
-                    yunDialogLog3.b("HybridCheckStrategy", "离线包手动初始化异常:" + e);
                 }
-                Object obj4 = map.get("check_offline");
-                if (obj4 != null && Intrinsics.areEqual("1", obj4.toString()) && !nz4.c((String) obj)) {
-                    YunDialogLog.getInstance().b("HybridCheckStrategy", "离线包不可用");
-                    return false;
-                }
-                return true;
+            });
+            if (StringUtils.isNull(levePopData.getBtn_text())) {
+                btn_text = TbadkCoreApplication.getInst().getString(R.string.check_detail);
+            } else {
+                btn_text = levePopData.getBtn_text();
             }
-            YunDialogLog.getInstance().b("HybridCheckStrategy", "未下发待检测的H5弹窗url");
-            return false;
+            aVarArr[1] = new TBAlertConfig.a(btn_text, TBAlertConfig.OperateBtnStyle.MAIN, new View.OnClickListener() { // from class: com.baidu.tieba.u65
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
+                        f75.g(LevePopData.this, view3);
+                    }
+                }
+            });
+            builder.u(aVarArr);
+            builder.j(false);
+            builder.i();
+            builder.z();
+            PollingModel.P0(levePopData, true);
         }
-        return invokeL.booleanValue;
     }
 }

@@ -1,368 +1,419 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.UploadedImageInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishImageStatData;
+import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishImagesStatData;
+import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishStatData;
+import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishVideoStatData;
+import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishVoiceStatData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.extractor.ogg.OpusReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+import com.baidu.ubc.UBCManager;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public class tea {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948179705, "Lcom/baidu/tieba/tea;")) == null) {
-            return;
+    public static float a(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j <= 0 || j2 <= 0) {
+                return -1.0f;
+            }
+            return (((float) j2) / 1024.0f) / (((float) j) / 1000.0f);
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948179705, "Lcom/baidu/tieba/tea;");
+        return invokeCommon.floatValue;
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
         }
     }
 
-    public static byte[] e(short s, boolean z) {
-        InterceptResult invokeCommon;
+    public static void c(WriteData writeData, ErrorData errorData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Short.valueOf(s), Boolean.valueOf(z)})) == null) {
-            byte[] bArr = new byte[2];
-            if (z) {
-                bArr[1] = (byte) (s & 255);
-                bArr[0] = (byte) (((short) (s >> 8)) & 255);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, writeData, errorData) == null) && writeData != null && writeData.getAsyncPublishStatData() != null) {
+            if (errorData != null && errorData.getError_code() == 5) {
+                return;
+            }
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            long currentTimeMillis = System.currentTimeMillis();
+            asyncPublishStatData.endTime = currentTimeMillis;
+            asyncPublishStatData.sendThreadDuration = currentTimeMillis - asyncPublishStatData.startTime;
+            if (errorData != null && errorData.getError_code() == 0) {
+                asyncPublishStatData.errorCode = 0;
+            } else if (errorData != null) {
+                asyncPublishStatData.errorCode = errorData.error_code;
+                asyncPublishStatData.errorMessage = errorData.error_msg;
             } else {
-                bArr[0] = (byte) (s & 255);
-                bArr[1] = (byte) (((short) (s >> 8)) & 255);
+                asyncPublishStatData.errorCode = -17;
+                asyncPublishStatData.errorMessage = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0e1f);
             }
-            return bArr;
+            f(asyncPublishStatData);
+            b("上传结束（endAsyncPublish）: id =" + asyncPublishStatData.startTime + "    endTime = " + asyncPublishStatData.endTime);
         }
-        return (byte[]) invokeCommon.objValue;
     }
 
-    public static short f(byte b, byte b2, boolean z) {
-        InterceptResult invokeCommon;
+    public static void g(WriteData writeData, VideoFinishResult videoFinishResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2), Boolean.valueOf(z)})) == null) {
-            return (short) (z ? ((short) (((short) ((b & 255) | 0)) << 8)) | (b2 & 255) : (b & 255) | ((short) (((short) ((b2 & 255) | 0)) << 8)));
-        }
-        return invokeCommon.shortValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        if ((interceptable == null || interceptable.invokeLL(65542, null, writeData, videoFinishResult) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().videoData != null) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            AsyncPublishVideoStatData asyncPublishVideoStatData = asyncPublishStatData.videoData;
+            asyncPublishVideoStatData.endTime = System.currentTimeMillis();
+            asyncPublishStatData.haveVideo = 1;
+            if (videoFinishResult == null) {
+                asyncPublishVideoStatData.errorCode = -53;
+            } else if (videoFinishResult.isSuccess()) {
+                asyncPublishVideoStatData.errorCode = 0;
+                asyncPublishVideoStatData.md5 = videoFinishResult.getVideoMd5();
+                asyncPublishVideoStatData.url = videoFinishResult.getVideoUrl();
+            } else {
+                asyncPublishVideoStatData.errorCode = videoFinishResult.getErrorNo();
+                asyncPublishVideoStatData.errorMessage = videoFinishResult.getUserMessage();
             }
-            this.a = OpusReader.SAMPLE_RATE;
-            this.b = 1;
-            this.c = 16;
-            this.d = 0;
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.d;
-                if (i != 5 && i != 6 && i != 8 && i != 9) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i = this.d;
-                if (i != 3 && i != 4 && i != 8 && i != 9) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i = this.d;
-                if (i == 1 || i == 4 || i == 6 || i == 9) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
+            asyncPublishStatData.videoErrorCode = asyncPublishVideoStatData.errorCode;
+            asyncPublishStatData.videoErrorMessage = asyncPublishVideoStatData.errorMessage;
+            long j = asyncPublishVideoStatData.endTime - asyncPublishVideoStatData.startTime;
+            asyncPublishStatData.videoUploadDuration = j;
+            long j2 = asyncPublishVideoStatData.size;
+            asyncPublishStatData.videoSize = j2;
+            asyncPublishStatData.videoUploadRate = a(j, j2);
+            b("上传视频结束（endAsyncPublishVideo）: id =" + asyncPublishVideoStatData.startTime + "    endTime = " + asyncPublishVideoStatData.endTime);
         }
     }
 
-    public static byte[] a(byte b, byte b2, byte b3, byte b4, boolean z) {
-        InterceptResult invokeCommon;
+    public static void h(WriteData writeData, ImageUploadResult imageUploadResult) {
+        ImageUploadResult.PicDetailedInfo picDetailedInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2), Byte.valueOf(b3), Byte.valueOf(b4), Boolean.valueOf(z)})) == null) {
-            return e((short) ((f(b, b2, z) / 2) + (f(b3, b4, z) / 2)), z);
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static byte[] b(int i, int i2, byte[] bArr) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, bArr)) == null) {
-            BdLog.e("convertChannelCount sourceByteWidth = " + i + " outputByteWidth = " + i2);
-            if (i == i2) {
-                return bArr;
-            }
-            int length = bArr.length;
-            if (i != 1) {
-                if (i == 2 && i2 == 1) {
-                    int i3 = length / 2;
-                    byte[] bArr2 = new byte[i3];
-                    for (int i4 = 0; i4 < i3; i4++) {
-                        int i5 = i4 * 2;
-                        bArr2[i4] = (byte) (f(bArr[i5], bArr[i5 + 1], a) / 256);
-                    }
-                    return bArr2;
-                }
-            } else if (i2 == 2) {
-                byte[] bArr3 = new byte[length * 2];
-                for (int i6 = 0; i6 < length; i6++) {
-                    byte[] e = e((short) (bArr[i6] * 256), a);
-                    int i7 = i6 * 2;
-                    bArr3[i7] = e[0];
-                    bArr3[i7 + 1] = e[1];
-                }
-                return bArr3;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeIIL.objValue;
-    }
-
-    public static byte[] c(int i, int i2, int i3, byte[] bArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bArr})) == null) {
-            BdLog.e("convertChannelCount sourceChannelCount = " + i + " outputChannelCount = " + i2);
-            if (i == i2) {
-                return bArr;
-            }
-            if (i3 != 1 && i3 != 2) {
-                return bArr;
-            }
-            int length = bArr.length;
-            int i4 = 0;
-            if (i != 1) {
-                if (i == 2 && i2 == 1) {
-                    int i5 = length / 2;
-                    byte[] bArr2 = new byte[i5];
-                    if (i3 != 1) {
-                        if (i3 == 2) {
-                            for (int i6 = 0; i6 < i5; i6 += 2) {
-                                int i7 = i6 * 2;
-                                byte[] a2 = a(bArr[i7], bArr[i7 + 1], bArr[i7 + 2], bArr[i7 + 3], a);
-                                bArr2[i6] = a2[0];
-                                bArr2[i6 + 1] = a2[1];
-                            }
-                        }
-                    } else {
-                        while (i4 < i5) {
-                            int i8 = i4 * 2;
-                            bArr2[i4] = (byte) (((short) (bArr[i8] + bArr[i8 + 1])) >> 1);
-                            i4 += 2;
-                        }
-                    }
-                    return bArr2;
-                }
-            } else if (i2 == 2) {
-                byte[] bArr3 = new byte[length * 2];
-                if (i3 != 1) {
-                    if (i3 == 2) {
-                        while (i4 < length) {
-                            byte b = bArr[i4];
-                            byte b2 = bArr[i4 + 1];
-                            int i9 = i4 * 2;
-                            bArr3[i9] = b;
-                            bArr3[i9 + 1] = b2;
-                            bArr3[i9 + 2] = b;
-                            bArr3[i9 + 3] = b2;
-                            i4 += 2;
-                        }
-                    }
+        if ((interceptable == null || interceptable.invokeLL(65543, null, writeData, imageUploadResult) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().videoFirstFrame != null) {
+            AsyncPublishImageStatData asyncPublishImageStatData = writeData.getAsyncPublishStatData().videoFirstFrame;
+            asyncPublishImageStatData.endTime = System.currentTimeMillis();
+            if (imageUploadResult == null) {
+                asyncPublishImageStatData.errorCode = -53;
+            } else {
+                ImageUploadResult.picInfo picinfo = imageUploadResult.picInfo;
+                if (picinfo != null && (picDetailedInfo = picinfo.bigPic) != null && !StringUtils.isNull(picDetailedInfo.picUrl)) {
+                    asyncPublishImageStatData.errorCode = 0;
+                    asyncPublishImageStatData.picId = imageUploadResult.picInfo.bigPic.picUrl;
                 } else {
-                    while (i4 < length) {
-                        byte b3 = bArr[i4];
-                        int i10 = i4 * 2;
-                        bArr3[i10] = b3;
-                        bArr3[i10 + 1] = b3;
-                        i4++;
-                    }
+                    asyncPublishImageStatData.errorCode = imageUploadResult.error_code;
+                    asyncPublishImageStatData.errorMessage = imageUploadResult.error_msg;
                 }
-                return bArr3;
             }
-            return bArr;
+            long j = asyncPublishImageStatData.endTime - asyncPublishImageStatData.startTime;
+            asyncPublishImageStatData.uploadDuration = j;
+            asyncPublishImageStatData.uploadRate = a(j, asyncPublishImageStatData.originSize);
+            b("上传视频首帧结束（endAsyncPublishVideoFirstFrame）: id =" + asyncPublishImageStatData.startTime + "    endTime = " + asyncPublishImageStatData.endTime);
         }
-        return (byte[]) invokeCommon.objValue;
     }
 
-    @TargetApi(16)
-    public static a d(String str) {
-        InterceptResult invokeL;
-        MediaFormat mediaFormat;
-        int i;
-        int i2;
-        int i3;
+    public static void d(WriteData writeData, ImageFileInfo imageFileInfo, ImageUploadResult imageUploadResult) {
+        AsyncPublishImageStatData asyncPublishImageStatData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            MediaExtractor mediaExtractor = new MediaExtractor();
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, writeData, imageFileInfo, imageUploadResult) == null) && writeData != null && imageFileInfo != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null && (asyncPublishImageStatData = writeData.getAsyncPublishStatData().imagesData.imageInfo.get(Long.valueOf(imageFileInfo.startUploadTime))) != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            asyncPublishImageStatData.endTime = currentTimeMillis;
+            long j = currentTimeMillis - asyncPublishImageStatData.endCompressTime;
+            asyncPublishImageStatData.uploadDuration = j;
+            if (j <= 0) {
+                asyncPublishImageStatData.uploadDuration = 1L;
+            }
+            asyncPublishImageStatData.uploadRate = (((float) asyncPublishImageStatData.compressSize) / 1024.0f) / (((float) asyncPublishImageStatData.uploadDuration) / 1000.0f);
+            if (imageUploadResult != null) {
+                UploadedImageInfo uploadedPicInfo = imageUploadResult.getUploadedPicInfo();
+                if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
+                    asyncPublishImageStatData.errorCode = 0;
+                    asyncPublishImageStatData.picId = uploadedPicInfo.toPostString();
+                } else {
+                    asyncPublishImageStatData.errorCode = imageUploadResult.error_code;
+                    asyncPublishImageStatData.errorMessage = imageUploadResult.error_msg;
+                }
+            } else {
+                asyncPublishImageStatData.errorCode = -52;
+                asyncPublishImageStatData.errorMessage = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e1f);
+            }
+            b("结束单张上传图片（endAsyncPublishImage）: path =" + imageFileInfo.getFilePath());
+            b("结束单张上传图片（网络耗时）: time = " + (asyncPublishImageStatData.endTime - asyncPublishImageStatData.endCompressTime));
+        }
+    }
+
+    public static void e(WriteData writeData, ErrorData errorData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, writeData, errorData) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            AsyncPublishImagesStatData asyncPublishImagesStatData = asyncPublishStatData.imagesData;
+            asyncPublishImagesStatData.endTime = System.currentTimeMillis();
+            asyncPublishStatData.haveImage = 1;
+            asyncPublishStatData.imageCount = asyncPublishImagesStatData.imageInfo.size();
+            long j = 0;
+            for (AsyncPublishImageStatData asyncPublishImageStatData : asyncPublishImagesStatData.imageInfo.values()) {
+                j += asyncPublishImageStatData.compressSize;
+            }
+            asyncPublishStatData.imageSize = j;
+            long j2 = asyncPublishImagesStatData.endTime - asyncPublishImagesStatData.startTime;
+            asyncPublishStatData.imageUploadDuration = j2;
+            asyncPublishStatData.imageUploadRate = a(j2, j);
+            if (errorData == null) {
+                asyncPublishImagesStatData.errorCode = 0;
+            } else {
+                asyncPublishImagesStatData.errorCode = errorData.error_code;
+                asyncPublishImagesStatData.errorMessage = errorData.error_msg;
+            }
+            asyncPublishStatData.imageErrorCode = asyncPublishImagesStatData.errorCode;
+            asyncPublishStatData.imageErrorMessage = asyncPublishImagesStatData.errorMessage;
+            b("结束上传多张图片（endAsyncPublishImages）: id =" + asyncPublishImagesStatData.startTime + "    endTime = " + asyncPublishImagesStatData.endTime);
+            StringBuilder sb = new StringBuilder();
+            sb.append("结束上传多张图片（整体耗时）: time = ");
+            sb.append(asyncPublishImagesStatData.endTime - asyncPublishImagesStatData.startTime);
+            b(sb.toString());
+        }
+    }
+
+    public static void i(WriteData writeData, ud5 ud5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65544, null, writeData, ud5Var) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().voiceData != null) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            AsyncPublishVoiceStatData asyncPublishVoiceStatData = asyncPublishStatData.voiceData;
+            asyncPublishVoiceStatData.endTime = System.currentTimeMillis();
+            asyncPublishStatData.haveVoice = 1;
+            if (ud5Var != null && ud5Var.d()) {
+                td5 a = ud5Var.a();
+                if (a != null) {
+                    asyncPublishVoiceStatData.errorCode = 0;
+                    asyncPublishVoiceStatData.md5 = a.b();
+                } else {
+                    asyncPublishVoiceStatData.errorCode = ud5Var.b();
+                    asyncPublishVoiceStatData.errorMessage = ud5Var.c();
+                }
+            } else if (ud5Var != null) {
+                asyncPublishVoiceStatData.errorCode = ud5Var.b();
+                asyncPublishVoiceStatData.errorMessage = ud5Var.c();
+            } else {
+                asyncPublishVoiceStatData.errorCode = TbErrInfo.ERR_VOI_SEND;
+            }
+            asyncPublishStatData.voiceErrorCode = asyncPublishVoiceStatData.errorCode;
+            asyncPublishStatData.voiceErrorMessage = asyncPublishVoiceStatData.errorMessage;
+            long j = asyncPublishVoiceStatData.endTime - asyncPublishVoiceStatData.startTime;
+            asyncPublishStatData.voiceUploadDuration = j;
+            long j2 = asyncPublishVoiceStatData.size;
+            asyncPublishStatData.voiceSize = j2;
+            asyncPublishStatData.voiceUploadRate = a(j, j2);
+            b("上传声音结束（endAsyncPublishVoice）: id =" + asyncPublishVoiceStatData.startTime + "    endTime = " + asyncPublishVoiceStatData.endTime);
+        }
+    }
+
+    public static void f(@NonNull AsyncPublishStatData asyncPublishStatData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, asyncPublishStatData) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
             try {
-                mediaExtractor.setDataSource(str);
-                int i4 = 0;
-                while (true) {
-                    if (i4 < mediaExtractor.getTrackCount()) {
-                        mediaFormat = mediaExtractor.getTrackFormat(i4);
-                        if (mediaFormat.getString("mime").startsWith("audio/")) {
-                            mediaExtractor.selectTrack(i4);
-                            break;
-                        }
-                        i4++;
-                    } else {
-                        mediaFormat = null;
-                        break;
-                    }
-                }
-                if (mediaFormat == null) {
-                    mediaExtractor.release();
-                    return null;
-                }
-                a aVar = new a();
-                if (mediaFormat.containsKey("sample-rate")) {
-                    i = mediaFormat.getInteger("sample-rate");
-                } else {
-                    i = OpusReader.SAMPLE_RATE;
-                }
-                aVar.a = i;
-                if (mediaFormat.containsKey("channel-count")) {
-                    i2 = mediaFormat.getInteger("channel-count");
-                } else {
-                    i2 = 1;
-                }
-                aVar.b = i2;
-                if (mediaFormat.containsKey("bit-width")) {
-                    i3 = mediaFormat.getInteger("bit-width");
-                } else {
-                    i3 = 16;
-                }
-                aVar.c = i3;
-                mediaExtractor.release();
-                return aVar;
-            } catch (IOException e) {
+                jSONObject.put("ext", asyncPublishStatData.toEndStatJson());
+                uBCManager.onEvent("4259", jSONObject);
+                b("【打点】-【结束】endAsyncPublishStat: id = " + asyncPublishStatData.id);
+            } catch (JSONException e) {
                 e.printStackTrace();
-                return null;
             }
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-                a = true;
-            } else {
-                a = false;
-            }
+            k(asyncPublishStatData);
         }
     }
 
-    public static boolean h(a... aVarArr) {
-        InterceptResult invokeL;
-        a aVar;
+    public static void l(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, aVarArr)) == null) {
-            if (aVarArr == null || aVarArr.length < 2 || (aVar = aVarArr[0]) == null) {
-                return false;
-            }
-            boolean z = true;
-            for (int i = 1; i < aVarArr.length; i++) {
-                if (aVar.a != aVarArr[i].a) {
-                    aVarArr[i].d++;
-                    z = false;
-                }
-                if (aVar.b != aVarArr[i].b) {
-                    aVarArr[i].d += 3;
-                    z = false;
-                }
-                if (aVar.c != aVarArr[i].c) {
-                    aVarArr[i].d += 5;
-                    z = false;
-                }
-            }
-            return z;
+        if ((interceptable == null || interceptable.invokeL(65547, null, writeData) == null) && writeData != null && writeData.startPublishTime() > 0) {
+            AsyncPublishStatData asyncPublishStatData = new AsyncPublishStatData(writeData);
+            writeData.setAsyncPublishStatData(asyncPublishStatData);
+            b("开始后台上传（startAsyncPublish） id = " + asyncPublishStatData.id + "  parentId = " + asyncPublishStatData.parentId);
+            o(asyncPublishStatData);
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean i(String str, String str2, int i, int i2) {
-        InterceptResult invokeLLII;
+    public static void n(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65545, null, str, str2, i, i2)) == null) {
-            BdLog.e("resampling sampleRate = " + i + " resampleRate = " + i2);
-            if (i2 == i) {
-                return false;
+        if ((interceptable == null || interceptable.invokeL(65549, null, writeData) == null) && writeData != null && writeData.getAsyncPublishStatData() != null) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            asyncPublishStatData.imagesData = new AsyncPublishImagesStatData();
+            WriteImagesInfo writeImagesInfo = writeData.getWriteImagesInfo();
+            if (writeImagesInfo != null) {
+                asyncPublishStatData.needImageParallel = writeImagesInfo.needImageParallel ? 1 : 0;
+                asyncPublishStatData.imageChunkSize = writeImagesInfo.imageChunkSize;
+                asyncPublishStatData.imageUploadConcurrency = writeImagesInfo.imageUploadConcurrency;
+                asyncPublishStatData.imageChunkRetry = writeImagesInfo.imageChunkRetry;
             }
-            File file = new File(str);
-            File file2 = new File(str2);
+            b("多张图片开始上传（startAsyncPublishImages）: startTime = " + asyncPublishStatData.imagesData.startTime);
+        }
+    }
+
+    public static void o(@NonNull AsyncPublishStatData asyncPublishStatData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, null, asyncPublishStatData) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
             try {
-                FileInputStream fileInputStream = new FileInputStream(file);
-                FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                new wea(fileInputStream, fileOutputStream, i, i2, 2, 2, 1, Integer.MAX_VALUE, 0.0d, 0, true);
-                fileInputStream.close();
-                fileOutputStream.close();
-                return true;
+                jSONObject.put("ext", asyncPublishStatData.toClickStatJson());
+                uBCManager.onEvent("4260", jSONObject);
+                b("【打点】-【点击】startAsyncPublishStat: id = " + asyncPublishStatData.id);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            t(asyncPublishStatData);
+        }
+    }
+
+    public static void t(@NonNull AsyncPublishStatData asyncPublishStatData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65555, null, asyncPublishStatData) == null) {
+            eh statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+            statsItem.b("action", "async_publish_start");
+            statsItem.c("extId", Long.valueOf(asyncPublishStatData.id));
+            statsItem.c("parentId", Long.valueOf(asyncPublishStatData.parentId));
+            statsItem.c("startTime", Long.valueOf(asyncPublishStatData.startTime));
+            BdStatisticsManager.getInstance().performance("thread", statsItem);
+        }
+    }
+
+    public static void j(WriteData writeData, ImageFileInfo imageFileInfo, String str, int[] iArr, long j) {
+        AsyncPublishImageStatData asyncPublishImageStatData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{writeData, imageFileInfo, str, iArr, Long.valueOf(j)}) == null) && writeData != null && imageFileInfo != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null && (asyncPublishImageStatData = writeData.getAsyncPublishStatData().imagesData.imageInfo.get(Long.valueOf(imageFileInfo.startUploadTime))) != null) {
+            asyncPublishImageStatData.endCompressTime = System.currentTimeMillis();
+            asyncPublishImageStatData.compressTempPath = str;
+            asyncPublishImageStatData.compressWidth = iArr[0];
+            asyncPublishImageStatData.compressHeight = iArr[1];
+            asyncPublishImageStatData.compressSize = j;
+            b("压缩结束（endCompressImage）: path =" + str + "\n   w =" + iArr[0] + " h =" + iArr[1] + "  size =" + (((float) j) / 1048576.0f) + "MB");
+        }
+    }
+
+    public static void k(@NonNull AsyncPublishStatData asyncPublishStatData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, asyncPublishStatData) == null) {
+            try {
+                eh statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+                statsItem.b("action", "async_publish_end");
+                statsItem.c("extId", Long.valueOf(asyncPublishStatData.id));
+                statsItem.c("parentId", Long.valueOf(asyncPublishStatData.parentId));
+                statsItem.c("startTime", Long.valueOf(asyncPublishStatData.startTime));
+                statsItem.c("endTime", Long.valueOf(asyncPublishStatData.endTime));
+                statsItem.c("errorCode", Integer.valueOf(asyncPublishStatData.errorCode));
+                statsItem.b("errorMessage", asyncPublishStatData.errorMessage);
+                statsItem.c("sendThreadDuration", Long.valueOf(asyncPublishStatData.sendThreadDuration));
+                statsItem.c("haveImage", Integer.valueOf(asyncPublishStatData.haveImage));
+                statsItem.c("haveVideo", Integer.valueOf(asyncPublishStatData.haveVideo));
+                statsItem.c("haveVoice", Integer.valueOf(asyncPublishStatData.haveVoice));
+                if (asyncPublishStatData.imagesData != null) {
+                    statsItem.b("imagesData", asyncPublishStatData.imagesData.toJson().toString());
+                    statsItem.c("imageErrorCode", Integer.valueOf(asyncPublishStatData.imageErrorCode));
+                    statsItem.b("imageErrorMessage", asyncPublishStatData.imageErrorMessage);
+                    statsItem.c("imageUploadRate", Float.valueOf(asyncPublishStatData.imageUploadRate));
+                    statsItem.c("imageUploadDuration", Long.valueOf(asyncPublishStatData.imageUploadDuration));
+                    statsItem.c("imageCount", Integer.valueOf(asyncPublishStatData.imageCount));
+                    statsItem.c("imageSize", Long.valueOf(asyncPublishStatData.imageSize));
+                    statsItem.c("needImageParallel", Integer.valueOf(asyncPublishStatData.needImageParallel));
+                    statsItem.c("imageChunkSize", Integer.valueOf(asyncPublishStatData.imageChunkSize));
+                    statsItem.c("imageUploadConcurrency", Integer.valueOf(asyncPublishStatData.imageUploadConcurrency));
+                    statsItem.c("imageChunkRetry", Integer.valueOf(asyncPublishStatData.imageChunkRetry));
+                }
+                if (asyncPublishStatData.voiceData != null) {
+                    statsItem.b("voiceData", asyncPublishStatData.voiceData.toJson().toString());
+                    statsItem.c("voiceErrorCode", Integer.valueOf(asyncPublishStatData.voiceErrorCode));
+                    statsItem.b("voiceErrorMessage", asyncPublishStatData.voiceErrorMessage);
+                    statsItem.c("voiceUploadDuration", Long.valueOf(asyncPublishStatData.voiceUploadDuration));
+                    statsItem.c("voiceUploadRate", Float.valueOf(asyncPublishStatData.voiceUploadRate));
+                }
+                if (asyncPublishStatData.videoData != null) {
+                    statsItem.b("videoData", asyncPublishStatData.videoData.toJson().toString());
+                    statsItem.c("videoErrorCode", Integer.valueOf(asyncPublishStatData.videoErrorCode));
+                    statsItem.b("videoErrorMessage", asyncPublishStatData.videoErrorMessage);
+                    statsItem.c("videoUploadRate", Float.valueOf(asyncPublishStatData.videoUploadRate));
+                    statsItem.c("videoUploadDuration", Long.valueOf(asyncPublishStatData.videoUploadDuration));
+                }
+                if (asyncPublishStatData.videoFirstFrame != null) {
+                    statsItem.b("videoFirstFrame", asyncPublishStatData.videoFirstFrame.toJson().toString());
+                }
+                BdStatisticsManager.getInstance().performance("thread", statsItem);
             } catch (Exception e) {
                 e.printStackTrace();
-                return false;
             }
         }
-        return invokeLLII.booleanValue;
+    }
+
+    public static void m(WriteData writeData, ImageFileInfo imageFileInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65548, null, writeData, imageFileInfo) == null) && writeData != null && imageFileInfo != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null) {
+            writeData.getAsyncPublishStatData().imagesData.imageInfo.put(Long.valueOf(imageFileInfo.startUploadTime), new AsyncPublishImageStatData(imageFileInfo));
+            b("多张图片开始上传(startAsyncPublishImage): path =" + imageFileInfo.getFilePath());
+        }
+    }
+
+    public static void p(WriteData writeData, VideoInfo videoInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65551, null, writeData, videoInfo) == null) && writeData != null && videoInfo != null && writeData.getAsyncPublishStatData() != null) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            AsyncPublishVideoStatData asyncPublishVideoStatData = new AsyncPublishVideoStatData(videoInfo);
+            asyncPublishStatData.videoData = asyncPublishVideoStatData;
+            asyncPublishVideoStatData.size = FileHelper.getFileSize(videoInfo.getVideoPath());
+            b("开始上传视频（startAsyncPublishVideo）: id =" + videoInfo.getVideoPath());
+        }
+    }
+
+    public static void q(WriteData writeData, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65552, null, writeData, str) == null) && writeData != null && !TextUtils.isEmpty(str) && writeData.getAsyncPublishStatData() != null) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            AsyncPublishImageStatData asyncPublishImageStatData = new AsyncPublishImageStatData(str);
+            asyncPublishStatData.videoFirstFrame = asyncPublishImageStatData;
+            asyncPublishImageStatData.originSize = FileHelper.getFileSize(str);
+            b("开始上传视频首帧（startAsyncPublishVideoFirstFrame): path =" + asyncPublishStatData.videoFirstFrame.originPath);
+        }
+    }
+
+    public static void r(WriteData writeData, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(65553, null, writeData, j) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && !TextUtils.isEmpty(writeData.getVoice())) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            AsyncPublishVoiceStatData asyncPublishVoiceStatData = new AsyncPublishVoiceStatData(writeData.getVoice());
+            asyncPublishVoiceStatData.size = j;
+            asyncPublishStatData.voiceData = asyncPublishVoiceStatData;
+            b("开始上传声音（startAsyncPublishVoice）: id =" + asyncPublishVoiceStatData.id);
+        }
+    }
+
+    public static void s(WriteData writeData, ImageFileInfo imageFileInfo, String str, int[] iArr, long j, boolean z, boolean z2, boolean z3, String str2) {
+        AsyncPublishImageStatData asyncPublishImageStatData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{writeData, imageFileInfo, str, iArr, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str2}) == null) && writeData != null && imageFileInfo != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null && (asyncPublishImageStatData = writeData.getAsyncPublishStatData().imagesData.imageInfo.get(Long.valueOf(imageFileInfo.startUploadTime))) != null) {
+            asyncPublishImageStatData.startCompressTime = System.currentTimeMillis();
+            asyncPublishImageStatData.originPath = str;
+            asyncPublishImageStatData.originWidth = iArr[0];
+            asyncPublishImageStatData.originHeight = iArr[1];
+            asyncPublishImageStatData.originSize = j;
+            asyncPublishImageStatData.isLongImage = z;
+            asyncPublishImageStatData.isHeifImage = z2;
+            asyncPublishImageStatData.hasActionsWithoutResize = z3;
+            asyncPublishImageStatData.uploadImageType = str2;
+            b("开始压缩（startCompressImage）: path =" + str + "\n   w =" + iArr[0] + " h =" + iArr[1] + "  size =" + (((float) j) / 1048576.0f) + "MB\n   isLongImage =" + z + "  isHeifImage =" + z2 + " resize =" + z3 + " uploadStrategy =" + str2);
+        }
     }
 }

@@ -1,136 +1,81 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.sweetsqlite.BooleanColumn;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.nadcore.sweetsqlite.IntegerColumn;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public class x41 extends BaseExecutorCell {
+public class x41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final String b;
+    public final int c;
+    public final int d;
+    public final String e;
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SerialElasticExecutorCell" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x41(int i) {
-        super(i);
+    public x41(int i, String str, String str2, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i != 1) {
-            String d = d();
-            Log.w(d, "You are creating a SerialExecutorCell with maxThreadNum " + i + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.");
-            this.b = 1;
-        }
-        this.c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        this.a = i;
+        this.b = str;
+        this.e = str2;
+        this.c = i2;
+        this.d = i3;
     }
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public boolean a() {
-        InterceptResult invokeV;
+    public static boolean a(Column column) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (e() < 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, column)) == null) {
+            return ((BooleanColumn) column).getValue();
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final synchronized ElasticTask k() {
-        InterceptResult invokeV;
+    public static int b(Column column) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                return this.a.get(0);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, column)) == null) {
+            return ((IntegerColumn) column).getValue();
         }
-        return (ElasticTask) invokeV.objValue;
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public synchronized void f(ElasticTask elasticTask) {
+    public static long c(Column column) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask) == null) {
-            synchronized (this) {
-                super.f(elasticTask);
-                if (r41.b) {
-                    g51.f().n(r41.c + 10);
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, column)) == null) {
+            return ((LongColumn) column).getValue();
         }
+        return invokeL.longValue;
     }
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public synchronized void g(ElasticTask elasticTask) {
+    public static String d(Column column) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, elasticTask) == null) {
-            synchronized (this) {
-                super.g(elasticTask);
-                g51.f().o();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, column)) == null) {
+            return ((StringColumn) column).getValue();
         }
-    }
-
-    public final void i(ElasticTask elasticTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
-            elasticTask.h(null);
-            this.c.shutdown();
-            this.a.clear();
-            this.c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-            g51.f().o();
-        }
-    }
-
-    public synchronized boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                if (!r41.b) {
-                    return false;
-                }
-                ElasticTask k = k();
-                if (k == null) {
-                    return false;
-                }
-                if (k.c() < r41.c) {
-                    return false;
-                }
-                i(k);
-                return true;
-            }
-        }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

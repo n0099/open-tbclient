@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes8.dex */
-public final class vl8 extends iq9 {
+public class vl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.mq9
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "at_message_bar" : (String) invokeV.objValue;
-    }
+    public ul8<? extends BaseChatAdapter, ? extends BaseMsg> a;
 
     public vl8() {
         Interceptable interceptable = $ic;
@@ -30,6 +28,40 @@ public final class vl8 extends iq9 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @NonNull
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> ul8<T, Msg> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (ul8<T, Msg>) this.a;
+        }
+        return (ul8) invokeV.objValue;
+    }
+
+    @Nullable
+    public static vl8 b(@NonNull View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return (vl8) view2.getTag(R.id.obfuscated_res_0x7f09238d);
+        }
+        return (vl8) invokeL.objValue;
+    }
+
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> void c(@NonNull ul8<T, Msg> ul8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ul8Var) == null) {
+            this.a = ul8Var;
+        }
+    }
+
+    public static void d(@NonNull View view2, @NonNull vl8 vl8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, vl8Var) == null) {
+            view2.setTag(R.id.obfuscated_res_0x7f09238d, vl8Var);
         }
     }
 }

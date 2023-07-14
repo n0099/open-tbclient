@@ -4,6 +4,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,6 +24,7 @@ public final class TBAlertConfig {
         public static final /* synthetic */ OperateBtnStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OperateBtnStyle ALERT;
+        public static final OperateBtnStyle BG_GRADIENT;
         public static final OperateBtnStyle FORCE;
         public static final OperateBtnStyle MAIN;
         public static final OperateBtnStyle SECONDARY;
@@ -44,9 +46,10 @@ public final class TBAlertConfig {
             MAIN = new OperateBtnStyle("MAIN", 0);
             FORCE = new OperateBtnStyle("FORCE", 1);
             SECONDARY = new OperateBtnStyle("SECONDARY", 2);
-            OperateBtnStyle operateBtnStyle = new OperateBtnStyle("ALERT", 3);
-            ALERT = operateBtnStyle;
-            $VALUES = new OperateBtnStyle[]{MAIN, FORCE, SECONDARY, operateBtnStyle};
+            ALERT = new OperateBtnStyle("ALERT", 3);
+            OperateBtnStyle operateBtnStyle = new OperateBtnStyle("BG_GRADIENT", 4);
+            BG_GRADIENT = operateBtnStyle;
+            $VALUES = new OperateBtnStyle[]{MAIN, FORCE, SECONDARY, ALERT, operateBtnStyle};
         }
 
         public OperateBtnStyle(String str, int i) {
@@ -161,8 +164,10 @@ public final class TBAlertConfig {
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public int b;
-        public OperateBtnStyle c;
-        public View.OnClickListener d;
+        public String[] c;
+        public String d;
+        public OperateBtnStyle e;
+        public View.OnClickListener f;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(@StringRes int i, @NonNull OperateBtnStyle operateBtnStyle) {
@@ -201,8 +206,8 @@ public final class TBAlertConfig {
                 }
             }
             this.a = TbadkCoreApplication.getInst().getResources().getString(i);
-            this.c = operateBtnStyle;
-            this.d = onClickListener;
+            this.e = operateBtnStyle;
+            this.f = onClickListener;
         }
 
         public a(@NonNull String str, int i, @NonNull OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
@@ -222,8 +227,8 @@ public final class TBAlertConfig {
             }
             this.a = str;
             this.b = i;
-            this.c = operateBtnStyle;
-            this.d = onClickListener;
+            this.e = operateBtnStyle;
+            this.f = onClickListener;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -268,10 +273,30 @@ public final class TBAlertConfig {
             }
         }
 
-        public void a(View.OnClickListener onClickListener) {
+        public a a(String[] strArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-                this.d = onClickListener;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                this.c = strArr;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.d = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public void c(View.OnClickListener onClickListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+                this.f = onClickListener;
             }
         }
     }

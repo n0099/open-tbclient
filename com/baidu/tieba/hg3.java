@@ -1,8 +1,16 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.ah3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,31 +18,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hg3 extends b32 {
+public class hg3 extends sd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.f02
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "HideCaptureScreenShareDialogApi" : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes6.dex */
-    public class a implements vq3<Boolean> {
+    public class a implements oq3<yg3<ah3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
+        public final /* synthetic */ CallbackHandler a;
         public final /* synthetic */ String b;
-        public final /* synthetic */ hg3 c;
+        public final /* synthetic */ Activity c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ hg3 f;
 
-        public a(hg3 hg3Var, boolean z, String str) {
+        public a(hg3 hg3Var, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hg3Var, Boolean.valueOf(z), str};
+                Object[] objArr = {hg3Var, callbackHandler, str, activity, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,40 +48,122 @@ public class hg3 extends b32 {
                     return;
                 }
             }
-            this.c = hg3Var;
-            this.a = z;
+            this.f = hg3Var;
+            this.a = callbackHandler;
             this.b = str;
+            this.c = activity;
+            this.d = str2;
+            this.e = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vq3
+        @Override // com.baidu.tieba.oq3
         /* renamed from: b */
-        public void a(Boolean bool) {
+        public void a(yg3<ah3.e> yg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                if (bool.booleanValue()) {
-                    gg3.e(this.a);
-                    this.c.d(this.b, new c42(0));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yg3Var) == null) {
+                if (tg3.h(yg3Var)) {
+                    if (sd3.b) {
+                        Log.i("SwanAppAction", "onCallback: has permission scope_mobile_api");
+                    }
+                    this.f.m(this.a, this.b, this.c, this.d, this.e, false);
                     return;
                 }
-                this.c.d(this.b, new c42(10005, "system deny"));
+                v82.k("SwanAppAction", "onCallback: no permission scope_mobile_api");
+                oi3.U(this.e, "fail", "onCallback: no permission ");
+                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements oq3<hh3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ CallbackHandler d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ boolean g;
+        public final /* synthetic */ hg3 h;
+
+        public b(hg3 hg3Var, Activity activity, boolean z, String str, CallbackHandler callbackHandler, String str2, String str3, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hg3Var, activity, Boolean.valueOf(z), str, callbackHandler, str2, str3, Boolean.valueOf(z2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = hg3Var;
+            this.a = activity;
+            this.b = z;
+            this.c = str;
+            this.d = callbackHandler;
+            this.e = str2;
+            this.f = str3;
+            this.g = z2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oq3
+        /* renamed from: b */
+        public void a(hh3 hh3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hh3Var) == null) {
+                v82.b("OpenData", "onOpenDataCallback:: ", hh3Var);
+                vb3 c = this.h.c();
+                if (!hh3Var.D()) {
+                    if (c != null && !c.N().e(this.a) && !this.b) {
+                        oi3.S("fail", 2, this.c);
+                    }
+                    if (sd3.b) {
+                        Log.i("SwanAppAction", "onCallback: no open datamobile");
+                    }
+                    tg3.n(hh3Var, this.d, this.e);
+                    oi3.U(this.f, "fail", "onCallback: no open data");
+                    if (this.g) {
+                        oi3.s("click", "telLogin", "fail");
+                        return;
+                    }
+                    return;
+                }
+                v82.k("SwanAppAction", "onCallback: got open datamobile");
+                if (c != null && c.N().e(this.a) && !this.b) {
+                    oi3.S("success", 2, this.c);
+                }
+                oi3.T(this.f, "success");
+                if (this.g) {
+                    oi3.s("click", "telLogin", "succ_agree");
+                }
+                this.d.handleSchemeDispatchCallback(this.e, UnitedSchemeUtility.wrapCallbackParams(hh3Var.g, 0).toString());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hg3(@NonNull d02 d02Var) {
-        super(d02Var);
+    public hg3(sc3 sc3Var) {
+        super(sc3Var, "/swanAPI/getPhoneNumber");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d02Var};
+            Object[] objArr = {sc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d02) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,20 +171,72 @@ public class hg3 extends b32 {
         }
     }
 
-    public c42 x(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.sd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
+        InterceptResult invokeLLLL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#hideCaptureScreenShareDialog", false);
-            Pair<c42, JSONObject> s = s(str);
-            c42 c42Var = (c42) s.first;
-            if (!c42Var.isSuccess()) {
-                return c42Var;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
+            if (vb3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            gg3.b(new a(this, jSONObject.optBoolean("hide"), jSONObject.optString("cb")));
-            return new c42(0);
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
+            }
+            String optString = optParamsAsJo.optString("invokeFrom");
+            if (optString.equals("component")) {
+                str = "getPhoneNumberButton";
+            } else {
+                str = "getPhoneNumberApi";
+            }
+            String str2 = str;
+            oi3.T(str2, "create");
+            String optString2 = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString2)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                oi3.U(str2, "fail", "empty cb");
+                return false;
+            }
+            SwanAppActivity w = ub3.K().w();
+            if (w == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
+                oi3.U(str2, "fail", "the context is not an activity");
+                return false;
+            }
+            if (!vb3Var.N().e(context)) {
+                oi3.S("show", 2, optString);
+            }
+            if (optParamsAsJo.optString("invokeFrom").equals("api")) {
+                n(callbackHandler, optString2, w, optString, str2);
+            } else {
+                m(callbackHandler, optString2, w, optString, str2, TextUtils.equals("login", optParamsAsJo.optString("from")));
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return (c42) invokeL.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void m(CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{callbackHandler, str, activity, str2, str3, Boolean.valueOf(z)}) == null) {
+            boolean e = ub3.K().q().N().e(activity);
+            oi3.T(str3, "checkScope");
+            if (z) {
+                oi3.s("show", "telLogin", null);
+            }
+            hh3.B(activity, "mobile", null, false, str3, new b(this, activity, e, str2, callbackHandler, str, str3, z));
+        }
+    }
+
+    public final void n(CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, str, activity, str2, str3) == null) {
+            oi3.T(str3, "checkScope");
+            ub3.K().q().e0().g(c(), "scope_mobile_api", new a(this, callbackHandler, str, activity, str2, str3));
+        }
     }
 }

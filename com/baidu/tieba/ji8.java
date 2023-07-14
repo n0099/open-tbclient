@@ -1,80 +1,56 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.RoundTbImageView;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ji8 {
+public final class ji8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ji8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final RoundTbImageView b;
-    public final RoundTbImageView c;
-    public final String d;
 
-    public ji8(@NonNull String str, @NonNull RoundTbImageView roundTbImageView, @NonNull RoundTbImageView roundTbImageView2, @NonNull String str2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947884368, "Lcom/baidu/tieba/ji8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947884368, "Lcom/baidu/tieba/ji8;");
+                return;
+            }
+        }
+        a = new ji8();
+    }
+
+    public ji8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, roundTbImageView, roundTbImageView2, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = str;
-        this.b = roundTbImageView;
-        this.c = roundTbImageView2;
-        this.d = str2;
     }
 
-    @NonNull
-    public RoundTbImageView a() {
-        InterceptResult invokeV;
+    public final void a(String tag, Exception exception) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, tag, exception) == null) {
+            Intrinsics.checkNotNullParameter(tag, "tag");
+            Intrinsics.checkNotNullParameter(exception, "exception");
+            Log.e("lt-log", "IMExceptionMonitor-report-" + tag + "-exception:" + exception.getMessage());
         }
-        return (RoundTbImageView) invokeV.objValue;
-    }
-
-    @NonNull
-    public RoundTbImageView b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (RoundTbImageView) invokeV.objValue;
-    }
-
-    @NonNull
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
     }
 }

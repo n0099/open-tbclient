@@ -47,9 +47,9 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.v6a;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.aj;
+import com.baidu.tieba.gfa;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -348,8 +348,8 @@ public class TbTabLayout extends HorizontalScrollView {
                                 textView = gVar.e;
                             }
                             if (textView != null) {
-                                int right = (gVar.getRight() - (gVar.getWidth() - textView.getRight())) - xi.g(getContext(), R.dimen.tbds3);
-                                int top = (textView.getTop() - (gVar.g.getIntrinsicHeight() / 2)) + xi.g(getContext(), R.dimen.tbds10);
+                                int right = (gVar.getRight() - (gVar.getWidth() - textView.getRight())) - yi.g(getContext(), R.dimen.tbds3);
+                                int top = (textView.getTop() - (gVar.g.getIntrinsicHeight() / 2)) + yi.g(getContext(), R.dimen.tbds10);
                                 gVar.g.setBounds(right, top, gVar.g.getIntrinsicWidth() + right, gVar.g.getIntrinsicHeight() + top);
                                 gVar.g.draw(canvas);
                                 if (!TextUtils.isEmpty(gVar.h)) {
@@ -357,8 +357,8 @@ public class TbTabLayout extends HorizontalScrollView {
                                         Drawable drawable = SkinManager.getDrawable(R.drawable.icon_news_white_dot);
                                         int intrinsicWidth = right + (gVar.g.getIntrinsicWidth() / 2);
                                         int intrinsicHeight2 = top + (gVar.g.getIntrinsicHeight() / 2);
-                                        int g = xi.g(getContext(), R.dimen.tbds6);
-                                        int g2 = xi.g(getContext(), R.dimen.tbds7);
+                                        int g = yi.g(getContext(), R.dimen.tbds6);
+                                        int g2 = yi.g(getContext(), R.dimen.tbds7);
                                         int i5 = g / 2;
                                         int i6 = intrinsicWidth - i5;
                                         int i7 = intrinsicHeight2 - i5;
@@ -375,7 +375,7 @@ public class TbTabLayout extends HorizontalScrollView {
                                     } else {
                                         Paint paint = new Paint(1);
                                         paint.setColor(SkinManager.getColor(R.color.CAM_X0101));
-                                        paint.setTextSize(xi.g(getContext(), R.dimen.tbfontsize26));
+                                        paint.setTextSize(yi.g(getContext(), R.dimen.tbfontsize26));
                                         paint.setTextAlign(Paint.Align.CENTER);
                                         paint.setTypeface(Typeface.MONOSPACE);
                                         paint.getTextBounds(gVar.h, 0, gVar.h.length(), new Rect());
@@ -1322,12 +1322,12 @@ public class TbTabLayout extends HorizontalScrollView {
                 boolean z = false;
                 if (this.d == null) {
                     if (this.c == null) {
-                        ImageView imageView2 = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024a, (ViewGroup) this, false);
+                        ImageView imageView2 = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024c, (ViewGroup) this, false);
                         addView(imageView2, 0);
                         this.c = imageView2;
                     }
                     if (this.b == null) {
-                        TextView textView3 = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024b, (ViewGroup) this, false);
+                        TextView textView3 = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024d, (ViewGroup) this, false);
                         addView(textView3);
                         this.b = textView3;
                         this.i = TextViewCompat.getMaxLines(textView3);
@@ -1648,8 +1648,8 @@ public class TbTabLayout extends HorizontalScrollView {
         e eVar = new e(this, context);
         this.c = eVar;
         super.addView(eVar, 0, new FrameLayout.LayoutParams(-2, -1));
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.TabLayout, i, R.style.obfuscated_res_0x7f10034c);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, v6a.TbTabLayout);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.TabLayout, i, R.style.obfuscated_res_0x7f10034d);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, gfa.TbTabLayout);
         this.c.h(obtainStyledAttributes.getDimensionPixelSize(12, 0));
         this.c.i(obtainStyledAttributes2.getDimensionPixelSize(0, 0));
         this.c.g(obtainStyledAttributes.getColor(9, 0));
@@ -1662,7 +1662,7 @@ public class TbTabLayout extends HorizontalScrollView {
         this.e = obtainStyledAttributes.getDimensionPixelSize(22, this.e);
         this.f = obtainStyledAttributes.getDimensionPixelSize(20, this.f);
         this.g = obtainStyledAttributes.getDimensionPixelSize(19, this.g);
-        int resourceId = obtainStyledAttributes.getResourceId(25, R.style.obfuscated_res_0x7f100218);
+        int resourceId = obtainStyledAttributes.getResourceId(25, R.style.obfuscated_res_0x7f100219);
         this.h = resourceId;
         TypedArray obtainStyledAttributes3 = context.obtainStyledAttributes(resourceId, androidx.appcompat.R.styleable.TextAppearance);
         try {
@@ -1684,8 +1684,8 @@ public class TbTabLayout extends HorizontalScrollView {
             obtainStyledAttributes.recycle();
             obtainStyledAttributes2.recycle();
             Resources resources = getResources();
-            this.k = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cf);
-            this.r = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cd);
+            this.k = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d5);
+            this.r = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d3);
             k();
             x();
         } catch (Throwable th) {
@@ -2138,9 +2138,9 @@ public class TbTabLayout extends HorizontalScrollView {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
-            String g2 = zi.g();
+            String g2 = aj.g();
             if (g2.contains("vivo") && g2.contains("X20")) {
-                this.H = xi.g(getContext(), R.dimen.tbds2);
+                this.H = yi.g(getContext(), R.dimen.tbds2);
             }
         }
     }

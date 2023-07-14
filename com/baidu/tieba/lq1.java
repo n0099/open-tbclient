@@ -1,84 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.net.Proxy;
+import android.os.Build;
+import android.os.Handler;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import org.json.JSONObject;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.URL;
+import java.util.Locale;
+import java.util.Map;
+import javax.net.ssl.HttpsURLConnection;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+@SuppressLint({"TrulyRandom"})
 /* loaded from: classes6.dex */
 public class lq1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile lq1 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public BroadcastReceiver a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public HashSet<String> f;
+    public Context a;
+    public byte[] b;
+    public HttpURLConnection c;
+    public String d;
+    public String e;
+    public int f;
+    public int g;
+    public boolean h;
+    public boolean i;
 
-    /* loaded from: classes6.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lq1 a;
-
-        public a(lq1 lq1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lq1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lq1Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                String stringExtra = intent.getStringExtra("ss");
-                if (this.a.b == 1) {
-                    return;
-                }
-                if (!TextUtils.isEmpty(stringExtra)) {
-                    if ("LOADED".equals(stringExtra)) {
-                        if (this.a.f.isEmpty()) {
-                            return;
-                        }
-                        this.a.b = 1;
-                        return;
-                    }
-                    this.a.b = 1;
-                    this.a.f.add(stringExtra);
-                    return;
-                }
-                this.a.b = 1;
-            }
-        }
-    }
-
-    public lq1() {
+    public lq1(Context context, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -88,126 +53,247 @@ public class lq1 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = false;
-        this.d = false;
-        this.e = false;
-        this.f = new HashSet<>();
+        this.b = new byte[1024];
+        this.f = 10000;
+        this.g = 10000;
+        this.h = false;
+        this.i = false;
+        this.a = context;
     }
 
-    public static lq1 j() {
-        InterceptResult invokeV;
+    public final InputStream a(byte[] bArr, Map<String, String> map, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (g == null) {
-                synchronized (lq1.class) {
-                    if (g == null) {
-                        g = new lq1();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, bArr, map, str)) == null) {
+            BufferedOutputStream bufferedOutputStream = null;
+            try {
+                try {
+                    if (er1.h(this.a) == 0) {
+                        return null;
                     }
+                    HttpURLConnection c = c(map);
+                    this.c = c;
+                    if (c == null) {
+                        return null;
+                    }
+                    if (bArr == null) {
+                        if ("gzip".equalsIgnoreCase(c.getContentEncoding())) {
+                            this.h = true;
+                        } else {
+                            this.h = false;
+                        }
+                        this.c.getResponseCode();
+                        return this.c.getInputStream();
+                    }
+                    BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(this.c.getOutputStream());
+                    try {
+                        bufferedOutputStream2.write(bArr);
+                        bufferedOutputStream2.flush();
+                        if ("gzip".equalsIgnoreCase(this.c.getContentEncoding())) {
+                            this.h = true;
+                        } else {
+                            this.h = false;
+                        }
+                        this.c.getResponseCode();
+                        InputStream inputStream = this.c.getInputStream();
+                        try {
+                            bufferedOutputStream2.close();
+                        } catch (Throwable th) {
+                            er1.d(th);
+                        }
+                        return inputStream;
+                    } catch (Exception e) {
+                        throw e;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        bufferedOutputStream = bufferedOutputStream2;
+                        if (bufferedOutputStream != null) {
+                            try {
+                                bufferedOutputStream.close();
+                            } catch (Throwable th3) {
+                                er1.d(th3);
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th4) {
+                    th = th4;
                 }
+            } catch (Exception e2) {
+                throw e2;
             }
-            return g;
-        }
-        return (lq1) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.c) {
-                return -1000;
-            }
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.d) {
-                return false;
-            }
-            if (!this.e) {
-                return true;
-            }
-            if (!this.c || this.b == 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = 0;
-            this.f.clear();
+        } else {
+            return (InputStream) invokeLLL.objValue;
         }
     }
 
-    public void d(Context context) {
+    public String b(String str, byte[] bArr, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, map)) == null) {
+            d("POST", str);
             try {
-                if (this.a != null) {
-                    return;
+                inputStream = a(bArr, map, str);
+                if (inputStream == null) {
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    HttpURLConnection httpURLConnection = this.c;
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                        this.c = null;
+                    }
+                    return null;
                 }
-                this.a = new a(this);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("android.intent.action.SIM_STATE_CHANGED");
-                context.registerReceiver(this.a, intentFilter);
-            } catch (Throwable th) {
-                lr1.d(th);
+                try {
+                    String f = f(inputStream);
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    HttpURLConnection httpURLConnection2 = this.c;
+                    if (httpURLConnection2 != null) {
+                        httpURLConnection2.disconnect();
+                        this.c = null;
+                    }
+                    return f;
+                } catch (Throwable th) {
+                    th = th;
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    HttpURLConnection httpURLConnection3 = this.c;
+                    if (httpURLConnection3 != null) {
+                        httpURLConnection3.disconnect();
+                        this.c = null;
+                    }
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = null;
             }
+        } else {
+            return (String) invokeLLL.objValue;
         }
     }
 
-    public void g(Context context) {
+    public final HttpURLConnection c(Map<String, String> map) {
+        InterceptResult invokeL;
+        HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            try {
-                if (this.a == null) {
-                    return;
-                }
-                context.unregisterReceiver(this.a);
-                this.a = null;
-            } catch (Throwable th) {
-                lr1.d(th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
+            String str = null;
+            if (this.i || TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.e)) {
+                return null;
             }
+            if (!this.d.equals("POST") && !this.d.equals("GET")) {
+                this.d = "POST";
+            }
+            URL url = new URL(this.e);
+            int i = 80;
+            if (2 != er1.h(this.a)) {
+                if (Build.VERSION.SDK_INT >= 13) {
+                    str = System.getProperties().getProperty("http.proxyHost");
+                    String property = System.getProperties().getProperty("http.proxyPort");
+                    if (!TextUtils.isEmpty(property)) {
+                        try {
+                            i = Integer.parseInt(property);
+                        } catch (Throwable unused) {
+                            i = -1;
+                        }
+                    }
+                    i = -1;
+                } else {
+                    str = Proxy.getHost(this.a);
+                    i = Proxy.getPort(this.a);
+                }
+            }
+            if (str != null && i > 0) {
+                httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(str, i)));
+            } else {
+                httpURLConnection = (HttpURLConnection) url.openConnection();
+            }
+            if (this.e.startsWith("https")) {
+                ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
+            }
+            httpURLConnection.setRequestMethod(this.d);
+            httpURLConnection.setDoInput(true);
+            if ("POST".equals(this.d)) {
+                httpURLConnection.setDoOutput(true);
+            }
+            httpURLConnection.setInstanceFollowRedirects(true);
+            httpURLConnection.setConnectTimeout(this.f);
+            httpURLConnection.setReadTimeout(this.g);
+            httpURLConnection.setRequestProperty("x-device-id", jr1.b(fr1.a(this.a)));
+            httpURLConnection.setRequestProperty("Pragma", "no-cache");
+            String str2 = np1.b;
+            String e = er1.e(this.a);
+            httpURLConnection.setRequestProperty("User-Agent", "sso/" + str2 + "/" + e + "/1.2.1");
+            httpURLConnection.setRequestProperty("Accept", "*/*");
+            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage());
+            StringBuilder sb = new StringBuilder();
+            sb.append("sso/");
+            sb.append("1.2.1");
+            httpURLConnection.setRequestProperty("x-sdk-ver", sb.toString());
+            httpURLConnection.setRequestProperty("x-plu-ver", "sso/1.2.1");
+            httpURLConnection.setRequestProperty("x-app-ver", this.a.getPackageName() + "/" + er1.e(this.a));
+            httpURLConnection.setRequestProperty("x-auth-ver", "5");
+            if (map != null) {
+                for (String str3 : map.keySet()) {
+                    httpURLConnection.setRequestProperty(str3, map.get(str3));
+                }
+            }
+            return httpURLConnection;
+        }
+        return (HttpURLConnection) invokeL.objValue;
+    }
+
+    public final void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            this.d = str;
+            this.e = str2;
         }
     }
 
-    public void e(Context context, JSONObject jSONObject) {
-        boolean z;
-        boolean z2;
+    public final byte[] e(InputStream inputStream) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject) == null) {
-            boolean z3 = false;
-            if (jSONObject.optInt("1", 0) == 1) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, inputStream)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            while (true) {
+                int read = inputStream.read(this.b);
+                if (read != -1) {
+                    byteArrayOutputStream.write(this.b, 0, read);
+                } else {
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    byteArrayOutputStream.close();
+                    return byteArray;
+                }
             }
-            this.d = z;
-            if (jSONObject.optInt("2", 0) == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            this.c = z2;
-            if (jSONObject.optInt("3", 0) == 1) {
-                z3 = true;
-            }
-            this.e = z3;
-            if (this.c) {
-                d(context);
-            } else {
-                g(context);
-            }
+        } else {
+            return (byte[]) invokeL.objValue;
         }
+    }
+
+    public final String f(InputStream inputStream) {
+        InterceptResult invokeL;
+        byte[] e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, inputStream)) == null) {
+            if (inputStream == null || (e = e(inputStream)) == null) {
+                return null;
+            }
+            if (this.h) {
+                e = hr1.d(e);
+            }
+            if (e == null) {
+                return "";
+            }
+            return new String(e);
+        }
+        return (String) invokeL.objValue;
     }
 }

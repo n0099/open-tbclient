@@ -1,15 +1,15 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.dtb;
-import com.baidu.tieba.ttb;
+import com.baidu.tieba.a2c;
+import com.baidu.tieba.q2c;
 /* loaded from: classes2.dex */
 public abstract class OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static final long serialVersionUID = 4127754106204442833L;
 
     public abstract void onOverflow();
 
-    public OnSubscribeFromEmitter$NoOverflowBaseEmitter(dtb<? super T> dtbVar) {
-        super(dtbVar);
+    public OnSubscribeFromEmitter$NoOverflowBaseEmitter(a2c<? super T> a2cVar) {
+        super(a2cVar);
     }
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
@@ -19,7 +19,7 @@ public abstract class OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> extends On
         }
         if (get() != 0) {
             this.actual.onNext(t);
-            ttb.g(this, 1L);
+            q2c.g(this, 1L);
             return;
         }
         onOverflow();

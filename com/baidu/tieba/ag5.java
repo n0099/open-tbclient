@@ -1,150 +1,169 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ag5 {
+public class ag5 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static Map<String, String> b;
+    public static boolean c;
+    public static boolean d;
+    public static int e;
+    public static int f;
+    public static boolean g;
+    public static String h;
+    public static Map<String, String> i;
+    public static int j;
+    public static int k;
+    public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashSet<String> a;
-    public a b;
-    public int c;
-    public final qg<in> d;
-    public final Runnable e;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b extends qg<in> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ag5 a;
-
-        public b(ag5 ag5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ag5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ag5Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947614234, "Lcom/baidu/tieba/ag5;")) == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qg
-        public void onLoaded(in inVar, String key, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, inVar, key, i) == null) {
-                Intrinsics.checkNotNullParameter(key, "key");
-                if (inVar != null && !TextUtils.isEmpty(key)) {
-                    this.a.a.remove(key);
-                }
-                this.a.f();
-            }
-        }
-    }
-
-    public ag5() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = new HashSet<>();
-        this.c = 10;
-        this.d = new b(this);
-        this.e = new Runnable() { // from class: com.baidu.tieba.xf5
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // java.lang.Runnable
-            public final void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    ag5.e(ag5.this);
-                }
-            }
-        };
-    }
-
-    public static final void e(ag5 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            HashSet<String> hashSet = new HashSet<>();
-            hashSet.addAll(this$0.a);
-            this$0.d(hashSet);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947614234, "Lcom/baidu/tieba/ag5;");
         }
     }
 
-    @JvmOverloads
-    public final void c(List<String> list, a aVar, int i) {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048576, this, list, aVar, i) != null) || ListUtils.isEmpty(list)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!c) {
+                return da5.p().q("video_report_config_upload_number", 5);
+            }
+            return f;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!c) {
+                return da5.p().q("video_report_config_upload_type", 0);
+            }
+            return e;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!c) {
+                return da5.p().l("video_report_config_switch", true);
+            }
+            return d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void d(JSONObject jSONObject) throws JSONException {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        HashSet<String> hashSet = new HashSet<>();
-        Intrinsics.checkNotNull(list);
-        hashSet.addAll(list);
-        this.b = aVar;
-        this.c = i;
-        d(hashSet);
+        boolean z3 = true;
+        c = true;
+        if (jSONObject.optInt("switch", 1) == 0) {
+            z = false;
+        } else {
+            z = true;
+        }
+        d = z;
+        da5.p().A("video_report_config_switch", d);
+        e = jSONObject.optInt("upload_type", 0);
+        da5.p().F("video_report_config_upload_type", e);
+        f = jSONObject.optInt("upload_number", 5);
+        da5.p().F("video_report_config_upload_number", f);
+        j = jSONObject.optInt("prepare_max_wait_time", 10000);
+        da5.p().F("video_report_prepare_max_wait_time", j);
+        k = jSONObject.optInt("prepare_max_loading_time", 3000);
+        da5.p().F("video_report_prepare_max_loading_time", k);
+        if (jSONObject.optInt("is_open_prepare_time", 0) == 1) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        l = z2;
+        da5.p().A("video_report_is_open_prepare_time", l);
+        if (jSONObject.optInt("moov_check", 0) == 0) {
+            z3 = false;
+        }
+        g = z3;
+        da5.p().A("video_report_config_moov_check", g);
+        String optString = jSONObject.optString("android_debug_type");
+        h = optString;
+        if (!StringUtils.isNull(optString)) {
+            da5.p().J("video_report_config_debug_type", h);
+            e(h);
+        }
+        String optString2 = jSONObject.optString("step_cache_strategy");
+        a = optString2;
+        if (!StringUtils.isNull(optString2)) {
+            da5.p().J("video_report_config_step_cache_strategy", a);
+            f(a);
+        }
     }
 
-    public final void d(HashSet<String> hashSet) {
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashSet) != null) || hashSet.isEmpty()) {
+        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || StringUtils.isNull(str)) {
             return;
         }
-        this.a.clear();
-        Iterator<String> it = hashSet.iterator();
-        while (it.hasNext()) {
-            String next = it.next();
-            if (!wi.isEmpty(next) && ((in) rg.h().n(next, this.c, new Object[0])) == null) {
-                this.a.add(next);
-                rg.h().k(next, this.c, this.d, 0, 0, null, new Object[0]);
-            }
+        if (i == null) {
+            i = new HashMap();
         }
-        f();
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            i.put("debug_avformat_open_input", jSONObject.optString("debug_avformat_open_input"));
+            i.put("debug_dns_strategy", jSONObject.optString("debug_dns_strategy"));
+            i.put("debug_url_null_strategy", jSONObject.optString("debug_url_null_strategy"));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
     }
 
-    public final void f() {
+    public static void f(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.isEmpty()) {
-            yg.a().removeCallbacks(this.e);
-            a aVar = this.b;
-            if (aVar != null) {
-                Intrinsics.checkNotNull(aVar);
-                aVar.a();
-            }
+        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (b == null) {
+            b = new HashMap();
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            b.put("step_cache_force_use_proxy", jSONObject.optString("step_cache_force_use_proxy"));
+            b.put("step_cache_switch", jSONObject.optString("step_cache_switch"));
+            b.put("step_cache_rush_hour", jSONObject.optString("step_cache_rush_hour"));
+            b.put("step_cache_rush_hour_cache_duration", jSONObject.optString("step_cache_rush_hour_cache_duration"));
+            b.put("step_cache_normol_cache_duration", jSONObject.optString("step_cache_normol_cache_duration"));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 }

@@ -1,102 +1,292 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xo4 extends ln4 {
+public abstract class xo4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ej4 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @NonNull
+    public abstract String b();
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b extends xo4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.xo4
+        @NonNull
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DB" : (String) invokeV.objValue;
+        }
+
+        /* loaded from: classes8.dex */
+        public static class a {
+            public static /* synthetic */ Interceptable $ic;
+            public static b a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1045976207, "Lcom/baidu/tieba/xo4$b$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(-1045976207, "Lcom/baidu/tieba/xo4$b$a;");
+                        return;
+                    }
+                }
+                a = new b(null);
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c extends xo4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.xo4
+        @NonNull
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "IO" : (String) invokeV.objValue;
+        }
+
+        /* loaded from: classes8.dex */
+        public static class a {
+            public static /* synthetic */ Interceptable $ic;
+            public static c a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1045946416, "Lcom/baidu/tieba/xo4$c$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(-1045946416, "Lcom/baidu/tieba/xo4$c$a;");
+                        return;
+                    }
+                }
+                a = new c(null);
+            }
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d extends xo4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.xo4
+        @NonNull
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Net" : (String) invokeV.objValue;
+        }
+
+        /* loaded from: classes8.dex */
+        public static class a {
+            public static /* synthetic */ Interceptable $ic;
+            public static d a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1045916625, "Lcom/baidu/tieba/xo4$d$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(-1045916625, "Lcom/baidu/tieba/xo4$d$a;");
+                        return;
+                    }
+                }
+                a = new d(null);
+            }
+        }
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307084, "Lcom/baidu/tieba/xo4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948307084, "Lcom/baidu/tieba/xo4;");
+                return;
+            }
+        }
+        a = gj4.b();
+    }
 
     public xo4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ln4
-    public JSONArray c() {
+    @NonNull
+    public static b c() {
         InterceptResult invokeV;
-        List<dl4> w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a.a;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    @NonNull
+    public static xo4 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c.a.a;
+        }
+        return (xo4) invokeV.objValue;
+    }
+
+    @NonNull
+    public static xo4 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return d.a.a;
+        }
+        return (xo4) invokeV.objValue;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "bbasp_core");
-                jSONObject.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, nj4.b().J(0));
-                jSONObject.put("version_code", nj4.b().w(0));
-                jSONArray.put(jSONObject);
-            } catch (JSONException unused) {
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("type", "bbasp_game");
-                jSONObject2.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, nj4.b().J(1));
-                jSONObject2.put("version_code", nj4.b().w(1));
-                jSONArray.put(jSONObject2);
-            } catch (JSONException unused2) {
-            }
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("type", ETAG.KEY_EXTENSION);
-                jSONObject3.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, nj4.b().v(0));
-                jSONObject3.put("version_code", nj4.b().j(0));
-                jSONArray.put(jSONObject3);
-            } catch (JSONException unused3) {
-            }
-            JSONObject jSONObject4 = new JSONObject();
-            try {
-                jSONObject4.put("type", "extension_game");
-                jSONObject4.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, nj4.b().v(1));
-                jSONObject4.put("version_code", nj4.b().j(1));
-                jSONArray.put(jSONObject4);
-            } catch (JSONException unused4) {
-            }
-            try {
-                w = zj4.i().w(f(10));
-            } catch (JSONException unused5) {
-            }
-            if (w == null) {
-                return jSONArray;
-            }
-            for (dl4 dl4Var : w) {
-                JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("type", "ddl");
-                jSONObject5.put("bundle_id", dl4Var.g);
-                jSONObject5.put("version_code", dl4Var.i);
-                jSONObject5.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, dl4Var.j);
-                jSONArray.put(jSONObject5);
-            }
-            return jSONArray;
+            return "PMS " + b();
         }
-        return (JSONArray) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final String f(int i) {
-        InterceptResult invokeI;
+    public void g(String str, String str2, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return "SELECT * from (SELECT * from (SELECT * from swan_plugin ORDER BY update_time) group by bundle_id) order by update_time DESC limit 0," + i + ParamableElem.DIVIDE_PARAM;
+        if ((interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, th) == null) && f()) {
+            a.L(str, a(), str2, th, false);
         }
-        return (String) invokeI.objValue;
+    }
+
+    public void h(String str, String str2, @Nullable Throwable th, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, th, Boolean.valueOf(z)}) == null) && f()) {
+            a.L(str, a(), str2, th, z);
+        }
+    }
+
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) && f()) {
+            a.z(str, a(), str2, false);
+        }
     }
 }

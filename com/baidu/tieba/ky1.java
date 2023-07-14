@@ -1,45 +1,129 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.UiThread;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.tieba.jy1;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
+import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface ky1<T extends jy1> extends TypedCallbackHandler {
-    @UiThread
-    void L();
+public class ky1 implements wx1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void S(pd2 pd2Var);
+    @Override // com.baidu.tieba.wx1
+    public boolean j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i == 0 : invokeI.booleanValue;
+    }
 
-    String Z();
+    public ky1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    String a();
+    @Override // com.baidu.tieba.wx1
+    public qd2 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new qd2();
+        }
+        return (qd2) invokeV.objValue;
+    }
 
-    void attachActivity(Activity activity);
+    @Override // com.baidu.tieba.wx1
+    public ey1 a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return new SwanWebModeWidget(context);
+        }
+        return (ey1) invokeL.objValue;
+    }
 
-    void b(qa2 qa2Var);
+    @Override // com.baidu.tieba.wx1
+    public ay1 b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new sa2(context);
+        }
+        return (ay1) invokeL.objValue;
+    }
 
-    void c0();
+    @Override // com.baidu.tieba.wx1
+    public ey1 c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return new ry1(context);
+        }
+        return (ey1) invokeL.objValue;
+    }
 
-    void destroy();
+    @Override // com.baidu.tieba.wx1
+    public ey1 f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            return new kz1(context);
+        }
+        return (ey1) invokeL.objValue;
+    }
 
-    SwanAppWebViewManager.d getConfig();
+    @Override // com.baidu.tieba.wx1
+    public ey1 g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            return new oz1(context);
+        }
+        return (ey1) invokeL.objValue;
+    }
 
-    String getUserAgent();
+    @Override // com.baidu.tieba.wx1
+    public ey1 i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            return new SwanAppSimpleH5Widget(context);
+        }
+        return (ey1) invokeL.objValue;
+    }
 
-    void loadUrl(String str);
+    @Override // com.baidu.tieba.wx1
+    public by1 e(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, context, i)) == null) {
+            return new SwanAppSlaveManager(context);
+        }
+        return (by1) invokeLI.objValue;
+    }
 
-    void onJSLoaded();
-
-    void onPause();
-
-    void onResume();
-
-    @UiThread
-    void p();
-
-    T r();
-
-    void s(pd2 pd2Var);
+    @Override // com.baidu.tieba.wx1
+    public rd2 h(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, context, i)) == null) {
+            return new sd2().a(context, i);
+        }
+        return (rd2) invokeLI.objValue;
+    }
 }

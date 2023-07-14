@@ -23,7 +23,7 @@ public final class m implements Runnable {
                 packageManager.setComponentEnabledSetting(this.a, 2, 1);
             }
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m175a("close static register of network status receiver failed:" + th);
+            com.xiaomi.channel.commonutils.logger.b.m177a("close static register of network status receiver failed:" + th);
         }
     }
 }

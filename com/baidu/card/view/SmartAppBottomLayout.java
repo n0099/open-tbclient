@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l15;
-import com.baidu.tieba.qy;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.ry;
+import com.baidu.tieba.t15;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class SmartAppBottomLayout extends LinearLayout implements qy<l15> {
+public class SmartAppBottomLayout extends LinearLayout implements ry<t15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class SmartAppBottomLayout extends LinearLayout implements qy<l15> {
                 return;
             }
         }
-        e = (xi.l(TbadkCoreApplication.getInst()) - (xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+        e = (yi.l(TbadkCoreApplication.getInst()) - (yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -71,7 +71,7 @@ public class SmartAppBottomLayout extends LinearLayout implements qy<l15> {
                 return;
             }
         }
-        b(context);
+        a(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -94,12 +94,12 @@ public class SmartAppBottomLayout extends LinearLayout implements qy<l15> {
             }
         }
         this.d = 3;
-        b(context);
+        a(context);
     }
 
-    public final void b(Context context) {
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.b = (HeadImageView) this.a.findViewById(R.id.ai_smart_app_icon);
@@ -111,12 +111,12 @@ public class SmartAppBottomLayout extends LinearLayout implements qy<l15> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qy
+    @Override // com.baidu.tieba.ry
     /* renamed from: c */
-    public void a(l15 l15Var) {
+    public void b(t15 t15Var) {
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l15Var) == null) && (threadData = l15Var.getThreadData()) != null && threadData.getSmartApp() != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t15Var) == null) && (threadData = t15Var.getThreadData()) != null && threadData.getSmartApp() != null) {
             if (!TextUtils.isEmpty(threadData.getSmartApp().avatar)) {
                 this.b.N(threadData.getSmartApp().avatar, 10, false);
             } else {

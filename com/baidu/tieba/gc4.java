@@ -1,5 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import androidx.annotation.NonNull;
+/* loaded from: classes6.dex */
 public interface gc4 {
-    void a(hc4 hc4Var, String str);
+    @NonNull
+    fc4 b();
 }

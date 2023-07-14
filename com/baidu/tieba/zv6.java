@@ -1,86 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.download.center.clearcache.BaseClearCache;
-import com.baidu.searchbox.download.center.clearcache.DiskManager;
-import com.baidu.searchbox.download.center.clearcache.DiskUtilKt;
-import com.baidu.searchbox.download.center.clearcache.IClearCacheContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.List;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public class zv6 implements IClearCacheContext {
+public final class zv6 extends vv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void addClearCache(List<BaseClearCache> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void clearHistoryFile() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public BaseClearCache getDownloadClearCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (BaseClearCache) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void notifyDiskLevelChanged(DiskManager.NotifyLevel notifyLevel, DiskManager.DiskLevel diskLevel, DiskManager.DiskLevel diskLevel2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, notifyLevel, diskLevel, diskLevel2) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void notifyPersonalClearCacheTipsChange() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void registerBackForegroundEvent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void registerDiskUsageLevelChangedObserver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void startDownloadActivity(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-        }
-    }
+    public int b;
+    public boolean c;
 
     public zv6() {
         Interceptable interceptable = $ic;
@@ -92,35 +23,48 @@ public class zv6 implements IClearCacheContext {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = -1;
     }
 
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public List<File> getAppFileList() {
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return DiskUtilKt.getAppFileList();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public List<File> getUserAssetFileList() {
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return DiskUtilKt.getUserAssetFileList();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void cleanCacheMonitorUBC(String str) {
+    @Override // com.baidu.tieba.vv6, com.baidu.tieba.s7.a
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            DiskUtilKt.cleanCacheMonitorUBC(str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.reset();
+            this.b = -1;
+            this.c = false;
         }
+    }
+
+    public final zv6 update(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            this.b = i;
+            this.c = z;
+            return this;
+        }
+        return (zv6) invokeCommon.objValue;
     }
 }

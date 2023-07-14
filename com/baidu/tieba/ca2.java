@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Bundle;
-import android.os.Debug;
-import android.os.Process;
-import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketException;
+import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,151 +13,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import java.util.Random;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import okhttp3.internal.ws.WebSocketProtocol;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public class ca2 {
     public static /* synthetic */ Interceptable $ic;
-    public static ActivityManager c;
-    public static float d;
-    public static int e;
-    public static int f;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public DecimalFormat a;
-    public volatile d b;
+    public int a;
+    public InputStream b;
+    public OutputStream c;
+    public a d;
+    public WebSocketFrame.OpCode e;
+    public final List<WebSocketFrame> f;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public interface a {
+        void a(WebSocketFrame webSocketFrame);
 
-    /* loaded from: classes5.dex */
-    public static class b extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+        void b(IOException iOException);
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        void onClose();
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putLong("key_get_host_pss", Debug.getPss());
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public float b;
-        public float c;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0.0f;
-            this.b = 0.0f;
-            this.c = 0.0f;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static volatile String e = "0";
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-896853323, "Lcom/baidu/tieba/ca2$d;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-896853323, "Lcom/baidu/tieba/ca2$d;");
-            }
-        }
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = "0";
-            this.b = "0";
-            this.c = "0";
-            this.d = "0";
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ca2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-896853292, "Lcom/baidu/tieba/ca2$e;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-896853292, "Lcom/baidu/tieba/ca2$e;");
-                    return;
-                }
-            }
-            a = new ca2(null);
-        }
+        void onOpen();
     }
 
     static {
@@ -177,28 +59,7 @@ public class ca2 {
                 return;
             }
         }
-        boolean z = ms1.a;
-        c = (ActivityManager) jv2.c().getSystemService("activity");
-        d = -1.0f;
-        jv2.g0().getSwitch("swan_memory_sample", 0);
-        e = 0;
-        f = new Random().nextInt(100);
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!m()) {
-                return "";
-            }
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            String b2 = b(((float) memoryInfo.totalMem) / 1048576.0f);
-            c92.k("SwanMemoryProperty", "getMemoryInfo sysTotalMemory=" + b2);
-            return b2;
-        }
-        return (String) invokeV.objValue;
+        g = fs1.a;
     }
 
     public ca2() {
@@ -214,220 +75,186 @@ public class ca2 {
                 return;
             }
         }
-        this.a = new DecimalFormat("#.###");
+        this.a = 1;
+        this.e = null;
+        this.f = new LinkedList();
     }
 
-    public static ca2 c() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return e.a;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a == 4) {
+            return;
         }
-        return (ca2) invokeV.objValue;
+        zr4.d(this.b);
+        zr4.d(this.c);
+        this.a = 4;
+        this.d.onClose();
     }
 
-    public static float d() {
-        InterceptResult invokeV;
+    public static boolean f(Map<String, String> map) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d < 0.0f) {
-                d = e().floatValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            String str = map.get("Upgrade".toLowerCase());
+            String str2 = map.get(HTTP.CONN_DIRECTIVE.toLowerCase());
+            if (str2 != null && str2.toLowerCase().contains("Upgrade".toLowerCase())) {
+                z = true;
+            } else {
+                z = false;
             }
-            return d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public static Float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            return Float.valueOf(((float) memoryInfo.totalMem) / 1048576.0f);
-        }
-        return (Float) invokeV.objValue;
-    }
-
-    public static long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return p83.c(b.class, null).a.getLong("key_get_host_pss");
-        }
-        return invokeV.longValue;
-    }
-
-    @NonNull
-    public d g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b != null) {
-                return this.b;
+            if ("websocket".equalsIgnoreCase(str) && z) {
+                return true;
             }
-            return new d();
+            return false;
         }
-        return (d) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void l() {
+    public static String g(String str) throws NoSuchAlgorithmException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b == null) {
-            this.b = j();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
+            messageDigest.update((str + WebSocketProtocol.ACCEPT_MAGIC).getBytes());
+            return Base64.encodeToString(messageDigest.digest(), 2);
         }
+        return (String) invokeL.objValue;
     }
 
-    public void n() {
+    public void a(WebSocketFrame.CloseCode closeCode, String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b = null;
-        }
-    }
-
-    public /* synthetic */ ca2(a aVar) {
-        this();
-    }
-
-    public final String b(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-            return this.a.format(f2);
-        }
-        return (String) invokeF.objValue;
-    }
-
-    @NonNull
-    public static c i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            c cVar = new c();
-            Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), bc3.K().q().W().j("main_pid", -1)});
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            cVar.c = ((float) (memoryInfo.totalMem - memoryInfo.availMem)) / 1048576.0f;
-            if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                Debug.MemoryInfo memoryInfo2 = processMemoryInfo[0];
-                Debug.MemoryInfo memoryInfo3 = processMemoryInfo[1];
-                if (memoryInfo2 != null) {
-                    cVar.b = ((float) Debug.getPss()) / 1024.0f;
-                }
-                if (memoryInfo3 != null) {
-                    cVar.a = ((float) f()) / 1024.0f;
-                }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, closeCode, str) == null) {
+            int i = this.a;
+            this.a = 3;
+            if (i == 2) {
+                j(new WebSocketFrame.b(closeCode, str));
+            } else {
+                b();
             }
-            return cVar;
         }
-        return (c) invokeV.objValue;
     }
 
-    public final void a(JSONObject jSONObject, ActivityManager.MemoryInfo memoryInfo) {
+    public void h(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, memoryInfo) == null) && jSONObject != null && memoryInfo != null) {
-            this.b = new d();
-            this.b.b = jSONObject.optString("host_used_mem");
-            this.b.a = jSONObject.optString("smart_app_used_mem");
-            this.b.d = jSONObject.optString("sys_free_mem");
-            this.b.c = b(((float) memoryInfo.totalMem) / 1048576.0f);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, inputStream, outputStream) == null) {
+            this.b = inputStream;
+            this.c = outputStream;
+            this.a = 2;
+            a aVar = this.d;
+            if (aVar != null) {
+                aVar.onOpen();
+            }
+            i();
         }
     }
 
-    public String h(int i) {
-        InterceptResult invokeI;
+    public final void c(WebSocketFrame webSocketFrame) throws IOException {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (!m()) {
-                return "";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webSocketFrame) == null) {
+            WebSocketFrame.CloseCode closeCode = WebSocketFrame.CloseCode.NormalClosure;
+            if (webSocketFrame instanceof WebSocketFrame.b) {
+                WebSocketFrame.b bVar = (WebSocketFrame.b) webSocketFrame;
+                closeCode = bVar.v();
+                str = bVar.w();
+            } else {
+                str = "";
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                c92.k("SwanMemoryProperty", "getMemoryInfo mainPid: " + i);
-                Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), i});
-                if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                    Debug.MemoryInfo memoryInfo = processMemoryInfo[0];
-                    if (memoryInfo != null) {
-                        jSONObject.put("smart_app_used_mem", b(((float) Debug.getPss()) / 1024.0f));
-                        jSONObject.put("total_rss", b((((memoryInfo.getTotalPrivateClean() + memoryInfo.getTotalPrivateDirty()) + memoryInfo.getTotalSharedClean()) + memoryInfo.getTotalSharedDirty()) / 1024.0f));
-                        jSONObject.put("private_clean", b(memoryInfo.getTotalPrivateClean() / 1024.0f));
-                        jSONObject.put("private_dirty", b(memoryInfo.getTotalPrivateDirty() / 1024.0f));
-                        jSONObject.put("shared_clean", b(memoryInfo.getTotalSharedClean() / 1024.0f));
-                        jSONObject.put("shared_dirty", b(memoryInfo.getTotalSharedDirty() / 1024.0f));
-                    }
-                    Debug.MemoryInfo memoryInfo2 = processMemoryInfo[1];
-                    if (memoryInfo2 != null) {
-                        jSONObject.put("host_used_mem", b((((memoryInfo2.getTotalPrivateClean() + memoryInfo2.getTotalPrivateDirty()) + memoryInfo2.getTotalSharedClean()) + memoryInfo2.getTotalSharedDirty()) / 1024.0f));
-                    }
-                }
-                ActivityManager.MemoryInfo memoryInfo3 = new ActivityManager.MemoryInfo();
-                c.getMemoryInfo(memoryInfo3);
-                jSONObject.put("sys_free_mem", b(((float) memoryInfo3.availMem) / 1048576.0f));
-                if (memoryInfo3.lowMemory) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                jSONObject.put("sys_low_mem", str);
-                jSONObject.put("native_heap", b(((float) Debug.getNativeHeapSize()) / 1048576.0f));
-                jSONObject.put("native_heap_alloc", b(((float) Debug.getNativeHeapAllocatedSize()) / 1048576.0f));
-                jSONObject.put("vm_max_mem", b(((float) Runtime.getRuntime().maxMemory()) / 1048576.0f));
-                jSONObject.put("vm_total_mem", b(((float) Runtime.getRuntime().totalMemory()) / 1048576.0f));
-                jSONObject.put("vm_free_mem", b(((float) Runtime.getRuntime().freeMemory()) / 1048576.0f));
-                jSONObject.put("thread_count", Thread.activeCount());
-                a(jSONObject, memoryInfo3);
-            } catch (Exception e2) {
-                c92.k("SwanMemoryProperty", "getMemoryInfo: " + Log.getStackTraceString(e2));
+            if (this.a == 3) {
+                b();
+            } else {
+                a(closeCode, str);
             }
-            c92.k("SwanMemoryProperty", "getMemoryInfo result=" + jSONObject);
-            return jSONObject.toString();
         }
-        return (String) invokeI.objValue;
     }
 
-    public d j() {
-        InterceptResult invokeV;
+    public synchronized void j(WebSocketFrame webSocketFrame) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            d dVar = new d();
-            Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), bc3.K().q().W().j("main_pid", -1)});
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                Debug.MemoryInfo memoryInfo2 = processMemoryInfo[0];
-                Debug.MemoryInfo memoryInfo3 = processMemoryInfo[1];
-                if (memoryInfo2 != null) {
-                    if (TextUtils.equals("0", d.e)) {
-                        String unused = d.e = b(((float) memoryInfo.totalMem) / 1048576.0f);
-                    }
-                    dVar.c = d.e;
-                    dVar.d = b(((float) memoryInfo.availMem) / 1048576.0f);
-                    dVar.a = b(((float) Debug.getPss()) / 1024.0f);
-                }
-                if (memoryInfo3 != null) {
-                    dVar.b = b((((memoryInfo3.getTotalPrivateClean() + memoryInfo3.getTotalPrivateDirty()) + memoryInfo3.getTotalSharedClean()) + memoryInfo3.getTotalSharedDirty()) / 1024.0f);
-                }
+        if (interceptable == null || interceptable.invokeL(1048583, this, webSocketFrame) == null) {
+            synchronized (this) {
+                webSocketFrame.t(this.c);
             }
-            return dVar;
         }
-        return (d) invokeV.objValue;
     }
 
-    public final boolean m() {
-        InterceptResult invokeV;
+    public void k(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            c92.k("SwanMemoryProperty", "getMemoryInfo mMemSample =" + e + "; mRandomNum =" + f);
-            int i = e;
-            if (i <= 0) {
-                return false;
-            }
-            if (i < 100 && f > i) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            this.d = aVar;
         }
-        return invokeV.booleanValue;
+    }
+
+    public final void d(WebSocketFrame webSocketFrame) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, webSocketFrame) == null) {
+            if (webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
+                if (this.e != null && g) {
+                    throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Previous continuous frame sequence not completed.");
+                }
+                this.e = webSocketFrame.f();
+                this.f.clear();
+                this.f.add(webSocketFrame);
+            } else if (webSocketFrame.h()) {
+                if (this.e != null) {
+                    this.f.add(webSocketFrame);
+                    this.d.a(new WebSocketFrame(this.e, this.f));
+                    this.e = null;
+                    this.f.clear();
+                    return;
+                }
+                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
+            } else if (this.e != null) {
+                this.f.add(webSocketFrame);
+            } else {
+                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
+            }
+        }
+    }
+
+    public final void e(WebSocketFrame webSocketFrame) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, webSocketFrame) == null) {
+            if (webSocketFrame.f() == WebSocketFrame.OpCode.Close) {
+                c(webSocketFrame);
+            } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Ping) {
+                j(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.d()));
+            } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Pong) {
+                if (g) {
+                    Log.i("V8WebSocket", "A pong request has received.");
+                }
+            } else if (webSocketFrame.h() && webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
+                if (this.e == null) {
+                    if (webSocketFrame.f() != WebSocketFrame.OpCode.Text && webSocketFrame.f() != WebSocketFrame.OpCode.Binary) {
+                        throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Non control or continuous frame expected.");
+                    }
+                    this.d.a(webSocketFrame);
+                    return;
+                }
+                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence not completed.");
+            } else {
+                d(webSocketFrame);
+            }
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            while (this.a == 2) {
+                try {
+                    try {
+                        e(WebSocketFrame.k(this.b));
+                    } catch (IOException e) {
+                        if (this.d != null) {
+                            this.d.b(e);
+                        }
+                        v82.d("V8WebSocket", "parse web socket frame fail", e);
+                    }
+                } finally {
+                    b();
+                }
+            }
+        }
     }
 }

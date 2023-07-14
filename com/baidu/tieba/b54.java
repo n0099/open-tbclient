@@ -1,73 +1,101 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.View;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b54 {
+public final class b54 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public d64 a;
 
-    public static boolean a(View view2, i23 i23Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, i23Var)) == null) {
-            tt1 V = px2.T().V();
-            if (V != null && V.c(view2, i23Var)) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947595944, "Lcom/baidu/tieba/b54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947595944, "Lcom/baidu/tieba/b54;");
+                return;
+            }
         }
-        return invokeLL.booleanValue;
+        b = fs1.a;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public b54() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            tt1 V = px2.T().V();
-            if (V == null || !V.b() || V.h()) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return true;
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean c(View view2) {
+    public void c() {
+        d64 d64Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (d64Var = this.a) != null) {
+            d64Var.c();
+        }
+    }
+
+    public static b54 d(c42 c42Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            tt1 V = px2.T().V();
-            if (V != null && V.d(view2)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c42Var)) == null) {
+            if (c42Var == null) {
+                return null;
             }
-            return false;
+            b54 b54Var = new b54();
+            b54Var.a = d64.e(c42Var);
+            return b54Var;
         }
-        return invokeL.booleanValue;
+        return (b54) invokeL.objValue;
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static boolean d(View view2) {
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            JSONObject a = a(str);
+            d64 d64Var = this.a;
+            if (d64Var != null) {
+                d64Var.b(a);
+            }
+        }
+    }
+
+    public final JSONObject a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            tt1 V = px2.T().V();
-            if (V == null) {
-                return false;
-            }
-            if (V.h()) {
-                SwanAppActivity activity = px2.T().getActivity();
-                if (activity != null) {
-                    activity.setRequestedOrientation(0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, "fail");
+                jSONObject.put("errDes", i14.a(str));
+            } catch (Exception e) {
+                if (b) {
+                    e.printStackTrace();
                 }
-                V.g(false);
             }
-            return V.removeView(view2);
+            return jSONObject;
         }
-        return invokeL.booleanValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

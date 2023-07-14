@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.chatmessage.request.RequestContants;
 import com.baidu.android.imsdk.chatmessage.request.params.DelMsgParam;
 import com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam;
 import com.baidu.android.imsdk.chatmessage.request.params.SendMsgParam;
@@ -14,7 +13,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.media.MediaSessionManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.w80;
+import com.baidu.tieba.x80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,9 +76,9 @@ public class MediaChatMessageCloudManager implements IMediaChatMessageCloudManag
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, MediaSessionManager.getInstance(this.mContext).getMeidaPaid());
                 creatMethodIntent.putExtra("contacter", delMsgParam.to);
                 creatMethodIntent.putExtra("contacter_uk", delMsgParam.contacterUk);
-                creatMethodIntent.putExtra(RequestContants.EXTRA_CONTACTER_PA_UID, delMsgParam.contaceterPaUid);
+                creatMethodIntent.putExtra("contacter_pa_uid", delMsgParam.contaceterPaUid);
                 creatMethodIntent.putExtra("contacter_bduid", delMsgParam.contacterBduid);
-                creatMethodIntent.putExtra(RequestContants.EXTRA_CONTACTER_USER_TYPE, delMsgParam.contacterUserType);
+                creatMethodIntent.putExtra("contacter_user_type", delMsgParam.contacterUserType);
                 creatMethodIntent.putExtra(Constants.EXTRA_DEL_MSG_IDS, new long[]{delMsgParam.delMsg.getMsgId()});
                 creatMethodIntent.putExtra("session_type", 0);
                 creatMethodIntent.putExtra(Constants.EXTRA_BUSINESS_TYPE, 0);
@@ -89,7 +88,7 @@ public class MediaChatMessageCloudManager implements IMediaChatMessageCloudManag
                     creatMethodIntent.putExtra(Constants.EXTRA_REMAIN_EMPTY_SESSION, 1);
                 }
                 try {
-                    w80.e(this.mContext).d(this.mContext, creatMethodIntent);
+                    x80.e(this.mContext).d(this.mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
                 }
@@ -117,8 +116,8 @@ public class MediaChatMessageCloudManager implements IMediaChatMessageCloudManag
                 creatMethodIntent.putExtra("category", fetchMsgParam.getCategory());
                 creatMethodIntent.putExtra("contacter", fetchMsgParam.getTo());
                 creatMethodIntent.putExtra("contacter_uk", fetchMsgParam.getContacterUk());
-                creatMethodIntent.putExtra(RequestContants.EXTRA_CONTACTER_USER_TYPE, fetchMsgParam.getContacterUserType());
-                creatMethodIntent.putExtra(RequestContants.EXTRA_CONTACTER_PA_UID, fetchMsgParam.getContacterPa());
+                creatMethodIntent.putExtra("contacter_user_type", fetchMsgParam.getContacterUserType());
+                creatMethodIntent.putExtra("contacter_pa_uid", fetchMsgParam.getContacterPa());
                 creatMethodIntent.putExtra("contacter_bduid", fetchMsgParam.getContacterBduid());
                 creatMethodIntent.putExtra(Constants.EXTRA_BEGIN_MSGID, fetchMsgParam.getBeginMsgId());
                 creatMethodIntent.putExtra(Constants.EXTRA_END_MSGID, fetchMsgParam.getEndMsgId());
@@ -129,7 +128,7 @@ public class MediaChatMessageCloudManager implements IMediaChatMessageCloudManag
                 creatMethodIntent.putExtra(Constants.EXTRA_SCREEN_KEY, fetchMsgParam.getScreenKey());
                 creatMethodIntent.putExtra(Constants.EXTRA_BC_FETCH_TRIGGER_REASON, fetchMsgParam.getFetchTriggerReason());
                 try {
-                    w80.e(this.mContext).d(this.mContext, creatMethodIntent);
+                    x80.e(this.mContext).d(this.mContext, creatMethodIntent);
                 } catch (Exception e) {
                     fetchMsgParam.onRequestResult(6, "start service exception", new FetchMsgResponse());
                     LogUtils.e(TAG, "Exception ", e);
@@ -152,7 +151,7 @@ public class MediaChatMessageCloudManager implements IMediaChatMessageCloudManag
                 creatMethodIntent.putExtra("param", sendMsgParam);
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, ListenerManager.getInstance().addListener(sendMsgParam.getRequestCallBack()));
                 try {
-                    w80.e(this.mContext).d(this.mContext, creatMethodIntent);
+                    x80.e(this.mContext).d(this.mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     sendMsgParam.onRequestResult(6, "send msg failed", null);

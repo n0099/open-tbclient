@@ -21,7 +21,7 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     public transient /* synthetic */ FieldHolder $fh;
 
     @CallSuper
-    public void m(LifecycleOwner owner, Lifecycle.Event event) {
+    public void o(LifecycleOwner owner, Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, owner, event) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
@@ -69,14 +69,14 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     }
 
     @CallSuper
-    public void p() {
+    public void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
     @CallSuper
-    public void q(LifecycleOwner owner, Lifecycle.Event event) {
+    public void r(LifecycleOwner owner, Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, owner, event) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
@@ -85,21 +85,21 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     }
 
     @CallSuper
-    public void r() {
+    public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
         }
     }
 
     @CallSuper
-    public void s() {
+    public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }
     }
 
     @CallSuper
-    public void t(LifecycleOwner owner, Lifecycle.Event event) {
+    public void u(LifecycleOwner owner, Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, owner, event) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
@@ -108,14 +108,14 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     }
 
     @CallSuper
-    public void u() {
+    public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
         }
     }
 
     @CallSuper
-    public void v() {
+    public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }
@@ -139,10 +139,10 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public final void performCreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            u();
-            p();
-            r();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            v();
+            q();
+            s();
         }
     }
 
@@ -150,10 +150,10 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public final void performDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            v();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            w();
             onDestroy();
-            s();
+            t();
         }
     }
 
@@ -161,12 +161,12 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
     public final void performAny(LifecycleOwner owner, Lifecycle.Event event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, owner, event) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, owner, event) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
             Intrinsics.checkNotNullParameter(event, "event");
-            t(owner, event);
-            m(owner, event);
-            q(owner, event);
+            u(owner, event);
+            o(owner, event);
+            r(owner, event);
         }
     }
 }

@@ -6,10 +6,10 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.oy9;
-import com.baidu.tieba.py9;
-import com.baidu.tieba.qy9;
-import com.baidu.tieba.ty9;
+import com.baidu.tieba.q6a;
+import com.baidu.tieba.r6a;
+import com.baidu.tieba.s6a;
+import com.baidu.tieba.v6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,24 +22,24 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public ty9 b;
+    public v6a b;
     public a c;
-    public oy9 d;
+    public q6a d;
     public String e;
     public boolean isRunning;
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(ty9 ty9Var);
+        void a(v6a v6aVar);
 
-        void e(String str);
+        void d(String str);
     }
 
     /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<String, Integer, ty9> {
+    public class b extends BdAsyncTask<String, Integer, v6a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public qy9 a;
+        public s6a a;
         public boolean b;
         public final /* synthetic */ SignAllForumModel c;
 
@@ -64,7 +64,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             setPriority(3);
         }
 
-        public final ty9 d(String str) {
+        public final v6a d(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -77,13 +77,13 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                 AuthTokenData.parse(e);
                 return null;
             }
-            return (ty9) invokeL.objValue;
+            return (v6a) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public ty9 doInBackground(String... strArr) {
+        public v6a doInBackground(String... strArr) {
             InterceptResult invokeL;
             int i;
             Interceptable interceptable = $ic;
@@ -92,9 +92,9 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                     return null;
                 }
                 if (c()) {
-                    qy9 qy9Var = new qy9();
-                    this.a = qy9Var;
-                    qy9Var.d(this.c.e);
+                    s6a s6aVar = new s6a();
+                    this.a = s6aVar;
+                    s6aVar.d(this.c.e);
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
                         e();
                     }
@@ -111,9 +111,9 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                                 sb.append(split[i] + ",");
                             }
                         }
-                        qy9 qy9Var2 = new qy9();
-                        this.a = qy9Var2;
-                        qy9Var2.d(this.c.e);
+                        s6a s6aVar2 = new s6a();
+                        this.a = s6aVar2;
+                        s6aVar2.d(this.c.e);
                         if (BdNetTypeUtil.isNetWorkAvailable()) {
                             d(sb.toString());
                         }
@@ -121,7 +121,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                 }
                 return this.c.b;
             }
-            return (ty9) invokeL.objValue;
+            return (v6a) invokeL.objValue;
         }
 
         public boolean c() {
@@ -161,7 +161,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             }
         }
 
-        public final ty9 e() {
+        public final v6a e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -174,15 +174,15 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                 this.c.b.i(f);
                 return this.c.b;
             }
-            return (ty9) invokeV.objValue;
+            return (v6a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: f */
-        public void onPostExecute(ty9 ty9Var) {
+        public void onPostExecute(v6a v6aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, ty9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, v6aVar) == null) {
                 SignAllForumModel signAllForumModel = this.c;
                 signAllForumModel.isRunning = false;
                 String str = null;
@@ -192,11 +192,11 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                         this.c.c.a(this.c.b);
                         return;
                     }
-                    qy9 qy9Var = this.a;
-                    if (qy9Var != null) {
-                        str = qy9Var.b();
+                    s6a s6aVar = this.a;
+                    if (s6aVar != null) {
+                        str = s6aVar.b();
                     }
-                    this.c.c.e(str);
+                    this.c.c.d(str);
                 }
             }
         }
@@ -223,36 +223,36 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         this.a = null;
         this.b = null;
         this.c = null;
-        this.b = new ty9();
+        this.b = new v6a();
     }
 
-    public void b0(oy9 oy9Var) {
+    public void c0(q6a q6aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oy9Var) == null) {
-            this.d = oy9Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q6aVar) == null) {
+            this.d = q6aVar;
         }
     }
 
-    public void c0(a aVar) {
+    public void d0(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.c = aVar;
         }
     }
 
-    public final String Z() {
+    public final String a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList<py9> x = this.d.x();
+            ArrayList<r6a> x = this.d.x();
             if (x == null) {
                 return "";
             }
             if (!this.d.B()) {
                 ArrayList arrayList = new ArrayList();
-                Iterator<py9> it = x.iterator();
+                Iterator<r6a> it = x.iterator();
                 while (it.hasNext()) {
-                    py9 next = it.next();
+                    r6a next = it.next();
                     if (next.i() < this.d.l()) {
                         arrayList.add(next);
                     }
@@ -262,36 +262,36 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             int size = x.size();
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < size; i++) {
-                py9 py9Var = x.get(i);
-                if (py9Var.j()) {
-                    if (!py9Var.k()) {
-                        py9Var.t(true);
+                r6a r6aVar = x.get(i);
+                if (r6aVar.j()) {
+                    if (!r6aVar.k()) {
+                        r6aVar.t(true);
                     }
                 }
                 if (i > 0) {
                     sb.append(",");
                 }
-                sb.append(py9Var.c());
+                sb.append(r6aVar.c());
             }
             return sb.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public oy9 a0() {
+    public q6a b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.d;
         }
-        return (oy9) invokeV.objValue;
+        return (q6a) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             b bVar = this.a;
             if (bVar != null) {
                 bVar.cancel();
@@ -314,7 +314,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             this.a = new b(this);
             boolean n = this.d.n();
             if (!n) {
-                str = Z();
+                str = a0();
             }
             this.a.g(n);
             this.a.execute(str);

@@ -1,13 +1,19 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class yz9 extends m2a {
+public class yz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public double b;
+    public double c;
 
     public yz9() {
         Interceptable interceptable = $ic;
@@ -21,5 +27,32 @@ public final class yz9 extends m2a {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static yz9 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            yz9 yz9Var = new yz9();
+            yz9Var.a = jSONObject.optString("bottom_picture", "");
+            jSONObject.optInt("cover_shadow_switch", 0);
+            yz9Var.b = jSONObject.optDouble("player_width_ratio", 0.0d);
+            yz9Var.c = jSONObject.optDouble("right_margin_ratio", 0.0d);
+            jSONObject.optDouble("player_height_clipping_ratio", 0.0d);
+            return yz9Var;
+        }
+        return (yz9) invokeL.objValue;
     }
 }

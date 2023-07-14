@@ -1,26 +1,26 @@
 package com.baidu.ugc.editvideo.record.processor;
 
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tieba.m1b;
-import com.baidu.tieba.qh0;
-import com.baidu.tieba.yh0;
-/* loaded from: classes8.dex */
+import com.baidu.tieba.kab;
+import com.baidu.tieba.rh0;
+import com.baidu.tieba.zh0;
+/* loaded from: classes9.dex */
 public class TemplateEffectProcessor extends BaseEffectProcessor {
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(qh0 qh0Var, int i, float[] fArr) {
+    public int onProcessFrame(rh0 rh0Var, int i, float[] fArr) {
         int i2;
-        if (qh0Var == null) {
+        if (rh0Var == null) {
             return i;
         }
         int i3 = 1;
         while (true) {
-            if (i3 >= m1b.b(qh0Var.l())) {
+            if (i3 >= kab.b(rh0Var.l())) {
                 i2 = i;
                 break;
             }
-            MediaTrack mediaTrack = (MediaTrack) m1b.c(qh0Var.l(), i3);
-            if (mediaTrack != null && yh0.m(mediaTrack, "template_effect")) {
-                i2 = qh0Var.j(mediaTrack, i, null);
+            MediaTrack mediaTrack = (MediaTrack) kab.c(rh0Var.l(), i3);
+            if (mediaTrack != null && zh0.m(mediaTrack, "template_effect")) {
+                i2 = rh0Var.j(mediaTrack, i, null);
                 break;
             }
             i3++;

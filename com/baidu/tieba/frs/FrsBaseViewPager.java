@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,7 +95,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         this.l = true;
         Activity activity = (Activity) context;
         this.h = activity;
-        this.f = xi.d(activity, 0);
+        this.f = yi.d(activity, 0);
         BdBaseViewPager.a aVar = new BdBaseViewPager.a(this, this.h);
         aVar.b(1000);
         aVar.a(this);

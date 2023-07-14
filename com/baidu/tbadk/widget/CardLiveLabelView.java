@@ -14,8 +14,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -222,19 +222,19 @@ public class CardLiveLabelView extends RelativeLayout {
             int i = this.a;
             if (i != 1) {
                 if (i == 2) {
-                    s75 d = s75.d(this.c);
+                    d85 d = d85.d(this.c);
                     d.o(R.string.J_X01);
                     d.f(R.color.CAM_X0605);
-                    s75 d2 = s75.d(this.j);
+                    d85 d2 = d85.d(this.j);
                     d2.o(R.string.J_X07);
                     d2.f(R.color.CAM_X0310);
                     SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
-                    s75.d(this.i).C(R.dimen.T_X09);
+                    d85.d(this.i).C(R.dimen.T_X09);
                     return;
                 }
                 return;
             }
-            float g = xi.g(getContext(), R.dimen.tbds31);
+            float g = yi.g(getContext(), R.dimen.tbds31);
             SkinManager.setBackgroundEndColorToAutoColor(this.c, R.color.CAM_X0310, GradientDrawable.Orientation.LEFT_RIGHT, new float[]{g, g, g, g, g, g, g, g});
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
@@ -244,7 +244,7 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label, this).findViewById(R.id.obfuscated_res_0x7f091f38);
+            this.k = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label, this).findViewById(R.id.obfuscated_res_0x7f091f6a);
         }
     }
 

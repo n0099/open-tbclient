@@ -1,72 +1,36 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Handler;
-import android.view.View;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.data.BdToastData;
+import com.baidu.tbadk.core.util.BdToastHelper;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vr7 implements View.OnClickListener {
+public class vr7 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public TbPageContext c;
-    public View d;
-    public PopupWindow e;
-    public Handler f;
-    public Runnable g;
+    public WeakReference<FrsActivity> m;
+    public WeakReference<FrsFragment> n;
+    public BdToastData o;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vr7 a;
-
-        /* renamed from: com.baidu.tieba.vr7$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC0499a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0499a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.e != null) {
-                    this.a.a.j();
-                }
-            }
-        }
 
         public a(vr7 vr7Var) {
             Interceptable interceptable = $ic;
@@ -89,29 +53,18 @@ public class vr7 implements View.OnClickListener {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null && this.a.d != null) {
-                Activity pageActivity = this.a.c.getPageActivity();
-                int g = xi.g(pageActivity, R.dimen.obfuscated_res_0x7f070258);
-                vr7 vr7Var = this.a;
-                View h = vr7Var.h(pageActivity, vr7Var.a);
-                int[] iArr = new int[2];
-                this.a.d.getLocationInWindow(iArr);
-                int g2 = xi.g(pageActivity, R.dimen.obfuscated_res_0x7f070207);
-                int g3 = (iArr[1] - g) + xi.g(pageActivity, R.dimen.obfuscated_res_0x7f0701be);
-                this.a.e = new PopupWindow(h, -2, g);
-                GreyUtil.grey(this.a.e);
-                this.a.e.showAtLocation(this.a.d, 53, g2, g3);
-                this.a.f.postDelayed(new RunnableC0499a(this), 3000L);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                BdToastHelper.toast(this.a.o);
             }
         }
     }
 
-    public vr7(TbPageContext tbPageContext, boolean z) {
+    public vr7(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -121,77 +74,63 @@ public class vr7 implements View.OnClickListener {
                 return;
             }
         }
-        this.a = R.string.obfuscated_res_0x7f0f02f6;
-        this.f = new Handler();
-        this.g = new a(this);
-        this.c = tbPageContext;
-        this.b = z;
+        this.m = new WeakReference<>(frsActivity);
+        this.n = new WeakReference<>(frsFragment);
+        this.o = new BdToastData();
     }
 
-    public final View h(Activity activity, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, activity, i)) == null) {
-            TextView textView = new TextView(activity);
-            int g = xi.g(activity, R.dimen.obfuscated_res_0x7f0701d5);
-            textView.setPadding(g, 0 - activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07035d), g, 0);
-            textView.setHeight(activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07026f));
-            textView.setGravity(17);
-            textView.setTextSize(0, xi.g(activity, R.dimen.obfuscated_res_0x7f0702b5));
-            textView.setText(i);
-            textView.setOnClickListener(this);
-            SkinManager.setBackgroundResource(textView, R.drawable.bg_tip_blue_left);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            textView.setOnClickListener(this);
-            return textView;
-        }
-        return (View) invokeLI.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            j();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.m.clear();
+            this.m.clear();
         }
     }
 
-    public void i() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f.removeCallbacksAndMessages(null);
-            j();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            zg.a().postDelayed(new a(this), 2000L);
         }
     }
 
-    public void j() {
-        PopupWindow popupWindow;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
+        InterceptResult invokeV;
+        WeakReference<FrsFragment> weakReference;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (popupWindow = this.e) != null) {
-            popupWindow.dismiss();
-            this.e = null;
-        }
-    }
-
-    public void k(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (this.c != null && view2 != null && !StringUtils.isNull(currentAccount)) {
-                this.d = view2;
-                if (this.b) {
-                    this.a = R.string.obfuscated_res_0x7f0f02f6;
-                    String str = currentAccount + "frs_god_new_post_tip_count";
-                    int q = r95.p().q(str, 0);
-                    if (q >= 3) {
-                        this.b = false;
-                        return;
-                    }
-                    r95.p().F(str, q + 1);
-                    this.b = false;
-                    this.f.postDelayed(this.g, 500L);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WeakReference<FrsActivity> weakReference2 = this.m;
+            if (weakReference2 != null && weakReference2.get() != null && (weakReference = this.n) != null && weakReference.get() != null && TbSingleton.getInstance().getFrsResponseData() != null) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String stringExtra = this.m.get().getIntent().getStringExtra(FrsActivityConfig.TOAST_DATA);
+            if (TextUtils.isEmpty(stringExtra)) {
+                return false;
+            }
+            try {
+                this.o.parserJson(new JSONObject(stringExtra));
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            BdToastData bdToastData = this.o;
+            if (bdToastData == null || bdToastData.getIconType() == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

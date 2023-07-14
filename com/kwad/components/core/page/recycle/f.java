@@ -4,7 +4,7 @@ import android.view.View;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.utils.am;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class f {
     public final RecyclerView GU;
     public final RecyclerView.LayoutManager GV;

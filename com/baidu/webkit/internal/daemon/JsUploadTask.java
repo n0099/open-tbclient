@@ -13,7 +13,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class JsUploadTask implements INoProGuard {
     public static final int CONN_TIMEOUT = 5000;
     public static final int READ_TIMEOUT = 10000;
@@ -71,7 +71,7 @@ public class JsUploadTask implements INoProGuard {
     public String mXReferer;
     public boolean responded;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum JumpType {
         DefaultJump,
         JsJump,

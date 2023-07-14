@@ -1,94 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.nadcore.max.event.NestedEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class mr0 {
+/* loaded from: classes7.dex */
+public final /* synthetic */ class mr0 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public String b;
-    public final String c;
-    public final String d;
-    public final boolean e;
 
-    public mr0(@NonNull JSONObject jSONObject, boolean z) {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (z) {
-            str = "pkg_name";
-        } else {
-            str = "apk_name";
-        }
-        this.a = jSONObject.optString(str);
-        if (z) {
-            str2 = "key";
-        } else {
-            str2 = "download_key";
-        }
-        this.d = jSONObject.optString(str2);
-        this.b = jSONObject.optString("deferred_cmd");
-        this.c = jSONObject.optString("download_url");
-        jSONObject.optString("source", "apk_yuansheng");
-        this.e = a();
-    }
-
-    @Nullable
-    public static mr0 b(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return new mr0(jSONObject, false);
-        }
-        return (mr0) invokeL.objValue;
-    }
-
-    @Nullable
-    public static mr0 c(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return new mr0(jSONObject, true);
-        }
-        return (mr0) invokeL.objValue;
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+    static {
+        int[] iArr = new int[NestedEvent.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
+        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
     }
 }

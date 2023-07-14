@@ -1,44 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.ad.asyncpv.NadAsyncRequester;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class e66 implements NadAsyncRequester.b {
+public class e66 {
     public static /* synthetic */ Interceptable $ic;
+    public static e66 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public PlaceId a;
-    public String b;
-    public int c;
-    public boolean d;
-    public NadAsyncRequester e;
-    public long f;
-    public final WeakReference<IAdBaseAsyncController.a> g;
+    public wo0 a;
 
-    public void c(List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-        }
-    }
-
-    public e66(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
+    public e66() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {placeId, str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,71 +25,31 @@ public class e66 implements NadAsyncRequester.b {
                 return;
             }
         }
-        this.d = false;
-        this.f = 0L;
-        this.a = placeId;
-        this.b = str;
-        this.g = new WeakReference<>(aVar);
-        this.e = new NadAsyncRequester(this, this.a);
+        this.a = so0.b().a();
     }
 
-    @Override // com.baidu.tieba.ad.asyncpv.NadAsyncRequester.b
-    public final void a(boolean z, List<AdvertAppInfo> list) {
+    public static e66 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
-            IAdBaseAsyncController.a aVar = this.g.get();
-            if (z && !du8.e(list)) {
-                f(list);
-                c(list);
-                if (aVar != null) {
-                    aVar.b(list);
-                }
-            } else if (aVar != null) {
-                aVar.b(null);
-            }
-        }
-    }
-
-    public void d(int i, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, map) != null) || System.currentTimeMillis() - this.f < this.c * tr9.a) {
-            return;
-        }
-        this.e.i(map, i);
-        this.f = System.currentTimeMillis();
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.h();
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void f(List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            Iterator<AdvertAppInfo> it = list.iterator();
-            while (it.hasNext()) {
-                AdvertAppInfo next = it.next();
-                next.j = this.b;
-                if (qr9.l(next) && this.d) {
-                    it.remove();
-                } else {
-                    int i = next.i();
-                    if (i != 0) {
-                        bu9.h(next, 0, i);
-                        it.remove();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (e66.class) {
+                    if (b == null) {
+                        b = new e66();
                     }
                 }
             }
+            return b;
         }
+        return (e66) invokeV.objValue;
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            return this.a.a(str, i);
+        }
+        return invokeLI.intValue;
     }
 }

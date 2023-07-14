@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,15 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class r62 extends i52 {
+public class r62 extends b52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public int e;
-    public int f;
+    public int a;
+    public int b;
 
     public r62() {
         Interceptable interceptable = $ic;
@@ -33,40 +28,23 @@ public class r62 extends i52 {
         }
     }
 
-    @Override // com.baidu.tieba.i52
-    public void a(j52 j52Var, Canvas canvas) {
+    @Override // com.baidu.tieba.b52
+    public void a(c52 c52Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) {
-            if (j52Var.a() == 0) {
-                j52Var.b(canvas.save());
-            } else {
-                canvas.restoreToCount(j52Var.a());
-                j52Var.b(canvas.save());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, c52Var, canvas) == null) {
+            if (c52Var.a() == 0) {
+                c52Var.b(canvas.save());
             }
-            Matrix matrix = new Matrix();
-            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
-            canvas.concat(matrix);
+            canvas.translate(this.a, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.i52
+    @Override // com.baidu.tieba.b52
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 6) {
-                    this.a = (float) jSONArray.optDouble(0);
-                    this.b = (float) jSONArray.optDouble(1);
-                    this.c = (float) jSONArray.optDouble(2);
-                    this.d = (float) jSONArray.optDouble(3);
-                    this.e = tp3.g((float) jSONArray.optDouble(4));
-                    this.f = tp3.g((float) jSONArray.optDouble(5));
-                }
-            } catch (Exception e) {
-                if (ms1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
+            this.a = mp3.g((float) jSONArray.optDouble(0));
+            this.b = mp3.g((float) jSONArray.optDouble(1));
         }
     }
 }

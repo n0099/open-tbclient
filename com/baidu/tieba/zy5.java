@@ -1,258 +1,109 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.graphics.PointF;
+import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class zy5 extends BaseAdapter {
+public class zy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public int b;
-    public List<String> c;
-    public List<String> d;
-    public List<String> e;
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public static float a(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            return (float) Math.sqrt(Math.pow(f - f3, 2.0d) + Math.pow(f2 - f4, 2.0d));
         }
-        return invokeI.objValue;
+        return invokeCommon.floatValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static PointF b(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return 0L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return null;
+            }
+            PointF pointF = new PointF();
+            pointF.set((motionEvent.getX(0) + motionEvent.getX(1)) / 2.0f, (motionEvent.getY(0) + motionEvent.getY(1)) / 2.0f);
+            return pointF;
         }
-        return invokeI.longValue;
+        return (PointF) invokeL.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TextView b;
-        public TextView c;
+    public static float c(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
+            }
+            return (float) Math.toDegrees(Math.atan2(motionEvent.getY(0) - motionEvent.getY(1), motionEvent.getX(0) - motionEvent.getX(1)));
+        }
+        return invokeL.floatValue;
+    }
 
-        public a(zy5 zy5Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zy5Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static float d(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
+            }
+            float x = motionEvent.getX(0) - motionEvent.getX(1);
+            float y = motionEvent.getY(0) - motionEvent.getY(1);
+            return (float) Math.sqrt((x * x) + (y * y));
+        }
+        return invokeL.floatValue;
+    }
+
+    public static boolean e(float[] fArr, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (fArr != null && fArr.length == 8) {
+                float f3 = fArr[0];
+                float f4 = fArr[1];
+                float f5 = fArr[2];
+                float f6 = fArr[3];
+                float f7 = fArr[4];
+                float f8 = fArr[5];
+                float f9 = fArr[6];
+                float f10 = fArr[7];
+                float a = a(f3, f4, f5, f6);
+                float f11 = f(f3, f4, f5, f6, f, f2);
+                float a2 = a(f5, f6, f9, f10);
+                float f12 = f(f5, f6, f9, f10, f, f2);
+                float f13 = f(f9, f10, f7, f8, f, f2);
+                float f14 = f(f7, f8, f3, f4, f, f2);
+                if (a > 0.0f && a2 > 0.0f && f11 <= a2 && f13 <= a2 && f12 <= a && f14 <= a) {
+                    return true;
                 }
             }
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.bar_select_rule_head_view);
-            this.a = tbImageView;
-            tbImageView.setDefaultBgResource(R.color.CAM_X0206);
-            this.b = (TextView) view2.findViewById(R.id.bar_select_rule_title);
-            this.c = (TextView) view2.findViewById(R.id.bar_select_rule_content);
+            return false;
         }
+        return invokeCommon.booleanValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-
-        public b(zy5 zy5Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zy5Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static float f(float f, float f2, float f3, float f4, float f5, float f6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
+            float a = a(f, f2, f3, f4);
+            float a2 = a(f, f2, f5, f6);
+            float a3 = a(f3, f4, f5, f6);
+            if (a == 0.0f) {
+                return a2;
             }
-            this.a = (TextView) view2.findViewById(R.id.pb_vote_select_rule_title);
-            this.b = (TextView) view2.findViewById(R.id.pb_vote_select_rule_content);
-        }
-    }
-
-    public zy5(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            if (a2 == 0.0f || a3 == 0.0f) {
+                return 0.0f;
             }
+            float f7 = ((a + a2) + a3) / 2.0f;
+            return (((float) Math.sqrt((((f7 - a) * f7) * (f7 - a2)) * (f7 - a3))) * 2.0f) / a;
         }
-        this.b = 0;
-        this.a = context;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = new ArrayList();
-    }
-
-    public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, aVar) != null) || aVar == null) {
-            return;
-        }
-        SkinManager.setViewTextColor(aVar.b, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(aVar.c, R.color.CAM_X0109, 1);
-    }
-
-    public void b(b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) != null) || bVar == null) {
-            return;
-        }
-        SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0105);
-        SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0109);
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return super.getItemViewType(i);
-        }
-        return invokeI.intValue;
-    }
-
-    public void c(List<String> list, List<String> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, list2) == null) {
-            this.d.clear();
-            this.e.clear();
-            if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
-                this.d.addAll(list);
-                this.e.addAll(list2);
-            }
-            notifyDataSetChanged();
-        }
-    }
-
-    public void d(List<String> list, List<String> list2, List<String> list3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, list, list2, list3) == null) {
-            this.c.clear();
-            if (!ListUtils.isEmpty(list)) {
-                this.c.addAll(list);
-            }
-            c(list2, list3);
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (ListUtils.isEmpty(this.d)) {
-                return 0;
-            }
-            return this.d.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
-            int i2 = this.b;
-            if (i2 == 0) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.pb_vote_select_rule_item, (ViewGroup) null, false);
-                b bVar = new b(this, view2);
-                if (!ListUtils.isEmpty(this.d) && this.d.size() > i && !TextUtils.isEmpty(this.d.get(i))) {
-                    bVar.a.setText(this.d.get(i));
-                    bVar.a.setVisibility(0);
-                } else {
-                    bVar.a.setVisibility(8);
-                }
-                if (!ListUtils.isEmpty(this.e) && this.e.size() > i && !TextUtils.isEmpty(this.e.get(i))) {
-                    bVar.b.setText(this.e.get(i));
-                    bVar.b.setVisibility(0);
-                } else {
-                    bVar.b.setVisibility(8);
-                }
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
-                layoutParams.weight = 1.0f;
-                view2.setLayoutParams(layoutParams);
-                b(bVar);
-            } else if (i2 == 1) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.bar_select_rule_item, (ViewGroup) null, false);
-                a aVar = new a(this, view2);
-                if (!ListUtils.isEmpty(this.c) && this.c.size() > i && !TextUtils.isEmpty(this.c.get(i))) {
-                    aVar.a.setDefaultResource(R.drawable.transparent_bg);
-                    aVar.a.N(this.c.get(i), 10, false);
-                }
-                if (!ListUtils.isEmpty(this.d) && this.d.size() > i && !TextUtils.isEmpty(this.d.get(i))) {
-                    aVar.b.setText(this.d.get(i));
-                    aVar.b.setVisibility(0);
-                } else {
-                    aVar.b.setVisibility(8);
-                }
-                if (!ListUtils.isEmpty(this.e) && this.e.size() > i && !TextUtils.isEmpty(this.e.get(i))) {
-                    aVar.c.setText(this.e.get(i));
-                    aVar.c.setVisibility(0);
-                } else {
-                    aVar.c.setVisibility(8);
-                }
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -2);
-                layoutParams2.weight = 1.0f;
-                view2.setLayoutParams(layoutParams2);
-                a(aVar);
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return invokeCommon.floatValue;
     }
 }

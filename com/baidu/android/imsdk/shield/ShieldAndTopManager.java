@@ -37,6 +37,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ShieldAndTopManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -112,7 +113,7 @@ public class ShieldAndTopManager {
 
     public void requestMsgDisturb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             IMGetShieldAndTopListRequest iMGetShieldAndTopListRequest = new IMGetShieldAndTopListRequest(this.mContext, null, 3, 2, -1);
             HttpHelper.executor(this.mContext, iMGetShieldAndTopListRequest, iMGetShieldAndTopListRequest);
         }
@@ -120,7 +121,7 @@ public class ShieldAndTopManager {
 
     public void requestMsgMarkTopList() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             IMGetShieldAndTopListRequest iMGetShieldAndTopListRequest = new IMGetShieldAndTopListRequest(this.mContext, null, 2, 1);
             HttpHelper.executor(this.mContext, iMGetShieldAndTopListRequest, iMGetShieldAndTopListRequest);
         }
@@ -238,7 +239,7 @@ public class ShieldAndTopManager {
     public void setSubscription(long j, List<Long> list, List<String> list2, int i, String str, boolean z, ISetSubscriptionListener iSetSubscriptionListener) {
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Long.valueOf(j), list, list2, Integer.valueOf(i), str, Boolean.valueOf(z), iSetSubscriptionListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j), list, list2, Integer.valueOf(i), str, Boolean.valueOf(z), iSetSubscriptionListener}) == null) {
             if ((list != null && list.size() > 0) || (list2 != null && list2.size() > 0)) {
                 if (iSetSubscriptionListener != null) {
                     str2 = ListenerManager.getInstance().addListener(iSetSubscriptionListener);
@@ -304,18 +305,6 @@ public class ShieldAndTopManager {
             getSubscriptionResult.setErrorCode(1005);
             getSubscriptionResult.setErrorMsg(Constants.ERROR_MSG_PARAMETER_ERROR);
             iGetSubscriptionListener.onResult(getSubscriptionResult);
-        }
-    }
-
-    public void onSendMsgPolicyResult(int i, String str, boolean z, long j, String str2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), Long.valueOf(j), str2, Integer.valueOf(i2)}) == null) {
-            this.requestFinishFlag = true;
-            IIsAllowSendMsgListener iIsAllowSendMsgListener = (IIsAllowSendMsgListener) ListenerManager.getInstance().removeListener(str2);
-            if (iIsAllowSendMsgListener != null) {
-                LogUtils.d(TAG, "imsdk strMsg=" + str + " could_send=" + z + "  responseCode:" + i);
-                iIsAllowSendMsgListener.onIsAllowResult(i, str, j, z, i2);
-            }
         }
     }
 
@@ -414,9 +403,55 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void onPaMarkTopResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
+    public void onPaDisturbResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), str, chatSession, str2}) == null) {
+            IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
+            if (iStatusListener != null) {
+                iStatusListener.onResult(i, str, chatSession.getDisturb(), chatSession.getContacter());
+            }
+            if (i == 0) {
+                TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, chatSession) { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ShieldAndTopManager this$0;
+                    public final /* synthetic */ ChatSession val$user;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, chatSession};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$user = chatSession;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            ChatMessageDBManager.getInstance(this.this$0.mContext).updateSessionDisturb(this.val$user.getCategory(), this.val$user.getContacter(), this.val$user.getDisturb());
+                            PaInfoDBManager.getInstance(this.this$0.mContext).updateDisturb(this.val$user.getContacter(), this.val$user.getDisturb());
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    public void onPaMarkTopResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, chatSession, str2}) == null) {
             IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
             if (iStatusListener != null) {
                 iStatusListener.onResult(i, str, chatSession.getMarkTop(), chatSession.getContacter());
@@ -461,7 +496,7 @@ public class ShieldAndTopManager {
 
     public void onSetGroupNotDisturbResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), str, chatSession, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), str, chatSession, str2}) == null) {
             if (i == 0) {
                 GroupInfoDAOImpl.updateGroupDoNotDisturb(this.mContext, chatSession.getContacter(), chatSession.getDisturb());
             }
@@ -472,15 +507,61 @@ public class ShieldAndTopManager {
         }
     }
 
+    public void onUserDisturbResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), str, chatSession, str2}) == null) {
+            IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
+            if (iStatusListener != null) {
+                iStatusListener.onResult(i, str, chatSession.getDisturb(), chatSession.getContacter());
+            }
+            if (i == 0) {
+                TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, chatSession) { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.9
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ShieldAndTopManager this$0;
+                    public final /* synthetic */ ChatSession val$user;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, chatSession};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$user = chatSession;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            ChatMessageDBManager.getInstance(this.this$0.mContext).updateSessionDisturb(this.val$user.getCategory(), this.val$user.getContacter(), this.val$user.getDisturb());
+                            ChatUserDBManager.getInstance(this.this$0.mContext).updateDisturb(this.val$user.getContacter(), this.val$user.getDisturb());
+                        }
+                    }
+                });
+            }
+        }
+    }
+
     public void onUserMarkTopResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), str, chatSession, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), str, chatSession, str2}) == null) {
             IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
             if (iStatusListener != null) {
                 iStatusListener.onResult(i, str, chatSession.getMarkTop(), chatSession.getContacter());
             }
             if (i == 0) {
-                TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, chatSession) { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.8
+                TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, chatSession) { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ShieldAndTopManager this$0;
@@ -519,7 +600,7 @@ public class ShieldAndTopManager {
 
     public void setDisturb(long j, int i, int i2, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), iStatusListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), iStatusListener}) == null) {
             IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, 3, i, i2);
             HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
         }
@@ -527,7 +608,7 @@ public class ShieldAndTopManager {
 
     public void setForbid(long j, long j2, int i, ISetForbidListener iSetForbidListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), iSetForbidListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), iSetForbidListener}) == null) {
             if (this.mContext == null) {
                 if (iSetForbidListener != null) {
                     iSetForbidListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, true, "");
@@ -542,7 +623,7 @@ public class ShieldAndTopManager {
 
     public void setMarkTop(long j, int i, int i2, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), iStatusListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), iStatusListener}) == null) {
             IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, 2, i, i2);
             HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
         }
@@ -551,7 +632,7 @@ public class ShieldAndTopManager {
     @Deprecated
     public void setShield(long j, int i, int i2, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), iStatusListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), iStatusListener}) == null) {
             IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, 1, i, i2);
             HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
         }
@@ -566,7 +647,7 @@ public class ShieldAndTopManager {
 
     public void requestSubbusinessContacterList(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048600, this, i, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048602, this, i, i2, str) == null) {
             IMGetShieldAndTopListRequest iMGetShieldAndTopListRequest = new IMGetShieldAndTopListRequest(this.mContext, str, i2, i);
             HttpHelper.executor(this.mContext, iMGetShieldAndTopListRequest, iMGetShieldAndTopListRequest);
         }
@@ -706,7 +787,7 @@ public class ShieldAndTopManager {
 
     public void onPaShieldResult(int i, String str, @NonNull ChatSession chatSession, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, chatSession, Integer.valueOf(i2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), str, chatSession, Integer.valueOf(i2), str2}) == null) {
             if (i == 0 && i2 == 6) {
                 TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, chatSession) { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.1
                     public static /* synthetic */ Interceptable $ic;
@@ -751,7 +832,7 @@ public class ShieldAndTopManager {
 
     public void onUserShieldResult(int i, String str, @NonNull ChatSession chatSession, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), str, chatSession, Integer.valueOf(i2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), str, chatSession, Integer.valueOf(i2), str2}) == null) {
             if (i == 0 && i2 == 6) {
                 TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, chatSession) { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.2
                     public static /* synthetic */ Interceptable $ic;
@@ -796,7 +877,7 @@ public class ShieldAndTopManager {
 
     public void requestDisturbAndRemind(long j, int i, int i2, int i3, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iStatusListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iStatusListener}) == null) {
             IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, i, i2, i3);
             HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
         }
@@ -804,16 +885,28 @@ public class ShieldAndTopManager {
 
     public void setShield(long j, int i, int i2, int i3, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iStatusListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iStatusListener}) == null) {
             IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, i, i2, i3);
             HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
+        }
+    }
+
+    public void onSendMsgPolicyResult(int i, String str, boolean z, long j, String str2, int i2, JSONObject jSONObject, JSONObject jSONObject2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), Long.valueOf(j), str2, Integer.valueOf(i2), jSONObject, jSONObject2}) == null) {
+            this.requestFinishFlag = true;
+            IIsAllowSendMsgListener iIsAllowSendMsgListener = (IIsAllowSendMsgListener) ListenerManager.getInstance().removeListener(str2);
+            if (iIsAllowSendMsgListener != null) {
+                LogUtils.d(TAG, "imsdk strMsg=" + str + " could_send=" + z + "  responseCode:" + i);
+                iIsAllowSendMsgListener.onIsAllowResult(i, str, j, z, i2, jSONObject, jSONObject2);
+            }
         }
     }
 
     public void onUserShieldAndTopResult(GetShieldAndTopResult getShieldAndTopResult, String str) {
         IGetShieldAndTopListener iGetShieldAndTopListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, getShieldAndTopResult, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048597, this, getShieldAndTopResult, str) == null) {
             if (getShieldAndTopResult != null && getShieldAndTopResult.getErrorCode() == 0) {
                 ChatSession chatSession = new ChatSession();
                 chatSession.setContacter(getShieldAndTopResult.getContacter());

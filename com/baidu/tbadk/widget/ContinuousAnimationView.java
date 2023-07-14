@@ -27,7 +27,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         }
     }
 
-    public final void G() {
+    public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
@@ -132,7 +132,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) {
                 return;
             }
-            this.a.G();
+            this.a.H();
             if (this.a.j) {
                 this.a.j = false;
             }

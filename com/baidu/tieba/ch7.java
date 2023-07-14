@@ -1,73 +1,100 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ch7 extends sd7<w66, CardViewHolder<s66>> {
+public class ch7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext l;
-    public s66 m;
+    public TbPageContext a;
+    public final View b;
+    public final RelativeLayout c;
+    public final EditText d;
+    public final ImageView e;
+    public final TextView f;
+    public final BdTypeListView g;
+    public final ImageView h;
+    public int i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ch7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public ch7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = null;
-        this.l = tbPageContext;
+        this.i = 3;
+        this.a = tbPageContext;
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d030f, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920c9);
+        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920cc);
+        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090f5a);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f4a);
+        this.d.setHint(R.string.obfuscated_res_0x7f0f1300);
+        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f49);
+        this.f = textView;
+        textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f03ce));
+        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f0920cd);
+        a();
+        b(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: G */
-    public CardViewHolder<s66> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            this.m = new s66(this.l);
-            return new CardViewHolder<>(this.m);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
+            layoutParams.height = yi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070420);
+            int g = yi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07041c);
+            layoutParams.rightMargin = g;
+            layoutParams.leftMargin = g;
+            int immersiveStickyBarHeight = UtilHelper.getImmersiveStickyBarHeight();
+            if (immersiveStickyBarHeight > 0) {
+                layoutParams.topMargin = immersiveStickyBarHeight;
+            }
+            this.c.setLayoutParams(layoutParams);
         }
-        return (CardViewHolder) invokeL.objValue;
     }
 
-    public View H(int i, View view2, ViewGroup viewGroup, w66 w66Var, CardViewHolder<s66> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w66Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(w66Var);
-            return view2;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.i == i) {
+            return;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.sd7, com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        H(i, view2, viewGroup, (w66) obj, (CardViewHolder) viewHolder);
-        return view2;
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+        SkinManager.setViewTextColor(this.f, R.color.CAM_X0302, 1);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (i == 2) {
+            this.d.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
+        } else {
+            this.d.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        }
+        SkinManager.setNavbarTitleColor(this.d, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        this.i = i;
     }
 }

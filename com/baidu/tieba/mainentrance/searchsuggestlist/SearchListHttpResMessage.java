@@ -13,7 +13,7 @@ import tbclient.Error;
 import tbclient.ForumInfo;
 import tbclient.SearchSug.DataRes;
 import tbclient.SearchSug.SearchSugResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SearchListHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

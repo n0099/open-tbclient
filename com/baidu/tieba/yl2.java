@@ -1,47 +1,73 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
-import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class yl2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
 
-    public static void a(ab2 ab2Var, cm2 cm2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, ab2Var, cm2Var) == null) && ab2Var != null && cm2Var != null) {
-            cm2Var.g(ab2Var);
-        }
-    }
-
-    public static String b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                String quote = JSONObject.quote(str3);
-                return str + "." + str2 + " = " + quote + ParamableElem.DIVIDE_PARAM;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948333930, "Lcom/baidu/tieba/yl2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return "";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948333930, "Lcom/baidu/tieba/yl2;");
+                return;
+            }
         }
-        return (String) invokeLLL.objValue;
+        c = fs1.a;
     }
 
-    public static String c(ab2 ab2Var) {
+    public yl2(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = str2;
+    }
+
+    public static yl2 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ab2Var)) == null) {
-            if (ab2Var.isWebView()) {
-                return ClearCacheUbcController.DOCUMENT;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return new yl2(jSONObject.optString("webviewid"), jSONObject.optString("message"));
+            } catch (JSONException e) {
+                if (c) {
+                    Log.e("SwanAppNativeMessage", "createEvent failed. " + Log.getStackTraceString(e));
+                    return null;
+                }
+                return null;
             }
-            return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
         }
-        return (String) invokeL.objValue;
+        return (yl2) invokeL.objValue;
     }
 }

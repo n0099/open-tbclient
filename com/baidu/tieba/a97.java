@@ -1,57 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class a97 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a b;
+public interface a97 {
+    void a(String str, Map<String, String> map);
 
-    /* loaded from: classes5.dex */
-    public interface a<T> {
-        void a(T t);
-    }
-
-    public abstract void a();
-
-    public abstract boolean b();
-
-    public abstract void c(Object obj);
-
-    public abstract void d();
-
-    public abstract void e();
-
-    public abstract boolean g(@NonNull String str);
-
-    public a97(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-    }
-
-    public void f(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
+    String getValue(String str, String str2);
 }

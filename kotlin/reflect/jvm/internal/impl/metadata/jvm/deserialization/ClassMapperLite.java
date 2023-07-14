@@ -14,7 +14,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.ranges.IntProgression;
 import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ClassMapperLite {
     public static final ClassMapperLite INSTANCE = new ClassMapperLite();
     public static final Map<String, String> map;

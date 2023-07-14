@@ -1,18 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class v33 implements Interceptor {
+public final class v33 extends u33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final boolean b;
+
+    @Override // com.baidu.tieba.u33
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "payinfo" : (String) invokeV.objValue;
+    }
 
     public v33() {
         Interceptable interceptable = $ic;
@@ -24,17 +32,40 @@ public class v33 implements Interceptor {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = "SwanAppPayCheckNode";
+    }
+
+    @Override // com.baidu.tieba.u33
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
+            Log.d(this.a, "onFail: ");
         }
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.u33
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            return chain.proceed(chain.request().newBuilder().header("User-Agent", SwanAppNetworkUtils.g()).build());
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
+            Log.d(this.a, "onFiltered: ");
         }
-        return (Response) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.u33
+    public void d(String str, JSONObject jSONObject, String str2) {
+        vb3 b0;
+        eg3 e0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, jSONObject, str2) == null) {
+            if (this.b) {
+                Log.d(this.a, "onUpdate: ");
+            }
+            if (jSONObject != null && (b0 = vb3.b0()) != null && (e0 = b0.e0()) != null) {
+                e0.B("note_data_pay_check_list", jSONObject.toString());
+            }
+        }
     }
 }

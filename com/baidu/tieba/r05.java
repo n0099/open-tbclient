@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.data.NewErrorData;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,19 +11,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class r05 {
     public static /* synthetic */ Interceptable $ic;
-    public static r05 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public boolean d;
-    public int e;
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-        }
-    }
+    public NetWork a;
+    public NewErrorData b;
 
     public r05() {
         Interceptable interceptable = $ic;
@@ -39,125 +28,69 @@ public class r05 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = null;
-        this.d = true;
-        this.e = 0;
+        this.a = null;
+        this.b = null;
+        this.a = new NetWork();
     }
 
-    public static r05 c() {
-        InterceptResult invokeV;
-        r05 r05Var;
+    public void b() {
+        NetWork netWork;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            r05 r05Var2 = f;
-            if (r05Var2 == null) {
-                synchronized (r05.class) {
-                    if (f == null) {
-                        f = new r05();
-                    }
-                    r05Var = f;
-                }
-                return r05Var;
-            }
-            return r05Var2;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (netWork = this.a) != null) {
+            netWork.cancelNetConnect();
         }
-        return (r05) invokeV.objValue;
     }
 
-    public String a() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getErrorString();
+            }
+            return null;
         }
         return (String) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            r95 p = r95.p();
-            int q = p.q(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
-            this.b = q;
-            return q;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int q = r95.p().q("image_quality", 0);
-            this.a = q;
-            return q;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
+            String postNetData = this.a.postNetData();
+            NewErrorData newErrorData = new NewErrorData();
+            this.b = newErrorData;
+            newErrorData.parserJson(postNetData);
+            return postNetData;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean g() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getResponse().isRequestSuccess();
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void f() {
+    public void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = r95.p().q("image_quality", 0);
-            r95.p().q("new_abstract_state", 0);
-            this.e = r95.p().q("view_image_quality", 0);
-            boolean l = r95.p().l("show_images", true);
-            this.d = l;
-            if (!l) {
-                this.d = true;
-                r95.p().Q("show_images");
-                r95.p().F("view_image_quality", 0);
-                this.e = 0;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.a.addPostData(str, str2);
         }
     }
 
-    public void h(String str) {
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.setUrl(str);
         }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || this.e == i) {
-            return;
-        }
-        this.e = i;
-        r95.p().F("view_image_quality", i);
-        TbImageHelper.getInstance().updateFrsShowBigImage();
-        TbImageHelper.getInstance().updateUrlQuality();
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.b == i) {
-            return;
-        }
-        this.b = i;
-        r95 p = r95.p();
-        p.F(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
     }
 }

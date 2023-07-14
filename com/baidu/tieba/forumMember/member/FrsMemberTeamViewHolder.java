@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -54,43 +54,43 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        int g = xi.g(BdBaseApplication.getInst().getApp(), R.dimen.obfuscated_res_0x7f070198);
+        int g = yi.g(BdBaseApplication.getInst().getApp(), R.dimen.obfuscated_res_0x7f070198);
         int color = SkinManager.getColor(R.color.black_alpha10);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09253d);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092571);
         this.a = textView;
         textView.setOnClickListener(onClickListener);
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916e2);
-        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091085);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09246a);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916f3);
+        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091096);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09249e);
         this.f.setIsRound(true);
         this.f.setBorderColor(color);
         this.f.setBorderWidth(g);
         this.f.setOnClickListener(onClickListener);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916e3);
-        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091086);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09246b);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916f4);
+        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091097);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09249f);
         this.g.setIsRound(true);
         this.g.setBorderColor(color);
         this.g.setBorderWidth(g);
         this.g.setOnClickListener(onClickListener);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916e4);
-        this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091087);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09246c);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916f5);
+        this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091098);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a0);
         this.h.setIsRound(true);
         this.h.setBorderColor(color);
         this.h.setBorderWidth(g);
         this.h.setOnClickListener(onClickListener);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916e5);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091088);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09246d);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916f6);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091099);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a1);
         this.i.setIsRound(true);
         this.i.setBorderColor(color);
         this.i.setBorderWidth(g);
         this.i.setOnClickListener(onClickListener);
-        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bd8);
+        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090be4);
     }
 
-    public void a(BawuRoleInfoPub bawuRoleInfoPub, int i) {
+    public void b(BawuRoleInfoPub bawuRoleInfoPub, int i) {
         String str;
         String str2;
         String str3;
@@ -157,7 +157,7 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void b(int i) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (this.f.getVisibility() == 0) {

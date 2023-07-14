@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetBackground.DataRes;
 import tbclient.GetBackground.GetBackgroundResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BackgroundGetSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

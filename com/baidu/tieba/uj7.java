@@ -1,124 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import java.util.List;
-import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
 /* loaded from: classes8.dex */
-public class uj7 {
+public class uj7 extends pj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xe<byte[]> a;
-    public c b;
-
-    /* loaded from: classes8.dex */
-    public interface c {
-        void a(List<ak7> list, List<xn> list2, boolean z);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends sx5<GameForumGuideTabResIdl> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ uj7 b;
-
-        public a(uj7 uj7Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uj7Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = uj7Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sx5
-        /* renamed from: a */
-        public GameForumGuideTabResIdl doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Wire wire = new Wire(new Class[0]);
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                xe xeVar = this.b.a;
-                byte[] bArr = (byte[]) xeVar.get(currentAccount + this.a);
-                if (bArr == null || bArr.length == 0) {
-                    return null;
-                }
-                try {
-                    return (GameForumGuideTabResIdl) wire.parseFrom(bArr, GameForumGuideTabResIdl.class);
-                } catch (IOException e) {
-                    BdLog.e(e);
-                    return null;
-                }
-            }
-            return (GameForumGuideTabResIdl) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements ww5<GameForumGuideTabResIdl> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uj7 a;
-
-        public b(uj7 uj7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uj7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uj7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ww5
-        /* renamed from: a */
-        public void onReturnDataInUI(GameForumGuideTabResIdl gameForumGuideTabResIdl) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, gameForumGuideTabResIdl) != null) || gameForumGuideTabResIdl == null) {
-                return;
-            }
-            List<ak7> a = tj7.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            List<xn> b = tj7.b(gameForumGuideTabResIdl.data.thread_list);
-            boolean z = true;
-            if (gameForumGuideTabResIdl.data.has_more.intValue() != 1) {
-                z = false;
-            }
-            if (this.a.b != null) {
-                this.a.b.a(a, b, z);
-            }
-        }
-    }
+    public int e;
+    public String f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
     public uj7() {
         Interceptable interceptable = $ic;
@@ -133,36 +27,7 @@ public class uj7 {
                 return;
             }
         }
-        this.a = null;
-        this.a = BdCacheService.n().b("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a != null && str != null) {
-            wx5.b(new a(this, str), new b(this));
-        }
-    }
-
-    public void e(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.b = cVar;
-        }
-    }
-
-    public void d(String str, byte[] bArr, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, z) == null) && str != null && str.length() > 0) {
-            if (z) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                xe<byte[]> xeVar = this.a;
-                xeVar.e(currentAccount + str, bArr, 604800000L);
-                return;
-            }
-            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-            xe<byte[]> xeVar2 = this.a;
-            xeVar2.i(currentAccount2 + str, bArr, 604800000L);
-        }
+        this.g = true;
+        this.i = true;
     }
 }

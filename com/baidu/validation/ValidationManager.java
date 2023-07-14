@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.validation.activity.ValidationActivity;
 import com.baidu.validation.callback.ValidationCallback;
 import com.baidu.validation.dto.ValidationDTO;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ValidationManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ValidationCallback mValidationCallback;
     public ValidationDTO mValidationDTO;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final ValidationManager a;

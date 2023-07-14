@@ -452,9 +452,9 @@ public class x2 extends t0 implements l2 {
     }
 
     @Override // com.baidu.tieba.l2
-    public void d0() {
+    public void c0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             k();
             Arrays.fill(this.q, -1);
             Arrays.fill(this.o, false);
@@ -482,7 +482,7 @@ public class x2 extends t0 implements l2 {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int length = this.q.length;
             for (int i = 0; i < length; i++) {
                 if (this.q[i] == -1) {

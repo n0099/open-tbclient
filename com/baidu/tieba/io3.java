@@ -1,32 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.app.Application;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
-import androidx.annotation.AnyThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.searchbox.ui.SystemBarTintManager;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.SwanRelayActivity;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.swan.apps.model.SwanTaskDeadEvent;
-import com.baidu.tieba.ax2;
-import com.baidu.tieba.zw2;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,109 +13,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class io3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static final boolean g;
-    public static volatile io3 h;
+    public static final boolean a;
+    public static List<String> b;
+    public static List<String> c;
+    public static final Object d;
+    public static int e;
+    public static int f;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ActivityManager a;
-    public List<ActivityManager.AppTask> b;
-    @Nullable
-    public ArrayList<Integer> c;
-    public final SparseIntArray d;
-    public final SparseArray<SwanTaskDeadEvent> e;
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zw2.a a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ io3 c;
+        public final boolean a;
 
-        public a(io3 io3Var, zw2.a aVar, int i) {
+        public a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {io3Var, aVar, Integer.valueOf(i)};
+                Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = io3Var;
-            this.a = aVar;
-            this.b = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.i();
-                zw2.a aVar = this.a;
-                if (aVar != null && "1202000800000000".equals(aVar.T())) {
-                    SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) this.a.m("key_stack_info");
-                    if (swanTaskDeadEvent != null) {
-                        this.c.c = swanTaskDeadEvent.getStackList();
-                        SparseArray<SwanTaskDeadEvent> historyCache = swanTaskDeadEvent.getHistoryCache();
-                        if (historyCache != null) {
-                            for (int i = 0; i < historyCache.size(); i++) {
-                                int keyAt = historyCache.keyAt(i);
-                                SwanTaskDeadEvent valueAt = historyCache.valueAt(i);
-                                if (valueAt != null && valueAt.getAppId() != null) {
-                                    this.c.e.put(keyAt, valueAt);
-                                    this.c.d.put(valueAt.getAppId().hashCode(), keyAt);
-                                }
-                            }
-                        }
-                        this.c.h(null, swanTaskDeadEvent.getTaskId(), this.b);
-                    }
-                    if (io3.f) {
-                        Log.d("SwanActivityTaskManager", "stack back: " + this.c.c);
-                        return;
-                    }
-                    return;
-                }
-                zw2.a aVar2 = this.a;
-                if (aVar2 != null) {
-                    this.c.h(aVar2.H(), -1, this.b);
-                }
-                io3 io3Var = this.c;
-                io3Var.c = io3Var.o();
-                if (io3.f) {
-                    Log.d("SwanActivityTaskManager", "getLaunchTask=" + this.c.c);
-                }
-            }
+            this.a = z;
         }
     }
 
@@ -153,427 +65,267 @@ public class io3 {
                 return;
             }
         }
-        f = ms1.a;
-        g = jo3.f();
+        a = fs1.a;
+        b = new ArrayList();
+        c = new ArrayList();
+        d = new Object();
+        e = 0;
+        f = 0;
     }
 
-    public static io3 m() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (h == null) {
-                synchronized (io3.class) {
-                    if (h == null) {
-                        h = new io3();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e()) {
+                if (a) {
+                    Log.d("SwanAppCompat", "has used ab description");
                 }
+                return true;
             }
-            return h;
+            return !jk3.a().getBoolean("swan_app_js_native_ab_update_key", false);
         }
-        return (io3) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void i() {
+    public static void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.clear();
-            this.d.clear();
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            if (a) {
+                Log.d("SwanAppCompat", "on App upgrade");
+            }
+            if (gj4.b() != null && co4.b()) {
+                gj4.b().i().putString("key_online_description_fix_version", "0");
+            }
+            jk3.a().putBoolean("swan_app_js_native_ab_update_key", true);
         }
     }
 
-    public io3() {
+    public static void j() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            if (a) {
+                Log.d("SwanAppCompat", "start release descriptions");
+            }
+            synchronized (d) {
+                e = 0;
+                b = new ArrayList();
+                c = new ArrayList();
             }
         }
-        this.d = new SparseIntArray();
-        this.e = new SparseArray<>();
-        Application c = jv2.c();
-        if (c != null) {
-            this.a = (ActivityManager) c.getSystemService("activity");
-        }
     }
 
-    public int p() {
-        InterceptResult invokeV;
-        ActivityManager activityManager;
+    public static void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (g && (activityManager = this.a) != null) {
-                try {
-                    return n(activityManager.getAppTasks().get(0));
-                } catch (Exception e) {
-                    if (f) {
-                        Log.e("SwanActivityTaskManager", "getTopTaskId", e);
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            if (a) {
+                Log.d("SwanAppCompat", "start prepare ab description");
             }
-            return -1;
+            synchronized (d) {
+                l(true);
+                l(false);
+            }
+            if (a) {
+                Log.d("SwanAppCompat", "end prepare ab description");
+            }
         }
-        return invokeV.intValue;
     }
 
-    public static void r(@NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65549, null, message) != null) || !j()) {
-            return;
-        }
-        m().A((Bundle) message.obj);
-    }
-
-    @RequiresApi(api = 21)
-    public final int n(ActivityManager.AppTask appTask) {
+    public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, appTask)) == null) {
-            if (appTask != null) {
-                try {
-                    ActivityManager.RecentTaskInfo taskInfo = appTask.getTaskInfo();
-                    if (taskInfo != null) {
-                        return taskInfo.id;
-                    }
-                    return -1;
-                } catch (Exception e) {
-                    if (f) {
-                        Log.e("SwanActivityTaskManager", "getTaskId", e);
-                        return -1;
-                    }
-                    return -1;
-                }
-            }
-            return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            v82.c("JsNative", f + "-true");
+            return f + "-true-" + str + "-" + c();
         }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public void y(@Nullable zw2.a aVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, aVar, i) == null) {
-            wo3.l(new a(this, aVar, i), "getLaunchTask");
-        }
-    }
-
-    public static void q(@NonNull Message message) {
-        ArrayList<Integer> arrayList;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65548, null, message) != null) || !j()) {
-            return;
-        }
-        io3 m = m();
-        Object obj = message.obj;
-        if (obj instanceof Bundle) {
-            Bundle bundle = (Bundle) obj;
-            bundle.setClassLoader(SwanTaskDeadEvent.class.getClassLoader());
-            SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) bundle.getParcelable("key_stack_info");
-            if (swanTaskDeadEvent != null && !TextUtils.isEmpty(swanTaskDeadEvent.getAppId())) {
-                if (ProcessUtils.isMainProcess() || ((arrayList = m.c) != null && arrayList.contains(Integer.valueOf(swanTaskDeadEvent.getTaskId())))) {
-                    m.d.put(swanTaskDeadEvent.getAppId().hashCode(), swanTaskDeadEvent.getTaskId());
-                    m.e.put(swanTaskDeadEvent.getTaskId(), swanTaskDeadEvent);
-                }
-            }
-        }
-    }
-
-    public final void A(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && bundle != null && this.c != null) {
-            String string = bundle.getString("app_id");
-            int i = bundle.getInt("key_task_id", -1);
-            if (!TextUtils.isEmpty(string)) {
-                int i2 = this.d.get(string.hashCode(), -1);
-                if (i2 > -1) {
-                    this.c.remove(Integer.valueOf(i2));
-                    this.d.delete(string.hashCode());
-                    this.e.remove(i2);
-                    if (f) {
-                        Log.d("SwanActivityTaskManager", "removeTaskFromCache: " + string + ", oldTask=" + i2);
-                    }
-                }
-                this.c.remove(Integer.valueOf(i));
-                return;
-            }
-            int i3 = bundle.getInt("key_task_id_old", -1);
-            if (i3 == -1) {
-                this.c.remove(Integer.valueOf(i));
-            } else {
-                int i4 = 0;
-                while (true) {
-                    if (i4 >= this.c.size()) {
-                        break;
-                    } else if (this.c.get(i4).intValue() == i3) {
-                        this.c.set(i4, Integer.valueOf(i));
-                        break;
-                    } else {
-                        i4++;
-                    }
-                }
-                SwanTaskDeadEvent swanTaskDeadEvent = this.e.get(i3);
-                if (swanTaskDeadEvent != null) {
-                    if (swanTaskDeadEvent.getAppId() != null) {
-                        this.d.delete(swanTaskDeadEvent.getAppId().hashCode());
-                    }
-                    this.e.remove(i3);
-                }
-            }
-            if (f) {
-                Log.d("SwanActivityTaskManager", "removeTaskFromCache nowTask=" + i + ", old=" + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.c);
-            }
-        }
-    }
-
-    public final void h(@Nullable String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, i2) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("key_task_id", i2);
-            bundle.putInt("key_task_id_old", i);
-            bundle.putString("app_id", str);
-            s83 e = s83.e();
-            u83 u83Var = new u83(123, bundle);
-            u83Var.f(true);
-            e.h(u83Var);
-        }
-    }
-
-    public boolean l(int i) {
-        InterceptResult invokeI;
-        ActivityManager activityManager;
-        List<ActivityManager.AppTask> appTasks;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (!j() || !g || (activityManager = this.a) == null || (appTasks = activityManager.getAppTasks()) == null) {
-                return false;
-            }
-            int i2 = 0;
-            for (ActivityManager.AppTask appTask : appTasks) {
-                if (i2 > 0 && n(appTask) == i) {
-                    appTask.finishAndRemoveTask();
-                    return true;
-                }
-                i2++;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public synchronized boolean v(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            synchronized (this) {
-                ArrayList<Integer> arrayList = this.c;
-                if (z) {
-                    arrayList = o();
-                }
-                if (arrayList != null && !arrayList.isEmpty() && this.a != null) {
-                    this.b = null;
-                    Iterator<Integer> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        if (u(it.next().intValue(), true, true)) {
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeZ.booleanValue;
-    }
-
-    @Nullable
-    public final ArrayList<Integer> o() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<Integer> arrayList = null;
-            if (!g) {
-                return null;
-            }
-            ActivityManager activityManager = this.a;
-            if (activityManager != null) {
-                List<ActivityManager.AppTask> appTasks = activityManager.getAppTasks();
-                int size = appTasks.size();
-                if (size < 2) {
-                    return null;
-                }
-                arrayList = new ArrayList<>(size - 1);
-                for (int i = 1; i < size; i++) {
-                    int n = n(appTasks.get(i));
-                    if (n != -1) {
-                        arrayList.add(Integer.valueOf(n));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            synchronized (d) {
+                if (b != null) {
+                    sb.append("v8list:{");
+                    for (String str : b) {
+                        if (!TextUtils.isEmpty(str)) {
+                            if (str.length() > 100) {
+                                sb.append(str.substring(0, 99));
+                                sb.append("...");
+                            } else {
+                                sb.append(str);
+                            }
+                            sb.append(ParamableElem.DIVIDE_PARAM);
+                        }
                     }
+                    sb.append("},");
+                }
+                if (c != null) {
+                    sb.append("weblist:{");
+                    for (String str2 : c) {
+                        if (!TextUtils.isEmpty(str2)) {
+                            if (str2.length() > 100) {
+                                sb.append(str2.substring(0, 99));
+                                sb.append("...");
+                            } else {
+                                sb.append(str2);
+                            }
+                            sb.append(ParamableElem.DIVIDE_PARAM);
+                        }
+                    }
+                    sb.append("}");
                 }
             }
-            return arrayList;
+            return sb.toString();
         }
-        return (ArrayList) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final boolean s(int i, boolean z) {
-        InterceptResult invokeCommon;
-        ActivityManager activityManager;
+    public static String d(int i, String str) {
+        InterceptResult invokeIL;
+        List<String> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (!g) {
-                return false;
-            }
-            List<ActivityManager.AppTask> list = this.b;
-            if ((!z || list == null) && (activityManager = this.a) != null) {
-                list = activityManager.getAppTasks();
-                if (z) {
-                    this.b = list;
-                }
-            }
-            if (list != null) {
-                for (ActivityManager.AppTask appTask : list) {
-                    if (i == n(appTask)) {
-                        return true;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
+            f = 0;
+            if (e == 1) {
+                v82.i("SwanAppCompat", "type support default");
+                f = 1;
+                return SchemeCollecter.getSchemesDes(str, i);
+            } else if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_WEB)) {
+                return SchemeCollecter.getSchemesDes(str, i);
+            } else {
+                if (a() && !jw2.b().isEmpty()) {
+                    synchronized (d) {
+                        if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_V8)) {
+                            list = b;
+                        } else {
+                            list = c;
+                        }
+                        if (list != null && list.size() > 0) {
+                            if (a) {
+                                Log.d("SwanAppCompat", "support ab js native descriptions");
+                            }
+                            e = 2;
+                            f = 2;
+                            return list.get(i);
+                        } else if (list != null) {
+                            f = 3;
+                        } else {
+                            f = 4;
+                        }
                     }
                 }
+                if (a) {
+                    Log.d("SwanAppCompat", "use default descriptions");
+                }
+                e = 1;
+                return SchemeCollecter.getSchemesDes(str, i);
+            }
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (e == 2) {
+                return true;
             }
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void z(@Nullable Intent intent, int i) {
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, intent, i) == null) {
-            ArrayList<Integer> o = o();
-            int i2 = -1;
-            if (!t(this.c, o)) {
-                i();
-                h(null, -1, i);
-            }
-            if (f) {
-                if (intent != null) {
-                    i2 = intent.getFlags();
-                }
-                Log.d("SwanActivityTaskManager", "onNewIntent: " + i + ", newTaskList=" + o + ", mLaunchTaskList=" + this.c + ", flag=" + i2);
-            }
-            this.c = o;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return !kp3.f("3.320.0");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return !kp3.f("3.120.2");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && a) {
+            Log.e("JsNative", f + "-true");
         }
     }
 
-    public final boolean t(List<Integer> list, List<Integer> list2) {
-        InterceptResult invokeLL;
+    public static void l(boolean z) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, list2)) == null) {
-            if (list == null || list2 == null || list.size() != list2.size()) {
-                return false;
-            }
-            for (int i = 0; i < list.size(); i++) {
-                if (!TextUtils.equals(String.valueOf(list.get(i)), String.valueOf(list2.get(i)))) {
-                    return false;
+        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
+            if (a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("start prepare ab description :");
+                if (z) {
+                    str = V8Engine.TYPE_V8;
+                } else {
+                    str = AlbumActivityConfig.FROM_WEB_VIEW;
                 }
+                sb.append(str);
+                Log.d("SwanAppCompat", sb.toString());
             }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @AnyThread
-    public synchronized boolean u(int i, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            synchronized (this) {
-                if (i > -1) {
-                    if (this.a != null) {
-                        if (s(i, z)) {
-                            if (f) {
-                                Log.i("SwanActivityTaskManager", "moveTaskToFront:" + i);
-                            }
-                            try {
-                                this.a.moveTaskToFront(i, 2, null);
-                                return true;
-                            } catch (Exception e) {
-                                c92.d("SwanActivityTaskManager", "moveTaskToFront", e);
-                            }
-                        } else if (this.e.indexOfKey(i) >= 0) {
-                            SwanTaskDeadEvent swanTaskDeadEvent = this.e.get(i);
-                            if (swanTaskDeadEvent != null) {
-                                ax2.a aVar = (ax2.a) ((ax2.a) ((ax2.a) new ax2.a().v0(swanTaskDeadEvent.getAppId())).R0(swanTaskDeadEvent.getPageScheme())).I0("1202000800000000");
-                                Bundle bundle = new Bundle();
-                                ArrayList<Integer> stackList = swanTaskDeadEvent.getStackList();
-                                if (stackList != null && !stackList.isEmpty()) {
-                                    SparseArray<SwanTaskDeadEvent> sparseArray = new SparseArray<>();
-                                    Iterator<Integer> it = stackList.iterator();
-                                    while (it.hasNext()) {
-                                        Integer next = it.next();
-                                        SwanTaskDeadEvent swanTaskDeadEvent2 = this.e.get(next.intValue(), null);
-                                        if (swanTaskDeadEvent2 != null) {
-                                            sparseArray.put(next.intValue(), swanTaskDeadEvent2);
-                                        }
-                                    }
-                                    swanTaskDeadEvent.setHistoryCache(sparseArray);
-                                }
-                                bundle.putParcelable("key_stack_info", swanTaskDeadEvent);
-                                SwanLauncher.j().n(aVar, bundle);
-                                if (f) {
-                                    Log.i("SwanActivityTaskManager", "launch dead app:" + swanTaskDeadEvent.getAppId());
-                                }
-                                return true;
-                            }
-                        } else if (f) {
-                            Log.d("SwanActivityTaskManager", "Not Found taskId:" + i + " cacheSize:" + this.e.size());
-                        }
-                        return false;
-                    }
+            gq3 gq3Var = new gq3(z);
+            String a2 = jw2.a();
+            String string = jk3.a().getString("swan_app_js_native_ab_sign", null);
+            if (!TextUtils.equals(a2, string)) {
+                if (a) {
+                    Log.w("SwanAppCompat", "js desc sign change: old=" + string + ", new=" + a2);
                 }
-                return false;
+                if (!gq3Var.a(3)) {
+                    return;
+                }
+                jk3.a().putString("swan_app_js_native_ab_sign", a2);
+            } else if (jk3.a().getBoolean("swan_app_js_native_ab_update_key", false)) {
+                if (!gq3Var.a(3)) {
+                    return;
+                }
+                jk3.a().putBoolean("swan_app_js_native_ab_update_key", false);
+            }
+            List<String> d2 = gq3Var.d();
+            if (d2 != null) {
+                m(d2, z);
             }
         }
-        return invokeCommon.booleanValue;
     }
 
-    public boolean w(@NonNull Context context, int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static void m(List<String> list, boolean z) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            try {
-                Intent intent = new Intent(context, SwanRelayActivity.class);
-                intent.putExtra("key_task_id", i);
-                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                PendingIntent.getActivity(context, 0, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).send();
-                return true;
-            } catch (Exception e) {
-                if (f) {
-                    Log.e("SwanActivityTaskManager", "moveTaskToFrontByActivity", e);
-                }
-                return u(i, z, false);
-            }
+        if ((interceptable != null && interceptable.invokeLZ(65549, null, list, z) != null) || list == null || e != 0) {
+            return;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public void x(@Nullable SwanAppActivity swanAppActivity) {
-        lb2 Y;
-        kb2 kb2Var;
-        d23 P1;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, swanAppActivity) == null) && j() && swanAppActivity != null && (Y = swanAppActivity.Y()) != null && (kb2Var = (kb2) Y.n(kb2.class)) != null && (P1 = kb2Var.P1()) != null) {
-            Bundle bundle = new Bundle();
-            String Q = swanAppActivity.Q();
-            int taskId = swanAppActivity.getTaskId();
-            bundle.putParcelable("key_stack_info", new SwanTaskDeadEvent(Q, taskId, P1.i() + "?" + P1.j(), this.c));
-            bundle.setClassLoader(SwanTaskDeadEvent.class.getClassLoader());
-            s83 e = s83.e();
-            u83 u83Var = new u83(124, bundle);
-            u83Var.f(true);
-            e.h(u83Var);
-            if (f) {
-                Log.d("SwanActivityTaskManager", "notify dead " + swanAppActivity.Q() + StringUtil.ARRAY_ELEMENT_SEPARATOR + swanAppActivity.getTaskId());
+        if (z) {
+            b = list;
+        } else {
+            c = list;
+        }
+        if (a) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("has update descriptions, list :");
+            sb.append(list.toString());
+            sb.append(" type :");
+            if (z) {
+                str = V8Engine.TYPE_V8;
+            } else {
+                str = AlbumActivityConfig.FROM_WEB_VIEW;
             }
+            sb.append(str);
+            Log.d("SwanAppCompat", sb.toString());
         }
     }
 }

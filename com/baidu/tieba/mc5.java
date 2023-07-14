@@ -1,37 +1,47 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class mc5 {
+/* loaded from: classes7.dex */
+public abstract class mc5<T extends yn, V extends BdBaseViewPagerAdapter.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tc5 a;
-    public int b;
-    public long c;
-    public long d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public String i;
-    public boolean j;
-    public String k;
-    public String l;
+    public Context a;
+    public a<T, V> b;
+    public BdUniqueId c;
 
-    public mc5() {
+    /* loaded from: classes7.dex */
+    public interface a<T extends yn, V extends BdBaseViewPagerAdapter.a> {
+        void a(V v, T t);
+    }
+
+    public abstract V b(ViewGroup viewGroup);
+
+    public void c(V v, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v, t) == null) {
+        }
+    }
+
+    public abstract View d(ViewGroup viewGroup, V v, T t);
+
+    public mc5(Context context, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,125 +51,32 @@ public class mc5 {
                 return;
             }
         }
-        this.e = 0;
-        this.f = 0;
-        this.g = 300;
-        this.h = 1;
-        this.a = new tc5();
+        this.a = context;
+        this.c = bdUniqueId;
     }
 
-    public tc5 a() {
+    public a<T, V> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return (tc5) invokeV.objValue;
+        return (a) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.e == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b != 1) {
-                return false;
-            }
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.c >= currentTimeMillis || currentTimeMillis >= this.d) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f == 1) {
-                return true;
-            }
-            return false;
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void g(JSONObject jSONObject) throws JSONException {
+    public void e(a<T, V> aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.b = aVar;
         }
-        boolean z = true;
-        jSONObject.optInt("als_control", 1);
-        jSONObject.optInt("not_use_lego_patch", 0);
-        jSONObject.optInt("ad_video_not_autoplay", 1);
-        this.f = jSONObject.optInt("lp_video_not_autoplay", 0);
-        this.a.a(jSONObject);
-        JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
-        if (optJSONObject != null) {
-            this.b = optJSONObject.optInt("log_feed_switch", 0);
-            this.c = optJSONObject.optLong("start_time", -1L);
-            this.d = optJSONObject.optLong("end_time", -1L);
-            optJSONObject.optString(MigrateStatisticUtils.EXT_INFO);
-        }
-        this.e = jSONObject.optInt("ad_collect_switch", 0);
-        JSONObject optJSONObject2 = jSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
-        if (optJSONObject2 != null) {
-            this.g = optJSONObject2.optInt("interval", 300);
-        }
-        this.h = jSONObject.optInt("video_page_style", 1);
-        r95.p().F("video_page_style", this.h);
-        jSONObject.optInt("ad_download_lib", 0);
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("action_control");
-        if (optJSONObject3 != null) {
-            this.i = optJSONObject3.optString("url");
-            optJSONObject3.optString("name");
-            optJSONObject3.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-            optJSONObject3.optString("text_color_pressed");
-        }
-        if (jSONObject.optInt("afd_jump_pb") != 1) {
-            z = false;
-        }
-        this.j = z;
-        this.k = jSONObject.optString("afd_eid");
-        JSONObject optJSONObject4 = jSONObject.optJSONObject("iadex_sniff_list_url");
-        if (optJSONObject4 != null) {
-            String optString = optJSONObject4.optString("os_type2_iadex_url");
-            this.l = optString;
-            fw5.h(optString);
-            return;
-        }
-        fw5.h(null);
     }
 }

@@ -1,119 +1,204 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.URLUtil;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.download.model.Downloads;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.text.Editable;
+import android.text.Html;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.xml.sax.Attributes;
+import org.xml.sax.ContentHandler;
+import org.xml.sax.Locator;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
 /* loaded from: classes8.dex */
-public class yl6 {
+public class yl6 implements Html.TagHandler, ContentHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public XMLReader a;
+    public ContentHandler b;
+    public int c;
+    public final boolean d;
+    public final Map<String, wl6> e;
 
-    public static Set<ql6> a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public yl6(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            HashSet hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject(PrefetchEvent.MODULE);
-            if (optJSONObject == null) {
-                return hashSet;
-            }
-            Iterator<String> keys = optJSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                if (optJSONObject2 != null) {
-                    String str = null;
-                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("since");
-                    if (optJSONObject3 != null) {
-                        str = optJSONObject3.optString("android", "");
-                    }
-                    if (TextUtils.isEmpty(str)) {
-                        str = com.kuaishou.weapon.p0.q1.e;
-                    }
-                    ql6 ql6Var = new ql6(next, optJSONObject2.optString("method", "GET"), str);
-                    JSONObject optJSONObject4 = optJSONObject2.optJSONObject(Downloads.Impl.RequestHeaders.URI_SEGMENT);
-                    if (optJSONObject4 != null) {
-                        Iterator<String> keys2 = optJSONObject4.keys();
-                        while (keys2.hasNext()) {
-                            String next2 = keys2.next();
-                            if (!TextUtils.isEmpty(next2)) {
-                                ql6Var.a(next2, optJSONObject4.optString(next2));
-                            }
-                        }
-                    }
-                    hashSet.add(ql6Var);
-                }
-            }
-            return hashSet;
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    public static void b(String str) {
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            pl6.c().b();
-            try {
-                jSONArray = new JSONArray(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONArray = null;
-            }
-            if (tm6.c(jSONArray)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    String optString = optJSONObject.optString("url", "");
-                    if (!TextUtils.isEmpty(optString)) {
-                        Set<ql6> a = a(optJSONObject);
-                        ol6 ol6Var = new ol6();
-                        if (!tm6.a(a)) {
-                            ol6Var.a = a;
-                            ol6Var.d = optString;
-                            pl6.c().a(optString, ol6Var);
-                        } else {
-                            pl6.c().a(optString, ol6Var);
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
+        }
+        this.e = new HashMap();
+        this.d = z;
+    }
+
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!this.e.containsKey(str) || this.e.get(str) == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void endPrefixMapping(String str) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b.endPrefixMapping(str);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void setDocumentLocator(Locator locator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, locator) == null) {
+            this.b.setDocumentLocator(locator);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void skippedEntity(String str) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.b.skippedEntity(str);
+        }
+    }
+
+    public final void b(String str, XMLReader xMLReader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, xMLReader) == null) {
+            if (a(str)) {
+                this.c--;
+            }
+            if (this.c == 0) {
+                this.a.setContentHandler(this.b);
+                this.a = null;
+                this.b = null;
             }
         }
     }
 
-    @Nullable
-    public static List<Pair<String, Long>> c(@NonNull String str) {
-        InterceptResult invokeL;
+    public void c(String str, wl6 wl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            dn6 dn6Var = (dn6) ServiceManager.getService(dn6.a);
-            if (dn6Var != null && URLUtil.isNetworkUrl(str)) {
-                return dn6Var.a(str);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, wl6Var) == null) {
+            this.e.put(str.toLowerCase(), wl6Var);
         }
-        return (List) invokeL.objValue;
+    }
+
+    public final void d(String str, XMLReader xMLReader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, xMLReader) == null) {
+            if (a(str)) {
+                this.c++;
+            }
+            if (this.b == null) {
+                this.b = xMLReader.getContentHandler();
+                this.a = xMLReader;
+                xMLReader.setContentHandler(this);
+            }
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void processingInstruction(String str, String str2) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
+            this.b.processingInstruction(str, str2);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void startPrefixMapping(String str, String str2) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
+            this.b.startPrefixMapping(str, str2);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void characters(char[] cArr, int i, int i2) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i, i2) == null) {
+            this.b.characters(cArr, i, i2);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void ignorableWhitespace(char[] cArr, int i, int i2) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, cArr, i, i2) == null) {
+            this.b.ignorableWhitespace(cArr, i, i2);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void endDocument() throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.endDocument();
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void startDocument() throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.b.startDocument();
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void endElement(String str, String str2, String str3) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
+            String lowerCase = str2.toLowerCase();
+            if (lowerCase.equalsIgnoreCase("head")) {
+                handleTag(false, lowerCase, null, this.a);
+            } else if (a(lowerCase)) {
+                this.e.get(lowerCase).a(this.d, lowerCase);
+            }
+        }
+    }
+
+    @Override // android.text.Html.TagHandler
+    public void handleTag(boolean z, String str, Editable editable, XMLReader xMLReader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), str, editable, xMLReader}) == null) {
+            if (z) {
+                d(str.toLowerCase(), xMLReader);
+            } else {
+                b(str.toLowerCase(), xMLReader);
+            }
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void startElement(String str, String str2, String str3, Attributes attributes) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, str3, attributes) == null) {
+            String lowerCase = str2.toLowerCase();
+            if (lowerCase.equalsIgnoreCase("head")) {
+                handleTag(true, lowerCase, null, this.a);
+            } else if (a(lowerCase)) {
+                this.e.get(lowerCase).b(this.d, lowerCase, attributes);
+            }
+        }
     }
 }

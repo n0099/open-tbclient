@@ -1,20 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.SharedPreferences;
+import android.os.RemoteException;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.tieba.q3b;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tieba.u2b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,22 +16,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.Flow;
+import com.baidu.ubc.IRemoteUBCService;
+import com.baidu.ubc.Slot;
+import com.baidu.ubc.UBC;
+import com.baidu.ubc.UBCManager;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.Locale;
+import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s3b extends SQLiteOpenHelper {
+public class s3b implements UBCManager {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static s3b c;
-    public static ReentrantLock d;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ReentrantReadWriteLock a;
+    public String a;
+    public String b;
 
     static {
         InterceptResult invokeClinit;
@@ -52,453 +48,677 @@ public class s3b extends SQLiteOpenHelper {
                 return;
             }
         }
-        b = AppConfig.isDebug();
-        c = null;
-        d = new ReentrantLock();
+        c = m3b.m();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s3b(Context context) {
-        super(context, "voyager.db", (SQLiteDatabase.CursorFactory) null, 1);
+    public s3b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ReentrantReadWriteLock(true);
+        this.a = "";
+        this.b = "";
     }
 
-    public static s3b f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (c == null) {
-                d.lock();
-                if (c == null) {
-                    c = new s3b(context);
-                }
-                d.unlock();
-            }
-            return c;
-        }
-        return (s3b) invokeL.objValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onConfigure(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.enableWriteAheadLogging();
-            super.onConfigure(sQLiteDatabase);
-        }
-    }
-
-    public boolean a() {
+    public final IRemoteUBCService a() throws RemoteException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.a.writeLock().lock();
-            try {
-                try {
-                    SQLiteDatabase writableDatabase = getWritableDatabase();
-                    writableDatabase.beginTransactionNonExclusive();
-                    try {
-                        long delete = writableDatabase.delete(DownloadStatisticConstants.UBC_VALUE_TASK, null, null);
-                        if (b) {
-                            Log.d("VoyagerDBHelper", "clear task data from table task, count = " + delete);
-                        }
-                        writableDatabase.setTransactionSuccessful();
-                        return true;
-                    } finally {
-                        writableDatabase.endTransaction();
-                    }
-                } catch (SQLException e) {
-                    if (b) {
-                        e.printStackTrace();
-                    }
-                    this.a.writeLock().unlock();
-                    return false;
-                }
-            } finally {
-                this.a.writeLock().unlock();
+            return UBC.getProxy();
+        }
+        return (IRemoteUBCService) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void flush() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            if (c) {
+                Log.d("UBCServiceManager", "flush");
             }
+            o2b.w().v();
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public boolean isUBCDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            if (c) {
+                return PreferenceManager.getDefaultSharedPreferences(m3b.b()).getBoolean("KEY_UBC_DEBUG", c);
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x007e A[Catch: all -> 0x009b, SQLException -> 0x009d, Merged into TryCatch #2 {all -> 0x009b, SQLException -> 0x009d, blocks: (B:5:0x0010, B:16:0x007e, B:17:0x0081, B:25:0x0094, B:26:0x0097, B:27:0x009a, B:31:0x009e, B:33:0x00a2), top: B:45:0x0010 }, TRY_ENTER] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c() {
+    @Override // com.baidu.ubc.UBCManager
+    public boolean isUBCSample() {
         InterceptResult invokeV;
-        Cursor cursor;
-        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.a.writeLock().lock();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            if (c) {
+                return PreferenceManager.getDefaultSharedPreferences(m3b.b()).getBoolean("KEY_UBC_SAMPLE", false);
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void upload() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+            if (c) {
+                Log.d("UBCServiceManager", "upload all data");
+            }
+            o2b.w().O();
+            o2b.w().K();
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void uploadFailedData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            if (c) {
+                Log.d("UBCServiceManager", "uploadFailedData and quality data");
+            }
+            o2b.w().E();
+            o2b.w().L();
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void uploadLocalDatas() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+            if (el1.g()) {
+                o2b.w().W();
+                return;
+            }
             try {
-                SQLiteDatabase writableDatabase = getWritableDatabase();
-                writableDatabase.beginTransactionNonExclusive();
-                try {
-                    cursor = writableDatabase.rawQuery("SELECT * FROM " + DownloadStatisticConstants.UBC_VALUE_TASK + " ORDER BY timestamp LIMIT 1", null);
-                    if (cursor != null) {
-                        try {
-                            if (cursor.getCount() > 0) {
-                                cursor.moveToFirst();
-                                string = cursor.getString(cursor.getColumnIndex("task_id"));
-                                long delete = writableDatabase.delete(DownloadStatisticConstants.UBC_VALUE_TASK, "task_id =? ", new String[]{string});
-                                if (b) {
-                                    Log.d("VoyagerDBHelper", "delete task data count: " + delete);
-                                }
-                                writableDatabase.setTransactionSuccessful();
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                writableDatabase.endTransaction();
-                                return string;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            writableDatabase.endTransaction();
-                            throw th;
-                        }
-                    }
-                    string = null;
-                    writableDatabase.setTransactionSuccessful();
-                    if (cursor != null) {
-                    }
-                    writableDatabase.endTransaction();
-                    return string;
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor = null;
+                UBC.getProxy().uploadLocalDatas();
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final Flow b(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        Flow ubcBeginFlowWithBizInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i)) == null) {
+            Flow flow = null;
+            try {
+                if (TextUtils.isEmpty(this.a)) {
+                    ubcBeginFlowWithBizInfo = a().ubcBeginFlow(str, str2, i);
+                } else {
+                    ubcBeginFlowWithBizInfo = a().ubcBeginFlowWithBizInfo(str, str2, i, this.a);
                 }
-            } catch (SQLException e) {
-                if (b) {
+                flow = ubcBeginFlowWithBizInfo;
+                if (c) {
+                    Log.d("UBCServiceManager", "flow id " + str + " beginFlow  process name " + el1.b() + "flow hashCode " + flow.hashCode() + " handle id " + flow.getHandle());
+                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+            if (flow == null) {
+                return new Flow();
+            }
+            return flow;
+        }
+        return (Flow) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public Flow beginFlow(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, str, str2, i)) == null) {
+            if (el1.g()) {
+                if (TextUtils.isEmpty(str)) {
+                    if (!c) {
+                        return null;
+                    }
+                    throw new IllegalArgumentException("UBC beginFlow#flowId must not be null.");
+                }
+                if (c) {
+                    Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + str2);
+                }
+                if (TextUtils.isEmpty(this.a)) {
+                    return o2b.w().o(str, str2, i);
+                }
+                return o2b.w().p(str, str2, i, this.b);
+            }
+            return b(str, str2, i);
+        }
+        return (Flow) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void flowAddEvent(Flow flow, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, flow, str, str2) == null) {
+            if (c) {
+                Log.d("UBCServiceManager", " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid());
+            }
+            if (flow != null && flow.getValid()) {
+                if (el1.g()) {
+                    o2b.w().F(flow.getId(), str, flow.getHandle(), str2, flow.getOption());
+                    return;
+                }
+                try {
+                    UBC.getProxy().flowAddEvent(flow, str, str2);
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
-                return null;
-            } finally {
-                this.a.writeLock().unlock();
             }
-        } else {
-            return (String) invokeV.objValue;
         }
     }
 
-    public final ContentValues d(q3b q3bVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.ubc.UBCManager
+    public void onEvent(String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q3bVar)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("task_id", q3bVar.j());
-            contentValues.put("timestamp", Long.valueOf(q3bVar.i()));
-            contentValues.put("biz_type", q3bVar.a());
-            contentValues.put("file_list", q3bVar.g().toString());
-            if (!q3bVar.l()) {
-                contentValues.put("zip_src", (Integer) 0);
-            } else {
-                contentValues.put("zip_src", (Integer) 1);
+        if (interceptable == null || interceptable.invokeLLI(1048603, this, str, str2, i) == null) {
+            if (el1.g()) {
+                if (TextUtils.isEmpty(str)) {
+                    if (!c) {
+                        return;
+                    }
+                    throw new IllegalArgumentException("UBC onEvent#eventId must not be null.");
+                }
+                if (c) {
+                    Log.d("UBCServiceManager", "on event id:" + str + " value:" + str2);
+                }
+                if (TextUtils.isEmpty(this.a)) {
+                    o2b.w().A(str, str2, i);
+                    return;
+                } else {
+                    o2b.w().B(str, str2, i, this.b);
+                    return;
+                }
             }
-            contentValues.put("priority", Integer.valueOf(q3bVar.h()));
-            contentValues.put("upload_count", Integer.valueOf(q3bVar.k()));
-            contentValues.put("network_type", Integer.valueOf(q3bVar.f()));
-            JSONObject jSONObject = new JSONObject();
             try {
-                JSONObject b2 = q3bVar.b();
-                if (b2 != null) {
-                    jSONObject.put(MigrateStatisticUtils.EXT_INFO, b2);
+                IRemoteUBCService a = a();
+                if (TextUtils.isEmpty(this.a)) {
+                    a.ubcOnEvent(str, str2, i);
+                } else {
+                    a.ubcOnEventWithBizInfo(str, str2, i, this.a);
                 }
-                JSONObject c2 = q3bVar.c();
-                if (c2 != null) {
-                    jSONObject.put("file_meta", c2);
-                }
-                jSONObject.put("max_zip_size", q3bVar.e());
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
-            if (jSONObject.length() > 0) {
-                contentValues.put("extend", jSONObject.toString());
-            }
-            return contentValues;
         }
-        return (ContentValues) invokeL.objValue;
     }
 
-    public boolean h(q3b q3bVar) {
+    @Override // com.baidu.ubc.UBCManager
+    public final Flow beginFlow(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, q3bVar)) == null) {
-            if (q3bVar != null && !TextUtils.isEmpty(q3bVar.j()) && !TextUtils.isEmpty(q3bVar.a())) {
-                this.a.writeLock().lock();
-                try {
-                    ContentValues d2 = d(q3bVar);
-                    SQLiteDatabase writableDatabase = getWritableDatabase();
-                    writableDatabase.beginTransactionNonExclusive();
-                    try {
-                        long insert = writableDatabase.insert(DownloadStatisticConstants.UBC_VALUE_TASK, null, d2);
-                        if (b) {
-                            Log.d("VoyagerDBHelper", "insert task data into table task, rowId = " + insert);
-                        }
-                        writableDatabase.setTransactionSuccessful();
-                        return true;
-                    } finally {
-                        writableDatabase.endTransaction();
-                    }
-                } catch (SQLException e) {
-                    if (b) {
-                        e.printStackTrace();
-                    }
-                    return false;
-                } finally {
-                    this.a.writeLock().unlock();
-                }
-            }
-            if (b) {
-                Log.d("VoyagerDBHelper", "insert task data : task id should not null");
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return beginFlow(str, "", 0);
         }
-        return invokeL.booleanValue;
+        return (Flow) invokeL.objValue;
     }
 
-    public final String e(ArrayList<String> arrayList) {
+    @Override // com.baidu.ubc.UBCManager
+    @Deprecated
+    public String getUploadType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayList)) == null) {
-            StringBuilder sb = new StringBuilder();
-            Iterator<String> it = arrayList.iterator();
-            int i = 0;
-            while (it.hasNext()) {
-                String next = it.next();
-                if (i > 0) {
-                    sb.append(",");
-                }
-                sb.append(next);
-                i++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
+            if (el1.g()) {
+                return o2b.w().x(str);
             }
-            return sb.toString();
+            try {
+                return UBC.getProxy().getUploadType(str);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+                return "";
+            }
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+    @Override // com.baidu.ubc.UBCManager
+    public final void onEvent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
-            if (b) {
-                Log.i("VoyagerDBHelper", "Creating database voyager.db version: 1");
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            onEvent(str, "", 0);
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void registerConfig(h3b h3bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, h3bVar) == null) {
+            registerConfig(h3bVar, false, null);
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void setUBCDebug(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
+            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(m3b.b()).edit();
+            edit.putBoolean("KEY_UBC_DEBUG", z);
+            edit.commit();
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void setUBCSample(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(m3b.b()).edit();
+            edit.putBoolean("KEY_UBC_SAMPLE", z);
+            edit.commit();
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public final Flow beginFlow(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
+            return beginFlow(str, "", i);
+        }
+        return (Flow) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void flowAddEvent(Flow flow, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, flow, str) == null) {
+            flowAddEvent(flow, str, null);
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public final void onEvent(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048601, this, str, i) == null) {
+            onEvent(str, "", i);
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public final Flow beginFlow(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            return beginFlow(str, str2, 0);
+        }
+        return (Flow) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public final void onEvent(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048602, this, str, str2) == null) {
+            onEvent(str, str2, 0);
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public final Flow beginFlow(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, map)) == null) {
+            return beginFlow(str, map, 0);
+        }
+        return (Flow) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public final void onEvent(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048604, this, str, map) == null) {
+            onEvent(str, map, 0);
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public final Flow beginFlow(String str, Map<String, String> map, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, str, map, i)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+            } catch (JSONException e) {
+                if (c) {
+                    Log.d("UBCServiceManager", "UBC beginFlow# exception:" + e.getMessage());
+                }
+            }
+            return beginFlow(str, jSONObject.toString(), i);
+        }
+        return (Flow) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public final void onEvent(String str, Map<String, String> map, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048605, this, str, map, i) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+            } catch (JSONException e) {
+                if (c) {
+                    Log.d("UBCServiceManager", "UBC onEvent# exception:" + e.getMessage());
+                }
+            }
+            onEvent(str, jSONObject.toString(), i);
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public final Flow beginFlow(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, jSONObject)) == null) {
+            return beginFlow(str, jSONObject, 0);
+        }
+        return (Flow) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public final void onEvent(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048606, this, str, jSONObject) == null) {
+            onEvent(str, jSONObject, 0);
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public Flow beginFlow(String str, JSONObject jSONObject, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, str, jSONObject, i)) == null) {
+            if (el1.g()) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                if (c) {
+                    Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + jSONObject);
+                }
+                if (TextUtils.isEmpty(this.a)) {
+                    return o2b.w().q(str, jSONObject, i);
+                }
+                return o2b.w().r(str, jSONObject, i, this.b);
+            }
+            return b(str, jSONObject.toString(), i);
+        }
+        return (Flow) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void onEvent(String str, JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048607, this, str, jSONObject, i) == null) {
+            if (el1.g()) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (c) {
+                    Log.d("UBCServiceManager", "on event id:" + str + " value:" + jSONObject.toString());
+                }
+                if (TextUtils.isEmpty(this.a)) {
+                    o2b.w().C(str, jSONObject, i);
+                    return;
+                } else {
+                    o2b.w().D(str, jSONObject, i, this.b);
+                    return;
+                }
             }
             try {
-                sQLiteDatabase.execSQL("CREATE TABLE task (_id INTEGER PRIMARY KEY AUTOINCREMENT,task_id TEXT,timestamp LONG,biz_type TEXT,file_list TEXT,zip_src INTEGER,priority INTEGER,upload_count INTEGER,network_type INTEGER,extend TEXT,reserve1 TEXT);");
-            } catch (Exception e) {
-                if (b) {
-                    Log.w("VoyagerDBHelper", "Error while creating db: " + e.toString());
+                IRemoteUBCService a = a();
+                if (TextUtils.isEmpty(this.a)) {
+                    a.ubcOnEvent(str, jSONObject.toString(), i);
+                } else {
+                    a.ubcOnEventWithBizInfo(str, jSONObject.toString(), i, this.a);
+                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void flowAddEventWithDate(Flow flow, String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) {
+            if (c) {
+                Log.d("UBCServiceManager", " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid());
+            }
+            if (flow != null && flow.getValid()) {
+                if (el1.g()) {
+                    o2b.w().G(flow.getId(), str, flow.getHandle(), str2, j, flow.getOption());
+                    return;
+                }
+                try {
+                    UBC.getProxy().flowAddEventWithTime(flow, str, str2, j);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0140 A[LOOP:0: B:12:0x003a->B:47:0x0140, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x014c A[Catch: all -> 0x0185, SQLException -> 0x0187, TRY_ENTER, TryCatch #0 {SQLException -> 0x0187, blocks: (B:5:0x0011, B:52:0x014c, B:53:0x014f, B:57:0x015f, B:60:0x0181, B:61:0x0184), top: B:75:0x0011, outer: #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0155 A[DONT_GENERATE] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x015f A[Catch: all -> 0x0185, SQLException -> 0x0187, TRY_ENTER, TryCatch #0 {SQLException -> 0x0187, blocks: (B:5:0x0011, B:52:0x014c, B:53:0x014f, B:57:0x015f, B:60:0x0181, B:61:0x0184), top: B:75:0x0011, outer: #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x014a A[EDGE_INSN: B:83:0x014a->B:51:0x014a ?: BREAK  , SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void g(@NonNull ArrayList<String> arrayList, @NonNull LinkedList<q3b> linkedList) {
-        SQLiteDatabase writableDatabase;
-        Cursor cursor;
-        long j;
-        ArrayList<String> arrayList2;
+    @Override // com.baidu.ubc.UBCManager
+    public void flowCancel(Flow flow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, arrayList, linkedList) == null) {
-            this.a.writeLock().lock();
-            try {
+        if (interceptable == null || interceptable.invokeL(1048589, this, flow) == null) {
+            if (c) {
+                Log.d("UBCServiceManager", "cancel flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid());
+            }
+            if (flow != null && flow.getValid()) {
+                if (m3b.i().l() && flow.hasEnd()) {
+                    if (c) {
+                        Log.d("UBCServiceManager", "flow has end, should not end again!!! ubc id=" + flow.getId() + ", flow handle=" + flow.getHandle());
+                        return;
+                    }
+                    return;
+                }
+                flow.markEnd();
+                if (el1.g()) {
+                    o2b.w().s(flow.getId(), flow.getHandle());
+                    return;
+                }
                 try {
-                    writableDatabase = getWritableDatabase();
-                    cursor = null;
-                } catch (SQLException e) {
-                    if (b) {
+                    UBC.getProxy().flowCancel(flow);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void flowEnd(Flow flow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, flow) == null) {
+            if (c) {
+                Log.d("UBCServiceManager", "end flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid());
+            }
+            if (flow != null && flow.getValid()) {
+                if (m3b.i().l() && flow.hasEnd()) {
+                    if (c) {
+                        Log.d("UBCServiceManager", "flow has end, should not end again!!! ubc id=" + flow.getId() + ", flow handle=" + flow.getHandle());
+                        return;
+                    }
+                    return;
+                }
+                flow.markEnd();
+                if (el1.g()) {
+                    JSONArray jSONArray = new JSONArray();
+                    if (flow.getSlotMaps() != null && (r1 = flow.getSlotMaps().entrySet().iterator()) != null) {
+                        for (Map.Entry<String, Slot> entry : flow.getSlotMaps().entrySet()) {
+                            Slot value = entry.getValue();
+                            if (value.isBegin() && !value.isEnded()) {
+                                value.setEnd(System.currentTimeMillis());
+                            }
+                            JSONObject jSONObject = entry.getValue().getJSONObject();
+                            if (jSONObject != null) {
+                                jSONArray.put(jSONObject);
+                            }
+                        }
+                    }
+                    o2b.w().u(flow.getId(), flow.getHandle(), flow.getOption(), jSONArray);
+                    return;
+                }
+                try {
+                    UBC.getProxy().flowEnd(flow);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void flowEndSlot(Flow flow, String str) {
+        Slot slot;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048591, this, flow, str) == null) && flow != null && flow.getValid() && !TextUtils.isEmpty(str) && (slot = flow.getSlotMaps().get(str)) != null && slot.isBegin() && !slot.isEnded()) {
+            slot.setEnd(System.currentTimeMillis());
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void flowSetValue(Flow flow, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, flow, str) == null) {
+            if (c) {
+                Log.d("UBCServiceManager", " flow setValue, mId:" + flow.getId() + " handle" + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid());
+            }
+            if (flow != null && flow.getValid()) {
+                if (el1.g()) {
+                    o2b.w().N(flow.getId(), flow.getHandle(), str);
+                    return;
+                }
+                try {
+                    UBC.getProxy().flowSetValue(flow, str);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void flowSetValue(Flow flow, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048593, this, flow, map) == null) && flow != null && flow.getValid()) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+            } catch (JSONException e) {
+                if (c) {
+                    Log.d("UBCServiceManager", "UBC beginFlow# exception:" + e.getMessage());
+                }
+            }
+            if (c) {
+                Log.d("UBCServiceManager", " flow setValue, mId:" + flow.getId() + " handle" + flow.getHandle() + " value:" + jSONObject.toString());
+            }
+            flowSetValue(flow, jSONObject.toString());
+        }
+    }
+
+    @Override // com.baidu.ubc.UBCManager
+    public void flowSetValueWithDuration(Flow flow, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048594, this, flow, str) == null) {
+            if (c) {
+                Log.d("UBCServiceManager", " flow setValueWithDuration, mId:" + flow.getId() + " handle: " + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid());
+            }
+            if (flow != null && flow.getValid()) {
+                if (el1.g()) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        float currentTimeMillis = ((float) (System.currentTimeMillis() - flow.getStartTime())) / 1000.0f;
+                        if (currentTimeMillis < 0.0f) {
+                            currentTimeMillis = 0.0f;
+                        }
+                        jSONObject.put("duration", String.format(Locale.ENGLISH, "%.3f", Float.valueOf(currentTimeMillis)));
+                        if (!TextUtils.isEmpty(str)) {
+                            jSONObject.put(SpeedStatsUtils.UBC_KEY_OPTION, str);
+                        }
+                        if (c) {
+                            Log.d("UBCServiceManager", " flow setValueWithDuration, mId:" + flow.getId() + ", duration: " + jSONObject.toString());
+                        }
+                    } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                    o2b.w().N(flow.getId(), flow.getHandle(), jSONObject.toString());
+                    return;
                 }
                 try {
-                    Cursor rawQuery = writableDatabase.rawQuery("SELECT * FROM " + DownloadStatisticConstants.UBC_VALUE_TASK, null);
-                    if (rawQuery != null) {
-                        try {
-                            if (rawQuery.getCount() > 0) {
-                                rawQuery.moveToFirst();
-                                long currentTimeMillis = System.currentTimeMillis();
-                                while (true) {
-                                    String string = rawQuery.getString(rawQuery.getColumnIndex("task_id"));
-                                    String string2 = rawQuery.getString(rawQuery.getColumnIndex("biz_type"));
-                                    long j2 = rawQuery.getLong(rawQuery.getColumnIndex("timestamp"));
-                                    long b2 = h3b.f().b(string2);
-                                    int i = rawQuery.getInt(rawQuery.getColumnIndex("upload_count"));
-                                    int e2 = h3b.f().e(string2);
-                                    if (b2 + j2 >= currentTimeMillis) {
-                                        if (i >= e2) {
-                                            arrayList2 = arrayList;
-                                            j = currentTimeMillis;
-                                        } else {
-                                            int i2 = rawQuery.getInt(rawQuery.getColumnIndex("priority"));
-                                            String string3 = rawQuery.getString(rawQuery.getColumnIndex("file_list"));
-                                            int i3 = rawQuery.getInt(rawQuery.getColumnIndex("network_type"));
-                                            boolean z = true;
-                                            j = currentTimeMillis;
-                                            ArrayList arrayList3 = new ArrayList(Arrays.asList(string3));
-                                            if (rawQuery.getInt(rawQuery.getColumnIndex("zip_src")) == 0) {
-                                                z = false;
-                                            }
-                                            q3b.b bVar = new q3b.b(string, string2, arrayList3, j2);
-                                            bVar.o(i2);
-                                            bVar.n(i3);
-                                            bVar.p(z);
-                                            q3b k = bVar.k();
-                                            k.s(i);
-                                            String string4 = rawQuery.getString(rawQuery.getColumnIndex("extend"));
-                                            if (!TextUtils.isEmpty(string4)) {
-                                                try {
-                                                    JSONObject jSONObject = new JSONObject(string4);
-                                                    if (jSONObject.length() > 0) {
-                                                        JSONObject optJSONObject = jSONObject.optJSONObject(MigrateStatisticUtils.EXT_INFO);
-                                                        if (optJSONObject != null && optJSONObject.length() > 0) {
-                                                            k.m(optJSONObject);
-                                                        }
-                                                        JSONObject optJSONObject2 = jSONObject.optJSONObject("file_meta");
-                                                        if (optJSONObject2 != null && optJSONObject2.length() > 0) {
-                                                            k.n(optJSONObject2);
-                                                        }
-                                                        long optLong = jSONObject.optLong("max_zip_size", 0L);
-                                                        if (optLong > 0) {
-                                                            k.o(optLong);
-                                                        }
-                                                    }
-                                                } catch (JSONException e3) {
-                                                    if (b) {
-                                                        e3.printStackTrace();
-                                                    }
-                                                }
-                                            }
-                                            linkedList.addFirst(k);
-                                            if (rawQuery.moveToNext()) {
-                                                break;
-                                            }
-                                            currentTimeMillis = j;
-                                        }
-                                    } else {
-                                        j = currentTimeMillis;
-                                        arrayList2 = arrayList;
-                                    }
-                                    arrayList2.add(string);
-                                    if (rawQuery.moveToNext()) {
-                                    }
-                                }
-                                if (rawQuery != null) {
-                                    rawQuery.close();
-                                }
-                                if (arrayList.size() != 0) {
-                                    return;
-                                }
-                                writableDatabase.delete(DownloadStatisticConstants.UBC_VALUE_TASK, "task_id IN ( " + e(arrayList) + " )", null);
-                                return;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor = rawQuery;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            throw th;
-                        }
-                    }
-                    if (rawQuery != null) {
-                    }
-                    if (arrayList.size() != 0) {
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
+                    UBC.getProxy().flowSetValueWithDuration(flow, str);
+                } catch (RemoteException e2) {
+                    e2.printStackTrace();
                 }
-            } finally {
-                this.a.writeLock().unlock();
             }
         }
     }
 
-    public void i(q3b q3bVar) {
+    @Override // com.baidu.ubc.UBCManager
+    public void flowStartSlot(Flow flow, String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, q3bVar) == null) {
-            if (q3bVar != null && !TextUtils.isEmpty(q3bVar.j()) && !TextUtils.isEmpty(q3bVar.a())) {
-                this.a.writeLock().lock();
-                try {
-                    try {
-                        int delete = getWritableDatabase().delete(DownloadStatisticConstants.UBC_VALUE_TASK, "task_id =? ", new String[]{q3bVar.j()});
-                        if (b) {
-                            Log.d("VoyagerDBHelper", "delete data from table task, del count = " + delete);
-                        }
-                    } catch (SQLException e) {
-                        if (b) {
-                            e.printStackTrace();
-                        }
-                    }
-                } finally {
-                    this.a.writeLock().unlock();
-                }
-            } else if (b) {
-                Log.d("VoyagerDBHelper", "task data and task id should not null");
+        if ((interceptable == null || interceptable.invokeLLL(1048595, this, flow, str, jSONObject) == null) && flow != null && flow.getValid() && !TextUtils.isEmpty(str)) {
+            Slot slot = flow.getSlotMaps().get(str);
+            if (slot == null) {
+                flow.getSlotMaps().put(str, new Slot(str, System.currentTimeMillis(), jSONObject));
+                return;
             }
+            slot.setOption(jSONObject);
         }
     }
 
-    public void j(q3b q3bVar) {
+    @Override // com.baidu.ubc.UBCManager
+    public void registerConfig(h3b h3bVar, boolean z, d3b d3bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, q3bVar) == null) {
-            if (q3bVar != null && !TextUtils.isEmpty(q3bVar.j()) && !TextUtils.isEmpty(q3bVar.a())) {
-                this.a.writeLock().lock();
-                try {
-                    try {
-                        long update = getWritableDatabase().update(DownloadStatisticConstants.UBC_VALUE_TASK, d(q3bVar), null, null);
-                        if (b) {
-                            Log.d("VoyagerDBHelper", "update data into table task, update count = " + update);
-                        }
-                    } catch (SQLException e) {
-                        if (b) {
-                            e.printStackTrace();
-                        }
-                    }
-                } finally {
-                    this.a.writeLock().unlock();
-                }
-            } else if (b) {
-                Log.d("VoyagerDBHelper", "task data and task id should not null");
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{h3bVar, Boolean.valueOf(z), d3bVar}) == null) {
+            o2b.w().M(h3bVar, z, d3bVar);
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    @Override // com.baidu.ubc.UBCManager
+    public void setDefaultConfig(x2b x2bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048586, this, sQLiteDatabase, i, i2) == null) && b) {
-            Log.d("VoyagerDBHelper", "old version: " + i + ", new version: " + i2);
+        if ((interceptable != null && interceptable.invokeL(1048610, this, x2bVar) != null) || x2bVar == null || !el1.g()) {
+            return;
         }
+        u2b.a aVar = new u2b.a();
+        aVar.c(x2bVar.f);
+        aVar.f(x2bVar.a);
+        aVar.e(x2bVar.b);
+        aVar.d(x2bVar.d);
+        aVar.g(x2bVar.c);
+        aVar.b(true);
+        u2b a = aVar.a();
+        if (!x2b.a(x2bVar.f)) {
+            a.D(x2bVar.e);
+        }
+        ArrayList arrayList = new ArrayList(1);
+        arrayList.add(a);
+        registerConfig(new h3b(arrayList));
     }
 }

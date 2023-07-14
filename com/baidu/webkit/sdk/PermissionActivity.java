@@ -8,7 +8,7 @@ import android.os.Bundle;
 import com.baidu.webkit.internal.a.a;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PermissionActivity extends Activity {
     public static final int REQUEST_CAMERA_RECORD_CODE = 1003;
 

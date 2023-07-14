@@ -1,66 +1,46 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.searchbox.schemedispatch.forbid.InvokeStatisticKt;
+import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.a09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hd5 {
+public class hd5 implements a09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public String a;
     public String b;
     public String c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
     public String i;
     public String j;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-750847725, "Lcom/baidu/tieba/hd5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-750847725, "Lcom/baidu/tieba/hd5$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[EmotionGroupType.values().length];
-            a = iArr;
-            try {
-                iArr[EmotionGroupType.LOCAL.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[EmotionGroupType.USER_COLLECT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[EmotionGroupType.USER_DIY.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
+    public String k;
+    public String l;
+    public String m;
+    public int n;
+    public String o;
+    public a09.a p;
+    public int q;
+    public String r;
 
     public hd5() {
         Interceptable interceptable = $ic;
@@ -76,52 +56,138 @@ public class hd5 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i;
+            return !"0".equals(this.r);
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void c(@NonNull vi5 vi5Var, @Nullable String str) {
-        String str2;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vi5Var, str) == null) {
-            EmotionGroupType h = vi5Var.h();
-            if (str != null) {
-                str2 = no5.b.b(str);
-            } else {
-                str2 = null;
-            }
-            int i = a.a[h.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        this.j = vi5Var.f();
-                        this.i = str2;
-                        return;
-                    }
-                    this.j = "3";
-                    this.i = str2;
-                    return;
-                }
-                this.j = "2";
-                this.i = str2;
-                return;
-            }
-            this.j = "1";
-            this.i = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return PraiseUBCHelper.SOURCE_DYNAMIC.equals(this.e);
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.a09
+    public a09.a getParallelCharge() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.p;
+        }
+        return (a09.a) invokeV.objValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (StringUtils.isNull(this.a) && StringUtils.isNull(this.j) && StringUtils.isNull(this.l)) {
+                return true;
+            }
+            if (c()) {
+                if (StringUtils.isNull(this.c) || StringUtils.isNull(this.d)) {
+                    return true;
+                }
+                return false;
+            }
+            return StringUtils.isNull(this.b);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final JSONArray d(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
+            try {
+                return jSONObject.optJSONArray(str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (JSONArray) invokeLL.objValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        String lowerCase;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("url");
+        this.b = jSONObject.optString("icon_url");
+        this.c = jSONObject.optString("fold_lottie");
+        this.d = jSONObject.optString("unfold_lottie");
+        this.e = jSONObject.optString("float_type");
+        jSONObject.optString("fold_name");
+        jSONObject.optString("unfold_name");
+        this.h = jSONObject.optString("view_statistics_url");
+        this.i = jSONObject.optString("click_statistics_url");
+        this.j = jSONObject.optString("scheme");
+        this.k = jSONObject.optString("package_name");
+        this.l = jSONObject.optString(InvokeStatisticKt.SCHEME_INVOKE_PAGE_DEEPLINK);
+        this.n = jSONObject.optInt("source", 1);
+        this.m = jSONObject.optString(MigrateStatisticUtils.EXT_INFO);
+        this.o = jSONObject.optString(LegoListActivityConfig.AD_ID);
+        this.r = jSONObject.optString("display_ad_icon");
+        a09.a aVar = new a09.a();
+        this.p = aVar;
+        aVar.a = jSONObject.optString("parallel_charge_url");
+        this.p.c = f(d(jSONObject, "show_urls"));
+        this.p.d = f(d(jSONObject, "click_urls"));
+        String c = fj.c(TbadkApplication.getInst().getAndroidId());
+        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+        StringBuilder sb = new StringBuilder();
+        sb.append("&ANDROIDID=");
+        String str = "";
+        if (c == null) {
+            lowerCase = "";
+        } else {
+            lowerCase = c.toLowerCase();
+        }
+        sb.append(lowerCase);
+        sb.append("&OAID=");
+        if (lastCachedOid != null) {
+            str = lastCachedOid.toUpperCase();
+        }
+        sb.append(str);
+        String sb2 = sb.toString();
+        if (!StringUtils.isNull(this.h)) {
+            this.h += sb2;
+        }
+        if (!StringUtils.isNull(this.i)) {
+            this.i += sb2;
+        }
+    }
+
+    public final ArrayList<String> f(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONArray)) == null) {
+            if (jSONArray != null && jSONArray.length() != 0) {
+                int length = jSONArray.length();
+                ArrayList<String> arrayList = new ArrayList<>(length);
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("url");
+                        if (!StringUtils.isNull(optString)) {
+                            arrayList.add(optString);
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return new ArrayList<>();
+        }
+        return (ArrayList) invokeL.objValue;
     }
 }

@@ -1,211 +1,1353 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.media.AudioManager;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
+import android.view.Surface;
+import android.view.Window;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayer;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.gu2;
+import com.baidu.tieba.sp2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import com.davemorrissey.labs.subscaleview.ImageSource;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class at4 {
+public abstract class at4 implements gu2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean x;
+    public static boolean y;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
+    public String b;
+    public Context c;
+    public ZeusPluginFactory.Invoker d;
+    public CyberPlayer e;
+    public String f;
+    public AudioManager g;
+    public String h;
+    public gu2.a i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public int m;
+    public int n;
+    public ft4 o;
+    public final CyberPlayerManager.OnPreparedListener p;
+    public final CyberPlayerManager.OnErrorListener q;
+    public final CyberPlayerManager.OnCompletionListener r;
+    public final CyberPlayerManager.OnInfoListener s;
+    public final CyberPlayerManager.OnBufferingUpdateListener t;
+    public final CyberPlayerManager.OnSeekCompleteListener u;
+    public final CyberPlayerManager.OnVideoSizeChangedListener v;
+    public final AudioManager.OnAudioFocusChangeListener w;
 
-    public at4(View view2) {
+    /* loaded from: classes5.dex */
+    public interface m {
+        void a(boolean z);
+    }
+
+    public abstract void B0(int i2, int i3, String str);
+
+    @Override // com.baidu.tieba.gu2
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public abstract void C0();
+
+    @Override // com.baidu.tieba.gu2
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void L(int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048587, this, i2, i3, i4, i5) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void m0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements CyberPlayerManager.OnSeekCompleteListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ at4 a;
+
+        public a(at4 at4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = at4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
+        public void onSeekComplete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && at4.x) {
+                Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onSeekComplete()");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements CyberPlayerManager.OnVideoSizeChangedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ at4 a;
+
+        public b(at4 at4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = at4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
+        public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
+                if (at4.x) {
+                    Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onVideoSizeChanged(" + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX);
+                }
+                this.a.o.e = i;
+                this.a.o.f = i2;
+                if (i3 == 0 || i4 == 0) {
+                    this.a.m = 1;
+                    this.a.n = 1;
+                } else {
+                    this.a.m = i3;
+                    this.a.n = i4;
+                }
+                gu2.a aVar = this.a.i;
+                if (aVar != null) {
+                    aVar.f();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements AudioManager.OnAudioFocusChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(at4 at4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.media.AudioManager.OnAudioFocusChangeListener
+        public void onAudioFocusChange(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (at4.x) {
+                    Log.i("SwanInlineCyberWidget", "onAudioFocusChange: focusChange " + i);
+                }
+                if (i == -1 && at4.x) {
+                    Log.i("SwanInlineCyberWidget", "onAudioFocusChange: focusChange = AudioManager.AUDIOFOCUS_LOSS");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements m {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sp2.a a;
+
+        public d(at4 at4Var, sp2.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at4Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        @Override // com.baidu.tieba.at4.m
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a.a(z);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements oq3<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HashMap a;
+        public final /* synthetic */ at4 b;
+
+        public e(at4 at4Var, HashMap hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at4Var, hashMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = at4Var;
+            this.a = hashMap;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oq3
+        /* renamed from: b */
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
+                this.b.w0().setDataSource(this.b.c, Uri.parse(str), this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class f implements CyberPlayerManager.InstallListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m a;
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            }
+        }
+
+        public f(m mVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mVar;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                if (at4.x) {
+                    Log.i("【CyberCallback】", "CyberPlayer播放内核安装失败");
+                }
+                boolean unused = at4.y = false;
+                m mVar = this.a;
+                if (mVar != null) {
+                    mVar.a(false);
+                }
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+                if (at4.x) {
+                    Log.i("【CyberCallback】", "CyberPlayer播放内核安装成功");
+                }
+                boolean unused = at4.y = false;
+                m mVar = this.a;
+                if (mVar != null) {
+                    mVar.a(true);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+
+        public g(at4 at4Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at4Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            vb3 M;
+            SwanAppActivity w;
+            Window window;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (M = vb3.M()) == null || (w = M.w()) == null || (window = w.getWindow()) == null) {
+                return;
+            }
+            try {
+                if (this.a) {
+                    window.addFlags(128);
+                } else {
+                    window.clearFlags(128);
+                }
+            } catch (Exception e) {
+                if (at4.x) {
+                    throw new RuntimeException("inline video set screenOn/Off in wrong thread", e);
+                }
+            }
+            if (at4.x) {
+                Log.d("SwanInlineCyberWidget", "setKeepScreenOn: " + this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class h implements CyberPlayerManager.OnPreparedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ at4 a;
+
+        public h(at4 at4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = at4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+        public void onPrepared() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (at4.x) {
+                    Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onPrepared()");
+                }
+                this.a.o.e = this.a.getVideoWidth();
+                this.a.o.f = this.a.getVideoHeight();
+                gu2.a aVar = this.a.i;
+                if (aVar != null) {
+                    aVar.onPrepared();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class i implements CyberPlayerManager.OnErrorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ at4 a;
+
+        public i(at4 at4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = at4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            String str;
+            int i3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, obj)) == null) {
+                if (obj != null) {
+                    str = obj.toString();
+                } else {
+                    str = StringUtil.NULL_STRING;
+                }
+                if (at4.x) {
+                    Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onError(" + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + SmallTailInfo.EMOTION_SUFFIX);
+                }
+                this.a.n0();
+                this.a.z0(i);
+                if (i == -10000) {
+                    i3 = 0;
+                } else {
+                    i3 = i;
+                }
+                gu2.a aVar = this.a.i;
+                if (aVar != null) {
+                    aVar.onError(i3);
+                }
+                this.a.B0(i, i2, str);
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class j implements CyberPlayerManager.OnCompletionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ at4 a;
+
+        public j(at4 at4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = at4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+        public void onCompletion() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.getDuration() != 0 && this.a.getCurrentPosition() >= this.a.getDuration()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (at4.x) {
+                    Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onCompletion:(" + z + SmallTailInfo.EMOTION_SUFFIX);
+                }
+                this.a.n0();
+                at4 at4Var = this.a;
+                gu2.a aVar = at4Var.i;
+                if (aVar != null) {
+                    if (z) {
+                        aVar.onEnded();
+                    } else {
+                        aVar.c(at4Var.c());
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class k implements CyberPlayerManager.OnInfoListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ at4 a;
+
+        public k(at4 at4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = at4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, obj)) == null) {
+                if (at4.x) {
+                    if (obj != null) {
+                        str = obj.toString();
+                    } else {
+                        str = StringUtil.NULL_STRING;
+                    }
+                    Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onInfo(" + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + SmallTailInfo.EMOTION_SUFFIX);
+                }
+                switch (i) {
+                    case CyberPlayerManager.MEDIA_INFO_AUDIO_BITRATE /* 938 */:
+                        this.a.o.b = i2;
+                        break;
+                    case CyberPlayerManager.MEDIA_INFO_VIDEO_BITRATE /* 939 */:
+                        this.a.o.a = i2;
+                        break;
+                    case CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE /* 940 */:
+                        this.a.o.c = i2;
+                        break;
+                }
+                this.a.z0(i);
+                this.a.i.b(i);
+                if (i == 904) {
+                    this.a.C0();
+                    return false;
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class l implements CyberPlayerManager.OnBufferingUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ at4 a;
+
+        public l(at4 at4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = at4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
+        public void onBufferingUpdate(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && at4.x) {
+                Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onBufferingUpdate(" + i + SmallTailInfo.EMOTION_SUFFIX);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947626696, "Lcom/baidu/tieba/at4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947626696, "Lcom/baidu/tieba/at4;");
+                return;
+            }
+        }
+        x = fs1.a;
+        y = true;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public boolean P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public gu2.a Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.i;
+        }
+        return (gu2.a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    @CallSuper
+    public void V() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.a = 0;
+            boolean isPlaying = isPlaying();
+            pause();
+            if (isPlaying) {
+                G0(true);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sp2
+    @Nullable
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    @CallSuper
+    public void b0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.a = 1;
+            if (!isPlaying() && v0()) {
+                G0(false);
+                start();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.f + "-" + hashCode();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.c;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public int getCurrentPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return w0().getCurrentPosition();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public int getDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return w0().getDuration();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public int getVideoHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return w0().getVideoHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public int getVideoSarDen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.n;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public int getVideoSarNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.m;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public int getVideoWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return w0().getVideoWidth();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public boolean i0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public boolean isPlaying() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return w0().isPlaying();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sp2
+    @Nullable
+    public String j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void n0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+            if (this.g == null) {
+                this.g = (AudioManager) this.c.getSystemService("audio");
+            }
+            AudioManager audioManager = this.g;
+            if (audioManager == null) {
+                return;
+            }
+            audioManager.abandonAudioFocus(this.w);
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public boolean prepareAsync() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            D0();
+            w0().prepareAsync();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean v0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            return this.j;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public at4(ZeusPluginFactory.Invoker invoker, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {invoker, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = 0;
-        new WeakReference(view2);
+        this.a = -1;
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        this.m = 1;
+        this.n = 1;
+        this.o = new ft4();
+        this.p = new h(this);
+        this.q = new i(this);
+        this.r = new j(this);
+        this.s = new k(this);
+        this.t = new l(this);
+        this.u = new a(this);
+        this.v = new b(this);
+        this.w = new c(this);
+        this.d = invoker;
+        if (invoker != null) {
+            Object obj = invoker.get("id");
+            if (obj instanceof String) {
+                this.f = (String) obj;
+            }
+        }
+        this.c = cv2.c();
+        this.h = str;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x00af, code lost:
-        if (r4 != false) goto L36;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x00b2, code lost:
-        if (r4 != false) goto L35;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x00b4, code lost:
-        r12 = (int) (r0 / r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x00b8, code lost:
-        r11 = (int) (r3 * r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:73:0x00f8, code lost:
-        if (r1 > r11) goto L77;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(int i, int i2) {
-        int i3;
-        float f;
-        boolean z;
-        int i4;
+    public static String A0(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            int i5 = this.e;
-            if (i5 == 90 || i5 == 270) {
-                i2 = i;
-                i = i2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            vb3 M = vb3.M();
+            if (dj3.E(str) && M != null) {
+                return dj3.H(str, M);
             }
-            int defaultSize = View.getDefaultSize(this.a, i);
-            int defaultSize2 = View.getDefaultSize(this.b, i2);
-            if (this.h != 3) {
-                if (this.a > 0 && this.b > 0) {
-                    int mode = View.MeasureSpec.getMode(i);
-                    i = View.MeasureSpec.getSize(i);
-                    int mode2 = View.MeasureSpec.getMode(i2);
-                    i2 = View.MeasureSpec.getSize(i2);
-                    if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-                        float f2 = i;
-                        float f3 = i2;
-                        float f4 = f2 / f3;
-                        int i6 = this.h;
-                        if (i6 != 4) {
-                            if (i6 != 5) {
-                                f = this.a / this.b;
-                                int i7 = this.c;
-                                if (i7 > 0 && (i4 = this.d) > 0) {
-                                    f = (f * i7) / i4;
-                                }
-                            } else {
-                                int i8 = this.e;
-                                f = (i8 == 90 || i8 == 270) ? 0.75f : 1.3333334f;
-                            }
-                        } else {
-                            int i9 = this.e;
-                            f = (i9 == 90 || i9 == 270) ? 0.5625f : 1.7777778f;
-                        }
-                        if (f > f4) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        int i10 = this.h;
-                        if (i10 != 0) {
-                            if (i10 != 1) {
-                                if (i10 != 4 && i10 != 5) {
-                                    if (z) {
-                                        i = Math.min(this.a, i);
-                                        i2 = (int) (i / f);
-                                    } else {
-                                        i2 = Math.min(this.b, i2);
-                                        i = (int) (i2 * f);
-                                    }
-                                }
-                            }
-                        }
-                    } else if (mode == 1073741824 && mode2 == 1073741824) {
-                        int i11 = this.a;
-                        int i12 = i11 * i2;
-                        int i13 = this.b;
-                        if (i12 < i * i13) {
-                            i = (i11 * i2) / i13;
-                        } else if (i11 * i2 > i * i13) {
-                            i2 = (i13 * i) / i11;
-                        }
-                    } else if (mode == 1073741824) {
-                        int i14 = (this.b * i) / this.a;
-                        if (mode2 != Integer.MIN_VALUE || i14 <= i2) {
-                            i2 = i14;
-                        }
-                    } else if (mode2 == 1073741824) {
-                        i3 = (this.a * i2) / this.b;
-                        if (mode == Integer.MIN_VALUE) {
-                        }
-                        i = i3;
-                    } else {
-                        i3 = this.a;
-                        int i15 = this.b;
-                        if (mode2 == Integer.MIN_VALUE && i15 > i2) {
-                            i3 = (i3 * i2) / i15;
-                        } else {
-                            i2 = i15;
-                        }
-                        if (mode == Integer.MIN_VALUE && i3 > i) {
-                            i2 = (this.b * i) / this.a;
-                        }
-                        i = i3;
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sp2
+    public void A(@NonNull sp2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            H0(cv2.c(), new d(this, aVar));
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void B(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                ZeusPluginFactory.Invoker invoker = this.d;
+                if (invoker != null) {
+                    w0().changeProxyDynamic((String) invoker.get("Proxy"), true);
+                    return;
+                }
+                return;
+            }
+            w0().changeProxyDynamic(null, false);
+        }
+    }
+
+    public final void F0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            pp3.a0(new g(this, z));
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void G(int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) && x) {
+            Log.d("SwanInlineCyberWidget", "setMinCache (ignore) : " + i2);
+        }
+    }
+
+    public final void G0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.j = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void S(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, map) == null) {
+            w0().setExternalInfo(CyberPlayerManager.STR_STAGE_INFO, map);
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void a0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            au2.b().a(c(), str);
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void f0(int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048599, this, i2) == null) && x) {
+            Log.d("SwanInlineCyberWidget", "setMaxCache (ignore) : " + i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void g0(@NonNull gu2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, aVar) == null) {
+            this.i = aVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void seekTo(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
+            w0().seekTo(i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void setSpeed(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048618, this, f2) == null) {
+            w0().setSpeed(f2);
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void setSurface(Surface surface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, surface) == null) {
+            w0().setSurface(surface);
+        }
+    }
+
+    public static void H0(@NonNull Context context, @Nullable m mVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, mVar) == null) {
+            if (y) {
+                if (x) {
+                    Log.i("【CyberCallback】", "CyberPlayer播放内核开始安装 " + context.getApplicationContext());
+                }
+                try {
+                    CyberPlayerManager.install(context.getApplicationContext(), cv2.h0().i(context), (String) null, 7, (Class<?>) null, (Map<String, String>) null, new f(mVar));
+                    return;
+                } catch (Exception e2) {
+                    v82.o("SwanInlineCyberWidget", "CyberPlayer Install failed by catch e=" + e2 + " :> " + Log.getStackTraceString(e2));
+                    if (mVar != null) {
+                        mVar.a(false);
+                        return;
                     }
-                } else {
-                    Log.d("MeasureHelper", "no size yet");
-                    i = defaultSize;
-                    i2 = defaultSize2;
+                    return;
                 }
             }
-            this.f = i;
-            this.g = i2;
+            if (x) {
+                Log.v("【CyberCallback】", "CyberPlayer播放内核已安装，无需重复安装");
+            }
+            if (mVar != null) {
+                mVar.a(true);
+            }
         }
     }
 
-    public int b() {
+    public final void E0(String str, HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) {
+            cv2.l().b(getContext(), str, new e(this, hashMap));
+        }
+    }
+
+    public final void D0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.k) {
+                if (x) {
+                    Log.i("SwanInlineCyberWidget", "requestAudioFocus: abandon request audio focus. Muted video.");
+                    return;
+                }
+                return;
+            }
+            if (this.g == null) {
+                this.g = (AudioManager) this.c.getSystemService("audio");
+            }
+            AudioManager audioManager = this.g;
+            if (audioManager == null) {
+                return;
+            }
+            try {
+                audioManager.requestAudioFocus(this.w, 3, 1);
+            } catch (Exception e2) {
+                if (x) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public boolean O(String str, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) {
+            if (x) {
+                Log.d("SwanInlineCyberWidget", "setDataSource: " + str + " ;userAgent: " + str3 + " ;cookies: " + str2);
+            }
+            this.l = true;
+            this.b = str;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (str.startsWith(ImageSource.FILE_SCHEME)) {
+                str = str.substring(8);
+            }
+            String A0 = A0(str);
+            ZeusPluginFactory.Invoker invoker = this.d;
+            if (invoker != null) {
+                String str4 = (String) invoker.get("Proxy");
+                if (!TextUtils.isEmpty(str4)) {
+                    w0().setOption(CyberPlayerManager.OPT_HTTP_PROXY, str4);
+                    w0().setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, YYOption.IsLive.VALUE_TRUE);
+                } else {
+                    w0().setOption(CyberPlayerManager.OPT_HTTP_PROXY, "");
+                    w0().setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "false");
+                }
+            }
+            HashMap<String, String> hashMap = new HashMap<>();
+            if (!TextUtils.isEmpty(str2)) {
+                hashMap.put("Cookie", str2);
+            }
+            if (z) {
+                hashMap.put("x-hide-urls-from-log", YYOption.IsLive.VALUE_TRUE);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                hashMap.put("User-Agent", str3);
+            }
+            String b2 = cp3.b();
+            if (!TextUtils.isEmpty(b2) && cp3.c(A0)) {
+                if (x) {
+                    Log.d("SwanInlineCyberWidget", "set referer for InlineVideo; referer is " + b2);
+                }
+                hashMap.put("Referer", b2);
+            }
+            if (dj3.s(A0) == PathType.CLOUD) {
+                E0(A0, hashMap);
+            } else {
+                w0().setDataSource(this.c, Uri.parse(A0), hashMap);
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
+            if (x) {
+                Log.i("SwanInlineCyberWidget", "setMuted: " + z);
+            }
+            this.k = z;
+            if (z) {
+                n0();
+            } else {
+                D0();
+            }
+            w0().muteOrUnmuteAudio(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            if (x) {
+                Log.d("SwanInlineCyberWidget", this.f + "-" + hashCode() + " pause()");
+            }
+            w0().pause();
+            F0(false);
+            G0(false);
+            gu2.a aVar = this.i;
+            if (aVar != null) {
+                aVar.c(c());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
+            if (x) {
+                Log.d("SwanInlineCyberWidget", this.f + " release()");
+            }
+            gu2.a aVar = this.i;
+            if (aVar != null) {
+                aVar.onRelease(c());
+            }
+            n0();
+            m22.e().r(c());
+            w0().release();
+        }
+    }
+
+    public void y0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
+            String a2 = this.o.a();
+            if (TextUtils.isEmpty(a2)) {
+                return;
+            }
+            if (x) {
+                Log.d("【CyberCallback】", "CyberPlayer" + hashCode() + " - send onNetStatus(" + a2 + SmallTailInfo.EMOTION_SUFFIX);
+            }
+            gu2.a aVar = this.i;
+            if (aVar != null) {
+                aVar.d(a2);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
+            if (x) {
+                Log.d("SwanInlineCyberWidget", this.f + "-" + hashCode() + " start()");
+            }
+            if (x0()) {
+                if (x) {
+                    Log.e("SwanInlineCyberWidget", this.f + "-" + hashCode() + " start ignored, widget is in background");
+                }
+                G0(true);
+                gu2.a aVar = this.i;
+                if (aVar != null) {
+                    aVar.c(c());
+                    return;
+                }
+                return;
+            }
+            D0();
+            w0().start();
+            F0(true);
+            gu2.a aVar2 = this.i;
+            if (aVar2 != null) {
+                aVar2.e(c());
+            }
+        }
+    }
+
+    public final boolean x0() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            if (this.a == -1) {
+                SwanAppActivity w = ub3.K().w();
+                if (w == null) {
+                    if (x) {
+                        Log.v("SwanInlineCyberWidget", "check background by activity null, background ? true");
+                    }
+                    return true;
+                }
+                uo2 R = w.R();
+                if (R == null) {
+                    if (x) {
+                        Log.v("SwanInlineCyberWidget", "check background by frame null, background ? true");
+                    }
+                    return true;
+                }
+                if (x) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("check background by frame lifeState, background ? ");
+                    sb.append(!R.a0().hasStarted());
+                    Log.v("SwanInlineCyberWidget", sb.toString());
+                }
+                return !R.a0().hasStarted();
+            }
+            if (x) {
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("check background by kernel state, background ? ");
+                if (this.a == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                sb2.append(z);
+                Log.v("SwanInlineCyberWidget", sb2.toString());
+            }
+            if (this.a == 0) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public int c() {
+    public final synchronized CyberPlayer w0() {
         InterceptResult invokeV;
+        CyberPlayer cyberPlayer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            synchronized (this) {
+                if (this.e == null) {
+                    if (cv2.g0().B()) {
+                        if (x) {
+                            Log.d("SwanInlineCyberWidget", "getPlayer: same process");
+                        }
+                        this.e = new CyberPlayer(0);
+                    } else {
+                        if (x) {
+                            Log.d("SwanInlineCyberWidget", "getPlayer: self process");
+                        }
+                        this.e = new CyberPlayer(0);
+                    }
+                    this.e.setOnPreparedListener(this.p);
+                    this.e.setOnVideoSizeChangedListener(this.v);
+                    this.e.setOnCompletionListener(this.r);
+                    this.e.setOnErrorListener(this.q);
+                    this.e.setOnInfoListener(this.s);
+                    this.e.setOnBufferingUpdateListener(this.t);
+                    this.e.setOnSeekCompleteListener(this.u);
+                    if (x) {
+                        Log.d("SwanInlineCyberWidget", "create " + this.e.hashCode() + " player");
+                    }
+                }
+                cyberPlayer = this.e;
+            }
+            return cyberPlayer;
         }
-        return invokeV.intValue;
+        return (CyberPlayer) invokeV.objValue;
     }
 
-    public void d(int i) {
+    public final void z0(int i2) {
+        gu2.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void f(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.c = i;
-            this.d = i2;
-        }
-    }
-
-    public void g(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
-            this.a = i;
-            this.b = i2;
+        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
+            int b2 = et4.b(i2);
+            if (x) {
+                Log.d("【CyberCallback】", "CyberPlayer" + hashCode() + " - send onStateChange(what " + i2 + ", statusCode " + b2 + SmallTailInfo.EMOTION_SUFFIX);
+            }
+            if (b2 != 100) {
+                if (b2 == 2101 && (aVar = this.i) != null) {
+                    aVar.a(2102);
+                }
+                gu2.a aVar2 = this.i;
+                if (aVar2 != null) {
+                    aVar2.a(b2);
+                }
+            }
         }
     }
 }

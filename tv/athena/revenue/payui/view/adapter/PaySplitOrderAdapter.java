@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c2c;
+import com.baidu.tieba.zac;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitRecordItem;
 import java.util.List;
@@ -96,7 +96,7 @@ public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
         return this.b.size();
     }
 
-    public SplitRecordItem k(int i) {
+    public SplitRecordItem l(int i) {
         List<SplitRecordItem> list = this.b;
         if (list != null && !list.isEmpty() && i >= 0 && i < this.b.size()) {
             return this.b.get(i);
@@ -104,42 +104,42 @@ public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
         return null;
     }
 
-    public void l(c cVar) {
+    public void m(c cVar) {
         this.d = cVar;
     }
 
-    public final void m(SplitOrderItemViewHolder splitOrderItemViewHolder, int i) {
-        SplitRecordItem k = k(i);
-        if (k == null) {
+    public final void n(SplitOrderItemViewHolder splitOrderItemViewHolder, int i) {
+        SplitRecordItem l = l(i);
+        if (l == null) {
             RLog.error("PaySplitOrderAdapter", "updateSplitOrderItemHolder error splitRecordItem null", new Object[0]);
             return;
         }
-        int i2 = k.type;
+        int i2 = l.type;
         if (i2 == 2) {
             splitOrderItemViewHolder.e.setVisibility(0);
             splitOrderItemViewHolder.d.setVisibility(8);
-            splitOrderItemViewHolder.c.setText(k.name);
-            splitOrderItemViewHolder.itemView.setOnClickListener(new a(k));
+            splitOrderItemViewHolder.c.setText(l.name);
+            splitOrderItemViewHolder.itemView.setOnClickListener(new a(l));
         } else if (i2 == 1) {
             splitOrderItemViewHolder.e.setVisibility(8);
             splitOrderItemViewHolder.d.setVisibility(0);
             TextView textView = splitOrderItemViewHolder.a;
-            textView.setText("¥ " + k.value);
+            textView.setText("¥ " + l.value);
             splitOrderItemViewHolder.itemView.setOnClickListener(null);
-            splitOrderItemViewHolder.b.setOnClickListener(new b(k));
+            splitOrderItemViewHolder.b.setOnClickListener(new b(l));
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         if (viewHolder instanceof SplitOrderItemViewHolder) {
-            m((SplitOrderItemViewHolder) viewHolder, i);
+            n((SplitOrderItemViewHolder) viewHolder, i);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new SplitOrderItemViewHolder(this, LayoutInflater.from(new ContextThemeWrapper(this.a, c2c.a.a(this.c))).inflate(R.layout.pay_ui_item_pay_split_order_item_layout, viewGroup, false));
+        return new SplitOrderItemViewHolder(this, LayoutInflater.from(new ContextThemeWrapper(this.a, zac.a.a(this.c))).inflate(R.layout.pay_ui_item_pay_split_order_item_layout, viewGroup, false));
     }
 }

@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba8;
-import com.baidu.tieba.gc8;
-import com.baidu.tieba.lb8;
-import com.baidu.tieba.qf;
-import com.baidu.tieba.w88;
+import com.baidu.tieba.ch8;
+import com.baidu.tieba.hg8;
+import com.baidu.tieba.rd8;
+import com.baidu.tieba.rf;
+import com.baidu.tieba.xe8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class MultiImageTextBottomView extends LinearLayout {
     public Context a;
     public TbImageView b;
     public TextView c;
-    public qf d;
+    public rf d;
     public int e;
     public int f;
     public String g;
@@ -70,7 +70,7 @@ public class MultiImageTextBottomView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
                 if (this.a.d != null) {
-                    this.a.d.Q(view2, 9, this.a.e, 0L);
+                    this.a.d.O(view2, 9, this.a.e, 0L);
                     return false;
                 }
                 return false;
@@ -83,12 +83,12 @@ public class MultiImageTextBottomView extends LinearLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ba8.a a;
+        public final /* synthetic */ xe8.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ MultiImageTextBottomView d;
 
-        public b(MultiImageTextBottomView multiImageTextBottomView, ba8.a aVar, TbPageContext tbPageContext, int i) {
+        public b(MultiImageTextBottomView multiImageTextBottomView, xe8.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,19 +111,19 @@ public class MultiImageTextBottomView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            ba8.a aVar;
+            xe8.a aVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a) != null && !StringUtils.isNull(aVar.d)) {
                 UrlManager.getInstance().dealOneLink(this.b, new String[]{this.a.d});
                 if (this.c == 1) {
                     TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                    w88 o = gc8.o(this.d.g);
+                    rd8 o = ch8.o(this.d.g);
                     if (o != null) {
                         Context context = this.d.a;
                         TiebaStatic.eventStat(context, "message_open_detail", "click", 1, "task_type", o.a, "task_id", o.b, "loc", "" + this.d.f);
                         int i = this.a.g;
                         if ((i == 1 || i == 3) && !"0".equals(o.b)) {
-                            lb8.c().a(o.b);
+                            hg8.c().a(o.b);
                         }
                     }
                     StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
@@ -197,10 +197,10 @@ public class MultiImageTextBottomView extends LinearLayout {
         }
     }
 
-    public void setOnItemViewLongClickListener(qf qfVar) {
+    public void setOnItemViewLongClickListener(rf rfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qfVar) == null) {
-            this.d = qfVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, rfVar) == null) {
+            this.d = rfVar;
         }
     }
 
@@ -229,11 +229,11 @@ public class MultiImageTextBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(0);
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d061d, (ViewGroup) this, true);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0629, (ViewGroup) this, true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09044d);
             this.b = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090474);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090475);
         }
     }
 
@@ -246,7 +246,7 @@ public class MultiImageTextBottomView extends LinearLayout {
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, ba8.a aVar, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, xe8.a aVar, View view2, int i) {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLLI(1048579, this, tbPageContext, aVar, view2, i) != null) || aVar == null) {

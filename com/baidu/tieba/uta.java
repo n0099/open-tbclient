@@ -1,45 +1,50 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.write.album.AlbumImageBrowseFragment;
+import com.baidu.tieba.write.album.ImageListFragment;
+import com.baidu.tieba.write.album.TbCameraView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public class uta extends nta {
+public class uta extends j9<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public yta c;
+    public Fragment[] d;
+    public String[] e;
+    public ImageListFragment f;
+    public AlbumImageBrowseFragment g;
+
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        }
+    }
 
     /* loaded from: classes8.dex */
-    public class a extends rua {
+    public class a implements TbCameraView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Response a;
+        public final /* synthetic */ TbCameraView a;
 
-        public a(uta utaVar, Response response) {
+        public a(uta utaVar, TbCameraView tbCameraView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {utaVar, response};
+                Object[] objArr = {utaVar, tbCameraView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,246 +54,260 @@ public class uta extends nta {
                     return;
                 }
             }
-            this.a = response;
+            this.a = tbCameraView;
         }
 
-        @Override // com.baidu.tieba.rua
+        @Override // com.baidu.tieba.write.album.TbCameraView.d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.body().close();
-            }
-        }
-
-        @Override // com.baidu.tieba.rua
-        public String b() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.body().string();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.rua
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.code();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.rua
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.message();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.rua
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.isSuccessful();
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends RequestBody {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ InputStream b;
-
-        public b(uta utaVar, Map map, InputStream inputStream) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {utaVar, map, inputStream};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = inputStream;
-        }
-
-        @Override // okhttp3.RequestBody
-        public long contentLength() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.containsKey("Content-Length")) {
-                    try {
-                        return Long.valueOf((String) this.a.get("Content-Length")).longValue();
-                    } catch (Exception unused) {
-                    }
-                }
-                return super.contentLength();
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public MediaType contentType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return MediaType.parse("application/octet-stream");
-            }
-            return (MediaType) invokeV.objValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public void writeTo(BufferedSink bufferedSink) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                Source source = null;
-                try {
-                    source = Okio.source(this.b);
-                    bufferedSink.writeAll(source);
-                } finally {
-                    if (source != null) {
-                        source.close();
-                    }
-                }
+                this.a.p();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class c extends rua {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Response a;
-
-        public c(uta utaVar, Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {utaVar, response};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = response;
-        }
-
-        @Override // com.baidu.tieba.rua
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.body().close();
-            }
-        }
-
-        @Override // com.baidu.tieba.rua
-        public String b() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.body().string();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.rua
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.code();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.rua
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.message();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.rua
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.isSuccessful();
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    public uta() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uta(TbPageContext tbPageContext, yta ytaVar) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, ytaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = "tag_image";
+        this.b = "tag_b_image";
+        this.c = ytaVar;
+    }
+
+    public View B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
+            }
+            return imageListFragment.g2();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public TbCameraView C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
+            }
+            return imageListFragment.h2();
+        }
+        return (TbCameraView) invokeV.objValue;
+    }
+
+    public ImageListFragment F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (ImageListFragment) invokeV.objValue;
+    }
+
+    public View G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
+            }
+            return imageListFragment.j2();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment == null) {
+                return null;
+            }
+            return albumImageBrowseFragment.V1();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void L() {
+        ImageListFragment imageListFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (imageListFragment = this.f) != null) {
+            imageListFragment.k2();
+        }
+    }
+
+    public void P() {
+        TbCameraView C;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (C = C()) != null) {
+            C.p();
+            C.setVisibility(4);
+        }
+    }
+
+    public View x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment == null) {
+                return null;
+            }
+            return albumImageBrowseFragment.T1();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
+            }
+            return imageListFragment.f2();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment == null) {
+                return null;
+            }
+            return albumImageBrowseFragment.U1();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public Fragment D(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i >= 0 && i <= 1) {
+                return this.d[i];
+            }
+            return null;
+        }
+        return (Fragment) invokeI.objValue;
+    }
+
+    public String E(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (i >= 0 && i <= 1) {
+                return this.e[i];
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void M(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment != null) {
+                albumImageBrowseFragment.Z1(z);
+            }
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment != null) {
+                imageListFragment.o2(z);
             }
         }
     }
 
-    @Override // com.baidu.tieba.nta
-    public rua j(String str, InputStream inputStream, Map<String, String> map) throws IOException {
-        InterceptResult invokeLLL;
+    public void N(NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, inputStream, map)) == null) {
-            PostBodyRequest.PostBodyRequestBuilder postRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postRequest();
-            postRequest.requestFrom(3);
-            postRequest.url(str);
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                postRequest.addHeader(entry.getKey(), entry.getValue());
-            }
-            postRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
-            postRequest.requestBody(new b(this, map, inputStream));
-            return new c(this, postRequest.build().executeSync());
+        if (interceptable == null || interceptable.invokeL(1048587, this, navigationBar) == null) {
+            this.f.q2(navigationBar);
         }
-        return (rua) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.nta
-    public rua k(String str, byte[] bArr, Map<String, String> map) throws IOException {
-        InterceptResult invokeLLL;
+    public void O(dua duaVar) {
+        ImageListFragment imageListFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, map)) == null) {
-            PostByteRequest.PostByteRequestBuilder postByteRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postByteRequest();
-            postByteRequest.requestFrom(3);
-            postByteRequest.url(str);
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                postByteRequest.addHeader(entry.getKey(), entry.getValue());
-            }
-            postByteRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
-            return new a(this, postByteRequest.content(bArr).build().executeSync());
+        if ((interceptable == null || interceptable.invokeL(1048588, this, duaVar) == null) && (imageListFragment = this.f) != null) {
+            imageListFragment.r2(duaVar);
         }
-        return (rua) invokeLLL.objValue;
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            int i2 = 0;
+            while (true) {
+                Fragment[] fragmentArr = this.d;
+                if (i2 < fragmentArr.length) {
+                    if (fragmentArr[i2] != null && (fragmentArr[i2] instanceof ImageListFragment)) {
+                        ((ImageListFragment) fragmentArr[i2]).onChangeSkinType(i);
+                    }
+                    i2++;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.d = new Fragment[2];
+            this.e = new String[2];
+            ImageListFragment imageListFragment = new ImageListFragment();
+            this.f = imageListFragment;
+            imageListFragment.p2(this.c);
+            this.d[0] = this.f;
+            this.e[0] = this.a;
+            AlbumImageBrowseFragment albumImageBrowseFragment = new AlbumImageBrowseFragment();
+            this.g = albumImageBrowseFragment;
+            albumImageBrowseFragment.a2(this.c);
+            this.d[1] = this.g;
+            this.e[1] = this.b;
+        }
+    }
+
+    public void J() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            TbCameraView C = C();
+            if (C != null) {
+                C.setOnOpenCameraFailedListener(new a(this, C));
+                C.n(false);
+                C.setVisibility(0);
+            }
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment != null && imageListFragment.i2() != null) {
+                this.f.i2().n();
+            }
+        }
     }
 }

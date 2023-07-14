@@ -1,0 +1,5 @@
+package com.baidu.tieba;
+/* loaded from: classes8.dex */
+public interface t7c {
+    void a(boolean z, int i);
+}

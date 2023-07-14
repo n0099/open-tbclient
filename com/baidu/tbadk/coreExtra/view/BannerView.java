@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.os9;
-import com.baidu.tieba.u25;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.c35;
+import com.baidu.tieba.vy9;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class BannerView extends RelativeLayout {
     public float i;
     public String j;
     public boolean k;
-    public u25 l;
+    public c35 l;
     public String m;
     public b n;
     public View.OnClickListener o;
@@ -166,11 +166,11 @@ public class BannerView extends RelativeLayout {
         h(context);
     }
 
-    public void setBannerData(u25 u25Var) {
+    public void setBannerData(c35 c35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, u25Var) == null) {
-            this.l = u25Var;
-            os9.f(u25Var.g, this.f, u25Var.h, xi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, c35Var) == null) {
+            this.l = c35Var;
+            vy9.f(c35Var.g, this.f, c35Var.h, yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 
@@ -265,8 +265,8 @@ public class BannerView extends RelativeLayout {
     public final void h(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d013d, this);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f0904aa);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d013c, this);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f0904ab);
             this.c = button;
             button.setOnClickListener(this.o);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.banner_image);
@@ -295,8 +295,8 @@ public class BannerView extends RelativeLayout {
             setVisibility(8);
             if (!this.h && this.k) {
                 ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
-                layoutParams.width = xi.l(getContext());
-                layoutParams.height = (int) ((xi.l(getContext()) * this.i) + 0.5d);
+                layoutParams.width = yi.l(getContext());
+                layoutParams.height = (int) ((yi.l(getContext()) * this.i) + 0.5d);
                 this.d.setLayoutParams(layoutParams);
                 this.d.J(str, 10, 640, 108, false);
                 ViewGroup.LayoutParams layoutParams2 = getLayoutParams();

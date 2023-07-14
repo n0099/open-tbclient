@@ -6,23 +6,23 @@ import android.media.ThumbnailUtils;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.b2b;
-import com.baidu.tieba.h1b;
-import com.baidu.tieba.m1b;
-import com.baidu.tieba.v1b;
+import com.baidu.tieba.fab;
+import com.baidu.tieba.kab;
+import com.baidu.tieba.tab;
+import com.baidu.tieba.zab;
 import com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel;
 import com.baidu.ugc.editvideo.magicmusic.VideoEffectData;
 import java.io.Closeable;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements Closeable {
     public boolean isMirror;
     public int mAngle;
     public VideoKeyFrameModel mVideoKeyFrameModel;
     public String mPath = null;
-    public boolean isUseMediacodec = v1b.a();
+    public boolean isUseMediacodec = tab.a();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnGetFrameAtExactTimeListener {
         void onFinish(Bitmap bitmap);
     }
@@ -37,7 +37,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
     }
 
     private boolean isUseMediacodec() {
-        return this.isUseMediacodec && !b2b.a(this.mPath);
+        return this.isUseMediacodec && !zab.a(this.mPath);
     }
 
     @Override // android.media.MediaMetadataRetriever, java.lang.AutoCloseable, java.io.Closeable
@@ -113,7 +113,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
     }
 
     public void getFrameAtTimeList(List<Long> list, int i, int i2, VideoKeyFrameModel.OnDecodeFrameAvailableListener onDecodeFrameAvailableListener) {
-        if (m1b.e(list) || onDecodeFrameAvailableListener == null) {
+        if (kab.e(list) || onDecodeFrameAvailableListener == null) {
             return;
         }
         if (isUseMediacodec()) {
@@ -152,7 +152,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
                 this.mPath = str;
             }
         } catch (Exception e) {
-            h1b.g(e);
+            fab.g(e);
         }
     }
 

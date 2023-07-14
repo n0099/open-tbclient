@@ -1,11 +1,23 @@
 package com.baidu.tieba;
 
-import tbclient.ItemInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
+import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes8.dex */
-public interface we7 {
-    ItemInfo C0();
+public final class we7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean M();
-
-    void p1(ItemInfo itemInfo);
+    public static final String a(String active, String task) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, active, task)) == null) {
+            Intrinsics.checkNotNullParameter(active, "active");
+            Intrinsics.checkNotNullParameter(task, "task");
+            return active + SignatureImpl.SEP + task;
+        }
+        return (String) invokeLL.objValue;
+    }
 }

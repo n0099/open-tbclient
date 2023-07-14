@@ -14,18 +14,18 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f06;
+import com.baidu.tieba.j16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PullLeftRefreshLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
-    public f06 b;
+    public j16 b;
     public View c;
     public int d;
     public int e;
@@ -42,7 +42,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
     public boolean p;
     public RecyclerView.OnScrollListener q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface f {
         void a();
     }
@@ -53,7 +53,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
         public final /* synthetic */ PullLeftRefreshLayout e;
 
         /* renamed from: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class C0228a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class b extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -197,13 +197,13 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PullLeftRefreshLayout a;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -273,7 +273,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -306,7 +306,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -348,7 +348,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -484,11 +484,11 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    public void setRefreshViewAndListener(f06 f06Var) {
+    public void setRefreshViewAndListener(j16 j16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, f06Var) == null) {
-            this.b = f06Var;
-            this.c = f06Var.getView();
+        if (interceptable == null || interceptable.invokeL(1048592, this, j16Var) == null) {
+            this.b = j16Var;
+            this.c = j16Var.getView();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 8388613;
             this.c.setLayoutParams(layoutParams);
@@ -656,9 +656,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                                 getParent().requestDisallowInterceptTouchEvent(true);
                             }
                             this.d = 2;
-                            f06 f06Var = this.b;
-                            if (f06Var != null) {
-                                f06Var.b(this.c);
+                            j16 j16Var = this.b;
+                            if (j16Var != null) {
+                                j16Var.b(this.c);
                             }
                             return true;
                         }
@@ -714,9 +714,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                         if (abs >= 0.0f) {
                             this.n = 0.0f;
                             this.a.setTranslationX(0.0f);
-                            f06 f06Var = this.b;
-                            if (f06Var != null) {
-                                f06Var.b(this.c);
+                            j16 j16Var = this.b;
+                            if (j16Var != null) {
+                                j16Var.b(this.c);
                             }
                         } else {
                             int i2 = this.f;
@@ -724,21 +724,21 @@ public class PullLeftRefreshLayout extends FrameLayout {
                                 float f2 = -i2;
                                 this.n = f2;
                                 this.a.setTranslationX(f2);
-                                f06 f06Var2 = this.b;
-                                if (f06Var2 != null) {
-                                    f06Var2.a(this.c);
+                                j16 j16Var2 = this.b;
+                                if (j16Var2 != null) {
+                                    j16Var2.a(this.c);
                                 }
                             } else {
                                 this.a.setTranslationX(abs);
                                 if (Math.abs(this.n) > this.h) {
-                                    f06 f06Var3 = this.b;
-                                    if (f06Var3 != null) {
-                                        f06Var3.a(this.c);
+                                    j16 j16Var3 = this.b;
+                                    if (j16Var3 != null) {
+                                        j16Var3.a(this.c);
                                     }
                                 } else {
-                                    f06 f06Var4 = this.b;
-                                    if (f06Var4 != null) {
-                                        f06Var4.b(this.c);
+                                    j16 j16Var4 = this.b;
+                                    if (j16Var4 != null) {
+                                        j16Var4.b(this.c);
                                     }
                                 }
                             }

@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.du8;
-import com.baidu.tieba.ot9;
+import com.baidu.tieba.g09;
 import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.wz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,14 +34,14 @@ public class AdCardMultiPicView extends AdCardBaseView {
     public int getCustomLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d019a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d019a : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0199 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0199 : invokeV.intValue;
     }
 
     /* loaded from: classes7.dex */
@@ -72,7 +72,7 @@ public class AdCardMultiPicView extends AdCardBaseView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.X("image");
+                this.a.Y("image");
             }
         }
     }
@@ -98,95 +98,9 @@ public class AdCardMultiPicView extends AdCardBaseView {
         this.x0 = 0.0f;
     }
 
-    @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void U(AdCard adCard) {
-        List<String> list;
-        float f;
+    public final void A0(XfremodeRoundLayout xfremodeRoundLayout, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            ot9 ot9Var = adCard.picInfo;
-            if (ot9Var == null) {
-                list = null;
-            } else {
-                list = ot9Var.c;
-            }
-            if (!du8.e(list) && ot9Var != null) {
-                int i = du8.i(ot9Var.c);
-                int dimensionPixelSize = (int) ((this.B - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
-                int i2 = ot9Var.e;
-                int i3 = ot9Var.d;
-                if (i2 != 0 && i3 != 0) {
-                    f = i2 / i3;
-                } else {
-                    f = 1.0f;
-                }
-                int max = (int) (dimensionPixelSize * Math.max(Math.min(f, 1.0f), 0.0f));
-                this.r0.setVisibility(4);
-                this.t0.setVisibility(4);
-                this.v0.setVisibility(4);
-                z0(this.j0, 1);
-                z0(this.s0, 2);
-                z0(this.u0, 3);
-                y0(this.r0, dimensionPixelSize, max);
-                y0(this.t0, dimensionPixelSize, max);
-                y0(this.v0, dimensionPixelSize, max);
-                if (i == 1) {
-                    this.r0.o((String) du8.d(list, 0));
-                    this.r0.setVisibility(0);
-                    z0(this.j0, 4);
-                } else if (i == 2) {
-                    this.r0.o((String) du8.d(list, 0));
-                    this.r0.setVisibility(0);
-                    this.t0.o((String) du8.d(list, 1));
-                    this.t0.setVisibility(0);
-                    z0(this.s0, 3);
-                } else if (i >= 3) {
-                    this.r0.o((String) du8.d(list, 0));
-                    this.r0.setVisibility(0);
-                    this.t0.o((String) du8.d(list, 1));
-                    this.t0.setVisibility(0);
-                    this.v0.o((String) du8.d(list, 2));
-                    this.v0.setVisibility(0);
-                }
-                this.o.setVisibility(0);
-                this.o.setOnClickListener(new a(this));
-                return;
-            }
-            this.o.setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void c0(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.j0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ef8);
-            this.r0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090154);
-            this.s0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ef7);
-            this.t0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090153);
-            this.u0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ef9);
-            this.v0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090155);
-            this.w0 = W(R.string.J_X05)[0];
-            this.r0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
-            this.t0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
-            this.v0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
-        }
-    }
-
-    public final void y0(View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLII(1048580, this, view2, i, i2) != null) || view2 == null) {
-            return;
-        }
-        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-        layoutParams.height = i2;
-        layoutParams.width = i;
-        view2.setLayoutParams(layoutParams);
-    }
-
-    public final void z0(XfremodeRoundLayout xfremodeRoundLayout, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, xfremodeRoundLayout, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, xfremodeRoundLayout, i) == null) {
             if (i != 1) {
                 if (i != 2) {
                     if (i != 3) {
@@ -207,5 +121,91 @@ public class AdCardMultiPicView extends AdCardBaseView {
             float f6 = this.x0;
             xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f5, f5, f6, f6, f6, f6, f5, f5});
         }
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
+    public void V(AdCard adCard) {
+        List<String> list;
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adCard) == null) {
+            wz9 wz9Var = adCard.picInfo;
+            if (wz9Var == null) {
+                list = null;
+            } else {
+                list = wz9Var.c;
+            }
+            if (!g09.e(list) && wz9Var != null) {
+                int i = g09.i(wz9Var.c);
+                int dimensionPixelSize = (int) ((this.B - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
+                int i2 = wz9Var.e;
+                int i3 = wz9Var.d;
+                if (i2 != 0 && i3 != 0) {
+                    f = i2 / i3;
+                } else {
+                    f = 1.0f;
+                }
+                int max = (int) (dimensionPixelSize * Math.max(Math.min(f, 1.0f), 0.0f));
+                this.r0.setVisibility(4);
+                this.t0.setVisibility(4);
+                this.v0.setVisibility(4);
+                A0(this.j0, 1);
+                A0(this.s0, 2);
+                A0(this.u0, 3);
+                z0(this.r0, dimensionPixelSize, max);
+                z0(this.t0, dimensionPixelSize, max);
+                z0(this.v0, dimensionPixelSize, max);
+                if (i == 1) {
+                    this.r0.o((String) g09.d(list, 0));
+                    this.r0.setVisibility(0);
+                    A0(this.j0, 4);
+                } else if (i == 2) {
+                    this.r0.o((String) g09.d(list, 0));
+                    this.r0.setVisibility(0);
+                    this.t0.o((String) g09.d(list, 1));
+                    this.t0.setVisibility(0);
+                    A0(this.s0, 3);
+                } else if (i >= 3) {
+                    this.r0.o((String) g09.d(list, 0));
+                    this.r0.setVisibility(0);
+                    this.t0.o((String) g09.d(list, 1));
+                    this.t0.setVisibility(0);
+                    this.v0.o((String) g09.d(list, 2));
+                    this.v0.setVisibility(0);
+                }
+                this.o.setVisibility(0);
+                this.o.setOnClickListener(new a(this));
+                return;
+            }
+            this.o.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
+    public void d0(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            this.j0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f2a);
+            this.r0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090154);
+            this.s0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f29);
+            this.t0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090153);
+            this.u0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f2b);
+            this.v0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090155);
+            this.w0 = X(R.string.J_X05)[0];
+            this.r0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
+            this.t0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
+            this.v0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
+        }
+    }
+
+    public final void z0(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLII(1048581, this, view2, i, i2) != null) || view2 == null) {
+            return;
+        }
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+        layoutParams.height = i2;
+        layoutParams.width = i;
+        view2.setLayoutParams(layoutParams);
     }
 }

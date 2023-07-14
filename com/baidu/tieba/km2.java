@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.ru2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,111 +16,93 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class km2 extends om2<pn2, sn2> {
+public class km2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile km2 e;
-    public static boolean f;
+    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a extends ProviderDelegation {
+    public static class a implements ru2.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
 
-        public int e() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.ru2.c
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return 0;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
-            return invokeV.intValue;
         }
 
-        public a() {
+        public a(CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {callbackHandler, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = str2;
+        }
+
+        @Override // com.baidu.tieba.ru2.c
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                v82.k("DebugDependencyControl", "debug扩展库下载失败 url=" + this.c);
+                if (this.a != null && !TextUtils.isEmpty(this.b)) {
+                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
                 }
             }
         }
 
-        public final om2 d() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.ru2.c
+        public void onSuccess() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return lm2.f(e());
-            }
-            return (om2) invokeV.objValue;
-        }
-
-        public final ExtensionCore c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (d() == null) {
-                    return null;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.a != null && !TextUtils.isEmpty(this.b)) {
+                    File j = km2.j();
+                    v82.k("DebugDependencyControl", "debug扩展库下载成功 file=" + j.getAbsolutePath());
+                    Pair d = km2.d(j);
+                    if (!((Boolean) d.first).booleanValue()) {
+                        v82.k("DebugDependencyControl", "debug扩展库解密失败 file=" + j.getAbsolutePath());
+                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug扩展库解密失败").toString());
+                        return;
+                    } else if (!km2.o((File) d.second)) {
+                        v82.k("DebugDependencyControl", "debug扩展库解压失败 file=" + j.getAbsolutePath());
+                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug扩展库解压失败").toString());
+                        return;
+                    } else {
+                        km2.n(true);
+                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                        return;
+                    }
                 }
-                ExtensionCore d = d().d();
-                if (!d.isAvailable()) {
-                    d().h();
-                    return d().d();
-                }
-                return d;
+                v82.k("DebugDependencyControl", "debug扩展库下载成功 handler=" + this.a + " cb=" + this.b);
             }
-            return (ExtensionCore) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putParcelable("aiapps_extension_core", c());
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putBoolean("swan_preset_extension", km2.f);
-                c92.k("ExtCore-AppsManager", "is extension file exists : " + km2.f);
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
         }
     }
 
@@ -137,128 +119,210 @@ public class km2 extends om2<pn2, sn2> {
                 return;
             }
         }
-        d = ms1.a;
-        f = m();
+        a = "190d49fefe87b97c6b8adeebd11fc227".getBytes(StandardCharsets.UTF_8);
     }
 
-    public static km2 k() {
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            for (File file : l()) {
+                zr4.j(file);
+            }
+        }
+    }
+
+    public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (km2.class) {
-                    if (e == null) {
-                        e = new km2();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return ru2.r();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static File g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new File(f(), "dependency_decrypt.zip");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return f() + File.separator + "temp_unzip";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static File j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return new File(f(), "dependency.zip");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return jk3.a().getBoolean("debugDependency", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
+            jk3.a().putBoolean("debugDependency", z);
+        }
+    }
+
+    public static Pair<Boolean, File> d(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            if (file != null && file.exists()) {
+                File g = g();
+                try {
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    FileOutputStream fileOutputStream = new FileOutputStream(g);
+                    byte[] bArr = new byte[16];
+                    fileInputStream.skip(10L);
+                    fileInputStream.read(bArr, 0, 10);
+                    fileInputStream.skip(5L);
+                    fileInputStream.read(bArr, 10, 6);
+                    fileInputStream.skip(3L);
+                    byte[] bArr2 = new byte[fileInputStream.available()];
+                    fileInputStream.read(bArr2);
+                    g.deleteOnExit();
+                    g.createNewFile();
+                    IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr);
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(a, "AES");
+                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                    cipher.init(2, secretKeySpec, ivParameterSpec);
+                    fileOutputStream.write(cipher.doFinal(bArr2));
+                    fileOutputStream.flush();
+                    zr4.L(file);
+                    Pair<Boolean, File> pair = new Pair<>(Boolean.TRUE, g);
+                    fileOutputStream.close();
+                    fileInputStream.close();
+                    return pair;
+                } catch (Exception e) {
+                    v82.l("DebugDependencyControl", "debug扩展库解密失败: ", e);
+                    return new Pair<>(Boolean.FALSE, null);
+                }
+            }
+            return new Pair<>(Boolean.FALSE, null);
+        }
+        return (Pair) invokeL.objValue;
+    }
+
+    public static synchronized void e(@NonNull String str, @Nullable CallbackHandler callbackHandler, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, callbackHandler, str2) == null) {
+            synchronized (km2.class) {
+                if (TextUtils.isEmpty(str)) {
+                    v82.k("DebugDependencyControl", "download url is empty");
+                } else {
+                    ru2.G(str, new a(callbackHandler, str2, str));
+                }
+            }
+        }
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return f() + File.separator + str + File.separator + "debug_dependency";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public static List<File> l() {
+        InterceptResult invokeV;
+        File[] C;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (File file : zr4.C(new File(f()))) {
+                if (file.isDirectory()) {
+                    File[] C2 = zr4.C(file);
+                    int length = C2.length;
+                    int i = 0;
+                    while (true) {
+                        if (i < length) {
+                            File file2 = C2[i];
+                            if (file2.isDirectory() && "debug_dependency".equals(file2.getName())) {
+                                arrayList.add(file2);
+                                break;
+                            }
+                            i++;
+                        }
                     }
                 }
             }
-            return e;
+            return arrayList;
         }
-        return (km2) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public static pn2 l() {
-        InterceptResult invokeV;
+    public static String m(@NonNull File file) {
+        InterceptResult invokeL;
+        String str;
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (j()) {
-                return new pn2();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, file)) == null) {
+            if (file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length == 1 && listFiles[0].isDirectory()) {
+                zr4.e(listFiles[0], file);
+                zr4.L(listFiles[0]);
             }
-            return new qn2();
+            try {
+                str = new JSONObject(zr4.E(new File(file, "swan-package.json"))).getString("name");
+            } catch (JSONException e) {
+                e.printStackTrace();
+                str = "";
+            }
+            if (TextUtils.isEmpty(str)) {
+                return "unknown";
+            }
+            return str;
         }
-        return (pn2) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public km2() {
-        super(l(), new sn2());
+    public static boolean o(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((on2) objArr[0], (rn2) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                c92.k("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f);
-                return f;
-            }
-            r83 c = p83.c(b.class, null);
-            boolean z = true;
-            if (c.a() && !c.a.getBoolean("swan_preset_extension", true)) {
-                z = false;
-            }
-            c92.k("ExtCore-AppsManager", "swanProcess mPresetExtension: " + z);
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            jn2 jn2Var = new jn2();
-            if (no3.a(AppRuntime.getAppContext(), jn2Var.d()) && no3.a(AppRuntime.getAppContext(), jn2Var.a())) {
-                z = true;
-            } else {
-                z = false;
-            }
-            c92.k("ExtCore-AppsManager", "preset extension isFileExists : " + z);
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.om2
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i != 1) {
-                return tm2.b().getPath();
-            }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.om2
-    @Nullable
-    public ExtensionCore c() {
-        InterceptResult invokeV;
-        ExtensionCore extensionCore;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                extensionCore = d();
-            } else {
-                Bundle bundle = p83.c(a.class, null).a;
-                bundle.setClassLoader(ExtensionCore.class.getClassLoader());
-                extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-                if (d) {
-                    Log.d("ExtCore-AppsManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, file)) == null) {
+            boolean z = false;
+            if (file != null && file.exists()) {
+                File file2 = new File(i());
+                zr4.l(file2);
+                if (zr4.U(file.getAbsolutePath(), file2.getAbsolutePath())) {
+                    File file3 = new File(h(m(file2)));
+                    if (file3.exists()) {
+                        zr4.L(file3);
+                    }
+                    file3.mkdirs();
+                    zr4.e(file2, file3);
+                    zr4.L(file2);
+                    zr4.L(file);
+                    z = true;
                 }
+                v82.k("DebugDependencyControl", "debug扩展库解压结果: unzipSuccess=" + z);
+                return z;
             }
-            if (extensionCore != null && b83.Y() && extensionCore.extensionCoreVersionCode < 4294967297L) {
-                return b83.a(extensionCore);
-            }
-            return extensionCore;
+            v82.k("DebugDependencyControl", "debug扩展库压缩包不存在");
+            return false;
         }
-        return (ExtensionCore) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

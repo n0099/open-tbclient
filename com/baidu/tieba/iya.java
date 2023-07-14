@@ -1,25 +1,74 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.VideoEasterEggActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iya implements pya {
+public class iya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vxa a;
-    public int b;
-    public int c;
-    public boolean d;
+    @NonNull
+    public final TbPageContext<?> a;
+    public final AntiHelper.k b;
 
-    public iya() {
+    /* loaded from: classes6.dex */
+    public class a implements AntiHelper.k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(iya iyaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iyaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
+        public void onNavigationButtonClick(p55 p55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
+            }
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
+        public void onPositiveButtonClick(p55 p55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p55Var) == null) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
+            }
+        }
+    }
+
+    public iya(@NonNull TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,127 +78,42 @@ public class iya implements pya {
                 return;
             }
         }
-        this.d = true;
+        this.b = new a(this);
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.pya
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
+    public final boolean a(PostWriteCallBackData postWriteCallBackData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            vxa vxaVar = this.a;
-            if (vxaVar == null || bArr == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, postWriteCallBackData)) == null) {
+            if (this.a.getPageActivity() == null || postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || xi.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
+                return false;
             }
-            this.b += bArr.length;
-            vxaVar.putBytes(bArr, i);
-            return this.b;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.a.getPageActivity()).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
+            return true;
         }
-        return invokeLI.intValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pya
-    public boolean a() {
-        InterceptResult invokeV;
+    public void b(PostWriteCallBackData postWriteCallBackData) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pya
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            if (this.a == null) {
-                this.a = (vxa) x1b.a("com.baidu.ugc.audioedit.AudioChangeOperator");
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, postWriteCallBackData) == null) && postWriteCallBackData != null) {
+            if (AntiHelper.m(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString())) {
+                if (AntiHelper.w(this.a.getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getErrorCode(), this.b) != null) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
+                }
+            } else if (postWriteCallBackData.getErrorCode() != 0) {
+                if (postWriteCallBackData.getErrorCode() == 230278) {
+                    return;
+                }
+                String errorString = postWriteCallBackData.getErrorString();
+                if (TextUtils.isEmpty(errorString)) {
+                    errorString = this.a.getString(R.string.sand_fail);
+                }
+                this.a.showToast(errorString);
+            } else if (!a(postWriteCallBackData)) {
+                dfa.b(this.a.getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
             }
-            vxa vxaVar = this.a;
-            if (vxaVar != null) {
-                vxaVar.initVoiceChanger(i, i2, i3, i4);
-            }
-            return this.a != null;
         }
-        return invokeIIII.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pya
-    public byte[] a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            vxa vxaVar = this.a;
-            if (vxaVar == null || vxaVar.availableBytes() <= 0) {
-                return new byte[0];
-            }
-            byte[] bArr = new byte[4096];
-            int bytes = this.a.getBytes(bArr, 4096);
-            this.c += bytes;
-            if (bytes == 0) {
-                return null;
-            }
-            if (4096 == bytes) {
-                return bArr;
-            }
-            byte[] bArr2 = new byte[bytes];
-            System.arraycopy(bArr, 0, bArr2, 0, bytes);
-            return bArr2;
-        }
-        return (byte[]) invokeI.objValue;
-    }
-
-    public void b(int[] iArr) {
-        vxa vxaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (vxaVar = this.a) == null) {
-            return;
-        }
-        vxaVar.setVoiceChangeType(iArr);
-    }
-
-    @Override // com.baidu.tieba.pya
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pya
-    public void c() {
-        vxa vxaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (vxaVar = this.a) == null) {
-            return;
-        }
-        vxaVar.flush();
-    }
-
-    public void c(int[] iArr, int[] iArr2, double[] dArr) {
-        vxa vxaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (vxaVar = this.a) == null) {
-            return;
-        }
-        vxaVar.setVoiceChangeType(iArr, iArr2, dArr);
-    }
-
-    @Override // com.baidu.tieba.pya
-    public void d() {
-        vxa vxaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (vxaVar = this.a) == null) {
-            return;
-        }
-        vxaVar.close();
-        this.a = null;
-    }
-
-    @Override // com.baidu.tieba.pya
-    public void e() {
-        vxa vxaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (vxaVar = this.a) == null) {
-            return;
-        }
-        vxaVar.clearQueues();
     }
 }

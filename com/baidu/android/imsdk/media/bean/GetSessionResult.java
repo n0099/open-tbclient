@@ -20,6 +20,7 @@ public class GetSessionResult implements Parcelable, ResponseResult {
     public int consultUnread;
     public int dotUnread;
     public boolean hasMore;
+    public int privateChatNoDisturbNumber;
     public List<ChatSession> sessionList;
     public int totalUnread;
     public int weakConsultUnread;

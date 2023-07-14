@@ -2,7 +2,7 @@ package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.mr;
+import com.baidu.tieba.nr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,16 +18,16 @@ public final class BDPTask$INSTANCE$setTaskInterceptor$1 extends Lambda implemen
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String $actionId;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ mr $taskInterceptor;
+    public final /* synthetic */ nr $taskInterceptor;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$setTaskInterceptor$1(String str, mr mrVar) {
+    public BDPTask$INSTANCE$setTaskInterceptor$1(String str, nr nrVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, mrVar};
+            Object[] objArr = {str, nrVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,7 +39,7 @@ public final class BDPTask$INSTANCE$setTaskInterceptor$1 extends Lambda implemen
             }
         }
         this.$actionId = str;
-        this.$taskInterceptor = mrVar;
+        this.$taskInterceptor = nrVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

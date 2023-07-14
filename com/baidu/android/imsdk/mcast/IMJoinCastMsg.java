@@ -104,7 +104,7 @@ public class IMJoinCastMsg extends Message {
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:31:0x00c3
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:33:0x00a9
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -114,7 +114,7 @@ public class IMJoinCastMsg extends Message {
         /*
             r15 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.android.imsdk.mcast.IMJoinCastMsg.$ic
-            if (r0 != 0) goto L112
+            if (r0 != 0) goto Lf8
         L4:
             r1 = r15
             r2 = r17
@@ -124,103 +124,97 @@ public class IMJoinCastMsg extends Message {
             java.lang.String r5 = "msg"
             java.lang.String r6 = "IMJoinCastMsg"
             r7 = -1
-            if (r18 != 0) goto Ld4
-            boolean r9 = r2.has(r5)     // Catch: java.lang.Exception -> Lc5
+            if (r18 != 0) goto Lba
+            boolean r9 = r2.has(r5)     // Catch: java.lang.Exception -> Lab
             if (r9 == 0) goto L1e
-            r2.getString(r5)     // Catch: java.lang.Exception -> Lc5
+            r2.getString(r5)     // Catch: java.lang.Exception -> Lab
         L1e:
-            boolean r5 = r2.has(r4)     // Catch: java.lang.Exception -> Lc5
-            if (r5 == 0) goto L43
-            long r7 = r2.getLong(r4)     // Catch: java.lang.Exception -> Lc5
-            java.lang.String r4 = "fxf"
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> Lc5
-            r5.<init>()     // Catch: java.lang.Exception -> Lc5
+            boolean r5 = r2.has(r4)     // Catch: java.lang.Exception -> Lab
+            if (r5 == 0) goto L47
+            long r4 = r2.getLong(r4)     // Catch: java.lang.Exception -> Lab
+            java.lang.String r7 = "fxf"
+            java.lang.StringBuilder r8 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L44
+            r8.<init>()     // Catch: java.lang.Exception -> L44
             java.lang.String r9 = " cast id is"
-            r5.append(r9)     // Catch: java.lang.Exception -> Lc5
-            r5.append(r7)     // Catch: java.lang.Exception -> Lc5
-            java.lang.String r5 = r5.toString()     // Catch: java.lang.Exception -> Lc5
-            com.baidu.android.imsdk.utils.LogUtils.d(r4, r5)     // Catch: java.lang.Exception -> Lc5
+            r8.append(r9)     // Catch: java.lang.Exception -> L44
+            r8.append(r4)     // Catch: java.lang.Exception -> L44
+            java.lang.String r8 = r8.toString()     // Catch: java.lang.Exception -> L44
+            com.baidu.android.imsdk.utils.LogUtils.d(r7, r8)     // Catch: java.lang.Exception -> L44
+            r7 = r4
             r4 = r18
             r5 = r19
-            goto L47
-        L43:
+            goto L4b
+        L44:
+            r0 = move-exception
+            r7 = r4
+            goto Lac
+        L47:
             r4 = 1015(0x3f7, float:1.422E-42)
             java.lang.String r5 = "Server error!"
-        L47:
-            boolean r9 = r2.has(r3)     // Catch: java.lang.Exception -> Lc1
-            if (r9 == 0) goto L5b
+        L4b:
+            boolean r9 = r2.has(r3)     // Catch: java.lang.Exception -> La7
+            if (r9 == 0) goto L5f
             r9 = 60000(0xea60, float:8.4078E-41)
-            int r3 = r2.optInt(r3, r9)     // Catch: java.lang.Exception -> Lc1
-            if (r3 <= 0) goto L5f
+            int r3 = r2.optInt(r3, r9)     // Catch: java.lang.Exception -> La7
+            if (r3 <= 0) goto L63
             int r3 = r3 * 1000
-            com.baidu.android.imsdk.conversation.ConversationStudioManImpl.mCastHeartBeatTime = r3     // Catch: java.lang.Exception -> Lc1
-            goto L5f
-        L5b:
-            r3 = 3000(0xbb8, float:4.204E-42)
-            com.baidu.android.imsdk.conversation.ConversationStudioManImpl.mCastHeartBeatTime = r3     // Catch: java.lang.Exception -> Lc1
+            com.baidu.android.imsdk.conversation.ConversationStudioManImpl.mCastHeartBeatTime = r3     // Catch: java.lang.Exception -> La7
+            goto L63
         L5f:
-            boolean r3 = r2.has(r0)     // Catch: java.lang.Exception -> Lc1
-            if (r3 == 0) goto La8
+            r3 = 3000(0xbb8, float:4.204E-42)
+            com.baidu.android.imsdk.conversation.ConversationStudioManImpl.mCastHeartBeatTime = r3     // Catch: java.lang.Exception -> La7
+        L63:
+            boolean r3 = r2.has(r0)     // Catch: java.lang.Exception -> La7
+            if (r3 == 0) goto L8e
             r3 = 0
-            int r0 = r2.optInt(r0, r3)     // Catch: java.lang.Exception -> Lc1
+            int r0 = r2.optInt(r0, r3)     // Catch: java.lang.Exception -> La7
             r3 = 1
-            if (r0 != r3) goto L8b
-            android.content.Context r0 = r1.mContext     // Catch: java.lang.Exception -> Lc1
-            com.baidu.android.imsdk.conversation.ConversationStudioManImpl r0 = com.baidu.android.imsdk.conversation.ConversationStudioManImpl.getInstance(r0)     // Catch: java.lang.Exception -> Lc1
-            r0.addAckCastId(r7)     // Catch: java.lang.Exception -> Lc1
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> Lc1
-            r0.<init>()     // Catch: java.lang.Exception -> Lc1
+            if (r0 != r3) goto L8e
+            android.content.Context r0 = r1.mContext     // Catch: java.lang.Exception -> La7
+            com.baidu.android.imsdk.conversation.ConversationStudioManImpl r0 = com.baidu.android.imsdk.conversation.ConversationStudioManImpl.getInstance(r0)     // Catch: java.lang.Exception -> La7
+            r0.needAck(r3)     // Catch: java.lang.Exception -> La7
+            java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> La7
+            r0.<init>()     // Catch: java.lang.Exception -> La7
             java.lang.String r3 = "join 后添加ack cast信息："
-            r0.append(r3)     // Catch: java.lang.Exception -> Lc1
-            r0.append(r7)     // Catch: java.lang.Exception -> Lc1
-            java.lang.String r0 = r0.toString()     // Catch: java.lang.Exception -> Lc1
-            com.baidu.android.imsdk.utils.LogUtils.d(r6, r0)     // Catch: java.lang.Exception -> Lc1
-            goto La8
-        L8b:
-            android.content.Context r0 = r1.mContext     // Catch: java.lang.Exception -> Lc1
-            com.baidu.android.imsdk.conversation.ConversationStudioManImpl r0 = com.baidu.android.imsdk.conversation.ConversationStudioManImpl.getInstance(r0)     // Catch: java.lang.Exception -> Lc1
-            r0.removeAckCastId(r7)     // Catch: java.lang.Exception -> Lc1
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> Lc1
-            r0.<init>()     // Catch: java.lang.Exception -> Lc1
-            java.lang.String r3 = "join后 删除ack cast信息"
-            r0.append(r3)     // Catch: java.lang.Exception -> Lc1
-            r0.append(r7)     // Catch: java.lang.Exception -> Lc1
-            java.lang.String r0 = r0.toString()     // Catch: java.lang.Exception -> Lc1
-            com.baidu.android.imsdk.utils.LogUtils.d(r6, r0)     // Catch: java.lang.Exception -> Lc1
-        La8:
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> Lc1
-            r0.<init>()     // Catch: java.lang.Exception -> Lc1
+            r0.append(r3)     // Catch: java.lang.Exception -> La7
+            r0.append(r7)     // Catch: java.lang.Exception -> La7
+            java.lang.String r0 = r0.toString()     // Catch: java.lang.Exception -> La7
+            com.baidu.android.imsdk.utils.LogUtils.d(r6, r0)     // Catch: java.lang.Exception -> La7
+        L8e:
+            java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> La7
+            r0.<init>()     // Catch: java.lang.Exception -> La7
             java.lang.String r3 = " obj="
-            r0.append(r3)     // Catch: java.lang.Exception -> Lc1
-            java.lang.String r3 = r17.toString()     // Catch: java.lang.Exception -> Lc1
-            r0.append(r3)     // Catch: java.lang.Exception -> Lc1
-            java.lang.String r0 = r0.toString()     // Catch: java.lang.Exception -> Lc1
-            com.baidu.android.imsdk.utils.LogUtils.d(r6, r0)     // Catch: java.lang.Exception -> Lc1
-            goto Lcf
-        Lc1:
+            r0.append(r3)     // Catch: java.lang.Exception -> La7
+            java.lang.String r3 = r17.toString()     // Catch: java.lang.Exception -> La7
+            r0.append(r3)     // Catch: java.lang.Exception -> La7
+            java.lang.String r0 = r0.toString()     // Catch: java.lang.Exception -> La7
+            com.baidu.android.imsdk.utils.LogUtils.d(r6, r0)     // Catch: java.lang.Exception -> La7
+            goto Lb5
+        La7:
             r0 = move-exception
-            goto Lca
-        Lc3:
+            goto Lb0
+        La9:
             r0 = move-exception
-            goto Lc8
-        Lc5:
+            goto Lae
+        Lab:
             r0 = move-exception
+        Lac:
             r4 = r18
-        Lc8:
+        Lae:
             r5 = r19
-        Lca:
+        Lb0:
             java.lang.String r3 = "handle IMQuitCastMsg exception :"
             com.baidu.android.imsdk.utils.LogUtils.e(r6, r3, r0)
-        Lcf:
+        Lb5:
             r3 = r16
             r11 = r4
             r12 = r5
-            goto Lda
-        Ld4:
+            goto Lc0
+        Lba:
             r3 = r16
             r11 = r18
             r12 = r19
-        Lda:
+        Lc0:
             super.handleMessageResult(r3, r2, r11, r12)
             java.lang.StringBuilder r0 = new java.lang.StringBuilder
             r0.<init>()
@@ -237,16 +231,16 @@ public class IMJoinCastMsg extends Message {
             java.lang.String r10 = r15.getListenerKey()
             r2 = 0
             int r0 = (r7 > r2 ? 1 : (r7 == r2 ? 0 : -1))
-            if (r0 <= 0) goto L10b
+            if (r0 <= 0) goto Lf1
             r13 = r7
-            goto L10e
-        L10b:
+            goto Lf4
+        Lf1:
             long r2 = r1.mToUser
             r13 = r2
-        L10e:
+        Lf4:
             r9.onJoinCastResult(r10, r11, r12, r13)
             return
-        L112:
+        Lf8:
             r13 = r0
             r14 = 1048577(0x100001, float:1.46937E-39)
             com.baidu.titan.sdk.runtime.InterceptResult r0 = r13.invokeLLIL(r14, r15, r16, r17, r18, r19)

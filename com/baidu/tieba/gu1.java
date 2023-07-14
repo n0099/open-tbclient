@@ -1,17 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.ContentValues;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class gu1 implements kw1 {
+public class gu1 implements lw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.lw1
+    @Nullable
+    public List<ContentValues> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
 
     public gu1() {
         Interceptable interceptable = $ic;
@@ -24,32 +35,6 @@ public class gu1 implements kw1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.kw1
-    public long a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return x82.b().a;
-        }
-        return invokeL.longValue;
-    }
-
-    @Override // com.baidu.tieba.kw1
-    public void b(Context context, String str, vq3<String> vq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, vq3Var) == null) {
-            cz1.d(str, vq3Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.kw1
-    public void c(Context context, JSONArray jSONArray, vq3<String> vq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONArray, vq3Var) == null) {
-            cz1.e(jSONArray, vq3Var);
         }
     }
 }

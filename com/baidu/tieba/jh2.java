@@ -1,109 +1,23 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class jh2 {
+public class jh2 implements gh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int a = -1;
-        public static int b = -1;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-689984712, "Lcom/baidu/tieba/jh2$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-689984712, "Lcom/baidu/tieba/jh2$a;");
-            }
-        }
-
-        public static String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab");
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (b == -1) {
-                    jv2.g0().getSwitch("swan_app_launch_optimize_v2", 0);
-                    b = 0;
-                }
-                if (b != 1) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (jh2.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + a());
-                    String a2 = a();
-                    char c = 65535;
-                    int hashCode = a2.hashCode();
-                    if (hashCode != 251117829) {
-                        if (hashCode != 547804557) {
-                            if (hashCode == 569516856 && a2.equals("debug_on_activity_create")) {
-                                c = 1;
-                            }
-                        } else if (a2.equals("debug_ab")) {
-                            c = 2;
-                        }
-                    } else if (a2.equals("debug_on_app_launch")) {
-                        c = 0;
-                    }
-                    if (c == 0) {
-                        return true;
-                    }
-                    if (c == 1) {
-                        return false;
-                    }
-                }
-                if (a < 0) {
-                    jv2.g0().getSwitch("swan_sub_pkg_launch_switch", 0);
-                    a = 0;
-                }
-                if (jh2.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + a);
-                }
-                if (a != 1) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
+    public final LruCache<String, Long> a;
 
     static {
         InterceptResult invokeClinit;
@@ -118,29 +32,60 @@ public final class jh2 {
                 return;
             }
         }
-        a = ms1.a;
+        b = fs1.a;
     }
 
-    public static void b(b93 b93Var, Bundle bundle) {
+    public jh2(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, b93Var, bundle) == null) {
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event start.");
-            }
-            Bundle bundle2 = new Bundle();
-            bundle2.putBundle("swan_app_on_launch_event", bundle);
-            u83 u83Var = new u83(122, bundle2);
-            if (!b93Var.T() && a.c()) {
-                b93Var.f0(u83Var.h());
-            } else {
-                s83 e = s83.e();
-                u83Var.b(b93Var.b);
-                u83Var.p(true);
-                e.h(u83Var);
-            }
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        i = i <= 0 ? 10 : i;
+        this.a = new LruCache<>(i);
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "lru size - " + i);
+        }
+    }
+
+    @Override // com.baidu.tieba.gh2
+    public hh2 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (b) {
+                Log.d("SwanPrelinkLocalRecorder", "prelink LRU size - " + this.a.size());
+            }
+            Long l = this.a.get(str2);
+            if (l == null) {
+                return null;
+            }
+            hh2 hh2Var = new hh2();
+            hh2Var.a = ProcessUtils.getCurProcessName();
+            hh2Var.b = l.longValue();
+            return hh2Var;
+        }
+        return (hh2) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.gh2
+    public void b(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) != null) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "record : appId-" + str + ", url-" + str2);
+        }
+        this.a.put(str2, Long.valueOf(System.currentTimeMillis()));
     }
 }

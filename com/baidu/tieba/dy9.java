@@ -1,17 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class dy9 implements eua {
+public class dy9 implements k56<cy9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,13 +25,15 @@ public class dy9 implements eua {
         }
     }
 
-    @Override // com.baidu.tieba.eua
-    public boolean isAgreePrivacy() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.k56
+    /* renamed from: b */
+    public cy9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return PermissionUtil.isAgreePrivacyPolicy();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new cy9();
         }
-        return invokeV.booleanValue;
+        return (cy9) invokeV.objValue;
     }
 }

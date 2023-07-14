@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch;
+import com.baidu.tieba.ala;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.dh;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.jca;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.vg;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,8 +80,8 @@ public class SubscribeSlice extends Slice {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.k0();
-                    this.a.a.p.I();
+                    this.a.a.l0();
+                    this.a.a.p.J();
                 }
             }
         }
@@ -107,31 +107,31 @@ public class SubscribeSlice extends Slice {
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.Counter.d
         public void a(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == TbSingleton.getInstance().getSecond() && !this.a.o.o2().s0() && !this.a.o.o2().j0()) {
-                ch.g(new a(this));
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == TbSingleton.getInstance().getSecond() && !this.a.o.q2().t0() && !this.a.o.q2().k0()) {
+                dh.g(new a(this));
             }
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.Counter.d
         public void b(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i != vg.e(TbSingleton.getInstance().getMsgCount(), -1) || this.a.e0()) {
+            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i != wg.e(TbSingleton.getInstance().getMsgCount(), -1) || this.a.f0()) {
                 return;
             }
             this.a.k = true;
-            this.a.o.o2().p0();
-            this.a.o.N2();
+            this.a.o.q2().q0();
+            this.a.o.Q2();
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.Counter.d
         public void c(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || i != vg.e(TbSingleton.getInstance().getDayCount(), -1) || this.a.g0()) {
+            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || i != wg.e(TbSingleton.getInstance().getDayCount(), -1) || this.a.h0()) {
                 return;
             }
             this.a.l = true;
-            this.a.o.o2().p0();
-            this.a.o.N2();
+            this.a.o.q2().q0();
+            this.a.o.Q2();
         }
     }
 
@@ -163,7 +163,7 @@ public class SubscribeSlice extends Slice {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c0();
+                this.a.d0();
             }
         }
     }
@@ -195,7 +195,7 @@ public class SubscribeSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 c cVar = new c();
                 cVar.a = view2;
-                cVar.b = (SubscribeGuideView) view2.findViewById(R.id.obfuscated_res_0x7f09228f);
+                cVar.b = (SubscribeGuideView) view2.findViewById(R.id.obfuscated_res_0x7f0922c2);
                 return cVar;
             }
             return (c) invokeL.objValue;
@@ -224,21 +224,21 @@ public class SubscribeSlice extends Slice {
         this.o = groupChatFragment;
     }
 
-    public void i0(int i) {
+    public void j0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.m.b.setVisibility(i);
         }
     }
 
-    public final void j0(boolean z) {
+    public final void k0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            FrameLayout s2 = this.o.s2();
+            FrameLayout v2 = this.o.v2();
             if (z) {
-                s2.setVisibility(0);
+                v2.setVisibility(0);
             } else {
-                s2.setVisibility(8);
+                v2.setVisibility(8);
             }
         }
     }
@@ -256,46 +256,46 @@ public class SubscribeSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void T(@Nullable View view2, @Nullable Bundle bundle) {
+    public void U(@Nullable View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.T(view2, bundle);
+            super.U(view2, bundle);
             if (view2 != null) {
                 this.m = c.a(view2);
             }
         }
     }
 
-    public void h0(ChatRoomDetail chatRoomDetail, GroupChatRepo groupChatRepo) {
+    public void i0(ChatRoomDetail chatRoomDetail, GroupChatRepo groupChatRepo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, chatRoomDetail, groupChatRepo) == null) {
             this.n = chatRoomDetail;
             this.p = groupChatRepo;
-            f0();
+            g0();
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View M(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View N(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08df, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08f9, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
 
-    public void c0() {
+    public void d0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            i0(8);
-            j0(true);
-            jca.b(this.m.b, 600);
+            j0(8);
+            k0(true);
+            ala.b(this.m.b, 600);
             this.m.b.a();
         }
     }
 
-    public boolean d0() {
+    public boolean e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -304,7 +304,7 @@ public class SubscribeSlice extends Slice {
         return invokeV.booleanValue;
     }
 
-    public final boolean e0() {
+    public final boolean f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -313,7 +313,7 @@ public class SubscribeSlice extends Slice {
         return invokeV.booleanValue;
     }
 
-    public final boolean g0() {
+    public final boolean h0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -327,11 +327,11 @@ public class SubscribeSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            yg.a().removeCallbacks(this.q);
+            zg.a().removeCallbacks(this.q);
         }
     }
 
-    public boolean f0() {
+    public boolean g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -340,8 +340,8 @@ public class SubscribeSlice extends Slice {
                 long id = this.n.getBasicInfo().getId();
                 int isSubscription = this.n.getUserInfo().getIsSubscription();
                 if (id > 0 && isSubscription != 1) {
-                    r95 p = r95.p();
-                    String t = r95.t("key_show_subscribe_guide" + id);
+                    da5 p = da5.p();
+                    String t = da5.t("key_show_subscribe_guide" + id);
                     long r = p.r(t, 0L);
                     if (r > 0 && TimeHelper.isSameDay(r, System.currentTimeMillis())) {
                         return false;
@@ -356,17 +356,17 @@ public class SubscribeSlice extends Slice {
         return invokeV.booleanValue;
     }
 
-    public void k0() {
+    public void l0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.m.b != null) {
-            i0(0);
-            j0(true);
+            j0(0);
+            k0(true);
             this.j = true;
             String guideTips = TbSingleton.getInstance().getGuideTips();
             if (guideTips != null) {
                 this.m.b.d(guideTips);
             }
-            yg.a().postDelayed(this.q, 3000L);
+            zg.a().postDelayed(this.q, 3000L);
             TiebaStatic.log(new StatisticItem("c15256"));
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.editvideo.clip;
 import android.os.Handler;
 import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class OutputSurfaceWithoutFilter extends BaseOutputSurface {
     public OutputSurfaceWithoutFilter() {
         this(0, 0);

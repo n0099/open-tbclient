@@ -17,7 +17,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.kwad.sdk.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JinniuCouponLayout extends LinearLayout {
     @ColorInt
     public int endColor;

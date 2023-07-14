@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.webkit.sdk.Log;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.net.URISyntaxException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends g {
     public final String[] a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
 
@@ -41,7 +41,7 @@ public final class b extends g {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x014e  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0151  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.

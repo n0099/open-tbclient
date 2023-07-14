@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class yr extends rr {
+public final class yr extends sr {
     public static /* synthetic */ Interceptable $ic;
     public static final UniqueId b;
     public static final a c;
@@ -65,8 +65,8 @@ public final class yr extends rr {
             }
         }
         c = new a(null);
-        UniqueId gen = UniqueId.gen("TaskViewCloseEvent");
-        Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskViewCloseEvent\")");
+        UniqueId gen = UniqueId.gen("TaskBackFlowEvent");
+        Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskBackFlowEvent\")");
         b = gen;
     }
 

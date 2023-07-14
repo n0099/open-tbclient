@@ -1,125 +1,79 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.bubble.BubbleManager;
-import com.baidu.nadcore.widget.bubble.BubblePosition;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class nd1<T> {
+public class nd1 extends od1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ud1 a;
-    public qd1 b;
+    public ImageView t;
 
-    public nd1(qd1 qd1Var) {
+    @Override // com.baidu.tieba.od1, com.baidu.tieba.md1
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.nad_bubble_tip_d20 : invokeV.intValue;
+    }
+
+    public nd1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qd1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = qd1Var.f();
-        this.b = qd1Var;
     }
 
-    public nd1<T> a(boolean z) {
-        InterceptResult invokeZ;
+    public void F() {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.b.d(z);
-            return this;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (imageView = this.t) == null) {
+            return;
         }
-        return (nd1) invokeZ.objValue;
+        imageView.setBackground(oc1.a().getResources().getDrawable(R.drawable.nad_bubble_jump_arrow_selector));
+        this.t.setVisibility(0);
     }
 
-    public nd1<T> c(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.od1, com.baidu.tieba.md1
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            this.b.m(i);
-            return this;
-        }
-        return (nd1) invokeI.objValue;
-    }
-
-    public nd1<T> e(BubblePosition bubblePosition) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bubblePosition)) == null) {
-            this.b.e().d = false;
-            this.b.e().e = bubblePosition;
-            return this;
-        }
-        return (nd1) invokeL.objValue;
-    }
-
-    public nd1<T> f(BubbleManager.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            this.b.n(bVar);
-            return this;
-        }
-        return (nd1) invokeL.objValue;
-    }
-
-    public nd1<T> g(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-            this.b.e().q(f);
-            return this;
-        }
-        return (nd1) invokeF.objValue;
-    }
-
-    public nd1<T> b(View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, viewGroup)) == null) {
-            this.a.s(view2, viewGroup);
-            return this;
-        }
-        return (nd1) invokeLL.objValue;
-    }
-
-    public nd1<T> d(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-            if (i != -1) {
-                try {
-                    this.a.w(i);
-                } catch (Exception e) {
-                    ol0.h("BubbleBuilder", "", e);
-                    this.a.w(-1);
-                    return this;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (super.g()) {
+                this.t = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090503);
+                return true;
             }
-            if (i2 != -1) {
-                try {
-                    this.a.x(i2);
-                } catch (Exception e2) {
-                    ol0.h("BubbleBuilder", "", e2);
-                    this.a.x(-1);
-                }
-            }
-            return this;
+            return false;
         }
-        return (nd1) invokeII.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.od1, com.baidu.tieba.md1
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.n();
+            this.t = null;
+        }
+    }
+
+    public void G(View.OnClickListener onClickListener) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) != null) || (imageView = this.t) == null) {
+            return;
+        }
+        imageView.setOnClickListener(onClickListener);
     }
 }

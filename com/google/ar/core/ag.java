@@ -1,6 +1,6 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.idb;
+import com.baidu.tieba.fmb;
 import com.google.ar.core.Session;
 /* loaded from: classes9.dex */
 public enum ag extends Session.c {
@@ -9,7 +9,7 @@ public enum ag extends Session.c {
     }
 
     @Override // com.google.ar.core.Session.c
-    public final idb a(long j, Session session) {
+    public final fmb a(long j, Session session) {
         return new Point(j, session);
     }
 }

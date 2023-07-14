@@ -1,51 +1,146 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
-import com.baidu.tieba.view.festivalview.FestivalTipView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public interface e26 {
-    mg<LinearLayout> A();
+public class e26 extends BdAsyncTask<Void, Void, String> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public NetWork c;
+    public a d;
 
-    int E();
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(boolean z, String str);
+    }
 
-    mg<TiebaPlusRecommendCard> G1();
+    public e26(String str, String str2, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = str2;
+        this.d = aVar;
+    }
 
-    void I(Context context, String str);
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists()) {
+                return true;
+            }
+            try {
+                return file.mkdirs();
+            } catch (Exception e) {
+                TiebaStatic.file(e, xi.join("FileHelper", ".", "CheckTempDir", " ", str));
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
 
-    void K(Context context, String str);
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || xi.isEmpty(str)) {
+            return;
+        }
+        FileHelper.deleteFileOrDir(new File(str));
+    }
 
-    mg<RelativeLayout> S();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public String doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+            if (xi.isEmpty(this.a) || xi.isEmpty(this.b) || !b(this.a)) {
+                return null;
+            }
+            String c = fj.c(this.b);
+            String str = this.a + c + "/";
+            if (e(str)) {
+                return c;
+            }
+            NetWork netWork = new NetWork();
+            this.c = netWork;
+            netWork.setUrl(this.b);
+            String str2 = this.a + c + ".zip";
+            if (this.c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
+                c(str2);
+                return c;
+            }
+            c(str2);
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
 
-    mg<FestivalTipView> U();
+    public final boolean e(String str) {
+        InterceptResult invokeL;
+        String[] list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (xi.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str);
+            if (file.exists() && file.isDirectory() && (list = file.list()) != null && list.length > 0) {
+                return true;
+            }
+            file.delete();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    mg<ImageView> W();
+    public final boolean f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            if (!xi.isEmpty(str) && !xi.isEmpty(str2)) {
+                return k95.b(str, str2);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
 
-    mg<View> X();
-
-    void Y(Context context, String str);
-
-    void Z(Context context, String str, boolean z);
-
-    mg<TextView> Z0();
-
-    void e0(Context context, String str, String str2);
-
-    ListView getListView();
-
-    void i1(Context context, String str);
-
-    void j0(Context context, String str);
-
-    mg<ItemCardView> o0();
-
-    mg<GifView> x();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || this.d == null) {
+            return;
+        }
+        if (!xi.isEmpty(str)) {
+            this.d.a(true, str);
+        } else {
+            this.d.a(false, null);
+        }
+    }
 }

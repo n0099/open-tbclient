@@ -22,7 +22,7 @@ public class b extends Dialog {
     public Context i;
 
     public b(Context context) {
-        super(context, R.style.obfuscated_res_0x7f10015b);
+        super(context, R.style.obfuscated_res_0x7f10015c);
         this.i = context;
         a();
     }
@@ -50,16 +50,16 @@ public class b extends Dialog {
     }
 
     private void a() {
-        setContentView(R.layout.obfuscated_res_0x7f0d0524);
+        setContentView(R.layout.obfuscated_res_0x7f0d0530);
         setCanceledOnTouchOutside(false);
-        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091a11);
-        this.a = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f092908);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092540);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09253b);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0917cd);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091cb7);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c4);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0918d9);
+        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091a28);
+        this.a = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f09293e);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092574);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09256f);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0917df);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd1);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0918da);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0918ef);
     }
 
     public void a(Drawable drawable) {
@@ -92,25 +92,25 @@ public class b extends Dialog {
 
     public void a(boolean z) {
         if (z) {
-            this.b.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810f1));
-            this.d.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060919));
-            this.e.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f06090d));
-            this.g.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060911));
-            this.f.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060915));
-            this.h.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060911));
-            this.g.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810eb));
-            this.f.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ed));
-            this.h.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810eb));
+            this.b.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081106));
+            this.d.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060920));
+            this.e.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060914));
+            this.g.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060918));
+            this.f.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f06091c));
+            this.h.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060918));
+            this.g.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081100));
+            this.f.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081102));
+            this.h.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081100));
             return;
         }
-        this.b.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810f0));
-        this.d.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060918));
-        this.e.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f06090c));
-        this.g.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060910));
-        this.h.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060910));
-        this.f.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060914));
-        this.g.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ea));
-        this.f.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ec));
-        this.h.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ea));
+        this.b.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081105));
+        this.d.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f06091f));
+        this.e.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060913));
+        this.g.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060917));
+        this.h.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060917));
+        this.f.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f06091b));
+        this.g.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ff));
+        this.f.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081101));
+        this.h.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ff));
     }
 }

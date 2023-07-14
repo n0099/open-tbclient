@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gy2 {
+public class gy2 extends hy2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gy2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tk3 a;
+    public int[] A;
+    public ArrayList<oy2> z;
 
     public gy2() {
         Interceptable interceptable = $ic;
@@ -29,78 +32,51 @@ public class gy2 {
                 return;
             }
         }
-        this.a = new tk3("swan_local_ab_data");
-        if (ProcessUtils.isMainProcess()) {
-            this.a.clear();
-        }
-        c();
+        this.A = new int[]{0, 0, 0, 0};
     }
 
-    public static gy2 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hy2, com.baidu.tieba.l72, com.baidu.tieba.u13
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray jSONArray;
+        JSONArray jSONArray2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (gy2.class) {
-                    if (b == null) {
-                        b = new gy2();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
+            int length = jSONArray2.length();
+            this.z = new ArrayList<>(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    oy2 oy2Var = new oy2();
+                    oy2Var.a(jSONObject2);
+                    if (oy2Var.isValid()) {
+                        this.z.add(oy2Var);
                     }
                 }
             }
-            return b;
         }
-        return (gy2) invokeV.objValue;
+        if (jSONObject.has(CriusAttrConstants.PADDING) && (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) != null && jSONArray.length() > 0) {
+            int min = Math.min(jSONArray.length(), 4);
+            for (int i2 = 0; i2 < min; i2++) {
+                this.A[i2] = mp3.g(jSONArray.optInt(i2));
+            }
+        }
     }
 
-    public String a() {
+    @Override // com.baidu.tieba.l72, com.baidu.tieba.u13
+    public boolean isValid() {
         InterceptResult invokeV;
+        ArrayList<oy2> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString(Config.SID, "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && (arrayList = this.z) != null && arrayList.size() > 0) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final void c() {
-        String substring;
-        Object e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
-            List<hy2> c = new fy2().c();
-            for (hy2 hy2Var : c) {
-                iy2 b2 = hy2Var.b();
-                jy2 c2 = hy2Var.c();
-                if (b2 == null) {
-                    e = c2.d();
-                } else {
-                    e = b2.e();
-                }
-                if (e instanceof Boolean) {
-                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
-                } else if (e instanceof Double) {
-                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
-                } else if (e instanceof Integer) {
-                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
-                } else if (e instanceof Long) {
-                    this.a.writeLong(c2.e(), ((Long) e).longValue());
-                } else if (e instanceof String) {
-                    this.a.writeString(c2.e(), (String) e);
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            for (hy2 hy2Var2 : c) {
-                iy2 b3 = hy2Var2.b();
-                if (b3 != null) {
-                    sb.append(b3.d());
-                    sb.append("-");
-                }
-            }
-            if (sb.length() == 0) {
-                substring = "";
-            } else {
-                substring = sb.substring(0, sb.length() - 1);
-            }
-            this.a.writeString(Config.SID, substring);
-        }
+        return invokeV.booleanValue;
     }
 }

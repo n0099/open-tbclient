@@ -6,12 +6,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.d5a;
-import com.baidu.tieba.e5a;
-import com.baidu.tieba.em6;
-import com.baidu.tieba.f5a;
-import com.baidu.tieba.h5a;
-import com.baidu.tieba.yy4;
+import com.baidu.tieba.in6;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.pda;
+import com.baidu.tieba.qda;
+import com.baidu.tieba.ry4;
+import com.baidu.tieba.sda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,17 +26,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class SystemJsBridgePlugin_Proxy extends d5a {
+public class SystemJsBridgePlugin_Proxy extends oda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yy4 mJsBridge;
+    public ry4 mJsBridge;
 
-    public SystemJsBridgePlugin_Proxy(yy4 yy4Var) {
+    public SystemJsBridgePlugin_Proxy(ry4 ry4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yy4Var};
+            Object[] objArr = {ry4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,7 +46,7 @@ public class SystemJsBridgePlugin_Proxy extends d5a {
                 return;
             }
         }
-        this.mJsBridge = yy4Var;
+        this.mJsBridge = ry4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
@@ -61,373 +61,373 @@ public class SystemJsBridgePlugin_Proxy extends d5a {
         this.mNotificationNameList.add(CommonTbJsBridge.CHANGE_SKIN_TYPE);
     }
 
-    @Override // com.baidu.tieba.d5a
-    public f5a dispatch(WebView webView, h5a h5aVar, f5a f5aVar) {
+    @Override // com.baidu.tieba.oda
+    public qda dispatch(WebView webView, sda sdaVar, qda qdaVar) {
         InterceptResult invokeLLL;
-        f5a f5aVar2;
+        qda qdaVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, h5aVar, f5aVar)) == null) {
-            if (f5aVar == null) {
-                f5aVar2 = new f5a();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, sdaVar, qdaVar)) == null) {
+            if (qdaVar == null) {
+                qdaVar2 = new qda();
             } else {
-                f5aVar2 = f5aVar;
+                qdaVar2 = qdaVar;
             }
-            String b = h5aVar.b();
-            JSONObject e = h5aVar.e();
+            String b = sdaVar.b();
+            JSONObject e = sdaVar.e();
             if (b.equals("system/saveImage")) {
-                f5aVar2.s(true);
-                f5a u = this.mJsBridge.u(webView, e.optString("imgUrl"));
+                qdaVar2.s(true);
+                qda u = this.mJsBridge.u(webView, e.optString("imgUrl"));
                 this.mNotificationNameList.add("saveImageSuccess");
                 if (u != null) {
-                    f5aVar2.y(u.f());
-                    f5aVar2.u(u.b());
-                    f5aVar2.o(u.a());
-                    f5aVar2.x(u.e());
-                    if (!f5aVar2.h()) {
-                        f5aVar2.n(false);
-                        addObserver(webView, "saveImageSuccess", f5aVar2, false);
+                    qdaVar2.y(u.f());
+                    qdaVar2.u(u.b());
+                    qdaVar2.o(u.a());
+                    qdaVar2.x(u.e());
+                    if (!qdaVar2.h()) {
+                        qdaVar2.n(false);
+                        addObserver(webView, "saveImageSuccess", qdaVar2, false);
                     }
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/orderGameApk")) {
-                f5aVar2.s(true);
-                f5a C = this.mJsBridge.C(webView, e.optString("id"), e.optString("name"));
+                qdaVar2.s(true);
+                qda C = this.mJsBridge.C(webView, e.optString("id"), e.optString("name"));
                 this.mNotificationNameList.add("orderGameApkResult");
                 if (C != null) {
-                    f5aVar2.y(C.f());
-                    f5aVar2.u(C.b());
-                    f5aVar2.o(C.a());
-                    f5aVar2.x(C.e());
-                    if (!f5aVar2.h()) {
-                        f5aVar2.n(false);
-                        addObserver(webView, "orderGameApkResult", f5aVar2, false);
+                    qdaVar2.y(C.f());
+                    qdaVar2.u(C.b());
+                    qdaVar2.o(C.a());
+                    qdaVar2.x(C.e());
+                    if (!qdaVar2.h()) {
+                        qdaVar2.n(false);
+                        addObserver(webView, "orderGameApkResult", qdaVar2, false);
                     }
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/goToPhotoAlbum")) {
-                f5aVar2.s(true);
-                f5a t = this.mJsBridge.t(webView);
+                qdaVar2.s(true);
+                qda t = this.mJsBridge.t(webView);
                 this.mNotificationNameList.add("GetPhotoAlbum");
                 if (t != null) {
-                    f5aVar2.y(t.f());
-                    f5aVar2.u(t.b());
-                    f5aVar2.o(t.a());
-                    f5aVar2.x(t.e());
-                    if (!f5aVar2.h()) {
-                        f5aVar2.n(false);
-                        addObserver(webView, "GetPhotoAlbum", f5aVar2, false);
+                    qdaVar2.y(t.f());
+                    qdaVar2.u(t.b());
+                    qdaVar2.o(t.a());
+                    qdaVar2.x(t.e());
+                    if (!qdaVar2.h()) {
+                        qdaVar2.n(false);
+                        addObserver(webView, "GetPhotoAlbum", qdaVar2, false);
                     }
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/selectPhotoAlbum")) {
-                f5aVar2.s(true);
+                qdaVar2.s(true);
                 int optInt = e.optInt("maxPhotoNum");
                 ArrayList<JSONObject> arrayList = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList, e.optJSONArray("imageArray"));
-                f5a I = this.mJsBridge.I(webView, optInt, arrayList);
+                qda I = this.mJsBridge.I(webView, optInt, arrayList);
                 this.mNotificationNameList.add("selectPhotoAlbum");
                 if (I != null) {
-                    f5aVar2.y(I.f());
-                    f5aVar2.u(I.b());
-                    f5aVar2.o(I.a());
-                    f5aVar2.x(I.e());
-                    if (!f5aVar2.h()) {
-                        f5aVar2.n(false);
-                        addObserver(webView, "selectPhotoAlbum", f5aVar2, false);
+                    qdaVar2.y(I.f());
+                    qdaVar2.u(I.b());
+                    qdaVar2.o(I.a());
+                    qdaVar2.x(I.e());
+                    if (!qdaVar2.h()) {
+                        qdaVar2.n(false);
+                        addObserver(webView, "selectPhotoAlbum", qdaVar2, false);
                     }
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/playSound")) {
-                f5aVar2.s(true);
-                f5a E = this.mJsBridge.E(webView, e.optString("soundUrl"));
+                qdaVar2.s(true);
+                qda E = this.mJsBridge.E(webView, e.optString("soundUrl"));
                 if (E != null) {
-                    f5aVar2.y(E.f());
-                    f5aVar2.u(E.b());
-                    f5aVar2.o(E.a());
-                    f5aVar2.x(E.e());
+                    qdaVar2.y(E.f());
+                    qdaVar2.u(E.b());
+                    qdaVar2.o(E.a());
+                    qdaVar2.x(E.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/playVibrate")) {
-                f5aVar2.s(true);
-                f5a F = this.mJsBridge.F(webView);
+                qdaVar2.s(true);
+                qda F = this.mJsBridge.F(webView);
                 if (F != null) {
-                    f5aVar2.y(F.f());
-                    f5aVar2.u(F.b());
-                    f5aVar2.o(F.a());
-                    f5aVar2.x(F.e());
+                    qdaVar2.y(F.f());
+                    qdaVar2.u(F.b());
+                    qdaVar2.o(F.a());
+                    qdaVar2.x(F.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/closeNativeMask")) {
-                f5aVar2.s(true);
-                f5a f = this.mJsBridge.f(webView, e.optInt("result"));
+                qdaVar2.s(true);
+                qda f = this.mJsBridge.f(webView, e.optInt("result"));
                 if (f != null) {
-                    f5aVar2.y(f.f());
-                    f5aVar2.u(f.b());
-                    f5aVar2.o(f.a());
-                    f5aVar2.x(f.e());
+                    qdaVar2.y(f.f());
+                    qdaVar2.u(f.b());
+                    qdaVar2.o(f.a());
+                    qdaVar2.x(f.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/checkAppInstall")) {
-                f5aVar2.s(true);
-                f5a d = this.mJsBridge.d(webView, e.optString("pkgName"));
+                qdaVar2.s(true);
+                qda d = this.mJsBridge.d(webView, e.optString("pkgName"));
                 if (d != null) {
-                    f5aVar2.y(d.f());
-                    f5aVar2.u(d.b());
-                    f5aVar2.o(d.a());
-                    f5aVar2.x(d.e());
+                    qdaVar2.y(d.f());
+                    qdaVar2.u(d.b());
+                    qdaVar2.o(d.a());
+                    qdaVar2.x(d.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/disableSlideBack")) {
-                f5aVar2.s(true);
-                f5a i = this.mJsBridge.i(webView, e.optInt(PackageTable.DISABLE));
+                qdaVar2.s(true);
+                qda i = this.mJsBridge.i(webView, e.optInt(PackageTable.DISABLE));
                 if (i != null) {
-                    f5aVar2.y(i.f());
-                    f5aVar2.u(i.b());
-                    f5aVar2.o(i.a());
-                    f5aVar2.x(i.e());
+                    qdaVar2.y(i.f());
+                    qdaVar2.u(i.b());
+                    qdaVar2.o(i.a());
+                    qdaVar2.x(i.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/startApp")) {
-                f5aVar2.s(true);
-                f5a K = this.mJsBridge.K(webView, e.optString("pkgName"), e.optString("schema"));
+                qdaVar2.s(true);
+                qda K = this.mJsBridge.K(webView, e.optString("pkgName"), e.optString("schema"));
                 if (K != null) {
-                    f5aVar2.y(K.f());
-                    f5aVar2.u(K.b());
-                    f5aVar2.o(K.a());
-                    f5aVar2.x(K.e());
+                    qdaVar2.y(K.f());
+                    qdaVar2.u(K.b());
+                    qdaVar2.o(K.a());
+                    qdaVar2.x(K.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/hasNotificationPermission")) {
-                f5aVar2.s(true);
-                f5a v = this.mJsBridge.v(webView);
+                qdaVar2.s(true);
+                qda v = this.mJsBridge.v(webView);
                 if (v != null) {
-                    f5aVar2.y(v.f());
-                    f5aVar2.u(v.b());
-                    f5aVar2.o(v.a());
-                    f5aVar2.x(v.e());
+                    qdaVar2.y(v.f());
+                    qdaVar2.u(v.b());
+                    qdaVar2.o(v.a());
+                    qdaVar2.x(v.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/goToNotificationSetting")) {
-                f5aVar2.s(true);
-                f5a s = this.mJsBridge.s(webView);
+                qdaVar2.s(true);
+                qda s = this.mJsBridge.s(webView);
                 if (s != null) {
-                    f5aVar2.y(s.f());
-                    f5aVar2.u(s.b());
-                    f5aVar2.o(s.a());
-                    f5aVar2.x(s.e());
+                    qdaVar2.y(s.f());
+                    qdaVar2.u(s.b());
+                    qdaVar2.o(s.a());
+                    qdaVar2.x(s.e());
                 }
-                f5aVar2.z(0);
+                qdaVar2.z(0);
             } else if (b.equals("system/downloadGameApk")) {
-                f5aVar2.s(true);
-                f5a f5aVar3 = f5aVar2;
-                f5a L = this.mJsBridge.L(webView, e.optString("gameUrl"), e.optString("gameId"), e.optString("apkName"), e.optString("apkIcon"), e.optString("forumName"), e.optString("apkVersion"), e.optString("developerName"), e.optString("privacyUrl"), e.optString("authorityUrl"), e.optString("packageSize"), e.optInt(PushService.APP_VERSION_CODE), e.optString("pkgName"), e.optInt("source"), e.optString("extInfo"));
+                qdaVar2.s(true);
+                qda qdaVar3 = qdaVar2;
+                qda L = this.mJsBridge.L(webView, e.optString("gameUrl"), e.optString("gameId"), e.optString("apkName"), e.optString("apkIcon"), e.optString("forumName"), e.optString("apkVersion"), e.optString("developerName"), e.optString("privacyUrl"), e.optString("authorityUrl"), e.optString("packageSize"), e.optInt(PushService.APP_VERSION_CODE), e.optString("pkgName"), e.optInt("source"), e.optString("extInfo"));
                 if (L != null) {
-                    f5aVar3.y(L.f());
-                    f5aVar3.u(L.b());
-                    f5aVar3.o(L.a());
-                    f5aVar3.x(L.e());
+                    qdaVar3.y(L.f());
+                    qdaVar3.u(L.b());
+                    qdaVar3.o(L.a());
+                    qdaVar3.x(L.e());
                 }
-                f5aVar3.z(0);
-                return f5aVar3;
+                qdaVar3.z(0);
+                return qdaVar3;
             } else {
-                f5a f5aVar4 = f5aVar2;
+                qda qdaVar4 = qdaVar2;
                 if (b.equals("system/checkInstallGameApk")) {
-                    f5aVar4.s(true);
-                    f5a e2 = this.mJsBridge.e(webView, e.optString("pkgName"));
+                    qdaVar4.s(true);
+                    qda e2 = this.mJsBridge.e(webView, e.optString("pkgName"));
                     if (e2 != null) {
-                        f5aVar4.y(e2.f());
-                        f5aVar4.u(e2.b());
-                        f5aVar4.o(e2.a());
-                        f5aVar4.x(e2.e());
+                        qdaVar4.y(e2.f());
+                        qdaVar4.u(e2.b());
+                        qdaVar4.o(e2.a());
+                        qdaVar4.x(e2.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("system/getAppStorage")) {
-                    f5aVar4.s(true);
-                    f5a l = this.mJsBridge.l(webView, e.optString("key"));
+                    qdaVar4.s(true);
+                    qda l = this.mJsBridge.l(webView, e.optString("key"));
                     if (l != null) {
-                        f5aVar4.y(l.f());
-                        f5aVar4.u(l.b());
-                        f5aVar4.o(l.a());
-                        f5aVar4.x(l.e());
+                        qdaVar4.y(l.f());
+                        qdaVar4.u(l.b());
+                        qdaVar4.o(l.a());
+                        qdaVar4.x(l.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("system/putAppStorage")) {
-                    f5aVar4.s(true);
-                    f5a G = this.mJsBridge.G(webView, e.optString("key"), e.optString("data"));
+                    qdaVar4.s(true);
+                    qda G = this.mJsBridge.G(webView, e.optString("key"), e.optString("data"));
                     if (G != null) {
-                        f5aVar4.y(G.f());
-                        f5aVar4.u(G.b());
-                        f5aVar4.o(G.a());
-                        f5aVar4.x(G.e());
+                        qdaVar4.y(G.f());
+                        qdaVar4.u(G.b());
+                        qdaVar4.o(G.a());
+                        qdaVar4.x(G.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("system/getHistoryForumData")) {
-                    f5aVar4.s(true);
-                    f5a o = this.mJsBridge.o(webView);
+                    qdaVar4.s(true);
+                    qda o = this.mJsBridge.o(webView);
                     if (o != null) {
-                        f5aVar4.y(o.f());
-                        f5aVar4.u(o.b());
-                        f5aVar4.o(o.a());
-                        f5aVar4.x(o.e());
+                        qdaVar4.y(o.f());
+                        qdaVar4.u(o.b());
+                        qdaVar4.o(o.a());
+                        qdaVar4.x(o.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("system/getFileDownloadStatus")) {
-                    f5aVar4.s(true);
-                    f5a n = this.mJsBridge.n(webView, e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
+                    qdaVar4.s(true);
+                    qda n = this.mJsBridge.n(webView, e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
                     if (n != null) {
-                        f5aVar4.y(n.f());
-                        f5aVar4.u(n.b());
-                        f5aVar4.o(n.a());
-                        f5aVar4.x(n.e());
+                        qdaVar4.y(n.f());
+                        qdaVar4.u(n.b());
+                        qdaVar4.o(n.a());
+                        qdaVar4.x(n.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("system/getFileDownloadProgress")) {
-                    f5aVar4.s(true);
-                    f5a m = this.mJsBridge.m(webView, e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
+                    qdaVar4.s(true);
+                    qda m = this.mJsBridge.m(webView, e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
                     if (m != null) {
-                        f5aVar4.y(m.f());
-                        f5aVar4.u(m.b());
-                        f5aVar4.o(m.a());
-                        f5aVar4.x(m.e());
+                        qdaVar4.y(m.f());
+                        qdaVar4.u(m.b());
+                        qdaVar4.o(m.a());
+                        qdaVar4.x(m.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("system/fileDownloadPause")) {
-                    f5aVar4.s(true);
-                    f5a k = this.mJsBridge.k(webView, e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
+                    qdaVar4.s(true);
+                    qda k = this.mJsBridge.k(webView, e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
                     if (k != null) {
-                        f5aVar4.y(k.f());
-                        f5aVar4.u(k.b());
-                        f5aVar4.o(k.a());
-                        f5aVar4.x(k.e());
+                        qdaVar4.y(k.f());
+                        qdaVar4.u(k.b());
+                        qdaVar4.o(k.a());
+                        qdaVar4.x(k.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("system/fileDownloadDelete")) {
-                    f5aVar4.s(true);
-                    f5a j = this.mJsBridge.j(webView, e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
+                    qdaVar4.s(true);
+                    qda j = this.mJsBridge.j(webView, e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
                     if (j != null) {
-                        f5aVar4.y(j.f());
-                        f5aVar4.u(j.b());
-                        f5aVar4.o(j.a());
-                        f5aVar4.x(j.e());
+                        qdaVar4.y(j.f());
+                        qdaVar4.u(j.b());
+                        qdaVar4.o(j.a());
+                        qdaVar4.x(j.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("system/installGameApk")) {
-                    f5aVar4.s(true);
-                    f5a w = this.mJsBridge.w(webView, e.optString("apkName"), e.optString("pkgName"), e.optString("apkUrl"), e.optString("apkVersion"), e.optInt("source"), e.optString("extInfo"));
+                    qdaVar4.s(true);
+                    qda w = this.mJsBridge.w(webView, e.optString("apkName"), e.optString("pkgName"), e.optString("apkUrl"), e.optString("apkVersion"), e.optInt("source"), e.optString("extInfo"));
                     if (w != null) {
-                        f5aVar4.y(w.f());
-                        f5aVar4.u(w.b());
-                        f5aVar4.o(w.a());
-                        f5aVar4.x(w.e());
+                        qdaVar4.y(w.f());
+                        qdaVar4.u(w.b());
+                        qdaVar4.o(w.a());
+                        qdaVar4.x(w.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("system/launchApk")) {
-                    f5aVar4.s(true);
-                    f5a z = this.mJsBridge.z(webView, e.optString("pkgName"), e.optString("apkName"), e.optString("apkUrl"), e.optInt("source"), e.optString("extInfo"));
+                    qdaVar4.s(true);
+                    qda z = this.mJsBridge.z(webView, e.optString("pkgName"), e.optString("apkName"), e.optString("apkUrl"), e.optInt("source"), e.optString("extInfo"));
                     if (z != null) {
-                        f5aVar4.y(z.f());
-                        f5aVar4.u(z.b());
-                        f5aVar4.o(z.a());
-                        f5aVar4.x(z.e());
+                        qdaVar4.y(z.f());
+                        qdaVar4.u(z.b());
+                        qdaVar4.o(z.a());
+                        qdaVar4.x(z.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("system/startLoadTimeInterval")) {
-                    f5aVar4.s(true);
-                    f5a r = this.mJsBridge.r(webView);
+                    qdaVar4.s(true);
+                    qda r = this.mJsBridge.r(webView);
                     if (r != null) {
-                        f5aVar4.y(r.f());
-                        f5aVar4.u(r.b());
-                        f5aVar4.o(r.a());
-                        f5aVar4.x(r.e());
+                        qdaVar4.y(r.f());
+                        qdaVar4.u(r.b());
+                        qdaVar4.o(r.a());
+                        qdaVar4.x(r.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else if (b.equals("system/wakeKeyboard")) {
-                    f5aVar4.s(true);
-                    f5a M = this.mJsBridge.M(webView);
+                    qdaVar4.s(true);
+                    qda M = this.mJsBridge.M(webView, e.optString("postType"), e.optBoolean("showInputContainer"), e.optBoolean("showReplyContainer"), e.optBoolean("showStarContainer"), e.optBoolean("showEmotion"), e.optBoolean("showDIYEmotion"), e.optBoolean("showAt"), e.optJSONObject("topViewData"), e.optBoolean("show"));
                     if (M != null) {
-                        f5aVar4.y(M.f());
-                        f5aVar4.u(M.b());
-                        f5aVar4.o(M.a());
-                        f5aVar4.x(M.e());
+                        qdaVar4.y(M.f());
+                        qdaVar4.u(M.b());
+                        qdaVar4.o(M.a());
+                        qdaVar4.x(M.e());
                     }
-                    f5aVar4.z(0);
-                    return f5aVar4;
+                    qdaVar4.z(0);
+                    return qdaVar4;
                 } else {
-                    return f5aVar4;
+                    return qdaVar4;
                 }
             }
-            return f5aVar2;
+            return qdaVar2;
         }
-        return (f5a) invokeLLL.objValue;
+        return (qda) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.d5a
-    public em6 getJsBridge() {
+    @Override // com.baidu.tieba.oda
+    public in6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (em6) invokeV.objValue;
+        return (in6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d5a
-    public List<f5a> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.oda
+    public List<qda> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            f5a f5aVar = null;
+            qda qdaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("saveImageSuccess")) {
-                f5aVar = this.mJsBridge.H(webView, hashMap);
+                qdaVar = this.mJsBridge.H(webView, hashMap);
             } else if (str.equals("orderGameApkResult")) {
-                f5aVar = this.mJsBridge.D(webView, hashMap);
+                qdaVar = this.mJsBridge.D(webView, hashMap);
             } else if (str.equals("GetPhotoAlbum")) {
-                f5aVar = this.mJsBridge.p(webView, hashMap);
+                qdaVar = this.mJsBridge.p(webView, hashMap);
             } else if (str.equals("selectPhotoAlbum")) {
-                f5aVar = this.mJsBridge.q(webView, hashMap);
+                qdaVar = this.mJsBridge.q(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.CLICK_GO_BACK_TO_H5)) {
-                f5aVar = this.mJsBridge.g(webView, hashMap);
+                qdaVar = this.mJsBridge.g(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.GO_BACK_FROM_NATIVE)) {
-                f5aVar = this.mJsBridge.h(webView, hashMap);
+                qdaVar = this.mJsBridge.h(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_RESULT)) {
-                f5aVar = this.mJsBridge.B(webView, hashMap);
+                qdaVar = this.mJsBridge.B(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.INSTALL_APK_RESULT)) {
-                f5aVar = this.mJsBridge.A(webView, hashMap);
+                qdaVar = this.mJsBridge.A(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.CHANGE_SKIN_TYPE)) {
-                f5aVar = this.mJsBridge.c(webView, hashMap);
+                qdaVar = this.mJsBridge.c(webView, hashMap);
             }
-            if (f5aVar != null) {
-                f5aVar.z(0);
+            if (qdaVar != null) {
+                qdaVar.z(0);
             }
-            List<e5a> list = this.mAsyncCallBackMethodList.get(str);
-            if (f5aVar != null && list != null) {
-                Iterator<e5a> it = list.iterator();
-                if (!TextUtils.isEmpty(f5aVar.e())) {
+            List<pda> list = this.mAsyncCallBackMethodList.get(str);
+            if (qdaVar != null && list != null) {
+                Iterator<pda> it = list.iterator();
+                if (!TextUtils.isEmpty(qdaVar.e())) {
                     while (it.hasNext()) {
-                        e5a next = it.next();
-                        if (next.b().equals(f5aVar.e())) {
-                            f5a f5aVar2 = new f5a();
-                            f5aVar2.w(next.a());
-                            f5aVar2.y(f5aVar.f());
-                            f5aVar2.u(f5aVar.b());
-                            f5aVar2.o(f5aVar.a());
-                            f5aVar2.A(f5aVar.l());
-                            arrayList.add(f5aVar2);
+                        pda next = it.next();
+                        if (next.b().equals(qdaVar.e())) {
+                            qda qdaVar2 = new qda();
+                            qdaVar2.w(next.a());
+                            qdaVar2.y(qdaVar.f());
+                            qdaVar2.u(qdaVar.b());
+                            qdaVar2.o(qdaVar.a());
+                            qdaVar2.A(qdaVar.l());
+                            arrayList.add(qdaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -435,14 +435,14 @@ public class SystemJsBridgePlugin_Proxy extends d5a {
                     }
                 } else {
                     while (it.hasNext()) {
-                        e5a next2 = it.next();
-                        f5a f5aVar3 = new f5a();
-                        f5aVar3.w(next2.a());
-                        f5aVar3.y(f5aVar.f());
-                        f5aVar3.u(f5aVar.b());
-                        f5aVar3.o(f5aVar.a());
-                        f5aVar3.A(f5aVar.l());
-                        arrayList.add(f5aVar3);
+                        pda next2 = it.next();
+                        qda qdaVar3 = new qda();
+                        qdaVar3.w(next2.a());
+                        qdaVar3.y(qdaVar.f());
+                        qdaVar3.u(qdaVar.b());
+                        qdaVar3.o(qdaVar.a());
+                        qdaVar3.A(qdaVar.l());
+                        arrayList.add(qdaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

@@ -2,7 +2,7 @@ package com.kwad.components.ad.splashscreen.b;
 
 import androidx.annotation.Nullable;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends Presenter {
     @Nullable
     public com.kwad.components.ad.splashscreen.h yF;

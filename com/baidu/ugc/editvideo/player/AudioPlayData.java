@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.player;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AudioPlayData implements Parcelable, Serializable, Cloneable {
     public static final Parcelable.Creator<AudioPlayData> CREATOR = new Parcelable.Creator<AudioPlayData>() { // from class: com.baidu.ugc.editvideo.player.AudioPlayData.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public AudioPlayData m153clone() {
+    public AudioPlayData m155clone() {
         try {
             return (AudioPlayData) super.clone();
         } catch (CloneNotSupportedException e) {

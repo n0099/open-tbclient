@@ -1,82 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TiebaPlusInfo;
 /* loaded from: classes6.dex */
 public class i26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public TiebaPlusInfo b;
-    public TiePlusStat.ThreadType c;
+    public int b;
+    public int c;
     public String d;
     public String e;
-    public TiePlusStat.StatType f;
-    public TiePlusStat.LandingType g;
-    public TiePlusStat.CardBtnType h;
-    public TiePlusStat.RichTextType i;
-    public ThreadData j;
-    public int k;
-
-    @NonNull
-    public i26 a(@Nullable n4a n4aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n4aVar)) == null) ? this : (i26) invokeL.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-768364833, "Lcom/baidu/tieba/i26$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-768364833, "Lcom/baidu/tieba/i26$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[TiePlusStat.Locate.values().length];
-            a = iArr;
-            try {
-                iArr[TiePlusStat.Locate.HOME.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[TiePlusStat.Locate.FRS.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[TiePlusStat.Locate.PB.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[TiePlusStat.Locate.PB_COMMENT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-        }
-    }
+    public String f;
+    public int g;
+    public UserData h;
+    public SparseArray<String> i;
+    public g26 j;
 
     public i26() {
         Interceptable interceptable = $ic;
@@ -88,188 +34,167 @@ public class i26 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.h = null;
-        this.i = TiePlusStat.RichTextType.LINK;
-        this.k = -1;
     }
 
-    public TiePlusStat.CardBtnType d() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return (TiePlusStat.CardBtnType) invokeV.objValue;
-    }
-
-    @NonNull
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return String.valueOf(this.j.getDispatchedForumId());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            lx5.d(!TextUtils.isEmpty(this.e));
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.LandingType g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return (TiePlusStat.LandingType) invokeV.objValue;
-    }
-
-    public TiePlusStat.RichTextType h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return (TiePlusStat.RichTextType) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.StatType j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            lx5.b(this.f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.f;
         }
-        return (TiePlusStat.StatType) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public ThreadData k() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.j;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.ThreadType l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return (TiePlusStat.ThreadType) invokeV.objValue;
-    }
-
-    @NonNull
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public TiebaPlusInfo n() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-        return (TiebaPlusInfo) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int o() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
     }
 
-    @NonNull
-    public static i26 c(int i, @NonNull TiebaPlusInfo tiebaPlusInfo, @NonNull ThreadData threadData) {
-        InterceptResult invokeILL;
+    public g26 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, tiebaPlusInfo, threadData)) == null) {
-            int intValue = tiebaPlusInfo.jump_type.intValue();
-            i26 i26Var = new i26();
-            i26Var.a = TiePlusStat.a(tiebaPlusInfo, null);
-            i26Var.g = TiePlusStat.LandingType.create(intValue);
-            i26Var.i = TiePlusStat.RichTextType.create(i);
-            i26Var.h = TiePlusStat.CardBtnType.create(i, intValue);
-            i26Var.b = tiebaPlusInfo;
-            i26Var.c = TiePlusStat.ThreadType.create(threadData);
-            i26Var.d = threadData.getTid();
-            i26Var.e = String.valueOf(threadData.getFid());
-            i26Var.j = threadData;
-            return i26Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.j;
         }
-        return (i26) invokeILL.objValue;
+        return (g26) invokeV.objValue;
     }
 
-    public i26 b(int i) {
-        InterceptResult invokeI;
+    public SparseArray<String> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.k = i;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i;
         }
-        return (i26) invokeI.objValue;
+        return (SparseArray) invokeV.objValue;
     }
 
-    public int i(@NonNull TiePlusStat.Locate locate) {
-        InterceptResult invokeL;
+    public UserData i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, locate)) == null) {
-            int i = a.a[locate.ordinal()];
-            if (i != 1 && i != 2) {
-                if (i != 3 && i != 4) {
-                    return -1;
-                }
-                return this.k;
-            }
-            return k().statFloor;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
         }
-        return invokeL.intValue;
+        return (UserData) invokeV.objValue;
     }
 
-    public void p(TiePlusStat.RichTextType richTextType) {
+    public int j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, richTextType) == null) {
-            this.i = richTextType;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.f = str;
         }
     }
 
-    public void q(@NonNull TiePlusStat.StatType statType) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, statType) == null) {
-            this.f = statType;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public void r(TiebaPlusInfo tiebaPlusInfo) {
+    public void m(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, tiebaPlusInfo) == null) {
-            this.b = tiebaPlusInfo;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void q(g26 g26Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, g26Var) == null) {
+            this.j = g26Var;
+        }
+    }
+
+    public void r(SparseArray<String> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, sparseArray) == null) {
+            this.i = sparseArray;
+        }
+    }
+
+    public void s(UserData userData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, userData) == null) {
+            this.h = userData;
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.g = i;
         }
     }
 }

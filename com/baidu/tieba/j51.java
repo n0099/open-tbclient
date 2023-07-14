@@ -1,67 +1,68 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.nadcore.sweetsqlite.query.JoinType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface j51 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "toast");
-    public static final j51 b = new a();
+public class j51 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final JoinType a;
+    public final String b;
+    public final String c;
+    public final f51 d;
+    public final x41 e;
+    public final x41 f;
+    public final StringBuilder g;
+    public boolean h;
+    public boolean i;
 
-    void a(@NonNull Context context, @StringRes int i);
-
-    void b(@NonNull Context context, @StringRes int i, int i2);
-
-    void showToast(@NonNull Context context, String str);
-
-    /* loaded from: classes6.dex */
-    public static class a implements j51 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public final void a(String str, String str2, x41 x41Var, x41 x41Var2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, x41Var, x41Var2) == null) {
+            this.g.append(str);
+            this.g.append(".");
+            this.g.append(x41Var.b);
+            this.g.append(" = ");
+            this.g.append(str2);
+            this.g.append(".");
+            this.g.append(x41Var2.b);
         }
+    }
 
-        @Override // com.baidu.tieba.j51
-        public void a(@NonNull Context context, @StringRes int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-                Toast.makeText(context, i, 0).show();
-            }
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.h) {
+            return;
         }
+        this.h = true;
+        this.g.append(" ");
+        this.g.append(this.a.toString());
+        this.g.append(" JOIN ");
+        this.g.append(this.d.g());
+        this.g.append(" AS ");
+        this.g.append(this.c);
+        this.g.append(" ON ");
+        if (this.i) {
+            this.g.append("(");
+        }
+        a(this.b, this.c, this.e, this.f);
+    }
 
-        @Override // com.baidu.tieba.j51
-        public void showToast(@NonNull Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
-                Toast.makeText(context, str, 0).show();
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            b();
+            StringBuilder sb = new StringBuilder();
+            sb.append((CharSequence) this.g);
+            if (this.i) {
+                sb.append(") ");
             }
+            return sb.toString();
         }
-
-        @Override // com.baidu.tieba.j51
-        public void b(@NonNull Context context, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, i2) == null) {
-                Toast.makeText(context, i, i2).show();
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,49 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.annotation.AnimRes;
-import androidx.annotation.IdRes;
-import androidx.annotation.Nullable;
-import com.baidu.swan.support.v4.app.Fragment;
+import android.content.Context;
+import android.content.res.ColorStateList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class aq4 {
+public class aq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract aq4 a(@IdRes int i, Fragment fragment);
-
-    public abstract aq4 b(@IdRes int i, Fragment fragment, @Nullable String str);
-
-    public abstract aq4 c(Fragment fragment, String str);
-
-    public abstract aq4 d(@Nullable String str);
-
-    public abstract int e();
-
-    public abstract int f();
-
-    public abstract aq4 g(Fragment fragment);
-
-    public abstract aq4 h(Fragment fragment);
-
-    public abstract aq4 i(@AnimRes int i, @AnimRes int i2);
-
-    public abstract aq4 j(Fragment fragment);
-
-    public aq4() {
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            return context.getColor(i);
         }
+        return invokeLI.intValue;
+    }
+
+    public static ColorStateList b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return context.getColorStateList(i);
+        }
+        return (ColorStateList) invokeLI.objValue;
     }
 }

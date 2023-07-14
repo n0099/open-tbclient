@@ -1,80 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.mapapi.search.core.PoiInfo;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.ss.android.download.api.constant.BaseConstants;
 /* loaded from: classes7.dex */
-public class ph4 {
+public abstract class ph4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PoiInfo a;
-    public boolean b;
+    public String a;
+    public String b;
     public boolean c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ph4(PoiInfo poiInfo) {
-        this(poiInfo, false, false);
+    public abstract void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2);
+
+    public ph4(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {poiInfo};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((PoiInfo) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = false;
+        this.a = str2;
+        this.b = str3;
     }
 
-    public static List<ph4> a(List<PoiInfo> list) {
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (list != null && list.size() > 0) {
-                ArrayList arrayList = new ArrayList(list.size());
-                for (PoiInfo poiInfo : list) {
-                    if (poiInfo.location != null) {
-                        arrayList.add(new ph4(poiInfo));
-                    }
-                }
-                return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (pp3.t(context.getApplicationContext(), this.b) != null) {
+                return true;
             }
-            return new ArrayList();
+            return false;
         }
-        return (List) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public ph4(PoiInfo poiInfo, boolean z, boolean z2) {
+    public void d(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {poiInfo, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, context, latLng, latLng2, str, str2) == null) {
+            if (!c(context) && this.c) {
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(BaseConstants.MARKET_PREFIX + this.b));
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                context.startActivity(intent);
                 return;
             }
+            e(context, latLng, latLng2, str, str2);
         }
-        if (poiInfo == null) {
-            this.a = new PoiInfo();
-        }
-        this.a = poiInfo;
-        this.b = z;
-        this.c = z2;
     }
 }

@@ -1,120 +1,115 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.z46;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.controller.AbstractDraweeController;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.request.ImageRequest;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class n16 {
+public final class n16 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public z46 a;
-    public d16 b;
-    public TbPageContext c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947949654, "Lcom/baidu/tieba/n16;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947949654, "Lcom/baidu/tieba/n16;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
 
     /* loaded from: classes7.dex */
-    public class a implements z46.i {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n16 a;
 
-        public a(n16 n16Var) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n16Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = n16Var;
         }
 
-        @Override // com.baidu.tieba.z46.i
-        public void a(JSONArray jSONArray) {
+        @SuppressLint({"UseCompatLoadingForDrawables"})
+        public final Drawable a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-                String JsonArrayToString = StringHelper.JsonArrayToString(jSONArray);
-                if (this.a.b != null) {
-                    this.a.b.g(JsonArrayToString);
-                    this.a.b.e();
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return TbadkCoreApplication.getInst().getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_28_n));
             }
+            return (Drawable) invokeV.objValue;
         }
     }
 
-    public n16(TbPageContext tbPageContext, d16 d16Var) {
+    public n16() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, d16Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.b = d16Var;
-        this.c = tbPageContext;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            z46 z46Var = this.a;
-            if (z46Var != null) {
-                z46Var.w();
-                this.a.x();
-                this.a = null;
-            }
-            this.b = null;
-            this.c = null;
         }
     }
 
-    public void c(int i) {
-        d16 d16Var;
-        String str;
+    public void a(String url, SimpleDraweeView imageView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (d16Var = this.b) != null && d16Var.b() != null && this.c != null) {
-            y46 y46Var = new y46(this.b.b().f(), this.b.b().e(), this.b.b().d());
-            y46Var.i(this.b.b().b(), this.b.b().c());
-            y46Var.h(this.b.b().a());
-            y46Var.j(this.b.b().j());
-            UserData i2 = this.b.b().i();
-            TbPageContext tbPageContext = this.c;
-            this.a = new z46(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView(), y46Var, i2);
-            k35 k35Var = new k35();
-            k35Var.j(this.b.b().h());
-            this.a.H(new String[]{this.c.getString(R.string.delete_thread_reason_1), this.c.getString(R.string.delete_thread_reason_2), this.c.getString(R.string.delete_thread_reason_3), this.c.getString(R.string.delete_thread_reason_4), this.c.getString(R.string.delete_thread_reason_5)});
-            this.a.G(k35Var);
-            this.a.I(new a(this));
-            if (i != 2 && i != 1) {
-                if (i == 3) {
-                    str = "6";
-                } else {
-                    str = "0";
-                }
-            } else {
-                str = "5";
+        if (interceptable == null || interceptable.invokeLL(1048576, this, url, imageView) == null) {
+            Intrinsics.checkNotNullParameter(url, "url");
+            Intrinsics.checkNotNullParameter(imageView, "imageView");
+            GenericDraweeHierarchyBuilder fadeDuration = new GenericDraweeHierarchyBuilder(imageView.getResources()).setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER).setFadeDuration(0);
+            AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setUri(url).setAutoPlayAnimations(true).build();
+            Drawable a2 = a.a();
+            if (a2 != null) {
+                fadeDuration.setPlaceholderImage(a2);
             }
-            this.a.J(str);
+            imageView.setHierarchy(fadeDuration.build());
+            imageView.setController(build);
+        }
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            Fresco.getImagePipeline().prefetchToBitmapCache(ImageRequest.fromUri(str), TbadkCoreApplication.getInst());
         }
     }
 }

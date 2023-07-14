@@ -227,7 +227,7 @@ public class SingleChoiceDialog extends BoxAlertDialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SingleChoiceDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f10014e);
+        super(context, R.style.obfuscated_res_0x7f10014f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -310,7 +310,7 @@ public class SingleChoiceDialog extends BoxAlertDialog {
             this.mListView.setAdapter((ListAdapter) new SingleChoiceAdapter());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             Resources resources = getContext().getResources();
-            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707be);
+            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707d4);
             int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.single_choice_dialog_bottom_margin);
             layoutParams.leftMargin = dimensionPixelSize;
             layoutParams.rightMargin = dimensionPixelSize;

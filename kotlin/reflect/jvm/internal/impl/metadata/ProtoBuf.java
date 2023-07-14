@@ -21,7 +21,7 @@ import kotlin.reflect.jvm.internal.impl.protobuf.LazyStringList;
 import kotlin.reflect.jvm.internal.impl.protobuf.MessageLiteOrBuilder;
 import kotlin.reflect.jvm.internal.impl.protobuf.Parser;
 import kotlin.reflect.jvm.internal.impl.protobuf.ProtocolStringList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ProtoBuf {
 
     /* loaded from: classes10.dex */
@@ -92,15 +92,15 @@ public final class ProtoBuf {
     public interface TypeTableOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface ValueParameterOrBuilder extends GeneratedMessageLite.ExtendableMessageOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface VersionRequirementOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface VersionRequirementTableOrBuilder extends MessageLiteOrBuilder {
     }
 
@@ -12527,7 +12527,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class ValueParameter extends GeneratedMessageLite.ExtendableMessage<ValueParameter> implements ValueParameterOrBuilder {
         public static Parser<ValueParameter> PARSER = new AbstractParser<ValueParameter>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.ValueParameter.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -13084,7 +13084,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class VersionRequirement extends GeneratedMessageLite implements VersionRequirementOrBuilder {
         public static Parser<VersionRequirement> PARSER = new AbstractParser<VersionRequirement>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.VersionRequirement.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -13105,7 +13105,7 @@ public final class ProtoBuf {
         public VersionKind versionKind_;
         public int version_;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<VersionRequirement, Builder> implements VersionRequirementOrBuilder {
             public int bitField0_;
             public int errorCode_;
@@ -13421,7 +13421,7 @@ public final class ProtoBuf {
             return newBuilder(this);
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public enum Level implements Internal.EnumLite {
             WARNING(0, 0),
             ERROR(1, 1),
@@ -13460,7 +13460,7 @@ public final class ProtoBuf {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public enum VersionKind implements Internal.EnumLite {
             LANGUAGE_VERSION(0, 0),
             COMPILER_VERSION(1, 1),
@@ -13661,7 +13661,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class VersionRequirementTable extends GeneratedMessageLite implements VersionRequirementTableOrBuilder {
         public static Parser<VersionRequirementTable> PARSER = new AbstractParser<VersionRequirementTable>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.VersionRequirementTable.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -13676,7 +13676,7 @@ public final class ProtoBuf {
         public List<VersionRequirement> requirement_;
         public final ByteString unknownFields;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<VersionRequirementTable, Builder> implements VersionRequirementTableOrBuilder {
             public int bitField0_;
             public List<VersionRequirement> requirement_ = Collections.emptyList();
@@ -14049,7 +14049,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public enum Visibility implements Internal.EnumLite {
         INTERNAL(0, 0),
         PRIVATE(1, 1),

@@ -5,7 +5,7 @@ import kotlin.reflect.jvm.internal.impl.types.model.KotlinTypeMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.SimpleTypeMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeArgumentMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeSystemContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class AbstractStrictEqualityTypeChecker {
     public static final AbstractStrictEqualityTypeChecker INSTANCE = new AbstractStrictEqualityTypeChecker();
 

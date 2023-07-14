@@ -4,7 +4,6 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.ChatObject;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.box.IMBoxManager;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
@@ -14,6 +13,7 @@ import com.baidu.android.imsdk.chatmessage.IMediaGetChatSessionListener;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.consult.listener.IBusiSessionChangeListener;
 import com.baidu.android.imsdk.db.DBBase;
+import com.baidu.android.imsdk.group.db.GroupMessageDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.media.MediaSessionManager;
@@ -200,6 +200,9 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
         if ((interceptable == null || interceptable.invokeIL(65554, this, i, list) == null) && list != null && list.size() != 0) {
             for (ChatSession chatSession : list) {
                 long maxMsgid = ChatMessageDBManager.getInstance(this.mContext).getMaxMsgid(new ChatObject(this.mContext, chatSession.getCategory(), chatSession.getContacter()));
+                if (chatSession.getCategory() == 1) {
+                    maxMsgid = Math.max(maxMsgid, GroupMessageDAOImpl.getMaxLocalMsgId(this.mContext, String.valueOf(chatSession.getContacterId())));
+                }
                 if (chatSession.getLastMsgId() <= 0) {
                     chatSession.setLastMsgId(maxMsgid);
                 }
@@ -686,7 +689,7 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
         if (chatRecordsByClass == null || chatRecordsByClass.size() == 0) {
             if (BIMManager.hudongTop && z) {
                 if (chatSession != null) {
-                    chatSession.setLastMsg(IMConstants.HUDONG_DESC_DEFAULT);
+                    chatSession.setLastMsg("暂无互动消息，快和朋友互动起来吧>");
                     chatSession.setIsClicked(1);
                     chatSession.setNewMsgSum(0L);
                 }

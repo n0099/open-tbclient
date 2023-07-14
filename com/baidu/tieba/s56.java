@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.account.safeManage.AccountSafeModel;
-import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
-import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,104 +18,35 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class s56 implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String e;
+public class s56 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseActivity a;
+    public long a;
     public t56 b;
-    public AccountSafeModel c;
-    public kb d;
-
-    /* loaded from: classes7.dex */
-    public class a extends kb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s56 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(s56 s56Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s56Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s56Var;
-        }
-
-        @Override // com.baidu.tieba.kb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            String errorString;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (this.a.c != null) {
-                    this.a.c.b0(false);
-                }
-                this.a.a.closeLoadingDialog();
-                if (responsedMessage == null) {
-                    return;
-                }
-                if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    pv9 pv9Var = null;
-                    if (responsedMessage instanceof ResponsedPrivacyHttpMessage) {
-                        pv9Var = ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData();
-                    }
-                    if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
-                        pv9Var = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
-                    }
-                    if (this.a.c != null) {
-                        this.a.c.a0(pv9Var);
-                    }
-                    if (this.a.b != null && this.a.c != null && this.a.c.V() != null) {
-                        this.a.b.d(this.a.c.V().f());
-                        return;
-                    }
-                    return;
-                }
-                if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0e0f);
-                } else {
-                    errorString = responsedMessage.getErrorString();
-                }
-                this.a.a.showToast(errorString);
-            }
-        }
-    }
+    public BaseFragmentActivity c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948102453, "Lcom/baidu/tieba/s56;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948102453, "Lcom/baidu/tieba/s56;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948102453, "Lcom/baidu/tieba/s56;")) == null) {
+            return;
         }
-        e = TbConfig.TIEBA_ADDRESS + "mo/q/accountSecurity/accountOption";
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948102453, "Lcom/baidu/tieba/s56;");
+        }
     }
 
-    public s56(BaseActivity baseActivity) {
+    public s56(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
+            Object[] objArr = {baseFragmentActivity};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -129,80 +56,97 @@ public class s56 implements View.OnClickListener {
                 return;
             }
         }
-        a aVar = new a(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
-        this.d = aVar;
-        this.a = baseActivity;
-        baseActivity.registerListener(aVar);
-        this.b = new t56(this.a, this);
-        this.c = new AccountSafeModel(this.a);
-        if (BdNetTypeUtil.isNetWorkAvailable()) {
-            g();
-        } else {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
-        }
+        this.a = -1L;
+        this.c = baseFragmentActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        String str;
+    public final void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090358) {
-                TiebaStatic.log("c10013");
-                if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
-                } else {
-                    UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{e});
-                }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090068) {
-                AccountSafeModel accountSafeModel = this.c;
-                if (accountSafeModel != null) {
-                    str = accountSafeModel.getJumpUrl();
-                } else {
-                    str = "";
-                }
-                AntiHelper.p(this.a, str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            if (d7a.a(this.c.getIntent())) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
+            }
+            if (bundle != null) {
+                LogoActivityConfig.isFirst = bundle.getBoolean("is_first", true);
+            } else {
+                LogoActivityConfig.isFirst = true;
             }
         }
     }
 
-    public void e(int i) {
-        t56 t56Var;
+    public final void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (t56Var = this.b) != null) {
-            t56Var.e(i);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
+            if (intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false)) {
+                Intent intent2 = new Intent();
+                intent2.putExtra("class", 2);
+                intent2.putExtra("fname", intent.getStringExtra("fname"));
+                intent2.putExtra(FrsActivityConfig.FROM_SHORT_CUT, true);
+                intent2.putExtra("back_special", true);
+                intent2.putExtra("from", "short_cut");
+                intent.putExtra(LogoActivityConfig.EXTRAINTENT, intent2);
+            }
+            TbadkCoreApplication.setIntent((Intent) intent.getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
         }
     }
 
-    public View d() {
-        InterceptResult invokeV;
+    public void c(Configuration configuration) {
+        t56 t56Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b.a();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) && (t56Var = this.b) != null) {
+            t56Var.d(configuration);
         }
-        return (View) invokeV.objValue;
+    }
+
+    public void d(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            this.a = System.currentTimeMillis();
+            if ("MuMu".equals(aj.g()) && "6.0.1".equals(aj.k())) {
+                this.c.finish();
+                return;
+            }
+            b(bundle);
+            if (!d7a.a(this.c.getIntent()) && (d7a.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
+                a(this.c.getIntent());
+            }
+            aba.g().i(this.c.getUniqueId());
+            t56 t56Var = new t56(this.c);
+            this.b = t56Var;
+            t56Var.i(d);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            aba.g().k(this.c.getUniqueId());
+            d = false;
+            t56 t56Var = this.b;
+            if (t56Var != null) {
+                t56Var.g();
+            }
+        }
     }
 
     public void f() {
+        t56 t56Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.closeLoadingDialog();
-            AccountSafeModel accountSafeModel = this.c;
-            if (accountSafeModel != null) {
-                accountSafeModel.cancelLoadData();
-            }
-            t56 t56Var = this.b;
-            if (t56Var != null) {
-                t56Var.c();
-            }
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (t56Var = this.b) != null) {
+            t56Var.e();
         }
     }
 
-    public final void g() {
-        AccountSafeModel accountSafeModel;
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (accountSafeModel = this.c) != null && !accountSafeModel.X()) {
-            this.c.Z();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (LogoActivityConfig.isFirst && this.a >= 0) {
+                gu5.b().v(System.currentTimeMillis() - this.a);
+            }
+            t56 t56Var = this.b;
+            if (t56Var != null) {
+                t56Var.f();
+            }
         }
     }
 }

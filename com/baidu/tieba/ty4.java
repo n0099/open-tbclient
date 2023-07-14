@@ -3,30 +3,44 @@ package com.baidu.tieba;
 import android.app.Activity;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
+import com.baidu.tbadk.core.atomData.WalletPayResultActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ty4 implements em6 {
+public class ty4 implements in6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.em6
+    @Override // com.baidu.tieba.in6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        dm6.a(this, webView, str, jSONObject);
+        hn6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.em6
+    @Override // com.baidu.tieba.in6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            return false;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.in6
     public /* synthetic */ void onDestroy() {
-        dm6.b(this);
+        hn6.b(this);
     }
 
     public ty4() {
@@ -43,42 +57,36 @@ public class ty4 implements em6 {
         }
     }
 
-    @Override // com.baidu.tieba.em6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public qda c(WebView webView, String str, int i, int i2, int i3, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.IS_DISABLE_GO_BACK.equals(str2)) {
-                jsPromptResult.confirm(c(webView).a());
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{webView, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, str4, str5, str6, str7, str8})) == null) {
+            Activity a = xm6.a(webView.getContext());
+            if (a != null) {
+                PayWalletActivityConfig payWalletActivityConfig = new PayWalletActivityConfig(a, new PayConfig().setPayType(1).setIsLeft("0").setPropsId(String.valueOf(str4)).setMoney(String.valueOf(i)).setPropsMon(String.valueOf(i2)).setVipType(str3).setPayChannel(str2).setAutoPay(i3).setReferPage(str6).setClickZone(str7).setFromScene(wg.e(str8, 0)));
+                payWalletActivityConfig.setRequestCode(25078);
+                payWalletActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, payWalletActivityConfig));
             }
-            return false;
+            return new qda();
         }
-        return invokeLLLLL.booleanValue;
+        return (qda) invokeCommon.objValue;
     }
 
-    public f5a c(WebView webView) {
-        InterceptResult invokeL;
+    public qda d(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            f5a f5aVar = new f5a();
-            Activity a = tl6.a(webView.getContext());
-            int i = 1;
-            if (a instanceof BaseWebViewActivity) {
-                ((BaseWebViewActivity) a).isDisableGoBack = true;
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
+            if (hashMap == null) {
+                return null;
             }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", i);
-                f5aVar.o(jSONObject.toString());
-                return f5aVar;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return f5aVar;
+            qda qdaVar = new qda();
+            String str = hashMap.get(WalletPayResultActivityConfig.PAY_RESULT);
+            if (StringUtils.isNotNull(str)) {
+                qdaVar.o(str);
             }
+            return qdaVar;
         }
-        return (f5a) invokeL.objValue;
+        return (qda) invokeLL.objValue;
     }
 }

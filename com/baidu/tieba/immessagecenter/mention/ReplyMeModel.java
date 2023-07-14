@@ -9,10 +9,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
+import com.baidu.tieba.gca;
 import com.baidu.tieba.kb;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.v3a;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,12 +101,12 @@ public class ReplyMeModel extends BdBaseModel {
             }
             boolean z = responsedMessage instanceof CheckPostResponseMessage;
             if (!z && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
             } else if (responsedMessage.hasError()) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                     this.a.a.showToast(responsedMessage.getErrorString());
                 } else {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
                 }
             } else {
                 if (z) {
@@ -143,10 +143,10 @@ public class ReplyMeModel extends BdBaseModel {
                             }
                             return;
                         } else if (postState == 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f1620);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f1636);
                             return;
                         } else if (postState == -1) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f162b);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f1641);
                             return;
                         } else {
                             return;
@@ -177,11 +177,11 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        v3a.f(303010, CheckPostResponseMessage.class, false);
-        v3a.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        gca.f(303010, CheckPostResponseMessage.class, false);
+        gca.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
-    public void W() {
+    public void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a aVar = new a(this, CmdConfigHttp.CMD_CHECK_POST, 303010);
@@ -212,24 +212,24 @@ public class ReplyMeModel extends BdBaseModel {
             }
         }
         this.a = tbPageContext;
-        W();
+        X();
     }
 
-    public void Y(b bVar) {
+    public void Z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.b = bVar;
         }
     }
 
-    public void X(long j, int i, String str, String str2, BaijiahaoData baijiahaoData) {
+    public void Y(long j, int i, String str, String str2, BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str, str2, baijiahaoData}) == null) {
             CheckPostRequestMessage checkPostRequestMessage = new CheckPostRequestMessage();
             checkPostRequestMessage.setPid(j);
             checkPostRequestMessage.setPostType(i);
             checkPostRequestMessage.setForumName(str);
-            checkPostRequestMessage.setTid(vg.g(str2, 0L));
+            checkPostRequestMessage.setTid(wg.g(str2, 0L));
             checkPostRequestMessage.setTag(this.a.getUniqueId());
             if (baijiahaoData != null) {
                 checkPostRequestMessage.ori_ugc_type = baijiahaoData.oriUgcType;

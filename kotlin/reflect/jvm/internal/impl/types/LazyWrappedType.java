@@ -4,7 +4,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.reflect.jvm.internal.impl.storage.NotNullLazyValue;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class LazyWrappedType extends WrappedType {
     public final Function0<KotlinType> computation;
     public final NotNullLazyValue<KotlinType> lazyValue;

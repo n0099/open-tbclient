@@ -1,147 +1,170 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
-import com.baidu.tieba.immessagecenter.msgtab.obs.NewsRemindMsgMonitor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class xo8 extends wl1<oe5> {
+public class xo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class a implements oe5 {
+    public static class a extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ AnimatorListenerAdapter b;
 
-        public a() {
+        public a(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, animatorListenerAdapter};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = view2;
+            this.b = animatorListenerAdapter;
         }
 
-        @Override // com.baidu.tieba.oe5
-        public xsb<Boolean> b() {
-            InterceptResult invokeV;
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            AnimatorListenerAdapter animatorListenerAdapter;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return NewsRemindMsgMonitor.f.a().i();
-            }
-            return (xsb) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.oe5
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return dp8.a();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.oe5
-        public xsb<NewsRemindMessage> f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return NewsRemindMsgMonitor.f.a().k();
-            }
-            return (xsb) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.oe5
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                NewsRemindMsgMonitor.f.a().j().onNext(Boolean.valueOf(z));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && (animatorListenerAdapter = this.b) != null) {
+                animatorListenerAdapter.onAnimationCancel(animator);
             }
         }
 
-        @Override // com.baidu.tieba.oe5
-        public boolean c() {
-            InterceptResult invokeV;
-            boolean z;
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            AnimatorListenerAdapter animatorListenerAdapter;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                Long valueOf = Long.valueOf(r95.p().r("key_msg_remind_frequency_minute", 0L));
-                if (valueOf.longValue() > 0) {
-                    z = true;
-                } else {
-                    z = false;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && (animatorListenerAdapter = this.b) != null) {
+                animatorListenerAdapter.onAnimationEnd(animator);
+            }
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+                super.onAnimationStart(animator);
+                this.a.setVisibility(0);
+                AnimatorListenerAdapter animatorListenerAdapter = this.b;
+                if (animatorListenerAdapter != null) {
+                    animatorListenerAdapter.onAnimationStart(animator);
                 }
-                if (!z) {
-                    valueOf = null;
-                }
-                if (valueOf == null) {
-                    return false;
-                }
-                if (System.currentTimeMillis() - r95.p().r("key_msg_remind_last_show_time", 0L) < valueOf.longValue()) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.oe5
-        public void d() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || TbSingleton.MsgUpgradeTips.isMsgTabUpgradeTipsShowing() || c()) {
-                return;
-            }
-            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
-            int msgCount = m.getMsgCount() + m.getChatCount() + m.getNotificationCount();
-            if (!m.hasMsgRemind() && !m.hasChatRemind() && !m.hasNotificationRemind()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (msgCount <= 0 && z && r95.p().r("key_msg_remind_frequency_minute", 0L) > 0) {
-                r95.p().H("key_msg_remind_last_show_time", System.currentTimeMillis());
-                NewsRemindMsgMonitor.f.a().f();
             }
         }
     }
 
-    public xo8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static class b extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ AnimatorListenerAdapter b;
+
+        public b(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, animatorListenerAdapter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+            this.b = animatorListenerAdapter;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setVisibility(8);
+                this.a.setAlpha(0.0f);
+                AnimatorListenerAdapter animatorListenerAdapter = this.b;
+                if (animatorListenerAdapter != null) {
+                    animatorListenerAdapter.onAnimationCancel(animator);
+                }
+            }
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                this.a.setVisibility(8);
+                this.a.setAlpha(0.0f);
+                AnimatorListenerAdapter animatorListenerAdapter = this.b;
+                if (animatorListenerAdapter != null) {
+                    animatorListenerAdapter.onAnimationEnd(animator);
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wl1
-    /* renamed from: a */
-    public oe5 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public static void a(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
+        if (interceptable == null || interceptable.invokeLL(65536, null, view2, animatorListenerAdapter) == null) {
+            b(view2, animatorListenerAdapter, 300L);
         }
-        return (oe5) invokeV.objValue;
+    }
+
+    public static void c(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, animatorListenerAdapter) == null) {
+            d(view2, animatorListenerAdapter, 300L);
+        }
+    }
+
+    public static void b(View view2, AnimatorListenerAdapter animatorListenerAdapter, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, animatorListenerAdapter, Long.valueOf(j)}) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, View.ALPHA, 0.0f);
+            ofFloat.setDuration(j);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Y, 0.0f, view2.getMeasuredHeight());
+            ofFloat2.setDuration(j);
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(ofFloat2, ofFloat);
+            animatorSet.addListener(new b(view2, animatorListenerAdapter));
+            animatorSet.start();
+        }
+    }
+
+    public static void d(View view2, AnimatorListenerAdapter animatorListenerAdapter, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{view2, animatorListenerAdapter, Long.valueOf(j)}) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, View.ALPHA, 1.0f);
+            ofFloat.setDuration(j);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Y, view2.getMeasuredHeight(), 0.0f);
+            ofFloat2.setDuration(j);
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(ofFloat2, ofFloat);
+            animatorSet.addListener(new a(view2, animatorListenerAdapter));
+            animatorSet.start();
+        }
     }
 }

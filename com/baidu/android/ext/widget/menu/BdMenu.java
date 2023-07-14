@@ -82,7 +82,7 @@ public abstract class BdMenu {
         this.mIsBackgroundDarken = false;
         this.mBgDarkAlpha = 0.5f;
         this.mIsHaveAnimation = false;
-        this.mPopAnimStyle = R.style.obfuscated_res_0x7f1003f8;
+        this.mPopAnimStyle = R.style.obfuscated_res_0x7f1003f9;
         this.mDismissMenuTask = new Runnable(this) { // from class: com.baidu.android.ext.widget.menu.BdMenu.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public abstract class BdMenu {
                     popupWindow.setAnimationStyle(this.mPopAnimStyle);
                 }
                 if (z) {
-                    this.mPopupWindow.setBackgroundDrawable(this.mResources.getDrawable(R.drawable.obfuscated_res_0x7f08122f));
+                    this.mPopupWindow.setBackgroundDrawable(this.mResources.getDrawable(R.drawable.obfuscated_res_0x7f081244));
                     this.mPopupWindow.setTouchable(true);
                 } else {
                     this.mPopupWindow.setTouchable(false);

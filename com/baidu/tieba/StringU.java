@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class StringU {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -32,7 +32,7 @@ public class StringU {
             }
         }
         try {
-            boolean h = ui.d().h("stringu", 2);
+            boolean h = vi.d().h("stringu", 2);
             a = h;
             if (h) {
                 a("stringu_so_load_success", null);
@@ -69,7 +69,7 @@ public class StringU {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0035  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0033  */
     /* JADX WARN: Removed duplicated region for block: B:31:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

@@ -20,7 +20,7 @@ public class BubbleButtonView extends BubbleTextView {
     @Override // com.baidu.searchbox.ui.bubble.views.BubbleTextView, com.baidu.searchbox.ui.bubble.views.BubbleBaseView
     public boolean initViewIfNeed() {
         if (super.initViewIfNeed()) {
-            this.mBubbleBtn = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904f9);
+            this.mBubbleBtn = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904fa);
             return true;
         }
         return false;

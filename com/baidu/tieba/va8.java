@@ -1,38 +1,41 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.im.settingcache.GroupSettingItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.newdetail.HotTopicDetailActivity;
+import com.baidu.tieba.newdetail.HotTopicDetailView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class va8 extends ta8 {
+public class va8 {
     public static /* synthetic */ Interceptable $ic;
-    public static va8 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<HotTopicDetailActivity> a;
+    public View b;
+    public String c;
+    public String d;
 
     /* loaded from: classes8.dex */
-    public class a extends sx5<Void> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GroupSettingItemData a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ va8 c;
+        public final /* synthetic */ va8 a;
 
-        public a(va8 va8Var, GroupSettingItemData groupSettingItemData, String str) {
+        public a(va8 va8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {va8Var, groupSettingItemData, str};
+                Object[] objArr = {va8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,152 +45,67 @@ public class va8 extends ta8 {
                     return;
                 }
             }
-            this.c = va8Var;
-            this.a = groupSettingItemData;
-            this.b = str;
+            this.a = va8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sx5
-        /* renamed from: a */
-        public Void doInBackground() {
-            InterceptResult invokeV;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.c.b().g(this.b, OrmObject.jsonStrWithObject(this.a));
-                return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ha9.h(this.a.a, "c14391");
+                this.a.c();
             }
-            return (Void) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948234172, "Lcom/baidu/tieba/va8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948234172, "Lcom/baidu/tieba/va8;");
-                return;
-            }
-        }
-        b = new va8();
-    }
-
-    public va8() {
+    public va8(View view2, TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = tbPageContext;
+        this.b = view2;
+        if (view2 instanceof TextView) {
+            HotTopicDetailView.setWriteViewStyle((TextView) view2, SkinManager.getColor(R.color.CAM_X0302));
+        }
+        this.b.setOnClickListener(new a(this));
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public static va8 j() {
-        InterceptResult invokeV;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (va8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ta8
-    public xe<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            f55.d();
-            return f55.e("tb.im_group_setting");
-        }
-        return (xe) invokeV.objValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.e(GroupSettingItemData.class);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.c = str;
         }
     }
 
-    @Override // com.baidu.tieba.ta8
-    public void h(ChatSetting chatSetting) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
-            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
-            String uid = groupSettingItemData.getUid();
-            String gid = groupSettingItemData.getGid();
-            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
-                xe<String> b2 = b();
-                String str = uid + "@" + gid;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-                synchronized (this.a) {
-                    this.a.put(str, groupSettingItemData);
-                }
-                b2.g(str, jsonStrWithObject);
-            } else if (!TbConfig.getDebugSwitch()) {
-            } else {
-                throw new RuntimeException("key param is null");
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !WriteActivityConfig.isAsyncWriting() && this.c != null) {
+            String str = null;
+            if (!StringUtils.isNull(this.d)) {
+                str = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a04), this.d);
             }
+            WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.a.getPageActivity());
+            newInstance.setIntentAction(IntentAction.ActivityForResult);
+            newInstance.setRequestCode(25065);
+            newInstance.setType(9).setForumId("0").setTopicId(String.valueOf(this.c)).setFrom("topic_detail").setCallFrom("1").setTitle(str).send();
         }
-    }
-
-    @Override // com.baidu.tieba.ta8
-    public void i(ChatSetting chatSetting, ww5<Void> ww5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, ww5Var) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
-            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
-            String uid = groupSettingItemData.getUid();
-            String gid = groupSettingItemData.getGid();
-            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
-                String str = uid + "@" + gid;
-                synchronized (this.a) {
-                    this.a.put(str, groupSettingItemData);
-                }
-                wx5.c(new a(this, groupSettingItemData, str), ww5Var);
-            } else if (!TbConfig.getDebugSwitch()) {
-            } else {
-                throw new RuntimeException("key param is null");
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ta8
-    /* renamed from: k */
-    public GroupSettingItemData a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            GroupSettingItemData groupSettingItemData = null;
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            String str3 = str + "@" + str2;
-            synchronized (this.a) {
-                ChatSetting chatSetting = this.a.get(str3);
-                if (chatSetting instanceof GroupSettingItemData) {
-                    groupSettingItemData = (GroupSettingItemData) chatSetting;
-                }
-            }
-            if (groupSettingItemData == null) {
-                GroupSettingItemData groupSettingItemData2 = new GroupSettingItemData();
-                groupSettingItemData2.setUid(str);
-                groupSettingItemData2.setGid(str2);
-                groupSettingItemData2.setAcceptNotify(true);
-                groupSettingItemData2.setInGroup(true);
-                return groupSettingItemData2;
-            }
-            return groupSettingItemData;
-        }
-        return (GroupSettingItemData) invokeLL.objValue;
     }
 }

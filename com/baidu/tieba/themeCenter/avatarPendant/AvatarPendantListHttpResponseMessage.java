@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.avatarPendant;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.gaa;
-import com.baidu.tieba.iba;
+import com.baidu.tieba.xia;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,12 +17,12 @@ import tbclient.Error;
 import tbclient.GetPendantByCategory.DataRes;
 import tbclient.GetPendantByCategory.GetPendantByCategoryResIdl;
 import tbclient.GetPendantByCategory.ThemePendantInMain;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<gaa> mAvatarPendantList;
-    public iba mRecommand;
+    public List<xia> mAvatarPendantList;
+    public zja mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AvatarPendantListHttpResponseMessage(int i) {
@@ -62,23 +62,23 @@ public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage
             return;
         }
         if (dataRes.recommend != null) {
-            iba ibaVar = new iba();
-            this.mRecommand = ibaVar;
-            ibaVar.d(getPendantByCategoryResIdl.data.recommend);
+            zja zjaVar = new zja();
+            this.mRecommand = zjaVar;
+            zjaVar.d(getPendantByCategoryResIdl.data.recommend);
         }
         if (getPendantByCategoryResIdl.data.pendant != null) {
             this.mAvatarPendantList = new ArrayList();
             for (ThemePendantInMain themePendantInMain : getPendantByCategoryResIdl.data.pendant) {
                 if (themePendantInMain != null && !StringUtils.isNull(themePendantInMain.pendant_category)) {
-                    gaa gaaVar = new gaa();
-                    gaaVar.c(themePendantInMain);
-                    this.mAvatarPendantList.add(gaaVar);
+                    xia xiaVar = new xia();
+                    xiaVar.c(themePendantInMain);
+                    this.mAvatarPendantList.add(xiaVar);
                 }
             }
         }
     }
 
-    public List<gaa> getAvatarPendantListList() {
+    public List<xia> getAvatarPendantListList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -87,12 +87,12 @@ public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage
         return (List) invokeV.objValue;
     }
 
-    public iba getRecommand() {
+    public zja getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (iba) invokeV.objValue;
+        return (zja) invokeV.objValue;
     }
 }

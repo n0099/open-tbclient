@@ -1,9 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.MainThread;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.data.DelAllUerDataReqMsg;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,40 +20,150 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class i15 {
     public static /* synthetic */ Interceptable $ic;
+    public static i15 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList<j15> a;
+    public ProgressDialog a;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947800668, "Lcom/baidu/tieba/i15;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947800668, "Lcom/baidu/tieba/i15;");
+        }
     }
 
     /* loaded from: classes6.dex */
-    public static final class b {
+    public class b implements ay5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
-        public static final i15 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i15 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-769318114, "Lcom/baidu/tieba/i15$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
+        /* loaded from: classes6.dex */
+        public class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
                 if (interceptable != null) {
-                    $ic = interceptable;
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-769318114, "Lcom/baidu/tieba/i15$b;");
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    fla.b(true);
+                }
+            }
+        }
+
+        public b(i15 i15Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i15Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new i15(null);
+            this.a = i15Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ay5
+        /* renamed from: a */
+        public void onReturnDataInUI(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
+                this.a.d();
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                if (currentActivity == null) {
+                    return;
+                }
+                if (bool.booleanValue()) {
+                    TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(currentActivity);
+                    tBAlertBuilder.w(R.string.delete_success);
+                    tBAlertBuilder.m(R.string.delete_all_user_data_hint);
+                    tBAlertBuilder.u(new TBAlertConfig.a(currentActivity.getString(R.string.obfuscated_res_0x7f0f10f2), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+                    tBAlertBuilder.z();
+                    return;
+                }
+                yi.Q(currentActivity, R.string.delete_fail);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends wy5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(i15 i15Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i15Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.wy5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2008015, currentAccount));
+                    nf5.p0().b0(true);
+                    NotificationHelper.cancelAllNotification(TbadkCoreApplication.getInst());
+                    bca.y("");
+                    c15.t().g(currentAccount, false);
+                    BdCacheService.n().a(currentAccount);
+                    da5.p().e(currentAccount);
+                    return Boolean.TRUE;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return Boolean.FALSE;
+                }
+            }
+            return (Boolean) invokeV.objValue;
         }
     }
 
@@ -52,63 +171,86 @@ public class i15 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new LinkedList<>();
     }
 
     public static i15 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (i15.class) {
+                    if (b == null) {
+                        b = new i15();
+                    }
+                }
+            }
+            return b;
         }
         return (i15) invokeV.objValue;
     }
 
-    public /* synthetic */ i15(a aVar) {
-        this();
-    }
-
-    public final j15 a(int i) {
-        InterceptResult invokeI;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            Iterator<j15> it = this.a.iterator();
-            while (it.hasNext()) {
-                j15 next = it.next();
-                if (next.b() == i) {
-                    return next;
-                }
-            }
-            return null;
-        }
-        return (j15) invokeI.objValue;
-    }
-
-    @MainThread
-    public void b(int i) {
-        j15 a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (a2 = a(i)) != null) {
-            a2.run();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            az5.b(new a(this), new b(this));
         }
     }
 
-    public void d(@Nullable BdUniqueId bdUniqueId) {
+    public final void d() {
+        ProgressDialog progressDialog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            Iterator<j15> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().a(bdUniqueId);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (progressDialog = this.a) != null && progressDialog.isShowing()) {
+            this.a.dismiss();
+            this.a = null;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            DelAllUerDataReqMsg delAllUerDataReqMsg = new DelAllUerDataReqMsg();
+            delAllUerDataReqMsg.setOpType(1);
+            MessageManager.getInstance().sendMessage(delAllUerDataReqMsg);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ProgressDialog progressDialog = this.a;
+            if (progressDialog == null) {
+                this.a = yi.M(TbadkCoreApplication.getInst().getCurrentActivity(), null);
+            } else {
+                progressDialog.show();
             }
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            g();
+            f();
+        }
+    }
+
+    public void e(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
+            if (z) {
+                d();
+                yi.R(TbadkCoreApplication.getInst().getCurrentActivity(), str);
+                return;
+            }
+            b();
         }
     }
 }

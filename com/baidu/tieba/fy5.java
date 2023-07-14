@@ -1,64 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.NewGodInfo;
 /* loaded from: classes5.dex */
 public class fy5 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
+    public static String b = null;
+    public static String c = null;
+    public static String d = "floor";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(NewGodData newGodData) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newGodData)) == null) {
-            if (newGodData != null && newGodData.getType() == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            return c(z);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947780487, "Lcom/baidu/tieba/fy5;")) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947780487, "Lcom/baidu/tieba/fy5;");
+        }
     }
 
-    public static String b(NewGodInfo newGodInfo) {
-        InterceptResult invokeL;
-        boolean z;
+    public static void a(String str, String str2, String str3, int i, l9 l9Var, BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, newGodInfo)) == null) {
-            if (newGodInfo != null && newGodInfo.type.intValue() == 2) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i), l9Var, baijiahaoData}) == null) {
+            b = str;
+            c = str2;
+            a = str3;
+            if (!StringUtils.isNull(str3) && l9Var != null && l9Var.getPageActivity() != null) {
+                if (d.equals(a)) {
+                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(l9Var.getPageActivity()).createSubPbActivityConfig(b, c, "search_post", true);
+                    createSubPbActivityConfig.setKeyPageStartFrom(8);
+                    createSubPbActivityConfig.setBjhData(baijiahaoData);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+                    return;
+                }
+                PbActivityConfig createNormalCfg = new PbActivityConfig(l9Var.getPageActivity()).createNormalCfg(b, c, "search_post");
+                createNormalCfg.setStartFrom(8);
+                createNormalCfg.setBjhData(baijiahaoData);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
             }
-            return c(z);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_video_god);
-            }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public static void d(String str, String str2, String str3, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, context) == null) {
-            ux4.x(context, null, uva.a(uva.a(uva.a(TbConfig.URL_FORUM_LEVEL_H5_PAGE, "portrait", str2), "forum_id", str), "obj_locate", str3), true, true, true);
         }
     }
 }

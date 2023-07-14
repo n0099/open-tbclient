@@ -7,7 +7,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.types.checker.StrictEqualityTypeChecker;
 import kotlin.reflect.jvm.internal.impl.types.model.KotlinTypeMarker;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class KotlinType implements Annotated, KotlinTypeMarker {
     public int cachedHashCode;
 

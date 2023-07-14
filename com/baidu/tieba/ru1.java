@@ -1,22 +1,42 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class ru1 implements bw2 {
+public class ru1 implements bx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bw2
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bx1
+    public void a(@NonNull JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.bx1
+    public yf2 b(Context context, File file, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, file, Long.valueOf(j)})) == null) {
+            return null;
+        }
+        return (yf2) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.bx1
+    public void c(@NonNull JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+        }
     }
 
     public ru1() {

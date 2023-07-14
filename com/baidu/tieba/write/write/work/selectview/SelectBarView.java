@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.d85;
 import com.baidu.tieba.write.write.work.selectview.SelectBarView;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -145,7 +145,7 @@ public class SelectBarView extends LinearLayout {
                         getMCenterContent().setVisibility(0);
                         getMCenterContentTips().setVisibility(8);
                         TextView mCenterContent = getMCenterContent();
-                        mCenterContent.setText(selectForumData.forumName + getContext().getString(R.string.obfuscated_res_0x7f0f076a));
+                        mCenterContent.setText(selectForumData.forumName + getContext().getString(R.string.obfuscated_res_0x7f0f0773));
                         return;
                     }
                 }
@@ -158,30 +158,30 @@ public class SelectBarView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09d5, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0914c0);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09ef, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0914d4);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090685);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090687);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.center_content_tips)");
             setMCenterContentTips((TextView) findViewById2);
             View findViewById3 = findViewById(R.id.obfuscated_res_0x7f090342);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.bar_center_content)");
             setMCenterContent((TextView) findViewById3);
-            getMCenterContent().setCompoundDrawablePadding(xi.g(getContext(), R.dimen.M_W_X002));
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f090684);
+            getMCenterContent().setCompoundDrawablePadding(yi.g(getContext(), R.dimen.M_W_X002));
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f090686);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content_pos)");
             setMCenterContentPos((TextView) findViewById4);
-            getMCenterContentPos().setCompoundDrawablePadding(xi.g(getContext(), R.dimen.M_W_X002));
+            getMCenterContentPos().setCompoundDrawablePadding(yi.g(getContext(), R.dimen.M_W_X002));
             getMCenterContentPos().setVisibility(8);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091ec5);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091ef8);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.bottom_line);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             d();
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lra
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.j0b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -204,7 +204,7 @@ public class SelectBarView extends LinearLayout {
             WebPManager.setPureDrawable(getMRightArrow(), R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            s75 d = s75.d(getMCenterContent());
+            d85 d = d85.d(getMCenterContent());
             d.D(R.string.F_X01);
             d.C(R.dimen.T_X09);
             d.x(R.color.CAM_X0105);
@@ -216,12 +216,12 @@ public class SelectBarView extends LinearLayout {
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba12, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL_PRESS);
             Intrinsics.checkNotNullExpressionValue(pureDrawable, "getPureDrawable(R.drawab…ceStateType.NORMAL_PRESS)");
             setMIconDrawable(pureDrawable);
-            int g = xi.g(getContext(), R.dimen.tbds32);
+            int g = yi.g(getContext(), R.dimen.tbds32);
             getMIconDrawable().setBounds(0, 0, g, g);
             getMCenterContent().setCompoundDrawables(getMIconDrawable(), null, null, null);
-            getMCenterContent().setCompoundDrawablePadding(xi.g(getContext(), R.dimen.M_W_X002));
-            getMCenterContent().setPadding(xi.g(getContext(), R.dimen.M_W_X004), 0, xi.g(getContext(), R.dimen.M_W_X004), 0);
-            s75 d2 = s75.d(getMCenterContentPos());
+            getMCenterContent().setCompoundDrawablePadding(yi.g(getContext(), R.dimen.M_W_X002));
+            getMCenterContent().setPadding(yi.g(getContext(), R.dimen.M_W_X004), 0, yi.g(getContext(), R.dimen.M_W_X004), 0);
+            d85 d2 = d85.d(getMCenterContentPos());
             d2.D(R.string.F_X01);
             d2.C(R.dimen.T_X09);
             d2.x(R.color.CAM_X0105);
@@ -235,8 +235,8 @@ public class SelectBarView extends LinearLayout {
             setMPosDrawable(pureDrawable2);
             getMPosDrawable().setBounds(0, 0, g, g);
             getMCenterContentPos().setCompoundDrawables(getMPosDrawable(), null, null, null);
-            getMCenterContentPos().setCompoundDrawablePadding(xi.g(getContext(), R.dimen.M_W_X004));
-            getMCenterContentPos().setPadding(xi.g(getContext(), R.dimen.M_W_X004), 0, xi.g(getContext(), R.dimen.M_W_X002), 0);
+            getMCenterContentPos().setCompoundDrawablePadding(yi.g(getContext(), R.dimen.M_W_X004));
+            getMCenterContentPos().setPadding(yi.g(getContext(), R.dimen.M_W_X004), 0, yi.g(getContext(), R.dimen.M_W_X002), 0);
         }
     }
 

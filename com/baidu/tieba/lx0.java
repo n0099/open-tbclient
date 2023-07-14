@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.helper.NetUtils;
+import com.baidu.searchbox.player.event.SystemEvent;
+import com.baidu.tieba.ox0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lx0 extends bx0 {
+public class lx0 extends xw0 implements ox0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final eu0 c;
+    public final ox0 b;
 
-    public lx0(@NonNull eu0 eu0Var) {
+    public lx0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eu0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,25 +28,103 @@ public class lx0 extends bx0 {
                 return;
             }
         }
-        this.c = eu0Var;
+        this.b = new ox0(this);
     }
 
-    public final void b(int i, int i2, int i3) {
+    @Override // com.baidu.tieba.ox0.a
+    public void onConfigurationChanged() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) && i2 > 0) {
-            this.c.y().p(i, (i3 * 100) / i2, i2);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(kx0.w(SystemEvent.ACTION_CONFIGURATION_CHANGED));
         }
     }
 
-    @Override // com.baidu.tieba.fx0
-    public void doTask() {
+    public void registerReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int C = this.c.C();
-            int r = this.c.r();
-            int p = this.c.p();
-            this.c.q().j(C, r, p);
-            b(C, r, p);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            try {
+                this.b.registerReceiver();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void unregisterReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            try {
+                this.b.unregisterReceiver();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ox0.a
+    public void a(NetUtils.NetStatus netStatus, NetUtils.NetStatus netStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, netStatus, netStatus2) == null) {
+            mx0 w = kx0.w(SystemEvent.ACTION_CONNECT_CHANGED);
+            w.n(1, netStatus2);
+            c(w);
+        }
+    }
+
+    @Override // com.baidu.tieba.ox0.a
+    public void onBatteryChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            mx0 w = kx0.w(SystemEvent.ACTION_BATTERY_CHANGED);
+            w.r(1);
+            w.n(4, Integer.valueOf(i));
+            c(w);
+        }
+    }
+
+    @Override // com.baidu.tieba.ox0.a
+    public void onBluetoothHeadsetChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            mx0 w = kx0.w(SystemEvent.ACTION_BLUETOOTH_HEADSET);
+            w.n(6, Boolean.valueOf(z));
+            c(w);
+        }
+    }
+
+    @Override // com.baidu.tieba.ox0.a
+    public void onHeadsetPlug(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            mx0 w = kx0.w(SystemEvent.ACTION_HEADSET_PLUG);
+            w.n(3, Boolean.valueOf(z));
+            c(w);
+        }
+    }
+
+    @Override // com.baidu.tieba.ox0.a
+    public void onScreenStatusChanged(boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            if (z) {
+                str = SystemEvent.ACTION_SCREEN_OFF;
+            } else {
+                str = SystemEvent.ACTION_SCREEN_ON;
+            }
+            mx0 w = kx0.w(str);
+            w.n(2, Boolean.valueOf(z));
+            c(w);
+        }
+    }
+
+    @Override // com.baidu.tieba.ox0.a
+    public void onVolumeChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            mx0 w = kx0.w(SystemEvent.ACTION_VOLUME_CHANGED);
+            w.n(5, Integer.valueOf(i));
+            c(w);
         }
     }
 }

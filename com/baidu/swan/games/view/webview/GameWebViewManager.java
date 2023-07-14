@@ -19,18 +19,18 @@ import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.res.ui.NetworkErrorView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bc3;
-import com.baidu.tieba.br3;
-import com.baidu.tieba.cc3;
-import com.baidu.tieba.i23;
-import com.baidu.tieba.ms1;
-import com.baidu.tieba.my1;
-import com.baidu.tieba.ov1;
-import com.baidu.tieba.tc3;
-import com.baidu.tieba.we4;
+import com.baidu.tieba.b23;
+import com.baidu.tieba.fs1;
+import com.baidu.tieba.fy1;
+import com.baidu.tieba.hv1;
+import com.baidu.tieba.mc3;
+import com.baidu.tieba.pe4;
+import com.baidu.tieba.ub3;
+import com.baidu.tieba.uq3;
+import com.baidu.tieba.vb3;
 /* loaded from: classes4.dex */
-public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgWebView>, br3 {
-    public static final boolean B = ms1.a;
+public class GameWebViewManager extends SwanAppWebViewManager implements fy1<NgWebView>, uq3 {
+    public static final boolean B = fs1.a;
     public ImageView A;
     public FrameLayout w;
     public View.OnClickListener x;
@@ -49,7 +49,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
     public void O0(SwanAppWebViewManager swanAppWebViewManager) {
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ky1
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.dy1
     public String a() {
         return "SwanGameWebView";
     }
@@ -81,11 +81,11 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
             if (GameWebViewManager.B) {
                 Log.d("SwanGameWebViewManager", "shouldOverrideUrlLoading url: " + str);
             }
-            boolean z = !tc3.h(str);
-            if (!z && (tc3.e(str) || tc3.f(str))) {
+            boolean z = !mc3.h(str);
+            if (!z && (mc3.e(str) || mc3.f(str))) {
                 try {
                     Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
-                    cc3 b0 = cc3.b0();
+                    vb3 b0 = vb3.b0();
                     if (b0 != null) {
                         b0.w().startActivity(intent);
                         return true;
@@ -120,7 +120,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (!SwanAppNetworkUtils.i(GameWebViewManager.this.a) || !tc3.h(GameWebViewManager.this.r().getUrl())) {
+            if (!SwanAppNetworkUtils.i(GameWebViewManager.this.a) || !mc3.h(GameWebViewManager.this.r().getUrl())) {
                 return;
             }
             GameWebViewManager.this.r().reload();
@@ -128,10 +128,10 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
         }
     }
 
-    @Override // com.baidu.tieba.my1
+    @Override // com.baidu.tieba.fy1
     public void G() {
-        we4.a(this.w, i23.a());
-        we4.c(this);
+        pe4.a(this.w, b23.a());
+        pe4.c(this);
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
@@ -139,7 +139,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
         r().addJavascriptInterface(new GameWebViewJavascriptInterface(), "swan");
     }
 
-    @Override // com.baidu.tieba.my1
+    @Override // com.baidu.tieba.fy1
     public boolean c() {
         if (this.w.getParent() != null) {
             return true;
@@ -147,7 +147,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
         return false;
     }
 
-    @Override // com.baidu.tieba.br3
+    @Override // com.baidu.tieba.uq3
     public void e() {
         m1();
         r().onPause();
@@ -160,7 +160,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
                 if (GameWebViewManager.B) {
                     Log.d("SwanGameWebViewManager", "onSubFrameBeforeRequest url: " + str);
                 }
-                return !tc3.h(str);
+                return !mc3.h(str);
             }
         });
     }
@@ -172,7 +172,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
         }
     }
 
-    @Override // com.baidu.tieba.br3
+    @Override // com.baidu.tieba.uq3
     public void k() {
         r().onResume();
     }
@@ -196,17 +196,17 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
         this.z.startAnimation(loadAnimation);
     }
 
-    @Override // com.baidu.tieba.br3
+    @Override // com.baidu.tieba.uq3
     public void onViewDestroy() {
         destroy();
     }
 
-    @Override // com.baidu.tieba.my1
+    @Override // com.baidu.tieba.fy1
     public void removeFromParent() {
         r().stopLoading();
         r().clearView();
-        we4.d(this.w);
-        we4.e(this);
+        pe4.d(this.w);
+        pe4.e(this);
     }
 
     public GameWebViewManager(Context context) {
@@ -217,7 +217,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
         o1(context);
     }
 
-    @Override // com.baidu.tieba.my1
+    @Override // com.baidu.tieba.fy1
     public void f(boolean z) {
         ImageView imageView = this.A;
         if (imageView != null) {
@@ -229,17 +229,17 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
         }
     }
 
-    @Override // com.baidu.tieba.my1
+    @Override // com.baidu.tieba.fy1
     public void h(View.OnClickListener onClickListener) {
         this.x = onClickListener;
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ky1
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.dy1
     public void loadUrl(String str) {
         if (B) {
             Log.i("SwanGameWebViewManager", "loadUrl:" + str);
         }
-        if (!tc3.h(str)) {
+        if (!mc3.h(str)) {
             return;
         }
         n1();
@@ -247,7 +247,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
     }
 
     public final void o1(Context context) {
-        ov1 a2 = bc3.K().x().a().a();
+        hv1 a2 = ub3.K().x().a().a();
         if (a2 != null) {
             a2.a(context);
         }
@@ -259,13 +259,13 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
         }
         this.A = new ImageView(this.a.getBaseContext());
         Resources resources = this.a.getResources();
-        int dimension = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f0708a4);
+        int dimension = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f0708ba);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
-        layoutParams.topMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f0708a5);
-        layoutParams.leftMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f0708a3);
+        layoutParams.topMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f0708bb);
+        layoutParams.leftMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f0708b9);
         this.A.setLayoutParams(layoutParams);
         this.A.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        this.A.setImageResource(R.drawable.obfuscated_res_0x7f08148f);
+        this.A.setImageResource(R.drawable.obfuscated_res_0x7f0814a4);
         this.A.setClickable(true);
         this.A.setOnClickListener(new a());
         this.w.addView(this.A);
@@ -284,11 +284,11 @@ public class GameWebViewManager extends SwanAppWebViewManager implements my1<NgW
 
     public final void k1() {
         this.z = new ImageView(this.a.getBaseContext());
-        int dimension = (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0708a6);
+        int dimension = (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0708bc);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
         layoutParams.gravity = 17;
         this.z.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        this.z.setImageResource(R.drawable.obfuscated_res_0x7f081490);
+        this.z.setImageResource(R.drawable.obfuscated_res_0x7f0814a5);
         this.w.addView(this.z, layoutParams);
     }
 }

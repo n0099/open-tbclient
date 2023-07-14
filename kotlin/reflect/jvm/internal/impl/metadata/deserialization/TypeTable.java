@@ -6,7 +6,7 @@ import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.collections.CollectionsKt__IterablesKt;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TypeTable {
     public final List<ProtoBuf.Type> types;
 

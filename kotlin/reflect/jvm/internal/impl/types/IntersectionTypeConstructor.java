@@ -19,14 +19,14 @@ import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.TypeIntersectionScope;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class IntersectionTypeConstructor implements TypeConstructor {
     public final int hashCode;
     public final LinkedHashSet<KotlinType> intersectedTypes;
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getDeclarationDescriptor */
-    public ClassifierDescriptor mo2099getDeclarationDescriptor() {
+    public ClassifierDescriptor mo2101getDeclarationDescriptor() {
         return null;
     }
 
@@ -108,7 +108,7 @@ public final class IntersectionTypeConstructor implements TypeConstructor {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getSupertypes */
-    public Collection<KotlinType> mo2100getSupertypes() {
+    public Collection<KotlinType> mo2102getSupertypes() {
         return this.intersectedTypes;
     }
 

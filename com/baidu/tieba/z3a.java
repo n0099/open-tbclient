@@ -1,57 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.os.Build;
+import com.baidu.android.common.security.AESUtil;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActHot;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class z3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public z3a() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            ym ymVar = new ym();
+            String version = TbConfig.getVersion();
+            if (TbConfig.getVersionType() == 1 && !xi.isEmpty(TbConfig.getSubVersion())) {
+                version = version + "." + TbConfig.getSubVersion();
             }
-        }
-    }
-
-    public void a(ActHot actHot) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, actHot) != null) || actHot == null) {
-            return;
-        }
-        String str = actHot.bsize;
-        if (str != null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                String[] split = str.split(",");
-                this.a = vg.e(split[0], 1);
-                this.b = vg.e(split[1], 1);
+                jSONObject.put(HttpRequest.CLIENT_TYPE, "Android");
+                jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, "1.0.14");
+                jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
+                jSONObject.put("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
+                jSONObject.put("_client_version", version);
+                jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
+                jSONObject.put(HttpRequest.OS_VERSION, aj.k());
+                jSONObject.put(Config.DEVICE_PART, aj.g() + " " + Build.BRAND + " " + DeviceInfoUtil.getDevicesManufacturer() + " " + Build.BOARD + " " + Build.HARDWARE);
+                jSONObject.put(SchemeDescPatchListener.PATCH, ymVar.a(context));
+                return qi.j(AESUtil.encrypt("tbpatch-iv-value", "tbpatch1tbpatch2tbpatch3tbpatch4", jSONObject.toString().getBytes()));
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                e.printStackTrace();
+                return "";
             }
         }
-        if (this.a <= 0) {
-            this.a = 1;
-        }
-        if (this.b <= 0) {
-            this.b = 1;
-        }
-        String str2 = actHot.img_src;
-        String str3 = actHot.link;
-        String str4 = actHot.author_name;
-        String str5 = actHot.img_des;
-        actHot.img_type.intValue();
+        return (String) invokeL.objValue;
     }
 }

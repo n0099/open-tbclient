@@ -15,16 +15,17 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.ch;
-import com.baidu.tieba.fo5;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.ep5;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.EmojiReplySysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
-import com.baidu.tieba.vn5;
-import com.baidu.tieba.zf8;
+import com.baidu.tieba.uo5;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +46,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ChatMsgProcessor implements fo5 {
+public class ChatMsgProcessor implements ep5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SparseArray<Class<? extends BaseMsg>> a;
@@ -204,34 +205,36 @@ public class ChatMsgProcessor implements fo5 {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
         public final /* synthetic */ TreeSet b;
-        public final /* synthetic */ boolean c;
+        public final /* synthetic */ int c;
         public final /* synthetic */ boolean d;
         public final /* synthetic */ boolean e;
-        public final /* synthetic */ i f;
-        public final /* synthetic */ ChatMsgProcessor g;
+        public final /* synthetic */ boolean f;
+        public final /* synthetic */ i g;
+        public final /* synthetic */ ChatMsgProcessor h;
 
-        public a(ChatMsgProcessor chatMsgProcessor, long j, TreeSet treeSet, boolean z, boolean z2, boolean z3, i iVar) {
+        public a(ChatMsgProcessor chatMsgProcessor, long j, TreeSet treeSet, int i, boolean z, boolean z2, boolean z3, i iVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {chatMsgProcessor, Long.valueOf(j), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), iVar};
+                Object[] objArr = {chatMsgProcessor, Long.valueOf(j), treeSet, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), iVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.g = chatMsgProcessor;
+            this.h = chatMsgProcessor;
             this.a = j;
             this.b = treeSet;
-            this.c = z;
-            this.d = z2;
-            this.e = z3;
-            this.f = iVar;
+            this.c = i;
+            this.d = z;
+            this.e = z2;
+            this.f = z3;
+            this.g = iVar;
         }
 
         @Override // java.lang.Runnable
@@ -240,7 +243,7 @@ public class ChatMsgProcessor implements fo5 {
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.g.g(this.a, this.b, this.c, this.d, this.e, this.f);
+            this.h.g(this.a, this.b, this.c, this.d, this.e, this.f, this.g);
         }
     }
 
@@ -250,39 +253,41 @@ public class ChatMsgProcessor implements fo5 {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
         public final /* synthetic */ List b;
-        public final /* synthetic */ boolean c;
+        public final /* synthetic */ int c;
         public final /* synthetic */ boolean d;
         public final /* synthetic */ boolean e;
-        public final /* synthetic */ ChatMsgProcessor f;
+        public final /* synthetic */ boolean f;
+        public final /* synthetic */ ChatMsgProcessor g;
 
-        public b(ChatMsgProcessor chatMsgProcessor, long j, List list, boolean z, boolean z2, boolean z3) {
+        public b(ChatMsgProcessor chatMsgProcessor, long j, List list, int i, boolean z, boolean z2, boolean z3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {chatMsgProcessor, Long.valueOf(j), list, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+                Object[] objArr = {chatMsgProcessor, Long.valueOf(j), list, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f = chatMsgProcessor;
+            this.g = chatMsgProcessor;
             this.a = j;
             this.b = list;
-            this.c = z;
-            this.d = z2;
-            this.e = z3;
+            this.c = i;
+            this.d = z;
+            this.e = z2;
+            this.f = z3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f.e != null) {
-                this.f.e.a(this.a, this.b, j.a(this.c, this.d, this.e));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.g.e != null) {
+                this.g.e.a(this.a, this.b, j.a(this.c, this.d, this.e, this.f));
             }
         }
     }
@@ -319,9 +324,9 @@ public class ChatMsgProcessor implements fo5 {
             if ((interceptable != null && interceptable.invokeZL(1048576, this, z, collection) != null) || z) {
                 return;
             }
-            SizedSyncTreeSet v = this.b.v(this.a);
-            if (v.isEmpty()) {
-                v.addAll(collection);
+            SizedSyncTreeSet w = this.b.w(this.a);
+            if (w.isEmpty()) {
+                w.addAll(collection);
             }
         }
     }
@@ -486,66 +491,78 @@ public class ChatMsgProcessor implements fo5 {
     public static class j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final boolean a;
+        public final int a;
         public final boolean b;
         public final boolean c;
+        public final boolean d;
         @Nullable
-        public Runnable d;
+        public Runnable e;
 
-        public j(boolean z, boolean z2, boolean z3) {
+        public j(int i, boolean z, boolean z2, boolean z3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+                Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = z;
-            this.b = z2;
-            this.c = z3;
+            this.a = i;
+            this.b = z;
+            this.c = z2;
+            this.d = z3;
         }
 
         @NonNull
-        public static j a(boolean z, boolean z2, boolean z3) {
+        public static j a(int i, boolean z, boolean z2, boolean z3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-                return new j(z, z2, z3);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+                return new j(i, z, z2, z3);
             }
             return (j) invokeCommon.objValue;
         }
 
         @NonNull
-        public static j b() {
+        public static j b(boolean z, boolean z2, boolean z3) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+                return a(0, z, z2, z3);
+            }
+            return (j) invokeCommon.objValue;
+        }
+
+        @NonNull
+        public static j c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return a(true, false, false);
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return b(true, false, false);
             }
             return (j) invokeV.objValue;
         }
 
         @Nullable
-        public Runnable c() {
+        public Runnable d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.d;
+                return this.e;
             }
             return (Runnable) invokeV.objValue;
         }
 
-        public void d(@Nullable Runnable runnable) {
+        public void e(@Nullable Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-                this.d = runnable;
+                this.e = runnable;
             }
         }
     }
@@ -570,7 +587,7 @@ public class ChatMsgProcessor implements fo5 {
         new ConcurrentHashMap();
     }
 
-    public static void P(@NonNull ChatMsg chatMsg) {
+    public static void R(@NonNull ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, chatMsg) == null) {
             long millis = TimeUnit.MICROSECONDS.toMillis(chatMsg.getMsgId());
@@ -581,167 +598,169 @@ public class ChatMsgProcessor implements fo5 {
         }
     }
 
-    public static TreeSet<ChatMsg> R(@NonNull ChatMsg chatMsg) {
+    public static TreeSet<ChatMsg> T(@NonNull ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
-            TreeSet<ChatMsg> treeSet = new TreeSet<>(vn5.b);
+            TreeSet<ChatMsg> treeSet = new TreeSet<>(uo5.b);
             treeSet.add(chatMsg);
             return treeSet;
         }
         return (TreeSet) invokeL.objValue;
     }
 
-    public boolean A(long j2) {
+    public boolean B(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            return !v(j2).isEmpty();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+            return !w(j2).isEmpty();
         }
         return invokeJ.booleanValue;
     }
 
-    public final void G(@NonNull ChatMsg chatMsg) {
+    public final void H(@NonNull ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, chatMsg) == null) {
-            ch.c(new e(this, chatMsg));
+        if (interceptable == null || interceptable.invokeL(1048583, this, chatMsg) == null) {
+            dh.c(new e(this, chatMsg));
         }
     }
 
-    public final void H(@NonNull BaseSysMsg baseSysMsg) {
+    public final void I(@NonNull BaseSysMsg baseSysMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, baseSysMsg) == null) {
-            ch.c(new d(this, baseSysMsg));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, baseSysMsg) == null) {
+            dh.c(new d(this, baseSysMsg));
         }
     }
 
-    public void M(long j2) {
+    public void O(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            N(j2, true);
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            P(j2, true);
         }
     }
 
-    public void O(@Nullable h hVar) {
+    public void Q(@Nullable h hVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, hVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, hVar) == null) {
             this.e = hVar;
         }
     }
 
-    public void Q(@Nullable k kVar) {
+    public void S(@Nullable k kVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, kVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, kVar) == null) {
             this.f = kVar;
         }
     }
 
     public void k(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            SizedSyncTreeSet<BaseMsg> v = v(j2);
-            if (!v.isEmpty()) {
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) {
+            SizedSyncTreeSet<BaseMsg> w = w(j2);
+            if (!w.isEmpty()) {
                 return;
             }
-            SizedSyncTreeSet<BaseMsg> q = q(j2);
-            v.addAll(q);
-            q.clear();
+            SizedSyncTreeSet<BaseMsg> r = r(j2);
+            w.addAll(r);
+            r.clear();
         }
     }
 
     public void l(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
-            q(j2).clear();
+        if (interceptable == null || interceptable.invokeJ(1048603, this, j2) == null) {
+            r(j2).clear();
         }
-    }
-
-    @Nullable
-    public BaseMsg s(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048606, this, j2)) == null) {
-            SizedSyncTreeSet<BaseMsg> q = q(j2);
-            if (q.isEmpty()) {
-                return null;
-            }
-            return q.first();
-        }
-        return (BaseMsg) invokeJ.objValue;
     }
 
     @Nullable
     public BaseMsg t(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048607, this, j2)) == null) {
-            SizedSyncTreeSet<BaseMsg> v = v(j2);
-            if (v.isEmpty()) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048609, this, j2)) == null) {
+            SizedSyncTreeSet<BaseMsg> r = r(j2);
+            if (r.isEmpty()) {
                 return null;
             }
-            return v.first();
+            return r.first();
         }
         return (BaseMsg) invokeJ.objValue;
     }
 
-    public void C(long j2, @NonNull j jVar) {
+    @Nullable
+    public BaseMsg u(long j2) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, jVar) == null) {
-            ch.c(new f(this, j2, new ArrayList(q(j2)), jVar));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j2)) == null) {
+            SizedSyncTreeSet<BaseMsg> w = w(j2);
+            if (w.isEmpty()) {
+                return null;
+            }
+            return w.first();
+        }
+        return (BaseMsg) invokeJ.objValue;
+    }
+
+    public void D(long j2, @NonNull j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048579, this, j2, jVar) == null) {
+            dh.c(new f(this, j2, new ArrayList(r(j2)), jVar));
         }
     }
 
-    public void F(long j2, @NonNull TreeSet<ChatMsg> treeSet) {
+    public void M(int i2, Class<? extends BaseMsg> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048581, this, j2, treeSet) == null) {
-            h(j2, treeSet, true, false, false);
-        }
-    }
-
-    public void K(int i2, Class<? extends BaseMsg> cls) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i2, cls) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i2, cls) == null) {
             this.a.put(i2, cls);
         }
     }
 
-    public void L(List<Integer> list, Class<? extends BaseMsg> cls) {
+    public void N(List<Integer> list, Class<? extends BaseMsg> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, list, cls) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048589, this, list, cls) == null) {
             for (Integer num : list) {
                 this.a.put(num.intValue(), cls);
             }
         }
     }
 
-    @NonNull
-    public ChatMsg m(long j2, @NonNull String str) {
+    public ChatMsg m(long j2, @NonNull Map<String, Object> map) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048602, this, j2, str)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048604, this, j2, map)) == null) {
+            return f(j2, 20000, o(), p(), map, 110);
+        }
+        return (ChatMsg) invokeJL.objValue;
+    }
+
+    @NonNull
+    public ChatMsg n(long j2, @NonNull String str) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048605, this, j2, str)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("managerTips", str);
-            return f(j2, -7014, n(), o(), hashMap);
+            return f(j2, -7014, o(), p(), hashMap, 109);
         }
         return (ChatMsg) invokeJL.objValue;
     }
 
     @NonNull
-    public ChatMsg p(long j2, @NonNull String str) {
+    public ChatMsg q(long j2, @NonNull String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048603, this, j2, str)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048606, this, j2, str)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("subscribeTips", str);
-            return f(j2, -7015, n(), o(), hashMap);
+            return f(j2, -7015, o(), p(), hashMap, 109);
         }
         return (ChatMsg) invokeJL.objValue;
     }
 
-    public int y(@NonNull TreeSet<ChatMsg> treeSet, @NonNull String str) {
+    public int z(@NonNull TreeSet<ChatMsg> treeSet, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, treeSet, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048615, this, treeSet, str)) == null) {
             Iterator<ChatMsg> it = treeSet.iterator();
             int i2 = 0;
             while (it.hasNext()) {
@@ -755,7 +774,7 @@ public class ChatMsgProcessor implements fo5 {
         return invokeLL.intValue;
     }
 
-    public static long n() {
+    public static long o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
@@ -765,29 +784,78 @@ public class ChatMsgProcessor implements fo5 {
     }
 
     @NonNull
-    public static String o() {
+    public static String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return String.valueOf(n());
+            return String.valueOf(o());
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean B(long j2, @NonNull TreeSet<ChatMsg> treeSet) {
+    @NonNull
+    public final SizedSyncTreeSet<BaseMsg> A(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+            SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet = this.c.get(Long.valueOf(j2));
+            if (sizedSyncTreeSet == null) {
+                SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(new TreeSet(BaseMsg.CHAT_MSG_COMPARATOR));
+                this.c.put(Long.valueOf(j2), sizedSyncTreeSet2);
+                return sizedSyncTreeSet2;
+            }
+            return sizedSyncTreeSet;
+        }
+        return (SizedSyncTreeSet) invokeJ.objValue;
+    }
+
+    @NonNull
+    public final SizedSyncTreeSet<BaseMsg> r(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048607, this, j2)) == null) {
+            SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet = this.b.get(Long.valueOf(j2));
+            if (sizedSyncTreeSet == null) {
+                SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(600, new TreeSet(BaseMsg.CHAT_MSG_COMPARATOR));
+                sizedSyncTreeSet2.setCallback(new c(this, j2));
+                this.b.put(Long.valueOf(j2), sizedSyncTreeSet2);
+                return sizedSyncTreeSet2;
+            }
+            return sizedSyncTreeSet;
+        }
+        return (SizedSyncTreeSet) invokeJ.objValue;
+    }
+
+    @NonNull
+    public final SizedSyncTreeSet<BaseMsg> w(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048612, this, j2)) == null) {
+            SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet = this.d.get(Long.valueOf(j2));
+            if (sizedSyncTreeSet == null) {
+                SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(200, new TreeSet(BaseMsg.CHAT_MSG_COMPARATOR));
+                this.d.put(Long.valueOf(j2), sizedSyncTreeSet2);
+                return sizedSyncTreeSet2;
+            }
+            return sizedSyncTreeSet;
+        }
+        return (SizedSyncTreeSet) invokeJ.objValue;
+    }
+
+    public boolean C(long j2, @NonNull TreeSet<ChatMsg> treeSet) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, treeSet)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, treeSet)) == null) {
             ChatMsg last = treeSet.last();
             BaseMsg createShadowMsg = BaseMsg.createShadowMsg(last.getMsgId(), last.getMsgKey());
-            SizedSyncTreeSet<BaseMsg> v = v(j2);
+            SizedSyncTreeSet<BaseMsg> w = w(j2);
             Iterator<ChatMsg> descendingIterator = treeSet.descendingIterator();
             while (descendingIterator.hasNext()) {
                 ChatMsg next = descendingIterator.next();
                 CommonMsgField commonMsgField = createShadowMsg.getCommonMsgField();
                 commonMsgField.setMsgId(next.getMsgId());
                 commonMsgField.setMsgKey(next.getMsgKey());
-                if (v.contains(createShadowMsg)) {
+                if (w.contains(createShadowMsg)) {
                     return true;
                 }
             }
@@ -796,81 +864,83 @@ public class ChatMsgProcessor implements fo5 {
         return invokeJL.booleanValue;
     }
 
-    public void D(int i2, long j2, @NonNull TreeSet<ChatMsg> treeSet) {
+    public void E(int i2, long j2, @NonNull TreeSet<ChatMsg> treeSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet}) == null) {
-            h(j2, treeSet, false, true, false);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet}) == null) {
+            h(j2, treeSet, 0, false, true, false);
         }
     }
 
-    @Override // com.baidu.tieba.fo5
+    public void G(long j2, int i2, @NonNull TreeSet<ChatMsg> treeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), treeSet}) == null) {
+            h(j2, treeSet, i2, true, false, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.ep5
     public void a(int i2, long j2, @NonNull TreeSet<ChatMsg> treeSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet}) == null) {
-            h(j2, treeSet, false, false, true);
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet}) == null) {
+            h(j2, treeSet, 0, false, false, true);
         }
     }
 
-    public void E(int i2, long j2, @NonNull TreeSet<ChatMsg> treeSet, @Nullable i iVar) {
+    public void F(int i2, long j2, @NonNull TreeSet<ChatMsg> treeSet, @Nullable i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet, iVar}) == null) {
-            i(j2, treeSet, false, true, false, iVar);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet, iVar}) == null) {
+            i(j2, treeSet, 0, false, true, false, iVar);
         }
     }
 
     @NonNull
-    public BaseMsg I(long j2, @NonNull ChatMsg chatMsg) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2, chatMsg)) == null) {
-            CommonMsgField commonMsgField = (CommonMsgField) DataExt.toEntity(chatMsg.getChatRoomContentExt(), CommonMsgField.class);
-            commonMsgField.setMsgId(chatMsg.getMsgId());
-            commonMsgField.setMsgKey(chatMsg.getMsgKey());
-            commonMsgField.setRoomId(j2);
-            commonMsgField.setUserId(Long.parseLong(chatMsg.getSenderUid()));
-            commonMsgField.setUserName(chatMsg.getNickName());
-            commonMsgField.setPortrait(chatMsg.getPortrait());
-            if (commonMsgField.getContent() == null) {
-                commonMsgField.setContent(new HashMap());
-            }
-            BaseChatMsg baseChatMsg = (BaseChatMsg) DataExt.toEntity(commonMsgField.getContent(), this.a.get(commonMsgField.getType()));
-            baseChatMsg.parseSdkMsg4Base(chatMsg);
-            baseChatMsg.fromSdkMsg(chatMsg);
-            baseChatMsg.setCommonMsgField(commonMsgField);
-            baseChatMsg.setSdkMsg(chatMsg);
-            return baseChatMsg;
-        }
-        return (BaseMsg) invokeJL.objValue;
-    }
-
-    @NonNull
-    public MemoryFlag w(long j2, long j3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            BaseMsg t = t(j2);
-            if (t != null && t.getCommonMsgField().getMsgId() <= j3) {
-                return MemoryFlag.TMP;
-            }
-            BaseMsg u = u(j2);
-            if (u != null && u.getCommonMsgField().getMsgId() < j3) {
-                return MemoryFlag.AFTER_MASTER;
-            }
-            BaseMsg s = s(j2);
-            if (s != null && s.getCommonMsgField().getMsgId() <= j3) {
-                return MemoryFlag.MASTER;
-            }
-            return MemoryFlag.BEFORE_MASTER;
-        }
-        return (MemoryFlag) invokeCommon.objValue;
-    }
-
-    @NonNull
-    public BaseSysMsg J(@NonNull ChatMsg chatMsg) throws JSONException {
+    public final BaseSysMsg J(@NonNull ChatMsg chatMsg) throws JSONException {
         InterceptResult invokeL;
         CommonMsgField commonMsgField;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, chatMsg)) == null) {
+            JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
+            int optInt = jSONObject.optInt(TableDefine.MessageColumns.COLUME_SERVICE_TYPE);
+            String optString = jSONObject.optString("service_info");
+            long optLong = jSONObject.optLong("room_id");
+            if (this.a.get(optInt) == null) {
+                optInt = TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_CURRENCY_TIPS;
+            }
+            EmojiReplySysMsg emojiReplySysMsg = (EmojiReplySysMsg) DataExt.toEntity(optString, this.a.get(optInt));
+            if (-7017 == optInt) {
+                emojiReplySysMsg.setSysMsgType(TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_CURRENCY_TIPS);
+            }
+            emojiReplySysMsg.parseSdkMsg4Base(chatMsg);
+            emojiReplySysMsg.setSdkMsg(chatMsg);
+            emojiReplySysMsg.setSysMsg(!emojiReplySysMsg.isConvertToNormalMsg());
+            if (!StringUtils.isNull(chatMsg.getChatRoomContentExt())) {
+                commonMsgField = (CommonMsgField) DataExt.toEntity(chatMsg.getChatRoomContentExt(), CommonMsgField.class);
+            } else {
+                commonMsgField = new CommonMsgField();
+            }
+            commonMsgField.setMsgId(chatMsg.getMsgId());
+            commonMsgField.setMsgKey(chatMsg.getMsgKey());
+            commonMsgField.setType(optInt);
+            commonMsgField.setRoomId(optLong);
+            commonMsgField.setEmojiList(emojiReplySysMsg.getEmojiData());
+            emojiReplySysMsg.setCommonMsgField(commonMsgField);
+            BaseSysMsg.User user = new BaseSysMsg.User();
+            user.setBduk(emojiReplySysMsg.getOriEmojiRepliedMsgSenderBdUk());
+            emojiReplySysMsg.setUserFrom(user);
+            return emojiReplySysMsg;
+        }
+        return (BaseSysMsg) invokeL.objValue;
+    }
+
+    @NonNull
+    public BaseSysMsg L(@NonNull ChatMsg chatMsg) throws JSONException {
+        InterceptResult invokeL;
+        CommonMsgField commonMsgField;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, chatMsg)) == null) {
+            if (chatMsg.getNotifyCmd() == 110) {
+                return J(chatMsg);
+            }
             JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
             int optInt = jSONObject.optInt(TableDefine.MessageColumns.COLUME_SERVICE_TYPE);
             String optString = jSONObject.optString("service_info");
@@ -907,26 +977,73 @@ public class ChatMsgProcessor implements fo5 {
         return (BaseSysMsg) invokeL.objValue;
     }
 
-    public void N(long j2, boolean z) {
+    @NonNull
+    public BaseMsg K(long j2, @NonNull ChatMsg chatMsg) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            SizedSyncTreeSet<BaseMsg> v = v(j2);
-            if (!v.isEmpty()) {
-                SizedSyncTreeSet<BaseMsg> q = q(j2);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048586, this, j2, chatMsg)) == null) {
+            CommonMsgField commonMsgField = (CommonMsgField) DataExt.toEntity(chatMsg.getChatRoomContentExt(), CommonMsgField.class);
+            commonMsgField.setMsgId(chatMsg.getMsgId());
+            commonMsgField.setMsgKey(chatMsg.getMsgKey());
+            commonMsgField.setRoomId(j2);
+            commonMsgField.setUserId(Long.parseLong(chatMsg.getSenderUid()));
+            commonMsgField.setUserName(chatMsg.getNickName());
+            commonMsgField.setPortrait(chatMsg.getPortrait());
+            if (commonMsgField.getContent() == null) {
+                commonMsgField.setContent(new HashMap());
+            }
+            BaseChatMsg baseChatMsg = (BaseChatMsg) DataExt.toEntity(commonMsgField.getContent(), this.a.get(commonMsgField.getType()));
+            baseChatMsg.parseSdkMsg4Base(chatMsg);
+            baseChatMsg.fromSdkMsg(chatMsg);
+            baseChatMsg.setCommonMsgField(commonMsgField);
+            baseChatMsg.setSdkMsg(chatMsg);
+            return baseChatMsg;
+        }
+        return (BaseMsg) invokeJL.objValue;
+    }
+
+    @NonNull
+    public MemoryFlag x(long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            BaseMsg u = u(j2);
+            if (u != null && u.getCommonMsgField().getMsgId() <= j3) {
+                return MemoryFlag.TMP;
+            }
+            BaseMsg v = v(j2);
+            if (v != null && v.getCommonMsgField().getMsgId() < j3) {
+                return MemoryFlag.AFTER_MASTER;
+            }
+            BaseMsg t = t(j2);
+            if (t != null && t.getCommonMsgField().getMsgId() <= j3) {
+                return MemoryFlag.MASTER;
+            }
+            return MemoryFlag.BEFORE_MASTER;
+        }
+        return (MemoryFlag) invokeCommon.objValue;
+    }
+
+    public void P(long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            SizedSyncTreeSet<BaseMsg> w = w(j2);
+            if (!w.isEmpty()) {
+                SizedSyncTreeSet<BaseMsg> r = r(j2);
                 if (z) {
-                    q.clear();
+                    r.clear();
                 }
-                q.addAll(v, true);
-                v.clear();
+                r.addAll(w, true);
+                w.clear();
             }
         }
     }
 
     @Nullable
-    public final BaseMsg r(@NonNull SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet, @NonNull String str) {
+    public final BaseMsg s(@NonNull SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, sizedSyncTreeSet, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048608, this, sizedSyncTreeSet, str)) == null) {
             Iterator<BaseMsg> descendingIterator = sizedSyncTreeSet.descendingIterator();
             while (descendingIterator.hasNext()) {
                 BaseMsg next = descendingIterator.next();
@@ -944,20 +1061,26 @@ public class ChatMsgProcessor implements fo5 {
         return (BaseMsg) invokeLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x003b, code lost:
-        if (android.text.TextUtils.equals(r4, r11.getCommonMsgField().getMsgKey()) != false) goto L19;
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0049, code lost:
+        if (android.text.TextUtils.equals(r5, r12.getCommonMsgField().getMsgKey()) != false) goto L25;
      */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x009a  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00a8  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final boolean S(long j2, @NonNull BaseMsg baseMsg, @NonNull j jVar) {
+    public final boolean U(long j2, @NonNull BaseMsg baseMsg, @NonNull j jVar) {
         InterceptResult invokeCommon;
+        boolean z;
         Action provideAction;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), baseMsg, jVar})) == null) {
-            boolean z = false;
-            if (!jVar.c || (provideAction = baseMsg.provideAction()) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j2), baseMsg, jVar})) == null) {
+            boolean z2 = false;
+            if (!jVar.d && (!jVar.b || jVar.a != 1)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z || (provideAction = baseMsg.provideAction()) == null) {
                 return false;
             }
             Action.a b2 = provideAction.b();
@@ -970,50 +1093,50 @@ public class ChatMsgProcessor implements fo5 {
                         throw new IllegalStateException("Unexpected value: " + c2);
                     }
                 } else {
-                    baseMsg = r(z(j2), e2);
+                    baseMsg = s(A(j2), e2);
                     if (baseMsg == null) {
-                        baseMsg = r(v(j2), e2);
+                        baseMsg = s(w(j2), e2);
                     }
                     if (baseMsg == null) {
-                        baseMsg = r(q(j2), e2);
-                        z = true;
+                        baseMsg = s(r(j2), e2);
+                        z2 = true;
                     }
                 }
                 if (b2 != null) {
                     b2.a(c2, baseMsg, jVar);
                 }
-                return z;
+                return z2;
             }
             BaseMsg createShadowMsg = BaseMsg.createShadowMsg(provideAction.d(), e2);
-            boolean remove = z(j2).remove(createShadowMsg);
+            boolean remove = A(j2).remove(createShadowMsg);
             if (!remove) {
-                remove = v(j2).remove(createShadowMsg);
+                remove = w(j2).remove(createShadowMsg);
             }
             if (!remove) {
-                z = q(j2).remove(createShadowMsg);
+                z2 = r(j2).remove(createShadowMsg);
             }
             baseMsg = null;
             if (b2 != null) {
             }
-            return z;
+            return z2;
         }
         return invokeCommon.booleanValue;
     }
 
     @Nullable
-    public final ChatMsg T(long j2, @NonNull ChatMsg chatMsg, @NonNull SortedSet<BaseMsg> sortedSet) {
+    public final ChatMsg V(long j2, @NonNull ChatMsg chatMsg, @NonNull SortedSet<BaseMsg> sortedSet) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j2), chatMsg, sortedSet})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j2), chatMsg, sortedSet})) == null) {
             if (chatMsg.getMsgType() == 10000) {
                 return null;
             }
             if (sortedSet.isEmpty()) {
-                P(chatMsg);
+                R(chatMsg);
             } else {
-                P(chatMsg);
+                R(chatMsg);
                 ChatMsg sdkMsg = sortedSet.last().getSdkMsg();
-                P(sdkMsg);
+                R(sdkMsg);
                 long msgTime = chatMsg.getMsgTime() - sdkMsg.getMsgTime();
                 String msgKey = chatMsg.getMsgKey();
                 String msgKey2 = sortedSet.first().getCommonMsgField().getMsgKey();
@@ -1028,16 +1151,16 @@ public class ChatMsgProcessor implements fo5 {
             long msgId = chatMsg.getMsgId();
             HashMap hashMap = new HashMap();
             hashMap.put("timestamp", Long.valueOf(msgTime2));
-            return f(j2, -7013, msgId - 1, String.valueOf(msgTime2), hashMap);
+            return f(j2, -7013, msgId - 1, String.valueOf(msgTime2), hashMap, 109);
         }
         return (ChatMsg) invokeCommon.objValue;
     }
 
     @NonNull
-    public final ChatMsg f(long j2, int i2, long j3, @NonNull String str, @NonNull Map<String, Object> map) {
+    public final ChatMsg f(long j2, int i2, long j3, @NonNull String str, @NonNull Map<String, Object> map, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, map})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, map, Integer.valueOf(i3)})) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, Integer.valueOf(i2));
             HashMap hashMap2 = new HashMap();
@@ -1049,24 +1172,24 @@ public class ChatMsgProcessor implements fo5 {
             unSupportedMsg.setMsgContent(DataExt.toJson(hashMap));
             unSupportedMsg.setMsgId(j3);
             unSupportedMsg.setMsgKey(str);
-            unSupportedMsg.setNotifyCmd(109);
+            unSupportedMsg.setNotifyCmd(i3);
             return unSupportedMsg;
         }
         return (ChatMsg) invokeCommon.objValue;
     }
 
     @WorkerThread
-    public final synchronized void g(long j2, @NonNull TreeSet<ChatMsg> treeSet, boolean z, boolean z2, boolean z3, @Nullable i iVar) {
+    public final synchronized void g(long j2, @NonNull TreeSet<ChatMsg> treeSet, int i2, boolean z, boolean z2, boolean z3, @Nullable i iVar) {
         SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet;
         BaseMsg j3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j2), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), iVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j2), treeSet, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), iVar}) == null) {
             synchronized (this) {
-                SizedSyncTreeSet<BaseMsg> q = q(j2);
-                SizedSyncTreeSet<BaseMsg> z4 = z(j2);
-                SizedSyncTreeSet<BaseMsg> v = v(j2);
-                z4.clear();
-                j a2 = j.a(z, z2, z3);
+                SizedSyncTreeSet<BaseMsg> r = r(j2);
+                SizedSyncTreeSet<BaseMsg> A = A(j2);
+                SizedSyncTreeSet<BaseMsg> w = w(j2);
+                A.clear();
+                j a2 = j.a(i2, z, z2, z3);
                 Iterator<ChatMsg> it = treeSet.iterator();
                 while (it.hasNext()) {
                     ChatMsg next = it.next();
@@ -1077,46 +1200,46 @@ public class ChatMsgProcessor implements fo5 {
                                 if (iVar != null) {
                                     iVar.a(j4);
                                 }
-                                if (z4.isEmpty()) {
-                                    sizedSyncTreeSet = q;
+                                if (A.isEmpty()) {
+                                    sizedSyncTreeSet = r;
                                 } else {
-                                    sizedSyncTreeSet = z4;
+                                    sizedSyncTreeSet = A;
                                 }
-                                ChatMsg T2 = T(j2, next, sizedSyncTreeSet);
-                                if (T2 != null && (j3 = j(j2, T2, a2)) != null) {
-                                    z4.add(j3);
+                                ChatMsg V = V(j2, next, sizedSyncTreeSet);
+                                if (V != null && (j3 = j(j2, V, a2)) != null) {
+                                    A.add(j3);
                                     j4.setPreTimestampMsg(j3);
                                 }
-                                z4.add(j4);
+                                A.add(j4);
                             }
                         } catch (Exception e2) {
-                            zf8.g("parse_msg_exception", j2, e2);
+                            yk8.g("parse_msg_exception", j2, e2);
                         }
                     }
                 }
-                if (!z4.isEmpty()) {
-                    if (!v.isEmpty() && z3) {
-                        v.addAll(z4);
+                if (!A.isEmpty()) {
+                    if (!w.isEmpty() && z3) {
+                        w.addAll(A);
                     } else {
-                        q.addAll(z4);
-                        ch.c(new b(this, j2, new ArrayList(q), z, z2, z3));
+                        r.addAll(A);
+                        dh.c(new b(this, j2, new ArrayList(r), i2, z, z2, z3));
                     }
                 }
             }
         }
     }
 
-    public final void h(long j2, @NonNull TreeSet<ChatMsg> treeSet, boolean z, boolean z2, boolean z3) {
+    public final void h(long j2, @NonNull TreeSet<ChatMsg> treeSet, int i2, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j2), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            i(j2, treeSet, z, z2, z3, null);
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j2), treeSet, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            i(j2, treeSet, i2, z, z2, z3, null);
         }
     }
 
-    public final void i(long j2, @NonNull TreeSet<ChatMsg> treeSet, boolean z, boolean z2, boolean z3, @Nullable i iVar) {
+    public final void i(long j2, @NonNull TreeSet<ChatMsg> treeSet, int i2, boolean z, boolean z2, boolean z3, @Nullable i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j2), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), iVar}) == null) {
-            ch.e(new a(this, j2, treeSet, z, z2, z3, iVar));
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Long.valueOf(j2), treeSet, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), iVar}) == null) {
+            dh.e(new a(this, j2, treeSet, i2, z, z2, z3, iVar));
         }
     }
 
@@ -1124,54 +1247,54 @@ public class ChatMsgProcessor implements fo5 {
     public final BaseMsg j(long j2, @NonNull ChatMsg chatMsg, @NonNull j jVar) throws JSONException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j2), chatMsg, jVar})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j2), chatMsg, jVar})) == null) {
             if (chatMsg.getMsgType() == 10000) {
-                if (chatMsg.getNotifyCmd() == 109) {
-                    BaseSysMsg J = J(chatMsg);
-                    if (J.isIgnore()) {
-                        return null;
+                if (chatMsg.getNotifyCmd() != 109 && chatMsg.getNotifyCmd() != 110) {
+                    if (!jVar.c) {
+                        H(chatMsg);
                     }
-                    if (J.isNoUISysMsg()) {
-                        if (!jVar.b) {
-                            H(J);
-                            if (S(j2, J, jVar)) {
-                                C(j2, jVar);
-                            }
+                    return null;
+                }
+                BaseSysMsg L = L(chatMsg);
+                if (L.isIgnore()) {
+                    return null;
+                }
+                if (L.isNoUISysMsg()) {
+                    if (!jVar.c) {
+                        I(L);
+                        if (U(j2, L, jVar)) {
+                            D(j2, jVar);
                         }
-                        return null;
                     }
-                    S(j2, J, jVar);
-                    return J;
+                    return null;
                 }
-                if (!jVar.b) {
-                    G(chatMsg);
-                }
-                return null;
+                U(j2, L, jVar);
+                return L;
             }
-            BaseMsg I = I(j2, chatMsg);
-            S(j2, I, jVar);
-            return I;
+            BaseMsg K = K(j2, chatMsg);
+            U(j2, K, jVar);
+            return K;
         }
         return (BaseMsg) invokeCommon.objValue;
     }
 
     @Nullable
-    public Pair<Integer, BaseMsg> x(@NonNull MemoryFlag memoryFlag, long j2, @NonNull String str) {
+    public Pair<Integer, BaseMsg> y(@NonNull MemoryFlag memoryFlag, long j2, @NonNull String str) {
         InterceptResult invokeCommon;
-        SizedSyncTreeSet<BaseMsg> q;
+        SizedSyncTreeSet<BaseMsg> r;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048611, this, new Object[]{memoryFlag, Long.valueOf(j2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048614, this, new Object[]{memoryFlag, Long.valueOf(j2), str})) == null) {
             int i2 = g.b[memoryFlag.ordinal()];
             if (i2 != 1) {
                 if (i2 == 2) {
-                    q = v(j2);
+                    r = w(j2);
                 } else {
                     throw new IllegalStateException("不支持的内存分区参数");
                 }
             } else {
-                q = q(j2);
+                r = r(j2);
             }
-            Iterator<BaseMsg> it = q.iterator();
+            Iterator<BaseMsg> it = r.iterator();
             int i3 = 0;
             while (it.hasNext()) {
                 BaseMsg next = it.next();
@@ -1185,62 +1308,13 @@ public class ChatMsgProcessor implements fo5 {
         return (Pair) invokeCommon.objValue;
     }
 
-    @NonNull
-    public final SizedSyncTreeSet<BaseMsg> q(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048604, this, j2)) == null) {
-            SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet = this.b.get(Long.valueOf(j2));
-            if (sizedSyncTreeSet == null) {
-                SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(600, new TreeSet(BaseMsg.CHAT_MSG_COMPARATOR));
-                sizedSyncTreeSet2.setCallback(new c(this, j2));
-                this.b.put(Long.valueOf(j2), sizedSyncTreeSet2);
-                return sizedSyncTreeSet2;
-            }
-            return sizedSyncTreeSet;
-        }
-        return (SizedSyncTreeSet) invokeJ.objValue;
-    }
-
-    @NonNull
-    public final SizedSyncTreeSet<BaseMsg> v(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048609, this, j2)) == null) {
-            SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet = this.d.get(Long.valueOf(j2));
-            if (sizedSyncTreeSet == null) {
-                SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(200, new TreeSet(BaseMsg.CHAT_MSG_COMPARATOR));
-                this.d.put(Long.valueOf(j2), sizedSyncTreeSet2);
-                return sizedSyncTreeSet2;
-            }
-            return sizedSyncTreeSet;
-        }
-        return (SizedSyncTreeSet) invokeJ.objValue;
-    }
-
-    @NonNull
-    public final SizedSyncTreeSet<BaseMsg> z(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048613, this, j2)) == null) {
-            SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet = this.c.get(Long.valueOf(j2));
-            if (sizedSyncTreeSet == null) {
-                SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(new TreeSet(BaseMsg.CHAT_MSG_COMPARATOR));
-                this.c.put(Long.valueOf(j2), sizedSyncTreeSet2);
-                return sizedSyncTreeSet2;
-            }
-            return sizedSyncTreeSet;
-        }
-        return (SizedSyncTreeSet) invokeJ.objValue;
-    }
-
     @Nullable
-    public BaseMsg u(long j2) {
+    public BaseMsg v(long j2) {
         InterceptResult invokeJ;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048608, this, j2)) == null) {
-            Iterator<BaseMsg> descendingIterator = q(j2).descendingIterator();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048611, this, j2)) == null) {
+            Iterator<BaseMsg> descendingIterator = r(j2).descendingIterator();
             while (descendingIterator.hasNext()) {
                 BaseMsg next = descendingIterator.next();
                 if (!(next instanceof BaseSysMsg)) {

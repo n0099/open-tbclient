@@ -8,7 +8,7 @@ import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
-import com.baidu.tieba.rcb;
+import com.baidu.tieba.olb;
 import com.github.anrwatchdog.ANRError;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
@@ -23,14 +23,14 @@ public class BlockMonitor implements IBlockMonitor {
     public static final SimpleDateFormat TIME_FORMATTER = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
     public static String sBlockTimeStamp;
     public boolean mMonitorStarted = false;
-    public rcb mBlockWatchDog = null;
+    public olb mBlockWatchDog = null;
 
     /* loaded from: classes3.dex */
-    public static class BlockListenerImpl implements rcb.f {
+    public static class BlockListenerImpl implements olb.f {
         public BlockListenerImpl() {
         }
 
-        @Override // com.baidu.tieba.rcb.f
+        @Override // com.baidu.tieba.olb.f
         public void onAppNotResponding(ANRError aNRError) {
             Log.d(BlockMonitor.TAG, "BlockWatchDog catch block", aNRError);
             BlockMonitor.collectData(aNRError.getSTStackMap());
@@ -44,9 +44,9 @@ public class BlockMonitor implements IBlockMonitor {
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
     public void stopBlockMonitor() {
-        rcb rcbVar;
-        if (this.mMonitorStarted && (rcbVar = this.mBlockWatchDog) != null) {
-            rcbVar.interrupt();
+        olb olbVar;
+        if (this.mMonitorStarted && (olbVar = this.mBlockWatchDog) != null) {
+            olbVar.interrupt();
             this.mMonitorStarted = false;
         }
     }
@@ -100,9 +100,9 @@ public class BlockMonitor implements IBlockMonitor {
             return;
         }
         this.mMonitorStarted = true;
-        rcb rcbVar = new rcb(i);
-        this.mBlockWatchDog = rcbVar;
-        rcbVar.e();
+        olb olbVar = new olb(i);
+        this.mBlockWatchDog = olbVar;
+        olbVar.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl());
         if (AppConfig.isDebug()) {

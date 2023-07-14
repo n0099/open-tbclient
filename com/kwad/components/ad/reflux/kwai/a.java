@@ -19,7 +19,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.KSFrameLayout;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a extends KSFrameLayout implements View.OnClickListener {
     public static int hE = 8;
     public ComplianceTextView bc;
@@ -31,7 +31,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
     public ImageView lm;
     public KsLogoView ln;
     public com.kwad.components.ad.reflux.a lo;
-    public b.InterfaceC0665b lp;
+    public b.InterfaceC0670b lp;
 
     public a(@NonNull Context context) {
         super(context);
@@ -48,14 +48,14 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
     }
 
     private void br() {
-        b.InterfaceC0665b interfaceC0665b;
+        b.InterfaceC0670b interfaceC0670b;
         com.kwad.components.ad.reflux.a aVar = this.lo;
         if (aVar == null) {
             return;
         }
         AdTemplate adTemplate = aVar.getAdTemplate();
-        if (!adTemplate.mPvReported && (interfaceC0665b = this.lp) != null) {
-            interfaceC0665b.onAdShow();
+        if (!adTemplate.mPvReported && (interfaceC0670b = this.lp) != null) {
+            interfaceC0670b.onAdShow();
         }
         f fVar = new f();
         com.kwad.components.ad.reflux.a aVar2 = this.lo;
@@ -71,7 +71,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
             return;
         }
         final AdTemplate adTemplate = aVar.getAdTemplate();
-        com.kwad.components.core.c.a.a.a(new a.C0641a(com.kwad.sdk.b.kwai.a.x(this)).L(adTemplate).b(this.lo.getApkDownloadHelper()).ae(i).aj(true).a(new a.b() { // from class: com.kwad.components.ad.reflux.kwai.a.1
+        com.kwad.components.core.c.a.a.a(new a.C0646a(com.kwad.sdk.b.kwai.a.x(this)).L(adTemplate).b(this.lo.getApkDownloadHelper()).ae(i).aj(true).a(new a.b() { // from class: com.kwad.components.ad.reflux.kwai.a.1
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 a.this.k(adTemplate);
@@ -137,9 +137,9 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
             b.aO(aVar.eQ());
         }
         com.kwad.sdk.core.report.a.a(adTemplate, b, (JSONObject) null);
-        b.InterfaceC0665b interfaceC0665b = this.lp;
-        if (interfaceC0665b != null) {
-            interfaceC0665b.onAdClicked();
+        b.InterfaceC0670b interfaceC0670b = this.lp;
+        if (interfaceC0670b != null) {
+            interfaceC0670b.onAdClicked();
         }
     }
 
@@ -152,7 +152,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
         }
     }
 
-    public void setAdClickListener(b.InterfaceC0665b interfaceC0665b) {
-        this.lp = interfaceC0665b;
+    public void setAdClickListener(b.InterfaceC0670b interfaceC0670b) {
+        this.lp = interfaceC0670b;
     }
 }

@@ -1,9 +1,17 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes5.dex */
 public interface af7 {
-    void D1();
+    void a(DownloadData downloadData);
 
-    void h();
+    void b(DownloadData downloadData);
 
-    void q0(boolean z);
+    void c(DownloadData downloadData);
+
+    void d(DownloadData downloadData);
+
+    void e(DownloadData downloadData);
+
+    void f(DownloadData downloadData);
 }

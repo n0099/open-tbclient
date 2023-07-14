@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.PublishProgressData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m6a;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.xea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -79,8 +79,8 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.publish_progress_view, this);
-            this.a = (PublishProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091d35);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d3e);
+            this.a = (PublishProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091d4f);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d58);
             TextView textView = (TextView) inflate.findViewById(R.id.progress_close_btn);
             this.c = textView;
             textView.setOnClickListener(this);
@@ -115,11 +115,11 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.b();
-            s75 d = s75.d(this.b);
+            d85 d = d85.d(this.b);
             d.x(R.color.CAM_X0101);
             d.C(R.dimen.T_X06);
             d.D(R.string.F_X01);
-            s75 d2 = s75.d(this.c);
+            d85 d2 = d85.d(this.c);
             d2.x(R.color.CAM_X0101);
             d2.C(R.dimen.T_X09);
             d2.D(R.string.F_X01);
@@ -148,7 +148,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
                 publishProgressData.hideRunning();
                 d();
             }
-            m6a.c();
+            xea.c();
         }
     }
 

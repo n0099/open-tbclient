@@ -1,139 +1,187 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import androidx.viewpager.widget.ViewPager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.publisher.emoji.adapter.NoHorizontalScrollerVPAdapter;
-import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
-import com.baidu.swan.apps.publisher.view.SPSwitchPanelLinearLayout;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class r93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static r93 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948076413, "Lcom/baidu/tieba/r93;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public interface c {
+        void onClickSwitch(View view2, boolean z);
+    }
+
+    public static boolean f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) ? z : invokeZ.booleanValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ c c;
+
+        public a(View view2, View view3, c cVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948076413, "Lcom/baidu/tieba/r93;");
-                return;
-            }
-        }
-        b = ms1.a;
-    }
-
-    public r93() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static r93 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (r93.class) {
-                    if (c == null) {
-                        c = new r93();
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, view3, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return c;
+            this.a = view2;
+            this.b = view3;
+            this.c = cVar;
         }
-        return (r93) invokeV.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && i93.c().e()) {
+                boolean c = r93.c(this.a, this.b);
+                c cVar = this.c;
+                if (cVar != null) {
+                    cVar.onClickSwitch(view2, c);
+                }
+            }
+        }
     }
 
-    public final View a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EmojiBagLayout emojiBagLayout = new EmojiBagLayout(context);
-            emojiBagLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07013f)));
-            emojiBagLayout.setEmotionList(p93.c().b());
-            return emojiBagLayout;
-        }
-        return (View) invokeL.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
 
-    public boolean c(Activity activity, ViewGroup viewGroup, View view2, String str, String str2, String str3) {
-        InterceptResult invokeCommon;
-        IllegalArgumentException illegalArgumentException;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, viewGroup, view2, str, str2, str3})) == null) {
-            if (!(viewGroup instanceof SPSwitchPanelLinearLayout)) {
-                illegalArgumentException = new IllegalArgumentException("panelLayout must be SPSwitchLinearLayout");
-            } else {
-                illegalArgumentException = null;
+        public b(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (!(view2 instanceof EditText)) {
-                illegalArgumentException = new IllegalArgumentException("focus view must be EditText");
-            }
-            if (illegalArgumentException != null) {
-                if (!b) {
+            this.a = view2;
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (motionEvent.getAction() == 1) {
+                    this.a.setVisibility(4);
                     return false;
                 }
-                throw illegalArgumentException;
-            } else if (TextUtils.isEmpty(str)) {
-                return false;
-            } else {
-                if (b) {
-                    Log.d("EmojiPanelManager", "start loading emoji " + str);
-                }
-                this.a = new WeakReference<>(activity);
-                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                    File v = yu2.v(str2, str3, false, null, null);
-                    p93.c().f(v.getAbsolutePath() + File.separator + str);
-                    ViewPager viewPager = (ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f090986);
-                    ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090985);
-                    if (imageView != null) {
-                        imageView.setImageBitmap(p93.c().d());
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(a(activity.getApplicationContext()));
-                    viewPager.setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
-                    EditText editText = (EditText) view2;
-                    if (this.a.get() != null) {
-                        o93.g(this.a.get().getApplicationContext()).f(editText);
-                        return true;
-                    }
-                }
                 return false;
             }
+            return invokeLL.booleanValue;
         }
-        return invokeCommon.booleanValue;
+    }
+
+    public static boolean c(View view2, View view3) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, view2, view3)) == null) {
+            if (view2.getVisibility() != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                h(view2, view3);
+            } else {
+                g(view2, view3);
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(View view2, View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
+            if (view3 != null) {
+                u93.k(view3);
+                view3.clearFocus();
+            }
+            view2.setVisibility(8);
+        }
+    }
+
+    public static void g(View view2, View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, view2, view3) == null) {
+            view2.setVisibility(0);
+            if (view3 != null) {
+                u93.k(view3);
+            }
+        }
+    }
+
+    public static void h(View view2, View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, view2, view3) == null) {
+            u93.m(view3);
+            if (e(view2.getContext())) {
+                view2.setVisibility(4);
+            }
+        }
+    }
+
+    @SuppressLint({"ClickableViewAccessibility"})
+    public static void b(View view2, View view3, View view4, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, view2, view3, view4, cVar) == null) {
+            if (view3 != null) {
+                view3.setOnClickListener(new a(view2, view4, cVar));
+            }
+            if (e(view2.getContext())) {
+                view4.setOnTouchListener(new b(view2));
+            }
+        }
+    }
+
+    public static boolean e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (context instanceof Activity) {
+                boolean d = w93.d((Activity) context);
+                f(d);
+                return d;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

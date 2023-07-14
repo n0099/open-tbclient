@@ -45,7 +45,7 @@ public class zb {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b(zi.g()) && a() && NSGif.f) {
+            if (b(aj.g()) && a() && NSGif.f) {
                 return true;
             }
             return false;

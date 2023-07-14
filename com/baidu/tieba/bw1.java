@@ -3,9 +3,5 @@ package com.baidu.tieba;
 import android.content.Context;
 /* loaded from: classes5.dex */
 public interface bw1 {
-    boolean a(Context context, String str);
-
-    boolean b(Context context, String str);
-
-    boolean c(Context context, String str);
+    void a(Context context, String str, String str2, ls1 ls1Var);
 }

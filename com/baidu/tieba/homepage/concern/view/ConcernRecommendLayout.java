@@ -24,19 +24,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g45;
 import com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter;
-import com.baidu.tieba.ry;
-import com.baidu.tieba.tn;
-import com.baidu.tieba.vn;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.zz4;
+import com.baidu.tieba.i05;
+import com.baidu.tieba.o45;
+import com.baidu.tieba.sy;
+import com.baidu.tieba.un;
+import com.baidu.tieba.wn;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ConcernRecommendLayout extends LinearLayout implements ry {
+public class ConcernRecommendLayout extends LinearLayout implements sy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
@@ -44,7 +44,7 @@ public class ConcernRecommendLayout extends LinearLayout implements ry {
     public TextView c;
     public RecyclerView d;
     public ConcernRecommendListAdapter e;
-    public vn f;
+    public wn f;
     public int g;
     public CustomMessageListener h;
 
@@ -82,7 +82,7 @@ public class ConcernRecommendLayout extends LinearLayout implements ry {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                     if (this.a.f == null) {
-                        this.a.f = new vn(new tn());
+                        this.a.f = new wn(new un());
                     }
                     this.a.f.q(this.a.d, 1);
                 } else if (this.a.f != null) {
@@ -142,21 +142,21 @@ public class ConcernRecommendLayout extends LinearLayout implements ry {
     public void setHasBorder(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.e.r(z);
+            this.e.s(z);
         }
     }
 
-    public void setOnItemCoverListener(zz4<MetaData> zz4Var) {
+    public void setOnItemCoverListener(i05<MetaData> i05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, zz4Var) == null) {
-            this.e.s(zz4Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, i05Var) == null) {
+            this.e.t(i05Var);
         }
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
-            this.e.t(tbPageContext);
+            this.e.u(tbPageContext);
         }
     }
 
@@ -165,17 +165,17 @@ public class ConcernRecommendLayout extends LinearLayout implements ry {
         if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
             this.h.setTag(bdUniqueId);
             MessageManager.getInstance().registerListener(this.h);
-            this.e.u(bdUniqueId);
+            this.e.x(bdUniqueId);
         }
     }
 
-    @Override // com.baidu.tieba.ry
+    @Override // com.baidu.tieba.sy
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             if (i != this.b) {
                 SkinManager.setViewTextColor(this.c, this.g);
-                this.e.o(i);
+                this.e.p(i);
             }
             this.b = i;
         }
@@ -192,54 +192,54 @@ public class ConcernRecommendLayout extends LinearLayout implements ry {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d021f, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0221, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09250e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092542);
             this.d = (RecyclerView) findViewById(R.id.thread_card_list);
             ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.a);
             this.e = concernRecommendListAdapter;
             this.d.setAdapter(concernRecommendListAdapter);
             this.d.setClipChildren(false);
             if (TbSingleton.getInstance().isSlideAnimEnable()) {
-                vn vnVar = new vn(new tn());
-                this.f = vnVar;
-                vnVar.q(this.d, 1);
+                wn wnVar = new wn(new un());
+                this.f = wnVar;
+                wnVar.q(this.d, 1);
             }
-            int g = xi.g(this.a, R.dimen.tbds21);
-            int g2 = xi.g(this.a, R.dimen.tbds44);
+            int g = yi.g(this.a, R.dimen.tbds21);
+            int g2 = yi.g(this.a, R.dimen.tbds44);
             this.d.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
             this.d.setItemAnimator(new DefaultItemAnimator());
             this.d.addItemDecoration(new SpaceItemDecoration(g2, g, g2));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
-            layoutParams.bottomMargin = xi.g(this.a, R.dimen.tbds39);
+            layoutParams.bottomMargin = yi.g(this.a, R.dimen.tbds39);
             this.d.setLayoutParams(layoutParams);
             setFocusableInTouchMode(true);
             setFocusable(true);
         }
     }
 
-    public void setData(g45 g45Var) {
+    public void setData(o45 o45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, g45Var) == null) {
-            if (g45Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, o45Var) == null) {
+            if (o45Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            if (!TextUtils.isEmpty(g45Var.a) && g45Var.b != 0) {
-                this.c.setTextSize(0, xi.g(this.a, R.dimen.tbds37));
-                this.c.setText(g45Var.a);
+            if (!TextUtils.isEmpty(o45Var.a) && o45Var.b != 0) {
+                this.c.setTextSize(0, yi.g(this.a, R.dimen.tbds37));
+                this.c.setText(o45Var.a);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
-                this.g = g45Var.b;
+                this.g = o45Var.b;
             } else {
-                this.c.setTextSize(0, xi.g(this.a, R.dimen.tbds37));
-                this.c.setText(R.string.obfuscated_res_0x7f0f04ba);
+                this.c.setTextSize(0, yi.g(this.a, R.dimen.tbds37));
+                this.c.setText(R.string.obfuscated_res_0x7f0f04bd);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
                 this.g = R.color.CAM_X0105;
             }
-            this.e.o(TbadkCoreApplication.getInst().getSkinType());
-            this.e.setData(g45Var.c());
+            this.e.p(TbadkCoreApplication.getInst().getSkinType());
+            this.e.setData(o45Var.c());
             this.e.notifyDataSetChanged();
         }
     }

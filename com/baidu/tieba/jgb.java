@@ -1,148 +1,158 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hgb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTImage;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class jgb {
+public class jgb extends BaseFunNativeAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ugb b;
+    public final hgb c;
 
-    public static void a(Closeable closeable) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jgb(ugb ugbVar, String str, Ssp.Pid pid, hgb hgbVar) {
+        super(str, pid);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException unused) {
-            Log.e("Utils", "Exception when closing the 'Closeable'.");
-        }
-    }
-
-    public static void b(Reader reader, Writer writer) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, reader, writer) == null) {
-            c(reader, writer, new char[4096]);
-        }
-    }
-
-    public static void c(Reader reader, Writer writer, char[] cArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(65538, null, reader, writer, cArr) != null) {
-            return;
-        }
-        while (true) {
-            int read = reader.read(cArr);
-            if (-1 == read) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ugbVar, str, pid, hgbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            writer.write(cArr, 0, read);
         }
+        this.b = ugbVar;
+        this.c = hgbVar;
     }
 
-    public static Map<String, String> d(Map<String, String> map) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            HashMap hashMap = new HashMap();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                hashMap.put(e(entry.getKey()), entry.getValue());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ChannelNativeAds.createCsj(this.b.a);
+        }
+        return (ChannelNativeAds) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((TTNativeAd) this.b.a).getDescription();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            TTImage icon = ((TTNativeAd) this.b.a).getIcon();
+            if (icon == null) {
+                return null;
             }
-            return hashMap;
+            return icon.getImageUrl();
         }
-        return (Map) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            int i = 0;
-            if (str.length() > 0) {
-                while (str.charAt(i) == '/') {
-                    i++;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            String source = ((TTNativeAd) this.b.a).getSource();
+            if (TextUtils.isEmpty(source)) {
+                return ((TTNativeAd) this.b.a).getTitle();
+            }
+            return source;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return ((TTNativeAd) this.b.a).getAdView();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<TTImage> imageList = ((TTNativeAd) this.b.a).getImageList();
+            if (imageList != null && !imageList.isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                for (TTImage tTImage : imageList) {
+                    arrayList.add(tTImage.getImageUrl());
                 }
+                return arrayList;
             }
-            return "/" + str.substring(i);
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public static agb f(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (str != null) {
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 2155) {
-                    if (hashCode != 2177) {
-                        if (hashCode != 2627) {
-                            if (hashCode == 2644 && str.equals("SG")) {
-                                c = 3;
-                            }
-                        } else if (str.equals("RU")) {
-                            c = 2;
-                        }
-                    } else if (str.equals("DE")) {
-                        c = 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int interactionType = ((TTNativeAd) this.b.a).getInteractionType();
+            if (interactionType != 2 && interactionType != 3) {
+                if (interactionType != 4) {
+                    if (interactionType != 5) {
+                        return FunNativeAd.InteractionType.TYPE_UNKNOW;
                     }
-                } else if (str.equals("CN")) {
-                    c = 0;
+                    return FunNativeAd.InteractionType.TYPE_DIAL;
                 }
-                if (c == 0) {
-                    return agb.c;
-                }
-                if (c == 1) {
-                    return agb.d;
-                }
-                if (c == 2) {
-                    return agb.e;
-                }
-                if (c == 3) {
-                    return agb.f;
-                }
+                return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
             }
-            if (str2 != null) {
-                if (str2.contains("connect-drcn")) {
-                    return agb.c;
-                }
-                if (str2.contains("connect-dre")) {
-                    return agb.d;
-                }
-                if (str2.contains("connect-drru")) {
-                    return agb.e;
-                }
-                if (str2.contains("connect-dra")) {
-                    return agb.f;
-                }
-            }
-            return agb.b;
+            return FunNativeAd.InteractionType.TYPE_BROWSE;
         }
-        return (agb) invokeLL.objValue;
+        return (FunNativeAd.InteractionType) invokeV.objValue;
     }
 
-    public static String g(InputStream inputStream, String str) throws UnsupportedEncodingException, IOException {
-        InterceptResult invokeLL;
+    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
+    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, inputStream, str)) == null) {
-            StringWriter stringWriter = new StringWriter();
-            b(new InputStreamReader(inputStream, str), stringWriter);
-            return stringWriter.toString();
+        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
+            hgb hgbVar = this.c;
+            ugb ugbVar = this.b;
+            hgbVar.k(context, ugbVar, this.mSid, viewGroup, list, list2, new hgb.b(hgbVar, ugbVar), funAdInteractionListener);
         }
-        return (String) invokeLL.objValue;
     }
 }

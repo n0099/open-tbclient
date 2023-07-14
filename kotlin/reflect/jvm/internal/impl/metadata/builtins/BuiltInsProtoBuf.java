@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
 import kotlin.reflect.jvm.internal.impl.protobuf.ExtensionRegistryLite;
 import kotlin.reflect.jvm.internal.impl.protobuf.GeneratedMessageLite;
 import kotlin.reflect.jvm.internal.impl.protobuf.WireFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BuiltInsProtoBuf {
     public static final GeneratedMessageLite.GeneratedExtension<ProtoBuf.Package, Integer> packageFqName = GeneratedMessageLite.newSingularGeneratedExtension(ProtoBuf.Package.getDefaultInstance(), 0, null, null, Cea708Decoder.COMMAND_SWA, WireFormat.FieldType.INT32, Integer.class);
     public static final GeneratedMessageLite.GeneratedExtension<ProtoBuf.Class, List<ProtoBuf.Annotation>> classAnnotation = GeneratedMessageLite.newRepeatedGeneratedExtension(ProtoBuf.Class.getDefaultInstance(), ProtoBuf.Annotation.getDefaultInstance(), null, 150, WireFormat.FieldType.MESSAGE, false, ProtoBuf.Annotation.class);

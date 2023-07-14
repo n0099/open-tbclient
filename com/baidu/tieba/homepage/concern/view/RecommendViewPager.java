@@ -71,8 +71,8 @@ public class RecommendViewPager extends ViewPager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0026, code lost:
-        if (r3 != 3) goto L14;
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0026, code lost:
+        if (r3 != 3) goto L13;
      */
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     /*
@@ -83,6 +83,8 @@ public class RecommendViewPager extends ViewPager {
         int count;
         boolean z;
         boolean z2;
+        boolean z3;
+        boolean z4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             int currentItem = getCurrentItem();
@@ -109,10 +111,21 @@ public class RecommendViewPager extends ViewPager {
                         }
                         this.a = motionEvent.getX();
                         this.b = motionEvent.getY();
-                        if (abs2 / abs < 1.0f && (z2 || z)) {
-                            a(true);
+                        int i = (abs > 0.0f ? 1 : (abs == 0.0f ? 0 : -1));
+                        if (i != 0 && Math.abs(abs2 / abs) < 1.0f && (z2 || z)) {
+                            z3 = true;
                         } else {
+                            z3 = false;
+                        }
+                        if (i == 0 && abs2 == 0.0f) {
+                            z4 = true;
+                        } else {
+                            z4 = false;
+                        }
+                        if (!z4 && !z3) {
                             a(false);
+                        } else {
+                            a(true);
                         }
                     }
                 }
@@ -120,6 +133,7 @@ public class RecommendViewPager extends ViewPager {
             } else {
                 this.a = motionEvent.getX();
                 this.b = motionEvent.getY();
+                a(true);
             }
             return super.onInterceptTouchEvent(motionEvent);
         }

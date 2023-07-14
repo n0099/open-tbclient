@@ -1,61 +1,104 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ku6 extends st6 {
+public final class ku6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BdUniqueId a;
+    public final Object b;
+    public Object c;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public ku6(nt6 context) {
-        super(context, r3, null, 4, null);
+    public ku6(BdUniqueId id, Object tag) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {id, tag};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((nt6) objArr2[0], (k0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        k0 b = k0.i(xt6.class).b();
-        Intrinsics.checkNotNullExpressionValue(b, "one(ActionComponent::class.java).get()");
+        Intrinsics.checkNotNullParameter(id, "id");
+        Intrinsics.checkNotNullParameter(tag, "tag");
+        this.a = id;
+        this.b = tag;
     }
 
-    @Override // com.baidu.tieba.st6
-    public void l(h0 entity, float f) {
-        it6 a;
-        xt6 a2;
+    public ku6(TbPageContext<?> pageContext, Object tag) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048576, this, entity, f) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            ut6 b = su6.b(entity);
-            if (b == null || (a = b.a()) == null || (a2 = su6.a(entity)) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pageContext, tag};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            if (ru6.b(this) >= a.e().k()) {
-                a2.h(true);
-                a2.c(ru6.b(this) - a.e().k());
-                return;
-            }
-            a2.h(false);
         }
+        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
+        Intrinsics.checkNotNullParameter(tag, "tag");
+        BdUniqueId uniqueId = pageContext.getUniqueId();
+        Intrinsics.checkNotNullExpressionValue(uniqueId, "pageContext.uniqueId");
+        this.a = uniqueId;
+        this.b = tag;
+    }
+
+    public final BdUniqueId a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Object obj = this.c;
+            if (obj != null) {
+                i = obj.hashCode();
+            } else {
+                i = 0;
+            }
+            return (this.a.hashCode() * 31) + this.b.hashCode() + (i * 17);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj == null || !(obj instanceof ku6)) {
+                return false;
+            }
+            ku6 ku6Var = (ku6) obj;
+            if (!Intrinsics.areEqual(this.a, ku6Var.a) || !Intrinsics.areEqual(ku6Var.b, this.b) || !Intrinsics.areEqual(ku6Var.c, this.c)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

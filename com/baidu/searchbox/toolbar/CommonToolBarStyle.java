@@ -59,8 +59,8 @@ public class CommonToolBarStyle {
     public static final int TOOL_ITEM_WENDA = 14;
 
     public static List<BaseToolBarItem> getSearchToolBarItemList(Context context) {
-        int dimensionPixelOffset = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707bb);
-        int dimensionPixelOffset2 = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707bc);
+        int dimensionPixelOffset = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707d1);
+        int dimensionPixelOffset2 = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707d2);
         ArrayList arrayList = new ArrayList();
         RedTipImageView redTipImageView = new RedTipImageView(context);
         redTipImageView.setIcon(R.drawable.obfuscated_res_0x7f080518);

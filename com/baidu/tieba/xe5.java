@@ -1,61 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.FrsPage.DataRes;
 /* loaded from: classes8.dex */
-public final class xe5 {
+public class xe5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final xe5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
 
-    public xe5() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948297505, "Lcom/baidu/tieba/xe5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948297505, "Lcom/baidu/tieba/xe5;");
+                return;
+            }
+        }
+        a = new xe5(false);
+    }
+
+    public xe5(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    @NonNull
+    public static xe5 a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            boolean z = false;
+            if (jSONObject != null) {
+                i = jSONObject.optInt("voice_room_config");
+            } else {
+                i = 0;
+            }
+            if (i == 1) {
+                z = true;
+            }
+            return new xe5(z);
         }
-        return (String) invokeV.objValue;
+        return (xe5) invokeL.objValue;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    @NonNull
+    public static xe5 b(@Nullable DataRes dataRes) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dataRes)) == null) {
+            boolean z = false;
+            if (dataRes != null) {
+                i = dataRes.voice_room_config.intValue();
+            } else {
+                i = 0;
+            }
+            if (i == 1) {
+                z = true;
+            }
+            return new xe5(z);
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a = z;
-        }
+        return (xe5) invokeL.objValue;
     }
 }

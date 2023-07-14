@@ -3,16 +3,16 @@ package com.baidu.tbadk.abtest.helper;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.abtest.MemoryThreadOptSwitch;
 import com.baidu.tbadk.switchs.ThreadOptSwitch;
-import com.baidu.tieba.ki;
-import com.baidu.tieba.mi;
-import com.baidu.tieba.wl1;
+import com.baidu.tieba.li;
+import com.baidu.tieba.ni;
+import com.baidu.tieba.pl1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ThreadExperimentFetcher extends wl1<ki> {
+public class ThreadExperimentFetcher extends pl1<li> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,7 +24,7 @@ public class ThreadExperimentFetcher extends wl1<ki> {
     }
 
     /* loaded from: classes4.dex */
-    public static final class ThreadExperimentImpl implements ki {
+    public static final class ThreadExperimentImpl implements li {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,12 +42,12 @@ public class ThreadExperimentFetcher extends wl1<ki> {
             }
         }
 
-        @Override // com.baidu.tieba.ki
+        @Override // com.baidu.tieba.li
         public boolean threadABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!mi.a() && MemoryThreadOptSwitch.isSwitchOn()) {
+                if (!ni.a() && MemoryThreadOptSwitch.isSwitchOn()) {
                     return true;
                 }
                 return ThreadOptSwitch.getIsOn();
@@ -76,13 +76,13 @@ public class ThreadExperimentFetcher extends wl1<ki> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.wl1
-    public ki createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.pl1
+    public li createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new ThreadExperimentImpl(null);
         }
-        return (ki) invokeV.objValue;
+        return (li) invokeV.objValue;
     }
 }

@@ -15,7 +15,7 @@ public class iv extends ByteArrayOutputStream {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m687a() {
+    public byte[] m689a() {
         return ((ByteArrayOutputStream) this).buf;
     }
 }

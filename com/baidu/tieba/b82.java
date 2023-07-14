@@ -1,76 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.camera.view.CameraPreview;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class b82 extends r72<CameraPreview, w42> {
+public final class b82 extends e72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean u;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b82(@NonNull Context context, @NonNull w42 w42Var) {
-        super(context, w42Var);
+    public b82() {
+        super("coverImage", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, w42Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (s72) objArr2[1]);
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g(2);
+        this.u = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r72
-    /* renamed from: G */
-    public void C(@NonNull CameraPreview cameraPreview, @NonNull w42 w42Var, @NonNull u82 u82Var) {
+    @Override // com.baidu.tieba.e72, com.baidu.tieba.j72, com.baidu.tieba.l72, com.baidu.tieba.u13
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cameraPreview, w42Var, u82Var) == null) {
-            super.C(cameraPreview, w42Var, u82Var);
-            if (t()) {
-                cameraPreview.x(w42Var);
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r72
-    @NonNull
-    /* renamed from: F */
-    public CameraPreview v(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new CameraPreview(context, n());
-        }
-        return (CameraPreview) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.r72
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.z();
-            CameraPreview q = q();
-            if (q != null) {
-                q.p();
-            }
+        super.a(jSONObject);
+        this.u = jSONObject.optBoolean("loadState", false);
+        b23 b23Var = this.h;
+        if (b23Var != null && (jSONObject2 = this.j) != null) {
+            b23Var.i(jSONObject2.optBoolean("fixed", false));
         }
     }
 }

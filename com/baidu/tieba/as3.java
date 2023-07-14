@@ -1,21 +1,50 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
+import com.baidu.tieba.dt3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
 /* loaded from: classes5.dex */
-public class as3 implements tx3 {
+public class as3 extends v73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public class a implements dt3.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ as3 a;
+
+        public a(as3 as3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {as3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = as3Var;
+        }
+
+        @Override // com.baidu.tieba.dt3.c
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.d.putString("result", str);
+                this.a.c();
+            }
+        }
+    }
 
     public as3() {
         Interceptable interceptable = $ic;
@@ -31,45 +60,11 @@ public class as3 implements tx3 {
         }
     }
 
-    @Override // com.baidu.tieba.ux3
-    public void a(zc3 zc3Var) {
+    @Override // com.baidu.tieba.v73
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zc3Var) == null) {
-            zc3Var.b(new st3(zc3Var));
-            zc3Var.b(new wt3(zc3Var));
-            zc3Var.b(new qu3(zc3Var));
-            zc3Var.b(new pu3(zc3Var));
-            zc3Var.b(new fu3(zc3Var));
-            zc3Var.b(new xt3(zc3Var));
-            zc3Var.b(new ut3(zc3Var));
-            zc3Var.b(new du3(zc3Var));
-            zc3Var.b(new tt3(zc3Var));
-            zc3Var.b(new rt3(zc3Var));
-            zc3Var.b(new qt3(zc3Var));
-            zc3Var.b(new vt3(zc3Var));
-            zc3Var.b(new uu3(zc3Var));
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            wr3.n(bundle.getString("key_result_client_id"), bundle.getStringArrayList("key_param_tpl_list"), new a(this));
         }
-    }
-
-    @Override // com.baidu.tieba.ux3
-    @Nullable
-    public Map<String, Object> b(@NonNull d02 d02Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d02Var)) == null) {
-            return SwanApi$$ModulesProvider.getV8ApiModules(d02Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ux3
-    @Nullable
-    public Map<String, Object> c(@NonNull d02 d02Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d02Var)) == null) {
-            return SwanApi$$ModulesProvider.getWebviewApiModules(d02Var);
-        }
-        return (Map) invokeL.objValue;
     }
 }

@@ -1,20 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Bundle;
 import android.util.Log;
-import com.baidu.tieba.yu2;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v73 {
+public abstract class v73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bundle a;
+    public int b;
+    public String c;
+    public Bundle d;
+
+    public abstract void b(@NonNull Bundle bundle);
 
     static {
         InterceptResult invokeClinit;
@@ -29,74 +37,46 @@ public class v73 {
                 return;
             }
         }
-        a = ms1.a;
+        e = fs1.a;
     }
 
-    public static void a() {
-        String[] list;
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (list = yu2.q().list()) != null && list.length > 0) {
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    dl4 dl4Var = new dl4();
-                    dl4Var.g = str;
-                    dl4Var.i = -1L;
-                    zj4.i().f(dl4Var);
-                }
-            }
-            yu2.e.d();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d(this.d);
         }
     }
 
-    public static void b(String str) {
-        File s;
-        String[] list;
+    public v73() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && !TextUtils.isEmpty(str) && (s = yu2.s(str)) != null && (list = s.list()) != null && list.length > 1) {
-            List<dl4> q = j73.q(str);
-            for (String str2 : list) {
-                long j = -1;
-                try {
-                    j = Long.parseLong(str2);
-                } catch (NumberFormatException e) {
-                    if (a) {
-                        u73.b(Log.getStackTraceString(e));
-                    }
-                }
-                if (!c(j, q)) {
-                    gs4.L(yu2.t(str, str2));
-                    u73.b("delete plugin name = " + str + " ; version = " + str2);
-                }
-            }
-            dl4 dl4Var = null;
-            if (q != null) {
-                if (q.size() == 1) {
-                    dl4Var = q.get(0);
-                } else if (q.size() >= 2) {
-                    dl4Var = q.get(1);
-                }
-            }
-            if (dl4Var != null) {
-                zj4.i().f(dl4Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new Bundle();
+        this.c = "";
+        this.d = new Bundle();
     }
 
-    public static boolean c(long j, List<dl4> list) {
-        InterceptResult invokeJL;
+    public void d(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
-            if (j >= 0 && list != null && list.size() != 0) {
-                int min = Math.min(list.size(), 2);
-                for (int i = 0; i < min; i++) {
-                    dl4 dl4Var = list.get(i);
-                    if (dl4Var != null && (j == dl4Var.i || j == rp3.c(dl4Var.j))) {
-                        return true;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            if (e) {
+                Log.d("MDelegate-Delegation", "messenger delegation finish");
             }
-            return false;
+            if (!d83.a(this.c)) {
+                if (e) {
+                    Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.b + " observer: " + this.c);
+                }
+                w73.c(this.b, this.c, bundle);
+            }
         }
-        return invokeJL.booleanValue;
     }
 }

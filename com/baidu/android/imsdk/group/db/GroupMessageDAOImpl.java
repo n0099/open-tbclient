@@ -42,39 +42,6 @@ public class GroupMessageDAOImpl {
     public static ChatMsgParse sGroupChatMsgParse;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: com.baidu.android.imsdk.group.db.GroupMessageDAOImpl$4  reason: invalid class name */
-    /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass4 {
-        public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$group$db$GroupMessageDAOImpl$MSGTYPEEXPLAN;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(798224923, "Lcom/baidu/android/imsdk/group/db/GroupMessageDAOImpl$4;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(798224923, "Lcom/baidu/android/imsdk/group/db/GroupMessageDAOImpl$4;");
-                    return;
-                }
-            }
-            int[] iArr = new int[MSGTYPEEXPLAN.values().length];
-            $SwitchMap$com$baidu$android$imsdk$group$db$GroupMessageDAOImpl$MSGTYPEEXPLAN = iArr;
-            try {
-                iArr[MSGTYPEEXPLAN.UNEQUAL.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                $SwitchMap$com$baidu$android$imsdk$group$db$GroupMessageDAOImpl$MSGTYPEEXPLAN[MSGTYPEEXPLAN.EQUAL.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
-    }
-
     /* loaded from: classes.dex */
     public static class ChatMsgParse implements IResultParse<ChatMsg> {
         public static /* synthetic */ Interceptable $ic;
@@ -365,7 +332,7 @@ public class GroupMessageDAOImpl {
     public static boolean isActiveGroup(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65567, null, context, str)) == null) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             if (newDb != null) {
                 return ((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isActive(context, str);
@@ -447,7 +414,7 @@ public class GroupMessageDAOImpl {
     public static int showSendMsgPV(Context context, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65571, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             sGroupChatMsgParse.setContext(context);
             ArrayList<String> allGroupList = GroupInfoDAOImpl.getAllGroupList(context);
             DBOperation newDb = DBOperationFactory.getNewDb(context);
@@ -617,6 +584,67 @@ public class GroupMessageDAOImpl {
             return null;
         }
         return (ChatMsg) invokeLL.objValue;
+    }
+
+    public static long getMaxLocalMsgId(Context context, String str) {
+        InterceptResult invokeLL;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, context, str)) == null) {
+            DBOperation newDb = DBOperationFactory.getNewDb(context);
+            if (newDb != null) {
+                DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
+                if (dBGroupTableManager != null && !dBGroupTableManager.isExistGroupTable(context, str)) {
+                    return 0L;
+                }
+                arrayList = newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupMessageDAOImpl.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                            }
+                        }
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
+                    @Override // com.baidu.android.imsdk.db.IResultParse
+                    public Long onParse(Cursor cursor) {
+                        InterceptResult invokeL;
+                        long j;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cursor)) == null) {
+                            if (cursor != null) {
+                                j = CursorWrapper.getLong(cursor, "msgid");
+                            } else {
+                                j = -1;
+                            }
+                            return Long.valueOf(j);
+                        }
+                        return (Long) invokeL.objValue;
+                    }
+                }, DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE, new String[]{"msgid"}, null, null, null, null, "msgid DESC", String.valueOf(1));
+            } else {
+                arrayList = null;
+            }
+            if (arrayList != null && arrayList.size() > 0) {
+                return ((Long) arrayList.get(0)).longValue();
+            }
+            if (arrayList != null) {
+                return 0L;
+            }
+            return -1L;
+        }
+        return invokeLL.longValue;
     }
 
     public static ChatMsg construGroupChatMsg(Context context, Cursor cursor) {
@@ -874,7 +902,7 @@ public class GroupMessageDAOImpl {
     public static int setAllMsgRead(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65568, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65569, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             if (newDb != null) {
                 DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
@@ -893,7 +921,7 @@ public class GroupMessageDAOImpl {
     public static int setMsgReaded(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65569, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             if (newDb != null) {
                 DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
@@ -960,38 +988,22 @@ public class GroupMessageDAOImpl {
     public static ArrayList<ChatMsg> fetchChatMsgInteranl(Context context, String str, int i, long j, long j2, long j3, boolean z, long[] jArr, MSGTYPEEXPLAN msgtypeexplan) {
         InterceptResult invokeCommon;
         String str2;
-        String str3;
         long abs;
-        String str4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{context, str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), jArr, msgtypeexplan})) == null) {
-            String str5 = "msgid ASC , _id ASC";
+            String str3 = "msgid ASC , _id ASC";
             int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 < 0) {
                 str2 = " < ? ";
-                str5 = "msgid DESC , _id DESC";
+                str3 = "msgid DESC , _id DESC";
             } else if (0 == j2) {
                 str2 = " = ? ";
             } else {
                 str2 = " > ? ";
             }
-            String str6 = str5;
-            String str7 = "msgid" + str2;
+            String str4 = str3;
+            String str5 = "msgid" + str2;
             String[] strArr = {String.valueOf(j)};
-            if (jArr != null && jArr.length > 0) {
-                if (AnonymousClass4.$SwitchMap$com$baidu$android$imsdk$group$db$GroupMessageDAOImpl$MSGTYPEEXPLAN[msgtypeexplan.ordinal()] != 1) {
-                    str4 = " in ";
-                } else {
-                    str4 = " not in ";
-                }
-                String str8 = " ( " + jArr[0];
-                for (int i3 = 1; i3 < jArr.length; i3++) {
-                    str8 = str8 + "," + jArr[i3];
-                }
-                str3 = str7 + " AND type" + str4 + (str8 + " )");
-            } else {
-                str3 = str7;
-            }
             sGroupChatMsgParse.setContext(context);
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             ArrayList<ChatMsg> arrayList = null;
@@ -1000,17 +1012,18 @@ public class GroupMessageDAOImpl {
                 if (dBGroupTableManager != null && !dBGroupTableManager.isExistGroupTable(context, str)) {
                     return null;
                 }
-                String str9 = "(select * from " + DBTableDefine.getGroupMessageTableName(str) + " union all select * from " + DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE + " where " + DBTableDefine.GroupMessageColumns.COLUMN_GROUPID + " = " + str + " AND status != 3 )";
+                String str6 = "(select * from " + DBTableDefine.getGroupMessageTableName(str) + " union all select * from " + DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE + " where " + DBTableDefine.GroupMessageColumns.COLUMN_GROUPID + " = " + str + " AND status != 3 )";
+                LogUtils.e(TAG, "fetchChatMsgInteranl table：" + str6);
                 if (i2 == 0) {
                     abs = 1;
                 } else {
                     abs = Math.abs(j2);
                 }
-                arrayList = newDb.query(sGroupChatMsgParse, str9, null, str3, strArr, null, null, str6, String.valueOf(abs));
+                arrayList = newDb.query(sGroupChatMsgParse, str6, null, str5, strArr, null, null, str4, String.valueOf(abs));
                 if (arrayList != null && arrayList.size() > 0) {
                     Iterator<ChatMsg> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        LogUtils.e(TAG, it.next().toString());
+                        LogUtils.e(TAG, "fetchChatMsgInteranl：" + it.next().toString());
                     }
                     if ((z && i2 < 0) || (!z && i2 > 0)) {
                         Collections.reverse(arrayList);
@@ -1095,7 +1108,7 @@ public class GroupMessageDAOImpl {
         InterceptResult invokeLL;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, context, str)) == null) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             if (newDb != null) {
                 DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
@@ -1155,7 +1168,7 @@ public class GroupMessageDAOImpl {
     public static int getUnReadCount(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, context, str)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 String groupMessageTableName = DBTableDefine.getGroupMessageTableName(str);
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
@@ -1210,7 +1223,7 @@ public class GroupMessageDAOImpl {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65567, null, context, chatMsg)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65568, null, context, chatMsg)) == null) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             String valueOf = String.valueOf(chatMsg.getContacter());
             if (newDb != null) {
@@ -1235,7 +1248,7 @@ public class GroupMessageDAOImpl {
     public static long[] getStarGroupSystemMessageType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
             return new long[]{1001, 1002, 1004, 1003, 1005, 1007, 1008, 1009, 1010, 1011};
         }
         return (long[]) invokeV.objValue;
@@ -1244,7 +1257,7 @@ public class GroupMessageDAOImpl {
     public static int updateMsgContent(Context context, String str, long j, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65571, null, new Object[]{context, str, Long.valueOf(j), str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{context, str, Long.valueOf(j), str2})) == null) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             if (newDb != null) {
                 DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
@@ -1263,57 +1276,62 @@ public class GroupMessageDAOImpl {
     public static int updateMsgStatus(Context context, ChatMsg chatMsg) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, context, chatMsg)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65573, null, context, chatMsg)) == null) {
             if (context != null && chatMsg != null) {
+                int i = DBResponseCode.ERROR_DB_OPEN;
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
-                if (newDb == null) {
-                    return DBResponseCode.ERROR_DB_OPEN;
-                }
-                if (chatMsg.getStatus() != 0) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("msgid", Long.valueOf(chatMsg.getMsgId()));
-                    contentValues.put("auto_risk_control_status", Integer.valueOf(chatMsg.getAutoRiskControlStatus()));
-                    contentValues.put("status", Integer.valueOf(chatMsg.getStatus()));
-                    contentValues.put("content", chatMsg.getJsonContent());
-                    contentValues.put("time", Long.valueOf(chatMsg.getMsgTime()));
-                    return newDb.update(DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE, contentValues, "_id = ? ", new String[]{String.valueOf(chatMsg.getRowId())}).intValue();
-                }
-                return newDb.execTransaction(new ITransaction(chatMsg, constructionGroupMessageContentValues(chatMsg), chatMsg.getRowId()) { // from class: com.baidu.android.imsdk.group.db.GroupMessageDAOImpl.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ContentValues val$cv;
-                    public final /* synthetic */ long val$localmsgRowid;
-                    public final /* synthetic */ ChatMsg val$msg;
+                if (newDb != null) {
+                    if (chatMsg.getStatus() != 0) {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("msgid", Long.valueOf(chatMsg.getMsgId()));
+                        contentValues.put("auto_risk_control_status", Integer.valueOf(chatMsg.getAutoRiskControlStatus()));
+                        contentValues.put("status", Integer.valueOf(chatMsg.getStatus()));
+                        contentValues.put("content", chatMsg.getJsonContent());
+                        contentValues.put("time", Long.valueOf(chatMsg.getMsgTime()));
+                        i = newDb.update(DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE, contentValues, "_id = ? ", new String[]{String.valueOf(chatMsg.getRowId())}).intValue();
+                    } else {
+                        i = newDb.execTransaction(new ITransaction(chatMsg, constructionGroupMessageContentValues(chatMsg), chatMsg.getRowId()) { // from class: com.baidu.android.imsdk.group.db.GroupMessageDAOImpl.3
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ ContentValues val$cv;
+                            public final /* synthetic */ long val$localmsgRowid;
+                            public final /* synthetic */ ChatMsg val$msg;
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {chatMsg, r7, Long.valueOf(r8)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {chatMsg, r7, Long.valueOf(r8)};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.val$msg = chatMsg;
+                                this.val$cv = r7;
+                                this.val$localmsgRowid = r8;
                             }
-                        }
-                        this.val$msg = chatMsg;
-                        this.val$cv = r7;
-                        this.val$localmsgRowid = r8;
-                    }
 
-                    @Override // com.baidu.android.imsdk.db.ITransaction
-                    public void execTransaction(SQLiteDatabase sQLiteDatabase) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, sQLiteDatabase) == null) {
-                            sQLiteDatabase.insert(DBTableDefine.getGroupMessageTableName(String.valueOf(this.val$msg.getContacter())), null, this.val$cv);
-                            sQLiteDatabase.delete(DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE, "_id = ? ", new String[]{String.valueOf(this.val$localmsgRowid)});
-                        }
+                            @Override // com.baidu.android.imsdk.db.ITransaction
+                            public void execTransaction(SQLiteDatabase sQLiteDatabase) {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, sQLiteDatabase) == null) {
+                                    sQLiteDatabase.insert(DBTableDefine.getGroupMessageTableName(String.valueOf(this.val$msg.getContacter())), null, this.val$cv);
+                                    sQLiteDatabase.delete(DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE, "_id = ? ", new String[]{String.valueOf(this.val$localmsgRowid)});
+                                }
+                            }
+                        }).intValue();
                     }
-                }).intValue();
+                }
+                if (i > 0) {
+                    ChatMessageDBManager.getInstance(context).updateChatSession(chatMsg);
+                }
+                return i;
             }
             return DBResponseCode.ERROR_PARAMETER;
         }

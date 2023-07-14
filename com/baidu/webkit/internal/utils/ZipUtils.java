@@ -13,12 +13,12 @@ import java.util.Stack;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ZipUtils implements INoProGuard {
     public static ZipUtils singleton;
     public ZipEntry nextEntry;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends ZipInputStream {
         public a(InputStream inputStream) {
             super(inputStream);

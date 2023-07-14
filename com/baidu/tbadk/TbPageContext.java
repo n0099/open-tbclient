@@ -10,15 +10,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tieba.h05;
 import com.baidu.tieba.kb;
 import com.baidu.tieba.l9;
+import com.baidu.tieba.q05;
 /* loaded from: classes4.dex */
 public interface TbPageContext<T> extends l9<T> {
     @Override // com.baidu.tieba.l9
     /* synthetic */ Context getContext();
 
-    h05 getLayoutMode();
+    q05 getLayoutMode();
 
     @Override // com.baidu.tieba.l9
     /* synthetic */ T getOrignalPage();

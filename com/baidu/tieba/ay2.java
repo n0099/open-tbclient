@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.optimization.quotasaver.QuotaSaver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,47 +11,119 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class ay2 implements zx2 {
+public final class ay2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ay2 b;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ zx2 a;
+    public final cy2 a;
+    public final List<by2> b;
+    public Boolean c;
+    public by2 d;
 
-    @Override // com.baidu.tieba.zx2
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : invokeV.intValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public cy2 a;
+        public List<by2> b;
+        public RuntimeException c;
 
-    @Override // com.baidu.tieba.zx2
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.b() : invokeV.booleanValue;
-    }
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    @Override // com.baidu.tieba.zx2
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.c() : invokeV.booleanValue;
-    }
+        @SuppressLint({"BDThrowableCheck"})
+        public a a(@NonNull List<by2> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                if (list.contains(null)) {
+                    this.c = new IllegalArgumentException("branches contains null value");
+                    if (!ay2.e) {
+                        this.b = null;
+                        return this;
+                    }
+                    throw this.c;
+                }
+                for (by2 by2Var : list) {
+                    if (by2Var.c() + 0 > 100) {
+                        this.c = new IllegalArgumentException("The sum of all flow in the branch must be in [0,100]");
+                        if (!ay2.e) {
+                            this.b = null;
+                            return this;
+                        }
+                        throw this.c;
+                    }
+                }
+                this.b = Collections.unmodifiableList(list);
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
 
-    @Override // com.baidu.tieba.zx2
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.d() : invokeV.booleanValue;
-    }
+        @Nullable
+        @SuppressLint({"BDThrowableCheck"})
+        public ay2 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.c != null) {
+                    if (!ay2.e) {
+                        return null;
+                    }
+                    throw this.c;
+                } else if (this.a == null) {
+                    this.c = new IllegalStateException("testSwitch == null");
+                    if (!ay2.e) {
+                        return null;
+                    }
+                    throw this.c;
+                } else {
+                    List<by2> list = this.b;
+                    if (list == null) {
+                        this.c = new IllegalStateException("branches == null");
+                        if (!ay2.e) {
+                            return null;
+                        }
+                        throw this.c;
+                    }
+                    for (by2 by2Var : list) {
+                        if (!cy2.c(this.a.f(), by2Var.e)) {
+                            this.c = new IllegalStateException("branch valueType error");
+                            if (!ay2.e) {
+                                return null;
+                            }
+                            throw this.c;
+                        }
+                    }
+                    return new ay2(this);
+                }
+            }
+            return (ay2) invokeV.objValue;
+        }
 
-    @Override // com.baidu.tieba.zx2
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.e() : invokeV.booleanValue;
+        public a c(@NonNull cy2 cy2Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cy2Var)) == null) {
+                this.a = cy2Var;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
     }
 
     static {
@@ -65,14 +139,25 @@ public final class ay2 implements zx2 {
                 return;
             }
         }
-        b = new ay2();
+        e = fs1.a;
     }
 
-    public ay2() {
-        zx2 yx2Var;
+    @NonNull
+    public cy2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (cy2) invokeV.objValue;
+    }
+
+    public ay2(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,13 +167,33 @@ public final class ay2 implements zx2 {
                 return;
             }
         }
-        if (QuotaSaver.l.c()) {
-            yx2Var = QuotaSaver.l.e();
-        } else {
-            yx2Var = new yx2();
+        this.c = Boolean.FALSE;
+        this.a = aVar.a;
+        this.b = aVar.b;
+    }
+
+    @Nullable
+    public synchronized by2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.c.booleanValue()) {
+                    return this.d;
+                }
+                int currentTimeMillis = (int) (System.currentTimeMillis() % 100);
+                this.c = Boolean.TRUE;
+                for (int i = 0; i < this.b.size(); i++) {
+                    by2 by2Var = this.b.get(i);
+                    currentTimeMillis -= by2Var.c();
+                    if (currentTimeMillis < 0) {
+                        this.d = by2Var;
+                        return by2Var;
+                    }
+                }
+                return null;
+            }
         }
-        c92.i("OptSwitcher", "by " + yx2Var);
-        Unit unit = Unit.INSTANCE;
-        this.a = yx2Var;
+        return (by2) invokeV.objValue;
     }
 }

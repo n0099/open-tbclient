@@ -1,38 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes5.dex */
 public class be3 extends zd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes5.dex */
+    public class a implements pn2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vb3 a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ UnitedSchemeEntity c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ be3 e;
+
+        public a(be3 be3Var, vb3 vb3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {be3Var, vb3Var, callbackHandler, unitedSchemeEntity, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = be3Var;
+            this.a = vb3Var;
+            this.b = callbackHandler;
+            this.c = unitedSchemeEntity;
+            this.d = str;
+        }
+
+        @Override // com.baidu.tieba.pn2
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.e.d) {
+                    nb3 f = nb3.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f156e);
+                    f.l(2);
+                    f.G();
+                }
+                this.e.n(this.c, this.b, this.d);
+            }
+        }
+
+        @Override // com.baidu.tieba.pn2
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("success", "1");
+                } catch (JSONException e) {
+                    if (fs1.a) {
+                        e.printStackTrace();
+                    }
+                }
+                if (this.e.d) {
+                    zd3.m("0", "btn", "success");
+                    nb3 f = nb3.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f0140);
+                    f.l(2);
+                    f.G();
+                }
+                UnitedSchemeUtility.safeCallback(this.b, this.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.d);
+            }
+        }
+
+        @Override // com.baidu.tieba.pn2
+        public void c(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+                if (this.e.d && !z) {
+                    nb3 f = nb3.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f013f);
+                    f.l(2);
+                    f.G();
+                }
+                this.e.n(this.c, this.b, this.d);
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public be3(zc3 zc3Var) {
-        super(zc3Var, "/swanAPI/ubcFlowJar");
+    public be3(sc3 sc3Var) {
+        super(sc3Var, "/swanAPI/deleteFavor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zc3Var};
+            Object[] objArr = {sc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((sc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,96 +122,56 @@ public class be3 extends zd3 {
     }
 
     @Override // com.baidu.tieba.zd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
-        InterceptResult invokeLLLL;
+    public boolean j(vb3 vb3Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLL;
+        String optString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
-            if (zd3.b) {
-                Log.d("SwanAppAction", "start ubc flor jar");
-            }
-            if (cc3Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, vb3Var, unitedSchemeEntity)) == null) {
+            String param = unitedSchemeEntity.getParam("params");
+            if (TextUtils.isEmpty(param)) {
                 return false;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String optString = optParamsAsJo.optString("flowId");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
-                return false;
-            }
-            char c = 65535;
-            switch (optString.hashCode()) {
-                case 53647:
-                    if (optString.equals("670")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 53648:
-                    if (optString.equals("671")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 55357:
-                    if (optString.equals("805")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 56506:
-                    if (optString.equals("967")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1508542:
-                    if (optString.equals("1153")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 1529139648:
-                    if (optString.equals("renderMonitorLog")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                if (c != 5) {
-                                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
-                                    return false;
-                                }
-                                n32.C(optParamsAsJo);
-                            } else if (cc3Var.W().p0()) {
-                                l92.g(optParamsAsJo.optJSONArray("data"));
-                            } else {
-                                s92.i(optParamsAsJo.optJSONArray("data"));
-                            }
-                        } else {
-                            n32.D(optParamsAsJo);
-                        }
-                    } else {
-                        n32.E(optParamsAsJo.optJSONArray("data"));
-                    }
+            try {
+                JSONObject jSONObject = new JSONObject(param);
+                if (this.d) {
+                    optString = vb3Var.O();
                 } else {
-                    n32.F(optParamsAsJo.optJSONArray("data"));
+                    optString = jSONObject.optString("appid");
                 }
-            } else {
-                n32.B(optParamsAsJo, cc3Var);
+                this.c = optString;
+                return !TextUtils.isEmpty(optString);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zd3
+    public void k(vb3 vb3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vb3Var, unitedSchemeEntity, callbackHandler, str) == null) {
+            if (this.d) {
+                zd3.m("0", "btn", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST);
+            } else {
+                zd3.m("0", "api", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST);
+            }
+            SwanFavorDataManager h = SwanFavorDataManager.h();
+            String str2 = this.c;
+            a aVar = new a(this, vb3Var, callbackHandler, unitedSchemeEntity, str);
+            ql2 l = ql2.l();
+            l.n(3);
+            h.c(str2, aVar, l.k());
+        }
+    }
+
+    @Override // com.baidu.tieba.zd3
+    public void l(vb3 vb3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        kw1 l0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, vb3Var, unitedSchemeEntity, callbackHandler, str) == null) && this.d && (l0 = cv2.l0()) != null) {
+            l0.e(vb3Var);
+        }
     }
 }

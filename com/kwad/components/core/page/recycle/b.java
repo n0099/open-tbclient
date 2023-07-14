@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends g {
     public Rect Gp;
     public int Gq;
@@ -20,7 +20,7 @@ public class b extends g {
     public boolean Gv;
     public boolean Gw;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         boolean nV();
     }

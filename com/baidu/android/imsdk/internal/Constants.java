@@ -87,9 +87,16 @@ public final class Constants {
     public static final String EXTRA_CONFIG_LIMIT = "limit";
     public static final String EXTRA_CONTACTER = "contacter";
     public static final String EXTRA_CONTACTER_IS_ZHIDA = "contacter_is_zhida";
+    public static final String EXTRA_CONTACTER_PA_UID = "contacter_pa_uid";
+    public static final String EXTRA_CONTACTER_UK = "contacter_uk";
+    public static final String EXTRA_CONTACTER_USER_TYPE = "contacter_user_type";
     public static final String EXTRA_DEL_MSG_IDS = "del_msg_ids";
     public static final String EXTRA_DESCRIPTION = "description";
     public static final String EXTRA_DISCONNECT = "disconnect_initital";
+    public static final String EXTRA_EMOJI_CONTENT = "emoji_content";
+    public static final String EXTRA_EMOJI_OP_TYPE = "op_type";
+    public static final String EXTRA_EMOJI_PACKAGE_ID = "emoji_package_id";
+    public static final String EXTRA_EMOJI_TO_USER = "to_user";
     public static final String EXTRA_END_MSGID = "msgid_end";
     public static final String EXTRA_EVENT_LIST = "event_list";
     public static final String EXTRA_FETCH_SESSION_MODE = "fetch_session_mode";
@@ -200,7 +207,7 @@ public final class Constants {
     public static final String KEY_USER_SETTING_NOT_CONCERNED = "user_setting_not_concerned";
     public static final String KEY_VCODE = "imsdk_product_vcode";
     public static final String KEY_ZID = "imsdk_product_zid";
-    public static final String LITTLE_VERSION = "5";
+    public static final String LITTLE_VERSION = "0";
     public static final int LOGIN_STATE_LOGIN = 3;
     public static final int LOGIN_STATE_LOGINING = 1;
     public static final int LOGIN_STATE_LOGIN_FAILED = 2;
@@ -227,6 +234,7 @@ public final class Constants {
     public static final int METHOD_IM_DEL_BUSINESS_SESSION_MSG = 199;
     public static final int METHOD_IM_DEL_FRIEND = 58;
     public static final int METHOD_IM_DEL_MSG = 57;
+    public static final int METHOD_IM_EMOJI = 214;
     public static final int METHOD_IM_FETCH_BUSINESS_SESSION_MSG = 198;
     public static final int METHOD_IM_FETCH_CONFIG_MSG = 193;
     public static final int METHOD_IM_FETCH_MSG_BY_MSGID = 93;
@@ -269,7 +277,7 @@ public final class Constants {
     public static final int METHOD_MEDIA_NOTIFY = 226;
     public static final int METHOD_SEND_USER_MSG = 1048578;
     public static final int METHOD_SYNC_DIALOG = 94;
-    public static final String MIDDLE_VERSION = "3";
+    public static final String MIDDLE_VERSION = "6";
     public static final int MSG_NOTIFY = 1;
     public static final int MSG_NOT_NOTIFY = 0;
     public static final int NOT_CLEAR_AFTER_LOGOUT = 0;

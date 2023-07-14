@@ -1,128 +1,175 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.uistate.CardPicUiStateKt;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function4;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class u47 extends x47 {
+public class u47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final m57 b;
-    public String c;
-    public m67 d;
-    public final Function4<Context, Integer, Rect, String, Unit> e;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    /* loaded from: classes8.dex */
+    public interface c {
+        void T(List<String> list);
+
+        void v0();
+    }
+
+    /* loaded from: classes8.dex */
+    public interface d {
+        void a(ImageUploadResult imageUploadResult);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AtomicInteger a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ c c;
+
+        public a(u47 u47Var, AtomicInteger atomicInteger, List list, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u47Var, atomicInteger, list, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (obj instanceof u47) {
-                u47 u47Var = (u47) obj;
-                return Intrinsics.areEqual(this.b, u47Var.b) && Intrinsics.areEqual(this.c, u47Var.c) && Intrinsics.areEqual(this.d, u47Var.d) && Intrinsics.areEqual(this.e, u47Var.e);
+            this.a = atomicInteger;
+            this.b = list;
+            this.c = cVar;
+        }
+
+        @Override // com.baidu.tieba.u47.d
+        public void a(ImageUploadResult imageUploadResult) {
+            ImageUploadResult.picInfo picinfo;
+            ImageUploadResult.PicDetailedInfo picDetailedInfo;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
+                this.a.decrementAndGet();
+                if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
+                    this.b.add(imageUploadResult.picInfo.bigPic.picUrl);
+                }
+                if (this.a.get() == 0) {
+                    if (!ListUtils.isEmpty(this.b)) {
+                        this.c.T(this.b);
+                    } else {
+                        this.c.v0();
+                    }
+                }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((((this.b.hashCode() * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode() : invokeV.intValue;
-    }
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageFileInfo a;
+        public final /* synthetic */ d b;
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CardPicUiState(cardPicData=" + this.b + ", schema=" + this.c + ", statData=" + this.d + ", onImageClick=" + this.e + ')';
+        public b(u47 u47Var, ImageFileInfo imageFileInfo, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u47Var, imageFileInfo, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = imageFileInfo;
+            this.b = dVar;
         }
-        return (String) invokeV.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String filePath = this.a.getFilePath();
+                ImageUploader imageUploader = new ImageUploader("from_user_collect");
+                if (this.a.isGif()) {
+                    this.b.a(imageUploader.uploadInBackground(filePath, true, false));
+                    return;
+                }
+                Bitmap b = lb9.b(this.a);
+                if (b == null) {
+                    this.b.a(null);
+                    return;
+                }
+                String saveBitmapByAbsolutelyPath = FileHelper.saveBitmapByAbsolutelyPath(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b, 60);
+                b.recycle();
+                if (TextUtils.isEmpty(saveBitmapByAbsolutelyPath)) {
+                    this.b.a(null);
+                    return;
+                }
+                ImageUploadResult uploadInBackground = imageUploader.uploadInBackground(saveBitmapByAbsolutelyPath, false, false);
+                FileHelper.deleteFile(new File(saveBitmapByAbsolutelyPath));
+                this.b.a(uploadInBackground);
+            }
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public u47(m57 cardPicData, String schema, m67 statData, Function4<? super Context, ? super Integer, ? super Rect, ? super String, Unit> onImageClick) {
-        super(null, null, 3, null);
+    public u47() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cardPicData, schema, statData, onImageClick};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(cardPicData, "cardPicData");
-        Intrinsics.checkNotNullParameter(schema, "schema");
-        Intrinsics.checkNotNullParameter(statData, "statData");
-        Intrinsics.checkNotNullParameter(onImageClick, "onImageClick");
-        this.b = cardPicData;
-        this.c = schema;
-        this.d = statData;
-        this.e = onImageClick;
     }
 
-    public /* synthetic */ u47(m57 m57Var, String str, m67 m67Var, Function4 function4, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(m57Var, (i & 2) != 0 ? "" : str, (i & 4) != 0 ? new m67(null, null, null, 7, null) : m67Var, (i & 8) != 0 ? CardPicUiStateKt.a : function4);
-    }
-
-    public final m57 d() {
-        InterceptResult invokeV;
+    public void a(ArrayList<ImageFileInfo> arrayList, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, arrayList, cVar) != null) || ListUtils.isEmpty(arrayList)) {
+            return;
         }
-        return (m57) invokeV.objValue;
+        AtomicInteger atomicInteger = new AtomicInteger();
+        atomicInteger.set(arrayList.size());
+        ArrayList arrayList2 = new ArrayList();
+        Iterator<ImageFileInfo> it = arrayList.iterator();
+        while (it.hasNext()) {
+            b(it.next(), new a(this, atomicInteger, arrayList2, cVar));
+        }
     }
 
-    public final Function4<Context, Integer, Rect, String, Unit> e() {
-        InterceptResult invokeV;
+    public final void b(ImageFileInfo imageFileInfo, d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
+            bb9.b().a(new b(this, imageFileInfo, dVar));
         }
-        return (Function4) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final m67 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (m67) invokeV.objValue;
     }
 }

@@ -1,148 +1,152 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.os.IBinder;
-import android.view.View;
-import android.view.Window;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tieba.ad.download.rectify.DownloadRectifyView;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.searchbox.download.statistics.ApkStaticNetService;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
+import com.baidu.searchbox.settings.base.UpdatePackageDownloadInfo;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.coreExtra.data.CombineDownload;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.util.Date;
 /* loaded from: classes7.dex */
 public class n66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlertDialog a;
-        public final /* synthetic */ Activity b;
-
-        public a(AlertDialog alertDialog, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alertDialog, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                String versionName = TbadkCoreApplication.getInst().getVersionName();
+                String w = da5.p().w(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, "");
+                if (TextUtils.isEmpty(versionName)) {
+                    return null;
                 }
+                if (versionName.equals(w)) {
+                    return da5.p().w("apk_md5", "");
+                }
+                da5.p().J(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, versionName);
+                String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
+                da5.p().J("apk_md5", aPKMd5);
+                return aPKMd5;
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.detailException(e);
+                return null;
             }
-            this.a = alertDialog;
-            this.b = activity;
         }
+        return (String) invokeV.objValue;
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                n66.a(this.a, this.b);
+    public static void b(Context context, VersionData versionData) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, versionData) == null) {
+            try {
+                str = TbMd5.creatSignInt(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.detailException(e);
+                str = "-1";
+                Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+                intent.setFlags(268435488);
+                intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+                intent.putExtra("backup", "0");
+                intent.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
+                Bundle bundle = new Bundle();
+                bundle.putInt("versioncode", versionData.getNewVersionCode());
+                bundle.putLong("patch_size", wg.g(versionData.getPatchSize(), 0L));
+                bundle.putString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, versionData.getPatch());
+                bundle.putString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, context.getString(R.string.obfuscated_res_0x7f0f029e));
+                bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+                bundle.putString(ApkStaticNetService.STATIC_DOWNLOAD_URL, versionData.getUrl());
+                bundle.putString("versionname", versionData.getNewVersion());
+                bundle.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
+                bundle.putString("updatetime", xi.getDateStringDay(new Date(System.currentTimeMillis())));
+                bundle.putString("size", versionData.getSize());
+                bundle.putString("signmd5", str);
+                bundle.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
+                intent.putExtra("extra_client_downloadinfo", bundle);
+                context.startActivity(intent);
+            } catch (NumberFormatException e2) {
+                BdLog.detailException(e2);
+                str = "-1";
+                Intent intent2 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+                intent2.setFlags(268435488);
+                intent2.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+                intent2.putExtra("backup", "0");
+                intent2.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("versioncode", versionData.getNewVersionCode());
+                bundle2.putLong("patch_size", wg.g(versionData.getPatchSize(), 0L));
+                bundle2.putString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, versionData.getPatch());
+                bundle2.putString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, context.getString(R.string.obfuscated_res_0x7f0f029e));
+                bundle2.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+                bundle2.putString(ApkStaticNetService.STATIC_DOWNLOAD_URL, versionData.getUrl());
+                bundle2.putString("versionname", versionData.getNewVersion());
+                bundle2.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
+                bundle2.putString("updatetime", xi.getDateStringDay(new Date(System.currentTimeMillis())));
+                bundle2.putString("size", versionData.getSize());
+                bundle2.putString("signmd5", str);
+                bundle2.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
+                intent2.putExtra("extra_client_downloadinfo", bundle2);
+                context.startActivity(intent2);
             }
+            Intent intent22 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+            intent22.setFlags(268435488);
+            intent22.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+            intent22.putExtra("backup", "0");
+            intent22.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
+            Bundle bundle22 = new Bundle();
+            bundle22.putInt("versioncode", versionData.getNewVersionCode());
+            bundle22.putLong("patch_size", wg.g(versionData.getPatchSize(), 0L));
+            bundle22.putString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, versionData.getPatch());
+            bundle22.putString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, context.getString(R.string.obfuscated_res_0x7f0f029e));
+            bundle22.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+            bundle22.putString(ApkStaticNetService.STATIC_DOWNLOAD_URL, versionData.getUrl());
+            bundle22.putString("versionname", versionData.getNewVersion());
+            bundle22.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
+            bundle22.putString("updatetime", xi.getDateStringDay(new Date(System.currentTimeMillis())));
+            bundle22.putString("size", versionData.getSize());
+            bundle22.putString("signmd5", str);
+            bundle22.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
+            intent22.putExtra("extra_client_downloadinfo", bundle22);
+            context.startActivity(intent22);
         }
     }
 
-    public static final boolean a(Dialog dialog, Activity activity) {
+    public static boolean c(Context context, CombineDownload combineDownload) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, combineDownload)) == null) {
+            if (combineDownload == null || cca.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) {
                 return false;
             }
-            dialog.dismiss();
             return true;
         }
         return invokeLL.booleanValue;
     }
 
-    public static final boolean b(View view2) {
-        InterceptResult invokeL;
-        IBinder windowToken;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
-                try {
-                    if (windowToken.isBinderAlive()) {
-                        if (windowToken.pingBinder()) {
-                            return true;
-                        }
-                        return false;
-                    }
-                    return false;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && TbSingleton.getInstance().getSyncModel() != null) {
+            yf5 syncModel = TbSingleton.getInstance().getSyncModel();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), TbSingleton.getInstance().getSyncModel().u(), syncModel.j())));
         }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean c(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing()) {
-                return false;
-            }
-            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Dialog d(@NonNull m66 m66Var, @NonNull View view2, @NonNull Activity activity, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnShowListener onShowListener) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, m66Var, view2, activity, onDismissListener, onShowListener)) == null) {
-            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f10010c).create();
-            GreyUtil.grey(create);
-            create.setCanceledOnTouchOutside(true);
-            create.setOnDismissListener(onDismissListener);
-            create.setOnShowListener(onShowListener);
-            DownloadRectifyView downloadRectifyView = new DownloadRectifyView(activity);
-            downloadRectifyView.a(m66Var);
-            downloadRectifyView.setDownloadView(view2);
-            downloadRectifyView.setOnCloseClickListener(new a(create, activity));
-            c(create, activity);
-            Window window = create.getWindow();
-            if (window != null) {
-                window.setGravity(80);
-                window.setLayout(-1, -2);
-                window.setContentView(downloadRectifyView);
-            }
-            return create;
-        }
-        return (Dialog) invokeLLLLL.objValue;
     }
 }

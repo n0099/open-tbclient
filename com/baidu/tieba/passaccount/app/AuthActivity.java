@@ -22,7 +22,7 @@ import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k79;
+import com.baidu.tieba.od9;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -257,13 +257,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             int i = this.u;
             if (i == 0) {
-                k79.f().b(z, str);
+                od9.f().b(z, str);
             } else if (i == 1) {
-                k79.f().e(z);
+                od9.f().e(z);
             } else if (i == 2) {
-                k79.f().c(z);
+                od9.f().c(z);
             } else {
-                k79.f().a(null);
+                od9.f().a(null);
             }
             finish();
         }

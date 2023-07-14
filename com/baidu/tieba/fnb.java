@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-
-import android.os.Message;
 /* loaded from: classes5.dex */
-public interface fnb {
-    void a(Message message, int i);
+public interface fnb<T> {
+    void onFailure(int i, String str);
+
+    void onSuccess(T t);
 }

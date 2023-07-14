@@ -6,7 +6,7 @@ import com.kwad.sdk.service.kwai.d;
 import java.util.Collection;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.kwad.sdk.core.network.b {
     public b(String str, List<String> list) {
         putBody("adxId", str);

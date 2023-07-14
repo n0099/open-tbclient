@@ -1,147 +1,48 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tieba.video.LiveConfig;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dha {
+public class dha extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public final VideoItemData a;
-    @Nullable
-    public final LiveConfig b;
+    public final MainTabActivity a;
+    public final aga b;
 
-    public dha(@Nullable VideoItemData videoItemData, @Nullable LiveConfig liveConfig) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dha(MainTabActivity mainTabActivity, pfa pfaVar) {
+        super(2001437);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {videoItemData, liveConfig};
+            Object[] objArr = {mainTabActivity, pfaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = videoItemData;
-        this.b = liveConfig;
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
-    public void a(int i, String str, int i2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        aga agaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) && this.a != null && this.b != null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_AUTO_JUMP);
-            statisticItem.addParam("tid", this.a.thread_id);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_source", this.a.mRecomSource);
-            statisticItem.addParam("obj_type", str);
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, this.b.getCurrentRealHitStrategy());
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM3, this.b.getWaitSecond());
-            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, this.b.getWaitSecond());
-            if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
-                statisticItem.addParam(TiebaStatic.YYParams.YYSID, this.a.getLivePageData().mYyExtData.mSid);
-                statisticItem.addParam(TiebaStatic.YYParams.YYSSID, this.a.getLivePageData().mYyExtData.mSsid);
-                statisticItem.addParam("yyuid", this.a.getLivePageData().mYyExtData.mYyUid);
-            }
-            statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, 1);
-            statisticItem.addParam("template_id", 1);
-            TiebaStatic.log(statisticItem);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof yea) && ((yea) customResponsedMessage.getData()).b && this.a.y == 0 && (agaVar = this.b) != null && agaVar.a() != null) {
+            this.b.a().d();
         }
-    }
-
-    public void c(int i, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) && this.a != null && this.b != null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_SHOW);
-            statisticItem.addParam("tid", this.a.thread_id);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_source", this.a.mRecomSource);
-            statisticItem.addParam("obj_type", str);
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, this.b.getCurrentRealHitStrategy());
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM3, this.b.getWaitSecond());
-            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, this.b.getWaitSecond());
-            if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
-                statisticItem.addParam(TiebaStatic.YYParams.YYSID, this.a.getLivePageData().mYyExtData.mSid);
-                statisticItem.addParam(TiebaStatic.YYParams.YYSSID, this.a.getLivePageData().mYyExtData.mSsid);
-                statisticItem.addParam("yyuid", this.a.getLivePageData().mYyExtData.mYyUid);
-            }
-            statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, 1);
-            statisticItem.addParam("template_id", 1);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public void b(int i, String str, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) && this.a != null && this.b != null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_CLICK);
-            statisticItem.addParam("tid", this.a.thread_id);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_source", this.a.mRecomSource);
-            statisticItem.addParam("obj_name", i2);
-            statisticItem.addParam("obj_type", str);
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, this.b.getCurrentRealHitStrategy());
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM3, this.b.getWaitSecond());
-            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, this.b.getWaitSecond());
-            if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
-                statisticItem.addParam(TiebaStatic.YYParams.YYSID, this.a.getLivePageData().mYyExtData.mSid);
-                statisticItem.addParam(TiebaStatic.YYParams.YYSSID, this.a.getLivePageData().mYyExtData.mSsid);
-                statisticItem.addParam("yyuid", this.a.getLivePageData().mYyExtData.mYyUid);
-            }
-            statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, 1);
-            statisticItem.addParam("template_id", 1);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    @Nullable
-    public to9 d(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, str)) == null) {
-            if (this.a != null && this.b != null) {
-                to9 to9Var = new to9();
-                to9Var.e = TbadkCoreApplication.getCurrentAccount();
-                to9Var.c = this.a.thread_id;
-                to9Var.a = String.valueOf(i);
-                to9Var.f = this.a.mRecomSource;
-                to9Var.A = str;
-                to9Var.B = String.valueOf(this.b.getCurrentRealHitStrategy());
-                to9Var.g = String.valueOf(this.b.getWaitSecond());
-                to9Var.h = TiebaStatic.YYValues.YY_LIVE;
-                to9Var.i = String.valueOf(YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
-                if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
-                    to9Var.C = this.a.getLivePageData().mYyExtData.mSid;
-                    to9Var.D = this.a.getLivePageData().mYyExtData.mSsid;
-                    to9Var.E = this.a.getLivePageData().mYyExtData.mYyUid;
-                }
-                to9Var.F = "1";
-                to9Var.G = "1";
-                return to9Var;
-            }
-            return null;
-        }
-        return (to9) invokeIL.objValue;
     }
 }

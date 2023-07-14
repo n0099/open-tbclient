@@ -1,84 +1,46 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class gl2 extends ProviderDelegation {
+import java.util.ArrayList;
+/* loaded from: classes6.dex */
+public class gl2 extends cl2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947797692, "Lcom/baidu/tieba/gl2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947797692, "Lcom/baidu/tieba/gl2;");
-                return;
-            }
-        }
-        a = ms1.a;
-    }
-
-    public gl2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gl2(@NonNull bl2 bl2Var) {
+        super(bl2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bl2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((bl2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.cl2
+    public void e() {
+        ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return hl2.b().c(i);
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt("level", i);
-            r83 c = p83.c(gl2.class, bundle);
-            int i2 = 0;
-            if (c.a()) {
-                i2 = c.a.getInt("count", 0);
-            }
-            if (a) {
-                Log.d("RecoveryCountDelegation", "GetRecoveryCount level=" + i + ";count=" + i2);
-            }
-            return i2;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (arrayList = this.d.b) != null && !arrayList.isEmpty()) {
+            fk2 d = hk2.c().d();
+            ArrayList<String> arrayList2 = this.d.b;
+            ql2 l = ql2.l();
+            l.i(15);
+            d.g(arrayList2, true, false, l.k());
         }
-        return invokeI.intValue;
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt("level", -1);
-            Bundle bundle2 = new Bundle();
-            bundle2.putInt("count", hl2.b().c(i));
-            return bundle2;
-        }
-        return (Bundle) invokeL.objValue;
     }
 }

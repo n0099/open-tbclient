@@ -55,17 +55,17 @@ public class bc {
         return invokeV.booleanValue;
     }
 
-    public void d() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = true;
             this.a.scheduleIdleTask(true);
         }
     }
 
-    public void e() {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b = true;
             this.c = true;
             this.a.scheduleIdleTask(false);
@@ -80,6 +80,13 @@ public class bc {
             } else {
                 runnable.run();
             }
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a.removeRunnable(str);
         }
     }
 }

@@ -1,74 +1,189 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hz1 extends ez1 {
+public class hz1 extends jb2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hz1(zc3 zc3Var) {
-        super(zc3Var, "/swanAPI/cloudRequest");
+    @Override // com.baidu.tieba.jb2, com.baidu.tieba.bb2
+    public boolean e2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends gd2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hz1 c;
+
+        public a(hz1 hz1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hz1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = hz1Var;
+        }
+
+        @Override // com.baidu.tieba.gd2, com.baidu.tieba.jd2
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return super.a(str);
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    public hz1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((zc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ez1, com.baidu.tieba.zd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.jb2
+    public jd2 b3() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
-            return super.d(context, unitedSchemeEntity, callbackHandler, cc3Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new a(this);
         }
-        return invokeLLLL.booleanValue;
+        return (jd2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ez1
-    public void j(Response response, CallbackHandler callbackHandler, String str) {
-        String header;
+    public final void i3() {
+        hs1 d;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) && (header = response.header("Content-Type", "")) != null && header.contains("application/json")) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("statusCode", response.code());
-                jSONObject.put("header", e33.s(response.headers()));
-                jSONObject.put("body", response.body().string());
-                JSONObject jSONObject2 = new JSONObject(jSONObject.optString("body"));
-                String optString = jSONObject2.optString("errno", String.valueOf(0));
-                String optString2 = jSONObject2.optString("errmsg");
-                if (response.isSuccessful() && !cz1.o(optString)) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
-                    return;
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(cz1.j(optString), cz1.k(optString2)).toString());
-            } catch (Exception e) {
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, e.getMessage()).toString());
-            }
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !SwanAppAllianceLoginHelper.d.c() && (d = SwanAppAllianceLoginHelper.d.d()) != null) {
+            d.onResult(-2);
         }
+    }
+
+    @Override // com.baidu.tieba.jb2
+    public ey1 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return pi2.U().f0().f(getContext());
+        }
+        return (ey1) invokeV.objValue;
+    }
+
+    public final int j3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (f2()) {
+                return 18;
+            }
+            return 12;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.jb2, com.baidu.swan.support.v4.app.Fragment
+    public void z0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            i3();
+            super.z0();
+        }
+    }
+
+    @Override // com.baidu.tieba.jb2, com.baidu.tieba.bb2
+    public boolean H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            cy1 cy1Var = this.H0;
+            if (cy1Var != null && cy1Var.canGoBack()) {
+                this.H0.goBack();
+                return true;
+            }
+            i3();
+            SwanAppAllianceLoginHelper.d.a(iz1.d(), iz1.a());
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jb2
+    public void c3() {
+        FragmentActivity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (activity = getActivity()) != null && this.g0 == null) {
+            this.g0 = new ci4(activity, this.f0, j3(), cv2.K(), new er3());
+            new l13(this.g0, this).z();
+        }
+    }
+
+    @Override // com.baidu.tieba.jb2, com.baidu.tieba.bb2
+    public void W1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.W1(view2);
+            this.f0.setRightZoneVisibility(true);
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r6v3, types: [com.baidu.tieba.cy1] */
+    @Override // com.baidu.tieba.jb2, com.baidu.swan.support.v4.app.Fragment
+    public View y0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00e2, viewGroup, false);
+            W1(inflate);
+            ey1 j = j();
+            this.G0 = j;
+            j.W(b3());
+            this.H0 = this.G0.r();
+            this.G0.loadUrl(this.I0);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901bc);
+            this.G0.i(frameLayout, this.H0.covertToView());
+            Y2(frameLayout);
+            if (V1()) {
+                return Y1(inflate);
+            }
+            return inflate;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

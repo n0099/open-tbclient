@@ -1,82 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.frs.FrsNoListItemViewHolder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class cb6 extends kn<ae7, FrsNoListItemViewHolder> {
+public class cb6 implements lx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public final int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cb6(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), ae7.b);
+    public cb6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = (xi.j(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041c);
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ae7 ae7Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        t(i, view2, viewGroup, ae7Var, frsNoListItemViewHolder);
-        return view2;
+    @Override // com.baidu.tieba.nx3
+    public void a(sc3 sc3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, sc3Var) == null) && sc3Var != null) {
+            sc3Var.b(new eb6(sc3Var));
+            sc3Var.b(new xa6(sc3Var));
+            sc3Var.b(new lt3(sc3Var));
+            sc3Var.b(new nt3(sc3Var));
+            sc3Var.b(new pt3(sc3Var));
+            sc3Var.b(new je3(sc3Var));
+            sc3Var.b(new ke3(sc3Var));
+            sc3Var.b(new kg3(sc3Var));
+            sc3Var.b(new qt3(sc3Var));
+            sc3Var.b(new ny1(sc3Var));
+            sc3Var.b(new bb6(sc3Var));
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public FrsNoListItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.nx3
+    @Nullable
+    public Map<String, Object> b(@NonNull wz1 wz1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
-            ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
-            generateLayoutParamsByParent.width = -1;
-            generateLayoutParamsByParent.height = this.b;
-            inflate.setLayoutParams(generateLayoutParamsByParent);
-            return new FrsNoListItemViewHolder(inflate, viewGroup);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wz1Var)) == null) {
+            return SwanApi$$ModulesProvider.getV8ApiModules(wz1Var);
         }
-        return (FrsNoListItemViewHolder) invokeL.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, ae7 ae7Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.nx3
+    @Nullable
+    public Map<String, Object> c(@NonNull wz1 wz1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ae7Var, frsNoListItemViewHolder})) == null) {
-            frsNoListItemViewHolder.d.setTextOption(NoDataViewFactory.e.d(null, this.a.getContext().getResources().getString(R.string.no_data_common_txt)));
-            frsNoListItemViewHolder.d.f(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return view2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wz1Var)) == null) {
+            return SwanApi$$ModulesProvider.getWebviewApiModules(wz1Var);
         }
-        return (View) invokeCommon.objValue;
+        return (Map) invokeL.objValue;
     }
 }

@@ -21,6 +21,7 @@ public interface ResponseCode {
     public static final int FILE_NOT_FOUND = 1007;
     public static final int FRIEND_GROUP_UPDATED = 610;
     public static final int HTTP_IOEXCEPTION_ERROR = 1012;
+    public static final int HTTP_RESPONSE_SUCCESS = 200;
     public static final int HTTP_RESPONS_ERROR = 1011;
     public static final int INTERNAL_ERROR = 1003;
     public static final int JSON_PARSE_EXCEPTION = 1010;

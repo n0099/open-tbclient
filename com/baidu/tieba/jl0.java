@@ -1,25 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.crius.uiwidget.ApkDownloadView;
-import com.baidu.nadcore.crius.uiwidget.JumpButton;
-import com.baidu.nadcore.crius.uiwidget.SyncTextView;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.crius.data.RenderData;
-import com.baidu.searchbox.crius.factory.IComponentFactory;
-import com.baidu.searchbox.crius.util.ColorUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jl0 implements IComponentFactory {
+public class jl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public al0 a;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final jl0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-686350179, "Lcom/baidu/tieba/jl0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-686350179, "Lcom/baidu/tieba/jl0$b;");
+                    return;
+                }
+            }
+            a = new jl0(null);
+        }
+    }
 
     public jl0() {
         Interceptable interceptable = $ic;
@@ -31,81 +56,182 @@ public class jl0 implements IComponentFactory {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        synchronized (jl0.class) {
+            al0 al0Var = (al0) ServiceManager.getService(al0.a);
+            this.a = al0Var;
+            if (al0Var == null) {
+                this.a = al0.b;
             }
         }
     }
 
-    @Override // com.baidu.searchbox.crius.factory.IComponentFactory
-    public View createComponent(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (!NativeConstants.COMPONENT_CLOSEAD.equalsIgnoreCase(str) && !"close".equalsIgnoreCase(str)) {
-                if (NativeConstants.COMPONENT_VIEWBTN.equalsIgnoreCase(str)) {
-                    return new JumpButton(context);
-                }
-                if ("download".equalsIgnoreCase(str)) {
-                    return new ApkDownloadView(context);
-                }
-                if (NativeConstants.COMPONENT_SYNC_TEXT_VIEW.equalsIgnoreCase(str)) {
-                    return new SyncTextView(context);
-                }
-                return null;
-            }
-            ImageView imageView = new ImageView(context);
-            imageView.setId(R.id.nad_base_delete_id);
-            imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.nad_pop_close_btn));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            imageView.setContentDescription("不感兴趣");
-            return imageView;
-        }
-        return (View) invokeLL.objValue;
+    public /* synthetic */ jl0(a aVar) {
+        this();
     }
 
-    @Override // com.baidu.searchbox.crius.factory.IComponentFactory
-    public boolean renderComponent(String str, View view2, RenderData renderData, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        String str2;
+    public static jl0 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, view2, renderData, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (renderData == null) {
-                return false;
-            }
-            if (!NativeConstants.COMPONENT_CLOSEAD.equalsIgnoreCase(str) && !"close".equalsIgnoreCase(str)) {
-                if (view2 instanceof JumpButton) {
-                    ((JumpButton) view2).setText(renderData.text);
-                    return true;
-                } else if (view2 instanceof ApkDownloadView) {
-                    ApkDownloadView apkDownloadView = (ApkDownloadView) view2;
-                    apkDownloadView.setDownloadStyle(renderData.downloadStyle);
-                    apkDownloadView.setTextSize(renderData.fontSize);
-                    apkDownloadView.setTextColor(ColorUtils.getColorRes(z, renderData.colorNight, renderData.color));
-                    apkDownloadView.setProgressColor(ColorUtils.getColorRes(z, renderData.progressNightColor, renderData.progressColor));
-                    apkDownloadView.setStrokeWidth(renderData.strokeWidth);
-                    apkDownloadView.setStrokeColor(ColorUtils.getColorRes(z, renderData.strokeNightColor, renderData.strokeColor));
-                    apkDownloadView.setBorderRadius(renderData.borderRadius);
-                    RenderData.BackgroundData backgroundData = renderData.backgroundData;
-                    if (backgroundData != null) {
-                        if (z) {
-                            str2 = backgroundData.backgroundColorNight;
-                        } else {
-                            str2 = backgroundData.backgroundColor;
-                        }
-                        apkDownloadView.setBackgroundColor(ColorUtils.parseColor(str2));
-                    }
-                    return true;
-                } else if (!(view2 instanceof SyncTextView)) {
-                    return false;
-                } else {
-                    ((SyncTextView) view2).update(renderData, z, z3);
-                    return true;
-                }
-            }
-            ImageView imageView = (ImageView) view2;
-            imageView.setImageDrawable(view2.getResources().getDrawable(R.drawable.nad_pop_close_btn));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return invokeCommon.booleanValue;
+        return (jl0) invokeV.objValue;
+    }
+
+    public String a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            xs0 a2 = this.a.a();
+            if (z) {
+                if (a2 != null && !TextUtils.isEmpty(a2.a)) {
+                    return a2.a;
+                }
+                return rk0.d().a();
+            } else if (this.a.h()) {
+                if (a2 != null && a2.b != 3) {
+                    return a2.a;
+                }
+                return "";
+            } else {
+                return rk0.d().a();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            xs0 e = this.a.e();
+            if (z) {
+                if (e != null && !TextUtils.isEmpty(e.a)) {
+                    return e.a;
+                }
+                return rk0.d().e();
+            } else if (this.a.h()) {
+                if (e != null && e.b != 3) {
+                    return e.a;
+                }
+                return "";
+            } else {
+                return rk0.d().e();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            xs0 f = this.a.f();
+            if (z) {
+                if (f != null && !TextUtils.isEmpty(f.a)) {
+                    return f.a;
+                }
+                return rk0.d().f();
+            } else if (this.a.h()) {
+                if (f != null && f.b != 3) {
+                    return f.a;
+                }
+                return "";
+            } else {
+                return rk0.d().f();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String e(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            xs0 d = this.a.d();
+            if (z) {
+                if (d != null && !TextUtils.isEmpty(d.a)) {
+                    return d.a;
+                }
+                return rk0.d().d();
+            } else if (this.a.h()) {
+                if (d != null && d.b != 3) {
+                    return d.a;
+                }
+                return "";
+            } else {
+                return rk0.d().d();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            xs0 c = this.a.c();
+            if (z) {
+                if (c != null && !TextUtils.isEmpty(c.a)) {
+                    return c.a;
+                }
+                return rk0.d().c();
+            } else if (this.a.h()) {
+                if (c != null && c.b != 3) {
+                    return c.a;
+                }
+                return "";
+            } else {
+                return rk0.d().c();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            xs0 b2 = this.a.b();
+            if (z) {
+                if (b2 != null && !TextUtils.isEmpty(b2.a)) {
+                    return b2.a;
+                }
+                return rk0.d().b();
+            } else if (this.a.h()) {
+                if (b2 != null && b2.b != 3) {
+                    return b2.a;
+                }
+                return "";
+            } else {
+                return rk0.d().b();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            xs0 g = this.a.g();
+            if (z) {
+                if (g != null && !TextUtils.isEmpty(g.a)) {
+                    return g.a;
+                }
+                return Build.MANUFACTURER;
+            } else if (this.a.h()) {
+                if (g != null && g.b != 3) {
+                    return g.a;
+                }
+                return "";
+            } else {
+                return Build.MANUFACTURER;
+            }
+        }
+        return (String) invokeZ.objValue;
     }
 }

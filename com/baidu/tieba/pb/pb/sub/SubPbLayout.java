@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag9;
-import com.baidu.tieba.n4a;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.gm9;
+import com.baidu.tieba.yca;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,9 +36,9 @@ public class SubPbLayout extends ViewGroup {
     public View.OnClickListener a;
     public View.OnLongClickListener b;
     public View.OnTouchListener c;
-    public ag9 d;
+    public gm9 d;
     public int e;
-    public n4a f;
+    public yca f;
     public View g;
     public final Queue<b> h;
     public RelativeLayout i;
@@ -110,8 +110,8 @@ public class SubPbLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             long drawingTime = getDrawingTime();
-            n4a n4aVar = this.f;
-            if (n4aVar != null && n4aVar.i0() != null) {
+            yca ycaVar = this.f;
+            if (ycaVar != null && ycaVar.i0() != null) {
                 int i = this.e;
                 for (int i2 = 0; i2 < i; i2++) {
                     if (i < getChildCount()) {
@@ -152,10 +152,10 @@ public class SubPbLayout extends ViewGroup {
         this.m = new ViewGroup.MarginLayoutParams(-1, -2);
         RelativeLayout relativeLayout = new RelativeLayout(context);
         this.i = relativeLayout;
-        relativeLayout.setId(R.id.obfuscated_res_0x7f091a79);
+        relativeLayout.setId(R.id.obfuscated_res_0x7f091a90);
         TextView textView = new TextView(context);
         this.j = textView;
-        textView.setPadding(0, xi.g(context, R.dimen.tbds_3), 0, xi.g(context, R.dimen.tbds12));
+        textView.setPadding(0, yi.g(context, R.dimen.tbds_3), 0, yi.g(context, R.dimen.tbds12));
         e();
         if (this.k) {
             this.j.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
@@ -201,9 +201,9 @@ public class SubPbLayout extends ViewGroup {
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
             if ((i > 0 && (this.f.M() == 1 || this.f.M() == 3 || this.f.k0() > this.e)) || this.f.y0(this.l)) {
                 if (this.k) {
-                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1457), Integer.valueOf(this.f.k0()));
+                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f146d), Integer.valueOf(this.f.k0()));
                 } else {
-                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1458), Integer.valueOf(this.f.k0()));
+                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f146e), Integer.valueOf(this.f.k0()));
                 }
                 this.j.setText(format);
                 this.i.setOnClickListener(this.a);
@@ -227,7 +227,7 @@ public class SubPbLayout extends ViewGroup {
         return invokeII.intValue;
     }
 
-    public final int c(List<n4a> list, int i) {
+    public final int c(List<yca> list, int i) {
         InterceptResult invokeLI;
         boolean z;
         boolean z2;
@@ -275,9 +275,9 @@ public class SubPbLayout extends ViewGroup {
                         childAt2.setTag(sparseArray);
                     }
                     Object obj = sparseArray.get(R.id.tag_load_sub_data);
-                    n4a n4aVar = this.f;
-                    if (obj != n4aVar) {
-                        sparseArray.put(R.id.tag_load_sub_data, n4aVar);
+                    yca ycaVar = this.f;
+                    if (obj != ycaVar) {
+                        sparseArray.put(R.id.tag_load_sub_data, ycaVar);
                     }
                     sparseArray.put(R.id.tag_load_sub_view, this.g);
                     sparseArray.put(R.id.tag_is_subpb, Boolean.TRUE);
@@ -290,9 +290,9 @@ public class SubPbLayout extends ViewGroup {
                         sparseArray.put(R.id.tag_photo_userid, list.get(i4).q().getUserId());
                         sparseArray.put(R.id.tag_clip_board, list.get(i4));
                     }
-                    ag9.b bVar = (ag9.b) sparseArray.get(R.id.tag_holder);
-                    ag9 ag9Var = this.d;
-                    n4a n4aVar2 = list.get(i4);
+                    gm9.b bVar = (gm9.b) sparseArray.get(R.id.tag_holder);
+                    gm9 gm9Var = this.d;
+                    yca ycaVar2 = list.get(i4);
                     if (this.f.k0() <= list.size() && list.size() - i4 <= 1) {
                         z = false;
                     } else {
@@ -303,8 +303,8 @@ public class SubPbLayout extends ViewGroup {
                     } else {
                         z2 = false;
                     }
-                    ag9Var.c(bVar, n4aVar2, z, z2, false);
-                    bVar.e.setPadding(0, 0, 0, xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds7));
+                    gm9Var.c(bVar, ycaVar2, z, z2, false);
+                    bVar.e.setPadding(0, 0, 0, yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds7));
                     e();
                     childAt2.measure(((i - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
                     i3 += childAt2.getMeasuredHeight();
@@ -323,9 +323,9 @@ public class SubPbLayout extends ViewGroup {
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (textView = this.j) != null) {
             textView.setTextSize(0, TbConfig.getContentSizeOfLzl());
             if (this.k) {
-                s75.d(this.j).x(R.color.CAM_X0304);
+                d85.d(this.j).x(R.color.CAM_X0304);
             } else {
-                s75.d(this.j).x(R.color.CAM_X0108);
+                d85.d(this.j).x(R.color.CAM_X0108);
             }
         }
     }
@@ -375,18 +375,18 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setSubPbAdapter(ag9 ag9Var) {
+    public void setSubPbAdapter(gm9 gm9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, ag9Var) == null) {
-            this.d = ag9Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, gm9Var) == null) {
+            this.d = gm9Var;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        n4a n4aVar;
+        yca ycaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && (n4aVar = this.f) != null && n4aVar.i0() != null) {
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && (ycaVar = this.f) != null && ycaVar.i0() != null) {
             int size = this.h.size();
             for (int i5 = 0; i5 < size; i5++) {
                 b poll = this.h.poll();
@@ -432,11 +432,11 @@ public class SubPbLayout extends ViewGroup {
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
-        n4a n4aVar;
-        ArrayList<n4a> i0;
+        yca ycaVar;
+        ArrayList<yca> i0;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            if (this.d != null && (n4aVar = this.f) != null && n4aVar.i0() != null) {
+            if (this.d != null && (ycaVar = this.f) != null && ycaVar.i0() != null) {
                 int size = View.MeasureSpec.getSize(i);
                 if (this.f.F0()) {
                     i0 = this.f.C();
@@ -450,10 +450,10 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setData(n4a n4aVar, View view2) {
+    public void setData(yca ycaVar, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, n4aVar, view2) == null) {
-            this.f = n4aVar;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, ycaVar, view2) == null) {
+            this.f = ycaVar;
             requestLayout();
             this.g = view2;
         }

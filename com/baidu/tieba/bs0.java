@@ -1,202 +1,248 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.searchbox.player.utils.BasicVideoParserKt;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import com.baidu.nadcore.model.MonitorUrl;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.Unit;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bs0 {
+public final class bs0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a v;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final int c;
-    public final String d;
-    public String e;
-    public final float f;
+    @JvmField
+    public int a;
+    @JvmField
+    public String b;
+    @JvmField
+    public String c;
+    @JvmField
+    public boolean d;
+    @JvmField
+    public boolean e;
+    @JvmField
+    public boolean f;
+    @JvmField
     public boolean g;
-    public String h;
-    @Nullable
-    public final ds0 i;
-    @NonNull
+    @JvmField
+    public List<MonitorUrl> h;
+    @JvmField
+    public String i;
+    @JvmField
     public String j;
-    @NonNull
-    public final HashMap<String, String> k;
+    @JvmField
+    public String k;
+    @JvmField
+    public String l;
+    @JvmField
+    public String m;
+    @JvmField
+    public String n;
+    @JvmField
+    public List<es0> o;
+    @JvmField
+    public xr0 p;
+    @JvmField
+    public as0 q;
+    @JvmField
+    public String r;
+    @JvmField
+    public qs0 s;
+    @JvmField
+    public String t;
+    @JvmField
+    public boolean u;
 
-    public bs0(@NonNull JSONObject jSONObject, boolean z) {
-        Object opt;
-        Object opt2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947655402, "Lcom/baidu/tieba/bs0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947655402, "Lcom/baidu/tieba/bs0;");
+                return;
+            }
+        }
+        v = new a(null);
+    }
+
+    @JvmStatic
+    public static final bs0 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) ? v.a(jSONObject) : (bs0) invokeL.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:40:0x00ec, code lost:
+            if (r0.equals(com.baidu.searchbox.net.listener.DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST) != false) goto L36;
+         */
+        /* JADX WARN: Removed duplicated region for block: B:46:0x0123  */
+        @JvmStatic
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final bs0 a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            boolean z;
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("convert");
+                if (optJSONObject2 == null) {
+                    optJSONObject2 = y31.c(jSONObject.optString("convert"));
+                }
+                if (optJSONObject2 == null) {
+                    return null;
+                }
+                bs0 bs0Var = new bs0();
+                bs0Var.b = optJSONObject2.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+                bs0Var.c = optJSONObject2.optString("button_icon");
+                bs0Var.i = optJSONObject2.optString("download_button_start_color");
+                bs0Var.j = optJSONObject2.optString("download_button_end_color");
+                bs0Var.k = optJSONObject2.optString("invoke_button_start_color");
+                bs0Var.l = optJSONObject2.optString("invoke_button_end_color");
+                bs0Var.m = optJSONObject2.optString("invoke_button_icon");
+                bs0Var.n = optJSONObject2.optString("invoke_button_text");
+                String optString = optJSONObject2.optString("button_text_color");
+                Intrinsics.checkNotNullExpressionValue(optString, "it.optString(\"button_text_color\")");
+                int i = 1;
+                if (optString.length() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    optJSONObject2.optString("button_text_color");
+                } else {
+                    optJSONObject2.optString("textColor");
+                }
+                optJSONObject2.optInt("buttonShineType");
+                bs0Var.r = optJSONObject2.optString("background_color");
+                bs0Var.t = optJSONObject2.optString("button_scheme");
+                ArrayList arrayList = new ArrayList();
+                JSONArray optJSONArray = optJSONObject2.optJSONArray(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        es0 a = es0.d.a(optJSONArray.optJSONObject(i2));
+                        if (a != null) {
+                            arrayList.add(a);
+                        }
+                    }
+                }
+                Unit unit = Unit.INSTANCE;
+                bs0Var.o = arrayList;
+                String optString2 = optJSONObject2.optString("type");
+                if (optString2 != null) {
+                    int hashCode = optString2.hashCode();
+                    if (hashCode != -1335224239) {
+                        if (hashCode != -1183693704) {
+                            if (hashCode == 1427818632 && optString2.equals("download")) {
+                                i = 2;
+                            }
+                        }
+                        bs0Var.a = i;
+                        bs0Var.p = xr0.c(optJSONObject2.optJSONObject("download"));
+                        as0 as0Var = new as0();
+                        as0Var.d = optJSONObject2.optString("ext");
+                        as0Var.a = optJSONObject2.optString(BdVideoAd.AD_VIDEO_DAPAGE);
+                        Unit unit2 = Unit.INSTANCE;
+                        bs0Var.q = as0Var;
+                        optJSONObject = optJSONObject2.optJSONObject("app_info");
+                        if (optJSONObject != null) {
+                            bs0Var.s = qs0.c(optJSONObject);
+                        }
+                        return bs0Var;
+                    }
+                    optString2.equals("detail");
+                }
+                i = 0;
+                bs0Var.a = i;
+                bs0Var.p = xr0.c(optJSONObject2.optJSONObject("download"));
+                as0 as0Var2 = new as0();
+                as0Var2.d = optJSONObject2.optString("ext");
+                as0Var2.a = optJSONObject2.optString(BdVideoAd.AD_VIDEO_DAPAGE);
+                Unit unit22 = Unit.INSTANCE;
+                bs0Var.q = as0Var2;
+                optJSONObject = optJSONObject2.optJSONObject("app_info");
+                if (optJSONObject != null) {
+                }
+                return bs0Var;
+            }
+            return (bs0) invokeL.objValue;
+        }
+    }
+
+    public bs0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.k = new HashMap<>();
-        this.g = TextUtils.equals(jSONObject.optString("video_stretch_switch"), "1");
-        this.f = (float) jSONObject.optDouble("video_aspect_ratio", 0.0d);
-        if (z) {
-            this.a = jSONObject.optString("vid");
-            jSONObject.optString("video_id");
-            this.b = jSONObject.optString("video_url");
-            this.e = jSONObject.optString("title");
-            this.c = jSONObject.optInt("duration");
-            jSONObject.optInt("width");
-            jSONObject.optInt("height");
-            jSONObject.optDouble("whRatio", 0.0d);
-            this.d = jSONObject.optString("poster_image");
-            this.i = ds0.a(jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
-            try {
-                jSONObject.putOpt("videoUrl", this.b);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next) && (opt2 = jSONObject.opt(next)) != null && !(opt2 instanceof JSONObject) && !(opt2 instanceof JSONArray)) {
-                    this.k.put(next, jSONObject.optString(next));
-                }
-            }
-        } else {
-            this.a = jSONObject.optString("vid");
-            jSONObject.optString("videoId");
-            this.b = jSONObject.optString("videoUrl");
-            this.e = jSONObject.optString("title");
-            this.c = jSONObject.optInt("duration");
-            jSONObject.optInt("width");
-            jSONObject.optInt("height");
-            this.d = jSONObject.optString("posterImage");
-            jSONObject.optDouble("whRatio", 0.0d);
-            this.i = ds0.a(jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
-            try {
-                jSONObject.putOpt("video_url", this.b);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            Iterator<String> keys2 = jSONObject.keys();
-            while (keys2.hasNext()) {
-                String next2 = keys2.next();
-                if (!TextUtils.isEmpty(next2) && (opt = jSONObject.opt(next2)) != null && !(opt instanceof JSONObject) && !(opt instanceof JSONArray)) {
-                    this.k.put(next2, jSONObject.optString(next2));
-                }
-            }
-        }
-        this.j = jSONObject.toString();
+        this.a = 1;
+        this.h = new ArrayList();
     }
 
-    @Nullable
-    public static bs0 b(JSONObject jSONObject, boolean z) {
-        InterceptResult invokeLZ;
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, jSONObject, z)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != 2 || this.p != null) {
+                return true;
             }
-            return new bs0(jSONObject, z);
+            return false;
         }
-        return (bs0) invokeLZ.objValue;
-    }
-
-    @Nullable
-    public static bs0 c(HashMap hashMap) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            if (hashMap == null || (obj = hashMap.get(WriteActivityConfig.VIDEO_INFO)) == null) {
-                return null;
-            }
-            bs0 bs0Var = new bs0(c31.c(obj.toString()), true);
-            if (hashMap.get(MigrateStatisticUtils.EXT_INFO) != null) {
-                bs0Var.h = hashMap.get(MigrateStatisticUtils.EXT_INFO).toString();
-            }
-            bs0Var.a();
-            return bs0Var;
-        }
-        return (bs0) invokeL.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.j)) {
-            JSONObject c = c31.c(this.j);
-            c31.f(c, "videoId", c.optString("video_id"));
-            c31.f(c, PrefetchEvent.EVENT_KEY_PAGE_URL, c.optString("page_url"));
-            c31.f(c, "videoUrl", c.optString("video_url"));
-            c31.f(c, "posterImage", c.optString("poster_image"));
-            this.j = c.toString();
-        }
-    }
-
-    public void d(@NonNull AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) {
-            if (TextUtils.isEmpty(this.e) && !TextUtils.isEmpty(adBaseModel.f.g)) {
-                String str = adBaseModel.f.g;
-                this.e = str;
-                this.k.put("title", str);
-            }
-            if (TextUtils.isEmpty(this.h)) {
-                this.h = adBaseModel.f.d;
-            }
-            e();
-            ds0 ds0Var = this.i;
-            if (ds0Var != null) {
-                ds0Var.d(adBaseModel);
-            }
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !TextUtils.isEmpty(this.j)) {
-            JSONObject c = c31.c(this.j);
-            if (!TextUtils.isEmpty(this.e) && TextUtils.isEmpty(c.optString("title"))) {
-                c31.f(c, "title", this.e);
-            }
-            JSONObject optJSONObject = c.optJSONObject(BasicVideoParserKt.EXT_LOG);
-            if (optJSONObject == null) {
-                optJSONObject = new JSONObject();
-            }
-            if (TextUtils.isEmpty(optJSONObject.optString("curVid"))) {
-                c31.f(optJSONObject, "curVid", this.a);
-            }
-            if (!optJSONObject.has("mt")) {
-                c31.d(optJSONObject, "mt", 2);
-            }
-            if (!optJSONObject.has("vType")) {
-                c31.d(optJSONObject, "vType", 2);
-            }
-            if (!TextUtils.isEmpty(this.h) && TextUtils.isEmpty(optJSONObject.optString("ad_extra_param"))) {
-                c31.f(optJSONObject, "ad_extra_param", this.h);
-            }
-            c31.f(c, BasicVideoParserKt.EXT_LOG, optJSONObject);
-            this.j = c.toString();
-        }
+        return invokeV.booleanValue;
     }
 }

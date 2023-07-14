@@ -1,22 +1,17 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import tbclient.DeleteTail.ResData;
 /* loaded from: classes6.dex */
-public class m79 implements ic5 {
+public class m79 {
     public static /* synthetic */ Interceptable $ic;
-    public static m79 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
     public m79() {
         Interceptable interceptable = $ic;
@@ -32,67 +27,21 @@ public class m79 implements ic5 {
         }
     }
 
-    public static synchronized m79 d() {
+    public int a() {
         InterceptResult invokeV;
-        m79 m79Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (m79.class) {
-                if (a == null) {
-                    a = new m79();
-                }
-                m79Var = a;
-            }
-            return m79Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (m79) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ic5
-    public void a() {
+    public void b(ResData resData) {
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                SapiAccountManager.getInstance().logout();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resData) != null) || resData == null || (l = resData.tailId) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.ic5
-    public void b(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (!TextUtils.isEmpty(accountData.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
-                for (SapiAccount sapiAccount : loginAccounts) {
-                    if (accountData.getID().equals(sapiAccount.uid)) {
-                        SapiAccountManager.getInstance().validate(sapiAccount);
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ic5
-    public void c(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
-                SapiAccountManager.getInstance().logout();
-                return;
-            }
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (loginAccounts != null && loginAccounts.size() > 0) {
-                for (SapiAccount sapiAccount : loginAccounts) {
-                    if (accountData.getID().equals(sapiAccount.uid)) {
-                        SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
-                        return;
-                    }
-                }
-            }
-        }
+        this.a = l.intValue();
     }
 }

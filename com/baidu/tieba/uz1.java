@@ -1,114 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.al3;
+import com.baidu.tieba.bf3;
+import com.baidu.tieba.dm2;
+import com.baidu.tieba.fk2;
+import com.baidu.tieba.ih2;
+import com.baidu.tieba.ot1;
+import com.baidu.tieba.pw2;
+import com.baidu.tieba.ti2;
+import com.baidu.tieba.up3;
+import com.baidu.tieba.v92;
+import com.baidu.tieba.vf2;
+import com.baidu.tieba.y22;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class uz1 extends zd3 {
+public class uz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(uz1 uz1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uz1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qb2.a3();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uz1(zc3 zc3Var) {
-        super(zc3Var, "/swanAPI/setSelectedAddressSync");
+    public static HashMap<Class, Object> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            HashMap<Class, Object> hashMap = new HashMap<>();
+            hashMap.put(bf3.b.class, new bf3.b());
+            hashMap.put(ti2.f.class, new ti2.f());
+            hashMap.put(ti2.g.class, new ti2.g());
+            hashMap.put(vf2.a.class, new vf2.a());
+            hashMap.put(ih2.a.class, new ih2.a());
+            hashMap.put(up3.c.class, new up3.c());
+            hashMap.put(al3.b.class, new al3.b());
+            hashMap.put(pw2.c.class, new pw2.c());
+            hashMap.put(i33.class, new i33());
+            hashMap.put(ez1.class, new ez1());
+            hashMap.put(fz1.class, new fz1());
+            hashMap.put(hk3.class, new hk3());
+            hashMap.put(gk3.class, new gk3());
+            hashMap.put(kk3.class, new kk3());
+            hashMap.put(zk2.class, new zk2());
+            hashMap.put(fk2.c.class, new fk2.c());
+            hashMap.put(s13.class, new s13());
+            hashMap.put(y22.b.class, new y22.b());
+            hashMap.put(ot1.a.class, new ot1.a());
+            hashMap.put(fa2.class, new fa2());
+            hashMap.put(dm2.a.class, new dm2.a());
+            hashMap.put(dm2.b.class, new dm2.b());
+            hashMap.put(v43.class, new v43());
+            hashMap.put(v92.b.class, new v92.b());
+            return hashMap;
         }
-    }
-
-    @Override // com.baidu.tieba.zd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
-            if (cc3Var == null) {
-                c92.i("SetSelectedAddressSync", "framework error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                String optString = optParamsAsJo.optString("errno");
-                if (!TextUtils.equals(optString, "0")) {
-                    c92.i("SetSelectedAddressSync", "error no" + optString);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error no" + optString);
-                    return false;
-                }
-                JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-                if (optJSONObject != null && optJSONObject.length() > 0) {
-                    j(optJSONObject);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
-                c92.i("SetSelectedAddressSync", "address data is empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "data is empty");
-                return false;
-            }
-            c92.i("SetSelectedAddressSync", "empty params");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void j(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            xz1.a().c(jSONObject);
-            wp3.a0(new a(this));
-        }
+        return (HashMap) invokeV.objValue;
     }
 }

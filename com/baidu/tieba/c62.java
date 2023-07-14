@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.DashPathEffect;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +9,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class c62 extends i52 {
+public class c62 extends b52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+    public DashPathEffect a;
 
     public c62() {
         Interceptable interceptable = $ic;
@@ -27,24 +28,37 @@ public class c62 extends i52 {
         }
     }
 
-    @Override // com.baidu.tieba.i52
-    public void a(j52 j52Var, Canvas canvas) {
+    @Override // com.baidu.tieba.b52
+    public void a(c52 c52Var, Canvas canvas) {
+        DashPathEffect dashPathEffect;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) {
-            if (j52Var.a() == 0) {
-                j52Var.b(canvas.save());
-            }
-            canvas.rotate(this.a);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, c52Var, canvas) == null) && (dashPathEffect = this.a) != null) {
+            c52Var.c.setPathEffect(dashPathEffect);
         }
     }
 
-    @Override // com.baidu.tieba.i52
+    @Override // com.baidu.tieba.b52
     public void b(JSONArray jSONArray) {
+        float[] fArr;
+        JSONArray optJSONArray;
+        int length;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            float optDouble = (float) jSONArray.optDouble(0);
-            this.a = optDouble;
-            this.a = (float) Math.toDegrees(optDouble);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            int i = 0;
+            if (jSONArray.length() > 0 && (optJSONArray = jSONArray.optJSONArray(0)) != null && (length = optJSONArray.length()) > 0) {
+                fArr = new float[length];
+                for (int i2 = 0; i2 < length; i2++) {
+                    fArr[i2] = mp3.g((float) optJSONArray.optDouble(i2));
+                }
+            } else {
+                fArr = null;
+            }
+            if (jSONArray.length() > 1) {
+                i = mp3.g((float) jSONArray.optDouble(1));
+            }
+            if (fArr != null && i >= 0) {
+                this.a = new DashPathEffect(fArr, i);
+            }
         }
     }
 }

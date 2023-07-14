@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d extends wl1<xk0> {
+public class d extends pl1<al0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements xk0 {
+    public class a implements al0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.xk0
+        @Override // com.baidu.tieba.al0
         @Nullable
         public boolean h() {
             InterceptResult invokeV;
@@ -47,88 +47,88 @@ public class d extends wl1<xk0> {
             }
         }
 
-        @Override // com.baidu.tieba.xk0
+        @Override // com.baidu.tieba.al0
         @Nullable
-        public ls0 a() {
+        public xs0 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                DeviceIdBag androidId = DeviceInfoManager.INSTANCE.getAndroidId(ok0.b(), "fad", "fad");
-                return new ls0(androidId.errorCode, androidId.deviceId, androidId.encodedDeviceId);
+                DeviceIdBag androidId = DeviceInfoManager.INSTANCE.getAndroidId(rk0.b(), "fad", "fad");
+                return new xs0(androidId.errorCode, androidId.deviceId, androidId.encodedDeviceId);
             }
-            return (ls0) invokeV.objValue;
+            return (xs0) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.xk0
+        @Override // com.baidu.tieba.al0
         @Nullable
-        public ls0 b() {
+        public xs0 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 DeviceIdBag osVersion = DeviceInfoManager.INSTANCE.getOsVersion("fad", "fad");
-                return new ls0(osVersion.errorCode, osVersion.deviceId, osVersion.encodedDeviceId);
+                return new xs0(osVersion.errorCode, osVersion.deviceId, osVersion.encodedDeviceId);
             }
-            return (ls0) invokeV.objValue;
+            return (xs0) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.xk0
+        @Override // com.baidu.tieba.al0
         @Nullable
-        public ls0 c() {
+        public xs0 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 DeviceIdBag oaid = DeviceInfoManager.INSTANCE.getOAID("fad", "fad");
-                return new ls0(oaid.errorCode, oaid.deviceId, oaid.encodedDeviceId);
+                return new xs0(oaid.errorCode, oaid.deviceId, oaid.encodedDeviceId);
             }
-            return (ls0) invokeV.objValue;
+            return (xs0) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.xk0
+        @Override // com.baidu.tieba.al0
         @Nullable
-        public ls0 d() {
+        public xs0 d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 DeviceIdBag model = DeviceInfoManager.INSTANCE.getModel("fad", "fad");
-                return new ls0(model.errorCode, model.deviceId, model.encodedDeviceId);
+                return new xs0(model.errorCode, model.deviceId, model.encodedDeviceId);
             }
-            return (ls0) invokeV.objValue;
+            return (xs0) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.xk0
+        @Override // com.baidu.tieba.al0
         @Nullable
-        public ls0 e() {
+        public xs0 e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                DeviceIdBag imei = DeviceInfoManager.INSTANCE.getIMEI(ok0.b(), "fad", "fad");
-                return new ls0(imei.errorCode, imei.deviceId, imei.encodedDeviceId);
+                DeviceIdBag imei = DeviceInfoManager.INSTANCE.getIMEI(rk0.b(), "fad", "fad");
+                return new xs0(imei.errorCode, imei.deviceId, imei.encodedDeviceId);
             }
-            return (ls0) invokeV.objValue;
+            return (xs0) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.xk0
+        @Override // com.baidu.tieba.al0
         @Nullable
-        public ls0 f() {
+        public xs0 f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                DeviceIdBag macAddress = DeviceInfoManager.INSTANCE.getMacAddress(ok0.b(), "fad", "fad");
-                return new ls0(macAddress.errorCode, macAddress.deviceId, macAddress.encodedDeviceId);
+                DeviceIdBag macAddress = DeviceInfoManager.INSTANCE.getMacAddress(rk0.b(), "fad", "fad");
+                return new xs0(macAddress.errorCode, macAddress.deviceId, macAddress.encodedDeviceId);
             }
-            return (ls0) invokeV.objValue;
+            return (xs0) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.xk0
+        @Override // com.baidu.tieba.al0
         @Nullable
-        public ls0 g() {
+        public xs0 g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 DeviceIdBag manufacturer = DeviceInfoManager.INSTANCE.getManufacturer("fad", "fad");
-                return new ls0(manufacturer.errorCode, manufacturer.deviceId, manufacturer.encodedDeviceId);
+                return new xs0(manufacturer.errorCode, manufacturer.deviceId, manufacturer.encodedDeviceId);
             }
-            return (ls0) invokeV.objValue;
+            return (xs0) invokeV.objValue;
         }
     }
 
@@ -147,14 +147,14 @@ public class d extends wl1<xk0> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wl1
+    @Override // com.baidu.tieba.pl1
     /* renamed from: a */
-    public xk0 createService() throws ServiceNotFoundException {
+    public al0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new a(this);
         }
-        return (xk0) invokeV.objValue;
+        return (al0) invokeV.objValue;
     }
 }

@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.ImShareCardCommonData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d85;
 import com.baidu.tieba.im.widget.sharecard.ChatShareCommonCard;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.yb8;
+import com.baidu.tieba.ug8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -129,12 +129,12 @@ public final class ChatShareCommonCard extends ConstraintLayout {
             int type = it.getType();
             if (type != 1) {
                 if (type == 2) {
-                    yb8.d("c15286", 4, this$0.d);
+                    ug8.d("c15286", 4, this$0.d);
                     return;
                 }
                 return;
             }
-            yb8.d("c15286", 3, this$0.d);
+            ug8.d("c15286", 3, this$0.d);
         }
     }
 
@@ -153,7 +153,7 @@ public final class ChatShareCommonCard extends ConstraintLayout {
             if (textView2 != null) {
                 textView2.setText(imShareCardCommonData.getContent());
             }
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.nc8
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jh8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -188,8 +188,8 @@ public final class ChatShareCommonCard extends ConstraintLayout {
                 tbImageView.setConrers(15);
                 tbImageView.setRadiusById(R.string.J_X04);
             }
-            s75.d(this.b).x(R.color.CAM_X0105);
-            s75.d(this.c).x(R.color.CAM_X0109);
+            d85.d(this.b).x(R.color.CAM_X0105);
+            d85.d(this.c).x(R.color.CAM_X0109);
         }
     }
 

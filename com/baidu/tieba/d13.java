@@ -1,220 +1,192 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d13 extends zd3 {
+public class d13 implements ty2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z03 c;
-    public j13 d;
-    public b13 e;
-    public a13 f;
-    public g13 g;
-    public y03 h;
-    public h13 i;
-    public f13 j;
-    public i13 k;
-    public c13 l;
+    public nx1 a;
+    public String b;
+    public f13 c;
+    public boolean d;
+    public Context e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d13(zc3 zc3Var) {
-        super(zc3Var, "/swanAPI/video");
+    @Override // com.baidu.tieba.ty2
+    public Object i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ty2
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        }
+    }
+
+    public d13(Context context, @NonNull f13 f13Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zc3Var};
+            Object[] objArr = {context, f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = context;
+        this.c = f13Var;
+        this.b = f13Var.j;
+        e();
+        a();
     }
 
-    @Override // com.baidu.tieba.zd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
-        InterceptResult invokeLLLL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
-            if (zd3.b) {
-                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.b)) {
+            uy2.a(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.ty2
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ty2
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public f13 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (f13) invokeV.objValue;
+    }
+
+    public nx1 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == null) {
+                v82.i("VrVideo", "create player");
+                this.a = cv2.D0().create();
+            }
+            return this.a;
+        }
+        return (nx1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ty2
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            f13 f13Var = this.c;
+            if (f13Var != null) {
+                return f13Var.t;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ty2
+    public boolean onBackPressed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            v82.i("VrVideo", "onBackPressed");
+            nx1 nx1Var = this.a;
+            if (nx1Var != null && nx1Var.onBackPressed()) {
+                return true;
             }
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.zd3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, cc3 cc3Var) {
-        InterceptResult invokeLLLLL;
-        char c;
-        boolean c2;
+    @Override // com.baidu.tieba.ty2
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, cc3Var)) == null) {
-            c92.i("VideoPlayerAction", "handleSubAction subAction : " + str + "params : " + zd3.a(unitedSchemeEntity, "params"));
-            switch (str.hashCode()) {
-                case -1701478259:
-                    if (str.equals("/swanAPI/video/pause")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440375597:
-                    if (str.equals("/swanAPI/video/open")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440349763:
-                    if (str.equals("/swanAPI/video/play")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440267007:
-                    if (str.equals("/swanAPI/video/seek")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440252277:
-                    if (str.equals("/swanAPI/video/stop")) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1145507635:
-                    if (str.equals("/swanAPI/video/remove")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1049743086:
-                    if (str.equals("/swanAPI/video/update")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -274000988:
-                    if (str.equals("/swanAPI/video/fullScreen")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 711122280:
-                    if (str.equals("/swanAPI/video/sendDanmu")) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1568993060:
-                    if (str.equals("/swanAPI/video/playbackRate")) {
-                        c = '\t';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            v82.i("VrVideo", MissionEvent.MESSAGE_DESTROY);
+            nx1 nx1Var = this.a;
+            if (nx1Var != null) {
+                nx1Var.stop();
+                this.a = null;
             }
-            switch (c) {
-                case 0:
-                    if (this.c == null) {
-                        this.c = new z03("/swanAPI/video/open");
-                    }
-                    c2 = this.c.c(context, unitedSchemeEntity, callbackHandler, cc3Var);
-                    break;
-                case 1:
-                    if (this.d == null) {
-                        this.d = new j13("/swanAPI/video/update");
-                    }
-                    c2 = this.d.c(context, unitedSchemeEntity, callbackHandler, cc3Var);
-                    break;
-                case 2:
-                    if (this.j == null) {
-                        this.j = new f13("/swanAPI/video/remove");
-                    }
-                    c2 = this.j.c(context, unitedSchemeEntity, callbackHandler, cc3Var);
-                    break;
-                case 3:
-                    if (this.e == null) {
-                        this.e = new b13("/swanAPI/video/play");
-                    }
-                    c2 = this.e.c(context, unitedSchemeEntity, callbackHandler, cc3Var);
-                    break;
-                case 4:
-                    if (this.f == null) {
-                        this.f = new a13("/swanAPI/video/pause");
-                    }
-                    c2 = this.f.c(context, unitedSchemeEntity, callbackHandler, cc3Var);
-                    break;
-                case 5:
-                    if (this.g == null) {
-                        this.g = new g13("/swanAPI/video/seek");
-                    }
-                    c2 = this.g.c(context, unitedSchemeEntity, callbackHandler, cc3Var);
-                    break;
-                case 6:
-                    if (this.h == null) {
-                        this.h = new y03("/swanAPI/video/fullScreen");
-                    }
-                    c2 = this.h.c(context, unitedSchemeEntity, callbackHandler, cc3Var);
-                    break;
-                case 7:
-                    if (this.i == null) {
-                        this.i = new h13("/swanAPI/video/sendDanmu");
-                    }
-                    c2 = this.i.c(context, unitedSchemeEntity, callbackHandler, cc3Var);
-                    break;
-                case '\b':
-                    if (this.k == null) {
-                        this.k = new i13("/swanAPI/video/stop");
-                    }
-                    c2 = this.k.c(context, unitedSchemeEntity, callbackHandler, cc3Var);
-                    break;
-                case '\t':
-                    if (this.l == null) {
-                        this.l = new c13("/swanAPI/video/playbackRate");
-                    }
-                    c2 = this.l.c(context, unitedSchemeEntity, callbackHandler, cc3Var);
-                    break;
-                default:
-                    c2 = false;
-                    break;
-            }
-            if (!c2 && !super.i(context, unitedSchemeEntity, callbackHandler, str, cc3Var)) {
-                return false;
-            }
-            return true;
+            uy2.k(this);
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    public void g(f13 f13Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, f13Var) == null) {
+            v82.i("VrVideo", "Open Player " + f13Var.j);
+            nx1 nx1Var = this.a;
+            if (nx1Var != null) {
+                nx1Var.e(f13Var, this.e);
+            }
+            this.c = f13Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.ty2
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            if (z) {
+                if (this.d) {
+                    e().resume();
+                }
+                e().b();
+            } else if (this.a != null) {
+                this.d = e().isPlaying();
+                e().pause();
+                e().c();
+            }
+        }
+    }
+
+    public void h(f13 f13Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, f13Var) == null) {
+            v82.b("VrVideo", "update 接口");
+            nx1 nx1Var = this.a;
+            if (nx1Var != null) {
+                nx1Var.d(f13Var, true);
+            }
+            this.c = f13Var;
+        }
     }
 }

@@ -1,38 +1,162 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class to4 extends kn4 {
+public class to4 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, to4> d;
+    public static Map<String, Map<String, to4>> e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final AbiType c;
 
-    public to4() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948187920, "Lcom/baidu/tieba/to4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948187920, "Lcom/baidu/tieba/to4;");
+                return;
+            }
+        }
+        d = new HashMap();
+        e = new HashMap();
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public to4(@NonNull String str, @NonNull AbiType abiType) {
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, abiType};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        if (TextUtils.isEmpty(str)) {
+            str2 = "";
+        } else {
+            str2 = str;
+        }
+        this.a = str2;
+        this.c = abiType;
+        this.b = a(str, abiType);
     }
 
-    @Override // com.baidu.tieba.kn4, com.baidu.tieba.nn4
-    public void b(JSONObject jSONObject, xj4 xj4Var, @Nullable xj4 xj4Var2, @Nullable xj4 xj4Var3) {
-        JSONObject optJSONObject;
-        qo4 a;
+    @Nullable
+    public static synchronized to4 e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, xj4Var, xj4Var2, xj4Var3) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (a = qo4.a(optJSONObject)) != null) {
-            ro4.e().i(a);
-            ro4.e().j(a.k);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            synchronized (to4.class) {
+                to4 to4Var = null;
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    c(str);
+                    to4 to4Var2 = d.get(str2);
+                    if (to4Var2 != null) {
+                        if (TextUtils.equals(str, to4Var2.a)) {
+                            to4Var = to4Var2;
+                        }
+                    }
+                    return to4Var;
+                }
+                return null;
+            }
         }
+        return (to4) invokeLL.objValue;
+    }
+
+    public static String a(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
+            return "so_" + str + "_" + abiType.id;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static synchronized to4 d(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        to4 e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
+            synchronized (to4.class) {
+                e2 = e(str, a(str, abiType));
+            }
+            return e2;
+        }
+        return (to4) invokeLL.objValue;
+    }
+
+    public static synchronized Map<String, to4> b(@NonNull String str) {
+        InterceptResult invokeL;
+        HashMap hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (to4.class) {
+                hashMap = new HashMap(c(str));
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static synchronized Map<String, to4> c(@NonNull String str) {
+        InterceptResult invokeL;
+        Map<String, to4> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            synchronized (to4.class) {
+                map = e.get(str);
+                if (map == null) {
+                    map = new HashMap<>();
+                    if (!TextUtils.isEmpty(str)) {
+                        for (AbiType abiType : AbiType.values()) {
+                            to4 to4Var = new to4(str, abiType);
+                            map.put(to4Var.b, to4Var);
+                        }
+                        d.putAll(map);
+                        e.put(str, map);
+                    }
+                }
+            }
+            return map;
+        }
+        return (Map) invokeL.objValue;
     }
 }

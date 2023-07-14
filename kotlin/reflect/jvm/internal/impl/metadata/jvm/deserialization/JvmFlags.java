@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.metadata.jvm.deserialization;
 
 import kotlin.reflect.jvm.internal.impl.metadata.deserialization.Flags;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class JvmFlags {
     public static final JvmFlags INSTANCE = new JvmFlags();
     public static final Flags.BooleanFlagField IS_MOVED_FROM_INTERFACE_COMPANION = Flags.FlagField.booleanFirst();

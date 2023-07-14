@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.pcollections;
 
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class HashPMap<K, V> {
     public static final HashPMap<Object, Object> EMPTY = new HashPMap<>(IntTreePMap.empty(), 0);
     public final IntTreePMap<ConsPStack<MapEntry<K, V>>> intMap;

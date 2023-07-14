@@ -22,13 +22,13 @@ import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.gb5;
 import com.baidu.tieba.im.chat.MsglistActivity;
+import com.baidu.tieba.kc5;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.oa5;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.sb5;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public TextView d;
     public ImageView e;
     public FollowUserButton f;
-    public sb5 g;
+    public kc5 g;
     public UserData h;
 
     /* loaded from: classes6.dex */
@@ -77,7 +77,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.b();
                 if (this.a.h != null) {
-                    r95 p = r95.p();
+                    da5 p = da5.p();
                     p.H("im_personal_follow_tip_close_last_time_" + this.a.h.getUserId(), System.currentTimeMillis());
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_PERSON_FOLLOW_TIP_CLOSE_BTN_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
@@ -237,9 +237,9 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public void f(l9<MsglistActivity<?>> l9Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, l9Var) == null) && (l9Var instanceof TbPageContext)) {
-            sb5 sb5Var = new sb5((TbPageContext) l9Var, this.f);
-            this.g = sb5Var;
-            sb5Var.i(true);
+            kc5 kc5Var = new kc5((TbPageContext) l9Var, this.f);
+            this.g = kc5Var;
+            kc5Var.i(true);
         }
     }
 
@@ -267,10 +267,10 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             this.f.setOnClickEvent(new b(this));
             this.c.setAutoChangeStyle(false);
             this.c.setDrawerType(1);
-            this.c.setRadius(xi.g(getContext(), R.dimen.tbds83));
+            this.c.setRadius(yi.g(getContext(), R.dimen.tbds83));
             this.c.setConrers(15);
             this.c.setPlaceHolder(1);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f08117e);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f081193);
             h();
         }
     }
@@ -301,7 +301,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             if (this.h == null) {
                 return false;
             }
-            r95 p = r95.p();
+            da5 p = da5.p();
             long r = p.r("im_personal_follow_tip_close_last_time_" + this.h.getUserId(), 0L);
             if (r != 0 && System.currentTimeMillis() - r <= 86400000) {
                 return false;
@@ -314,14 +314,14 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            s75 d = s75.d(this.d);
+            d85 d = d85.d(this.d);
             d.C(R.dimen.T_X12);
             d.x(R.color.CAM_X0107);
             d.D(R.string.F_X01);
             WebPManager.setPureDrawable(this.e, R.drawable.icon_pure_im_pobing_close18, R.color.CAM_X0111, null);
-            s75.d(this).f(R.color.CAM_X0204);
-            s75.d(this.a).q(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            s75 d2 = s75.d(this.b);
+            d85.d(this).f(R.color.CAM_X0204);
+            d85.d(this.a).q(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            d85 d2 = d85.d(this.b);
             d2.e(R.string.A_X07);
             d2.f(R.color.CAM_X0208);
             this.f.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -346,12 +346,12 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public final void j(@NonNull UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userData) == null) {
-            oa5 oa5Var = new oa5();
-            oa5Var.i(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            oa5Var.h(R.color.CAM_X0101);
-            oa5Var.g(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
-            oa5Var.f(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
-            this.f.setConfig(oa5Var);
+            gb5 gb5Var = new gb5();
+            gb5Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            gb5Var.i(R.color.CAM_X0101);
+            gb5Var.h(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+            gb5Var.g(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+            this.f.setConfig(gb5Var);
             this.f.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             if (userData.getRelation() == 0) {
                 this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e8));

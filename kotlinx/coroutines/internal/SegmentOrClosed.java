@@ -13,22 +13,22 @@ public final class SegmentOrClosed<S extends Segment<S>> {
     public final Object value;
 
     /* renamed from: box-impl  reason: not valid java name */
-    public static final /* synthetic */ SegmentOrClosed m2341boximpl(Object obj) {
+    public static final /* synthetic */ SegmentOrClosed m2343boximpl(Object obj) {
         return new SegmentOrClosed(obj);
     }
 
     /* renamed from: constructor-impl  reason: not valid java name */
-    public static <S extends Segment<S>> Object m2342constructorimpl(Object obj) {
+    public static <S extends Segment<S>> Object m2344constructorimpl(Object obj) {
         return obj;
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
-    public static boolean m2343equalsimpl(Object obj, Object obj2) {
-        return (obj2 instanceof SegmentOrClosed) && Intrinsics.areEqual(obj, ((SegmentOrClosed) obj2).m2349unboximpl());
+    public static boolean m2345equalsimpl(Object obj, Object obj2) {
+        return (obj2 instanceof SegmentOrClosed) && Intrinsics.areEqual(obj, ((SegmentOrClosed) obj2).m2351unboximpl());
     }
 
     /* renamed from: equals-impl0  reason: not valid java name */
-    public static final boolean m2344equalsimpl0(Object obj, Object obj2) {
+    public static final boolean m2346equalsimpl0(Object obj, Object obj2) {
         return Intrinsics.areEqual(obj, obj2);
     }
 
@@ -36,7 +36,7 @@ public final class SegmentOrClosed<S extends Segment<S>> {
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
-    public static int m2346hashCodeimpl(Object obj) {
+    public static int m2348hashCodeimpl(Object obj) {
         if (obj == null) {
             return 0;
         }
@@ -44,24 +44,24 @@ public final class SegmentOrClosed<S extends Segment<S>> {
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static String m2348toStringimpl(Object obj) {
+    public static String m2350toStringimpl(Object obj) {
         return "SegmentOrClosed(value=" + obj + ')';
     }
 
     public boolean equals(Object obj) {
-        return m2343equalsimpl(this.value, obj);
+        return m2345equalsimpl(this.value, obj);
     }
 
     public int hashCode() {
-        return m2346hashCodeimpl(this.value);
+        return m2348hashCodeimpl(this.value);
     }
 
     public String toString() {
-        return m2348toStringimpl(this.value);
+        return m2350toStringimpl(this.value);
     }
 
     /* renamed from: unbox-impl  reason: not valid java name */
-    public final /* synthetic */ Object m2349unboximpl() {
+    public final /* synthetic */ Object m2351unboximpl() {
         return this.value;
     }
 
@@ -72,7 +72,7 @@ public final class SegmentOrClosed<S extends Segment<S>> {
     }
 
     /* renamed from: getSegment-impl  reason: not valid java name */
-    public static final S m2345getSegmentimpl(Object obj) {
+    public static final S m2347getSegmentimpl(Object obj) {
         if (obj != ConcurrentLinkedListKt.CLOSED) {
             if (obj != null) {
                 return (S) obj;
@@ -83,7 +83,7 @@ public final class SegmentOrClosed<S extends Segment<S>> {
     }
 
     /* renamed from: isClosed-impl  reason: not valid java name */
-    public static final boolean m2347isClosedimpl(Object obj) {
+    public static final boolean m2349isClosedimpl(Object obj) {
         if (obj == ConcurrentLinkedListKt.CLOSED) {
             return true;
         }

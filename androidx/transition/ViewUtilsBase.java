@@ -36,12 +36,12 @@ public class ViewUtilsBase {
 
     public void clearNonTransitionAlpha(@NonNull View view2) {
         if (view2.getVisibility() == 0) {
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09206a, null);
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09209c, null);
         }
     }
 
     public float getTransitionAlpha(@NonNull View view2) {
-        Float f = (Float) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09206a);
+        Float f = (Float) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09209c);
         if (f != null) {
             return view2.getAlpha() / f.floatValue();
         }
@@ -49,8 +49,8 @@ public class ViewUtilsBase {
     }
 
     public void saveNonTransitionAlpha(@NonNull View view2) {
-        if (view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09206a) == null) {
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09206a, Float.valueOf(view2.getAlpha()));
+        if (view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09209c) == null) {
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09209c, Float.valueOf(view2.getAlpha()));
         }
     }
 
@@ -108,7 +108,7 @@ public class ViewUtilsBase {
     }
 
     public void setTransitionAlpha(@NonNull View view2, float f) {
-        Float f2 = (Float) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09206a);
+        Float f2 = (Float) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09209c);
         if (f2 != null) {
             view2.setAlpha(f2.floatValue() * f);
         } else {

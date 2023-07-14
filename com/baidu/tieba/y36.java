@@ -1,36 +1,21 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class y36 implements xn, b46, c35 {
+public class y36 {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseArray<BdUniqueId> c;
+    public static final long[] a;
+    public static final String[] b;
+    public static final String[] c;
+    public static final String[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public int b;
-
-    @Override // com.baidu.tieba.c35
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -45,133 +30,159 @@ public class y36 implements xn, b46, c35 {
                 return;
             }
         }
-        c = new SparseArray<>();
+        a = new long[]{19416, 19168, 42352, 21717, 53856, 55632, 91476, 22176, 39632, 21970, 19168, 42422, 42192, 53840, 119381, 46400, 54944, 44450, 38320, 84343, 18800, 42160, 46261, 27216, 27968, 109396, 11104, 38256, 21234, 18800, 25958, 54432, 59984, 28309, 23248, 11104, 100067, 37600, 116951, 51536, 54432, 120998, 46416, 22176, 107956, 9680, 37584, 53938, 43344, 46423, 27808, 46416, 86869, 19872, 42416, 83315, 21168, 43432, 59728, 27296, 44710, 43856, 19296, 43748, 42352, 21088, 62051, 55632, 23383, 22176, 38608, 19925, 19152, 42192, 54484, 53840, 54616, 46400, 46752, 103846, 38320, 18864, 43380, 42160, 45690, 27216, 27968, 44870, 43872, 38256, 19189, 18800, 25776, 29859, 59984, 27480, 21952, 43872, 38613, 37600, 51552, 55636, 54432, 55888, 30034, 22176, 43959, 9680, 37584, 51893, 43344, 46240, 47780, 44368, 21977, 19360, 42416, 86390, 21168, 43312, 31060, 27296, 44368, 23378, 19296, 42726, 42208, 53856, 60005, 54576, 23200, 30371, 38608, 19195, 19152, 42192, 118966, 53840, 54560, 56645, 46496, 22224, 21938, 18864, 42359, 42160, 43600, 111189, 27936, 44448, 84835, 37744, 18936, 18800, 25776, 92326, 59984, 27424, 108228, 43744, 41696, 53987, 51552, 54615, 54432, 55888, 23893, 22176, 42704, 21972, 21200, 43448, 43344, 46240, 46758, 44368, 21920, 43940, 42416, 21168, 45683, 26928, 29495, 27296, 44368, 84821, 19296, 42352, 21732, 53600, 59752, 54560, 55968, 92838, 22224, 19168, 43476, 41680, 53584, 62034, 54560};
+        b = new String[]{"", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "冬", "腊"};
+        c = new String[]{"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"};
+        d = new String[]{"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"};
+        new SimpleDateFormat("yyyy年M月d日 EEEEE");
     }
 
-    public y36() {
+    public static final String a(int i) {
+        InterceptResult invokeI;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i == 10) {
+                return "初十";
+            }
+            if (i == 20) {
+                return "二十";
+            }
+            if (i == 30) {
+                return "三十";
+            }
+            int i2 = i / 10;
+            if (i2 == 0) {
+                str = "初";
+            } else {
+                str = "";
+            }
+            if (i2 == 1) {
+                str = "十";
+            }
+            if (i2 == 2) {
+                str = "廿";
+            }
+            if (i2 == 3) {
+                str = "三";
+            }
+            switch (i % 10) {
+                case 1:
+                    return str + "一";
+                case 2:
+                    return str + "二";
+                case 3:
+                    return str + "三";
+                case 4:
+                    return str + "四";
+                case 5:
+                    return str + "五";
+                case 6:
+                    return str + "六";
+                case 7:
+                    return str + "七";
+                case 8:
+                    return str + "八";
+                case 9:
+                    return str + "九";
+                default:
+                    return str;
             }
         }
+        return (String) invokeI.objValue;
     }
 
-    public static List<BdUniqueId> c() {
-        InterceptResult invokeV;
+    public static ArrayList<String> b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < c.size(); i++) {
-                arrayList.add(c.valueAt(i));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (int i2 = 1; i2 <= i; i2++) {
+                arrayList.add(a(i2));
             }
             return arrayList;
         }
-        return (List) invokeV.objValue;
+        return (ArrayList) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.c35
-    public AdvertAppInfo G() {
-        InterceptResult invokeV;
+    public static final int f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (a() instanceof c35) {
-                return (AdvertAppInfo) a();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (g(i) != 0) {
+                if ((a[i - 1900] & 65536) != 0) {
+                    return 30;
+                }
+                return 29;
             }
-            return null;
+            return 0;
         }
-        return (AdvertAppInfo) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.b46
-    public Object a() {
-        InterceptResult invokeV;
+    public static final int g(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return (int) (a[i - 1900] & 15);
         }
-        return invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public static String c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int i2 = i - 4;
+            sb.append(c[i2 % 10]);
+            sb.append(d[i2 % 12]);
+            sb.append("年");
+            return sb.toString();
         }
-        return invokeV.intValue;
+        return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static ArrayList<String> d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return c.get(this.b);
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c35
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!(a() instanceof AdvertAppInfo)) {
-                return -1;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (int i2 = 1; i2 < b.length; i2++) {
+                arrayList.add(b[i2] + "月");
             }
-            return ((c35) a()).r();
-        }
-        return invokeV.intValue;
-    }
-
-    public static void b(List<Integer> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, list) == null) && c.size() <= 0 && list != null) {
-            for (Integer num : list) {
-                c.put(num.intValue(), BdUniqueId.gen());
+            if (g(i) != 0) {
+                int g = g(i);
+                arrayList.add(g, "闰" + b[g(i)] + "月");
             }
+            return arrayList;
         }
+        return (ArrayList) invokeI.objValue;
     }
 
-    public static int e(BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
-        int indexOfValue;
+    public static ArrayList<String> e(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdUniqueId)) == null) {
-            if (c.size() == 0 || (indexOfValue = c.indexOfValue(bdUniqueId)) == -1 || c.size() <= indexOfValue) {
-                return -1;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            while (i < i2) {
+                arrayList.add(String.format("%s(%d)", c(i), Integer.valueOf(i)));
+                i++;
             }
-            return c.keyAt(indexOfValue);
+            return arrayList;
         }
-        return invokeL.intValue;
+        return (ArrayList) invokeII.objValue;
     }
 
-    public void f(Object obj) {
+    public static final int h(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            this.a = obj;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65544, null, i, i2)) == null) {
+            if (((65536 >> i2) & a[i - 1900]) == 0) {
+                return 29;
+            }
+            return 30;
         }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.c35
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || !(a() instanceof c35)) {
-            return;
-        }
-        ((c35) a()).setPosition(i);
+        return invokeII.intValue;
     }
 }

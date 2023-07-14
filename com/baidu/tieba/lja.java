@@ -1,174 +1,97 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
 /* loaded from: classes6.dex */
 public class lja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947946182, "Lcom/baidu/tieba/lja;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public lja(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947946182, "Lcom/baidu/tieba/lja;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements nja {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nja a;
-
-        public a(nja njaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {njaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = njaVar;
-        }
-
-        @Override // com.baidu.tieba.nja
-        public void a(int i, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
-                nja njaVar = this.a;
-                if (njaVar != null) {
-                    njaVar.a(i, bitmap);
-                }
-                h1b.d("single-frameResult: " + i);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements nja {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nja a;
-
-        public b(nja njaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {njaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = njaVar;
-        }
-
-        @Override // com.baidu.tieba.nja
-        public void a(int i, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
-                nja njaVar = this.a;
-                if (njaVar != null) {
-                    njaVar.a(i, bitmap);
-                }
-                h1b.d("multi-frameResult: " + i);
-            }
-        }
-    }
-
-    public static TbMultiMediaData a(VideoInfo videoInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoInfo)) == null) {
-            TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
-            tbMultiMediaData.path = videoInfo.getVideoPath();
-            tbMultiMediaData.coverPath = videoInfo.getThumbPath();
-            tbMultiMediaData.height = videoInfo.getVideoHeight();
-            tbMultiMediaData.width = videoInfo.getVideoWidth();
-            tbMultiMediaData.type = 1;
-            tbMultiMediaData.start = 0L;
-            tbMultiMediaData.end = videoInfo.getVideoDuration() * 1000;
-            tbMultiMediaData.originalDuration = videoInfo.getVideoDuration() * 1000;
-            tbMultiMediaData.scaleType = "center_inside";
-            tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
-            return tbMultiMediaData;
-        }
-        return (TbMultiMediaData) invokeL.objValue;
-    }
-
-    public static void b(VlogEditManager vlogEditManager, Context context, int i, int i2, int i3, nja njaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{vlogEditManager, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), njaVar}) == null) && vlogEditManager != null && context != null && i > 0) {
-            wja wjaVar = new wja();
-            wjaVar.a = vlogEditManager.getDuration();
-            wjaVar.b = i;
-            wjaVar.f = vlogEditManager.getInputMultiMediaData();
-            MediaTrack mediaTrack = (MediaTrack) m1b.c(vlogEditManager.getUpdateMediaTracks(), 0);
-            if (mediaTrack == null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            wjaVar.e = mediaTrack.mediaSegments;
-            if (i2 == 0) {
-                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
-            }
-            wjaVar.c = i2;
-            if (i3 == 0) {
-                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
-            }
-            wjaVar.d = i3;
-            qja.f().i(wjaVar, new b(njaVar));
         }
+        this.a = tbPageContext;
     }
 
-    public static void c(MultiMediaData multiMediaData, Context context, int i, int i2, int i3, nja njaVar) {
+    public final boolean a(DressItemData dressItemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{multiMediaData, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), njaVar}) == null) && multiMediaData != null && context != null && i > 0) {
-            xja xjaVar = new xja();
-            xjaVar.b = i;
-            xjaVar.a = multiMediaData.originalDuration;
-            xjaVar.e = multiMediaData;
-            if (i2 == 0) {
-                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dressItemData)) == null) {
+            if (TbadkCoreApplication.getCurrentMemberType() == 1 && dressItemData.getFreeUserLevel() == 1) {
+                return true;
             }
-            xjaVar.c = i2;
-            if (i3 == 0) {
-                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b(DressItemData dressItemData, boolean z) {
+        String string;
+        String str;
+        int i;
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData, z) != null) || dressItemData == null) {
+            return;
+        }
+        boolean a = via.a(dressItemData);
+        if (!a) {
+            a = a(dressItemData);
+        }
+        if (a) {
+            this.b = dressItemData.getPropsId();
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
+            httpMessage.setExtra(Integer.valueOf(this.b));
+            httpMessage.addParam("bcode", String.valueOf(this.b));
+            MessageManager.getInstance().sendMessage(httpMessage);
+        } else if (dressItemData.getFreeUserLevel() == 100) {
+            if (dressItemData.getActivityFinish() == 0) {
+                via.b(this.a, 5, dressItemData.getActivityUrl());
             }
-            xjaVar.d = i3;
-            qja.f().j(xjaVar, new a(njaVar));
+        } else {
+            if (dressItemData.getFreeUserLevel() == 101) {
+                str = this.a.getString(R.string.obfuscated_res_0x7f0f0348);
+                i = 9;
+            } else {
+                if (dressItemData.getFreeUserLevel() > 1) {
+                    string = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f034e), Integer.valueOf(dressItemData.getFreeUserLevel()));
+                } else {
+                    string = this.a.getString(R.string.obfuscated_res_0x7f0f034a);
+                }
+                str = string;
+                i = 0;
+            }
+            if (z) {
+                str2 = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
+            } else {
+                str2 = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
+            }
+            via.d(this.a, 5, str, i, str2, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
         }
     }
 }

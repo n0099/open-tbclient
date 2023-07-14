@@ -1,19 +1,27 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface gz0 {
-    void onBufferingUpdate(int i);
+public class gz0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile fz0 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onCompletion();
-
-    boolean onError(int i, int i2, Object obj);
-
-    boolean onInfo(int i, int i2, Object obj);
-
-    boolean onMediaSourceChanged(int i, int i2, Object obj);
-
-    void onPrepared();
-
-    void onSeekComplete();
-
-    void onVideoSizeChanged(int i, int i2, int i3, int i4);
+    public static synchronized fz0 a() {
+        InterceptResult invokeV;
+        fz0 fz0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (gz0.class) {
+                if (a == null) {
+                    a = new fz0();
+                }
+                fz0Var = a;
+            }
+            return fz0Var;
+        }
+        return (fz0) invokeV.objValue;
+    }
 }

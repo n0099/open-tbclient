@@ -1,29 +1,116 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tieba.lw2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class mw2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class mw2 extends v73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static Map<String, oq3<Bundle>> h;
     public transient /* synthetic */ FieldHolder $fh;
+    public int f;
+    public String g;
+
+    /* loaded from: classes7.dex */
+    public class a implements oq3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ mw2 b;
+
+        public a(mw2 mw2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mw2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = mw2Var;
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oq3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                this.b.g = bundle.getString("key_launch_app_id");
+                this.b.f = bundle.getInt("key_launch_status");
+                if (TextUtils.equals(this.a, this.b.g)) {
+                    mw2 mw2Var = this.b;
+                    mw2Var.d.putInt(DnsModel.MSG_OK, mw2Var.f);
+                    this.b.c();
+                }
+                mw2.h.remove(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements oq3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ lw2.e b;
+
+        public b(String str, lw2.e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = eVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oq3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                String string = bundle.getString("key_launch_app_id");
+                int i = bundle.getInt("key_launch_status");
+                if (TextUtils.equals(this.a, string)) {
+                    if (i == 0) {
+                        this.b.b();
+                    } else {
+                        this.b.a();
+                    }
+                }
+                mw2.h.remove(this.a);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,77 +125,62 @@ public class mw2 {
                 return;
             }
         }
-        a = ms1.a;
+        boolean z = fs1.a;
+        h = new cq4();
     }
 
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public static String a(ab2 ab2Var) {
-        InterceptResult invokeL;
+    public mw2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ab2Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (ab2Var != null) {
-                try {
-                    jSONObject.put("containerId", ab2Var.getContainerId());
-                    jSONObject.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, BdZeusUtil.isWebkitLoaded());
-                } catch (JSONException e) {
-                    if (!a) {
-                        e.printStackTrace();
-                    } else {
-                        throw new RuntimeException(e);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            jSONObject.put("scheme", SchemeConfig.getSchemeHead());
-            String b = b(wi2.U().T());
-            c92.k("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + pn2.r(b));
-            jSONObject.put("sdkExtension", b);
-            jSONObject.put("gameSdkExtension", b(kv2.i().s()));
-            jSONObject.put("isDebugSdk", a);
-            if ((ab2Var instanceof NgWebView) && ((NgWebView) ab2Var).isSwanWebMode()) {
-                jSONObject.put("ctsEnabled", qk3.a().getInt("aiapps_web_mode_cts_use_key", 0));
-            }
-            String string = qk3.a().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && b83.s()) {
-                jSONObject.put("ctsJsAddress", new JSONObject(string));
-            }
-            String i = jv2.o().i();
-            if (!TextUtils.isEmpty(i)) {
-                jSONObject.put("hostName", i);
-            }
-            jSONObject.put(Constants.PARAM_PLATFORM, "android");
-            JSONObject a2 = il3.a();
-            a2.put("swanswitch_common_sys_info_binding", true);
-            a2.put("swanswitch_ab_sync_auth", true);
-            jSONObject.put("abTestSwitch", a2);
-            jSONObject.put("userDataPath", zn2.USER_DATA_PATH);
-            jSONObject.put("preloadId", wi2.U().a0());
-            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.d.h());
-            jSONObject.put("ttsExtractJSUrl", lo4.b().a());
-            jSONObject.put("coreJSPath", wi2.U().c0());
-            if (m12.d()) {
-                jSONObject.put("pendingList", new JSONArray((Collection) x32.d()));
-            }
-            jSONObject.put("swanNativeVersion", ns1.a());
-            String jSONObject2 = jSONObject.toString();
-            if (TextUtils.isEmpty(jSONObject2)) {
-                return "";
-            }
-            return jSONObject2;
         }
-        return (String) invokeL.objValue;
+        this.f = -1;
+        this.g = "";
     }
 
-    public static String b(ExtensionCore extensionCore) {
-        InterceptResult invokeL;
+    public static void k(String str) {
+        oq3<Bundle> oq3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, extensionCore)) == null) {
-            if (extensionCore != null && !TextUtils.isEmpty(extensionCore.extensionCorePath)) {
-                return extensionCore.extensionCorePath;
-            }
-            return "";
+        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && (oq3Var = h.get(str)) != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("key_launch_app_id", str);
+            bundle.putInt("key_launch_status", 1);
+            oq3Var.a(bundle);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static void l(String str) {
+        oq3<Bundle> oq3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && (oq3Var = h.get(str)) != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("key_launch_app_id", str);
+            bundle.putInt("key_launch_status", 0);
+            oq3Var.a(bundle);
+        }
+    }
+
+    @Override // com.baidu.tieba.v73
+    public void b(@NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String string = bundle.getString("desAppId");
+            h.put(string, new a(this, string));
+        }
+    }
+
+    public static void j(String str, lw2.e eVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65543, null, str, eVar) == null) && !TextUtils.isEmpty(str) && eVar != null) {
+            h.put(str, new b(str, eVar));
+        }
     }
 }

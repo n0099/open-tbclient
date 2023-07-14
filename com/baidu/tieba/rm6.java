@@ -1,38 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.browser.log.HybridLog;
+import androidx.core.util.Pair;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.browser.core.webview.offline.message.OfflineResourceReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class rm6 {
+public final class rm6 extends BdAsyncTask<Void, Void, Map<String, sm6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2) {
+    public rm6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            HybridLog.getInstance().a(str, str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(String str, String str2) {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            HybridLog.getInstance().b(str, str2);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            rm6 rm6Var = new rm6();
+            rm6Var.setPriority(4);
+            rm6Var.execute(new Void[0]);
         }
     }
 
-    public static void c(String str, String str2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public Map<String, sm6> doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            HybridLog.getInstance().c(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+            Set<String> q = jm6.n().q();
+            if (xn6.a(q)) {
+                zn6.b(jm6.n().m());
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            for (String str : q) {
+                String p = jm6.n().p(str);
+                nm6 a = qm6.a(str, p);
+                if (a != null && a.c()) {
+                    hashMap.putAll(a.a());
+                    jm6.j(jm6.n().m(), p, str);
+                } else {
+                    jm6.n().h(str);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            OfflineResourceReqMsg offlineResourceReqMsg = new OfflineResourceReqMsg("0.0.0.0");
+            MessageManager.getInstance().sendMessage(offlineResourceReqMsg);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_type", "request webCacheInfo").param("obj_locate", "start").param(TiebaStatic.Params.OBJ_PARAM2, ao6.a(Pair.create("offline_version", offlineResourceReqMsg.getWebViewVersion()))));
         }
     }
 
-    public static void d(String str, String str2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: e */
+    public void onPostExecute(Map<String, sm6> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            HybridLog.getInstance().d(str, str2);
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            km6.e().j(map);
+            d();
         }
     }
 }

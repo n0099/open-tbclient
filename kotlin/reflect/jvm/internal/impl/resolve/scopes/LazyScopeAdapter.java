@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.resolve.scopes;
 
 import kotlin.reflect.jvm.internal.impl.storage.NotNullLazyValue;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class LazyScopeAdapter extends AbstractScopeAdapter {
     public final NotNullLazyValue<MemberScope> scope;
 

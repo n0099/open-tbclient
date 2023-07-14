@@ -1,90 +1,113 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.net.Uri;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.view.SdkDoubleLiveViewHolder;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fb6 extends kn<jb6, SdkDoubleLiveViewHolder> {
+public class fb6 extends ShareItem {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public nc6 b;
-    public int c;
-    public boolean d;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public fb6(TbPageContext tbPageContext, int i, boolean z) {
-        super(r0, r1);
-        BdUniqueId bdUniqueId;
+    public fb6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.E0;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.D0;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.C0;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public JSONArray v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.F0;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public void w(JSONObject jSONObject) throws JSONException {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            int i = 1;
+            this.w0 = true;
+            this.v = jSONObject.getString("title");
+            this.x = jSONObject.getString(GameAssistConstKt.KEY_LINKURL);
+            this.w = jSONObject.optString("content");
+            this.A = jSONObject.optString("imageUrl");
+            this.C0 = jSONObject.optString("mediaType");
+            if (StringUtils.isNull(this.A)) {
+                str = jSONObject.optString(GameAssistConstKt.KEY_ICONURL);
+            } else {
+                str = this.A;
+            }
+            this.A = str;
+            this.z = Uri.parse(str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
+            if (optJSONObject != null) {
+                this.x0 = optJSONObject.optString("source2");
+                this.z0 = optJSONObject.optString("source3");
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
+            if (optJSONObject2 != null) {
+                this.y0 = 2;
+                this.F0 = optJSONObject2.optJSONArray("cmd_pannel");
+                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("info");
+                this.G0 = optJSONObject3;
+                if (optJSONObject3 != null) {
+                    this.D0 = optJSONObject3.optString("key");
+                    this.E0 = this.G0.optString("content");
+                    return;
+                }
                 return;
             }
-        }
-        Activity pageActivity = tbPageContext.getPageActivity();
-        if (z) {
-            bdUniqueId = jb6.d;
-        } else {
-            bdUniqueId = jb6.c;
-        }
-        this.a = tbPageContext;
-        this.c = i;
-        this.d = z;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public SdkDoubleLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new nc6(this.a, viewGroup, this.c, this.d);
-            return new SdkDoubleLiveViewHolder(this.b);
-        }
-        return (SdkDoubleLiveViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jb6 jb6Var, SdkDoubleLiveViewHolder sdkDoubleLiveViewHolder) {
-        InterceptResult invokeCommon;
-        nc6 nc6Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jb6Var, sdkDoubleLiveViewHolder})) == null) {
-            if (sdkDoubleLiveViewHolder != null && (nc6Var = sdkDoubleLiveViewHolder.a) != null) {
-                nc6Var.i(jb6Var);
-                sdkDoubleLiveViewHolder.a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return sdkDoubleLiveViewHolder.getView();
+            if (!"url".equals(jSONObject.optString("type"))) {
+                i = 3;
             }
-            return null;
+            this.y0 = i;
         }
-        return (View) invokeCommon.objValue;
     }
 }

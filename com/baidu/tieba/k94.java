@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface k94 {
-    boolean a(Object obj);
+    void a(jc4 jc4Var, ic4 ic4Var);
 
-    void b(Object obj);
-
-    void c(Object obj);
+    void b(ac4 ac4Var, zb4 zb4Var);
 }

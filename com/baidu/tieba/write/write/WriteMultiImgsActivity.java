@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.atomData.BaseWriteConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.aqa;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.uma;
-import com.baidu.tieba.vma;
+import com.baidu.tieba.sva;
+import com.baidu.tieba.tva;
+import com.baidu.tieba.yya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class WriteMultiImgsActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uma a;
-    public vma b;
+    public sva a;
+    public tva b;
 
     /* loaded from: classes8.dex */
-    public class a implements aqa {
+    public class a implements yya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteMultiImgsActivity a;
@@ -51,7 +51,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             this.a = writeMultiImgsActivity;
         }
 
-        @Override // com.baidu.tieba.aqa
+        @Override // com.baidu.tieba.yya
         public boolean c(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.aqa
+        @Override // com.baidu.tieba.yya
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -70,7 +70,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             }
         }
 
-        @Override // com.baidu.tieba.aqa
+        @Override // com.baidu.tieba.yya
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -78,7 +78,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             }
         }
 
-        @Override // com.baidu.tieba.aqa
+        @Override // com.baidu.tieba.yya
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -116,24 +116,24 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            vma vmaVar = this.b;
-            if (vmaVar != null) {
-                vmaVar.s();
+            tva tvaVar = this.b;
+            if (tvaVar != null) {
+                tvaVar.s();
             }
             TbadkCoreApplication.getInst().delRemoteActivity(this);
-            uma umaVar = this.a;
-            if (umaVar != null) {
-                umaVar.o();
+            sva svaVar = this.a;
+            if (svaVar != null) {
+                svaVar.o();
             }
             super.onDestroy();
         }
     }
 
-    public void y1() {
-        vma vmaVar;
+    public void v1() {
+        tva tvaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (vmaVar = this.b) != null) {
-            vmaVar.m();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (tvaVar = this.b) != null) {
+            tvaVar.m();
         }
     }
 
@@ -142,9 +142,9 @@ public class WriteMultiImgsActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            uma umaVar = this.a;
-            if (umaVar != null) {
-                umaVar.h(i);
+            sva svaVar = this.a;
+            if (svaVar != null) {
+                svaVar.h(i);
             }
             this.b.c.notifyDataSetChanged();
         }
@@ -156,12 +156,12 @@ public class WriteMultiImgsActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            uma umaVar = new uma(getPageContext(), new a(this));
-            this.a = umaVar;
-            setContentView(umaVar.k);
-            vma vmaVar = new vma(getPageContext(), this.a, bundle);
-            this.b = vmaVar;
-            if (vmaVar.j != TbadkCoreApplication.getInst().getSkinType()) {
+            sva svaVar = new sva(getPageContext(), new a(this));
+            this.a = svaVar;
+            setContentView(svaVar.k);
+            tva tvaVar = new tva(getPageContext(), this.a, bundle);
+            this.b = tvaVar;
+            if (tvaVar.j != TbadkCoreApplication.getInst().getSkinType()) {
                 TbadkCoreApplication.getInst().setSkinType(this.b.j);
             }
         }
@@ -172,8 +172,8 @@ public class WriteMultiImgsActivity extends BaseActivity {
         MultiImagePagerAdapter multiImagePagerAdapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            vma vmaVar = this.b;
-            if (vmaVar != null && (multiImagePagerAdapter = vmaVar.c) != null) {
+            tva tvaVar = this.b;
+            if (tvaVar != null && (multiImagePagerAdapter = tvaVar.c) != null) {
                 bundle.putInt("OutState_Current_Index", multiImagePagerAdapter.j());
                 bundle.putInt("OutState_Write_Entrance", this.b.t());
                 bundle.putSerializable("OutState_Write_Info_Data", this.b.u());
@@ -186,12 +186,12 @@ public class WriteMultiImgsActivity extends BaseActivity {
         }
     }
 
-    public void z1(boolean z, WriteImagesInfo writeImagesInfo) {
+    public void w1(boolean z, WriteImagesInfo writeImagesInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048582, this, z, writeImagesInfo) == null) {
-            vma vmaVar = this.b;
-            if (vmaVar != null) {
-                if (1 == vmaVar.t()) {
+            tva tvaVar = this.b;
+            if (tvaVar != null) {
+                if (1 == tvaVar.t()) {
                     ForumWriteData u = this.b.u();
                     if (u != null) {
                         if (WriteActivityConfig.isAsyncWriting()) {

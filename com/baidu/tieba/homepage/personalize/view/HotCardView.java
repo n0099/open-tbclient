@@ -23,15 +23,15 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fb5;
-import com.baidu.tieba.gj;
+import com.baidu.tieba.b85;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.hj;
 import com.baidu.tieba.homepage.concern.view.RecommendHotReplyLayout;
-import com.baidu.tieba.n4a;
-import com.baidu.tieba.q75;
-import com.baidu.tieba.ry;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.sy;
+import com.baidu.tieba.xb5;
+import com.baidu.tieba.yca;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ import java.util.LinkedList;
 import java.util.List;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public class HotCardView extends LinearLayout implements ry {
+public class HotCardView extends LinearLayout implements sy {
     public static /* synthetic */ Interceptable $ic;
     public static final Integer l;
     public static int m;
@@ -59,7 +59,7 @@ public class HotCardView extends LinearLayout implements ry {
     public ThreadData h;
     public View i;
     public int j;
-    public yz4 k;
+    public h05 k;
 
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
@@ -150,25 +150,25 @@ public class HotCardView extends LinearLayout implements ry {
         b();
     }
 
-    public void setOutOnClickListener(yz4 yz4Var) {
+    public void setOutOnClickListener(h05 h05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yz4Var) == null) {
-            this.k = yz4Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h05Var) == null) {
+            this.k = h05Var;
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0837, (ViewGroup) this, true);
+            this.i = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d084f, (ViewGroup) this, true);
             setOrientation(1);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09250e);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907b1);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09176e);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09105e);
-            this.f = (ViewFlipper) findViewById(R.id.obfuscated_res_0x7f09074d);
-            this.b.setLineSpacing(xi.g(getContext(), R.dimen.M_T_X002), 1.0f);
-            this.c.setLineSpacing(xi.g(getContext(), R.dimen.M_T_X002), 1.0f);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092542);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907b2);
+            this.d = (EMTextView) findViewById(R.id.more_label_view);
+            this.e = (TbImageView) findViewById(R.id.image_content);
+            this.f = (ViewFlipper) findViewById(R.id.obfuscated_res_0x7f09074e);
+            this.b.setLineSpacing(yi.g(getContext(), R.dimen.M_T_X002), 1.0f);
+            this.c.setLineSpacing(yi.g(getContext(), R.dimen.M_T_X002), 1.0f);
             c();
         }
     }
@@ -176,7 +176,7 @@ public class HotCardView extends LinearLayout implements ry {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.g = xi.g(getContext(), R.dimen.tbds237);
+            this.g = yi.g(getContext(), R.dimen.tbds237);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.e.getLayoutParams();
             int i = this.g;
             marginLayoutParams.width = i;
@@ -190,7 +190,7 @@ public class HotCardView extends LinearLayout implements ry {
             this.e.setForegroundColor(0);
             this.e.setBorderSurroundContent(true);
             this.e.setDrawBorder(true);
-            this.e.setBorderWidth(xi.g(getContext(), R.dimen.tbds1));
+            this.e.setBorderWidth(yi.g(getContext(), R.dimen.tbds1));
             this.e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
@@ -200,7 +200,7 @@ public class HotCardView extends LinearLayout implements ry {
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, threadData, i, themeColorInfo) == null) {
             this.f.removeAllViews();
             this.f.stopFlipping();
-            List<n4a> postList = threadData.getPostList();
+            List<yca> postList = threadData.getPostList();
             if (!ListUtils.isEmpty(postList)) {
                 for (int i2 = 0; i2 < postList.size(); i2++) {
                     RecommendHotReplyLayout recommendHotReplyLayout = new RecommendHotReplyLayout(getContext());
@@ -246,21 +246,21 @@ public class HotCardView extends LinearLayout implements ry {
         }
     }
 
-    @Override // com.baidu.tieba.ry
+    @Override // com.baidu.tieba.sy
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(1048581, this, tbPageContext, i) != null) || this.j == i) {
             return;
         }
         this.j = i;
-        s75 d = s75.d(this.b);
+        d85 d = d85.d(this.b);
         d.D(R.string.F_X02);
         d.C(R.dimen.T_X05);
         d.x(R.color.CAM_X0105);
-        s75 d2 = s75.d(this.c);
+        d85 d2 = d85.d(this.c);
         d2.C(R.dimen.T_X07);
         d2.x(R.color.CAM_X0107);
-        s75 d3 = s75.d(this.d);
+        d85 d3 = d85.d(this.d);
         d3.x(R.color.CAM_X0101);
         d3.D(R.string.F_X02);
         d3.o(R.string.J_X01);
@@ -276,27 +276,27 @@ public class HotCardView extends LinearLayout implements ry {
         this.h = threadData;
         e(threadData);
         int i2 = 2;
-        m = (xi.l(getContext()) - (xi.g(getContext(), R.dimen.M_W_X004) * 2)) - (xi.g(getContext(), R.dimen.M_W_X005) * 2);
+        m = (yi.l(getContext()) - (yi.g(getContext(), R.dimen.M_W_X004) * 2)) - (yi.g(getContext(), R.dimen.M_W_X005) * 2);
         if (this.e.getVisibility() == 0) {
-            m = (m - xi.g(getContext(), R.dimen.M_W_X006)) - this.g;
+            m = (m - yi.g(getContext(), R.dimen.M_W_X006)) - this.g;
         }
         if (threadData.getIsNoTitle() == 1) {
             this.c.setVisibility(8);
         } else {
             this.c.setVisibility(0);
             this.c.setText(threadData.getAbstractText());
-            i2 = (2 - gj.a(m, this.c.getPaint(), this.c.getText().toString(), 2)) + 1;
+            i2 = (2 - hj.a(m, this.c.getPaint(), this.c.getText().toString(), 2)) + 1;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(threadData.getTitleText());
-        float[] B = q75.B(R.string.J_X04);
+        float[] B = b85.B(R.string.J_X04);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.T_X10);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-        fb5 fb5Var = new fb5(TagTextHelper.getIndexTextColorRes(i), (int) B[0], dimenPixelSize, R.color.CAM_X0101, UtilHelper.getDimenPixelSize(R.dimen.tbds3), UtilHelper.getDimenPixelSize(R.dimen.tbds5), 0);
-        fb5Var.b(dimenPixelSize2);
-        fb5Var.a(false);
+        xb5 xb5Var = new xb5(TagTextHelper.getIndexTextColorRes(i), (int) B[0], dimenPixelSize, R.color.CAM_X0101, UtilHelper.getDimenPixelSize(R.dimen.tbds3), UtilHelper.getDimenPixelSize(R.dimen.tbds5), 0);
+        xb5Var.b(dimenPixelSize2);
+        xb5Var.a(false);
         String valueOf = String.valueOf(i);
         spannableStringBuilder.insert(0, (CharSequence) valueOf);
-        spannableStringBuilder.setSpan(fb5Var, 0, valueOf.length(), 17);
+        spannableStringBuilder.setSpan(xb5Var, 0, valueOf.length(), 17);
         this.b.setMaxLines(i2);
         this.b.setText(spannableStringBuilder);
         d(threadData, i - 1, themeColorInfo);

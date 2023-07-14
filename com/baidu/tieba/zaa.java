@@ -1,49 +1,33 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.aa5;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
-import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
-@SuppressLint({"ResourceAsColor"})
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class zaa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BubbleListActivity a;
-    public View b;
-    public NavigationBar c;
-    public MemberRecommendView d;
-    public BdListView e;
-    public ba5 f;
-    public yaa g;
-    public int h;
+    public Map<BdUniqueId, ArrayList<StatisticItem>> a;
+    public String[] b;
 
-    public zaa(BubbleListActivity bubbleListActivity, uaa uaaVar) {
+    public zaa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bubbleListActivity, uaaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,160 +37,137 @@ public class zaa {
                 return;
             }
         }
-        this.f = null;
-        this.h = 0;
-        this.a = bubbleListActivity;
-        this.h = xi.g(bubbleListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07035e);
-        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0187, (ViewGroup) null);
-        this.b = inflate;
-        this.a.setContentView(inflate);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-        this.c = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c.setTitleText(R.string.obfuscated_res_0x7f0f03a5);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f0928fb);
-        this.d = memberRecommendView;
-        memberRecommendView.setFromType(7);
-        this.e = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091521);
-        ba5 ba5Var = new ba5(this.a.getPageContext());
-        this.f = ba5Var;
-        this.e.setPullRefresh(ba5Var);
-        TextView textView = new TextView(this.a.getActivity());
-        textView.setHeight(xi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0701d5));
-        this.e.addFooterView(textView);
-        yaa yaaVar = new yaa(this.a.getPageContext(), uaaVar);
-        this.g = yaaVar;
-        this.e.setAdapter((ListAdapter) yaaVar);
-    }
-
-    public final List<List<DressItemData>> a(List<DressItemData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int size = list.size();
-            for (int i = 0; i < size; i = i + 1 + 1) {
-                ArrayList arrayList2 = new ArrayList();
-                for (int i2 = 0; i2 < 2; i2++) {
-                    int i3 = i + i2;
-                    if (i3 < size) {
-                        arrayList2.add(list.get(i3));
-                    }
-                }
-                arrayList.add(arrayList2);
-            }
-            return arrayList;
+        this.b = new String[]{TiebaStatic.Params.OBJ_FLOOR, TiebaStatic.Params.OBJ_ISAD, "obj_id", "tid", "pid", "thread_type", "fid", TiebaStatic.Params.POST_TYPE, TiebaStatic.Params.IS_OFFICIAL, TiebaStatic.Params.OBJ_AD_LOCATE, TiebaStatic.Params.RECOM_WEIGHT, "recom_source", TiebaStatic.Params.RECOM_AB_TAG, TiebaStatic.Params.RECOM_EXTRA, TiebaStatic.Params.RECOM_TYPE, TiebaStatic.Params.UGC_VID, TiebaStatic.Params.UGC_NID, TiebaStatic.Params.UGC_TYPE, "obj_locate", TiebaStatic.Params.LIST_ORDER, TiebaStatic.Params.IS_SPECIAL_THREAD, TiebaStatic.Params.OBJ_PARAM3};
+        if (this.a == null) {
+            this.a = new LinkedHashMap();
         }
-        return (List) invokeL.objValue;
     }
 
-    public final boolean f(iba ibaVar) {
+    public void a(BdUniqueId bdUniqueId, StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bdUniqueId, statisticItem) == null) && statisticItem != null && bdUniqueId != null) {
+            ArrayList<StatisticItem> arrayList = this.a.get(bdUniqueId);
+            if (arrayList == null) {
+                arrayList = new ArrayList<>();
+                this.a.put(bdUniqueId, arrayList);
+            }
+            arrayList.add(statisticItem);
+        }
+    }
+
+    public void d(BdUniqueId bdUniqueId, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048579, this, bdUniqueId, z) != null) || bdUniqueId == null) {
+            return;
+        }
+        ArrayList<StatisticItem> arrayList = this.a.get(bdUniqueId);
+        if (ListUtils.getCount(arrayList) == 0) {
+            return;
+        }
+        e(arrayList);
+        arrayList.clear();
+    }
+
+    public final String b(List<Object> list, String str) {
+        InterceptResult invokeLL;
+        int indexOf;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str)) == null) {
+            if (ListUtils.getCount(list) == 0 || StringUtils.isNull(str) || (indexOf = list.indexOf(str)) < 0 || list.size() <= (i = indexOf + 1)) {
+                return "";
+            }
+            String valueOf = String.valueOf(list.get(i));
+            if (StringUtils.isNull(valueOf, true)) {
+                return "";
+            }
+            return valueOf;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public boolean c(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ibaVar)) == null) {
-            if (ibaVar != null && !StringUtils.isNull(ibaVar.c())) {
-                this.d.setVisibility(0);
-                this.d.e(ibaVar);
-                return true;
-            }
-            this.d.setVisibility(8);
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId)) == null) {
+            return this.a.containsKey(bdUniqueId);
         }
         return invokeL.booleanValue;
     }
 
-    public void b() {
+    public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
-            this.a.hideNetRefreshView(this.b);
-            this.d.setVisibility(0);
-            this.e.setVisibility(0);
-            this.b.setVisibility(0);
+        if ((interceptable != null && interceptable.invokeL(1048581, this, bdUniqueId) != null) || bdUniqueId == null) {
+            return;
         }
+        this.a.put(bdUniqueId, null);
     }
 
-    public View c() {
-        InterceptResult invokeV;
+    public void h(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, bdUniqueId) != null) || bdUniqueId == null) {
+            return;
         }
-        return (View) invokeV.objValue;
+        this.a.remove(bdUniqueId);
     }
 
-    public void j() {
+    public final void e(ArrayList<StatisticItem> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.e.z(0L);
-        }
-    }
-
-    public void d() {
-        yaa yaaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            qt5.a(this.a.getPageContext(), this.b);
-            NavigationBar navigationBar = this.c;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && ListUtils.getCount(arrayList) != 0) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (ListUtils.getCount(arrayList) == 1) {
+                TiebaStatic.log((StatisticItem) ListUtils.getItem(arrayList, 0));
+            } else {
+                HashMap hashMap = new HashMap();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    StatisticItem statisticItem = arrayList.get(i);
+                    if (hashMap.containsKey(statisticItem.getKey())) {
+                        ((List) hashMap.get(statisticItem.getKey())).add(statisticItem);
+                    } else {
+                        ArrayList arrayList2 = new ArrayList();
+                        arrayList2.add(statisticItem);
+                        hashMap.put(statisticItem.getKey(), arrayList2);
+                    }
+                }
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    List list = (List) entry.getValue();
+                    if (ListUtils.getCount(list) != 0) {
+                        StatisticItem statisticItem2 = (StatisticItem) list.get(0);
+                        for (int i2 = 0; i2 < this.b.length; i2++) {
+                            StringBuilder sb = new StringBuilder();
+                            for (int i3 = 0; i3 < list.size(); i3++) {
+                                sb.append(b(((StatisticItem) list.get(i3)).getParams(), this.b[i2]));
+                                sb.append("|");
+                            }
+                            if (sb.length() > 0) {
+                                sb.deleteCharAt(sb.length() - 1);
+                            }
+                            statisticItem2.delete(this.b[i2]);
+                            statisticItem2.param(this.b[i2] + "s", sb.toString());
+                        }
+                        TiebaStatic.log(statisticItem2);
+                    }
+                }
+                if (!hashMap.isEmpty()) {
+                    hashMap.clear();
+                }
             }
-            BdListView bdListView = this.e;
-            if (bdListView != null && bdListView.getVisibility() == 0 && (yaaVar = this.g) != null) {
-                yaaVar.notifyDataSetChanged();
+            if (BdLog.isDebugMode()) {
+                BdLog.e("logStatisticByKey->" + (System.currentTimeMillis() - currentTimeMillis) + "|size=" + arrayList.size());
             }
-            ba5 ba5Var = this.f;
-            if (ba5Var != null) {
-                ba5Var.H(TbadkApplication.getInst().getSkinType());
-            }
-            this.d.d();
         }
     }
 
-    public void h() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.d.setVisibility(8);
-            this.e.setVisibility(8);
-            this.b.setVisibility(8);
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
-            this.a.setNetRefreshViewTopMargin(this.h);
-            this.a.showNetRefreshView(this.b, string, false);
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.a.size() == 0) {
+            return;
         }
-    }
-
-    public final void e(List<List<DressItemData>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.e.setVisibility(0);
-                this.g.b(list);
-                this.g.notifyDataSetChanged();
-                return;
+        for (Map.Entry<BdUniqueId, ArrayList<StatisticItem>> entry : this.a.entrySet()) {
+            ArrayList<StatisticItem> value = entry.getValue();
+            if (value != null) {
+                value.clear();
             }
-            this.e.setVisibility(8);
-        }
-    }
-
-    public void g(BdListView.p pVar, aa5.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
-            this.e.setOnSrollToBottomListener(pVar);
-            this.f.f(gVar);
-        }
-    }
-
-    public void i(iba ibaVar, List<DressItemData> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, ibaVar, list, z) == null) {
-            if (list != null && list.size() > 0) {
-                b();
-                f(ibaVar);
-                e(a(list));
-                return;
-            }
-            h();
         }
     }
 }

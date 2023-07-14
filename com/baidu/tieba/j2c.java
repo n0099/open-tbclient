@@ -1,15 +1,5 @@
 package com.baidu.tieba;
-
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 /* loaded from: classes6.dex */
-public interface j2c extends h2c {
-
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a();
-    }
-
-    void setCallback(a aVar);
-
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+public interface j2c<T1, T2> {
+    void call(T1 t1, T2 t2);
 }

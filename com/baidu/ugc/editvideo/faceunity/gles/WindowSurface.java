@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WindowSurface extends EglSurfaceBase {
     public boolean mReleaseSurface;
     public Surface mSurface;

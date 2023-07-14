@@ -1,35 +1,81 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
-import android.view.MotionEvent;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.immessagecenter.im.chat.notify.MessageAggregationListAdapter;
-import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.holder.ResponsePanelEmojiHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class om8 implements AdapterView.OnItemLongClickListener {
+public class om8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> a;
-    public final MsgChatCenterSliceView b;
-    public final MessageAggregationListAdapter c;
+    @NonNull
+    public final Context a;
+    public final List<Reaction> b;
+    @Nullable
+    public qm8 c;
+    public final View.OnClickListener d;
 
-    public om8(TbPageContext<BaseFragmentActivity> pageContext, MsgChatCenterSliceView sliceView, MessageAggregationListAdapter messageAggregationListAdapter) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ om8 a;
+
+        public a(om8 om8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {om8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = om8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Reaction reaction;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (reaction = (Reaction) this.a.b.get(((Integer) view2.getTag()).intValue())) != null && this.a.c != null) {
+                this.a.c.a(reaction);
+            }
+        }
+    }
+
+    public om8(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext, sliceView, messageAggregationListAdapter};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,48 +85,67 @@ public final class om8 implements AdapterView.OnItemLongClickListener {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        Intrinsics.checkNotNullParameter(sliceView, "sliceView");
-        this.a = pageContext;
-        this.b = sliceView;
-        this.c = messageAggregationListAdapter;
+        this.b = new ArrayList();
+        this.d = new a(this);
+        this.a = context;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        InterceptResult invokeCommon;
-        ImMessageCenterShowItemData imMessageCenterShowItemData;
+    public void c(@NonNull qm8 qm8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            MessageAggregationListAdapter messageAggregationListAdapter = this.c;
-            if (messageAggregationListAdapter != null) {
-                imMessageCenterShowItemData = messageAggregationListAdapter.getItem(i);
-            } else {
-                imMessageCenterShowItemData = null;
-            }
-            if (i < 0 || imMessageCenterShowItemData == null) {
-                return false;
-            }
-            if (imMessageCenterShowItemData.getDataType() == 2) {
-                return true;
-            }
-            if (!this.b.q0(imMessageCenterShowItemData)) {
-                if (adapterView != null) {
-                    adapterView.setHapticFeedbackEnabled(false);
-                }
-                return true;
-            }
-            TiebaStatic.log("c12932");
-            p55 Z = this.b.Z();
-            if (Z != null) {
-                Z.l();
-            }
-            if (this.a.getPageActivity() != null) {
-                long uptimeMillis = SystemClock.uptimeMillis();
-                this.a.getPageActivity().getWindow().getDecorView().dispatchTouchEvent(MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0));
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, qm8Var) == null) {
+            this.c = qm8Var;
         }
-        return invokeCommon.booleanValue;
+    }
+
+    public void d(List<Reaction> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list.size() <= 0) {
+            return;
+        }
+        this.b.clear();
+        this.b.addAll(list);
+        notifyDataSetChanged();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return this.b.get(i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    @SuppressLint({"InflateParams"})
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        ResponsePanelEmojiHolder responsePanelEmojiHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e3, (ViewGroup) null);
+                responsePanelEmojiHolder = new ResponsePanelEmojiHolder(view2);
+                view2.setTag(responsePanelEmojiHolder);
+            } else {
+                responsePanelEmojiHolder = (ResponsePanelEmojiHolder) view2.getTag();
+            }
+            responsePanelEmojiHolder.a.I(this.b.get(i).getContent());
+            responsePanelEmojiHolder.a.setTag(Integer.valueOf(i));
+            responsePanelEmojiHolder.a.setOnClickListener(this.d);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

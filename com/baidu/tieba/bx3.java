@@ -1,57 +1,33 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes5.dex */
-public class bx3 {
+public final class bx3 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
+    @Inject(force = false)
+    public static zy3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String str = a;
-            if (str != null) {
-                return TextUtils.equals(str, "HUAWEI");
-            }
-            String upperCase = Build.BRAND.toUpperCase();
-            if (!TextUtils.equals("HUAWEI", upperCase) && !TextUtils.equals("HONOR", upperCase)) {
-                String upperCase2 = Build.MANUFACTURER.toUpperCase();
-                if (!upperCase2.contains("HUAWEI") && !upperCase2.contains("HONOR")) {
-                    return false;
-                }
-                a = "HUAWEI";
-                return true;
-            }
-            a = "HUAWEI";
-            return true;
+            return new yy3();
         }
-        return invokeV.booleanValue;
+        return (zy3) invokeV.objValue;
     }
 
-    public static boolean b() {
+    @Inject(force = false)
+    public static vx3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = a;
-            if (str != null) {
-                return TextUtils.equals(str, "OPPO");
-            }
-            if (TextUtils.equals("OPPO", Build.BRAND.toUpperCase())) {
-                a = "OPPO";
-                return true;
-            } else if (Build.MANUFACTURER.toUpperCase().contains("OPPO")) {
-                a = "OPPO";
-                return true;
-            } else {
-                return false;
-            }
+            return new tx3();
         }
-        return invokeV.booleanValue;
+        return (vx3) invokeV.objValue;
     }
 }

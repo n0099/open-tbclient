@@ -1,237 +1,97 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.core.app.NotificationManagerCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.pb.pb.main.pendantrecord.PbPendantRecordCacheModel;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ff9 {
+public final class ff9 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    @JvmField
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public PbPendantRecordCacheModel b;
-    public boolean c;
-    public boolean d;
-    public String e;
-    public String f;
-    public ArrayList<ve9> g;
-    public long h;
-    public final CacheModel.c<ve9> i;
+    public String a;
+    public String b;
 
-    /* loaded from: classes5.dex */
-    public class a implements CacheModel.c<ve9> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ff9 a;
-
-        public a(ff9 ff9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947762352, "Lcom/baidu/tieba/ff9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ff9Var;
-        }
-
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void l(WriteCacheRespMsg<List<ve9>> writeCacheRespMsg, WriteCacheMessage<ve9> writeCacheMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, writeCacheRespMsg, writeCacheMessage) == null) {
-                if (writeCacheMessage != null && writeCacheMessage.getData() != null) {
-                    this.a.j(writeCacheMessage.getData().getCacheKey(), writeCacheMessage.getData().b(), ListUtils.getCount(writeCacheMessage.getData().c()));
-                }
-                this.a.p();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947762352, "Lcom/baidu/tieba/ff9;");
+                return;
             }
         }
-
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void q(ReadCacheRespMsg<List<ve9>> readCacheRespMsg, ReadCacheMessage<ve9> readCacheMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, readCacheRespMsg, readCacheMessage) == null) {
-                this.a.c = true;
-                if (readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
-                    this.a.g.clear();
-                    this.a.g.addAll(readCacheRespMsg.getData());
-                }
-                if (this.a.d) {
-                    this.a.d = false;
-                    if (!TextUtils.isEmpty(this.a.e) && !TextUtils.isEmpty(this.a.f)) {
-                        ff9 ff9Var = this.a;
-                        ff9Var.n(ff9Var.e, this.a.f);
-                        this.a.e = null;
-                        this.a.f = null;
-                    }
-                }
-            }
-        }
+        c = BdUniqueId.gen();
     }
 
-    public ff9(TbPageContext tbPageContext) {
+    public ff9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.c = false;
-        this.d = false;
-        this.g = new ArrayList<>();
-        this.h = 0L;
-        this.i = new a(this);
-        this.a = tbPageContext;
     }
 
-    public final ArrayList<String> k(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(str);
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    @MainThread
-    public void q(@NonNull String str) {
-        PbPendantRecordCacheModel pbPendantRecordCacheModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || (pbPendantRecordCacheModel = this.b) == null) {
-            return;
-        }
-        pbPendantRecordCacheModel.X(new ve9(str, "", new ArrayList()));
-    }
-
-    public final void j(@NonNull String str, @NonNull String str2, int i) {
-        tq9 g;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) && (g = uq9.e().g("pb_to_personalize")) != null && g.e() > 0 && uq9.e().b("pb_to_personalize") && i >= g.e()) {
-            gs6.b().b(new u99(true, vg.g(str2, 0L)));
-            if (this.a != null && !TextUtils.isEmpty(str)) {
-                String string = this.a.getResources().getString(R.string.push_tip_default_title);
-                String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fe1, str);
-                g.h(string);
-                g.g(string2);
-            }
-            q(str);
-        }
-    }
-
-    @NonNull
-    public final ArrayList l(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (ListUtils.isEmpty(this.g)) {
-                this.g = new ArrayList<>();
-            }
-            Iterator<ve9> it = this.g.iterator();
-            while (it.hasNext()) {
-                ve9 next = it.next();
-                if (next != null && str.equals(next.a())) {
-                    ArrayList<String> c = next.c();
-                    if (next.d() < this.h) {
-                        c.clear();
-                        c.add(str2);
-                        return c;
-                    } else if (c.contains(str2)) {
-                        return c;
-                    } else {
-                        c.add(str2);
-                        return c;
-                    }
-                }
-            }
-            return k(str2);
-        }
-        return (ArrayList) invokeLL.objValue;
-    }
-
-    public ff9 m() {
+    public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == null) {
-                PbPendantRecordCacheModel pbPendantRecordCacheModel = new PbPendantRecordCacheModel(this.a);
-                this.b = pbPendantRecordCacheModel;
-                pbPendantRecordCacheModel.n0(this.i);
-                this.h = UtilHelper.getTodayZeroTime();
-                p();
-            }
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (ff9) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean o() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            TbPageContext tbPageContext = this.a;
-            if (tbPageContext != null && tbPageContext.getPageActivity() != null && NotificationManagerCompat.from(this.a.getPageActivity()).areNotificationsEnabled()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void p() {
-        PbPendantRecordCacheModel pbPendantRecordCacheModel;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (pbPendantRecordCacheModel = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BdUniqueId TYPE = c;
+            Intrinsics.checkNotNullExpressionValue(TYPE, "TYPE");
+            return TYPE;
         }
-        pbPendantRecordCacheModel.k0();
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @MainThread
-    public void n(@NonNull String str, @NonNull String str2) {
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.b != null && !TextUtils.isEmpty(str)) {
-            if (!this.c) {
-                this.d = true;
-                this.e = str;
-                this.f = str2;
-                p();
-                return;
-            }
-            this.b.X(new ve9(str, str2, l(str, str2)));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public final void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
         }
     }
 }

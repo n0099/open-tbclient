@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BdToken.BdTokenController;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.gx5;
+import com.baidu.tieba.ky5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class TiebaUidCheckReqMsg extends NetMessage {
                 if (this.mTiebaUidData.b() != null) {
                     builder.tieba_uid = this.mTiebaUidData.b();
                 }
-                gx5.c(builder, true, true, true);
+                ky5.c(builder, true, true, true);
                 GetUserByTiebaUidReqIdl.Builder builder2 = new GetUserByTiebaUidReqIdl.Builder();
                 builder2.data = builder.build(true);
                 return builder2.build(true);

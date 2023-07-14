@@ -1,132 +1,68 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.ax2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.collection.ArraySet;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ru2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xk2 {
+public class xk2 implements uk2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static long b;
-    public static String c;
-    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String[] a;
 
-    /* loaded from: classes8.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
-
-        public a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bundle;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ax2.a aVar = (ax2.a) new ax2.a().s(this.a);
-                fj3 fj3Var = new fj3();
-                fj3Var.a = vi3.n(0);
-                fj3Var.b = "launch";
-                fj3Var.e = "repeatlaunch";
-                fj3Var.a("launchInterval", Long.valueOf(aVar.l("launch_interval", -1L)));
-                fj3Var.j(aVar);
-                fj3Var.d(aVar.s0().getString("ubc"));
-                fj3Var.b(vi3.k(aVar.W()));
-                vi3.onEvent(fj3Var);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303178, "Lcom/baidu/tieba/xk2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948303178, "Lcom/baidu/tieba/xk2;");
+    public xk2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ms1.a;
+        this.a = new String[]{dj3.w(), dj3.y(), ag2.c()};
     }
 
-    public static long a() {
+    @Override // com.baidu.tieba.uk2
+    public ArraySet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return System.currentTimeMillis() - b;
-        }
-        return invokeV.longValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            b = System.currentTimeMillis();
-        }
-    }
-
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - b;
-            if (currentTimeMillis < 800 && TextUtils.equals(c, str) && TextUtils.equals(d, str2)) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = zr4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
             }
-            if (a && z) {
-                Log.d("SeriesLaunchChecker", "CurrentLaunchInterval:" + currentTimeMillis + ",PreventSeriesLaunchInterval:800");
+            if (fs1.a) {
+                b(arraySet);
             }
-            return z;
+            v82.k("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
         }
-        return invokeLL.booleanValue;
+        return (ArraySet) invokeV.objValue;
     }
 
-    public static void d(Bundle bundle) {
+    public final void b(ArraySet<String> arraySet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(bundle), "SeriesLaunchChecker", 3);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) != null) || arraySet == null) {
+            return;
         }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            c = str;
-            d = str2;
+        String[] strArr = {mm2.b().getAbsolutePath(), cl3.c().getAbsolutePath(), ru2.b.d(), ko3.b(), uu2.k(), s53.b()};
+        for (int i = 0; i < 6; i++) {
+            String K = zr4.K(strArr[i]);
+            if (!TextUtils.isEmpty(K)) {
+                arraySet.add(K);
+            }
         }
     }
 }

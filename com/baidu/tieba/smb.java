@@ -1,28 +1,28 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.ar.core.ArCoreApk;
 /* loaded from: classes7.dex */
-public class smb {
+public final class smb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
+    public final /* synthetic */ Context a;
+    public final /* synthetic */ ArCoreApk.a b;
+    public final /* synthetic */ pmb c;
 
-    public smb(float f, float f2, float f3, float f4) {
+    public smb(pmb pmbVar, Context context, ArCoreApk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            Object[] objArr = {pmbVar, context, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,52 +32,28 @@ public class smb {
                 return;
             }
         }
-        this.b = f;
-        this.c = f2;
-        this.d = f3;
-        this.e = f4;
-        this.a = true;
+        this.c = pmbVar;
+        this.a = context;
+        this.b = aVar;
     }
 
-    public smb(float f, float f2, float f3, float f4, boolean z) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
         }
-        this.b = f;
-        this.c = f2;
-        this.d = f3;
-        this.e = f4;
-        this.a = z;
-    }
-
-    public static smb a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            smb smbVar = new smb(0.0f, 1.0f, 1.0f, 0.0f);
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                smbVar.b = (float) jSONObject.optDouble("bottomLeftX");
-                smbVar.c = (float) jSONObject.optDouble("bottomLeftY");
-                smbVar.d = (float) jSONObject.optDouble("upperRightX");
-                smbVar.e = (float) jSONObject.optDouble("upperRightY");
-                smbVar.a = jSONObject.optBoolean("forceEnable");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return smbVar;
+        try {
+            aVar = this.c.d;
+            String str = this.a.getApplicationInfo().packageName;
+            pmb pmbVar = this.c;
+            l = pmb.l();
+            aVar.a(str, l, new com.google.ar.core.u(this));
+        } catch (RemoteException e) {
+            Log.e("ARCore-InstallService", "requestInfo threw", e);
+            this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
         }
-        return (smb) invokeL.objValue;
     }
 }

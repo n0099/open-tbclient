@@ -1,85 +1,48 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
-import java.util.List;
-import java.util.regex.Pattern;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthStrategyHelper")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class bv0 {
+public class bv0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile yu0 a;
+    public static final bv0 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host", "vdept3.bdstatic.com");
-                jSONObject2.put("auth", "1_1_1_3");
-                jSONArray.put(jSONObject2);
-                jSONObject.put("hosts", jSONArray);
-            } catch (Exception e) {
-                ol0.c("AuthStrategyHelper", e.toString());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947658285, "Lcom/baidu/tieba/bv0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            String jSONObject3 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
-            return jSONObject3;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947658285, "Lcom/baidu/tieba/bv0;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        b = new bv0();
     }
 
-    public static final List<xu0> b() {
-        InterceptResult invokeV;
+    public bv0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = av0.a(t21.k().getString("host_auth_config", a()));
-            }
-            yu0 yu0Var = a;
-            if (yu0Var != null) {
-                return yu0Var.a();
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static final synchronized xu0 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (bv0.class) {
-                if (str == null) {
-                    return null;
-                }
-                List<xu0> b = b();
-                if (b == null) {
-                    return null;
-                }
-                try {
-                    String host = new URL(str).getHost();
-                    for (xu0 xu0Var : b) {
-                        if (Pattern.matches(xu0Var.b(), host)) {
-                            return xu0Var;
-                        }
-                    }
-                } catch (Exception e) {
-                    ol0.a("AuthStrategyHelper", e.getMessage());
-                }
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (xu0) invokeL.objValue;
+        this.a = 0;
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,13 +108,13 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             this.d = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03ee, this);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090b61);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090b62);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03f9, this);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090b6d);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090b6e);
             this.e = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
             this.e.setVisibility(8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090b64);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090b70);
             this.b = textView2;
             SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1);
             this.b.setVisibility(8);

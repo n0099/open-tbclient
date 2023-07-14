@@ -24,8 +24,8 @@ public class r9 {
             if (context instanceof m9) {
                 return ((m9) context).getPageContext();
             }
-            Field b = oi.b(context.getClass(), q9.class);
-            if (b == null || (a = oi.a(context, b)) == null || !(a instanceof q9) || !(a instanceof m9)) {
+            Field b = pi.b(context.getClass(), q9.class);
+            if (b == null || (a = pi.a(context, b)) == null || !(a instanceof q9) || !(a instanceof m9)) {
                 return null;
             }
             return ((m9) a).getPageContext();
@@ -50,8 +50,8 @@ public class r9 {
                     return (q9) orignalPage;
                 }
             }
-            Field b = oi.b(context.getClass(), q9.class);
-            if (b == null || (a = oi.a(context, b)) == null || !(a instanceof q9)) {
+            Field b = pi.b(context.getClass(), q9.class);
+            if (b == null || (a = pi.a(context, b)) == null || !(a instanceof q9)) {
                 return null;
             }
             return (q9) a;
@@ -70,8 +70,8 @@ public class r9 {
             if (context instanceof m9) {
                 return (m9) context;
             }
-            Field b = oi.b(context.getClass(), q9.class);
-            if (b == null || (a = oi.a(context, b)) == null || !(a instanceof q9) || !(a instanceof m9)) {
+            Field b = pi.b(context.getClass(), q9.class);
+            if (b == null || (a = pi.a(context, b)) == null || !(a instanceof q9) || !(a instanceof m9)) {
                 return null;
             }
             return (m9) a;

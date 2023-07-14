@@ -1,182 +1,82 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigDecimal;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class rgb implements ngb {
+public class rgb extends ngb<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final JSONObject a;
 
-    public rgb(InputStream inputStream) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rgb(TTNativeExpressAd tTNativeExpressAd) {
+        super(tTNativeExpressAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
+            Object[] objArr = {tTNativeExpressAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = b(inputStream);
-    }
-
-    public rgb(InputStream inputStream, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = b(inputStream);
-        c(str);
     }
 
     @Override // com.baidu.tieba.ngb
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
+    public double a() {
+        InterceptResult invokeV;
+        Map<String, Object> mediaExtraInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (str.endsWith("/")) {
-                return str2;
-            }
-            String[] split = str.split("/");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                JSONObject jSONObject = this.a;
-                for (int i = 1; i < split.length; i++) {
-                    if (i == split.length - 1) {
-                        str = jSONObject.get(split[i]).toString();
-                        return str;
-                    }
-                    jSONObject = jSONObject.getJSONObject(split[i]);
+                A a = this.a;
+                if (a == 0 || (mediaExtraInfo = ((TTNativeExpressAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
+                    return 0.0d;
                 }
-            } catch (JSONException unused) {
-                Log.w("InputStreamReader", "JSONException when reading 'path': " + str);
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final JSONObject b(InputStream inputStream) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
-            if (inputStream != null) {
-                try {
-                    return new JSONObject(jgb.g(inputStream, "UTF-8"));
-                } catch (IOException unused) {
-                    str = "IOException when reading the 'Config' from InputStream.";
-                    Log.e("InputStreamReader", str);
-                    return new JSONObject();
-                } catch (JSONException unused2) {
-                    str = "JSONException when reading the 'Config' from InputStream.";
-                    Log.e("InputStreamReader", str);
-                    return new JSONObject();
-                }
-            }
-            return new JSONObject();
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            try {
-                JSONObject e = e(str);
-                if (e == null) {
-                    return;
-                }
-                String a = a("/configuration_version", "");
-                BigDecimal bigDecimal = new BigDecimal("0.0");
-                try {
-                    bigDecimal = BigDecimal.valueOf(Double.parseDouble(a));
-                } catch (NumberFormatException unused) {
-                    Log.d("InputStreamReader", "configuration_version to double error");
-                }
-                if (bigDecimal.compareTo(new BigDecimal("2.0")) == 0) {
-                    this.a.getJSONObject(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT).put("app_id", e.getString("app_id"));
-                } else if (bigDecimal.compareTo(new BigDecimal("3.0")) >= 0) {
-                    Iterator<String> keys = e.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!"package_name".equals(next)) {
-                            d(next, e.get(next), this.a);
-                        }
-                    }
-                }
-            } catch (JSONException unused2) {
-                Log.d("InputStreamReader", "JSONException when reading the 'appInfos' from InputStream.");
+                return ((Integer) mediaExtraInfo.get("price")).intValue() / 100.0d;
+            } catch (Exception unused) {
+                return 0.0d;
             }
         }
+        return invokeV.doubleValue;
     }
 
-    public final void d(String str, Object obj, JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.ngb
+    public void b(String str, double d, double d2, boolean z, int i) {
+        A a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, str, obj, jSONObject) == null) || str == null || obj == null || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a = this.a) == 0) {
             return;
         }
-        if (!(obj instanceof JSONObject)) {
-            jSONObject.put(str, obj);
-            return;
-        }
-        JSONObject jSONObject2 = (JSONObject) obj;
-        Iterator<String> keys = jSONObject2.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            d(next, jSONObject2.get(next), jSONObject.getJSONObject(str));
+        TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) a;
+        if (z) {
+            tTNativeExpressAd.win(Double.valueOf(d2));
+        } else {
+            tTNativeExpressAd.loss(Double.valueOf(d), str, String.valueOf(i));
         }
     }
 
-    public final JSONObject e(String str) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            JSONArray jSONArray = this.a.getJSONArray("appInfos");
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                if (jSONObject.getString("package_name").equals(str)) {
-                    return jSONObject;
-                }
-            }
-            return null;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public String toString() {
+    @Override // com.baidu.tieba.ngb
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "InputStreamReader{config=" + this.a.toString().hashCode() + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b.isEmpty() && ((TTNativeExpressAd) this.a).getMediaExtraInfo() != null) {
+                this.b = (String) ((TTNativeExpressAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+            }
+            return this.b;
         }
         return (String) invokeV.objValue;
     }

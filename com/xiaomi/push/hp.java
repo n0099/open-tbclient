@@ -34,11 +34,11 @@ public class hp implements is<hp, Object>, Serializable, Cloneable {
         int a3;
         int a4;
         if (hp.class.equals(hpVar.getClass())) {
-            int compareTo = Boolean.valueOf(m558a()).compareTo(Boolean.valueOf(hpVar.m558a()));
+            int compareTo = Boolean.valueOf(m560a()).compareTo(Boolean.valueOf(hpVar.m560a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m558a() || (a4 = it.a(this.f498a, hpVar.f498a)) == 0) {
+            if (!m560a() || (a4 = it.a(this.f498a, hpVar.f498a)) == 0) {
                 int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hpVar.b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
@@ -81,7 +81,7 @@ public class hp implements is<hp, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m557a() {
+    public void m559a() {
         if (this.f499a == null) {
             throw new je("Required field 'collectionType' was not present! Struct: " + toString());
         } else if (this.f500a != null) {
@@ -92,17 +92,17 @@ public class hp implements is<hp, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo695a();
+        jdVar.mo697a();
         while (true) {
-            ja mo691a = jdVar.mo691a();
-            byte b2 = mo691a.a;
+            ja mo693a = jdVar.mo693a();
+            byte b2 = mo693a.a;
             if (b2 == 0) {
                 break;
             }
-            short s = mo691a.f813a;
+            short s = mo693a.f813a;
             if (s == 1) {
                 if (b2 == 10) {
-                    this.f498a = jdVar.mo690a();
+                    this.f498a = jdVar.mo692a();
                     a(true);
                     jdVar.g();
                 }
@@ -110,14 +110,14 @@ public class hp implements is<hp, Object>, Serializable, Cloneable {
                 jdVar.g();
             } else if (s != 2) {
                 if (s == 3 && b2 == 11) {
-                    this.f500a = jdVar.mo696a();
+                    this.f500a = jdVar.mo698a();
                     jdVar.g();
                 }
                 jg.a(jdVar, b2);
                 jdVar.g();
             } else {
                 if (b2 == 8) {
-                    this.f499a = hj.a(jdVar.mo689a());
+                    this.f499a = hj.a(jdVar.mo691a());
                     jdVar.g();
                 }
                 jg.a(jdVar, b2);
@@ -125,8 +125,8 @@ public class hp implements is<hp, Object>, Serializable, Cloneable {
             }
         }
         jdVar.f();
-        if (m558a()) {
-            m557a();
+        if (m560a()) {
+            m559a();
             return;
         }
         throw new je("Required field 'collectedAt' was not found in serialized data! Struct: " + toString());
@@ -137,12 +137,12 @@ public class hp implements is<hp, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m558a() {
+    public boolean m560a() {
         return this.f501a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m559a(hp hpVar) {
+    public boolean m561a(hp hpVar) {
         if (hpVar != null && this.f498a == hpVar.f498a) {
             boolean b2 = b();
             boolean b3 = hpVar.b();
@@ -161,14 +161,14 @@ public class hp implements is<hp, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void b(jd jdVar) {
-        m557a();
+        m559a();
         jdVar.a(f497a);
         jdVar.a(a);
         jdVar.a(this.f498a);
         jdVar.b();
         if (this.f499a != null) {
             jdVar.a(b);
-            jdVar.mo700a(this.f499a.a());
+            jdVar.mo702a(this.f499a.a());
             jdVar.b();
         }
         if (this.f500a != null) {
@@ -177,7 +177,7 @@ public class hp implements is<hp, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo699a();
+        jdVar.mo701a();
     }
 
     public boolean b() {
@@ -190,7 +190,7 @@ public class hp implements is<hp, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hp)) {
-            return m559a((hp) obj);
+            return m561a((hp) obj);
         }
         return false;
     }

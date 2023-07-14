@@ -87,7 +87,7 @@ public class NetworkErrorView extends CommonEmptyView {
 
     public final void b() {
         this.e.setVisibility(0);
-        setTitle(getContext().getString(R.string.obfuscated_res_0x7f0f1558));
-        setIcon(R.drawable.obfuscated_res_0x7f081438);
+        setTitle(getContext().getString(R.string.obfuscated_res_0x7f0f156e));
+        setIcon(R.drawable.obfuscated_res_0x7f08144d);
     }
 }

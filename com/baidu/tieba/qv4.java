@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class qv4 {
+public class qv4 extends ov4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rv4 a;
+
+    @Override // com.baidu.tieba.nv4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "f" : (String) invokeV.objValue;
+    }
 
     public qv4() {
         Interceptable interceptable = $ic;
@@ -25,50 +29,25 @@ public class qv4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new rv4();
     }
 
-    public pv4 a(String str) {
-        InterceptResult invokeL;
-        String str2;
+    @Override // com.baidu.tieba.nv4
+    public String a(String[] strArr, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str3 = null;
-            if (wi.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                String substring = strArr[0].substring(1);
+                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/frs");
+                sb.append("?kw=");
+                sb.append(substring);
+                c(strArr, sb, map, 1);
+                return sb.toString();
             }
-            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,300}[#$]", 2).matcher(str);
-            if (!matcher.find()) {
-                return null;
-            }
-            String group = matcher.group();
-            Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
-            if (matcher2.find()) {
-                str2 = tv4.d(matcher2.group());
-            } else {
-                str2 = null;
-            }
-            if (str2 != null && str2.startsWith("Y")) {
-                sv4.a(str2);
-                str3 = b(group);
-            }
-            return new pv4(group, str3, str2);
+            return null;
         }
-        return (pv4) invokeL.objValue;
-    }
-
-    public final String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return this.a.a(tv4.f(str.replaceAll("\\$", "")));
-        }
-        return (String) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 }

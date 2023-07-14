@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.iba;
 import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,14 +18,14 @@ import tbclient.Error;
 import tbclient.GetBubbleList.DataRes;
 import tbclient.GetBubbleList.GetBubbleListResIdl;
 import tbclient.ThemeBgProp;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public boolean isDefault;
     public List<DressItemData> mDressItemList;
-    public iba mRecommand;
+    public zja mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleListSocketResponseMessage() {
@@ -67,9 +67,9 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
             DataRes dataRes = getBubbleListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    iba ibaVar = new iba();
-                    this.mRecommand = ibaVar;
-                    ibaVar.d(getBubbleListResIdl.data.recommend);
+                    zja zjaVar = new zja();
+                    this.mRecommand = zjaVar;
+                    zjaVar.d(getBubbleListResIdl.data.recommend);
                 }
                 if (getBubbleListResIdl.data.bubbles != null) {
                     this.mDressItemList = new ArrayList();
@@ -104,13 +104,13 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public iba getRecommand() {
+    public zja getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (iba) invokeV.objValue;
+        return (zja) invokeV.objValue;
     }
 
     public boolean hasMore() {

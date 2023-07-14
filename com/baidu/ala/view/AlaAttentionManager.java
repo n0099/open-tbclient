@@ -135,15 +135,15 @@ public class AlaAttentionManager {
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 super.onPostExecute((AttentionAsyncTask) str);
                 if (this.mNetwork != null) {
-                    UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                    aVar.a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
-                    aVar.b = this.mNetwork.getErrorString();
-                    aVar.d = this.isAttention;
-                    aVar.c = this.toUid;
-                    aVar.f = this.isGod;
-                    aVar.b(str, this.showToastAfterAttentionSuc);
+                    UpdateAttentionMessage.b bVar = new UpdateAttentionMessage.b();
+                    bVar.a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
+                    bVar.b = this.mNetwork.getErrorString();
+                    bVar.d = this.isAttention;
+                    bVar.c = this.toUid;
+                    bVar.f = this.isGod;
+                    bVar.b(str, this.showToastAfterAttentionSuc);
                     this.mNetwork.getNetContext().getResponse();
-                    UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
+                    UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(bVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
                 }

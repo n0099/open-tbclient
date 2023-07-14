@@ -8,9 +8,9 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.f0a;
 import com.baidu.tieba.model.ReportUserInfoModel;
-import com.baidu.tieba.rf;
-import com.baidu.tieba.xt9;
+import com.baidu.tieba.sf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class UpdateInfoService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rf.c locationCallBack;
+    public sf.c locationCallBack;
     public ReportUserInfoModel mModel;
 
     @Override // android.app.Service
@@ -62,7 +62,7 @@ public class UpdateInfoService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                 BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
-                this.a.mModel.Z(600000L);
+                this.a.mModel.a0(600000L);
             }
         }
 
@@ -77,13 +77,13 @@ public class UpdateInfoService extends BdBaseService {
                 } else if (i >= 32400) {
                     i = 32400;
                 }
-                this.a.mModel.Z(i * 1000);
+                this.a.mModel.a0(i * 1000);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements rf.c {
+    public class b implements sf.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdateInfoService a;
@@ -106,18 +106,18 @@ public class UpdateInfoService extends BdBaseService {
             this.a = updateInfoService;
         }
 
-        @Override // com.baidu.tieba.rf.c
+        @Override // com.baidu.tieba.sf.c
         public void a(int i, String str, Address address) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) && i == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                xt9.e().j(String.valueOf(longitude));
-                xt9.e().i(String.valueOf(latitude));
-                xt9.e().k(System.currentTimeMillis());
-                if (this.a.mModel.V() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    this.a.mModel.X(1, longitude, latitude);
-                    this.a.mModel.Y();
+                f0a.e().j(String.valueOf(longitude));
+                f0a.e().i(String.valueOf(latitude));
+                f0a.e().k(System.currentTimeMillis());
+                if (this.a.mModel.W() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    this.a.mModel.Y(1, longitude, latitude);
+                    this.a.mModel.Z();
                 }
             }
         }
@@ -142,14 +142,14 @@ public class UpdateInfoService extends BdBaseService {
     private void findLocationFromLocal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            rf.n().k(false, this.locationCallBack);
+            sf.n().k(false, this.locationCallBack);
         }
     }
 
     private void unRegisterLocalLocation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            rf.n().s(this.locationCallBack);
+            sf.n().s(this.locationCallBack);
         }
     }
 
@@ -160,9 +160,9 @@ public class UpdateInfoService extends BdBaseService {
             super.onCreate();
             ReportUserInfoModel reportUserInfoModel = new ReportUserInfoModel(null);
             this.mModel = reportUserInfoModel;
-            reportUserInfoModel.W();
-            this.mModel.Z(540000L);
-            this.mModel.a0(new a(this));
+            reportUserInfoModel.X();
+            this.mModel.a0(540000L);
+            this.mModel.b0(new a(this));
         }
     }
 
@@ -181,7 +181,7 @@ public class UpdateInfoService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, intent, i) == null) {
             super.onStart(intent, i);
-            if (this.mModel.V()) {
+            if (this.mModel.W()) {
                 findLocationFromLocal();
             }
         }

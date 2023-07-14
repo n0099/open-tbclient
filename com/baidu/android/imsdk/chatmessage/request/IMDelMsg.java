@@ -114,13 +114,13 @@ public class IMDelMsg extends Message {
                     jSONObject.put("contacter_uk", this.contacterUk);
                 }
                 if (this.contacterPaUid > 0) {
-                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.contacterPaUid);
+                    jSONObject.put("contacter_pa_uid", this.contacterPaUid);
                 }
                 if (this.contacterBduid > 0) {
                     jSONObject.put("contacter_bduid", this.contacterBduid);
                 }
                 if (this.contacterUserType > -1) {
-                    jSONObject.put(RequestContants.EXTRA_CONTACTER_USER_TYPE, this.contacterUserType);
+                    jSONObject.put("contacter_user_type", this.contacterUserType);
                 }
                 ?? mediaRole = AccountManagerImpl.getInstance(this.mContext).getMediaRole();
                 if (mediaRole > -1) {
@@ -171,9 +171,9 @@ public class IMDelMsg extends Message {
                 int intExtra4 = intent.getIntExtra("session_type", -1);
                 String stringExtra = intent.getStringExtra(Constants.EXTRA_LISTENER_ID);
                 long longExtra3 = intent.getLongExtra("contacter_uk", 0L);
-                long longExtra4 = intent.getLongExtra(RequestContants.EXTRA_CONTACTER_PA_UID, 0L);
+                long longExtra4 = intent.getLongExtra("contacter_pa_uid", 0L);
                 long longExtra5 = intent.getLongExtra("contacter_bduid", 0L);
-                int intExtra5 = intent.getIntExtra(RequestContants.EXTRA_CONTACTER_USER_TYPE, 0);
+                int intExtra5 = intent.getIntExtra("contacter_user_type", 0);
                 int intExtra6 = intent.getIntExtra(Constants.EXTRA_REMAIN_EMPTY_SESSION, -1);
                 if (intent.hasExtra(Constants.EXTRA_PA_ID)) {
                     j = intent.getLongExtra(Constants.EXTRA_PA_ID, -1L);

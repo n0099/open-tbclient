@@ -48,7 +48,7 @@ public class DialogStrategiesData extends OrmObject implements Serializable {
             }
         }
 
-        public static StrategiesConfigData U() {
+        public static StrategiesConfigData V() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
@@ -59,7 +59,7 @@ public class DialogStrategiesData extends OrmObject implements Serializable {
             return (StrategiesConfigData) invokeV.objValue;
         }
 
-        public Map<String, Object> V() {
+        public Map<String, Object> W() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

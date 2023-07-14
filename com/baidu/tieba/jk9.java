@@ -1,366 +1,330 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Date;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class jk9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ForumData> a;
-    public ArrayList<ForumData> b;
-    public ArrayList<ForumData> c;
-    public ArrayList<ForumData> d;
-    public ArrayList<ForumData> e;
-    public ArrayList<ForumData> f;
-    public o35 g;
-    public int h;
-    public int i;
-    public int j;
 
-    public jk9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BdTypeListView a;
+        public final /* synthetic */ int b;
+
+        public a(BdTypeListView bdTypeListView, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdTypeListView, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bdTypeListView;
+            this.b = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int j = yi.j(TbadkCoreApplication.getInst().getContext());
+                int[] iArr = new int[2];
+                this.a.getLocationOnScreen(iArr);
+                this.a.setSelectionFromTop(this.b, ((j - jk9.b) - iArr[1]) / 2);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BdTypeListView a;
+        public final /* synthetic */ int b;
+
+        public b(BdTypeListView bdTypeListView, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdTypeListView, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bdTypeListView;
+            this.b = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.smoothScrollToPosition(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BdTypeListView a;
+        public final /* synthetic */ String b;
+
+        public c(BdTypeListView bdTypeListView, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdTypeListView, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bdTypeListView;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            int a;
+            View view2;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !bba.b(this.a) || (a = jk9.a(this.a, this.b)) < 0) {
+                return;
+            }
+            int height = this.a.getHeight();
+            int width = this.a.getWidth();
+            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
+            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(width, 1073741824);
+            BdTypeListView bdTypeListView = this.a;
+            View childAt = bdTypeListView.getChildAt(a - bdTypeListView.getFirstVisiblePosition());
+            if ((childAt == null || childAt.getBottom() > height - jk9.b) && (view2 = this.a.getAdapter2().getView(a, null, this.a)) != null) {
+                view2.measure(makeMeasureSpec2, makeMeasureSpec);
+                this.a.setSelectionFromTop(a, (height - view2.getMeasuredHeight()) - jk9.b);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947886321, "Lcom/baidu/tieba/jk9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947886321, "Lcom/baidu/tieba/jk9;");
                 return;
             }
         }
-        this.i = 0;
-        this.j = 0;
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = new ArrayList<>();
-        this.d = new ArrayList<>();
-        this.f = new ArrayList<>();
-        this.e = new ArrayList<>();
-        this.g = new o35();
-        s(false);
+        a = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds240);
+        b = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds150);
     }
 
-    public void a(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
+    public static int a(BdTypeListView bdTypeListView, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, arrayList, arrayList2) == null) {
-            if (this.d == null) {
-                this.d = new ArrayList<>();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bdTypeListView, str)) == null) {
+            if (bdTypeListView != null && !TextUtils.isEmpty(str)) {
+                List<yn> data = bdTypeListView.getData();
+                int headerViewsCount = bdTypeListView.getHeaderViewsCount();
+                if (data != null && data.size() > 0) {
+                    int size = data.size();
+                    for (int i = 0; i < size; i++) {
+                        yn ynVar = data.get(i);
+                        if ((ynVar instanceof yca) && ynVar.getType() == yca.X0 && str.equals(((yca) ynVar).S())) {
+                            return i + headerViewsCount;
+                        }
+                    }
+                }
             }
-            ArrayList<ForumData> arrayList3 = this.e;
-            if (arrayList3 != null && arrayList != null) {
-                arrayList3.addAll(arrayList);
+            return -1;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int b(BdTypeListView bdTypeListView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bdTypeListView)) == null) {
+            if (bdTypeListView == null) {
+                return -1;
             }
-            ArrayList<ForumData> arrayList4 = this.f;
-            if (arrayList4 != null && arrayList2 != null) {
-                arrayList4.addAll(arrayList2);
+            List<yn> data = bdTypeListView.getData();
+            int headerViewsCount = bdTypeListView.getHeaderViewsCount();
+            if (data != null && data.size() > 0) {
+                int size = data.size();
+                for (int i = 0; i < size; i++) {
+                    if (data.get(i) instanceof of9) {
+                        return i + headerViewsCount;
+                    }
+                }
             }
-            if (this.e == null && this.f == null) {
-                return;
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int c(BdTypeListView bdTypeListView, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, bdTypeListView, str, i)) == null) {
+            if (bdTypeListView != null && !StringUtils.isNull(str)) {
+                List<yn> data = bdTypeListView.getData();
+                int headerViewsCount = bdTypeListView.getHeaderViewsCount();
+                if (data != null && data.size() > 0) {
+                    int size = data.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        yn ynVar = data.get(i2);
+                        if ((ynVar instanceof yca) && str.equals(((yca) ynVar).S())) {
+                            return (i2 + headerViewsCount) - i;
+                        }
+                    }
+                }
             }
-            this.d.clear();
-            ArrayList<ForumData> arrayList5 = this.e;
-            if (arrayList5 != null) {
-                this.d.addAll(arrayList5);
+            return -1;
+        }
+        return invokeLLI.intValue;
+    }
+
+    public static int d(BdTypeListView bdTypeListView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdTypeListView)) == null) {
+            if (bdTypeListView == null) {
+                return -1;
             }
-            ArrayList<ForumData> arrayList6 = this.f;
-            if (arrayList6 != null) {
-                this.d.addAll(arrayList6);
+            List<yn> data = bdTypeListView.getData();
+            int headerViewsCount = bdTypeListView.getHeaderViewsCount();
+            if (data != null && data.size() > 0) {
+                int size = data.size();
+                for (int i = 0; i < size; i++) {
+                    yn ynVar = data.get(i);
+                    if ((ynVar instanceof yca) && ynVar.getType() == yca.X0) {
+                        return i + headerViewsCount;
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int e(BdTypeListView bdTypeListView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bdTypeListView)) == null) {
+            if (bdTypeListView == null) {
+                return -1;
+            }
+            List<yn> data = bdTypeListView.getData();
+            int headerViewsCount = bdTypeListView.getHeaderViewsCount();
+            if (data != null && data.size() > 0) {
+                int size = data.size();
+                for (int i = 0; i < size; i++) {
+                    yn ynVar = data.get(i);
+                    if ((ynVar instanceof of9) && ((of9) ynVar).a == of9.h) {
+                        return i + headerViewsCount;
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void f(BdTypeListView bdTypeListView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, bdTypeListView, str) == null) && bdTypeListView != null && !StringUtils.isNull(str)) {
+            g(bdTypeListView);
+            int c2 = c(bdTypeListView, str, 1);
+            if (c2 >= 0) {
+                bdTypeListView.post(new b(bdTypeListView, c2));
             }
         }
     }
 
-    public void c(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
+    public static void h(BdTypeListView bdTypeListView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, arrayList, arrayList2) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
-            }
-            ArrayList<ForumData> arrayList3 = this.b;
-            if (arrayList3 != null && arrayList != null) {
-                arrayList3.addAll(arrayList);
-            }
-            ArrayList<ForumData> arrayList4 = this.c;
-            if (arrayList4 != null && arrayList2 != null) {
-                arrayList4.addAll(arrayList2);
-            }
-            if (this.b == null && this.c == null) {
-                return;
-            }
-            this.a.clear();
-            ArrayList<ForumData> arrayList5 = this.b;
-            if (arrayList5 != null) {
-                this.a.addAll(arrayList5);
-            }
-            ArrayList<ForumData> arrayList6 = this.c;
-            if (arrayList6 != null) {
-                this.a.addAll(arrayList6);
-            }
-        }
-    }
-
-    public void p(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, arrayList, arrayList2) == null) {
-            if (this.d == null) {
-                this.d = new ArrayList<>();
-            }
-            ArrayList<ForumData> arrayList3 = this.e;
-            if (arrayList3 != null && arrayList != null) {
-                arrayList3.clear();
-                this.e.addAll(arrayList);
-            }
-            ArrayList<ForumData> arrayList4 = this.f;
-            if (arrayList4 != null && arrayList2 != null) {
-                arrayList4.clear();
-                this.f.addAll(arrayList2);
-            }
-            if (this.e == null && this.f == null) {
-                return;
-            }
-            this.d.clear();
-            ArrayList<ForumData> arrayList5 = this.e;
-            if (arrayList5 != null) {
-                this.d.addAll(arrayList5);
-            }
-            ArrayList<ForumData> arrayList6 = this.f;
-            if (arrayList6 != null) {
-                this.d.addAll(arrayList6);
-            }
-        }
-    }
-
-    public void r(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, arrayList, arrayList2) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
-            }
-            ArrayList<ForumData> arrayList3 = this.b;
-            if (arrayList3 != null && arrayList != null) {
-                arrayList3.clear();
-                this.b.addAll(arrayList);
-            }
-            ArrayList<ForumData> arrayList4 = this.c;
-            if (arrayList4 != null && arrayList2 != null) {
-                arrayList4.clear();
-                this.c.addAll(arrayList2);
-            }
-            if (this.b == null && this.c == null) {
-                return;
-            }
-            this.a.clear();
-            ArrayList<ForumData> arrayList5 = this.b;
-            if (arrayList5 != null) {
-                this.a.addAll(arrayList5);
-            }
-            ArrayList<ForumData> arrayList6 = this.c;
-            if (arrayList6 != null) {
-                this.a.addAll(arrayList6);
-            }
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.j += i;
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.i += i;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || str == null) {
+        if ((interceptable != null && interceptable.invokeLL(65544, null, bdTypeListView, str) != null) || bdTypeListView == null) {
             return;
         }
-        try {
-            o(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        int e = e(bdTypeListView);
+        if (e < 0) {
+            e = c(bdTypeListView, str, 0);
+        }
+        if (e >= 0) {
+            bdTypeListView.post(new a(bdTypeListView, e));
         }
     }
 
-    public void q(int i) {
+    public static void g(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.j = i;
+        if ((interceptable != null && interceptable.invokeL(65543, null, bdTypeListView) != null) || bdTypeListView == null) {
+            return;
+        }
+        int e = e(bdTypeListView);
+        if (e < 0) {
+            e = b(bdTypeListView);
+        }
+        if (e >= 0) {
+            bdTypeListView.setSelectionFromTop(e, a);
         }
     }
 
-    public void s(boolean z) {
+    public static void j(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.h = z ? 1 : 0;
+        if ((interceptable == null || interceptable.invokeL(65546, null, bdTypeListView) == null) && bdTypeListView != null) {
+            bdTypeListView.setSelectionFromTop(0, 0);
         }
     }
 
-    public void t(int i) {
+    public static void i(int i, BdTypeListView bdTypeListView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public ArrayList<ForumData> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<ForumData> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public ArrayList<ForumData> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<ForumData> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<ForumData> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.c;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public ArrayList<ForumData> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.h == 1) {
-                return true;
+        if ((interceptable == null || interceptable.invokeILL(65545, null, i, bdTypeListView, str) == null) && bdTypeListView != null && !TextUtils.isEmpty(str) && bdTypeListView.getAdapter2() != null) {
+            if (12 == i) {
+                h(bdTypeListView, str);
+                return;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void o(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) {
-            try {
-                this.g.i(jSONObject.optJSONObject("page"));
-                this.h = jSONObject.optInt("has_more", 1);
-                long optLong = jSONObject.optLong("ctime", 0L);
-                if (optLong > 0) {
-                    new Date(optLong);
-                } else {
-                    new Date();
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
-                if (optJSONObject == null) {
-                    return;
-                }
-                JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
-                if (optJSONArray != null) {
-                    this.i = optJSONArray.length();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        ForumData forumData = new ForumData();
-                        forumData.parserJson(optJSONArray.getJSONObject(i));
-                        this.b.add(forumData);
-                    }
-                }
-                JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        ForumData forumData2 = new ForumData();
-                        forumData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.c.add(forumData2);
-                    }
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("common_forum_list");
-                if (optJSONObject2 == null) {
-                    return;
-                }
-                JSONArray optJSONArray3 = optJSONObject2.optJSONArray("gconforum");
-                if (optJSONArray3 != null) {
-                    this.j = optJSONArray3.length();
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        ForumData forumData3 = new ForumData();
-                        forumData3.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.e.add(forumData3);
-                    }
-                }
-                JSONArray optJSONArray4 = optJSONObject2.optJSONArray("non-gconforum");
-                if (optJSONArray4 != null) {
-                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        ForumData forumData4 = new ForumData();
-                        forumData4.parserJson(optJSONArray4.getJSONObject(i4));
-                        this.f.add(forumData4);
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+            g(bdTypeListView);
+            bdTypeListView.post(new c(bdTypeListView, str));
         }
     }
 }

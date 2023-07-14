@@ -1,37 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 /* loaded from: classes7.dex */
-public class qd4 {
+public final class qd4 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public wd4 a;
+    public volatile boolean b;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(int i, long j, long j2);
-
-        void b(int i);
-
-        void success();
+    @SuppressLint({"MobilebdThread"})
+    public qd4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    public static void a(String str, a aVar) {
-        cc3 M;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, aVar) != null) || aVar == null || TextUtils.isEmpty(str) || (M = cc3.M()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        if (pd4.b().d(str)) {
-            aVar.success();
-            return;
+        return invokeV.booleanValue;
+    }
+
+    public final void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.b = z;
         }
-        String a2 = pd4.b().a(str);
-        if (TextUtils.isEmpty(a2)) {
-            aVar.b(2112);
-        } else {
-            mj4.h(new hn4(M.b, M.k0(), a2, 1), new td4(M.b, M.k0(), pd4.b().c(str, 2), aVar));
+    }
+
+    public final void c(wd4 wd4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wd4Var) == null) {
+            this.a = wd4Var;
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        DatagramSocket C;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            while (this.b) {
+                try {
+                    DatagramPacket datagramPacket = new DatagramPacket(new byte[4096], 4096);
+                    wd4 wd4Var = this.a;
+                    if (wd4Var != null && (C = wd4Var.C()) != null) {
+                        C.receive(datagramPacket);
+                    }
+                    wd4 wd4Var2 = this.a;
+                    if (wd4Var2 != null) {
+                        wd4Var2.z(datagramPacket);
+                    }
+                } catch (InterruptedException unused) {
+                    return;
+                } catch (Throwable unused2) {
+                    wd4 wd4Var3 = this.a;
+                    if (wd4Var3 != null) {
+                        wd4Var3.D(StatConstants.VALUE_TYPE_RECEIVE, "receive failed");
+                    }
+                }
+            }
         }
     }
 }

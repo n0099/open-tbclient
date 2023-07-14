@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xu9;
+import com.baidu.tieba.y2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class WritePostDispatcher implements xu9 {
+public class WritePostDispatcher implements y2a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SEEK_HELP = "seek_help";
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,21 +59,21 @@ public class WritePostDispatcher implements xu9 {
         return (ArrayList) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xu9
+    @Override // com.baidu.tieba.y2a
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             if ("game_rank".equals(jSONObject.optString("h5_from"))) {
                 WriteActivityConfig newInstance = WriteActivityConfig.newInstance(context);
-                newInstance.setTitle(jSONObject.optString("game_name") + context.getString(R.string.obfuscated_res_0x7f0f11ac));
+                newInstance.setTitle(jSONObject.optString("game_name") + context.getString(R.string.obfuscated_res_0x7f0f11be));
                 StringBuilder sb = new StringBuilder();
                 sb.append("#");
                 sb.append(jSONObject.optString("topic_name"));
                 sb.append("#");
                 String optString = jSONObject.optString("rank_name");
                 String optString2 = jSONObject.optString("game_name");
-                sb.append(String.format(context.getString(R.string.obfuscated_res_0x7f0f11ad), optString, optString2, jSONObject.optString("reward_name")));
+                sb.append(String.format(context.getString(R.string.obfuscated_res_0x7f0f11bf), optString, optString2, jSONObject.optString("reward_name")));
                 newInstance.setContent(sb.toString());
                 newInstance.setXiuxiuOriginalContent(sb.toString());
                 newInstance.setGameRankImgUrl(jSONObject.optString(BigdayActivityConfig.IMG_URL));

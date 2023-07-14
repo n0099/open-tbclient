@@ -1,29 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopCode;
+import tbclient.RewardMaterial;
 /* loaded from: classes7.dex */
 public class s45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
-    public int d;
-    public String e;
-    public long f;
-    public String g;
-    public String h;
+    public boolean c;
+    public boolean d;
 
     public s45() {
         Interceptable interceptable = $ic;
@@ -43,7 +34,7 @@ public class s45 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
@@ -52,102 +43,53 @@ public class s45 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public String h() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void i(JSONObject jSONObject) {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
-        try {
-            this.a = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-            jSONObject.optString("game_link");
-            this.b = jSONObject.optString("summary");
-            this.c = jSONObject.optString("code_link");
-            this.d = jSONObject.optInt("get_type", 1);
-            this.e = jSONObject.optString("surplusgift");
-            this.f = jSONObject.optLong("giftworth", 0L);
-            this.g = jSONObject.optString("type_text");
-            this.h = jSONObject.optString(SubtitleLog.TAG);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        return invokeV.booleanValue;
     }
 
-    public void j(TopCode topCode) {
+    public static s45 e(RewardMaterial rewardMaterial) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, topCode) != null) || topCode == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rewardMaterial)) == null) {
+            if (rewardMaterial == null) {
+                return null;
+            }
+            s45 s45Var = new s45();
+            s45Var.a = rewardMaterial.icon;
+            s45Var.b = rewardMaterial.unlock_level;
+            boolean z2 = false;
+            if (rewardMaterial.is_matched.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            s45Var.c = z;
+            if (rewardMaterial.is_newest_matched_level.intValue() == 1) {
+                z2 = true;
+            }
+            s45Var.d = z2;
+            return s45Var;
         }
-        this.a = topCode.img_url;
-        String str = topCode.game_link;
-        this.b = topCode.summary;
-        this.c = topCode.code_link;
-        this.d = topCode.get_type.intValue();
-        this.e = topCode.surplusgift;
-        if (topCode.giftworth.longValue() < 0) {
-            this.f = 0L;
-        } else {
-            this.f = topCode.giftworth.longValue();
-        }
-        this.g = topCode.type_text;
-        this.h = topCode.subtitle;
+        return (s45) invokeL.objValue;
     }
 }

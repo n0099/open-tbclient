@@ -203,8 +203,8 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
             }
             this.this$0 = autoOrientationBtnDialog;
             if (view2 != null) {
-                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fc3);
-                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fc2);
+                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fd3);
+                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fd2);
                 this.button = (LinearLayout) view2;
                 this.mDialog = autoOrientationBtnDialog2;
             }
@@ -270,7 +270,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AutoOrientationBtnDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f10014e);
+        super(context, R.style.obfuscated_res_0x7f10014f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -316,7 +316,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, this, btnItem, linearLayout, i)) == null) {
-            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0453, (ViewGroup) linearLayout, false);
+            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d045e, (ViewGroup) linearLayout, false);
             linearLayout2.setBackground(getContext().getResources().getDrawable(i));
             new ViewHelper(this, linearLayout2, this).onBindView(btnItem);
             return linearLayout2;
@@ -379,11 +379,11 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             Context context = getContext();
             this.mContext = context;
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09cb, getBuilder().getCustomContentParent(), false);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09e5, getBuilder().getCustomContentParent(), false);
             this.mView = viewGroup;
-            this.mContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090fc4);
-            this.mDivider = this.mView.findViewById(R.id.obfuscated_res_0x7f090fc5);
-            this.mBtnContainer = (FrameLayout) this.mView.findViewById(R.id.obfuscated_res_0x7f090fc1);
+            this.mContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090fd4);
+            this.mDivider = this.mView.findViewById(R.id.obfuscated_res_0x7f090fd5);
+            this.mBtnContainer = (FrameLayout) this.mView.findViewById(R.id.obfuscated_res_0x7f090fd1);
             View createContentView = createContentView(this.mContent);
             if (createContentView != null) {
                 this.mContent.addView(createContentView);

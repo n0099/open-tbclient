@@ -17,7 +17,7 @@ import android.widget.FrameLayout;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii4;
+import com.baidu.tieba.bi4;
 import java.lang.ref.WeakReference;
 @SuppressLint({"ClickableViewAccessibility", "BDThrowableCheck", "SyntheticAccessor"})
 /* loaded from: classes4.dex */
@@ -187,9 +187,9 @@ public class PopupWindow {
         if (i == -1) {
             if (this.d) {
                 if (this.G) {
-                    return R.style.obfuscated_res_0x7f10017b;
+                    return R.style.obfuscated_res_0x7f10017c;
                 }
-                return R.style.obfuscated_res_0x7f10017a;
+                return R.style.obfuscated_res_0x7f10017b;
             }
             return 0;
         }
@@ -264,7 +264,7 @@ public class PopupWindow {
         this.I = bVar;
     }
 
-    public void K(boolean z) {
+    public void L(boolean z) {
         this.k = z;
     }
 
@@ -353,7 +353,7 @@ public class PopupWindow {
         this.M = new a();
         this.a = context;
         this.b = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ii4.PopupWindow, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, bi4.PopupWindow, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;

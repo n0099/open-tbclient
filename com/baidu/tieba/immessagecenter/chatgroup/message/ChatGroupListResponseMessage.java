@@ -6,9 +6,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
-import com.baidu.tieba.lf8;
-import com.baidu.tieba.mf8;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.kk8;
+import com.baidu.tieba.lk8;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,16 +52,16 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            int e = vg.e(jSONObject.optString("error_code"), -1);
+            int e = wg.e(jSONObject.optString("error_code"), -1);
             if (e == 0) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
                     this.groupId = optJSONObject.optLong("mid_group_id", 0L);
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER);
                     if (optJSONObject2 != null) {
-                        mf8 mf8Var = new mf8();
-                        mf8Var.h(optJSONObject2);
-                        this.mList.add(mf8Var);
+                        lk8 lk8Var = new lk8();
+                        lk8Var.h(optJSONObject2);
+                        this.mList.add(lk8Var);
                     }
                     JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                     if (optJSONArray != null) {
@@ -77,9 +77,9 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                     }
                     JSONObject optJSONObject4 = optJSONObject.optJSONObject("footer");
                     if (optJSONObject4 != null) {
-                        lf8 lf8Var = new lf8();
-                        lf8Var.c(optJSONObject4);
-                        this.mList.add(lf8Var);
+                        kk8 kk8Var = new kk8();
+                        kk8Var.c(optJSONObject4);
+                        this.mList.add(kk8Var);
                         return;
                     }
                     return;

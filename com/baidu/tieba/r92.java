@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.sapi2.activity.BaseActivity;
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,19 +12,79 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONArray;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class r92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public JSONArray b;
-    public String c;
-    public String d;
+    public final String a;
+    public int b;
+    public Map<String, Object> c;
+    public b d;
+    public BufferedWriter e;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @SuppressLint({"HandlerLeak"})
+    /* loaded from: classes7.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r92 a;
+
+        public b(r92 r92Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r92Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r92Var;
+        }
+
+        public /* synthetic */ b(r92 r92Var, a aVar) {
+            this(r92Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.c != null) {
+                this.a.c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry entry : this.a.c.entrySet()) {
+                    try {
+                        jSONObject.putOpt((String) entry.getKey(), entry.getValue());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                this.a.e(jSONObject.toString());
+                v82.i("PropertyLogcat", jSONObject.toString());
+                if (this.a.d != null) {
+                    this.a.d.sendEmptyMessageDelayed(100, this.a.b);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +99,16 @@ public class r92 {
                 return;
             }
         }
-        e = ms1.a;
+        boolean z = fs1.a;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return dj3.n(vb3.g0(), this.a, LocalFilesFilterKt.FILTER_NAME_LOG);
+        }
+        return (String) invokeV.objValue;
     }
 
     public r92() {
@@ -51,47 +121,73 @@ public class r92 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = "performance_" + System.currentTimeMillis();
+        this.b = 3000;
     }
 
-    public static r92 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            r92 r92Var = new r92();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c != null) {
+                s92.g().i();
+                this.c = null;
+                v82.i("PropertyLogcat", "Stop monitor logcat");
+            }
+            zr4.d(this.e);
+            this.e = null;
+            return dj3.I(f(), vb3.g0());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void e(String str) {
+        BufferedWriter bufferedWriter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (bufferedWriter = this.e) != null) {
             try {
-                r92Var.b = jSONObject.getJSONArray("host");
-                r92Var.a = jSONObject.getString("appKey");
-                jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                r92Var.c = jSONObject.getString(ClientCookie.PORT_ATTR);
-                r92Var.d = Uri.decode(jSONObject.optString("url"));
-                return r92Var;
-            } catch (JSONException unused) {
-                if (e) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
-                    return null;
-                }
-                return null;
+                bufferedWriter.write(str);
+                this.e.write(10);
+                v82.i("PropertyLogcat", "Export logcat success");
+            } catch (IOException e) {
+                v82.d("PropertyLogcat", "Logcat write fail", e);
             }
         }
-        return (r92) invokeL.objValue;
     }
 
-    public String a(int i) {
-        InterceptResult invokeI;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            JSONArray jSONArray = this.b;
-            if (jSONArray == null) {
-                return "";
-            }
-            String optString = jSONArray.optString(i);
-            if (TextUtils.isEmpty(optString)) {
-                return "";
-            }
-            return "http://" + optString + ":" + this.c;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && i >= 1000) {
+            this.b = i;
         }
-        return (String) invokeI.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.c == null) {
+                this.c = s92.g().h();
+                v82.i("PropertyLogcat", "Start monitor logcat");
+            }
+            if (this.d == null) {
+                this.d = new b(this, null);
+            }
+            if (this.e == null) {
+                File file = new File(f());
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    this.e = new BufferedWriter(new FileWriter(file, true));
+                } catch (IOException e) {
+                    v82.d("PropertyLogcat", "Create log file fail", e);
+                }
+            }
+            this.d.removeMessages(100);
+            this.d.sendEmptyMessage(100);
+        }
     }
 }

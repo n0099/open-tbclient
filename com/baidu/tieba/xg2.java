@@ -1,25 +1,7 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import java.util.Map;
 /* loaded from: classes8.dex */
 public interface xg2 {
-
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(String str);
-
-        WebResourceResponse b(String str, Map<String, String> map, boolean z);
-
-        boolean c();
-
-        String d();
-
-        String getMimeType();
-
-        Map<String, String> getRequestHeaders();
+    static {
+        boolean z = fs1.a;
     }
-
-    WebResourceResponse a(@NonNull a aVar);
 }

@@ -9,14 +9,14 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.mcast.McastConfig;
-import com.baidu.tieba.tm3;
-import com.baidu.tieba.um3;
-import com.baidu.tieba.vm3;
+import com.baidu.tieba.mm3;
+import com.baidu.tieba.nm3;
+import com.baidu.tieba.om3;
 /* loaded from: classes4.dex */
 public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
-    public tm3 mConnectListener;
-    public um3 mConnectSuccessListener;
-    public vm3 mScanListener;
+    public mm3 mConnectListener;
+    public nm3 mConnectSuccessListener;
+    public om3 mScanListener;
     public WifiManager mWifiManager;
     public boolean mIsWifiDisconnected = true;
     public boolean mIsRegistered = false;
@@ -38,16 +38,16 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
         }
     }
 
-    public void setConnectListener(tm3 tm3Var) {
-        this.mConnectListener = tm3Var;
+    public void setConnectListener(mm3 mm3Var) {
+        this.mConnectListener = mm3Var;
     }
 
-    public void setConnectSuccessListener(um3 um3Var) {
-        this.mConnectSuccessListener = um3Var;
+    public void setConnectSuccessListener(nm3 nm3Var) {
+        this.mConnectSuccessListener = nm3Var;
     }
 
-    public void setScanListener(vm3 vm3Var) {
-        this.mScanListener = vm3Var;
+    public void setScanListener(om3 om3Var) {
+        this.mScanListener = om3Var;
     }
 
     public synchronized void unregisterSelf(Context context) {
@@ -62,7 +62,7 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         char c;
-        tm3 tm3Var;
+        mm3 mm3Var;
         if (intent.getAction() == null) {
             return;
         }
@@ -95,13 +95,13 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
                         if (!this.mIsWifiDisconnected) {
                             return;
                         }
-                        tm3 tm3Var2 = this.mConnectListener;
-                        if (tm3Var2 != null) {
-                            tm3Var2.a(wifiInfo);
+                        mm3 mm3Var2 = this.mConnectListener;
+                        if (mm3Var2 != null) {
+                            mm3Var2.a(wifiInfo);
                         }
-                        um3 um3Var = this.mConnectSuccessListener;
-                        if (um3Var != null && this.mIsWifiDisconnected) {
-                            um3Var.a(wifiInfo);
+                        nm3 nm3Var = this.mConnectSuccessListener;
+                        if (nm3Var != null && this.mIsWifiDisconnected) {
+                            nm3Var.a(wifiInfo);
                         }
                         this.mIsWifiDisconnected = false;
                     }
@@ -112,16 +112,16 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
                     return;
                 }
                 return;
-            } else if (intent.getIntExtra("supplicantError", -1) == 1 && (tm3Var = this.mConnectListener) != null) {
-                tm3Var.onError(1);
+            } else if (intent.getIntExtra("supplicantError", -1) == 1 && (mm3Var = this.mConnectListener) != null) {
+                mm3Var.onError(1);
                 return;
             } else {
                 return;
             }
         }
-        vm3 vm3Var = this.mScanListener;
-        if (vm3Var != null) {
-            vm3Var.a(this.mWifiManager.getScanResults());
+        om3 om3Var = this.mScanListener;
+        if (om3Var != null) {
+            om3Var.a(this.mWifiManager.getScanResults());
         }
     }
 }

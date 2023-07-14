@@ -1,15 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface rw2 {
-    boolean a(String str, String str2);
+public class rw2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b();
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (i & 1) == 1 : invokeI.booleanValue;
+    }
 
-    @NonNull
-    JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject);
-
-    boolean enable();
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (i & 2) == 2 : invokeI.booleanValue;
+    }
 }

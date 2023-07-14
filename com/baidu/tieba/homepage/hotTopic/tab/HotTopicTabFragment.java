@@ -20,18 +20,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bc;
-import com.baidu.tieba.c65;
-import com.baidu.tieba.d65;
-import com.baidu.tieba.eo;
-import com.baidu.tieba.fy7;
-import com.baidu.tieba.go;
-import com.baidu.tieba.gy7;
+import com.baidu.tieba.ej7;
+import com.baidu.tieba.fo;
+import com.baidu.tieba.ho;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import com.baidu.tieba.mn5;
-import com.baidu.tieba.xn;
-import com.baidu.tieba.ye7;
-import com.baidu.tieba.yy7;
-import com.baidu.tieba.zz4;
+import com.baidu.tieba.i05;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.lo5;
+import com.baidu.tieba.m65;
+import com.baidu.tieba.r38;
+import com.baidu.tieba.y28;
+import com.baidu.tieba.yn;
+import com.baidu.tieba.z28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,30 +40,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
+public class HotTopicTabFragment extends BaseFragment implements ej7, z28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotTopicTabModel a;
     public HotTopicTabView b;
     public ViewGroup c;
-    public zz4<Object> d;
+    public i05<Object> d;
     public boolean e;
 
-    @Override // com.baidu.tieba.ye7
-    public void H() {
+    @Override // com.baidu.tieba.ej7
+    public void L() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ye7
+    @Override // com.baidu.tieba.ej7
     public void f0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.cs5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.gt5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements zz4<Object> {
+    public class a implements i05<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicTabFragment a;
@@ -94,22 +94,22 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
             this.a = hotTopicTabFragment;
         }
 
-        @Override // com.baidu.tieba.zz4
+        @Override // com.baidu.tieba.i05
         public void c(View view2, Object obj, int i, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) != null) || obj == null) {
                 return;
             }
-            fy7.b(view2, obj, this.a.J1());
+            y28.b(view2, obj, this.a.J1());
         }
 
-        @Override // com.baidu.tieba.zz4
+        @Override // com.baidu.tieba.i05
         public void d(View view2, Object obj, int i, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) != null) || obj == null) {
                 return;
             }
-            fy7.a(view2, obj, i + 1, this.a.J1());
+            y28.a(view2, obj, i + 1, this.a.J1());
         }
     }
 
@@ -199,7 +199,7 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
         this.e = true;
     }
 
-    @Override // com.baidu.tieba.ye7
+    @Override // com.baidu.tieba.ej7
     public void B() {
         HotTopicTabView hotTopicTabView;
         Interceptable interceptable = $ic;
@@ -211,7 +211,7 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
     public final String J1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HotTopicTabModel hotTopicTabModel = this.a;
             if (hotTopicTabModel != null) {
                 return String.valueOf(hotTopicTabModel.getTabId() + 1);
@@ -255,13 +255,13 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new eo());
+        arrayList.add(new fo());
         this.b.o();
         this.b.setListData(arrayList);
     }
 
-    @Override // com.baidu.tieba.ye7
-    public void i0() {
+    @Override // com.baidu.tieba.ej7
+    public void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -278,10 +278,19 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            super.onDestroy();
+            bc.b().d("hotTopic");
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         HotTopicTabView hotTopicTabView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onDestroyView();
             if (this.a != null && (hotTopicTabView = this.b) != null) {
                 if (!this.e) {
@@ -289,7 +298,7 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
                     this.a.onDestroy();
                 }
                 this.e = false;
-                mn5.e().b();
+                lo5.e().b();
             }
         }
     }
@@ -297,9 +306,9 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onPause();
-            d65.n(c65.i);
+            m65.o(l65.i);
         }
     }
 
@@ -329,7 +338,7 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
     public void K1(Context context) {
         String string;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, context) != null) || !this.e) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) != null) || !this.e) {
             return;
         }
         this.e = false;
@@ -363,7 +372,7 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
             super.onActivityCreated(bundle);
             HotTopicTabModel hotTopicTabModel = this.a;
             if (hotTopicTabModel != null) {
-                hotTopicTabModel.d0(this);
+                hotTopicTabModel.e0(this);
                 this.a.setUniqueId(getUniqueId());
             }
         }
@@ -378,21 +387,21 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
         }
     }
 
-    @Override // com.baidu.tieba.gy7
-    public void N0(int i, yy7 yy7Var) {
+    @Override // com.baidu.tieba.z28
+    public void N0(int i, r38 r38Var) {
         HotTopicTabView hotTopicTabView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048582, this, i, yy7Var) == null) && this.a != null && (hotTopicTabView = this.b) != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048582, this, i, r38Var) == null) && this.a != null && (hotTopicTabView = this.b) != null) {
             hotTopicTabView.m();
             this.b.n();
             this.b.D();
-            if (yy7Var != null && i == 0 && !ListUtils.isEmpty(yy7Var.getDataList())) {
-                this.b.setData(yy7Var);
+            if (r38Var != null && i == 0 && !ListUtils.isEmpty(r38Var.getDataList())) {
+                this.b.setData(r38Var);
                 this.b.B();
-            } else if (ListUtils.isEmpty(this.a.Z())) {
+            } else if (ListUtils.isEmpty(this.a.a0())) {
                 M1();
             } else {
-                this.b.setListData(this.a.Z());
+                this.b.setListData(this.a.a0());
             }
         }
     }
@@ -403,15 +412,15 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        go goVar = new go();
-        goVar.b = R.drawable.new_pic_emotion_05;
-        goVar.a = getString(R.string.no_data_common_txt);
-        arrayList.add(goVar);
+        ho hoVar = new ho();
+        hoVar.b = R.drawable.new_pic_emotion_05;
+        hoVar.a = getString(R.string.no_data_common_txt);
+        arrayList.add(hoVar);
         this.b.o();
         this.b.setListData(arrayList);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.cs5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.gt5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -433,7 +442,7 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
                 HotTopicTabView hotTopicTabView = this.b;
@@ -441,25 +450,25 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
                     hotTopicTabView.setViewForeground();
                 }
                 if (getContext() != null) {
-                    d65.o(getContext(), c65.i);
+                    m65.p(getContext(), l65.i);
                     return;
                 }
                 return;
             }
-            d65.n(c65.i);
+            m65.o(l65.i);
         }
     }
 
-    @Override // com.baidu.tieba.gy7
+    @Override // com.baidu.tieba.z28
     public void a() {
         HotTopicTabModel hotTopicTabModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (hotTopicTabModel = this.a) != null && this.b != null) {
             boolean loadData = hotTopicTabModel.loadData();
             HotTopicTabModel hotTopicTabModel2 = this.a;
-            List<xn> a0 = hotTopicTabModel2.a0(hotTopicTabModel2.b0());
+            List<yn> b0 = hotTopicTabModel2.b0(hotTopicTabModel2.c0());
             if (loadData) {
-                if (ListUtils.isEmpty(a0) && !this.b.t()) {
+                if (ListUtils.isEmpty(b0) && !this.b.t()) {
                     this.b.D();
                     this.b.n();
                     this.b.post(new c(this));
@@ -469,8 +478,8 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
             }
             this.b.D();
             this.b.m();
-            if (!ListUtils.isEmpty(a0)) {
-                this.b.setListData(a0);
+            if (!ListUtils.isEmpty(b0)) {
+                this.b.setListData(b0);
             } else if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 M1();
             }
@@ -512,11 +521,11 @@ public class HotTopicTabFragment extends BaseFragment implements ye7, gy7 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             K1(getContext());
             HotTopicTabModel hotTopicTabModel = this.a;
             if (hotTopicTabModel != null) {
-                hotTopicTabModel.d0(this);
+                hotTopicTabModel.e0(this);
                 this.a.setUniqueId(getUniqueId());
             }
             HotTopicTabView hotTopicTabView = this.b;

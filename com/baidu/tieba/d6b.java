@@ -1,598 +1,92 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.content.res.AssetManager;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.icb;
-import com.baidu.tieba.k6b;
-import com.baidu.tieba.o6b;
-import com.baidu.tieba.z5b;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdConfig;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.http.GetRequest;
-import com.fun.ad.sdk.internal.api.http.RequestParams;
-import com.fun.ad.sdk.internal.api.http.Response;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class d6b {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Double> a;
-    public static volatile ocb b;
-    public static final Handler c;
-    public static FunAdSdk.SdkInitializeCallback d;
-    public static final Handler e;
-    public static final o6b f;
-    public static final icb g;
-    public static boolean h;
-    public static volatile boolean i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947657913, "Lcom/baidu/tieba/d6b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947657913, "Lcom/baidu/tieba/d6b;");
-                return;
-            }
-        }
-        a = new HashMap();
-        c = new a(Looper.getMainLooper());
-        HandlerThread handlerThread = new HandlerThread("fun_ad_sdk_config");
-        handlerThread.start();
-        e = new b(handlerThread.getLooper());
-        f = new o6b();
-        g = new icb();
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i == 200) {
-                    d6b.f(false);
-                } else if (i == 201) {
-                    d6b.g();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public final void a(c6b c6bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c6bVar) == null) {
-                String str = FunAdSdk.getFunAdConfig().appId;
-                String str2 = null;
-                try {
-                    LogPrinter.v("Start load config from assets.", new Object[0]);
-                    AssetManager assets = FunAdSdk.getAppContext().getAssets();
-                    InputStream open = assets.open(str + ".json");
-                    StringWriter stringWriter = new StringWriter();
-                    InputStreamReader inputStreamReader = new InputStreamReader(open);
-                    char[] cArr = new char[4096];
-                    while (true) {
-                        int read = inputStreamReader.read(cArr);
-                        if (-1 == read) {
-                            break;
-                        }
-                        stringWriter.write(cArr, 0, read);
-                    }
-                    String stringWriter2 = stringWriter.toString();
-                    LogPrinter.v("Config from assets load over.", new Object[0]);
-                    open.close();
-                    if (!TextUtils.isEmpty(stringWriter2)) {
-                        str2 = h6b.a(stringWriter2, str);
-                        LogPrinter.v("Config from assets decrypted over.", new Object[0]);
-                    }
-                } catch (Exception e) {
-                    LogPrinter.e(e, "The initialized config from assets cannot be loaded.", new Object[0]);
-                }
-                if (!c6bVar.b(str2)) {
-                    LogPrinter.e("Config from assets parsed failed.", new Object[0]);
-                    if (FunAdSdk.isLogEnabled()) {
-                        throw new RuntimeException("Config from assets parsed failed");
-                    }
-                }
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:68:0x016a  */
-        @Override // android.os.Handler
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void handleMessage(@NonNull Message message) {
-            Response perform;
-            Reporter a;
-            int i;
-            JSONObject jSONObject;
-            int i2;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-                boolean z2 = true;
-                switch (message.what) {
-                    case 100:
-                        HashMap hashMap = new HashMap();
-                        try {
-                            JSONObject jSONObject2 = new JSONObject();
-                            HostAppInfo.fillReqParams(jSONObject2);
-                            Iterator<String> keys = jSONObject2.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                hashMap.put(next, jSONObject2.get(next));
-                            }
-                        } catch (JSONException unused) {
-                        }
-                        try {
-                            perform = new GetRequest("https://cd.xdplt.com/v2/z", new RequestParams(hashMap)).perform();
-                        } catch (IOException e) {
-                            LogPrinter.e(e);
-                        }
-                        if (perform != null && perform.getResponseCode() == 200) {
-                            try {
-                                jSONObject = new JSONObject(perform.getContent());
-                                i2 = jSONObject.getInt("ret");
-                                LogPrinter.d("Download online ad config response ret: " + i2, new Object[0]);
-                            } catch (JSONException e2) {
-                                LogPrinter.e(e2);
-                                a = p6b.a();
-                                i = -1;
-                            }
-                            if (i2 == 200) {
-                                String string = jSONObject.getJSONObject("data").getString("content");
-                                try {
-                                } catch (Exception e3) {
-                                    LogPrinter.e(e3);
-                                    a = p6b.a();
-                                    i = -2;
-                                }
-                                if (new c6b().b(h6b.a(string, FunAdSdk.getFunAdConfig().appId))) {
-                                    l6b.b.edit().putInt("key_cp_v", 6).putString("key_serv_las_d", string).apply();
-                                    d6b.a.clear();
-                                    l6b.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                                    if (z2) {
-                                    }
-                                    d6b.c();
-                                    return;
-                                }
-                                a = p6b.a();
-                                i = -3;
-                                a.logEvent("k_ppcfg", "st", Integer.valueOf(i));
-                                z2 = false;
-                                l6b.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                                if (z2) {
-                                }
-                                d6b.c();
-                                return;
-                            }
-                            z2 = false;
-                            l6b.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                            if (z2) {
-                                d6b.c.sendEmptyMessage(201);
-                            }
-                            d6b.c();
-                            return;
-                        }
-                        LogPrinter.e("Pull ad config failed.", new Object[0]);
-                        z2 = false;
-                        l6b.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                        if (z2) {
-                        }
-                        d6b.c();
-                        return;
-                    case 101:
-                        a(new c6b());
-                        break;
-                    case 102:
-                        String str = null;
-                        try {
-                            str = h6b.a(l6b.b.getString("key_serv_las_d", null), FunAdSdk.getFunAdConfig().appId);
-                        } catch (Exception e4) {
-                            LogPrinter.e(e4, "Parsing err from latest cipher occurs, abandon the err data", new Object[0]);
-                        }
-                        if (str == null) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        c6b c6bVar = new c6b();
-                        if (!z && !c6bVar.b(str)) {
-                            LogPrinter.e("Config parsed failed from latest cipher data,use cipher data from assets instead", new Object[0]);
-                        } else {
-                            z2 = z;
-                        }
-                        if (z2) {
-                            a(c6bVar);
-                            l6b.b.edit().remove("key_cp_v").remove("key_serv_las_d").apply();
-                            break;
-                        } else {
-                            l6b.b.edit().putInt("key_cp_v", 6).apply();
-                            break;
-                        }
-                    default:
-                        return;
-                }
-                d6b.c.obtainMessage(200).sendToTarget();
-            }
-        }
-    }
-
-    public static int a(String str, Ssp.Pid pid) {
-        InterceptResult invokeLL;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, pid)) == null) {
-            k6b k6bVar = f.b;
-            synchronized (k6bVar.a) {
-                Deque<k6b.c> deque = k6bVar.a.get(str);
-                i2 = 0;
-                if (deque != null) {
-                    Iterator<k6b.c> descendingIterator = deque.descendingIterator();
-                    while (true) {
-                        if (!descendingIterator.hasNext()) {
-                            break;
-                        }
-                        k6b.c next = descendingIterator.next();
-                        if (next.a().contains(pid)) {
-                            i2 = next.b();
-                            break;
-                        }
-                    }
-                }
-            }
-            return i2;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static m6b b(String str) {
+    public static String a(com.baidu.ubs.analytics.b bVar) {
         InterceptResult invokeL;
-        m6b m6bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            o6b o6bVar = f;
-            synchronized (o6bVar) {
-                if (o6bVar.a == null) {
-                    LogPrinter.d("Cannot get slotId without AdConfig updated.", new Object[0]);
-                    m6bVar = null;
-                } else {
-                    m6bVar = o6bVar.c.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bVar)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            JSONArray jSONArray2 = new JSONArray();
+            JSONArray jSONArray3 = new JSONArray();
+            JSONArray jSONArray4 = new JSONArray();
+            try {
+                jSONObject2.put("cuid", bVar.n().l());
+                jSONObject2.put("imei", bVar.n().getImei());
+                jSONObject2.put("osVersion", bVar.n().getOsVersion());
+                jSONObject2.put("brandName", bVar.n().r());
+                jSONObject2.put("deviceType", bVar.n().s());
+                jSONObject2.put("mac", bVar.n().t());
+                jSONObject2.put(com.heytap.mcssdk.constant.b.C, bVar.n().u());
+                jSONObject2.put("testEnable", bVar.n().v());
+                jSONObject2.put("appVersion", bVar.n().w());
+                jSONObject2.put("appVersionName", bVar.n().w());
+                jSONObject2.put("screenWidth", bVar.n().y());
+                jSONObject2.put("screenHeight", bVar.n().z());
+                jSONObject2.put("screenDensity", bVar.n().A());
+                jSONObject2.put("netType", bVar.n().x());
+                jSONObject2.put("appName", bVar.n().C());
+                jSONObject2.put("expInfo", bVar.n().B());
+                jSONObject2.put("phone", bVar.n().getPhone());
+                for (com.baidu.ubs.analytics.a.n nVar : bVar.o()) {
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("startTime", nVar.N());
+                    jSONObject3.put("endTime", nVar.O());
+                    jSONObject3.put("keepTime", nVar.P());
+                    jSONObject3.put("sessionId", nVar.I());
+                    jSONArray.put(jSONObject3);
                 }
+                for (com.baidu.ubs.analytics.a.l lVar : bVar.p()) {
+                    JSONObject jSONObject4 = new JSONObject();
+                    jSONObject4.put("pagerName", lVar.E());
+                    jSONObject4.put("sessionId", lVar.I());
+                    jSONObject4.put("endTime", lVar.O());
+                    jSONObject4.put("startTime", lVar.N());
+                    jSONObject4.put("path", lVar.getPath());
+                    jSONArray2.put(jSONObject4);
+                }
+                for (com.baidu.ubs.analytics.a.a aVar : bVar.getEvents()) {
+                    JSONObject jSONObject5 = new JSONObject();
+                    jSONObject5.put("type", aVar.G());
+                    jSONObject5.put("sessionId", aVar.I());
+                    jSONObject5.put("ext", aVar.H());
+                    jSONObject5.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, aVar.F());
+                    jSONObject5.put("page", aVar.E());
+                    jSONObject5.put("from", aVar.D());
+                    jSONArray3.put(jSONObject5);
+                }
+                for (com.baidu.ubs.analytics.a.i iVar : bVar.q()) {
+                    JSONObject jSONObject6 = new JSONObject();
+                    jSONObject6.put("url", iVar.getUrl());
+                    jSONObject6.put("sessionId", iVar.I());
+                    jSONObject6.put("method", iVar.getType());
+                    jSONObject6.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, iVar.F());
+                    jSONObject6.put(PushConstants.PARAMS, iVar.M());
+                    jSONArray4.put(jSONObject6);
+                }
+                jSONObject.put("deviceinfo", jSONObject2);
+                jSONObject.put("sessions", jSONArray);
+                jSONObject.put("events", jSONArray3);
+                jSONObject.put("pagers", jSONArray2);
+                jSONObject.put("nets", jSONArray4);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return m6bVar;
+            return jSONObject.toString();
         }
-        return (m6b) invokeL.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && FunAdSdk.getFunAdConfig().isUseCloudAdConfiguration) {
-            SharedPreferences sharedPreferences = l6b.b;
-            long j = 0;
-            long j2 = sharedPreferences.getLong("key_lst_config_sync_time", 0L);
-            if (j2 > 0) {
-                long currentTimeMillis = System.currentTimeMillis() - j2;
-                if (currentTimeMillis >= 0) {
-                    long j3 = sharedPreferences.getInt("key_config_interval", 15) * 60 * 1000;
-                    if (currentTimeMillis < j3) {
-                        j = j3 - currentTimeMillis;
-                    }
-                }
-            }
-            long max = Math.max(10000L, j);
-            LogPrinter.v("Remove last pull config request, and schedule it %ds later.", Long.valueOf(max / 1000));
-            Handler handler = e;
-            handler.removeMessages(100);
-            handler.sendEmptyMessageDelayed(100, max);
-        }
-    }
-
-    public static void d(FunAdConfig funAdConfig, Set set, Set set2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, funAdConfig, set, set2) != null) || b == null) {
-            return;
-        }
-        ocb ocbVar = b;
-        synchronized (ocbVar.b) {
-            if (set2 != null) {
-                Iterator it = set2.iterator();
-                while (it.hasNext()) {
-                    ocbVar.a.remove(((Ssp) it.next()).type);
-                }
-            }
-        }
-        z5b.f(funAdConfig, set, new z5b.a() { // from class: com.baidu.tieba.e5b
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.z5b.a
-            public final void a(Map map) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, map) == null) {
-                    d6b.e(map);
-                }
-            }
-        });
-    }
-
-    public static void e(Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, map) == null) {
-            ocb ocbVar = b;
-            synchronized (ocbVar.b) {
-                if (map != null) {
-                    ocbVar.a.putAll(map);
-                }
-            }
-        }
-    }
-
-    public static void f(boolean z) {
-        boolean z2;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            LogPrinter.v("tryInitialize", new Object[0]);
-            SharedPreferences sharedPreferences = l6b.b;
-            if (6 == sharedPreferences.getInt("key_cp_v", 6)) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (!z2) {
-                e.obtainMessage(102).sendToTarget();
-                return;
-            }
-            c();
-            FunAdConfig funAdConfig = FunAdSdk.getFunAdConfig();
-            v5b b2 = l6b.b();
-            z5b.a = l6b.m();
-            Object[] objArr = new Object[2];
-            if (b2 != null) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            objArr[0] = Boolean.valueOf(z3);
-            objArr[1] = Boolean.valueOf(z);
-            LogPrinter.v("adConfig load immediately over, valid:%b parseAssets:%b", objArr);
-            if (b2 == null) {
-                if (z) {
-                    e.obtainMessage(101).sendToTarget();
-                    return;
-                }
-                LogPrinter.d("tryInitialize failed without valid adConfig.", new Object[0]);
-                icb icbVar = g;
-                synchronized (icbVar.b) {
-                    icbVar.d = -1;
-                    while (!icbVar.c.isEmpty()) {
-                        icb.a pollFirst = icbVar.c.pollFirst();
-                        if (!icb.f && pollFirst == null) {
-                            throw new AssertionError();
-                        }
-                        pollFirst.c.onError(pollFirst.b.getSid());
-                    }
-                }
-                return;
-            }
-            f.a(b2);
-            HostAppInfo.updateCfgv(sharedPreferences.getLong("key_config_v", 0L));
-            if (!h) {
-                h = true;
-                z5b.f(funAdConfig, b2.a, new z5b.a() { // from class: com.baidu.tieba.s5b
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.z5b.a
-                    public final void a(Map map) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, map) == null) {
-                            d6b.h(map);
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    public static void g() {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            LogPrinter.v("tryInitialize cloud", new Object[0]);
-            final FunAdConfig funAdConfig = FunAdSdk.getFunAdConfig();
-            v5b b2 = l6b.b();
-            z5b.a = l6b.m();
-            Object[] objArr = new Object[1];
-            if (b2 != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            objArr[0] = Boolean.valueOf(z);
-            LogPrinter.v("adConfig load immediately over, valid:%b.", objArr);
-            if (b2 == null) {
-                LogPrinter.e("tryInitializeCloud failed without valid adConfig.", new Object[0]);
-                return;
-            }
-            o6b o6bVar = f;
-            synchronized (o6bVar) {
-                v5b v5bVar = o6bVar.a;
-                if (v5bVar != null && v5bVar.equals(b2)) {
-                    LogPrinter.d("New AdConfig equals old one, give up updating it", new Object[0]);
-                } else {
-                    HashSet hashSet = new HashSet(b2.a);
-                    for (Ssp ssp : o6bVar.a.a) {
-                        Iterator it = hashSet.iterator();
-                        while (true) {
-                            if (it.hasNext()) {
-                                Ssp ssp2 = (Ssp) it.next();
-                                if (ssp.type.equals(ssp2.type)) {
-                                    if (!ssp.sspId.equals(ssp2.sspId)) {
-                                        LogPrinter.e("In new config sspId of type : %s not match the old one", ssp.type);
-                                    } else {
-                                        it.remove();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    z2 = true;
-                }
-                z2 = false;
-                break;
-            }
-            if (!z2) {
-                return;
-            }
-            o6b o6bVar2 = f;
-            o6b.c cVar = new o6b.c() { // from class: com.baidu.tieba.a5b
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.o6b.c
-                public final void a(Set set, Set set2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, set, set2) == null) {
-                        d6b.d(FunAdConfig.this, set, set2);
-                    }
-                }
-            };
-            synchronized (o6bVar2) {
-                HashSet hashSet2 = new HashSet(o6bVar2.a.a);
-                HashSet hashSet3 = new HashSet(b2.a);
-                for (Ssp ssp3 : o6bVar2.a.a) {
-                    Iterator<Ssp> it2 = b2.a.iterator();
-                    while (true) {
-                        if (it2.hasNext()) {
-                            Ssp next = it2.next();
-                            if (ssp3.type.equals(next.type)) {
-                                hashSet2.remove(ssp3);
-                                hashSet3.remove(next);
-                                break;
-                            }
-                        }
-                    }
-                }
-                LogPrinter.d("the added ssp type size: %s, reduce type size: %s.", Integer.valueOf(hashSet3.size()), Integer.valueOf(hashSet2.size()));
-                cVar.a(hashSet3, hashSet2);
-            }
-            f.a(b2);
-            HostAppInfo.updateCfgv(l6b.b.getLong("key_config_v", 0L));
-        }
-    }
-
-    public static void h(Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, map) == null) {
-            if (b == null) {
-                b = new ocb(map);
-                icb icbVar = g;
-                ocb ocbVar = b;
-                synchronized (icbVar.b) {
-                    icbVar.e = ocbVar;
-                    icbVar.d = 1;
-                    while (!icbVar.c.isEmpty()) {
-                        icb.a pollFirst = icbVar.c.pollFirst();
-                        if (!icb.f && pollFirst == null) {
-                            throw new AssertionError();
-                        }
-                        icbVar.loadAd(pollFirst.a, pollFirst.b, pollFirst.c);
-                    }
-                }
-            }
-            i = true;
-            FunAdSdk.SdkInitializeCallback sdkInitializeCallback = d;
-            if (sdkInitializeCallback != null) {
-                sdkInitializeCallback.onComplete();
-            }
-            d = null;
-        }
+        return (String) invokeL.objValue;
     }
 }

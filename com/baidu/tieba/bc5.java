@@ -1,195 +1,231 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
+import android.text.Editable;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.httpNet.WebClient;
-import com.baidu.tbadk.core.util.resourceLoaderProc.DiskCancelWorker;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tieba.bc5;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bc5 implements sg<zb5> {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class bc5<T extends bc5> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int h = 1;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public boolean b;
+    public Editable c;
+    public int d;
+    public int e;
+    public int f;
+    public a g;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sg
-    /* renamed from: b */
-    public zb5 getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            return null;
-        }
-        return (zb5) invokeCommon.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void e(int i, boolean z);
     }
 
-    @Override // com.baidu.tieba.sg
-    public BdAsyncTaskParallel getAsyncTaskParallel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947640181, "Lcom/baidu/tieba/bc5;")) == null) {
+            return;
         }
-        return (BdAsyncTaskParallel) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947640181, "Lcom/baidu/tieba/bc5;");
+        }
     }
 
-    @Override // com.baidu.tieba.sg
-    public int getAsyncTaskPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
+    public abstract void r(Editable editable);
 
-    @Override // com.baidu.tieba.sg
-    public boolean isNeedLoad() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.sg
-    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) {
-        }
-    }
+    public abstract void s(Editable editable, int i);
 
     public bc5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        int i3 = h;
+        h = i3 + 1;
+        this.a = i3;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public Editable g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (Editable) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (editable = this.c) == null) {
+            return;
+        }
+        for (SpanGroupForegroundColorSpan spanGroupForegroundColorSpan : (SpanGroupForegroundColorSpan[]) editable.getSpans(this.d, this.e, SpanGroupForegroundColorSpan.class)) {
+            this.c.removeSpan(spanGroupForegroundColorSpan);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sg
-    /* renamed from: a */
-    public zb5 getFromLocal(String str, String str2, int i, int i2, pg pgVar, Object... objArr) {
-        InterceptResult invokeCommon;
+    public void j() {
+        Editable editable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), pgVar, objArr})) == null) {
-            if (str.contains("https://")) {
-                str = Uri.parse(str).getLastPathSegment();
-            }
-            DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
-            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            diskFileOperate.setSubFolder(false);
-            diskFileOperate.setIsFormatData(false);
-            if (pgVar != null) {
-                DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                diskCancelWorker.setOperate(diskFileOperate);
-                pgVar.a = diskCancelWorker;
-            }
-            diskFileOperate.call();
-            if (!diskFileOperate.isSuccess()) {
-                return null;
-            }
-            String desPath = diskFileOperate.getDesPath();
-            zb5 zb5Var = new zb5();
-            zb5Var.h(str);
-            zb5Var.i(desPath);
-            return zb5Var;
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (editable = this.c) == null) {
+            return;
         }
-        return (zb5) invokeCommon.objValue;
+        for (EMRichTextAnyIconSpan eMRichTextAnyIconSpan : (EMRichTextAnyIconSpan[]) editable.getSpans(this.d, this.e, EMRichTextAnyIconSpan.class)) {
+            this.c.removeSpan(eMRichTextAnyIconSpan);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sg
-    /* renamed from: c */
-    public zb5 getFromRemote(String str, String str2, int i, int i2, pg pgVar, Object... objArr) {
-        InterceptResult invokeCommon;
-        String str3;
-        String str4;
+    public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), pgVar, objArr})) == null) {
-            int i3 = 1;
-            String str5 = null;
-            if (objArr.length == 1) {
-                str3 = String.valueOf(objArr[0]);
-            } else {
-                str3 = null;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            this.c = editable;
+            this.d = i;
+            this.e = i2;
+            this.f = i3;
+        }
+    }
+
+    public void n(Object obj, int i, int i2, int i3) {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIII(1048589, this, obj, i, i2, i3) != null) || (editable = this.c) == null) {
+            return;
+        }
+        editable.setSpan(obj, i, i2, i3);
+    }
+
+    public void b(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.b = t.h();
+            this.c = t.g();
+            this.d = t.f();
+            this.e = t.c();
+            this.f = t.d();
+        }
+    }
+
+    public void k(@NonNull CharSequence charSequence) {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, charSequence) == null) && (editable = this.c) != null && charSequence != null) {
+            try {
+                editable.replace(this.d, this.e, charSequence);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
-            zb5 zb5Var = new zb5();
-            WebClient webClient = new WebClient();
-            if (pgVar != null) {
-                pgVar.a = webClient;
-            }
-            if (str.contains("https://")) {
-                str4 = Uri.parse(str).getLastPathSegment();
-            } else {
-                String str6 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
-                if (!TextUtils.isEmpty(str3)) {
-                    str4 = str;
-                    str = str6 + "&play_from=" + str3;
-                } else {
-                    str4 = str;
-                    str = str6;
-                }
-            }
-            byte[] downloadCommonBytes = webClient.downloadCommonBytes(str);
-            if (!webClient.IsRequestSuccess()) {
-                zb5Var.f(3);
-                zb5Var.g(pj.a(R.string.obfuscated_res_0x7f0f0e0f));
-                return zb5Var;
-            } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
-                if (str4 == null) {
-                    i3 = 5;
-                } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
-                    DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str4, DiskFileOperate.Action.WRITE);
-                    diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-                    diskFileOperate.setSubFolder(false);
-                    diskFileOperate.setData(downloadCommonBytes);
-                    if (pgVar != null) {
-                        DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                        diskCancelWorker.setOperate(diskFileOperate);
-                        pgVar.a = diskCancelWorker;
-                    }
-                    diskFileOperate.call();
-                    if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
-                        str5 = diskFileOperate.getFileInfo().getAbsolutePath();
-                        i3 = 0;
-                    } else if (FileHelper.getAvailableSize() < downloadCommonBytes.length) {
-                        i3 = 2;
-                    }
-                } else {
-                    i3 = 6;
-                }
-                if (i3 == 0) {
-                    zb5Var.i(str5);
-                    zb5Var.h(str4);
-                } else {
-                    zb5Var.f(i3);
-                    zb5Var.g(zb5.a(i3));
-                }
-                return zb5Var;
-            } else {
-                zb5Var.f(4);
-                zb5Var.g(pj.a(R.string.voice_cache_error_no_file));
-                return zb5Var;
+            this.e = this.d + charSequence.length();
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void m(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+            this.g = aVar;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void p(Editable editable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, editable) == null) {
+            this.c = editable;
+        }
+    }
+
+    public void q(boolean z) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            boolean z2 = this.b;
+            this.b = z;
+            if (z2 != z && (aVar = this.g) != null) {
+                aVar.e(this.a, z);
             }
         }
-        return (zb5) invokeCommon.objValue;
     }
 }

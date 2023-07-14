@@ -1,23 +1,71 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArrayMap;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
-import com.baidu.storage.swankv.SwanKV;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wk3 {
+public abstract class wk3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, vk3> b;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public uk3 a;
+    public rk3 b;
+    public volatile boolean c;
+    public HandlerThread d;
+    public Handler e;
+
+    public abstract void f();
+
+    /* loaded from: classes8.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wk3 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(wk3 wk3Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wk3Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wk3Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
+                this.a.f();
+                if (this.a.c) {
+                    this.a.a.c();
+                } else {
+                    this.a.e.removeMessages(101);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,57 +80,75 @@ public class wk3 {
                 return;
             }
         }
-        a = ms1.a;
-        b = new ArrayMap();
+        f = fs1.a;
     }
 
-    @Nullable
-    public static AshmemFileDescriptor a(@NonNull String str, int i) {
-        InterceptResult invokeLI;
+    public synchronized void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            try {
-                if (ProcessUtils.isMainProcess()) {
-                    synchronized (b) {
-                        vk3 vk3Var = b.get(str);
-                        if (vk3Var != null && vk3Var.a() != null) {
-                            return vk3Var.a();
-                        }
-                        int ashmemFD = SwanKV.getAshmemFD(str, i);
-                        if (ashmemFD >= 0) {
-                            AshmemFileDescriptor ashmemFileDescriptor = new AshmemFileDescriptor(str, ashmemFD, i);
-                            sk3.e(ashmemFileDescriptor);
-                            return ashmemFileDescriptor;
-                        }
-                        return null;
-                    }
-                }
-                return rk3.c(str, i);
-            } catch (Throwable th) {
-                if (a) {
-                    th.printStackTrace();
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (AshmemFileDescriptor) invokeLI.objValue;
-    }
-
-    public static synchronized void b(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, ashmemFileDescriptor) == null) {
-            synchronized (wk3.class) {
-                if (ProcessUtils.isMainProcess()) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (this.c) {
                     return;
                 }
-                vk3 vk3Var = b.get(ashmemFileDescriptor.getName());
-                if (vk3Var != null && vk3Var.a() != null && vk3Var.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
-                    SwanKV b2 = vk3Var.b();
-                    vk3Var.c(new SwanKV(ashmemFileDescriptor));
-                    b2.release();
-                }
+                d();
+                this.e.sendMessage(this.e.obtainMessage(101));
             }
         }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e == null) {
+            HandlerThread handlerThread = new HandlerThread("cookieSync");
+            this.d = handlerThread;
+            handlerThread.start();
+            this.e = new a(this, this.d.getLooper());
+        }
+    }
+
+    public synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.c = true;
+                if (this.d != null) {
+                    this.d.quitSafely();
+                }
+                this.e = null;
+                this.d = null;
+            }
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                d();
+                this.e.sendMessageDelayed(this.e.obtainMessage(101), 5000L);
+            }
+        }
+    }
+
+    public wk3(rk3 rk3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rk3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new uk3();
+        this.b = rk3Var;
     }
 }

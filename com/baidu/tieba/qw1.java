@@ -1,22 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import java.io.File;
-import java.util.HashMap;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes7.dex */
 public interface qw1 {
+    gs2 a(ZeusPluginFactory.Invoker invoker, String str);
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void onResult(String str);
-    }
+    gu2 b(ZeusPluginFactory.Invoker invoker, String str);
 
-    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
+    gu2 c(ZeusPluginFactory.Invoker invoker, String str);
 
-    void b(Context context, String str, String str2, String str3);
+    fs2 d(ZeusPluginFactory.Invoker invoker, String str);
 
-    void c(HashMap<String, String> hashMap, File file, a aVar);
-
-    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
+    dq2 e(ZeusPluginFactory.Invoker invoker, String str);
 }

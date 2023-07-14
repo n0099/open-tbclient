@@ -87,7 +87,16 @@ public class IMJoinChatRoomGroupMsg extends Message {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
             super.handleMessageResult(context, jSONObject, i, str);
-            LogUtils.d(TAG, "errorCode:" + i + "  strMsg" + str);
+            LogUtils.d(TAG, "errorCode:" + i + "  strMsg ：" + str + "， obj :" + jSONObject.toString());
+            if (i == 0) {
+                try {
+                    if (jSONObject.has("ack_enable") && jSONObject.optInt("ack_enable", 0) == 1) {
+                        ConversationStudioManImpl.getInstance(this.mContext).needAck(true);
+                    }
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "handle handleMessageResult exception :", e);
+                }
+            }
             ConversationStudioManImpl.getInstance(this.mContext).onChatRoomGroupResult(getListenerKey(), i, str);
         }
     }

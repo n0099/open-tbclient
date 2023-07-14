@@ -11,8 +11,8 @@ import com.baidu.tbadk.data.LevePopData;
 import com.baidu.tbadk.data.LiveRemindData;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
-import com.baidu.tieba.ah5;
-import com.baidu.tieba.c95;
+import com.baidu.tieba.o95;
+import com.baidu.tieba.xh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import tbclient.Loop.LevelRes;
 import tbclient.Loop.LiveRes;
 import tbclient.Loop.LoopResIdl;
 /* loaded from: classes4.dex */
-public class PollingSocketResMessage extends SocketResponsedMessage implements c95 {
+public class PollingSocketResMessage extends SocketResponsedMessage implements o95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ChatRoomEntranceData chatEntranceData;
@@ -39,7 +39,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
     public List<AlaLiveInfo> liveIndexSecondFloor;
     public final List<AlaLiveInfo> livePicSecondFloor;
     public MemberBroadcastData mActivityBroadcastData;
-    public ah5 mFestivalConfigData;
+    public xh5 mFestivalConfigData;
     public IconPopData mIconPopData;
     public LevePopData mLevePopData;
     public LiveRemindData mLiveRemindData;
@@ -66,7 +66,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
         }
         this.mLevePopData = new LevePopData();
         this.mIconPopData = new IconPopData();
-        this.mFestivalConfigData = new ah5();
+        this.mFestivalConfigData = new xh5();
         this.mLiveRemindData = new LiveRemindData();
         this.groupUnreadMsgData = new SubscribeGroupUnreadMsgData();
         this.liveFollowSecondFloor = new ArrayList();
@@ -150,7 +150,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
         return invokeIL.objValue;
     }
 
-    @Override // com.baidu.tieba.c95
+    @Override // com.baidu.tieba.o95
     public MemberBroadcastData getActivityBroadcastData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -160,7 +160,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
         return (MemberBroadcastData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c95
+    @Override // com.baidu.tieba.o95
     public ChatRoomEntranceData getChatRoomEntranceData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -170,17 +170,17 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
         return (ChatRoomEntranceData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c95
-    public ah5 getFestivalConfigData() {
+    @Override // com.baidu.tieba.o95
+    public xh5 getFestivalConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mFestivalConfigData;
         }
-        return (ah5) invokeV.objValue;
+        return (xh5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c95
+    @Override // com.baidu.tieba.o95
     public IconPopData getIconPopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -190,7 +190,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
         return (IconPopData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c95
+    @Override // com.baidu.tieba.o95
     public LevePopData getLevePopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -200,7 +200,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
         return (LevePopData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c95
+    @Override // com.baidu.tieba.o95
     public List<AlaLiveInfo> getLiveFollowSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -210,7 +210,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c95
+    @Override // com.baidu.tieba.o95
     public List<AlaLiveInfo> getLiveIndexSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -220,7 +220,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c95
+    @Override // com.baidu.tieba.o95
     public List<AlaLiveInfo> getLivePicSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -230,7 +230,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c95
+    @Override // com.baidu.tieba.o95
     public LiveRemindData getLiveRemindData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -240,7 +240,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
         return (LiveRemindData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c95
+    @Override // com.baidu.tieba.o95
     public MemberBroadcastData getMemberBroadcastData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -250,7 +250,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
         return (MemberBroadcastData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c95
+    @Override // com.baidu.tieba.o95
     public SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -260,7 +260,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements c
         return (SubscribeGroupUnreadMsgData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c95
+    @Override // com.baidu.tieba.o95
     public String getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

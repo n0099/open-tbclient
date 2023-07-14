@@ -1,77 +1,100 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
+import rx.internal.schedulers.SchedulerWhen;
 /* loaded from: classes8.dex */
-public class x1c {
+public abstract class x1c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static PayType a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (PayType.ALI_PAY.getChannel().equals(str) && PayType.ALI_PAY.getMethod().equals(str2)) {
-                return PayType.ALI_PAY;
+    public abstract a createWorker();
+
+    /* loaded from: classes8.dex */
+    public static abstract class a implements b2c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract b2c b(h2c h2cVar);
+
+        public abstract b2c c(h2c h2cVar, long j, TimeUnit timeUnit);
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if (PayType.WECHAT_PAY.getChannel().equals(str) && PayType.WECHAT_PAY.getMethod().equals(str2)) {
-                return PayType.WECHAT_PAY;
-            }
-            if (PayType.DXM_PAY.getChannel().equals(str) && PayType.DXM_PAY.getMethod().equals(str2)) {
-                return PayType.DXM_PAY;
-            }
-            if (PayType.DXM_PAY_KJ.getChannel().equals(str) && PayType.DXM_PAY_KJ.getMethod().equals(str2)) {
-                return PayType.DXM_PAY_KJ;
-            }
-            if (PayType.QQ_PAY.getChannel().equals(str) && PayType.QQ_PAY.getMethod().equals(str2)) {
-                return PayType.QQ_PAY;
-            }
-            if (PayType.UNION_PAY.getChannel().equals(str) && PayType.UNION_PAY.getMethod().equals(str2)) {
-                return PayType.UNION_PAY;
-            }
-            if (PayType.DXM_PAY_H5.getChannel().equals(str) && PayType.DXM_PAY_H5.getMethod().equals(str2)) {
-                return PayType.DXM_PAY_H5;
-            }
-            return null;
         }
-        return (PayType) invokeLL.objValue;
+
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return System.currentTimeMillis();
+            }
+            return invokeV.longValue;
+        }
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (PayType.DXM_PAY_H5.getChannel().equals(str) && PayType.DXM_PAY_H5.getMethod().equals(str2)) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948248959, "Lcom/baidu/tieba/x1c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948248959, "Lcom/baidu/tieba/x1c;");
+                return;
+            }
         }
-        return invokeLL.booleanValue;
+        TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15L).longValue());
     }
 
-    public static boolean c(String str, String str2) {
-        InterceptResult invokeLL;
+    public x1c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (PayType.DXM_PAY_KJ.getChannel().equals(str) && PayType.DXM_PAY_KJ.getMethod().equals(str2)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean d(String str, String str2) {
-        InterceptResult invokeLL;
+    public long now() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!c(str, str2) && !b(str, str2) && !PayType.MOCK_TEST_PAY.getChannel().equals(str) && !PayType.UNION_PAY.getChannel().equals(str)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return System.currentTimeMillis();
         }
-        return invokeLL.booleanValue;
+        return invokeV.longValue;
+    }
+
+    public <S extends x1c & b2c> S when(m2c<u1c<u1c<s1c>>, s1c> m2cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m2cVar)) == null) {
+            return new SchedulerWhen(m2cVar, this);
+        }
+        return (S) ((x1c) invokeL.objValue);
     }
 }

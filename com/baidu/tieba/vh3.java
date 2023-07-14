@@ -1,42 +1,244 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.so.SoLoader;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class vh3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
+    public static volatile vh3 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public zh3 a;
+    public ai3 b;
+    public b c;
+    public xh3 d;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return jv2.e0().c();
-        }
-        return (String) invokeV.objValue;
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return SoLoader.load(AppRuntime.getAppContext(), "audioengine");
+    /* loaded from: classes8.dex */
+    public class b implements yh3<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public JSONArray b;
+
+        public b(vh3 vh3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vh3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeV.booleanValue;
+
+        public /* synthetic */ b(vh3 vh3Var, a aVar) {
+            this(vh3Var);
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b = null;
+            }
+        }
+
+        public JSONObject c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("extra", this.b);
+                } catch (JSONException e) {
+                    if (yh3.a) {
+                        Log.e("SwanStabilityTracer", Log.getStackTraceString(e));
+                    }
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
     }
 
-    public static xh3 c() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948240744, "Lcom/baidu/tieba/vh3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948240744, "Lcom/baidu/tieba/vh3;");
+                return;
+            }
+        }
+        e = fs1.a;
+    }
+
+    public static vh3 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!jv2.w0().d()) {
-                return ci2.c(false);
+            if (f == null) {
+                synchronized (vh3.class) {
+                    if (f == null) {
+                        f = new vh3();
+                    }
+                }
             }
-            return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
+            return f;
+        }
+        return (vh3) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.c();
+            this.b.b();
+            this.c.b();
+        }
+    }
+
+    public xh3 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
         return (xh3) invokeV.objValue;
+    }
+
+    public vh3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new zh3();
+        this.b = new ai3();
+        this.c = new b(this, null);
+        this.d = new xh3();
+    }
+
+    public File b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(e());
+            jSONArray.put(g());
+            jSONArray.put(c());
+            return this.d.d(jSONArray);
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject c = this.c.c();
+            if (e) {
+                Log.d("SwanStabilityTracer", "extraTraces: " + c);
+            }
+            return c;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public JSONObject e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject d = this.a.d();
+            if (e) {
+                Log.d("SwanStabilityTracer", "LaunchTraces: " + d);
+            }
+            return d;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public JSONObject g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONObject c = this.b.c();
+            if (e) {
+                Log.d("SwanStabilityTracer", "WhiteTraces: " + c);
+            }
+            return c;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.c.b != null && this.c.b.length() != 0) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(e());
+            jSONArray.put(g());
+            jSONArray.put(c());
+            this.d.d(jSONArray);
+        }
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+            this.b.a(jSONObject);
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            j(str, null);
+        }
+    }
+
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            this.a.b(jSONObject);
+        }
+    }
+
+    public void j(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            this.a.a(str, str2);
+        }
     }
 }

@@ -97,7 +97,7 @@ public class y {
             } catch (IOException e) {
                 e = e;
                 zipOutputStream2 = zipOutputStream;
-                com.xiaomi.channel.commonutils.logger.b.m175a("zip file failure + " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m177a("zip file failure + " + e.getMessage());
                 a(zipOutputStream2);
             } catch (Throwable th2) {
                 th = th2;
@@ -209,7 +209,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m838a(File file) {
+    public static boolean m840a(File file) {
         try {
             if (file.isDirectory()) {
                 return false;

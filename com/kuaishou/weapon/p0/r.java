@@ -35,14 +35,14 @@ public class r {
 
         /* renamed from: com.kuaishou.weapon.p0.r$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0590a extends TimerTask {
+        public class C0595a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ s a;
             public final /* synthetic */ t b;
             public final /* synthetic */ a c;
 
-            public C0590a(a aVar, s sVar, t tVar) {
+            public C0595a(a aVar, s sVar, t tVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public class r {
                         }
                         return;
                     }
-                    new Timer().schedule(new C0590a(this, a, a2), 600000L);
+                    new Timer().schedule(new C0595a(this, a, a2), 600000L);
                     a.c(this.a);
                     this.b.d.a(this.a);
                     File file = new File(a2.e);
@@ -360,7 +360,7 @@ public class r {
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:26:0x0080
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:26:0x0082
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -369,24 +369,24 @@ public class r {
         /*
             r5 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.kuaishou.weapon.p0.r.$ic
-            if (r0 != 0) goto L9b
+            if (r0 != 0) goto L9d
         L4:
             monitor-enter(r5)
-            boolean r0 = r5.a     // Catch: java.lang.Throwable -> L99
+            boolean r0 = r5.a     // Catch: java.lang.Throwable -> L9b
             if (r0 == 0) goto Lb
             monitor-exit(r5)
             return
         Lb:
             r0 = 1
-            r5.a = r0     // Catch: java.lang.Throwable -> L99
-            com.kuaishou.weapon.p0.u r1 = r5.d     // Catch: java.lang.Throwable -> L99
-            java.util.List r1 = r1.b()     // Catch: java.lang.Throwable -> L99
-            java.util.Iterator r1 = r1.iterator()     // Catch: java.lang.Throwable -> L99
+            r5.a = r0     // Catch: java.lang.Throwable -> L9b
+            com.kuaishou.weapon.p0.u r1 = r5.d     // Catch: java.lang.Throwable -> L9b
+            java.util.List r1 = r1.b()     // Catch: java.lang.Throwable -> L9b
+            java.util.Iterator r1 = r1.iterator()     // Catch: java.lang.Throwable -> L9b
         L18:
-            boolean r2 = r1.hasNext()     // Catch: java.lang.Throwable -> L99
+            boolean r2 = r1.hasNext()     // Catch: java.lang.Throwable -> L9b
             if (r2 == 0) goto L67
-            java.lang.Object r2 = r1.next()     // Catch: java.lang.Throwable -> L99
-            com.kuaishou.weapon.p0.t r2 = (com.kuaishou.weapon.p0.t) r2     // Catch: java.lang.Throwable -> L99
+            java.lang.Object r2 = r1.next()     // Catch: java.lang.Throwable -> L9b
+            com.kuaishou.weapon.p0.t r2 = (com.kuaishou.weapon.p0.t) r2     // Catch: java.lang.Throwable -> L9b
             r3 = 0
             android.content.Context r4 = r5.c     // Catch: java.lang.Throwable -> L30
             java.io.File r4 = r4.getFilesDir()     // Catch: java.lang.Throwable -> L30
@@ -395,58 +395,58 @@ public class r {
         L30:
         L31:
             if (r3 == 0) goto L18
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L99
-            r4.<init>()     // Catch: java.lang.Throwable -> L99
-            r4.append(r3)     // Catch: java.lang.Throwable -> L99
+            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L9b
+            r4.<init>()     // Catch: java.lang.Throwable -> L9b
+            r4.append(r3)     // Catch: java.lang.Throwable -> L9b
             java.lang.String r3 = "/."
-            r4.append(r3)     // Catch: java.lang.Throwable -> L99
-            int r3 = r2.a     // Catch: java.lang.Throwable -> L99
-            r4.append(r3)     // Catch: java.lang.Throwable -> L99
-            java.lang.String r3 = r4.toString()     // Catch: java.lang.Throwable -> L99
-            r2.m = r3     // Catch: java.lang.Throwable -> L99
-            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L99
-            r3.<init>()     // Catch: java.lang.Throwable -> L99
-            java.lang.String r4 = r2.m     // Catch: java.lang.Throwable -> L99
-            r3.append(r4)     // Catch: java.lang.Throwable -> L99
+            r4.append(r3)     // Catch: java.lang.Throwable -> L9b
+            int r3 = r2.a     // Catch: java.lang.Throwable -> L9b
+            r4.append(r3)     // Catch: java.lang.Throwable -> L9b
+            java.lang.String r3 = r4.toString()     // Catch: java.lang.Throwable -> L9b
+            r2.m = r3     // Catch: java.lang.Throwable -> L9b
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L9b
+            r3.<init>()     // Catch: java.lang.Throwable -> L9b
+            java.lang.String r4 = r2.m     // Catch: java.lang.Throwable -> L9b
+            r3.append(r4)     // Catch: java.lang.Throwable -> L9b
             java.lang.String r4 = "/lib"
-            r3.append(r4)     // Catch: java.lang.Throwable -> L99
-            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L99
-            com.kuaishou.weapon.p0.n3.b(r3)     // Catch: java.lang.Throwable -> L99
-            java.lang.String r2 = r2.m     // Catch: java.lang.Throwable -> L99
-            com.kuaishou.weapon.p0.n3.c(r2)     // Catch: java.lang.Throwable -> L99
+            r3.append(r4)     // Catch: java.lang.Throwable -> L9b
+            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L9b
+            com.kuaishou.weapon.p0.n3.b(r3)     // Catch: java.lang.Throwable -> L9b
+            java.lang.String r2 = r2.m     // Catch: java.lang.Throwable -> L9b
+            com.kuaishou.weapon.p0.n3.c(r2)     // Catch: java.lang.Throwable -> L9b
             goto L18
         L67:
-            com.kuaishou.weapon.p0.u r1 = r5.d     // Catch: java.lang.Throwable -> L99
-            r1.a()     // Catch: java.lang.Throwable -> L99
-            com.kuaishou.weapon.p0.p3 r1 = r5.b     // Catch: java.lang.Throwable -> L99
+            com.kuaishou.weapon.p0.u r1 = r5.d     // Catch: java.lang.Throwable -> L9b
+            r1.a()     // Catch: java.lang.Throwable -> L9b
+            com.kuaishou.weapon.p0.p3 r1 = r5.b     // Catch: java.lang.Throwable -> L9b
             java.lang.String r2 = "wiipaot"
-            boolean r1 = r1.a(r2)     // Catch: java.lang.Throwable -> L99
-            if (r1 != 0) goto L83
-            com.kuaishou.weapon.p0.p3 r1 = r5.b     // Catch: java.lang.Throwable -> L99
+            boolean r1 = r1.a(r2)     // Catch: java.lang.Throwable -> L9b
+            if (r1 != 0) goto L85
+            com.kuaishou.weapon.p0.p3 r1 = r5.b     // Catch: java.lang.Throwable -> L9b
             java.lang.String r2 = "wiipaot"
-            java.lang.Boolean r3 = java.lang.Boolean.TRUE     // Catch: java.lang.Throwable -> L99
-            r1.a(r2, r3, r0)     // Catch: java.lang.Throwable -> L99
-            goto L88
-        L80:
+            java.lang.Boolean r3 = java.lang.Boolean.TRUE     // Catch: java.lang.Throwable -> L9b
+            r1.a(r2, r3, r0)     // Catch: java.lang.Throwable -> L9b
+            goto L8a
+        L82:
             r0 = move-exception
             monitor-exit(r5)
             throw r0
-        L83:
-            com.kuaishou.weapon.p0.u r1 = r5.d     // Catch: java.lang.Throwable -> L99
-            r1.c()     // Catch: java.lang.Throwable -> L99
-        L88:
-            com.kuaishou.weapon.p0.o r1 = com.kuaishou.weapon.p0.o.a()     // Catch: java.lang.Throwable -> L99
-            com.kuaishou.weapon.p0.v r2 = new com.kuaishou.weapon.p0.v     // Catch: java.lang.Throwable -> L99
-            android.content.Context r3 = r5.c     // Catch: java.lang.Throwable -> L99
+        L85:
+            com.kuaishou.weapon.p0.u r1 = r5.d     // Catch: java.lang.Throwable -> L9b
+            r1.c()     // Catch: java.lang.Throwable -> L9b
+        L8a:
+            com.kuaishou.weapon.p0.o r1 = com.kuaishou.weapon.p0.o.a()     // Catch: java.lang.Throwable -> L9b
+            com.kuaishou.weapon.p0.v r2 = new com.kuaishou.weapon.p0.v     // Catch: java.lang.Throwable -> L9b
+            android.content.Context r3 = r5.c     // Catch: java.lang.Throwable -> L9b
             r4 = 0
-            r2.<init>(r3, r0, r4)     // Catch: java.lang.Throwable -> L99
-            r1.a(r2)     // Catch: java.lang.Throwable -> L99
-            monitor-exit(r5)
-            return
-        L99:
+            r2.<init>(r3, r0, r4)     // Catch: java.lang.Throwable -> L9b
+            r1.a(r2)     // Catch: java.lang.Throwable -> L9b
             monitor-exit(r5)
             return
         L9b:
+            monitor-exit(r5)
+            return
+        L9d:
             r3 = r0
             r4 = 1048581(0x100005, float:1.469375E-39)
             com.baidu.titan.sdk.runtime.InterceptResult r0 = r3.invokeV(r4, r5)

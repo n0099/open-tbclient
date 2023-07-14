@@ -9,7 +9,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tieba.fd1;
+import com.baidu.tieba.xc1;
 /* loaded from: classes3.dex */
 public class MaskViewGroup extends ViewGroup {
     public float a;
@@ -122,7 +122,7 @@ public class MaskViewGroup extends ViewGroup {
     }
 
     public final void b(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.f.obtainStyledAttributes(attributeSet, fd1.NadShadowViewGroup);
+        TypedArray obtainStyledAttributes = this.f.obtainStyledAttributes(attributeSet, xc1.NadShadowViewGroup);
         this.g = obtainStyledAttributes.getColor(3, -16777216);
         this.h = obtainStyledAttributes.getDimension(4, 0.0f);
         this.i = obtainStyledAttributes.getDimension(5, 0.0f);

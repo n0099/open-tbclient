@@ -1,27 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class fe4 {
+public class fe4 implements zs1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ee4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ee4 a() {
-        InterceptResult invokeV;
-        ee4 ee4Var;
+    public fe4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (fe4.class) {
-                if (a == null) {
-                    a = new ee4();
-                }
-                ee4Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return ee4Var;
         }
-        return (ee4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zs1
+    public Class<? extends bb2> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return s74.class;
+        }
+        return (Class) invokeV.objValue;
     }
 }

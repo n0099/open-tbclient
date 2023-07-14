@@ -2,7 +2,7 @@ package com.baidu.tieba.immessagecenter.im.model;
 
 import android.text.TextUtils;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.qe5;
+import com.baidu.tieba.nf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,14 +27,14 @@ public class MsgChatTabModel extends ImMessageCenterModel {
         }
     }
 
-    private boolean X(ImMessageCenterPojo imMessageCenterPojo) {
+    private boolean Y(ImMessageCenterPojo imMessageCenterPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, imMessageCenterPojo)) == null) {
             if (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() == -4) {
                 return false;
             }
-            if (imMessageCenterPojo.getCustomGroupType() == 4 && imMessageCenterPojo.getUserType() == 4 && !qe5.P(imMessageCenterPojo.getGid())) {
+            if (imMessageCenterPojo.getCustomGroupType() == 4 && imMessageCenterPojo.getUserType() == 4 && !nf5.P(imMessageCenterPojo.getGid())) {
                 return true;
             }
             if (imMessageCenterPojo.getCustomGroupType() == -8) {
@@ -62,7 +62,7 @@ public class MsgChatTabModel extends ImMessageCenterModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imMessageCenterPojo)) == null) {
-            return X(imMessageCenterPojo);
+            return Y(imMessageCenterPojo);
         }
         return invokeL.booleanValue;
     }

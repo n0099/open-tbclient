@@ -1,37 +1,49 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.media.AudioManager;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public class nl3 {
     public static /* synthetic */ Interceptable $ic;
+    public static nl3 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ConcurrentHashMap<String, b> a;
+    public AudioManager b;
+    public boolean c;
+    public BroadcastReceiver d;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface b {
+        void a(int i);
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        @Nullable
-        public ax2 c;
-        public String d;
+        public final /* synthetic */ nl3 this$0;
 
-        public b() {
+        public a(nl3 nl3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nl3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,48 +53,26 @@ public class nl3 {
                     return;
                 }
             }
-            this.a = false;
-            this.b = false;
-            this.c = null;
-            this.d = "";
+            this.this$0 = nl3Var;
         }
 
-        public static b b() {
-            InterceptResult invokeV;
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return new b();
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
+                if (this.this$0.b == null) {
+                    this.this$0.b = (AudioManager) cv2.c().getSystemService("audio");
+                }
+                for (Map.Entry entry : this.this$0.a.entrySet()) {
+                    if (this.this$0.b != null) {
+                        i = this.this$0.b.getStreamVolume(3);
+                    } else {
+                        i = 0;
+                    }
+                    ((b) entry.getValue()).a(i);
+                }
             }
-            return (b) invokeV.objValue;
-        }
-
-        public nl3 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new nl3(null);
-            }
-            return (nl3) invokeV.objValue;
-        }
-
-        public b c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.a = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
         }
     }
 
@@ -96,11 +86,125 @@ public class nl3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentHashMap<>();
+        this.d = new a(this);
+    }
+
+    public static nl3 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
+                synchronized (nl3.class) {
+                    if (e == null) {
+                        e = new nl3();
+                    }
+                }
+            }
+            return e;
+        }
+        return (nl3) invokeV.objValue;
+    }
+
+    public static void h() {
+        nl3 nl3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (nl3Var = e) != null) {
+            nl3Var.g();
+        }
+    }
+
+    private void registerReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
+            cv2.c().registerReceiver(this.d, intentFilter);
+            this.c = true;
+        }
+    }
+
+    private void unregisterReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            try {
+                cv2.c().unregisterReceiver(this.d);
+                this.c = false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    public /* synthetic */ nl3(a aVar) {
-        this();
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = (AudioManager) cv2.c().getSystemService("audio");
+            }
+            AudioManager audioManager = this.b;
+            if (audioManager != null) {
+                return audioManager.getStreamMaxVolume(3);
+            }
+            return 100;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.a.clear();
+                this.b = null;
+                this.c = false;
+            }
+            e = null;
+        }
+    }
+
+    public void d(@NonNull String str, @NonNull b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, bVar) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (this) {
+            this.a.put(str, bVar);
+            if (!this.c) {
+                registerReceiver();
+            }
+            if (fs1.a) {
+                Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.a.size());
+            }
+        }
+    }
+
+    public boolean i(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            synchronized (this) {
+                b remove = this.a.remove(str);
+                if (this.a.size() == 0 && this.c) {
+                    unregisterReceiver();
+                }
+                if (fs1.a && remove != null) {
+                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.a.size());
+                }
+                if (remove != null) {
+                    z = true;
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
     }
 }

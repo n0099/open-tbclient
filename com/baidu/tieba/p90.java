@@ -3,9 +3,6 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMPushUploadManager;
-import com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener;
-import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,94 +10,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class p90 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile p90 c;
-    public static HashMap<String, AtomicBoolean> d;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String g = "Flow";
     public transient /* synthetic */ FieldHolder $fh;
-    public n90 a;
-    public q90 b;
+    public int a;
+    public int b;
+    public final long c;
+    public long d;
+    public Context e;
+    public Map<String, String> f;
 
-    /* loaded from: classes7.dex */
-    public class b implements IMPushUploadResponseListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ List c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ p90 e;
-
-        /* loaded from: classes7.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.a;
-                    bVar.e.g(bVar.b, bVar.a, bVar.c, bVar.d);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948016738, "Lcom/baidu/tieba/p90;")) == null) {
+            return;
         }
-
-        public b(p90 p90Var, String str, Context context, List list, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p90Var, str, context, list, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = p90Var;
-            this.a = str;
-            this.b = context;
-            this.c = list;
-            this.d = i;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
-        public void uploadResponse(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                ((AtomicBoolean) p90.d.get(this.a)).set(false);
-                if (i == 0) {
-                    this.e.a.f().execute(new a(this));
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948016738, "Lcom/baidu/tieba/p90;");
         }
     }
 
@@ -108,185 +45,141 @@ public class p90 {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ p90 d;
+        public String a;
+        public String b;
+        public final /* synthetic */ p90 c;
 
-        public a(p90 p90Var, Context context, String str, int i) {
+        public a(p90 p90Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p90Var, context, str, Integer.valueOf(i)};
+                Object[] objArr = {p90Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = p90Var;
-            this.a = context;
-            this.b = str;
-            this.c = i;
+            this.c = p90Var;
+            this.a = str;
+            this.b = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.f.put(this.a, this.b);
             }
-            this.d.j(this.a, this.b, this.c);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948016738, "Lcom/baidu/tieba/p90;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948016738, "Lcom/baidu/tieba/p90;");
-                return;
-            }
-        }
-        d = new HashMap<>(2);
-    }
-
-    public void f() {
-        n90 n90Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (n90Var = this.a) != null) {
-            n90Var.c();
-        }
-    }
-
-    public p90(Context context) {
+    public p90(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = n90.h(context);
-        this.b = new q90();
+        this.d = 0L;
+        this.e = context;
+        this.a = i;
+        this.b = i2;
+        this.c = System.currentTimeMillis();
+        this.f = new ConcurrentHashMap();
     }
 
-    public static Boolean i(String str) {
-        InterceptResult invokeL;
+    public p90 b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (d.get(str) == null) {
-                d.put(str, new AtomicBoolean(false));
-                return Boolean.FALSE;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                o90.h(this.e).f().execute(new a(this, str, String.valueOf(i)));
             }
-            return Boolean.valueOf(d.get(str).get());
+            if (xa0.a) {
+                String str2 = g;
+                ya0.a(str2, "flow addEvent id:" + str + ",value:" + i);
+            }
+            return this;
         }
-        return (Boolean) invokeL.objValue;
+        return (p90) invokeLI.objValue;
     }
 
-    public static p90 h(Context context) {
-        InterceptResult invokeL;
+    public p90 c(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (c == null) {
-                synchronized (p90.class) {
-                    if (c == null) {
-                        c = new p90(context);
-                    }
-                }
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                o90.h(this.e).f().execute(new a(this, str, String.valueOf(j)));
             }
-            return c;
+            if (xa0.a) {
+                String str2 = g;
+                ya0.a(str2, "flow addEvent id:" + str + ",value:" + j);
+            }
+            return this;
         }
-        return (p90) invokeL.objValue;
+        return (p90) invokeLJ.objValue;
     }
 
-    public synchronized void e(Context context, String str, int i) {
+    public p90 d(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, context, str, i) == null) {
-            synchronized (this) {
-                try {
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (!TextUtils.isEmpty(str) && context != null && RequsetNetworkUtils.isConnected(context) && r90.f(context) && r90.e(context, Integer.parseInt(str))) {
-                    if (this.a != null) {
-                        this.a.f().execute(new a(this, context, str, i));
-                    }
-                    return;
-                }
-                if (wa0.a) {
-                    xa0.a("FlowTrackManager", "flow 无网、参数不对、未命中小流量不上报");
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && str2 != null) {
+                o90.h(this.e).f().execute(new a(this, str, str2));
             }
+            if (xa0.a) {
+                String str3 = g;
+                ya0.a(str3, "flow addEvent id:" + str + ",value:" + str2);
+            }
+            return this;
         }
+        return (p90) invokeLL.objValue;
     }
 
-    public final void g(Context context, String str, List<s90> list, int i) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, list, i) == null) && list != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (s90 s90Var : list) {
-                if (s90Var != null) {
-                    arrayList.add(s90Var.b());
-                }
-            }
-            if (wa0.a) {
-                xa0.a("FlowTrackManager", "flow clear上报成功的数据");
-            }
-            ja0.j(context).e(str, arrayList);
-            if (ja0.j(context).i(str) > 0) {
-                j(context, str, i);
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d = System.currentTimeMillis();
+            o90.h(this.e).e(this);
         }
     }
 
-    public final void j(Context context, String str, int i) {
+    public Map<String, String> g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, context, str, i) == null) {
-            if (wa0.a) {
-                xa0.a("FlowTrackManager", "flow begin uplodFlow~~~ " + str);
-            }
-            if (d.get(str) == null) {
-                d.put(str, new AtomicBoolean(true));
-            } else {
-                d.get(str).set(true);
-            }
-            ArrayList arrayList = new ArrayList();
-            q90 q90Var = this.b;
-            if (q90Var != null) {
-                byte[] c2 = q90Var.c(context, str, arrayList, i);
-                if (c2 != null && arrayList.size() > 0) {
-                    if (c2.length >= 307200) {
-                        if (wa0.a) {
-                            xa0.a("FlowTrackManager", "flow 上报数据长度超过300k");
-                        }
-                        d.get(str).set(false);
-                        return;
-                    }
-                    IMPushUploadManager.getInstance(context).requestUpload(null, c2, "", new b(this, str, context, arrayList, i));
-                    return;
-                }
-                if (wa0.a) {
-                    xa0.a("FlowTrackManager", "flow 上报数据为空");
-                }
-                d.get(str).set(false);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
         }
+        return (Map) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : this.f.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -27,7 +27,7 @@ public final class EnhancedTypeAnnotations implements Annotations {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations
     /* renamed from: findAnnotation */
-    public EnhancedTypeAnnotationDescriptor mo2094findAnnotation(FqName fqName) {
+    public EnhancedTypeAnnotationDescriptor mo2096findAnnotation(FqName fqName) {
         if (Intrinsics.areEqual(fqName, this.fqNameToMatch)) {
             return EnhancedTypeAnnotationDescriptor.INSTANCE;
         }

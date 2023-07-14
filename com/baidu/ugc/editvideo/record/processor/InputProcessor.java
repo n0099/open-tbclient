@@ -4,17 +4,17 @@ import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tieba.m1b;
-import com.baidu.tieba.qh0;
-import com.baidu.tieba.yh0;
-import com.baidu.tieba.z1b;
+import com.baidu.tieba.kab;
+import com.baidu.tieba.rh0;
+import com.baidu.tieba.xab;
+import com.baidu.tieba.zh0;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.utils.FileUtils;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class InputProcessor extends BaseEffectProcessor {
     public int mTestSavePicCount;
 
@@ -22,7 +22,7 @@ public class InputProcessor extends BaseEffectProcessor {
         int i2 = this.mTestSavePicCount;
         if (i2 < 10) {
             if (i2 == 0) {
-                z1b.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
+                xab.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
                     @Override // java.lang.Runnable
                     public void run() {
                         FileUtils.deleteFileOrDir(new File("/sdcard/zhmy/"));
@@ -46,21 +46,21 @@ public class InputProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(qh0 qh0Var, int i, float[] fArr) {
-        if (qh0Var == null || qh0Var.l() == null) {
+    public int onProcessFrame(rh0 rh0Var, int i, float[] fArr) {
+        if (rh0Var == null || rh0Var.l() == null) {
             return i;
         }
-        MediaTrack mediaTrack = (MediaTrack) m1b.c(qh0Var.l(), 0);
-        boolean m = yh0.m(mediaTrack, "input_blank");
-        int g = !m ? qh0Var.g(mediaTrack, qh0Var.g(mediaTrack, qh0Var.g(mediaTrack, qh0Var.g(mediaTrack, qh0Var.g(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
+        MediaTrack mediaTrack = (MediaTrack) kab.c(rh0Var.l(), 0);
+        boolean m = zh0.m(mediaTrack, "input_blank");
+        int g = !m ? rh0Var.g(mediaTrack, rh0Var.g(mediaTrack, rh0Var.g(mediaTrack, rh0Var.g(mediaTrack, rh0Var.g(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
         if (m) {
-            for (int i2 = 1; i2 < qh0Var.l().size(); i2++) {
-                MediaTrack mediaTrack2 = qh0Var.l().get(i2);
-                if (mediaTrack2 != null && yh0.m(mediaTrack2, "multi_input")) {
-                    g = qh0Var.j(mediaTrack2, g, null);
+            for (int i2 = 1; i2 < rh0Var.l().size(); i2++) {
+                MediaTrack mediaTrack2 = rh0Var.l().get(i2);
+                if (mediaTrack2 != null && zh0.m(mediaTrack2, "multi_input")) {
+                    g = rh0Var.j(mediaTrack2, g, null);
                 }
             }
-            g = qh0Var.g(mediaTrack, g, 1, null);
+            g = rh0Var.g(mediaTrack, g, 1, null);
         }
         return g == 0 ? i : g;
     }

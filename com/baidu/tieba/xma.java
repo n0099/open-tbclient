@@ -1,86 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.write.write.checkquestion.message.CheckIsQuestionThreadRequestMsg;
-import com.baidu.tieba.write.write.checkquestion.message.CheckIsQuestionThreadRespondedMsg;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tieba.kma;
+import com.baidu.tieba.video.editvideo.data.MusicData;
+import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class xma {
+public class xma implements fma, kma.c, xt6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xma d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public b b;
-    public final HttpMessageListener c;
+    public BaseActivity a;
+    public xla b;
+    public jma c;
+    public SelectMusicModel d;
+    public String e;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xma a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(xma xmaVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xmaVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xmaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.a = false;
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003544 && (httpResponsedMessage instanceof CheckIsQuestionThreadRespondedMsg)) {
-                    if (httpResponsedMessage.getError() != 0) {
-                        if (this.a.b != null) {
-                            this.a.b.a(false);
-                        }
-                    } else if (this.a.b != null) {
-                        this.a.b.a(((CheckIsQuestionThreadRespondedMsg) httpResponsedMessage).isQuestionThread());
-                    }
-                } else if (this.a.b != null) {
-                    this.a.b.a(false);
-                }
-            }
+    @Override // com.baidu.tieba.fma
+    public void setMusicData(List<MusicData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
         }
     }
 
-    public xma() {
+    public xma(xla xlaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xlaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,61 +47,139 @@ public class xma {
                 return;
             }
         }
-        this.a = false;
-        this.c = new a(this, CmdConfigHttp.CMD_CHECK_IS_QUESTION_THREAD);
-        d();
+        this.b = xlaVar;
+        this.a = xlaVar.a;
     }
 
-    public static xma c() {
-        InterceptResult invokeV;
+    public final void a(String str) {
+        xla xlaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (d == null) {
-                synchronized (xma.class) {
-                    if (d == null) {
-                        d = new xma();
-                    }
-                }
-            }
-            return d;
-        }
-        return (xma) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e();
-            f();
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.c);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_IS_QUESTION_THREAD, TbConfig.SERVER_ADDRESS + "c/s/checkIsQuestionThread");
-            tbHttpMessageTask.setResponsedClass(CheckIsQuestionThreadRespondedMsg.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void g(String str, String str2, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048579, this, str, str2, bVar) != null) || this.a) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (xlaVar = this.b) == null) {
             return;
         }
-        this.b = bVar;
-        this.a = true;
-        CheckIsQuestionThreadRequestMsg checkIsQuestionThreadRequestMsg = new CheckIsQuestionThreadRequestMsg(CmdConfigHttp.CMD_CHECK_IS_QUESTION_THREAD);
-        checkIsQuestionThreadRequestMsg.addParam(MissonDetailsActivityConfig.THREAD_TITLE, str);
-        checkIsQuestionThreadRequestMsg.addParam("thread_content", str2);
-        MessageManager.getInstance().sendMessage(checkIsQuestionThreadRequestMsg);
+        if (xlaVar.b()) {
+            this.b.c();
+            this.b = null;
+            return;
+        }
+        this.e = str;
+        VideoInfo videoInfo = new VideoInfo();
+        videoInfo.setVideoPath(this.e);
+        videoInfo.setThumbPath(this.b.c);
+        xla xlaVar2 = this.b;
+        if (xlaVar2 != null) {
+            xlaVar2.f(videoInfo);
+        }
+    }
+
+    public void b() {
+        xla xlaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (xlaVar = this.b) == null) {
+            return;
+        }
+        if (xlaVar.b()) {
+            this.b.c();
+            this.b = null;
+            return;
+        }
+        if (StringUtils.isNull(this.b.d)) {
+            xla xlaVar2 = this.b;
+            if (!xlaVar2.e) {
+                l1(xlaVar2.b, -4399, "");
+                return;
+            }
+        }
+        if (this.d == null) {
+            this.d = new SelectMusicModel(this.a.getPageContext(), this);
+        }
+        SelectMusicModel selectMusicModel = this.d;
+        xla xlaVar3 = this.b;
+        selectMusicModel.Y(xlaVar3.b, xlaVar3.d, yla.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !xlaVar3.e);
+    }
+
+    @Override // com.baidu.tieba.xt6
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            xla xlaVar = this.b;
+            if (xlaVar != null) {
+                xlaVar.i(true);
+            }
+            jma jmaVar = this.c;
+            if (jmaVar != null && jmaVar.f()) {
+                this.c.e();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.fma
+    public void l1(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, str2) == null) {
+            xla xlaVar = this.b;
+            if (xlaVar != null && xlaVar.b()) {
+                this.b.c();
+                this.b = null;
+            } else if (TextUtils.isEmpty(str)) {
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c8d);
+                xla xlaVar2 = this.b;
+                if (xlaVar2 != null) {
+                    xlaVar2.g(i, str2);
+                }
+            } else {
+                xla xlaVar3 = this.b;
+                if (xlaVar3 != null) {
+                    xlaVar3.h();
+                }
+                if (!StringUtils.isNull(this.b.f)) {
+                    if (!StringHelper.equals(str, this.b.b)) {
+                        this.b.g = str;
+                    }
+                    if (this.c == null) {
+                        jma jmaVar = new jma(this.a.getActivity());
+                        this.c = jmaVar;
+                        jmaVar.i(this);
+                    }
+                    this.c.g(str, this.b.f);
+                    return;
+                }
+                xla xlaVar4 = this.b;
+                if (xlaVar4 != null) {
+                    xlaVar4.e();
+                }
+                a(str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.kma.c
+    public void onGenFilterVideoFail(int i, String str) {
+        xla xlaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && (xlaVar = this.b) != null) {
+            xlaVar.d(i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.kma.c
+    public void onGenFilterVideoRecordError(int i, String str) {
+        xla xlaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && (xlaVar = this.b) != null) {
+            xlaVar.d(i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.kma.c
+    public void onGenFilterVideoSuccess(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            xla xlaVar = this.b;
+            if (xlaVar != null) {
+                xlaVar.e();
+            }
+            a(str);
+        }
     }
 }

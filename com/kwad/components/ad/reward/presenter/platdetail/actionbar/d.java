@@ -9,7 +9,7 @@ import com.kwad.components.ad.reward.k.u;
 import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d extends com.kwad.components.ad.reward.presenter.a implements com.kwad.components.ad.reward.k.b {
     public ViewGroup es;
     public KsLogoView pM;
@@ -35,10 +35,10 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
             z2 = ((!ag.cB(context) && (com.kwad.components.ad.reward.kwai.b.h(adInfo) || com.kwad.sdk.core.response.a.a.bF(adInfo))) || (ag.cB(context) && com.kwad.sdk.core.response.a.a.bE(adInfo))) ? true : true;
             layoutParams3.gravity = 85;
             if (z2) {
-                i = R.dimen.obfuscated_res_0x7f070504;
+                i = R.dimen.obfuscated_res_0x7f07050a;
             }
             layoutParams3.bottomMargin = context.getResources().getDimensionPixelOffset(i);
-            layoutParams3.rightMargin = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070504);
+            layoutParams3.rightMargin = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07050a);
             ksLogoView.setLayoutParams(layoutParams3);
         }
         return layoutParams;
@@ -56,7 +56,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         h hVar = new h(this.nM, this.es, this.pM);
         this.rM = hVar;
         hVar.b(u.D(this.nM.mAdTemplate));
-        a(getContext(), com.kwad.sdk.core.response.a.d.bQ(this.nM.mAdTemplate), this.pM, R.dimen.obfuscated_res_0x7f07051e, false);
+        a(getContext(), com.kwad.sdk.core.response.a.d.bQ(this.nM.mAdTemplate), this.pM, R.dimen.obfuscated_res_0x7f070526, false);
     }
 
     @Override // com.kwad.components.ad.reward.k.b
@@ -74,6 +74,6 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091237);
+        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09124b);
     }
 }

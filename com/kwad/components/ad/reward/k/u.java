@@ -2,7 +2,7 @@ package com.kwad.components.ad.reward.k;
 
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class u {
     @Nullable
     public AdTemplate mAdTemplate;

@@ -1,105 +1,105 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.dtb;
-import com.baidu.tieba.jtb;
-import com.baidu.tieba.ttb;
-import com.baidu.tieba.xsb;
-import com.baidu.tieba.zsb;
+import com.baidu.tieba.a2c;
+import com.baidu.tieba.g2c;
+import com.baidu.tieba.q2c;
+import com.baidu.tieba.u1c;
+import com.baidu.tieba.w1c;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class OnSubscribeFromIterable<T> implements xsb.a<T> {
+public final class OnSubscribeFromIterable<T> implements u1c.a<T> {
     public final Iterable<? extends T> a;
 
     /* loaded from: classes2.dex */
-    public static final class IterableProducer<T> extends AtomicLong implements zsb {
+    public static final class IterableProducer<T> extends AtomicLong implements w1c {
         public static final long serialVersionUID = -8730475647105475802L;
         public final Iterator<? extends T> it;
-        public final dtb<? super T> o;
+        public final a2c<? super T> o;
 
-        public IterableProducer(dtb<? super T> dtbVar, Iterator<? extends T> it) {
-            this.o = dtbVar;
+        public IterableProducer(a2c<? super T> a2cVar, Iterator<? extends T> it) {
+            this.o = a2cVar;
             this.it = it;
         }
 
         /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
         public void fastPath() {
-            dtb<? super T> dtbVar = this.o;
+            a2c<? super T> a2cVar = this.o;
             Iterator<? extends T> it = this.it;
-            while (!dtbVar.isUnsubscribed()) {
+            while (!a2cVar.isUnsubscribed()) {
                 try {
-                    dtbVar.onNext((T) it.next());
-                    if (dtbVar.isUnsubscribed()) {
+                    a2cVar.onNext((T) it.next());
+                    if (a2cVar.isUnsubscribed()) {
                         return;
                     }
                     try {
                         if (!it.hasNext()) {
-                            if (!dtbVar.isUnsubscribed()) {
-                                dtbVar.onCompleted();
+                            if (!a2cVar.isUnsubscribed()) {
+                                a2cVar.onCompleted();
                                 return;
                             }
                             return;
                         }
                     } catch (Throwable th) {
-                        jtb.f(th, dtbVar);
+                        g2c.f(th, a2cVar);
                         return;
                     }
                 } catch (Throwable th2) {
-                    jtb.f(th2, dtbVar);
+                    g2c.f(th2, a2cVar);
                     return;
                 }
             }
         }
 
-        @Override // com.baidu.tieba.zsb
+        @Override // com.baidu.tieba.w1c
         public void request(long j) {
             if (get() == Long.MAX_VALUE) {
                 return;
             }
             if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
                 fastPath();
-            } else if (j > 0 && ttb.b(this, j) == 0) {
+            } else if (j > 0 && q2c.b(this, j) == 0) {
                 slowPath(j);
             }
         }
 
         /* JADX DEBUG: Type inference failed for r6v2. Raw type applied. Possible types: T, ? super T */
         public void slowPath(long j) {
-            dtb<? super T> dtbVar = this.o;
+            a2c<? super T> a2cVar = this.o;
             Iterator<? extends T> it = this.it;
             do {
                 long j2 = 0;
                 while (true) {
                     if (j2 != j) {
-                        if (dtbVar.isUnsubscribed()) {
+                        if (a2cVar.isUnsubscribed()) {
                             return;
                         }
                         try {
-                            dtbVar.onNext((T) it.next());
-                            if (dtbVar.isUnsubscribed()) {
+                            a2cVar.onNext((T) it.next());
+                            if (a2cVar.isUnsubscribed()) {
                                 return;
                             }
                             try {
                                 if (!it.hasNext()) {
-                                    if (!dtbVar.isUnsubscribed()) {
-                                        dtbVar.onCompleted();
+                                    if (!a2cVar.isUnsubscribed()) {
+                                        a2cVar.onCompleted();
                                         return;
                                     }
                                     return;
                                 }
                                 j2++;
                             } catch (Throwable th) {
-                                jtb.f(th, dtbVar);
+                                g2c.f(th, a2cVar);
                                 return;
                             }
                         } catch (Throwable th2) {
-                            jtb.f(th2, dtbVar);
+                            g2c.f(th2, a2cVar);
                             return;
                         }
                     } else {
                         j = get();
                         if (j2 == j) {
-                            j = ttb.g(this, j2);
+                            j = q2c.g(this, j2);
                         }
                     }
                 }
@@ -115,24 +115,24 @@ public final class OnSubscribeFromIterable<T> implements xsb.a<T> {
         throw new NullPointerException("iterable must not be null");
     }
 
-    public void call(dtb<? super T> dtbVar) {
+    public void call(a2c<? super T> a2cVar) {
         try {
             Iterator<? extends T> it = this.a.iterator();
             boolean hasNext = it.hasNext();
-            if (!dtbVar.isUnsubscribed()) {
+            if (!a2cVar.isUnsubscribed()) {
                 if (!hasNext) {
-                    dtbVar.onCompleted();
+                    a2cVar.onCompleted();
                 } else {
-                    dtbVar.f(new IterableProducer(dtbVar, it));
+                    a2cVar.f(new IterableProducer(a2cVar, it));
                 }
             }
         } catch (Throwable th) {
-            jtb.f(th, dtbVar);
+            g2c.f(th, a2cVar);
         }
     }
 
-    @Override // com.baidu.tieba.xsb.a, com.baidu.tieba.ltb
+    @Override // com.baidu.tieba.u1c.a, com.baidu.tieba.i2c
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((dtb) ((dtb) obj));
+        call((a2c) ((a2c) obj));
     }
 }

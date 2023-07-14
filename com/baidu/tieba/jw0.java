@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class jw0 {
+public class jw0 extends pw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<f01> a;
 
     public jw0() {
         Interceptable interceptable = $ic;
@@ -23,40 +21,47 @@ public abstract class jw0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
     }
 
-    public void b(@NonNull f01 f01Var) {
+    @Override // com.baidu.tieba.pw0
+    public boolean E() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, f01Var) == null) && !this.a.contains(f01Var)) {
-            b31.b(this.a, f01Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return q().V();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pw0
+    public void L() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            N(q().V());
         }
     }
 
-    public void d(@NonNull f01 f01Var) {
+    @Override // com.baidu.tieba.pw0
+    public void J() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f01Var) == null) {
-            b31.j(this.a, f01Var);
-        }
-    }
-
-    public void c(@NonNull yw0 yw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yw0Var) == null) {
-            int size = this.a.size();
-            for (int i = 0; i < size; i++) {
-                f01 f01Var = (f01) b31.d(this.a, i);
-                if (f01Var != null) {
-                    if (i == 0) {
-                        f01Var.d(yw0Var);
-                    } else {
-                        f01Var.d(yw0.a(yw0Var));
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            boolean E = E();
+            if (E && y21.c(getContext()) == 0) {
+                y21.d(getContext(), (int) (y21.b(getContext()) * 0.35d));
             }
+            M(E);
+            boolean z = !E;
+            N(z);
+            Q(z);
+        }
+    }
+
+    public void Q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            q().w0(z);
         }
     }
 }

@@ -12,9 +12,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jo;
+import com.baidu.tieba.ko;
+import com.baidu.tieba.tb8;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
-import com.baidu.tieba.y68;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
     public VideoHotTopicSearchAdapter b;
-    public jo c;
+    public ko c;
 
     public void e() {
         Interceptable interceptable = $ic;
@@ -63,10 +63,10 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(y68 y68Var) {
+        public void a(tb8 tb8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, y68Var) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, y68Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, tb8Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, tb8Var));
             }
         }
     }
@@ -136,7 +136,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.b != null) {
-                this.c.b.k(this.a, this.b);
+                this.c.b.l(this.a, this.b);
             }
         }
     }
@@ -158,10 +158,10 @@ public class SelectTopicSuggestLayout extends LinearLayout {
     }
 
     public void d() {
-        jo joVar;
+        ko koVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (joVar = this.c) != null) {
-            joVar.e(new b(this));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (koVar = this.c) != null) {
+            koVar.e(new b(this));
         }
     }
 
@@ -230,11 +230,11 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         c();
     }
 
-    public void b(String str, List<y68> list) {
-        jo joVar;
+    public void b(String str, List<tb8> list) {
+        ko koVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && (joVar = this.c) != null) {
-            joVar.e(new c(this, str, list));
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && (koVar = this.c) != null) {
+            koVar.e(new c(this, str, list));
         }
     }
 
@@ -249,11 +249,11 @@ public class SelectTopicSuggestLayout extends LinearLayout {
             recyclerView2.setPadding(i, 0, i, 0);
             VideoHotTopicSearchAdapter videoHotTopicSearchAdapter = new VideoHotTopicSearchAdapter(TbadkApplication.getInst().getCurrentPageContext(getContext()));
             this.b = videoHotTopicSearchAdapter;
-            videoHotTopicSearchAdapter.n(1);
-            this.b.l(new a(this));
+            videoHotTopicSearchAdapter.o(1);
+            this.b.m(new a(this));
             this.a.setAdapter(this.b);
             addView(this.a, new LinearLayout.LayoutParams(-1, -1));
-            this.c = new jo(this.a);
+            this.c = new ko(this.a);
         }
     }
 }

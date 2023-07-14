@@ -3,7 +3,7 @@ package com.kwad.components.core.page.recycle;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c extends RecyclerView.ViewHolder {
     public final e Fz;
     public final Presenter mPresenter;

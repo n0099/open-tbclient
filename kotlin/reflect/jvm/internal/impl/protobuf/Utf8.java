@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.protobuf;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Utf8 {
     public static int incompleteStateFor(int i) {
         if (i > -12) {

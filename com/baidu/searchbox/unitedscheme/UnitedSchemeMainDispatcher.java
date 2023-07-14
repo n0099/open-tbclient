@@ -10,7 +10,7 @@ import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeInterceptChain;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.kl1;
+import com.baidu.tieba.dl1;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,13 +48,13 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
 
     static {
         UnitedSchemePriorRuntime unitedSchemePriorRuntime = new UnitedSchemePriorRuntime();
-        kl1<UnitedSchemeBasePriorDispatcher> kl1Var = unitedSchemePriorRuntime.sPriorSubDispatchersList;
-        if (kl1Var != null) {
-            injectPriorDispatcherList = kl1Var.getList();
+        dl1<UnitedSchemeBasePriorDispatcher> dl1Var = unitedSchemePriorRuntime.sPriorSubDispatchersList;
+        if (dl1Var != null) {
+            injectPriorDispatcherList = dl1Var.getList();
         }
-        kl1<UnitedSchemeBaseInterceptor> kl1Var2 = unitedSchemePriorRuntime.sInterceptChainList;
-        if (kl1Var2 != null) {
-            injectInterceptorList = kl1Var2.getList();
+        dl1<UnitedSchemeBaseInterceptor> dl1Var2 = unitedSchemePriorRuntime.sInterceptChainList;
+        if (dl1Var2 != null) {
+            injectInterceptorList = dl1Var2.getList();
         }
     }
 

@@ -15,7 +15,7 @@ import com.baidu.webkit.sdk.WebSettings;
 import com.baidubce.http.Headers;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VideoPacDownload implements IResourceTask, INetListener {
     public static final String LOG_TAG = "VideoPacDownload";
     public static final String PMS_PACKAGE_NAME = "com.baidu.zeus.videopacdownload";

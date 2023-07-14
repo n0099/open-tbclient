@@ -1,162 +1,85 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import android.os.RemoteException;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.s83;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class c93 implements s83.c {
+public final class c93 extends sd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Deque<Message>> a;
 
-    public c93() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947629548, "Lcom/baidu/tieba/c93;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947629548, "Lcom/baidu/tieba/c93;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c93(sc3 dispatcher) {
+        super(dispatcher, "/swanAPI/community/closeCommunityEditor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dispatcher};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
+        Intrinsics.checkNotNullParameter(dispatcher, "dispatcher");
     }
 
-    @Override // com.baidu.tieba.s83.c
-    public void a() {
+    @Override // com.baidu.tieba.sd3
+    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, vb3 vb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (String str : this.a.keySet()) {
-                c(str);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s83.c
-    public void b(@NonNull u83 u83Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u83Var) == null) {
-            Message h = u83Var.h();
-            if (u83Var.m()) {
-                h(h);
-            }
-            Set<SwanAppProcessInfo> l = u83Var.l();
-            Set<String> k = u83Var.k();
-            if (u83Var.n()) {
-                Iterator<b93> it = d93.k().q().iterator();
-                while (it.hasNext()) {
-                    b93 next = it.next();
-                    boolean g = g(next, k);
-                    if (l.contains(next.b) || g) {
-                        next.g0(h);
-                        if (g) {
-                            k.remove(next.getAppId());
-                        }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, vb3Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            if (vb3Var != null) {
+                ix2 T2 = ix2.T();
+                Intrinsics.checkNotNullExpressionValue(T2, "SwanAppController.getInstance()");
+                eb2 U = T2.U();
+                if (U != null) {
+                    bb2 m = U.m();
+                    if (m instanceof z83) {
+                        ((z83) m).s3();
+                        entity.result = UnitedSchemeUtility.wrapCallbackParams(0, "");
+                        return true;
                     }
                 }
-                f(k, h);
-                return;
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "top is not publisher");
+                return false;
             }
-            Iterator<b93> it2 = d93.k().q().iterator();
-            while (it2.hasNext()) {
-                b93 next2 = it2.next();
-                if (next2 != null && next2.T() && (l.contains(next2.b) || g(next2, k))) {
-                    next2.g0(h);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s83.c
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Deque<Message> deque = this.a.get(str);
-            s83.f("flushMsg:: appid=" + str + " msgQueue=" + deque);
-            if (deque != null && !deque.isEmpty()) {
-                List<b93> j = d93.k().j(str);
-                s83.f("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + j.size());
-                if (j.isEmpty()) {
-                    return;
-                }
-                for (b93 b93Var : j) {
-                    b93Var.i0(deque);
-                }
-                deque.clear();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s83.c
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a.remove(str);
-        }
-    }
-
-    public final void h(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
-            try {
-                d93.k().e.send(message);
-            } catch (RemoteException e) {
-                s83.f(Log.getStackTraceString(e));
-            }
-        }
-    }
-
-    public final void e(String str, @NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, message) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Deque<Message> deque = this.a.get(str);
-        if (deque == null) {
-            deque = new ArrayDeque<>();
-            this.a.put(str, deque);
-        }
-        deque.offer(message);
-    }
-
-    public final void f(Set<String> set, @NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, set, message) == null) {
-            for (String str : set) {
-                e(str, message);
-            }
-        }
-    }
-
-    public boolean g(@NonNull b93 b93Var, @NonNull Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, b93Var, set)) == null) {
-            if (b93Var.E() && set.contains(b93Var.getAppId())) {
-                return true;
-            }
+            entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

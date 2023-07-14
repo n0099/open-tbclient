@@ -9,12 +9,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea7;
+import com.baidu.tieba.de7;
 import com.baidu.tieba.feed.widget.PersonAttentionView;
-import com.baidu.tieba.ie5;
-import com.baidu.tieba.pa5;
-import com.baidu.tieba.pa7;
+import com.baidu.tieba.hb5;
+import com.baidu.tieba.ve7;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,7 +28,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\u0018\u00002\u00020\u0001B'\b\u0007\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0006\u0010\u000b\u001a\u00020\fJ\u0018\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\u000f2\b\b\u0002\u0010\u0010\u001a\u00020\u0011J\u0010\u0010\u0012\u001a\u00020\f2\u0006\u0010\u0013\u001a\u00020\u0011H\u0002R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0014"}, d2 = {"Lcom/baidu/tieba/feed/widget/PersonAttentionView;", "Lcom/baidu/tbadk/core/view/commonBtn/TBSpecificationBtn;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", Headers.REFRESH, "Ljava/lang/Runnable;", "onChangeSkinType", "", StickerDataChangeType.UPDATE, "state", "Lcom/baidu/tieba/feed/widget/uistate/PersonAttentionUiState;", "updateUiOnly", "", "updateLikeStatus", "isLike", "lib-components_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001B'\b\u0007\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0010\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000eH\u0002J\u0006\u0010\u000f\u001a\u00020\fJ\u0018\u0010\u0010\u001a\u00020\f2\u0006\u0010\u0011\u001a\u00020\u00122\b\b\u0002\u0010\u0013\u001a\u00020\u000eJ\u0010\u0010\u0014\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000eH\u0002R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0015"}, d2 = {"Lcom/baidu/tieba/feed/widget/PersonAttentionView;", "Lcom/baidu/tbadk/core/view/commonBtn/TBSpecificationBtn;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", Headers.REFRESH, "Ljava/lang/Runnable;", "initButtonStyle", "", "isLike", "", "onChangeSkinType", StickerDataChangeType.UPDATE, "state", "Lcom/baidu/tieba/feed/widget/uistate/PersonAttentionUiState;", "updateUiOnly", "updateLikeStatus", "lib-components_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
 public final class PersonAttentionView extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
@@ -98,36 +99,28 @@ public final class PersonAttentionView extends TBSpecificationBtn {
                 return;
             }
         }
-        pa5 pa5Var = new pa5();
-        pa5Var.t(R.color.CAM_X0302);
-        setConfig(pa5Var);
+        q(false);
         setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e8));
-        if (context instanceof TbPageContextSupport) {
-            ie5.a aVar = ie5.b;
-            TbPageContext pageContext = ((TbPageContextSupport) context).getPageContext();
-            Intrinsics.checkNotNullExpressionValue(pageContext, "context.pageContext");
-            aVar.a(pageContext);
-        }
     }
 
     public /* synthetic */ PersonAttentionView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public static /* synthetic */ void r(PersonAttentionView personAttentionView, pa7 pa7Var, boolean z, int i, Object obj) {
+    public static /* synthetic */ void s(PersonAttentionView personAttentionView, ve7 ve7Var, boolean z, int i, Object obj) {
         if ((i & 2) != 0) {
             z = false;
         }
-        personAttentionView.update(pa7Var, z);
+        personAttentionView.update(ve7Var, z);
     }
 
-    public static final void s(final PersonAttentionView this$0, final pa7 state) {
+    public static final void t(final PersonAttentionView this$0, final ve7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, state) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(state, "$state");
-            if (ea7.a(this$0, state, false)) {
-                this$0.post(new Runnable() { // from class: com.baidu.tieba.ia7
+            if (de7.a(this$0, state, false)) {
+                this$0.post(new Runnable() { // from class: com.baidu.tieba.je7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -135,7 +128,7 @@ public final class PersonAttentionView extends TBSpecificationBtn {
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            PersonAttentionView.t(PersonAttentionView.this, state);
+                            PersonAttentionView.u(PersonAttentionView.this, state);
                         }
                     }
                 });
@@ -143,7 +136,7 @@ public final class PersonAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public static final void t(PersonAttentionView this$0, pa7 state) {
+    public static final void u(PersonAttentionView this$0, ve7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, this$0, state) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -152,30 +145,47 @@ public final class PersonAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public static final void u(pa7 state, TbPageContext pageContext, View view2) {
+    public static final void v(ve7 state, TbPageContext pageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, state, pageContext, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
-            Function2<pa7, TbPageContext<?>, Unit> e = state.e();
+            Function2<ve7, TbPageContext<?>, Unit> f = state.f();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-            e.invoke(state, pageContext);
+            f.invoke(state, pageContext);
         }
     }
 
-    public final void q() {
+    public final void q(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            hb5 hb5Var = new hb5();
+            if (z) {
+                hb5Var.w(R.color.CAM_X0109);
+            } else {
+                hb5Var.u(R.color.CAM_X0302);
+                hb5Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                hb5Var.i(R.color.CAM_X0304);
+                hb5Var.h(yi.g(getContext(), R.dimen.tbds26));
+                hb5Var.g(yi.g(getContext(), R.dimen.M_W_X002));
+            }
+            setConfig(hb5Var);
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             k();
         }
     }
 
-    public final void update(final pa7 state, boolean z) {
+    public final void update(final ve7 state, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, state, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, state, z) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            ea7.b(this, state, false, 2, null);
+            de7.b(this, state, false, 2, null);
             if (!z) {
-                Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ha7
+                Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ie7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -183,7 +193,7 @@ public final class PersonAttentionView extends TBSpecificationBtn {
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            PersonAttentionView.s(PersonAttentionView.this, state);
+                            PersonAttentionView.t(PersonAttentionView.this, state);
                         }
                     }
                 };
@@ -196,10 +206,10 @@ public final class PersonAttentionView extends TBSpecificationBtn {
                 Context context = getContext();
                 if (context != null) {
                     final TbPageContext pageContext = ((TbPageContextSupport) context).getPageContext();
-                    Function3<pa7, TbPageContext<?>, Object, Unit> h = state.h();
+                    Function3<ve7, TbPageContext<?>, Object, Unit> i = state.i();
                     Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-                    h.invoke(state, pageContext, this);
-                    setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ja7
+                    i.invoke(state, pageContext, this);
+                    setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ke7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -207,7 +217,7 @@ public final class PersonAttentionView extends TBSpecificationBtn {
                         public final void onClick(View view2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                PersonAttentionView.u(pa7.this, pageContext, view2);
+                                PersonAttentionView.v(ve7.this, pageContext, view2);
                             }
                         }
                     });
@@ -215,27 +225,22 @@ public final class PersonAttentionView extends TBSpecificationBtn {
                     throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.TbPageContextSupport");
                 }
             }
-            v(state.g().e());
+            w(state.h().f());
         }
     }
 
-    public final void v(boolean z) {
+    public final void w(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            q(z);
             if (z) {
-                pa5 pa5Var = new pa5();
-                pa5Var.v(R.color.CAM_X0109);
-                setConfig(pa5Var);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                pa5 pa5Var2 = new pa5();
-                pa5Var2.t(R.color.CAM_X0302);
-                setConfig(pa5Var2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e8));
             }
-            q();
+            r();
         }
     }
 }

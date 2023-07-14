@@ -44,7 +44,7 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
             this.a = new ArrayList();
         }
         this.a.clear();
-        this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ff0));
+        this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1002));
         if (this.b == null) {
             this.b = new ArrayList<>();
         }

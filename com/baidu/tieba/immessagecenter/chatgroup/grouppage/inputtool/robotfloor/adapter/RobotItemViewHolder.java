@@ -12,9 +12,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fe8;
+import com.baidu.tieba.bj8;
+import com.baidu.tieba.d85;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.s75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,37 +48,37 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f14);
-        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f12);
-        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f11);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f13);
-        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091f1e);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f46);
+        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f44);
+        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f43);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f45);
+        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091f50);
         this.i = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(view2.getContext()));
         this.i.setFocusable(false);
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void c(@Nullable RecyclerView recyclerView) {
+    public void d(@Nullable RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, recyclerView) == null) {
-            super.c(recyclerView);
+            super.d(recyclerView);
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void e(@Nullable RecyclerView recyclerView) {
+    public void f(@Nullable RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recyclerView) == null) {
-            super.e(recyclerView);
+            super.f(recyclerView);
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull fe8 fe8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void e(@NonNull bj8 bj8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fe8Var, tbPageContext, i) == null) && (fe8Var instanceof RobotItem)) {
-            RobotItem robotItem = (RobotItem) fe8Var;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bj8Var, tbPageContext, i) == null) && (bj8Var instanceof RobotItem)) {
+            RobotItem robotItem = (RobotItem) bj8Var;
             this.j = robotItem;
             if (!TextUtils.isEmpty(robotItem.getRoboatName())) {
                 this.h.setText(this.j.getRoboatName());
@@ -86,7 +86,7 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
             if (!TextUtils.isEmpty(this.j.getRobortAvatar())) {
                 this.g.N(this.j.getRobortAvatar(), 12, false);
             } else {
-                this.g.N(String.valueOf((int) R.drawable.obfuscated_res_0x7f081176), 24, false);
+                this.g.N(String.valueOf((int) R.drawable.obfuscated_res_0x7f08118b), 24, false);
             }
             if (this.i.getAdapter() != this.j.getAdapter()) {
                 if (this.i.getAdapter() != null) {
@@ -100,22 +100,22 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
             } else {
                 this.f.setVisibility(8);
             }
-            j();
+            k();
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void g() {
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.g();
+            super.h();
         }
     }
 
-    public void j() {
+    public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            s75 d = s75.d(this.h);
+            d85 d = d85.d(this.h);
             d.C(R.dimen.T_X08);
             d.x(R.color.CAM_X0107);
             this.g.setIsRound(true);

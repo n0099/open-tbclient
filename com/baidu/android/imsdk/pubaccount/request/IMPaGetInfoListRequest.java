@@ -178,8 +178,8 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:36:0x01e5  */
-    /* JADX WARN: Removed duplicated region for block: B:51:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x021a  */
+    /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -230,6 +230,11 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
                                         try {
                                             JSONObject jSONObject3 = new JSONObject(optString);
                                             paInfo.setSubsetType(jSONObject3.optInt(Constants.EXTRA_SUB_PA_TYPE, 0));
+                                            if (jSONObject3.has("default_do_not_disturb")) {
+                                                if (!Utility.readBooleanData(this.mContext, Utility.readUid(this.mContext) + "_" + paInfo.getPaId(), false)) {
+                                                    paInfo.setDisturb(jSONObject3.optInt("default_do_not_disturb"));
+                                                }
+                                            }
                                             paInfo.setShieldMsg(new JSONObject(jSONObject3.optString("pa_attributes")).optInt(TableDefine.PaSubscribeColumns.COLUMN_SHIELD_MSG, 0));
                                         } catch (JSONException unused) {
                                             LogUtils.d(TAG, "set patype JSONException");

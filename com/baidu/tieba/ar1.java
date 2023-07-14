@@ -1,168 +1,94 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class ar1 {
+public class ar1 implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static String c;
-    public static String d;
+    public static final AtomicInteger d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicInteger a;
+    public String b;
+    public int c;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624681, "Lcom/baidu/tieba/ar1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947624681, "Lcom/baidu/tieba/ar1;");
+                return;
+            }
+        }
+        d = new AtomicInteger(1);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ar1() {
+        this(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static String b(Context context) {
+    public ar1(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicInteger(1);
+        this.b = "sso-" + d.getAndIncrement() + "-thread-";
+        this.c = i;
+    }
+
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                if (TextUtils.isEmpty(a)) {
-                    a = lr1.b(context);
-                }
-                if (TextUtils.isEmpty(a)) {
-                    return "";
-                }
-                return a;
-            } catch (Throwable th) {
-                lr1.d(th);
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
+            if (thread.isDaemon()) {
+                thread.setDaemon(false);
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                if (TextUtils.isEmpty(b)) {
-                    b = lr1.e(context);
-                }
-                if (TextUtils.isEmpty(b)) {
-                    return "";
-                }
-                return b;
-            } catch (Throwable th) {
-                lr1.d(th);
-                return "";
+            int i = this.c;
+            if (i != 5) {
+                thread.setPriority(i);
+            } else {
+                thread.setPriority(5);
             }
+            return thread;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                if (TextUtils.isEmpty(c)) {
-                    c = context.getPackageName();
-                }
-                if (TextUtils.isEmpty(c)) {
-                    return "";
-                }
-                return c;
-            } catch (Throwable th) {
-                lr1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static JSONObject c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("1", b(context));
-                jSONObject.put("3", d(context));
-                jSONObject.put("2", e(context));
-                jSONObject.put("4", f(context));
-                jSONObject.put("5", str);
-                jSONObject.put("6", System.currentTimeMillis());
-                jSONObject.put("7", "0");
-                jSONObject.put("8", up1.b);
-                jSONObject.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
-                jSONObject.put("10", "1.2.1");
-                jSONObject.put("14", lr1.g(context));
-                jSONObject.put("23", xq1.a(context));
-                jSONObject.put("26", "");
-                jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW, vp1.g(context).F());
-                return jSONObject;
-            } catch (Throwable th) {
-                lr1.d(th);
-                return null;
-            }
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public static String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            try {
-                if (!TextUtils.isEmpty(d)) {
-                    return d;
-                }
-                String b2 = mr1.b(context);
-                d = b2;
-                return b2;
-            } catch (Throwable unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public dr1 a(Context context, String str, String str2, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                JSONArray jSONArray = new JSONArray(str);
-                JSONObject c2 = c(context, str2);
-                c2.put("module_section", jSONArray);
-                dr1 dr1Var = new dr1();
-                dr1Var.e(i);
-                dr1Var.c(c2.toString());
-                dr1Var.g(i2);
-                return dr1Var;
-            } catch (Throwable th) {
-                lr1.d(th);
-                return null;
-            }
-        }
-        return (dr1) invokeCommon.objValue;
+        return (Thread) invokeL.objValue;
     }
 }

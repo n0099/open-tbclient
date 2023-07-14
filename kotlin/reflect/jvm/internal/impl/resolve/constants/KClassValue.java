@@ -25,14 +25,14 @@ import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
 import kotlin.reflect.jvm.internal.impl.types.TypeProjectionImpl;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class KClassValue extends ConstantValue<Value> {
     public static final Companion Companion = new Companion(null);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Value {
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class LocalClass extends Value {
             public final KotlinType type;
 
@@ -65,7 +65,7 @@ public final class KClassValue extends ConstantValue<Value> {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class NormalClass extends Value {
             public final ClassLiteralValue value;
 
@@ -114,7 +114,7 @@ public final class KClassValue extends ConstantValue<Value> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -134,14 +134,14 @@ public final class KClassValue extends ConstantValue<Value> {
                 Intrinsics.checkExpressionValueIsNotNull(kotlinType2, "type.arguments.single().type");
                 i++;
             }
-            ClassifierDescriptor mo2099getDeclarationDescriptor = kotlinType2.getConstructor().mo2099getDeclarationDescriptor();
-            if (mo2099getDeclarationDescriptor instanceof ClassDescriptor) {
-                ClassId classId = DescriptorUtilsKt.getClassId(mo2099getDeclarationDescriptor);
+            ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType2.getConstructor().mo2101getDeclarationDescriptor();
+            if (mo2101getDeclarationDescriptor instanceof ClassDescriptor) {
+                ClassId classId = DescriptorUtilsKt.getClassId(mo2101getDeclarationDescriptor);
                 if (classId != null) {
                     return new KClassValue(classId, i);
                 }
                 return new KClassValue(new Value.LocalClass(kotlinType));
-            } else if (!(mo2099getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
+            } else if (!(mo2101getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
                 return null;
             } else {
                 ClassId classId2 = ClassId.topLevel(KotlinBuiltIns.FQ_NAMES.any.toSafe());

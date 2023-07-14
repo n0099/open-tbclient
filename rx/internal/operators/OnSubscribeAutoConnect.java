@@ -1,37 +1,37 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.bxb;
-import com.baidu.tieba.dtb;
-import com.baidu.tieba.etb;
-import com.baidu.tieba.hxb;
-import com.baidu.tieba.ltb;
-import com.baidu.tieba.xsb;
+import com.baidu.tieba.a2c;
+import com.baidu.tieba.b2c;
+import com.baidu.tieba.e6c;
+import com.baidu.tieba.i2c;
+import com.baidu.tieba.u1c;
+import com.baidu.tieba.y5c;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements xsb.a<T> {
-    public final ltb<? super etb> connection;
+public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements u1c.a<T> {
+    public final i2c<? super b2c> connection;
     public final int numberOfSubscribers;
-    public final bxb<? extends T> source;
+    public final y5c<? extends T> source;
 
-    public OnSubscribeAutoConnect(bxb<? extends T> bxbVar, int i, ltb<? super etb> ltbVar) {
+    public OnSubscribeAutoConnect(y5c<? extends T> y5cVar, int i, i2c<? super b2c> i2cVar) {
         if (i > 0) {
-            this.source = bxbVar;
+            this.source = y5cVar;
             this.numberOfSubscribers = i;
-            this.connection = ltbVar;
+            this.connection = i2cVar;
             return;
         }
         throw new IllegalArgumentException("numberOfSubscribers > 0 required");
     }
 
-    public void call(dtb<? super T> dtbVar) {
-        this.source.M(hxb.c(dtbVar));
+    public void call(a2c<? super T> a2cVar) {
+        this.source.O(e6c.c(a2cVar));
         if (incrementAndGet() == this.numberOfSubscribers) {
-            this.source.N(this.connection);
+            this.source.P(this.connection);
         }
     }
 
-    @Override // com.baidu.tieba.xsb.a, com.baidu.tieba.ltb
+    @Override // com.baidu.tieba.u1c.a, com.baidu.tieba.i2c
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((dtb) ((dtb) obj));
+        call((a2c) ((a2c) obj));
     }
 }

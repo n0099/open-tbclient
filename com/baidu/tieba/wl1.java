@@ -1,73 +1,95 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sdk.container.filedownloader.MaterialLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes8.dex */
-public abstract class wl1<T> implements xl1<T> {
+public class wl1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
-    public T mCachedInstance;
+    public Context a;
 
-    public abstract T createService() throws ServiceNotFoundException;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948274317, "Lcom/baidu/tieba/wl1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948274317, "Lcom/baidu/tieba/wl1;");
-                return;
-            }
-        }
-        DEBUG = AppConfig.isDebug();
-    }
-
-    public wl1() {
+    public wl1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
     }
 
-    @Override // com.baidu.tieba.xl1
-    public final T getService() {
-        InterceptResult invokeV;
+    public final boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (this.mCachedInstance == null) {
-                    try {
-                        this.mCachedInstance = createService();
-                    } catch (ServiceNotFoundException e) {
-                        if (DEBUG) {
-                            e.printStackTrace();
-                            throw e;
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            File a = mk1.a(str);
+            if (a != null && a.exists() && a.isFile()) {
+                return true;
             }
-            return this.mCachedInstance;
+            return false;
         }
-        return (T) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public Bitmap a(String str, dm1 dm1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, dm1Var)) == null) {
+            try {
+                File a = mk1.a(str);
+                if (a != null && a.exists() && a.isFile()) {
+                    return BitmapFactory.decodeFile(a.getAbsolutePath());
+                }
+            } catch (OutOfMemoryError unused) {
+            }
+            return MaterialLoader.k(this.a).i(str, dm1Var);
+        }
+        return (Bitmap) invokeLL.objValue;
+    }
+
+    public String b(String str, MaterialLoader.MaterialCacheType materialCacheType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, materialCacheType)) == null) {
+            try {
+                File a = mk1.a(str);
+                if (a != null && a.exists() && a.isFile()) {
+                    return a.getAbsolutePath();
+                }
+                return MaterialLoader.k(this.a).m(str, materialCacheType);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public boolean c(String str, MaterialLoader.MaterialCacheType materialCacheType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, materialCacheType)) == null) {
+            if (!MaterialLoader.k(this.a).o(str, materialCacheType) && !d(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

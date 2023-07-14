@@ -11,7 +11,11 @@ public interface ce1 {
 
     void d(AdBaseModel adBaseModel);
 
-    void e(AdBaseModel adBaseModel);
+    void e(AdBaseModel adBaseModel, String str);
 
-    void f(AdBaseModel adBaseModel, float f);
+    void f(AdBaseModel adBaseModel);
+
+    void g(boolean z, AdBaseModel adBaseModel);
+
+    void h(AdBaseModel adBaseModel);
 }

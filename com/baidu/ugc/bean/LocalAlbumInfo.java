@@ -1,9 +1,9 @@
 package com.baidu.ugc.bean;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.tya;
+import com.baidu.tieba.r7b;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable<LocalAlbumInfo> {
     public static final int FACE_SCORE_BASE = 20;
     public static final int IMAGE = 0;
@@ -105,7 +105,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
             return null;
         }
         try {
-            return new tya().a(list);
+            return new r7b().a(list);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -117,7 +117,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
             return null;
         }
         try {
-            return new tya().a(localAlbumInfo);
+            return new r7b().a(localAlbumInfo);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -195,7 +195,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public LocalAlbumInfo m150clone() {
+    public LocalAlbumInfo m152clone() {
         LocalAlbumInfo localAlbumInfo = new LocalAlbumInfo();
         localAlbumInfo.path = this.path;
         localAlbumInfo.uri = this.uri;

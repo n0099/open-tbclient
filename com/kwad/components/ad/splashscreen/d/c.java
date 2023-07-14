@@ -5,7 +5,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import com.kwad.components.ad.splashscreen.h;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public static void a(View view2, int i, int i2, int i3, int i4) {
         ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();

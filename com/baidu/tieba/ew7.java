@@ -1,254 +1,183 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.lz;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ew7 extends kn<pw7, ThreadCardViewHolder<pw7>> implements p56 {
+public class ew7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TbPageContext<?> b;
-    public Cdo c;
-    public String d;
-    public NEGFeedBackView.b e;
 
-    /* loaded from: classes5.dex */
-    public class a implements NEGFeedBackView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ew7 a;
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void b(k35 k35Var, CompoundButton compoundButton, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k35Var, compoundButton, z) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void c(k35 k35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k35Var) == null) {
-            }
-        }
-
-        public a(ew7 ew7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ew7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ew7Var;
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void a(ArrayList<Integer> arrayList, String str, k35 k35Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, k35Var) == null) && arrayList != null && k35Var != null) {
-                CustomMessage customMessage = new CustomMessage(2921425, this.a.b.getUniqueId());
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921425);
-                customResponsedMessage.setOrginalMessage(customMessage);
-                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                new b().execute(new Integer[0]);
-                TiebaStatic.log(new StatisticItem("c13572"));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends BdAsyncTask<Integer, Integer, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public NetWork a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.cancel(true);
-                NetWork netWork = this.a;
-                if (netWork != null) {
-                    netWork.cancelNetConnect();
-                    this.a = null;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(Integer... numArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr)) == null) {
-                try {
-                    NetWork netWork = new NetWork();
-                    this.a = netWork;
-                    netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
-                    this.a.addPostData("dislike_from", "concernpage");
-                    this.a.addPostData("dislike_type", "1");
-                    this.a.getNetContext().getRequest().mIsNeedTbs = true;
-                    return this.a.postNetData();
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    return null;
-                }
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                super.onPostExecute((b) str);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ew7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public static int d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 5) {
+                        if (i != 6) {
+                            if (i != 7) {
+                                return i != 8 ? -1 : 4;
+                            }
+                            return 3;
+                        }
+                        return 2;
+                    }
+                    return 0;
+                }
+                return 1;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            return i != 4 ? -1 : 8;
+                        }
+                        return 7;
+                    }
+                    return 6;
+                }
+                return 3;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            return 1;
+                        }
+                        if (i != 4) {
+                            return -1;
+                        }
+                    }
+                    return 4;
+                }
+                return 3;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            try {
+                SharedPreferences.Editor edit = c().edit();
+                edit.clear();
+                edit.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        this.e = new a(this);
-        this.b = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.p56
-    public void g(String str) {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return "pref_name_frs_sortType_" + TbadkCoreApplication.getCurrentAccount();
         }
+        return (String) invokeV.objValue;
     }
 
-    public void x(Cdo cdo) {
+    public static SharedPreferences c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cdo) == null) {
-            this.c = cdo;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return TbadkCoreApplication.getInst().getSharedPreferences(b(), 0);
         }
+        return (SharedPreferences) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static int e(int i, FrsRequestData frsRequestData) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, frsRequestData)) == null) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 5) {
+                        if (i != 6) {
+                            if (i != 7) {
+                                if (i == 8 && frsRequestData != null) {
+                                    frsRequestData.setSortType(4);
+                                    frsRequestData.k0(0);
+                                }
+                            } else if (frsRequestData != null) {
+                                frsRequestData.setSortType(3);
+                                frsRequestData.k0(0);
+                            }
+                        } else if (frsRequestData != null) {
+                            frsRequestData.setSortType(2);
+                            frsRequestData.k0(0);
+                        }
+                    } else if (frsRequestData != null) {
+                        frsRequestData.setSortType(0);
+                        frsRequestData.k0(1);
+                    }
+                } else if (frsRequestData != null) {
+                    frsRequestData.setSortType(1);
+                    frsRequestData.k0(0);
+                }
+            } else if (frsRequestData != null) {
+                frsRequestData.setSortType(0);
+                frsRequestData.k0(0);
+            }
+            return 1;
+        }
+        return invokeIL.intValue;
+    }
+
+    public static int h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            lz.b bVar = new lz.b(this.b.getPageActivity(), false);
-            zw7 zw7Var = new zw7(this.b, this.a);
-            zw7Var.t(true);
-            bVar.n(zw7Var);
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().i(0);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
-            threadCardViewHolder.i(this.a);
-            bz p = threadCardViewHolder.p(false);
-            p.s(this.e);
-            p.q(false);
-            p.r(this.mContext.getString(R.string.obfuscated_res_0x7f0f04b9));
-            p.u(true);
-            p.g = true;
-            return threadCardViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return -1;
+            }
+            try {
+                return c().getInt(str, -1);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
+            }
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pw7 pw7Var, ThreadCardViewHolder<pw7> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        int i2;
+    public static void i(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pw7Var, threadCardViewHolder})) == null) {
-            if (pw7Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null) {
-                StatisticItem statisticItem = new StatisticItem("c13565");
-                if (pw7Var.e()) {
-                    i2 = 1;
-                } else {
-                    i2 = 2;
-                }
-                statisticItem.param("obj_source", i2);
-                jo6.b().a(statisticItem);
-                threadCardViewHolder.a().r(i);
-                if (threadCardViewHolder.a() instanceof o56) {
-                    threadCardViewHolder.a().b(this.d);
-                }
-                threadCardViewHolder.e(pw7Var);
-                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-                return threadCardViewHolder.getView();
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeLI(65544, null, str, i) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        try {
+            SharedPreferences.Editor edit = c().edit();
+            edit.putInt(str, i);
+            edit.apply();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

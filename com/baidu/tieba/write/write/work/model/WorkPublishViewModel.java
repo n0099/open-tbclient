@@ -10,7 +10,7 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.data.VideoCategoryClassData;
-import com.baidu.tieba.q3a;
+import com.baidu.tieba.bca;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.write.write.work.model.WorkPublishViewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -143,7 +143,7 @@ public final class WorkPublishViewModel extends ViewModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b.getValue() != null && g()) {
+            if (this.b.getValue() != null && f()) {
                 return true;
             }
             return false;
@@ -151,10 +151,10 @@ public final class WorkPublishViewModel extends ViewModel {
         return invokeV.booleanValue;
     }
 
-    public final void h() {
+    public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            q3a.y("");
+            bca.y("");
         }
     }
 
@@ -242,11 +242,11 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            q3a.o(new q3a.h() { // from class: com.baidu.tieba.ira
+            bca.o(new bca.h() { // from class: com.baidu.tieba.g0b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.q3a.h
+                @Override // com.baidu.tieba.bca.h
                 public final void a(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -260,7 +260,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            q3a.y(i());
+            bca.y(h());
         }
     }
 
@@ -284,7 +284,7 @@ public final class WorkPublishViewModel extends ViewModel {
         return invokeV.booleanValue;
     }
 
-    public final boolean g() {
+    public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -304,7 +304,7 @@ public final class WorkPublishViewModel extends ViewModel {
         return invokeV.booleanValue;
     }
 
-    public final String i() {
+    public final String h() {
         InterceptResult invokeV;
         String str;
         String str2;

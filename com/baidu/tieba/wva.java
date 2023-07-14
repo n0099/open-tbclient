@@ -1,81 +1,113 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.yva;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.switchs.CheckIsQuestionThreadSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubs.analytics.SampleResult;
-import java.util.Map;
 /* loaded from: classes8.dex */
 public class wva {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948285415, "Lcom/baidu/tieba/wva;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948285415, "Lcom/baidu/tieba/wva;");
+    public static void a(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65536, null, i, i2) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_CLICK);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_locate", i);
+            statisticItem.addParam("obj_type", i2);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public static SampleResult a(String str) {
-        InterceptResult invokeL;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (a) {
-                return yva.a.a.f(str);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_SHOW);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (CheckIsQuestionThreadSwitch.getSwitchType() != 3 && CheckIsQuestionThreadSwitch.getSwitchType() != 2) {
+                return false;
             }
-            return SampleResult.OTHERE;
+            return true;
         }
-        return (SampleResult) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void b(xva xvaVar) {
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, xvaVar) != null) || xvaVar == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TimeHelper.getDayDifference(System.currentTimeMillis(), da5.p().r("key_check_is_question_thread_time", 0L)) > 7) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (CheckIsQuestionThreadSwitch.getSwitchType() == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (CheckIsQuestionThreadSwitch.getSwitchType() == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void c(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
             return;
         }
-        swa.b(xvaVar);
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
-            qwa.a().b(str);
+        if (activity instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) activity).closeLoadingDialog();
+        } else if (activity instanceof BaseActivity) {
+            ((BaseActivity) activity).closeLoadingDialog();
         }
     }
 
-    public static void e(String str) {
+    public static void h(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
-            qwa.a().c(str);
-        }
-    }
-
-    public static void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void c(String str, String str2, String str3, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65539, null, str, str2, str3, map) != null) || !a || str == null) {
+        if ((interceptable != null && interceptable.invokeL(65543, null, activity) != null) || activity == null) {
             return;
         }
-        vwa.a(str, str2, str3, map);
+        String string = activity.getString(R.string.obfuscated_res_0x7f0f042e);
+        if (activity instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) activity).showLoadingDialog(string);
+        } else if (activity instanceof BaseActivity) {
+            ((BaseActivity) activity).showLoadingDialog(string);
+        }
     }
 }

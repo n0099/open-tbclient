@@ -1,201 +1,22 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.utils.Constant;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes8.dex */
-public class vm5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vm5 {
+    InputStream a() throws IOException;
 
-    public static void a(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) {
-            ab5.a(downloadData, 400);
-            et9.o().i(downloadData.getUrl(), downloadData.getId());
-        }
-    }
+    int available() throws IOException;
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return et9.o().u(str);
-        }
-        return invokeL.booleanValue;
-    }
+    void close() throws IOException;
 
-    public static String g(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) {
-            String dataString = intent.getDataString();
-            if (TextUtils.isEmpty(dataString)) {
-                return null;
-            }
-            String[] split = dataString.split(":");
-            if (split.length == 2) {
-                return split[1];
-            }
-            return dataString;
-        }
-        return (String) invokeL.objValue;
-    }
+    byte peek() throws IOException;
 
-    public static int h(@NonNull DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, downloadData)) == null) {
-            int l = et9.o().l(downloadData.getId(), downloadData.getName());
-            if (l >= 0 && l <= 100) {
-                return l;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
+    int position();
 
-    public static void k(String str) {
-        Context context;
-        Intent f;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65546, null, str) != null) || TextUtils.isEmpty(str) || (f = f((context = TbadkCoreApplication.getInst().getContext()), str)) == null) {
-            return;
-        }
-        try {
-            context.startActivity(f);
-        } catch (Exception unused) {
-        }
-    }
+    int read(byte[] bArr, int i, int i2) throws IOException;
 
-    public static boolean l(DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, downloadData)) == null) {
-            if (xi.F()) {
-                return new ra7().h(downloadData);
-            }
-            uh5.b(downloadData);
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    void reset() throws IOException;
 
-    public static int c(@NonNull DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
-            if (et9.o().s(downloadData.getId())) {
-                return 5;
-            }
-            if (et9.o().v(downloadData.getId())) {
-                return 1;
-            }
-            if (et9.o().r(downloadData.getId(), downloadData.getName())) {
-                return 7;
-            }
-            return 6;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (vh5.q().t(str)) {
-                return 1;
-            }
-            if (vh5.q().r(str)) {
-                return 5;
-            }
-            File m = vh5.q().m(str, str2);
-            if (m != null && m.exists()) {
-                return 7;
-            }
-            return 6;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static PackageInfo e(String str) {
-        InterceptResult invokeL;
-        PackageInfo packageInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                packageInfo = TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (!str.equals(packageInfo.packageName)) {
-                return null;
-            }
-            return packageInfo;
-        }
-        return (PackageInfo) invokeL.objValue;
-    }
-
-    public static void i(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, downloadData) == null) {
-            ab5.a(downloadData, 800);
-            Application app = TbadkCoreApplication.getInst().getApp();
-            UtilHelper.install_apk(app, downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-        }
-    }
-
-    public static Intent f(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            try {
-                return context.getPackageManager().getLaunchIntentForPackage(str);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (Intent) invokeLL.objValue;
-    }
-
-    public static DownloadData j(ItemData itemData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, itemData)) == null) {
-            String str = itemData.pkgName + ".v" + itemData.apkDetail.version;
-            DownloadData downloadData = new DownloadData();
-            downloadData.setType(12);
-            downloadData.setId(str);
-            downloadData.setName(itemData.mTitle);
-            downloadData.setUniqueId(String.valueOf(itemData.itemId));
-            downloadData.setUrl(itemData.buttonLink);
-            downloadData.setNotifyId(et9.p(str).intValue());
-            downloadData.setNeedInvokeApk(true);
-            downloadData.setNeedNotify(false);
-            ItemDownloadExtraData itemDownloadExtraData = new ItemDownloadExtraData(itemData.apkDetail.pkg_source.intValue());
-            itemDownloadExtraData.appName = itemData.mTitle;
-            itemDownloadExtraData.pkgName = itemData.pkgName;
-            downloadData.setExtra(itemDownloadExtraData);
-            return downloadData;
-        }
-        return (DownloadData) invokeL.objValue;
-    }
+    long skip(long j) throws IOException;
 }

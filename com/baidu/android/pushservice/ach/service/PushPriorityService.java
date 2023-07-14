@@ -208,7 +208,7 @@ public class PushPriorityService extends BaseAchService implements PushScreenRec
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             Runnable runnable = this.b;
             if (runnable == null) {
-                this.b = new Runnable() { // from class: com.baidu.tieba.jp
+                this.b = new Runnable() { // from class: com.baidu.tieba.kp
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

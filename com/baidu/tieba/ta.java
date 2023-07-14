@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.PublicKey;
 import javax.crypto.SecretKey;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ta {
     public static /* synthetic */ Interceptable $ic;
     public static ta c;
@@ -89,14 +89,14 @@ public class ta {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
             try {
-                PublicKey e = fj.e(bArr);
-                String g = fj.g(32);
+                PublicKey e = gj.e(bArr);
+                String g = gj.g(32);
                 byte[] bArr2 = new byte[g.length()];
                 for (int i = 0; i < g.length(); i++) {
                     bArr2[i] = (byte) g.charAt(i);
                 }
-                this.a = fj.f(g);
-                this.b = fj.d(e, bArr2);
+                this.a = gj.f(g);
+                this.b = gj.d(e, bArr2);
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
                 this.a = null;

@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.DuzhanUpMsgCreator;
-import com.baidu.android.imsdk.chatmessage.request.RequestContants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.ubc.MessageUbc;
@@ -185,7 +184,7 @@ public class IMSendChatMsgRequest extends BaseHttpRequest {
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
                 jSONObject.put("host_device_type", 2);
                 jSONObject.put(Constants.EXTRA_PAUID_TYPE, this.mChatMsg.getPaid());
-                jSONObject.put(RequestContants.EXTRA_TO_USER, this.mChatMsg.getContacter());
+                jSONObject.put("to_user", this.mChatMsg.getContacter());
                 if (AccountManagerImpl.getInstance(this.mContext).getMediaRole()) {
                     i = 1;
                 } else {

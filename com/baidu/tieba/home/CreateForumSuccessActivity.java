@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qt5;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.uu5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -116,7 +116,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
             super.changeSkinType(i);
             super.changeSkinType(i);
             getLayoutMode().k(this.b);
-            qt5.a(getPageContext(), this.b);
+            uu5.a(getPageContext(), this.b);
             NoNetworkView noNetworkView = this.d;
             if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
                 this.d.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -137,33 +137,33 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0232);
+            setContentView(R.layout.obfuscated_res_0x7f0d0234);
             initData();
-            x1();
+            u1();
         }
     }
 
-    public final void x1() {
+    public final void u1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f38);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f6a);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(R.string.create_bar);
             this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
-            int g = xi.g(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909a5), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, g), null, null);
+            int g = yi.g(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909af), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, g), null, null);
             this.e = a2;
             a2.setVisibility(0);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092440);
-            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0e68) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0e69));
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092415);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0e64);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092473);
+            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0e78) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0e79));
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092448);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0e74);
             if (!StringUtils.isNull(string) && this.g != null) {
                 this.g.setText(string.replace("%s", this.a));
             }
-            findViewById(R.id.obfuscated_res_0x7f092423).setOnClickListener(new a(this));
+            findViewById(R.id.obfuscated_res_0x7f092456).setOnClickListener(new a(this));
         }
     }
 }

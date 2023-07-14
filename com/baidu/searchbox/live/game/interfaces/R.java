@@ -11,6 +11,6 @@ public final class R {
     public static final class style {
 
         /* renamed from: GameShow_Theme_Opaque_NoTitle */
-        public static final int obfuscated_res_0x7f100128 = 0x7f100128;
+        public static final int obfuscated_res_0x7f100129 = 0x7f100129;
     }
 }

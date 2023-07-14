@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
-import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
-import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
-import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class j89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public TextView b;
+    public TextView c;
 
     public j89() {
         Interceptable interceptable = $ic;
@@ -28,52 +31,38 @@ public class j89 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        b();
-        a();
     }
 
-    public final void b() {
+    @SuppressLint({"ResourceAsColor"})
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            wt5 wt5Var = new wt5(309093);
-            wt5Var.setResponsedClass(ChosenPbSocketResponse.class);
-            wt5Var.g(true);
-            wt5Var.h(false);
-            MessageManager.getInstance().registerTask(wt5Var);
+            SkinManager.setBackgroundResource(this.b, R.drawable.member_privilege_button_new_selector);
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0101, 1);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0108, 1);
         }
     }
 
-    public final void a() {
+    public View a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, v3a.a(TbConfig.FINE_PB_PAGE, 309093));
-            tbHttpMessageTask.setIsNeedLogin(false);
-            tbHttpMessageTask.setIsNeedTbs(false);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setResponsedClass(ChosenPbHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0958, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setTag(this);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0923fa);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0923fb);
+            return this.a;
         }
+        return (View) invokeL.objValue;
     }
 
-    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
+    public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
-            int l = xi.l(pbChosenActivity.getPageContext().getPageActivity());
-            int j4 = xi.j(pbChosenActivity.getPageContext().getPageActivity());
-            float i = xi.i(pbChosenActivity.getPageContext().getPageActivity());
-            chosenPbNetMessage.setQ_type(45L);
-            chosenPbNetMessage.setScrH(j4);
-            chosenPbNetMessage.setScrW(l);
-            chosenPbNetMessage.setScr_dip(i);
-            chosenPbNetMessage.setExcId(j);
-            chosenPbNetMessage.setTagCode(j2);
-            chosenPbNetMessage.setThreadId(j3);
-            pbChosenActivity.sendMessage(chosenPbNetMessage);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.b.setOnClickListener(onClickListener);
         }
     }
 }

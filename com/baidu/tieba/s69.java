@@ -1,11 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes7.dex */
-public final class s69 {
+public class s69 implements yn {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public i69 a;
+    public List<t69> b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,110 +33,46 @@ public final class s69 {
                 return;
             }
         }
-        a = new a(null);
+        c = BdUniqueId.gen();
     }
 
-    @JvmStatic
-    public static final void a(int i, int i2, int i3, String str, String str2) {
+    @Override // com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, str2}) == null) {
-            a.a(i, i2, i3, str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final void b(String str) {
+    public s69(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a.b(str);
-        }
-    }
-
-    @JvmStatic
-    public static final void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
-            a.c(i, i2);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipSpecialList};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-
-        @JvmStatic
-        public final void a(int i, int i2, int i3, String objParam1, String fid) {
-            int i4;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), objParam1, fid}) == null) {
-                Intrinsics.checkNotNullParameter(objParam1, "objParam1");
-                Intrinsics.checkNotNullParameter(fid, "fid");
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_CLICK);
-                statisticItem.param("obj_name", i);
-                if (UbsABTestHelper.isFirstLoginTestA()) {
-                    i4 = 1;
-                } else if (UbsABTestHelper.isFirstLoginTestB()) {
-                    i4 = 2;
-                } else {
-                    i4 = 3;
-                }
-                statisticItem.param("obj_type", i4);
-                statisticItem.param("obj_locate", i2);
-                statisticItem.param("obj_source", i3);
-                statisticItem.param("obj_param1", objParam1);
-                statisticItem.param("fid", fid);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @JvmStatic
-        public final void b(String objName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objName) == null) {
-                Intrinsics.checkNotNullParameter(objName, "objName");
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_SEE_MORE_CLICK);
-                statisticItem.param("obj_name", objName);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @JvmStatic
-        public final void c(int i, int i2) {
-            int i3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_SHOW);
-                statisticItem.param("obj_name", i);
-                if (UbsABTestHelper.isFirstLoginTestA()) {
-                    i3 = 1;
-                } else if (UbsABTestHelper.isFirstLoginTestB()) {
-                    i3 = 2;
-                } else {
-                    i3 = 3;
-                }
-                statisticItem.param("obj_type", i3);
-                statisticItem.param("obj_source", i2);
-                TiebaStatic.log(statisticItem);
+        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
+            String str = vipSpecialList.card_id;
+            i69 i69Var = new i69();
+            this.a = i69Var;
+            i69Var.e(1);
+            this.a.d(vipSpecialList.class_name);
+            this.a.f(vipSpecialList.class_url_name);
+            this.a.g(vipSpecialList.class_url);
+            this.b = new ArrayList();
+            for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
+                this.b.add(new t69(vipSpecialItem));
             }
         }
     }

@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.editvideo.addfilter;
 
-import com.baidu.tieba.r1b;
-import com.baidu.tieba.z1b;
-/* loaded from: classes8.dex */
+import com.baidu.tieba.pab;
+import com.baidu.tieba.xab;
+/* loaded from: classes9.dex */
 public class InnerMediaProcessor extends Thread {
     public boolean mAddTrack;
     public volatile boolean mCanRetry;
@@ -101,7 +101,7 @@ public class InnerMediaProcessor extends Thread {
         try {
             extractDecodeEditEncodeMux();
             if (isUnInterrupted()) {
-                z1b.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
+                xab.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
                     @Override // java.lang.Runnable
                     public void run() {
                         InnerMediaProcessor.this.onPostExecute();
@@ -110,7 +110,7 @@ public class InnerMediaProcessor extends Thread {
             }
         } catch (Exception unused) {
             if (this.mListener != null) {
-                z1b.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
+                xab.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
                     @Override // java.lang.Runnable
                     public void run() {
                         int i;
@@ -131,7 +131,7 @@ public class InnerMediaProcessor extends Thread {
     }
 
     public void log(String str, String str2) {
-        r1b.l(str, str2);
+        pab.l(str, str2);
     }
 
     public void setClipRange(long j, long j2) {

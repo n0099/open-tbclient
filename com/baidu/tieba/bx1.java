@@ -1,19 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
 import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public interface bx1 extends t53 {
-    File a();
+public interface bx1 {
+    void a(@NonNull JSONArray jSONArray);
 
-    void e(String str, String str2);
+    yf2 b(Context context, File file, long j);
 
-    void e(String str, String str2, Throwable th);
-
-    void flush(boolean z);
-
-    void i(String str, String str2);
-
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+    void c(@NonNull JSONArray jSONArray);
 }

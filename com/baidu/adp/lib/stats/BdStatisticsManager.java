@@ -22,23 +22,23 @@ import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.cj;
 import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.dj;
 import com.baidu.tieba.eh;
-import com.baidu.tieba.ej;
 import com.baidu.tieba.fc;
-import com.baidu.tieba.fi;
-import com.baidu.tieba.gh;
+import com.baidu.tieba.fh;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.gi;
 import com.baidu.tieba.hh;
 import com.baidu.tieba.ih;
 import com.baidu.tieba.jh;
-import com.baidu.tieba.lh;
+import com.baidu.tieba.kh;
 import com.baidu.tieba.mh;
-import com.baidu.tieba.rf;
-import com.baidu.tieba.rh;
-import com.baidu.tieba.th;
-import com.baidu.tieba.wh;
+import com.baidu.tieba.nh;
+import com.baidu.tieba.sf;
+import com.baidu.tieba.sh;
+import com.baidu.tieba.uh;
+import com.baidu.tieba.xh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,18 +65,18 @@ public class BdStatisticsManager {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isSwitchReady;
     public String mAppVersion;
-    public eh mBdLogSetting;
-    public gh mCommonData;
+    public fh mBdLogSetting;
+    public hh mCommonData;
     public Context mContext;
     public boolean mIsMainProcess;
-    public th.b mLogSwitchInitCallback;
+    public uh.b mLogSwitchInitCallback;
     public c mMultiProcessReceiver;
     public String mNotUploadWriteFileDir;
     public String mProcessNameMd5;
     public String mTrackLogWriteFileDir;
     public long mUploadInterval;
     public String mWriteFileDir;
-    public cj permissionUtil;
+    public dj permissionUtil;
 
     public void net(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
         Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class BdStatisticsManager {
     }
 
     /* loaded from: classes.dex */
-    public class b implements th.b {
+    public class b implements uh.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdStatisticsManager a;
@@ -159,7 +159,7 @@ public class BdStatisticsManager {
             this.a = bdStatisticsManager;
         }
 
-        @Override // com.baidu.tieba.th.b
+        @Override // com.baidu.tieba.uh.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
@@ -167,7 +167,7 @@ public class BdStatisticsManager {
             }
             this.a.isSwitchReady = true;
             if (this.a.mIsMainProcess) {
-                fi.i().f();
+                gi.i().f();
             }
             BdStatisticsManager.mHandler.removeMessages(2);
             if (BdBaseApplication.getInst().checkInterrupt()) {
@@ -213,7 +213,7 @@ public class BdStatisticsManager {
             }
             String action = intent.getAction();
             if ("com.baidu.adp.stats.uploadallfile".equals(action) && !this.this$0.mIsMainProcess) {
-                fi.i().t(false);
+                gi.i().t(false);
             }
             if ("com.baidu.adp.stats.upload.alertlog".equals(action) && this.this$0.mIsMainProcess) {
                 Bundle extras = intent.getExtras();
@@ -246,7 +246,7 @@ public class BdStatisticsManager {
     public void checkLogToUpload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            fi.i().e();
+            gi.i().e();
         }
     }
 
@@ -295,7 +295,7 @@ public class BdStatisticsManager {
     public void forceUploadAllLog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            fi.i().q();
+            gi.i().q();
         }
     }
 
@@ -304,7 +304,7 @@ public class BdStatisticsManager {
         if ((interceptable != null && interceptable.invokeV(1048592, this) != null) || BdBaseApplication.getInst().checkInterrupt()) {
             return;
         }
-        fi.i().t(true);
+        gi.i().t(true);
     }
 
     public String getAppVersion() {
@@ -316,20 +316,20 @@ public class BdStatisticsManager {
         return (String) invokeV.objValue;
     }
 
-    public eh getBdLogSetting() {
+    public fh getBdLogSetting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.mBdLogSetting;
         }
-        return (eh) invokeV.objValue;
+        return (fh) invokeV.objValue;
     }
 
     public long getClientLogId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return rh.b().a();
+            return sh.b().a();
         }
         return invokeV.longValue;
     }
@@ -338,7 +338,7 @@ public class BdStatisticsManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return hh.a(BdBaseApplication.getInst());
+            return ih.a(BdBaseApplication.getInst());
         }
         return (String) invokeV.objValue;
     }
@@ -374,7 +374,7 @@ public class BdStatisticsManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return fi.i().k();
+            return gi.i().k();
         }
         return (String) invokeV.objValue;
     }
@@ -418,7 +418,7 @@ public class BdStatisticsManager {
     public void save() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            fi.i().p();
+            gi.i().p();
         }
     }
 
@@ -447,7 +447,7 @@ public class BdStatisticsManager {
         if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || BdBaseApplication.getInst().checkInterrupt()) {
             return;
         }
-        fi.i().t(false);
+        gi.i().t(false);
         if (this.mIsMainProcess) {
             Intent intent = new Intent("com.baidu.adp.stats.uploadallfile");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -463,13 +463,13 @@ public class BdStatisticsManager {
         EditorHelper.putLong(getConfig(), str, System.currentTimeMillis());
     }
 
-    public dh getStatsItem(String str) {
+    public eh getStatsItem(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            return new dh(str);
+            return new eh(str);
         }
-        return (dh) invokeL.objValue;
+        return (eh) invokeL.objValue;
     }
 
     public void resetSwitch(String str) {
@@ -484,55 +484,55 @@ public class BdStatisticsManager {
         if ((interceptable != null && interceptable.invokeL(1048619, this, str) != null) || BdBaseApplication.getInst().checkInterrupt()) {
             return;
         }
-        mh j = fi.i().j(str);
-        fi.i().B(j);
-        fi.i().w(j);
+        nh j = gi.i().j(str);
+        gi.i().B(j);
+        gi.i().w(j);
     }
 
     public void setAndroidId(String str) {
-        gh ghVar;
+        hh hhVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048620, this, str) == null) && (ghVar = this.mCommonData) != null) {
-            ghVar.v = str;
+        if ((interceptable == null || interceptable.invokeL(1048620, this, str) == null) && (hhVar = this.mCommonData) != null) {
+            hhVar.v = str;
         }
     }
 
     public void setCommonDataMac(String str) {
-        gh ghVar;
+        hh hhVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048621, this, str) == null) && (ghVar = this.mCommonData) != null) {
-            ghVar.u = str;
+        if ((interceptable == null || interceptable.invokeL(1048621, this, str) == null) && (hhVar = this.mCommonData) != null) {
+            hhVar.u = str;
         }
     }
 
     public void setCuid(String str) {
-        gh ghVar;
+        hh hhVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048622, this, str) == null) && (ghVar = this.mCommonData) != null) {
-            ghVar.g = str;
+        if ((interceptable == null || interceptable.invokeL(1048622, this, str) == null) && (hhVar = this.mCommonData) != null) {
+            hhVar.g = str;
         }
     }
 
     public void setCuidGalaxy2(String str) {
-        gh ghVar;
+        hh hhVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048623, this, str) == null) && (ghVar = this.mCommonData) != null) {
-            ghVar.h = str;
+        if ((interceptable == null || interceptable.invokeL(1048623, this, str) == null) && (hhVar = this.mCommonData) != null) {
+            hhVar.h = str;
         }
     }
 
     public void setOaid(String str) {
-        gh ghVar;
+        hh hhVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048624, this, str) == null) && (ghVar = this.mCommonData) != null) {
-            ghVar.t = str;
+        if ((interceptable == null || interceptable.invokeL(1048624, this, str) == null) && (hhVar = this.mCommonData) != null) {
+            hhVar.t = str;
         }
     }
 
-    public void setPermissionUtil(cj cjVar) {
+    public void setPermissionUtil(dj djVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, cjVar) == null) {
-            this.permissionUtil = cjVar;
+        if (interceptable == null || interceptable.invokeL(1048625, this, djVar) == null) {
+            this.permissionUtil = djVar;
         }
     }
 
@@ -541,15 +541,15 @@ public class BdStatisticsManager {
         if ((interceptable != null && interceptable.invokeL(1048626, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        fi.i().C(str);
+        gi.i().C(str);
     }
 
-    public void debug(String str, dh dhVar) {
+    public void debug(String str, eh ehVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, str, dhVar) != null) || dhVar == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, str, ehVar) != null) || ehVar == null) {
             return;
         }
-        debug(str, -1L, null, dhVar);
+        debug(str, -1L, null, ehVar);
     }
 
     public void performance(String str, Object... objArr) {
@@ -559,47 +559,47 @@ public class BdStatisticsManager {
         }
     }
 
-    private void addLog(String str, String str2, long j, String str3, dh dhVar, Object... objArr) {
+    private void addLog(String str, String str2, long j, String str3, eh ehVar, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{str, str2, Long.valueOf(j), str3, dhVar, objArr}) == null) {
-            if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || ih.c().a(str)) {
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{str, str2, Long.valueOf(j), str3, ehVar, objArr}) == null) {
+            if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || jh.c().a(str)) {
                 return;
             }
             if (j == -1) {
-                fi.i().D(str, str2, null, str3, dhVar, objArr);
+                gi.i().D(str, str2, null, str3, ehVar, objArr);
             } else {
-                fi.i().D(str, str2, String.valueOf(j), str3, dhVar, objArr);
+                gi.i().D(str, str2, String.valueOf(j), str3, ehVar, objArr);
             }
         }
     }
 
     private void alert(String str, String str2, Object[] objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65545, this, str, str2, objArr) != null) || !th.o().u("alert", str) || checkUploadRecently(str)) {
+        if ((interceptable != null && interceptable.invokeLLL(65545, this, str, str2, objArr) != null) || !uh.o().u("alert", str) || checkUploadRecently(str)) {
             return;
         }
         setUploadTime(str);
-        mh j = fi.i().j("alert");
-        dh dhVar = new dh("alert");
-        dhVar.b("module", "alert");
+        nh j = gi.i().j("alert");
+        eh ehVar = new eh("alert");
+        ehVar.b("module", "alert");
         if (!TextUtils.isEmpty(str)) {
-            dhVar.b("st", str);
+            ehVar.b("st", str);
         }
         if (!TextUtils.isEmpty(str2)) {
-            dhVar.b("alert_log", str2);
+            ehVar.b("alert_log", str2);
         }
-        dhVar.b("t", String.valueOf(System.currentTimeMillis()));
+        ehVar.b("t", String.valueOf(System.currentTimeMillis()));
         if (objArr != null && objArr.length > 0) {
-            dhVar.c(objArr);
+            ehVar.c(objArr);
         }
-        j.a(dhVar);
-        lh.a(dhVar);
-        if (jh.e()) {
-            dhVar.d(this.mCommonData);
-            wh.m().q(j, dhVar.f().c().toString());
+        j.a(ehVar);
+        mh.a(ehVar);
+        if (kh.e()) {
+            ehVar.d(this.mCommonData);
+            xh.m().q(j, ehVar.f().c().toString());
         }
-        BdLog.i("alert item = " + dhVar.toString());
-        wh.m().p(j, dhVar.toString());
+        BdLog.i("alert item = " + ehVar.toString());
+        xh.m().p(j, ehVar.toString());
     }
 
     private boolean checkUploadRecently(String str) {
@@ -609,7 +609,7 @@ public class BdStatisticsManager {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (System.currentTimeMillis() - getConfig().getLong(str, 0L) >= th.o().m(str, 24) * 60 * 60 * 1000) {
+            if (System.currentTimeMillis() - getConfig().getLong(str, 0L) >= uh.o().m(str, 24) * 60 * 60 * 1000) {
                 return false;
             }
             return true;
@@ -621,7 +621,7 @@ public class BdStatisticsManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) {
-            String d = ej.d(str.getBytes("UTF-8"));
+            String d = fj.d(str.getBytes("UTF-8"));
             if (!TextUtils.isEmpty(d) && d.length() > 8) {
                 return d.substring(d.length() - 8);
             }
@@ -681,13 +681,13 @@ public class BdStatisticsManager {
                 return;
             }
             forceUploadAllLogIgnoreSwitch();
-            th.o().k(str, str2, bdUploadStatMsgData);
+            uh.o().k(str, str2, bdUploadStatMsgData);
         }
     }
 
     public void aladinPortErr(String str, String str2, int i, String str3, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || ih.c().a("aladin_port_error")) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || jh.c().a("aladin_port_error")) {
             return;
         }
         op(true, "aladin_port_error", str, str2, 0L, i, str3, objArr);
@@ -695,7 +695,7 @@ public class BdStatisticsManager {
 
     public void db(String str, String str2, int i, String str3, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || ih.c().a("db")) {
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || jh.c().a("db")) {
             return;
         }
         op(true, "db", str, str2, 0L, i, str3, objArr);
@@ -703,7 +703,7 @@ public class BdStatisticsManager {
 
     public void file(String str, String str2, int i, String str3, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048589, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || ih.c().a("file")) {
+        if ((interceptable != null && interceptable.invokeCommon(1048589, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || jh.c().a("file")) {
             return;
         }
         op(true, "file", str, str2, 0L, i, str3, objArr);
@@ -711,7 +711,7 @@ public class BdStatisticsManager {
 
     public void imgErr(String str, String str2, int i, String str3, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048604, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || ih.c().a("img")) {
+        if ((interceptable != null && interceptable.invokeCommon(1048604, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || jh.c().a("img")) {
             return;
         }
         op(true, "img", str, str2, 0L, i, str3, objArr);
@@ -719,7 +719,7 @@ public class BdStatisticsManager {
 
     public void liveErr(String str, String str2, int i, String str3, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048608, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || ih.c().a("live")) {
+        if ((interceptable != null && interceptable.invokeCommon(1048608, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || jh.c().a("live")) {
             return;
         }
         op(true, "live", str, str2, 0L, i, str3, objArr);
@@ -727,7 +727,7 @@ public class BdStatisticsManager {
 
     public void voiceErr(String str, String str2, int i, String str3, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048628, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || ih.c().a("voice")) {
+        if ((interceptable != null && interceptable.invokeCommon(1048628, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || jh.c().a("voice")) {
             return;
         }
         op(true, "voice", str, str2, 0L, i, str3, objArr);
@@ -764,36 +764,36 @@ public class BdStatisticsManager {
     public void crash(String str, String str2, String str3, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, objArr) == null) {
-            dh dhVar = new dh("crash");
-            dhVar.b("module", "crash");
+            eh ehVar = new eh("crash");
+            ehVar.b("module", "crash");
             if (!TextUtils.isEmpty(str)) {
-                dhVar.b(CrashHianalyticsData.CRASH_TYPE, str);
+                ehVar.b(CrashHianalyticsData.CRASH_TYPE, str);
             }
             if (!TextUtils.isEmpty(str2)) {
-                dhVar.b("ci", str2);
+                ehVar.b("ci", str2);
             }
             if (!TextUtils.isEmpty(str3)) {
-                dhVar.b("f", str3);
+                ehVar.b("f", str3);
             }
-            dhVar.b("t", String.valueOf(System.currentTimeMillis()));
+            ehVar.b("t", String.valueOf(System.currentTimeMillis()));
             if (objArr != null && objArr.length > 0) {
-                dhVar.c(objArr);
+                ehVar.c(objArr);
             }
-            addLog("crash", "crash", -1L, null, dhVar, new Object[0]);
+            addLog("crash", "crash", -1L, null, ehVar, new Object[0]);
         }
     }
 
-    public void debug(String str, long j, String str2, dh dhVar) {
+    public void debug(String str, long j, String str2, eh ehVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), str2, dhVar}) == null) {
-            addLog("dbg", str, j, str2, dhVar, new Object[0]);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), str2, ehVar}) == null) {
+            addLog("dbg", str, j, str2, ehVar, new Object[0]);
         }
     }
 
-    public void error(String str, long j, String str2, dh dhVar) {
+    public void error(String str, long j, String str2, eh ehVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Long.valueOf(j), str2, dhVar}) == null) {
-            addLog("error", str, j, str2, dhVar, new Object[0]);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Long.valueOf(j), str2, ehVar}) == null) {
+            addLog("error", str, j, str2, ehVar, new Object[0]);
         }
     }
 
@@ -843,43 +843,43 @@ public class BdStatisticsManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{context, str, str2, Integer.valueOf(i), objArr})) == null) {
-            dh dhVar = new dh("stat");
-            dhVar.b("module", "stat");
+            eh ehVar = new eh("stat");
+            ehVar.b("module", "stat");
             if (!TextUtils.isEmpty(str)) {
-                dhVar.b("op_key", str);
+                ehVar.b("op_key", str);
             }
             if (!TextUtils.isEmpty(str2)) {
-                dhVar.b("pt", str2);
+                ehVar.b("pt", str2);
             }
-            dhVar.b("co", String.valueOf(i));
+            ehVar.b("co", String.valueOf(i));
             long currentTimeMillis = System.currentTimeMillis();
-            dhVar.b("t", String.valueOf(currentTimeMillis));
+            ehVar.b("t", String.valueOf(currentTimeMillis));
             if (objArr != null && objArr.length > 0) {
-                dhVar.c(objArr);
-                dhVar.a("mi", 0);
+                ehVar.c(objArr);
+                ehVar.a("mi", 0);
             }
-            addLog("stat", null, -1L, null, dhVar, new Object[0]);
+            addLog("stat", null, -1L, null, ehVar, new Object[0]);
             return currentTimeMillis;
         }
         return invokeCommon.longValue;
     }
 
-    public void init(Context context, boolean z, String str, String str2, String str3, String str4, gh ghVar, eh ehVar, long j, String str5) {
+    public void init(Context context, boolean z, String str, String str2, String str3, String str4, hh hhVar, fh fhVar, long j, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{context, Boolean.valueOf(z), str, str2, str3, str4, ghVar, ehVar, Long.valueOf(j), str5}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{context, Boolean.valueOf(z), str, str2, str3, str4, hhVar, fhVar, Long.valueOf(j), str5}) == null) {
             this.mContext = context;
             this.mWriteFileDir = str3;
             this.mNotUploadWriteFileDir = this.mWriteFileDir + "/notUpload";
             this.mTrackLogWriteFileDir = "trackLog";
             this.mIsMainProcess = z;
-            this.mBdLogSetting = ehVar;
-            this.mCommonData = ghVar;
+            this.mBdLogSetting = fhVar;
+            this.mCommonData = hhVar;
             fc.f().g(str2);
-            th.o().r(z, str, this.mContext, this.mLogSwitchInitCallback);
-            wh.m().n(ghVar, str4, str5);
-            fi.i().l(ghVar);
-            if (ghVar != null) {
-                this.mAppVersion = ghVar.c;
+            uh.o().r(z, str, this.mContext, this.mLogSwitchInitCallback);
+            xh.m().n(hhVar, str4, str5);
+            gi.i().l(hhVar);
+            if (hhVar != null) {
+                this.mAppVersion = hhVar.c;
             }
             if (TextUtils.isEmpty(this.mProcessNameMd5)) {
                 String processNameMd5 = getProcessNameMd5();
@@ -921,28 +921,28 @@ public class BdStatisticsManager {
     }
 
     public void log(String str, Object... objArr) {
-        mh j;
+        nh j;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048609, this, str, objArr) == null) && (j = fi.i().j(str)) != null && th.o().v(str, null)) {
-            dh dhVar = new dh(str);
+        if ((interceptable == null || interceptable.invokeLL(1048609, this, str, objArr) == null) && (j = gi.i().j(str)) != null && uh.o().v(str, null)) {
+            eh ehVar = new eh(str);
             if (objArr != null && objArr.length > 0) {
-                dhVar.c(objArr);
+                ehVar.c(objArr);
             }
-            j.a(dhVar);
-            lh.e(j, dhVar);
+            j.a(ehVar);
+            mh.e(j, ehVar);
         }
     }
 
-    public void performance(String str, dh dhVar) {
+    public void performance(String str, eh ehVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048615, this, str, dhVar) != null) || dhVar == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048615, this, str, ehVar) != null) || ehVar == null) {
             return;
         }
-        Address l = rf.n().l(false, false);
+        Address l = sf.n().l(false, false);
         if (l != null) {
-            dhVar.b("location", l.getLocality());
+            ehVar.b("location", l.getLocality());
         }
-        addLog("pfmonitor", str, -1L, null, dhVar, new Object[0]);
+        addLog("pfmonitor", str, -1L, null, ehVar, new Object[0]);
     }
 
     public void net(String str, String str2, long j, long j2, long j3, long j4, long j5, int i, int i2, String str3, Object... objArr) {
@@ -955,7 +955,7 @@ public class BdStatisticsManager {
     public void setUser(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048627, this, str, str2, str3) == null) {
-            wh.m().o(str, str2, str3);
+            xh.m().o(str, str2, str3);
         }
     }
 }

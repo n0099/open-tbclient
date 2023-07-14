@@ -13,9 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
@@ -29,9 +28,10 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.v56;
-import com.baidu.tieba.v6a;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.gfa;
+import com.baidu.tieba.rd9;
+import com.baidu.tieba.z66;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static final int o;
@@ -67,7 +67,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
     public boolean m;
     public boolean n;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -149,6 +149,21 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            if (this.g) {
+                view2.getId();
+                this.f.getId();
+                return;
+            }
+            String referPageAndClickZone = getReferPageAndClickZone();
+            rd9.e(TbadkCoreApplication.getInst().getCurrentPageContext(getContext()), getFromSceneId(), referPageAndClickZone, referPageAndClickZone, String.valueOf(getFromScene()));
+            a();
         }
     }
 
@@ -238,7 +253,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
     private String getReferPageAndClickZone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             int i = a.a[this.k.ordinal()];
             if (i != 1) {
                 if (i != 2 && i != 3) {
@@ -271,6 +286,25 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
         }
     }
 
+    private int getFromSceneId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            int i = a.a[this.k.ordinal()];
+            if (i != 1) {
+                if (i != 2 && i != 3) {
+                    if (i != 4) {
+                        return 0;
+                    }
+                    return IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER;
+                }
+                return 2018;
+            }
+            return 2017;
+        }
+        return invokeV.intValue;
+    }
+
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -301,14 +335,14 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onAttachedToWindow();
-            setGuideContent(v56.e().h(), v56.e().g());
+            setGuideContent(z66.e().h(), z66.e().g());
         }
     }
 
     public final void c(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v6a.VipAdFreeGuideLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gfa.VipAdFreeGuideLayout);
             this.g = obtainStyledAttributes.getBoolean(1, false);
             this.h = obtainStyledAttributes.getDimensionPixelOffset(0, u);
             obtainStyledAttributes.recycle();
@@ -370,25 +404,6 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            if (this.g) {
-                view2.getId();
-                this.f.getId();
-                return;
-            }
-            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getContext(), TbadkCoreApplication.getCurrentMemberType(), "", 27, true);
-            memberPayActivityConfig.setFid(this.l);
-            memberPayActivityConfig.setFromScence(getFromScene());
-            String referPageAndClickZone = getReferPageAndClickZone();
-            memberPayActivityConfig.setReferPageClickZone(referPageAndClickZone, referPageAndClickZone);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
-            a();
-        }
-    }
-
     public void f() {
         float f;
         Interceptable interceptable = $ic;
@@ -415,7 +430,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
                 }
                 blRadius.brRadius(f2).into(this);
             }
-            s75 d = s75.d(this.e);
+            d85 d = d85.d(this.e);
             d.C(R.dimen.T_X07);
             d.x(R.color.CAM_X0311);
             if (this.g) {

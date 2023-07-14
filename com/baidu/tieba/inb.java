@@ -1,311 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Handler;
-import android.os.Looper;
-import android.telephony.TelephonyManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.io.ByteArrayOutputStream;
+import java.util.concurrent.Callable;
+import java.util.zip.DataFormatException;
+import java.util.zip.Inflater;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class inb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String f = "inb";
-    public static ConnectivityManager g;
-    public static NetworkInfo h;
-    public static final Handler i;
+public class inb implements Callable<hnb> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ExecutorService b;
-    public lnb c;
-    public AtomicBoolean d;
-    public BroadcastReceiver e;
+    public final Intent a;
 
-    /* loaded from: classes6.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ inb this$0;
-
-        public a(inb inbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {inbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = inbVar;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                TLog.h("[tinyvideo]", "[netrecv] NetworkStateService onReceive pid " + Thread.currentThread().getId());
-                if (intent.getAction().equals(NetworkMonitor.NET_CHANGE_ACTION)) {
-                    TLog.h("[tinyvideo]", "[netrecv]  current network connectivity action begin");
-                    this.this$0.j();
-                    TLog.h("[tinyvideo]", "[netrecv] current network connectivity action end");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ inb a;
-
-        public b(inb inbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {inbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = inbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            synchronized (this.a.d) {
-                if (!this.a.d.get()) {
-                    return;
-                }
-                inb.g(this.a.a, this.a.c);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ inb a;
-
-        public c(inb inbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {inbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = inbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b.shutdownNow();
-                this.a.b = null;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947860684, "Lcom/baidu/tieba/inb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947860684, "Lcom/baidu/tieba/inb;");
-                return;
-            }
-        }
-        i = new Handler(Looper.getMainLooper());
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TLog.h("[tinyvideo]", "[netrecv]  updateNetInfo");
-            ExecutorService executorService = this.b;
-            if (executorService != null) {
-                executorService.submit(new b(this));
-            }
-        }
-    }
-
-    public inb(Context context, lnb lnbVar) {
+    public inb(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, lnbVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.c = null;
-        this.d = new AtomicBoolean(false);
-        this.e = new a(this);
-        this.a = context;
-        this.c = lnbVar;
+        this.a = intent;
     }
 
-    public static void g(Context context, lnb lnbVar) {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.hnb, java.lang.Object] */
+    @Override // java.util.concurrent.Callable
+    public hnb call() throws Exception {
+        InterceptResult invokeV;
+        byte[] bArr;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, lnbVar) == null) {
-            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo");
-            if (context == null) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Intent intent = this.a;
+            if (intent == null) {
+                return null;
             }
-            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo, getActiveNetworkInfo begin");
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            g = connectivityManager;
-            h = connectivityManager.getActiveNetworkInfo();
-            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo, getActiveNetworkInfo end");
-            NetworkInfo networkInfo = h;
-            if (networkInfo != null && networkInfo.isAvailable()) {
-                int type = h.getType();
-                if (type == 0) {
-                    byte h2 = h(context);
-                    lnbVar.e(h2);
-                    TLog.h("[tinyvideo]", "[netrecv] current network: " + h.getTypeName() + ", mobileNetType:" + ((int) h2));
-                    return;
-                } else if (type == 1) {
-                    lnbVar.e(0);
-                    TLog.h("[tinyvideo]", "[netrecv] current network: " + h.getTypeName());
-                    return;
-                } else {
-                    String str = f;
-                    TLog.h(str, "[netrecv] current network: " + h.getTypeName());
-                    return;
-                }
-            }
-            TLog.h("[tinyvideo]", "[netrecv] current network No usable network!!");
-            lnbVar.e(2);
-        }
-    }
-
-    public static byte h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            long j = 0;
             try {
-                switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
-                    case 1:
-                    case 2:
-                        return (byte) 3;
-                    case 3:
-                        return (byte) 4;
-                    case 4:
-                        return (byte) 3;
-                    case 5:
-                    case 6:
-                        return (byte) 4;
-                    case 7:
-                        return (byte) 3;
-                    case 8:
-                    case 9:
-                    case 10:
-                        return (byte) 4;
-                    case 11:
-                        return (byte) 3;
-                    case 12:
-                        return (byte) 4;
-                    case 13:
-                        return (byte) 5;
-                    case 14:
-                    case 15:
-                        return (byte) 4;
-                    default:
-                        return (byte) 1;
-                }
-            } catch (SecurityException e) {
-                e.printStackTrace();
-                return (byte) 1;
+                j = intent.getLongExtra("msg_id", 0L);
+            } catch (Exception e) {
+                lnb.b("PassByMsgIntentParser", "parserMsgId", e);
             }
-        }
-        return invokeL.byteValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TLog.h("[tinyvideo]", "[netrecv] NetStatManager deInit ");
-            if (this.a != null) {
-                synchronized (this.d) {
-                    if (this.d.get()) {
-                        this.d.set(false);
-                        this.a.unregisterReceiver(this.e);
-                    }
-                }
-                i.post(new c(this));
+            try {
+                bArr = this.a.getByteArrayExtra("msg_content");
+            } catch (Exception e2) {
+                lnb.b("PassByMsgIntentParser", "parseMsgContent", e2);
+                bArr = null;
             }
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TLog.h("[tinyvideo]", "[netrecv] NetStatManager.setup");
-            if (this.a != null) {
-                synchronized (this.d) {
-                    if (!this.d.get()) {
-                        IntentFilter intentFilter = new IntentFilter();
-                        intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
-                        this.a.registerReceiver(this.e, intentFilter);
-                        this.b = Executors.newSingleThreadExecutor();
-                        this.d.set(true);
-                        TLog.h("[tinyvideo]", "[netrecv] NetStatManager.setup done");
-                    }
+            Inflater inflater = new Inflater();
+            inflater.setInput(bArr);
+            byte[] bArr2 = new byte[256];
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(256);
+            while (!inflater.finished()) {
+                try {
+                    byteArrayOutputStream.write(bArr2, 0, inflater.inflate(bArr2));
+                } catch (DataFormatException unused) {
+                    inflater.end();
+                    str = null;
+                } catch (Throwable th) {
+                    inflater.end();
+                    throw th;
                 }
             }
+            inflater.end();
+            str = byteArrayOutputStream.toString("utf-8");
+            if (str == null) {
+                return null;
+            }
+            String optString = new JSONObject(str).optString("data");
+            if (TextUtils.isEmpty(optString)) {
+                return null;
+            }
+            hnb hnbVar = new hnb();
+            hnbVar.d(j);
+            hnbVar.c(optString);
+            return hnbVar;
         }
+        return invokeV.objValue;
     }
 }

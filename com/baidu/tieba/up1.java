@@ -1,342 +1,133 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.lang.Thread;
 /* loaded from: classes8.dex */
-public class up1 {
+public class up1 implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile up1 a;
-    public static String b;
-    public static String c;
+    public static final up1 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Thread.UncaughtExceptionHandler a;
+    public boolean b;
+    public vp1 c;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void onFinish(String str);
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ up1 b;
-
-        public b(up1 up1Var, Context context) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948218579, "Lcom/baidu/tieba/up1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {up1Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = up1Var;
-            this.a = context;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    zp1.a("sso onekey init");
-                    this.b.f(this.a.getApplicationContext());
-                    kq1.m().e(this.a.getApplicationContext());
-                } catch (Throwable th) {
-                    lr1.d(th);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948218579, "Lcom/baidu/tieba/up1;");
+                return;
             }
         }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ a b;
-        public final /* synthetic */ long c;
-
-        public c(up1 up1Var, Context context, a aVar, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {up1Var, context, aVar, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = aVar;
-            this.c = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    zp1.a("sso onekey preLogin");
-                    if (!vp1.g(this.a.getApplicationContext()).e()) {
-                        iq1.b(this.b, fq1.a(), -1, null, false);
-                        zp1.d("sso onekey preLogin fail, user not auth");
-                        return;
-                    }
-                    kq1.m().f(this.a.getApplicationContext(), 0, null, this.c, this.b);
-                } catch (Throwable th) {
-                    lr1.d(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ a b;
-        public final /* synthetic */ long c;
-
-        public d(up1 up1Var, Context context, a aVar, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {up1Var, context, aVar, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = aVar;
-            this.c = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    zp1.a("sso onekey login");
-                    if (!vp1.g(this.a.getApplicationContext()).e()) {
-                        iq1.b(this.b, fq1.a(), -1, null, false);
-                        zp1.d("sso onekey login fail, user not auth");
-                        return;
-                    }
-                    kq1.m().g(this.a.getApplicationContext(), this.c, this.b);
-                } catch (Throwable th) {
-                    lr1.d(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ a b;
-        public final /* synthetic */ long c;
-
-        public e(up1 up1Var, Context context, a aVar, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {up1Var, context, aVar, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = aVar;
-            this.c = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    zp1.a("sso onekey verifyPhoneNum");
-                    if (!vp1.g(this.a.getApplicationContext()).e()) {
-                        iq1.b(this.b, fq1.a(), -1, null, false);
-                        zp1.d("sso onekey verifyPhoneNum fail, user not auth");
-                        return;
-                    }
-                    kq1.m().l(this.a.getApplicationContext(), this.c, this.b);
-                } catch (Throwable th) {
-                    lr1.d(th);
-                }
-            }
-        }
+        d = new up1();
     }
 
     public up1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static up1 d() {
+    public static up1 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (up1.class) {
-                    if (a == null) {
-                        a = new up1();
-                    }
-                }
-            }
-            return a;
+            return d;
         }
         return (up1) invokeV.objValue;
     }
 
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            zp1.b(z);
-        }
-    }
-
-    public String c(Context context) {
+    public final String a(Throwable th) {
+        PrintWriter printWriter;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            zp1.a("getCurrentOperatorName");
-            if (!vp1.g(context.getApplicationContext()).e()) {
-                zp1.d("getCurrentOperatorName fail, user not auth");
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, th)) == null) {
+            try {
+                StringWriter stringWriter = new StringWriter();
+                printWriter = new PrintWriter(stringWriter);
+                try {
+                    th.printStackTrace(printWriter);
+                    String obj = stringWriter.toString();
+                    printWriter.close();
+                    return obj;
+                } catch (Throwable unused) {
+                    if (printWriter != null) {
+                        printWriter.close();
+                        return "";
+                    }
+                    return "";
+                }
+            } catch (Throwable unused2) {
+                printWriter = null;
             }
-            int intValue = ((Integer) ur1.c(context.getApplicationContext()).second).intValue();
-            if (intValue == 1) {
-                return OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE;
-            }
-            if (intValue == 3) {
-                return OneKeyLoginSdkCall.OPERATOR_CHINA_TELECOM;
-            }
-            if (intValue != 2) {
-                return null;
-            }
-            return OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM;
+        } else {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
     }
 
-    public synchronized void e(Context context, String str, String str2) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
+    public synchronized void b(vp1 vp1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vp1Var) == null) {
             synchronized (this) {
                 try {
-                    b = str;
-                    c = str2;
-                    fr1.b().post(new b(this, context));
-                } catch (Throwable th) {
-                    lr1.d(th);
+                    this.c = vp1Var;
+                } finally {
                 }
+                if (vp1Var == null) {
+                    return;
+                }
+                if (!vp1Var.a()) {
+                    return;
+                }
+                if (this.b) {
+                    return;
+                }
+                this.b = true;
+                this.a = Thread.getDefaultUncaughtExceptionHandler();
+                Thread.setDefaultUncaughtExceptionHandler(this);
             }
         }
     }
 
-    public final void f(Context context) {
+    @Override // java.lang.Thread.UncaughtExceptionHandler
+    public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            String m0 = vp1.g(context).m0();
-            if (TextUtils.isEmpty(m0)) {
-                return;
-            }
-            String[] split = m0.split("_");
-            if (split.length != 2) {
-                vp1.g(context).h();
-            }
-            b = split[0];
-            c = split[1];
-        }
-    }
-
-    public void g(Context context, long j, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, thread, th) == null) {
             try {
-                fr1.b().post(new d(this, context, aVar, j));
-            } catch (Throwable th) {
-                lr1.d(th);
+                String a = a(th);
+                if (!TextUtils.isEmpty(a) && ((a.contains("com.baidu.sso") || a.contains("com.cmic.sso.sdk") || a.contains("com.sdk") || a.contains("cn.com.chinatelecom.gateway")) && this.c != null)) {
+                    this.c.a(a);
+                }
+            } catch (Throwable th2) {
+                er1.d(th2);
             }
-        }
-    }
-
-    public void h(Context context, long j, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
-            try {
-                fr1.b().post(new c(this, context, aVar, j));
-            } catch (Throwable th) {
-                lr1.d(th);
-            }
-        }
-    }
-
-    public void j(Context context, long j, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
-            try {
-                fr1.b().post(new e(this, context, aVar, j));
-            } catch (Throwable th) {
-                lr1.d(th);
-            }
-        }
-    }
-
-    public void i(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, context, z) == null) {
-            try {
-                zp1.a("setUserAuthPrivacyState, value:" + z);
-                vp1.g(context.getApplicationContext()).Z(z);
-            } catch (Throwable th) {
-                lr1.d(th);
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.a;
+            if (uncaughtExceptionHandler != null) {
+                uncaughtExceptionHandler.uncaughtException(thread, th);
             }
         }
     }

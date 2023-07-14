@@ -1,59 +1,77 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fr1 extends HandlerThread {
-    public static /* synthetic */ Interceptable $ic;
-    public static fr1 a;
-    public static Handler b;
+public final class fr1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fr1() {
-        super("SSOHandlerThread", 10);
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+            } catch (Throwable th) {
+                er1.d(th);
             }
+            if (!TextUtils.isEmpty(a)) {
+                return a;
+            }
+            a = op1.g(context).F();
+            return a;
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void a() {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
-            fr1 fr1Var = new fr1();
-            a = fr1Var;
-            fr1Var.start();
-            b = new Handler(a.getLooper());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                if (!TextUtils.isEmpty(b)) {
+                    return b;
+                }
+                String c = c(context);
+                b = c;
+                if (!TextUtils.isEmpty(c)) {
+                    return b;
+                }
+                String a2 = new rp1(context).a();
+                b = a2;
+                if (!TextUtils.isEmpty(a2)) {
+                    return b;
+                }
+                return "";
+            } catch (Throwable th) {
+                er1.d(th);
+                return "";
+            }
         }
+        return (String) invokeL.objValue;
     }
 
-    public static Handler b() {
-        InterceptResult invokeV;
-        Handler handler;
+    public static String c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (fr1.class) {
-                a();
-                handler = b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                Class<?> cls = Class.forName("com.baidu.sofire.ac.F");
+                Object invoke = cls.getDeclaredMethod("getInstance", new Class[0]).invoke(cls, new Object[0]);
+                if (invoke == null) {
+                    return "";
+                }
+                return (String) cls.getDeclaredMethod("gzd", Context.class).invoke(invoke, context);
+            } catch (Throwable th) {
+                er1.d(th);
+                return "";
             }
-            return handler;
         }
-        return (Handler) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

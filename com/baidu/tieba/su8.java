@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class su8 {
+public abstract class su8 implements IUiIntent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
 
     public su8() {
         Interceptable interceptable = $ic;

@@ -7,7 +7,7 @@ import com.kwad.components.ad.interstitial.b.c;
 import com.kwad.components.core.widget.ComplianceTextView;
 import com.kwad.components.core.widget.KsAutoCloseView;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends b {
     public ComplianceTextView gc;
     public OrientationEventListener gd;
@@ -63,8 +63,8 @@ public final class a extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.gc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09126b);
-        this.ge = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0912ac);
+        this.gc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09127f);
+        this.ge = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0912c0);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

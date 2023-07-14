@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.gx5;
+import com.baidu.tieba.ky5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1114common;
+    public CommonReq f1118common;
     public long fid;
     public String firstDir;
     public boolean isVideoTopic;
@@ -71,7 +71,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
             }
             builder.is_video_topic = Integer.valueOf(this.isVideoTopic ? 1 : 0);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                gx5.a(builder, true);
+                ky5.a(builder, true);
             }
             GetSugTopicReqIdl.Builder builder2 = new GetSugTopicReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -84,7 +84,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f1114common;
+            return this.f1118common;
         }
         return (CommonReq) invokeV.objValue;
     }
@@ -137,7 +137,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, commonReq) == null) {
-            this.f1114common = commonReq;
+            this.f1118common = commonReq;
         }
     }
 

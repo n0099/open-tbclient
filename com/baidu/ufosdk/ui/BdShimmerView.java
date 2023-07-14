@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.f1;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BdShimmerView extends f1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,9 +57,9 @@ public class BdShimmerView extends f1 {
             int i2 = this.t;
             if (i2 != 0) {
                 if (i2 == 1) {
-                    Drawable drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f08138a);
+                    Drawable drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f08139f);
                     if (drawable == null) {
-                        this.s.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08138a));
+                        this.s.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08139f));
                     } else {
                         this.s.setImageDrawable(drawable);
                     }
@@ -68,9 +68,9 @@ public class BdShimmerView extends f1 {
                 }
                 return;
             }
-            Drawable drawable2 = resources.getDrawable(R.drawable.obfuscated_res_0x7f08138b);
+            Drawable drawable2 = resources.getDrawable(R.drawable.obfuscated_res_0x7f0813a0);
             if (drawable2 == null) {
-                this.s.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08138b));
+                this.s.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0813a0));
             } else {
                 this.s.setImageDrawable(drawable2);
             }

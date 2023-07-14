@@ -1,250 +1,196 @@
 package com.baidu.tieba;
 
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
+import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class lda {
+public class lda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public int f;
+    public final ArrayList<mda> a;
+    public final tda b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947940416, "Lcom/baidu/tieba/lda;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947940416, "Lcom/baidu/tieba/lda;");
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof lda) {
-                lda ldaVar = (lda) obj;
-                return Intrinsics.areEqual(this.a, ldaVar.a) && Intrinsics.areEqual(this.b, ldaVar.b) && Intrinsics.areEqual(this.c, ldaVar.c) && Intrinsics.areEqual(this.d, ldaVar.d) && this.e == ldaVar.e && this.f == ldaVar.f;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e) * 31) + this.f : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return "VideoAdUiData(name=" + this.a + ", portrait=" + this.b + ", description=" + this.c + ", buttonDesc=" + this.d + ", buttonType=" + this.e + ", channel=" + this.f + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public lda() {
-        this("", null, null, null, 0, 0, 62, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], (String) objArr[1], (String) objArr[2], (String) objArr[3], ((Integer) objArr[4]).intValue(), ((Integer) objArr[5]).intValue(), ((Integer) objArr[6]).intValue(), (DefaultConstructorMarker) objArr[7]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList<>();
+        this.b = new tda();
     }
 
-    public lda(String name, String portrait, String description, String buttonDesc, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {name, portrait, description, buttonDesc, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(name, "name");
-        Intrinsics.checkNotNullParameter(portrait, "portrait");
-        Intrinsics.checkNotNullParameter(description, "description");
-        Intrinsics.checkNotNullParameter(buttonDesc, "buttonDesc");
-        this.a = name;
-        this.b = portrait;
-        this.c = description;
-        this.d = buttonDesc;
-        this.e = i;
-        this.f = i2;
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ lda(String str, String str2, String str3, String str4, int i, int i2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r12, r1, r0, r2, r3, r11);
-        String str5;
-        String str6;
-        int i4;
-        int i5;
-        if ((i3 & 1) != 0) {
-            str5 = "";
-        } else {
-            str5 = str;
-        }
-        if ((i3 & 2) != 0) {
-            str6 = "";
-        } else {
-            str6 = str2;
-        }
-        String str7 = (i3 & 4) == 0 ? str3 : "";
-        String str8 = (i3 & 8) != 0 ? "了解详情" : str4;
-        if ((i3 & 16) != 0) {
-            i4 = 0;
-        } else {
-            i4 = i;
-        }
-        if ((i3 & 32) != 0) {
-            i5 = 0;
-        } else {
-            i5 = i2;
-        }
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+            return this.a.isEmpty();
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public final int c() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.d = str;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a.clear();
         }
     }
 
-    public final void h(int i) {
+    public void a(mda mdaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.e = i;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, mdaVar) != null) || mdaVar == null) {
+            return;
+        }
+        this.a.add(mdaVar);
+        if (mdaVar.getClass().getAnnotation(lp.class) != null) {
+            try {
+                this.b.a((oda) Class.forName("com.baidu.tieba.h5power." + mdaVar.getClass().getSimpleName() + oda.PROXY_CLASS_NAME_SUFFIX).getConstructor(mdaVar.getClass()).newInstance(mdaVar));
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
         }
     }
 
-    public final void i(int i) {
+    public boolean c(WebView webView, String str, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.f = i;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, jsPromptResult)) == null) {
+            if (str.startsWith("tiebaapp")) {
+                f(webView, str);
+                return false;
+            }
+            return d(str, jsPromptResult);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final boolean g(TbPageContext<?> tbPageContext, String str, qda qdaVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, str, qdaVar)) == null) {
+            if (qdaVar == null || qdaVar.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
+                return false;
+            }
+            qdaVar.s(true);
+            qdaVar.z(0);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public void i(WebView webView, String str, @Nullable HashMap hashMap) {
+        tda tdaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str, hashMap) != null) || (tdaVar = this.b) == null) {
+            return;
+        }
+        this.b.e(webView, tdaVar.f(webView, str, hashMap));
+    }
+
+    public boolean d(String str, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, jsPromptResult)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            try {
+                h29 hybridLog = HybridLog.getInstance();
+                hybridLog.c("JsBridge", "processJSON json:" + str);
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("interfaceName");
+                String optString2 = jSONObject.optString("methodName");
+                String optString3 = jSONObject.optString("param");
+                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
+                    return e(optString, optString2, optString3, jsPromptResult);
+                }
+                h29 hybridLog2 = HybridLog.getInstance();
+                hybridLog2.b("JsBridge", "processJSON fail interfaceName:" + optString + " methodName:" + optString2 + " params:" + optString3);
+                return false;
+            } catch (JSONException e) {
+                h29 hybridLog3 = HybridLog.getInstance();
+                hybridLog3.b("JsBridge", "processJSON JSONException:" + e);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void f(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, webView, str) != null) || this.b == null) {
+            return;
+        }
+        h29 hybridLog = HybridLog.getInstance();
+        hybridLog.c("JsBridge", "processScheme scheme:" + str);
+        sda sdaVar = new sda();
+        qda qdaVar = new qda();
+        String a = uda.a(str);
+        sdaVar.f(a);
+        String d = uda.d(str);
+        sdaVar.h(d);
+        String b = uda.b(str);
+        qdaVar.w(b);
+        if (xi.isEmpty(a) || xi.isEmpty(d) || xi.isEmpty(b)) {
+            qdaVar.z(101);
+        }
+        try {
+            sdaVar.j(uda.f(str));
+        } catch (JSONException unused) {
+            sdaVar.j(new JSONObject());
+            qdaVar.z(101);
+        }
+        sdaVar.i(uda.e(str));
+        sdaVar.g(uda.c(str));
+        qda c = this.b.c(sdaVar, qdaVar);
+        if (c.g()) {
+            this.b.d(webView, c);
+        } else {
+            g(bba.c(webView.getContext()), str, c);
         }
     }
 
-    public final void j(String str) {
+    public final boolean e(String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.c = str;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, jsPromptResult)) == null) {
+            if (ListUtils.getCount(this.a) > 0) {
+                Iterator<mda> it = this.a.iterator();
+                while (it.hasNext()) {
+                    mda next = it.next();
+                    if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
         }
-    }
-
-    public final void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
-        }
-    }
-
-    public final void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.b = str;
-        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,151 +1,190 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
+import java.util.Set;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class bo0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<Activity, Set<Object>> a;
+    public static final bo0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final l31 a;
-    public final Map<String, String> b;
-    @NonNull
-    public final Map<String, Map<String, String>> c;
-    public volatile boolean d;
+
+    /* loaded from: classes5.dex */
+    public static final class a implements Application.ActivityLifecycleCallbacks {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, outState) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+                Intrinsics.checkNotNullParameter(outState, "outState");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+                bo0.b.e(activity);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947651558, "Lcom/baidu/tieba/bo0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947651558, "Lcom/baidu/tieba/bo0;");
+                return;
+            }
+        }
+        b = new bo0();
+        a = new LinkedHashMap();
+        Context b2 = rk0.b();
+        if (b2 != null) {
+            if (!(b2 instanceof Application)) {
+                b2 = null;
+            }
+            Application application = (Application) b2;
+            if (application != null) {
+                application.registerActivityLifecycleCallbacks(new a());
+            }
+        }
+    }
 
     public bo0() {
-        String[] a;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new ConcurrentHashMap(128);
-        this.c = new ConcurrentHashMap(8);
-        this.a = o31.a().b("nad.cold.launch.config");
-        for (String str : io0.a().a()) {
-            String string = this.a.getString(str, null);
-            if (string != null) {
-                d31.e(this.b, str, string);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @NonNull
-    public Map<String, String> a() {
-        InterceptResult invokeV;
+    public final <T extends eo0> void b(Activity activity, Object event, int i, ho0<T> subscriber) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @NonNull
-    public Map<String, Map<String, String>> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final void c(@NonNull JSONObject jSONObject) {
-        String[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.b.clear();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                d31.e(this.b, next, jSONObject.optString(next));
-            }
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.clear();
-            for (String str : io0.a().a()) {
-                String str2 = (String) d31.b(this.b, str);
-                if (str2 != null) {
-                    edit.putString(str, str2);
-                }
-            }
-            edit.apply();
-            SharedPreferences.Editor edit2 = o31.a().b("nad.launch.config.global").edit();
-            edit2.clear();
-            for (String str3 : this.b.keySet()) {
-                String str4 = (String) d31.b(this.b, str3);
-                if (str4 != null) {
-                    edit2.putString(str3, str4);
-                }
-            }
-            edit2.apply();
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, activity, event, i, subscriber) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            Intrinsics.checkNotNullParameter(event, "event");
+            Intrinsics.checkNotNullParameter(subscriber, "subscriber");
+            do0.a().c(event, i, subscriber);
+            d(activity, subscriber);
         }
     }
 
-    public final void d(@NonNull JSONObject jSONObject) {
+    public final <T extends eo0> void c(Activity activity, Object event, ho0<T> subscriber) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            this.c.clear();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString = jSONObject.optString(next);
-                HashMap hashMap = null;
-                if (!TextUtils.isEmpty(optString)) {
-                    hashMap = new HashMap(8);
-                    JSONObject c = c31.c(optString);
-                    Iterator<String> keys2 = c.keys();
-                    while (keys2.hasNext()) {
-                        String next2 = keys2.next();
-                        d31.e(hashMap, next2, c.optString(next2));
-                    }
-                }
-                if (hashMap != null) {
-                    d31.e(this.c, next, hashMap);
-                    o31 a = o31.a();
-                    SharedPreferences.Editor edit = a.b("nad.launch.config." + next).edit();
-                    edit.clear();
-                    for (String str : hashMap.keySet()) {
-                        String str2 = (String) hashMap.get(str);
-                        if (str2 != null) {
-                            edit.putString(str, str2);
-                        }
-                    }
-                    edit.apply();
-                }
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, event, subscriber) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            Intrinsics.checkNotNullParameter(event, "event");
+            Intrinsics.checkNotNullParameter(subscriber, "subscriber");
+            b(activity, event, 0, subscriber);
+        }
+    }
+
+    public final void d(Activity activity, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, obj) == null) {
+            if (!a.containsKey(activity) || a.get(activity) == null) {
+                a.put(activity, new LinkedHashSet());
+            }
+            Set<Object> set = a.get(activity);
+            if (set != null) {
+                set.add(obj);
             }
         }
     }
 
-    public void update(@NonNull JSONObject jSONObject) {
+    public final void e(Activity activity) {
+        Set<Object> set;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            String optString = jSONObject.optString("global");
-            if (!TextUtils.isEmpty(optString)) {
-                c(c31.c(optString));
+        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (set = a.get(activity)) != null) {
+            for (Object obj : set) {
+                do0.a().unregister(obj);
             }
-            String optString2 = jSONObject.optString("place_conf");
-            if (!TextUtils.isEmpty(optString2)) {
-                d(c31.c(optString2));
-            }
+            a.remove(activity);
         }
     }
 }

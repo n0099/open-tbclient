@@ -16,7 +16,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.channels.FileLock;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public static String a;
 
@@ -201,8 +201,8 @@ public final class c {
         return stringBuffer.toString();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0063 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x009c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0066 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00a0 */
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.lang.String */
     /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: java.nio.channels.FileChannel */
     /* JADX DEBUG: Multi-variable search result rejected for r6v3, resolved type: java.nio.channels.FileChannel */
@@ -225,98 +225,98 @@ public final class c {
             } catch (Throwable th) {
                 th = th;
             }
-        } catch (Exception e) {
-            e = e;
-            str = 0;
-            dataOutputStream2 = null;
-        } catch (Throwable th2) {
-            th = th2;
-            str = 0;
-            dataOutputStream = null;
-        }
-        try {
-            dataOutputStream2 = new DataOutputStream(fileOutputStream);
-            do {
-                try {
-                    fileLock = str.tryLock();
-                } catch (Exception e2) {
-                    e = e2;
-                    Log.w("BdLogSDK", "writeDataToFile Exception", e);
-                    if (fileLock != null) {
-                        try {
-                            fileLock.release();
-                        } catch (IOException e3) {
-                            Log.w("BdLogSDK", "writeDataToFile IOException", e3);
-                        }
-                    }
-                    if (str != 0 && str.isOpen()) {
-                        try {
-                            str.close();
-                        } catch (IOException e4) {
-                            Log.w("BdLogSDK", "writeDataToFile IOException", e4);
-                        }
-                    }
-                    if (dataOutputStream2 != null) {
-                        try {
-                            dataOutputStream2.close();
-                            return;
-                        } catch (Exception e5) {
-                            Log.w("BdLogSDK", "writeDataToFile close Exception", e5);
-                            return;
-                        }
-                    }
-                    return;
-                }
-            } while (fileLock == null);
-            dataOutputStream2.write(RC4.kernelEncrypt(encode));
-            dataOutputStream2.flush();
-            if (fileLock != null) {
-                try {
-                    fileLock.release();
-                } catch (IOException e6) {
-                    Log.w("BdLogSDK", "writeDataToFile IOException", e6);
-                }
-            }
-            if (str != 0 && str.isOpen()) {
-                try {
-                    str.close();
-                } catch (IOException e7) {
-                    Log.w("BdLogSDK", "writeDataToFile IOException", e7);
-                }
-            }
             try {
-                dataOutputStream2.close();
+                dataOutputStream2 = new DataOutputStream(fileOutputStream);
+                do {
+                    try {
+                        fileLock = str.tryLock();
+                    } catch (Exception e) {
+                        e = e;
+                        Log.w("BdLogSDK", "writeDataToFile Exception", e);
+                        if (fileLock != null) {
+                            try {
+                                fileLock.release();
+                            } catch (IOException e2) {
+                                Log.w("BdLogSDK", "writeDataToFile IOException", e2);
+                            }
+                        }
+                        if (str != 0 && str.isOpen()) {
+                            try {
+                                str.close();
+                            } catch (IOException e3) {
+                                Log.w("BdLogSDK", "writeDataToFile IOException", e3);
+                            }
+                        }
+                        if (dataOutputStream2 != null) {
+                            try {
+                                dataOutputStream2.close();
+                                return;
+                            } catch (Exception e4) {
+                                Log.w("BdLogSDK", "writeDataToFile close Exception", e4);
+                                return;
+                            }
+                        }
+                        return;
+                    }
+                } while (fileLock == null);
+                dataOutputStream2.write(RC4.kernelEncrypt(encode));
+                dataOutputStream2.flush();
+                if (fileLock != null) {
+                    try {
+                        fileLock.release();
+                    } catch (IOException e5) {
+                        Log.w("BdLogSDK", "writeDataToFile IOException", e5);
+                    }
+                }
+                if (str != 0 && str.isOpen()) {
+                    try {
+                        str.close();
+                    } catch (IOException e6) {
+                        Log.w("BdLogSDK", "writeDataToFile IOException", e6);
+                    }
+                }
+                try {
+                    dataOutputStream2.close();
+                } catch (Exception e7) {
+                    Log.w("BdLogSDK", "writeDataToFile close Exception", e7);
+                }
             } catch (Exception e8) {
-                Log.w("BdLogSDK", "writeDataToFile close Exception", e8);
+                e = e8;
+                dataOutputStream2 = null;
+            } catch (Throwable th2) {
+                th = th2;
+                dataOutputStream = null;
+                if (0 != 0) {
+                    try {
+                        fileLock.release();
+                    } catch (IOException e9) {
+                        Log.w("BdLogSDK", "writeDataToFile IOException", e9);
+                    }
+                }
+                if (str != 0 && str.isOpen()) {
+                    try {
+                        str.close();
+                    } catch (IOException e10) {
+                        Log.w("BdLogSDK", "writeDataToFile IOException", e10);
+                    }
+                }
+                if (dataOutputStream != null) {
+                    try {
+                        dataOutputStream.close();
+                    } catch (Exception e11) {
+                        Log.w("BdLogSDK", "writeDataToFile close Exception", e11);
+                    }
+                }
+                throw th;
             }
-        } catch (Exception e9) {
-            e = e9;
+        } catch (Exception e12) {
+            e = e12;
+            str = 0;
             dataOutputStream2 = null;
         } catch (Throwable th3) {
             th = th3;
+            str = 0;
             dataOutputStream = null;
-            if (0 != 0) {
-                try {
-                    fileLock.release();
-                } catch (IOException e10) {
-                    Log.w("BdLogSDK", "writeDataToFile IOException", e10);
-                }
-            }
-            if (str != 0 && str.isOpen()) {
-                try {
-                    str.close();
-                } catch (IOException e11) {
-                    Log.w("BdLogSDK", "writeDataToFile IOException", e11);
-                }
-            }
-            if (dataOutputStream != null) {
-                try {
-                    dataOutputStream.close();
-                } catch (Exception e12) {
-                    Log.w("BdLogSDK", "writeDataToFile close Exception", e12);
-                }
-            }
-            throw th;
         }
     }
 

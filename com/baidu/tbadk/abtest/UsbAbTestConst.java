@@ -34,6 +34,8 @@ public class UsbAbTestConst {
     public static final String KEY_PERSONAL_VIDEO_TAB_FLOW = "12_10_zhuye_feed_b";
     public static final String KEY_PUSH_PERMISSION_SCENE_FORUM_FOLLOW_A = "12_37_openpush_b";
     public static final String KEY_PUSH_PERMISSION_SCENE_FORUM_FOLLOW_B = "12_37_openpush_c";
+    public static final String KEY_RECOMMEND_FEED_TEST = "12.44_recommend_feed_test";
+    public static final String KEY_SEARCH_H5_TEST = "12_44_searchbox_a";
     public static final String KEY_SHARE_H5_CARD_OPTIMIZE = "12_16_sharecard_a";
     public static final String KEY_SHOU_BAI_THREAD_TEST = "12.39_shou_bai_thread_test";
     public static final String KEY_VIDEOTAB_AUTO_PLAY = "12_5_zp_1";

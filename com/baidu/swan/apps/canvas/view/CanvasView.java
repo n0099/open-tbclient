@@ -8,12 +8,12 @@ import android.graphics.PaintFlagsDrawFilter;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import com.baidu.tieba.i52;
-import com.baidu.tieba.j52;
-import com.baidu.tieba.n52;
-import com.baidu.tieba.n62;
-import com.baidu.tieba.s52;
-import com.baidu.tieba.wp3;
+import com.baidu.tieba.b52;
+import com.baidu.tieba.c52;
+import com.baidu.tieba.g52;
+import com.baidu.tieba.g62;
+import com.baidu.tieba.l52;
+import com.baidu.tieba.pp3;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -43,8 +43,8 @@ public class CanvasView extends AbsCanvasView {
 
     /* loaded from: classes4.dex */
     public static class b {
-        public List<i52> a;
-        public j52 b;
+        public List<b52> a;
+        public c52 b;
 
         public b() {
         }
@@ -86,7 +86,7 @@ public class CanvasView extends AbsCanvasView {
         this.d = getLayerType();
     }
 
-    public void c(List<i52> list, boolean z) {
+    public void c(List<b52> list, boolean z) {
         boolean z2;
         if (list != null && !this.b.contains(list)) {
             if (!z) {
@@ -102,15 +102,15 @@ public class CanvasView extends AbsCanvasView {
             if (z2) {
                 b bVar2 = this.b.get(size - 1);
                 bVar.b = bVar2.b;
-                List<i52> list2 = bVar2.a;
+                List<b52> list2 = bVar2.a;
                 bVar.a = list2;
                 list2.addAll(list);
             } else {
-                bVar.b = new j52(this);
+                bVar.b = new c52(this);
                 bVar.a = list;
             }
             this.b.add(bVar);
-            wp3.e0(new a());
+            pp3.e0(new a());
         }
     }
 
@@ -118,13 +118,13 @@ public class CanvasView extends AbsCanvasView {
         int i = this.d;
         if (this.b.size() > 0) {
             for (b bVar : this.b) {
-                Iterator<i52> it = bVar.a.iterator();
+                Iterator<b52> it = bVar.a.iterator();
                 while (true) {
                     if (it.hasNext()) {
-                        i52 next = it.next();
-                        if (next instanceof n52) {
+                        b52 next = it.next();
+                        if (next instanceof g52) {
                             i = 2;
-                        } else if (next instanceof n62) {
+                        } else if (next instanceof g62) {
                             i = 1;
                             break;
                         }
@@ -141,7 +141,7 @@ public class CanvasView extends AbsCanvasView {
         this.e.clear();
     }
 
-    public j52 getCanvasContext() {
+    public c52 getCanvasContext() {
         if (this.b.size() > 0) {
             List<b> list = this.b;
             return list.get(list.size() - 1).b;
@@ -156,13 +156,13 @@ public class CanvasView extends AbsCanvasView {
             int save = canvas.save();
             canvas.setDrawFilter(this.c);
             for (b bVar : this.b) {
-                List<i52> list = bVar.a;
-                j52 j52Var = bVar.b;
-                j52Var.d();
-                for (i52 i52Var : list) {
-                    i52Var.a(j52Var, canvas);
-                    if (i52Var instanceof s52) {
-                        ((s52) i52Var).e(this.e);
+                List<b52> list = bVar.a;
+                c52 c52Var = bVar.b;
+                c52Var.d();
+                for (b52 b52Var : list) {
+                    b52Var.a(c52Var, canvas);
+                    if (b52Var instanceof l52) {
+                        ((l52) b52Var).e(this.e);
                     }
                 }
             }

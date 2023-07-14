@@ -355,10 +355,10 @@ public class ViewCompat {
         }
 
         public static UnhandledKeyEventManager at(View view2) {
-            UnhandledKeyEventManager unhandledKeyEventManager = (UnhandledKeyEventManager) view2.getTag(R.id.obfuscated_res_0x7f092388);
+            UnhandledKeyEventManager unhandledKeyEventManager = (UnhandledKeyEventManager) view2.getTag(R.id.obfuscated_res_0x7f0923bc);
             if (unhandledKeyEventManager == null) {
                 UnhandledKeyEventManager unhandledKeyEventManager2 = new UnhandledKeyEventManager();
-                view2.setTag(R.id.obfuscated_res_0x7f092388, unhandledKeyEventManager2);
+                view2.setTag(R.id.obfuscated_res_0x7f0923bc, unhandledKeyEventManager2);
                 return unhandledKeyEventManager2;
             }
             return unhandledKeyEventManager;
@@ -408,7 +408,7 @@ public class ViewCompat {
         }
 
         private boolean onUnhandledKeyEvent(@NonNull View view2, @NonNull KeyEvent keyEvent) {
-            ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f092389);
+            ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f0923bd);
             if (arrayList != null) {
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
                     if (((OnUnhandledKeyEventListenerCompat) arrayList.get(size)).onUnhandledKeyEvent(view2, keyEvent)) {
@@ -494,7 +494,7 @@ public class ViewCompat {
     /* loaded from: classes.dex */
     public static class Api21Impl {
         public static void callCompatInsetAnimationCallback(@NonNull WindowInsets windowInsets, @NonNull View view2) {
-            View.OnApplyWindowInsetsListener onApplyWindowInsetsListener = (View.OnApplyWindowInsetsListener) view2.getTag(R.id.obfuscated_res_0x7f092396);
+            View.OnApplyWindowInsetsListener onApplyWindowInsetsListener = (View.OnApplyWindowInsetsListener) view2.getTag(R.id.obfuscated_res_0x7f0923ca);
             if (onApplyWindowInsetsListener != null) {
                 onApplyWindowInsetsListener.onApplyWindowInsets(view2, windowInsets);
             }
@@ -502,10 +502,10 @@ public class ViewCompat {
 
         public static void setOnApplyWindowInsetsListener(@NonNull final View view2, @Nullable final OnApplyWindowInsetsListener onApplyWindowInsetsListener) {
             if (Build.VERSION.SDK_INT < 30) {
-                view2.setTag(R.id.obfuscated_res_0x7f09235a, onApplyWindowInsetsListener);
+                view2.setTag(R.id.obfuscated_res_0x7f09238e, onApplyWindowInsetsListener);
             }
             if (onApplyWindowInsetsListener == null) {
-                view2.setOnApplyWindowInsetsListener((View.OnApplyWindowInsetsListener) view2.getTag(R.id.obfuscated_res_0x7f092396));
+                view2.setOnApplyWindowInsetsListener((View.OnApplyWindowInsetsListener) view2.getTag(R.id.obfuscated_res_0x7f0923ca));
             } else {
                 view2.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() { // from class: androidx.core.view.ViewCompat.Api21Impl.1
                     public WindowInsetsCompat mLastInsets = null;
@@ -587,10 +587,10 @@ public class ViewCompat {
     /* loaded from: classes.dex */
     public static class CompatImplApi28 {
         public static void addOnUnhandledKeyEventListener(@NonNull View view2, @NonNull final OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
-            SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R.id.obfuscated_res_0x7f092389);
+            SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R.id.obfuscated_res_0x7f0923bd);
             if (simpleArrayMap == null) {
                 simpleArrayMap = new SimpleArrayMap();
-                view2.setTag(R.id.obfuscated_res_0x7f092389, simpleArrayMap);
+                view2.setTag(R.id.obfuscated_res_0x7f0923bd, simpleArrayMap);
             }
             View.OnUnhandledKeyEventListener onUnhandledKeyEventListener = new View.OnUnhandledKeyEventListener() { // from class: androidx.core.view.ViewCompat.CompatImplApi28.1
                 @Override // android.view.View.OnUnhandledKeyEventListener
@@ -604,7 +604,7 @@ public class ViewCompat {
 
         public static void removeOnUnhandledKeyEventListener(@NonNull View view2, @NonNull OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
             View.OnUnhandledKeyEventListener onUnhandledKeyEventListener;
-            SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R.id.obfuscated_res_0x7f092389);
+            SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R.id.obfuscated_res_0x7f0923bd);
             if (simpleArrayMap != null && (onUnhandledKeyEventListener = (View.OnUnhandledKeyEventListener) simpleArrayMap.get(onUnhandledKeyEventListenerCompat)) != null) {
                 view2.removeOnUnhandledKeyEventListener(onUnhandledKeyEventListener);
             }
@@ -612,7 +612,7 @@ public class ViewCompat {
     }
 
     public static AccessibilityViewProperty<Boolean> accessibilityHeadingProperty() {
-        return new AccessibilityViewProperty<Boolean>(R.id.obfuscated_res_0x7f092321, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.5
+        return new AccessibilityViewProperty<Boolean>(R.id.obfuscated_res_0x7f092354, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.5
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
@@ -676,7 +676,7 @@ public class ViewCompat {
     }
 
     public static AccessibilityViewProperty<CharSequence> paneTitleProperty() {
-        return new AccessibilityViewProperty<CharSequence>(R.id.obfuscated_res_0x7f092322, CharSequence.class, 8, 28) { // from class: androidx.core.view.ViewCompat.3
+        return new AccessibilityViewProperty<CharSequence>(R.id.obfuscated_res_0x7f092355, CharSequence.class, 8, 28) { // from class: androidx.core.view.ViewCompat.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
@@ -701,7 +701,7 @@ public class ViewCompat {
     }
 
     public static AccessibilityViewProperty<Boolean> screenReaderFocusableProperty() {
-        return new AccessibilityViewProperty<Boolean>(R.id.obfuscated_res_0x7f092376, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.2
+        return new AccessibilityViewProperty<Boolean>(R.id.obfuscated_res_0x7f0923aa, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
@@ -726,7 +726,7 @@ public class ViewCompat {
     }
 
     public static AccessibilityViewProperty<CharSequence> stateDescriptionProperty() {
-        return new AccessibilityViewProperty<CharSequence>(R.id.obfuscated_res_0x7f09237f, CharSequence.class, 64, 30) { // from class: androidx.core.view.ViewCompat.4
+        return new AccessibilityViewProperty<CharSequence>(R.id.obfuscated_res_0x7f0923b3, CharSequence.class, 64, 30) { // from class: androidx.core.view.ViewCompat.4
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
@@ -844,10 +844,10 @@ public class ViewCompat {
             CompatImplApi28.addOnUnhandledKeyEventListener(view2, onUnhandledKeyEventListenerCompat);
             return;
         }
-        ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f092389);
+        ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f0923bd);
         if (arrayList == null) {
             arrayList = new ArrayList();
-            view2.setTag(R.id.obfuscated_res_0x7f092389, arrayList);
+            view2.setTag(R.id.obfuscated_res_0x7f0923bd, arrayList);
         }
         arrayList.add(onUnhandledKeyEventListenerCompat);
         if (arrayList.size() == 1) {
@@ -987,7 +987,7 @@ public class ViewCompat {
             CompatImplApi28.removeOnUnhandledKeyEventListener(view2, onUnhandledKeyEventListenerCompat);
             return;
         }
-        ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f092389);
+        ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f0923bd);
         if (arrayList != null) {
             arrayList.remove(onUnhandledKeyEventListenerCompat);
             if (arrayList.size() == 0) {
@@ -1456,10 +1456,10 @@ public class ViewCompat {
     }
 
     public static List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> getActionList(View view2) {
-        ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f09231f);
+        ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f092352);
         if (arrayList == null) {
             ArrayList arrayList2 = new ArrayList();
-            view2.setTag(R.id.obfuscated_res_0x7f09231f, arrayList2);
+            view2.setTag(R.id.obfuscated_res_0x7f092352, arrayList2);
             return arrayList2;
         }
         return arrayList;
@@ -1642,7 +1642,7 @@ public class ViewCompat {
 
     @Nullable
     public static String[] getOnReceiveContentMimeTypes(@NonNull View view2) {
-        return (String[]) view2.getTag(R.id.obfuscated_res_0x7f09235c);
+        return (String[]) view2.getTag(R.id.obfuscated_res_0x7f092390);
     }
 
     public static AccessibilityDelegateCompat getOrCreateAccessibilityDelegateCompat(@NonNull View view2) {
@@ -2155,7 +2155,7 @@ public class ViewCompat {
         if (Log.isLoggable(TAG, 3)) {
             Log.d(TAG, "performReceiveContent: " + contentInfoCompat + ", view=" + view2.getClass().getSimpleName() + PreferencesUtil.LEFT_MOUNT + view2.getId() + PreferencesUtil.RIGHT_MOUNT);
         }
-        OnReceiveContentListener onReceiveContentListener = (OnReceiveContentListener) view2.getTag(R.id.obfuscated_res_0x7f09235b);
+        OnReceiveContentListener onReceiveContentListener = (OnReceiveContentListener) view2.getTag(R.id.obfuscated_res_0x7f09238f);
         if (onReceiveContentListener != null) {
             ContentInfoCompat onReceiveContent = onReceiveContentListener.onReceiveContent(view2, contentInfoCompat);
             if (onReceiveContent == null) {
@@ -2353,7 +2353,7 @@ public class ViewCompat {
             }
             Preconditions.checkArgument(!z2, "A MIME type set here must not start with *: " + Arrays.toString(strArr));
         }
-        view2.setTag(R.id.obfuscated_res_0x7f09235c, strArr);
-        view2.setTag(R.id.obfuscated_res_0x7f09235b, onReceiveContentListener);
+        view2.setTag(R.id.obfuscated_res_0x7f092390, strArr);
+        view2.setTag(R.id.obfuscated_res_0x7f09238f, onReceiveContentListener);
     }
 }

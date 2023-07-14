@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.data;
 
 import android.graphics.Bitmap;
-import com.baidu.tieba.y1b;
-/* loaded from: classes8.dex */
+import com.baidu.tieba.wab;
+/* loaded from: classes9.dex */
 public class MediaInfo {
     public static final int minimumDuration = 3000;
     public long duration;
@@ -91,7 +91,7 @@ public class MediaInfo {
                 isMore3s = false;
             }
         }
-        if (!y1b.a) {
+        if (!wab.a) {
             if (this.duration > 15000) {
                 z = false;
             }

@@ -36,14 +36,14 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.data.MembershipUserInfo;
-import com.baidu.tieba.ph5;
+import com.baidu.tieba.at9;
+import com.baidu.tieba.es9;
+import com.baidu.tieba.h37;
+import com.baidu.tieba.mi5;
+import com.baidu.tieba.nx4;
 import com.baidu.tieba.redtip.PersonRedTipManager;
-import com.baidu.tieba.um9;
-import com.baidu.tieba.ux4;
-import com.baidu.tieba.vg;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
-import com.baidu.tieba.y07;
-import com.baidu.tieba.yl9;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,19 +57,19 @@ import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes7.dex */
-public class PersonPolymericEventController extends um9 {
+public class PersonPolymericEventController extends at9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yl9 e;
+    public es9 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPolymericEventController(TbPageContext tbPageContext, yl9 yl9Var) {
+    public PersonPolymericEventController(TbPageContext tbPageContext, es9 es9Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, yl9Var};
+            Object[] objArr = {tbPageContext, es9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,23 +80,23 @@ public class PersonPolymericEventController extends um9 {
                 return;
             }
         }
-        this.e = yl9Var;
+        this.e = es9Var;
     }
 
-    @Override // com.baidu.tieba.um9, com.baidu.tieba.pha
-    public void a(View view2, y07 y07Var) {
+    @Override // com.baidu.tieba.at9, com.baidu.tieba.gqa
+    public void a(View view2, h37 h37Var) {
         UserData userData;
         String str;
         int i;
         MembershipUserInfo membershipUserInfo;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, y07Var) == null) {
-            super.a(view2, y07Var);
-            if (y07Var == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, h37Var) == null) {
+            super.a(view2, h37Var);
+            if (h37Var == null) {
                 return;
             }
-            Bundle bundle = y07Var.b;
+            Bundle bundle = h37Var.b;
             String str3 = null;
             if (bundle != null) {
                 userData = (UserData) bundle.getSerializable(UserData.TYPE_USER);
@@ -104,22 +104,22 @@ public class PersonPolymericEventController extends um9 {
                 userData = null;
             }
             int i2 = 1;
-            switch (y07Var.a) {
+            switch (h37Var.a) {
                 case 1:
                     if (userData == null) {
                         return;
                     }
-                    ph5 ph5Var = new ph5();
+                    mi5 mi5Var = new mi5();
                     if (!StringUtils.isNull(userData.getPortrait()) && userData.getPortrait().startsWith("http")) {
-                        ph5Var.d(userData.getPortrait());
+                        mi5Var.d(userData.getPortrait());
                     } else {
-                        ph5Var.d(userData.getPortraitH());
+                        mi5Var.d(userData.getPortraitH());
                     }
-                    ph5Var.f(userData.getPortrait());
-                    ph5Var.e(true);
+                    mi5Var.f(userData.getPortrait());
+                    mi5Var.e(true);
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(ph5Var);
-                    this.e.n().q(ph5Var, arrayList, 0);
+                    arrayList.add(mi5Var);
+                    this.e.n().q(mi5Var, arrayList, 0);
                     return;
                 case 2:
                 case 3:
@@ -141,8 +141,8 @@ public class PersonPolymericEventController extends um9 {
                     this.a.getPageActivity().finish();
                     return;
                 case 9:
-                    yl9 yl9Var = this.e;
-                    if (yl9Var != null && yl9Var.l() != null) {
+                    es9 es9Var = this.e;
+                    if (es9Var != null && es9Var.l() != null) {
                         TiebaStatic.log("c12207");
                         this.e.l().e();
                         return;
@@ -153,7 +153,7 @@ public class PersonPolymericEventController extends um9 {
                         str = userData.getUserId();
                         str3 = userData.getBg_pic();
                         try {
-                            i = vg.e(c(str3).get("props_id"), -1);
+                            i = wg.e(c(str3).get("props_id"), -1);
                         } catch (URISyntaxException unused) {
                         }
                         if (i == -1 && !str.equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -185,7 +185,7 @@ public class PersonPolymericEventController extends um9 {
                         personChangeData.setCanModifyAvatar(userData.canModifyAvatar());
                         personChangeData.setCantModifyAvatarDesc(userData.getCantModifyAvatarDesc());
                         personChangeData.setTiebaId(userData.getmTiebaUid());
-                        Bundle bundle2 = y07Var.b;
+                        Bundle bundle2 = h37Var.b;
                         if (bundle2 != null) {
                             personChangeData.setNickNameLeftDays(bundle2.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                         }
@@ -273,7 +273,7 @@ public class PersonPolymericEventController extends um9 {
                     return;
                 case 31:
                     b(9);
-                    UrlManager.getInstance().dealOneLink(this.a, new String[]{y07Var.b.getString("book_jump_link")}, true);
+                    UrlManager.getInstance().dealOneLink(this.a, new String[]{h37Var.b.getString("book_jump_link")}, true);
                     return;
                 case 32:
                     if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
@@ -315,7 +315,7 @@ public class PersonPolymericEventController extends um9 {
                         str2 = "0";
                     }
                     sb.append(str2);
-                    ux4.s(this.a.getPageActivity(), sb.toString());
+                    nx4.s(this.a.getPageActivity(), sb.toString());
                     return;
                 case 40:
                     if (userData != null && ViewHelper.checkUpIsLogin(this.a.getPageActivity()) && userData != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -331,14 +331,14 @@ public class PersonPolymericEventController extends um9 {
                     return;
                 case 41:
                     if (userData != null && userData.getBaijiahaoInfo() != null) {
-                        ph5 ph5Var2 = new ph5();
-                        ph5Var2.d(userData.getBaijiahaoInfo().avatar_h);
-                        ph5Var2.f(userData.getBaijiahaoInfo().avatar);
-                        ph5Var2.e(false);
+                        mi5 mi5Var2 = new mi5();
+                        mi5Var2.d(userData.getBaijiahaoInfo().avatar_h);
+                        mi5Var2.f(userData.getBaijiahaoInfo().avatar);
+                        mi5Var2.e(false);
                         ArrayList arrayList2 = new ArrayList();
-                        arrayList2.add(ph5Var2);
+                        arrayList2.add(mi5Var2);
                         if (this.e.n() != null) {
-                            this.e.n().r(ph5Var2, arrayList2, 0, true);
+                            this.e.n().r(mi5Var2, arrayList2, 0, true);
                             return;
                         }
                         return;

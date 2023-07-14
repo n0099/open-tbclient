@@ -1,102 +1,146 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.camera2.CameraCharacteristics;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tieba.f65;
+import com.baidu.tieba.if5;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class fia {
+public class fia extends f65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Matrix a;
-    public RectF b;
+    public final MainTabActivity c;
+    public LiveRemindRecommendData d;
+    public Map<String, Object> e;
+    public if5 f;
 
-    public fia(CameraCharacteristics cameraCharacteristics, RectF rectF) {
-        int intValue;
-        boolean z;
+    /* loaded from: classes5.dex */
+    public class a implements if5.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fia a;
+
+        public a(fia fiaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fiaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fiaVar;
+        }
+
+        @Override // com.baidu.tieba.if5.h
+        public void dismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fia(MainTabActivity mainTabActivity, pfa pfaVar) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cameraCharacteristics, rectF};
+            Object[] objArr = {mainTabActivity, pfaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (a(rectF)) {
-            Rect rect = (Rect) cameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
-            Integer num = (Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
-            if (num == null) {
-                intValue = 90;
-            } else {
-                intValue = num.intValue();
-            }
-            this.b = new RectF(rect);
-            Integer num2 = (Integer) cameraCharacteristics.get(CameraCharacteristics.LENS_FACING);
-            if (num2 != null && num2.intValue() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.a = b(z, intValue, rectF);
-            return;
-        }
-        throw new IllegalArgumentException("previewRect");
+        this.c = mainTabActivity;
     }
 
-    public final boolean a(RectF rectF) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.f65
+    public void b() {
+        if5 if5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rectF)) == null) {
-            if (rectF.width() != 0.0f && rectF.height() != 0.0f) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (if5Var = this.f) != null) {
+            if5Var.t();
         }
-        return invokeL.booleanValue;
     }
 
-    public RectF c(RectF rectF) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.f65
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rectF)) == null) {
-            RectF rectF2 = new RectF();
-            this.a.mapRect(rectF2, rectF);
-            return rectF2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = jf5.d(null, this.c.getPageContext(), this.e, 0L, 4000L, new a(this));
+            r95.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
         }
-        return (RectF) invokeL.objValue;
     }
 
-    public final Matrix b(boolean z, int i, RectF rectF) {
-        InterceptResult invokeCommon;
-        float f;
+    @Override // com.baidu.tieba.f65
+    public void d(f65.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rectF})) == null) {
-            Matrix matrix = new Matrix();
-            if (z) {
-                f = -1.0f;
-            } else {
-                f = 1.0f;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (m65.k()) {
+                aVar.callback(false);
+                return;
             }
-            matrix.setScale(f, 1.0f);
-            matrix.postRotate(-i);
-            matrix.mapRect(rectF);
-            Matrix matrix2 = new Matrix();
-            matrix2.setRectToRect(rectF, this.b, Matrix.ScaleToFit.FILL);
-            matrix.setConcat(matrix2, matrix);
-            return matrix;
+            LiveRemindRecommendData c = q95.a().c(0);
+            this.d = c;
+            if (c != null && r95.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
+                this.e = new HashMap();
+                int i = 3;
+                if (this.d.getRemindType() != 1) {
+                    if (this.d.getRemindType() == 2) {
+                        i = 4;
+                    } else if (this.d.getRemindType() == 3) {
+                        i = 2;
+                    } else {
+                        i = 0;
+                    }
+                }
+                this.e.put("view_top_params_key_image_url", this.d.getLiveIconSrc());
+                this.e.put("view_top_params_key_schema", this.d.getLiveIconScheme());
+                this.e.put("view_top_params_user_name", this.d.getUserName());
+                this.e.put("view_top_params_key_desc", this.d.getDesc());
+                this.e.put("view_top_params_room_id", this.d.getRoomId());
+                this.e.put("view_top_params_btn_text", this.d.getBtnText());
+                this.e.put("view_top_params_key_title", this.d.getTitle());
+                this.e.put("view_top_params_key_nid", this.d.getFeedId());
+                this.e.put("view_top_params_key_yyext", this.d.getYyExtData());
+                this.e.put("view_top_params_key_type", Integer.valueOf(i));
+                this.e.put("view_top_params_is_breathe", Boolean.FALSE);
+                if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !wg5.j()) {
+                    if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !wg5.j()) {
+                        aVar.callback(true);
+                        return;
+                    } else {
+                        aVar.callback(false);
+                        return;
+                    }
+                }
+                aVar.callback(false);
+                return;
+            }
+            aVar.callback(false);
         }
-        return (Matrix) invokeCommon.objValue;
     }
 }

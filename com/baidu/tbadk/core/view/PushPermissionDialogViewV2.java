@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oa5;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.gb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -173,18 +173,18 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0213));
             setBackgroundDrawable(gradientDrawable);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09250e);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092542);
             this.a = textView;
             if (textView != null) {
-                s75 d = s75.d(textView);
+                d85 d = d85.d(textView);
                 d.x(R.color.CAM_X0105);
                 d.C(R.dimen.T_X05);
                 d.D(R.string.F_X02);
             }
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09087a);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09087b);
             this.b = textView2;
             if (textView2 != null) {
-                s75 d2 = s75.d(textView2);
+                d85 d2 = d85.d(textView2);
                 d2.x(R.color.CAM_X0108);
                 d2.C(R.dimen.T_X07);
                 d2.D(R.string.F_X01);
@@ -197,7 +197,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.setTextSize(R.dimen.T_X06);
                 this.e.setText(TbadkCoreApplication.getInst().getString(R.string.push_permission_dialog_confirm_button_text_2));
-                this.e.setConfig(new oa5());
+                this.e.setConfig(new gb5());
             }
             this.f = skinType;
         }

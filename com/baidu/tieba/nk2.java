@@ -2,27 +2,172 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.collection.ArraySet;
-import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import androidx.annotation.WorkerThread;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.pl2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 /* loaded from: classes7.dex */
 public class nk2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final int b;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Set a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ on4 c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ pl2.b e;
+        public final /* synthetic */ nk2 f;
+
+        public a(nk2 nk2Var, Set set, boolean z, on4 on4Var, long j, pl2.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nk2Var, set, Boolean.valueOf(z), on4Var, Long.valueOf(j), bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = nk2Var;
+            this.a = set;
+            this.b = z;
+            this.c = on4Var;
+            this.d = j;
+            this.e = bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            int i;
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                HashSet hashSet = new HashSet();
+                Set set = this.a;
+                if (set != null) {
+                    hashSet.addAll(set);
+                }
+                Set<String> f = ru2.f();
+                hashSet.addAll(f);
+                v82.k("SwanAppDiskCleaner", "排除正在活动的小程：" + f);
+                Set<String> b = kk2.b();
+                hashSet.addAll(b);
+                v82.k("SwanAppDiskCleaner", "排除正在下载中的小程：" + b);
+                Map<String, PMSAppInfo> v = sj4.i().v();
+                if (!hk2.c().d().n(v)) {
+                    v82.k("SwanAppDiskCleaner", "PMS数据库没有文件，不需要清理");
+                    return;
+                }
+                if (nk2.a) {
+                    Log.d("SwanAppDiskCleaner", "删除所有小程序包下的历史版本包");
+                }
+                ru2.d(hashSet, v);
+                Map m = this.f.m(86400000L, v);
+                if (m.isEmpty()) {
+                    return;
+                }
+                ArrayList arrayList = new ArrayList(m.keySet());
+                nk2.k(hashSet, arrayList);
+                ArrayList arrayList2 = new ArrayList();
+                ArrayList arrayList3 = new ArrayList();
+                nk2.l(arrayList, arrayList2, arrayList3);
+                ArrayList arrayList4 = new ArrayList();
+                if (this.b) {
+                    i = nk2.b;
+                } else {
+                    i = this.c.d;
+                }
+                int max = Math.max(10, i);
+                nk2.r(arrayList3, max, arrayList4);
+                long j = this.c.e;
+                nk2.q(arrayList3, j * 3600000, arrayList4, m);
+                if (this.b) {
+                    i2 = nk2.c;
+                } else {
+                    i2 = this.c.b;
+                }
+                int max2 = Math.max(40, i2);
+                nk2.r(arrayList2, max2, arrayList4);
+                long j2 = this.c.c;
+                nk2.q(arrayList2, 3600000 * j2, arrayList4, m);
+                v82.k("SwanAppDiskCleaner", "clean_internal_hour=" + this.d + " pre_hold_count=" + max + " pre_force_clean_hour=" + j + " used_hold_count=" + max2 + " used_force_clean_hour=" + j2 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + "\n");
+                hk2.c().d().g(arrayList4, false, false, this.e);
+                nf2.c();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements Comparator<PMSAppInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, pMSAppInfo2)) == null) {
+                return Long.compare(pMSAppInfo2.createTime, pMSAppInfo.createTime);
+            }
+            return invokeLL.intValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,165 +182,183 @@ public class nk2 {
                 return;
             }
         }
-        a = ms1.a;
+        a = fs1.a;
+        cv2.g0().getSwitch("swan_disk_level_pkg_hold_used", 0);
+        b = 0;
+        cv2.g0().getSwitch("swan_disk_level_pkg_hold_predownload", 0);
+        c = 0;
     }
 
-    @Nullable
-    public static Set<String> a(int i, List<String> list) {
-        InterceptResult invokeIL;
-        boolean z;
+    public nk2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                HashSet hashSet = new HashSet();
-                for (b93 b93Var : d93.k().q()) {
-                    String appId = b93Var.getAppId();
-                    if (TextUtils.isEmpty(appId)) {
-                        appId = b93Var.N();
-                    }
-                    if (!b93Var.E() && !b93Var.Q()) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (b93Var.T() && z && list.contains(appId)) {
-                        s83 e = s83.e();
-                        u83 u83Var = new u83(i);
-                        u83Var.b(b93Var.b);
-                        e.h(u83Var);
-                        hashSet.add(appId);
-                        if (a) {
-                            Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
-                        }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return jk3.a().getBoolean("key_disk_force_clean", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @AnyThread
+    public synchronized void i(@Nullable Set<String> set, boolean z, pl2.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) {
+            synchronized (this) {
+                j(set, z, bVar);
+            }
+        }
+    }
+
+    public static void k(Set<String> set, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, set, list) == null) {
+            if (set != null) {
+                Iterator<String> it = list.iterator();
+                while (it.hasNext()) {
+                    if (set.contains(it.next())) {
+                        it.remove();
                     }
                 }
-                return hashSet;
             }
-            return null;
-        }
-        return (Set) invokeIL.objValue;
-    }
-
-    public static void b(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)}) == null) {
-            c(file, str, str2, set, z, null);
+            list.remove("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0077  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x008f  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a6  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z, @Nullable lw3<Pair<String, File>> lw3Var) {
-        File[] listFiles;
+    public static void l(@NonNull List<String> list, @NonNull List<String> list2, @NonNull List<String> list3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, set, Boolean.valueOf(z), lw3Var}) == null) && file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-            for (File file2 : listFiles) {
-                String name = file2.getName();
-                if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
-                    int length = name.length();
-                    int length2 = str.length();
-                    int length3 = str2.length();
-                    if (length >= length2 + length3) {
-                        String substring = name.substring(length2, length - length3);
-                        if (set == null) {
-                            set = Collections.emptySet();
-                        }
-                        if (!TextUtils.isEmpty(substring)) {
-                            if (z) {
-                                if (set.contains(substring)) {
-                                }
-                                if (a) {
-                                    Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
-                                }
-                                if (lw3Var == null) {
-                                    lw3Var.run(Pair.create(str + substring, file2));
-                                } else {
-                                    gs4.L(file2);
-                                }
-                            } else {
-                                if (!set.contains(substring)) {
-                                }
-                                if (a) {
-                                }
-                                if (lw3Var == null) {
-                                }
-                            }
-                        }
-                    }
+        if (interceptable == null || interceptable.invokeLLL(65547, null, list, list2, list3) == null) {
+            Set<String> i = yi2.i(AppRuntime.getAppContext().getContentResolver());
+            List<SwanFavorItemData> i2 = SwanFavorDataManager.h().i();
+            HashSet hashSet = new HashSet();
+            for (SwanFavorItemData swanFavorItemData : i2) {
+                hashSet.add(swanFavorItemData.getAppKey());
+            }
+            for (String str : list) {
+                if (!i.contains(str) && !hashSet.contains(str)) {
+                    list3.add(str);
+                } else {
+                    list2.add(str);
                 }
             }
         }
     }
 
-    @Nullable
-    public static Set<String> d(List<String> list) {
-        InterceptResult invokeL;
+    @AnyThread
+    public synchronized void j(@Nullable Set<String> set, boolean z, pl2.b bVar) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return a(106, list);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) {
+            synchronized (this) {
+                if (!ProcessUtils.isMainProcess()) {
+                    if (a) {
+                        Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
+                    }
+                    return;
+                }
+                v82.k("SwanAppDiskCleaner", "是否为强制自动清理：" + z);
+                on4 a2 = pn4.b().a();
+                if (z && lk2.a()) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                long j = a2.a;
+                if (!z2 && o(3600000 * j)) {
+                    return;
+                }
+                jk3.a().putLong("clean_disk_check_time", System.currentTimeMillis());
+                ExecutorUtilsExt.postOnSerial(new a(this, set, z, a2, j, bVar), "cleanDiskSpaceOptimized");
             }
-            return null;
         }
-        return (Set) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0080  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a8  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00ab A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static ArraySet<String> e(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
-        InterceptResult invokeCommon;
-        File[] listFiles;
-        String J;
+    public static boolean o(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)})) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-                for (File file2 : listFiles) {
-                    String name = file2.getName();
-                    if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
-                        int length = name.length();
-                        int length2 = str.length();
-                        int length3 = str2.length();
-                        if (length >= length2 + length3) {
-                            String substring = name.substring(length2, length - length3);
-                            if (set == null) {
-                                set = Collections.emptySet();
-                            }
-                            if (!TextUtils.isEmpty(substring)) {
-                                if (z) {
-                                    if (set.contains(substring)) {
-                                    }
-                                    J = gs4.J(file2);
-                                    if (a) {
-                                        Log.i("PurgerUtils", "originFile:" + file2.getAbsolutePath() + ", renameFile:" + J);
-                                    }
-                                    if (TextUtils.isEmpty(J)) {
-                                        arraySet.add(J);
-                                    }
-                                } else {
-                                    if (!set.contains(substring)) {
-                                    }
-                                    J = gs4.J(file2);
-                                    if (a) {
-                                    }
-                                    if (TextUtils.isEmpty(J)) {
-                                    }
-                                }
-                            }
-                        }
-                    }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
+            if (System.currentTimeMillis() - jk3.a().getLong("clean_disk_check_time", 0L) < j) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public static void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
+            jk3.a().putBoolean("key_disk_force_clean", z);
+        }
+    }
+
+    public static void q(List<String> list, long j, List<String> list2, Map<String, Long> map) {
+        Long l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{list, Long.valueOf(j), list2, map}) == null) {
+            Iterator<String> it = list.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!TextUtils.isEmpty(next) && (l = map.get(next)) != null && j < System.currentTimeMillis() - l.longValue()) {
+                    list2.add(next);
+                    it.remove();
                 }
             }
-            return arraySet;
         }
-        return (ArraySet) invokeCommon.objValue;
+    }
+
+    public static void r(List<String> list, int i, List<String> list2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(65552, null, list, i, list2) == null) && list != null && !list.isEmpty() && i >= 0 && i < list.size()) {
+            Iterator<String> it = list.iterator();
+            int i2 = 0;
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!TextUtils.isEmpty(next)) {
+                    int i3 = i2 + 1;
+                    if (i2 >= i) {
+                        list2.add(next);
+                        it.remove();
+                    }
+                    i2 = i3;
+                }
+            }
+        }
+    }
+
+    @NonNull
+    @WorkerThread
+    public final Map<String, Long> m(long j, Map<String, PMSAppInfo> map) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, map)) == null) {
+            if (map != null && !map.isEmpty()) {
+                ArrayList<PMSAppInfo> arrayList = new ArrayList(map.values());
+                Collections.sort(arrayList, new b(null));
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                for (PMSAppInfo pMSAppInfo : arrayList) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    long j2 = pMSAppInfo.createTime;
+                    if (currentTimeMillis - j2 > j) {
+                        linkedHashMap.put(pMSAppInfo.appId, Long.valueOf(j2));
+                    }
+                }
+                return linkedHashMap;
+            }
+            return Collections.emptyMap();
+        }
+        return (Map) invokeJL.objValue;
     }
 }

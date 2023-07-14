@@ -1,65 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.VideoTemplateContent;
 /* loaded from: classes8.dex */
-public class wha {
+public class wha extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
-    public long e;
-    public long f;
-    public double g;
-    public double h;
-    public double i;
-    public double j;
-    public String k;
+    public final aga a;
 
-    public wha() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wha(MainTabActivity mainTabActivity) {
+        super(2921764);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = mainTabActivity.e;
     }
 
-    public void a(VideoTemplateContent videoTemplateContent) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        aga agaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, videoTemplateContent) == null) {
-            this.a = videoTemplateContent.content;
-            this.b = videoTemplateContent.type.intValue();
-            this.c = videoTemplateContent.pic_width.intValue();
-            this.d = videoTemplateContent.pic_height.intValue();
-            this.e = videoTemplateContent.start_time.longValue();
-            this.f = videoTemplateContent.end_time.longValue();
-            this.g = videoTemplateContent.position_x.doubleValue();
-            this.h = videoTemplateContent.position_y.doubleValue();
-            this.i = videoTemplateContent.position_type.doubleValue();
-            this.j = videoTemplateContent.text_size.doubleValue();
-            this.k = videoTemplateContent.text_color;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (agaVar = this.a) != null && agaVar.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                Runnable runnable = this.a.k().d;
+                zg.a().removeCallbacks(runnable);
+                zg.a().post(runnable);
+                return;
+            }
+            zg.a().removeCallbacks(this.a.k().d);
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "AnniversaryContentData{content='" + this.a + "', type=" + this.b + ", picWidth=" + this.c + ", picHeight=" + this.d + ", startTime=" + this.e + ", endTime=" + this.f + ", x=" + this.g + ", y=" + this.h + ", positionType=" + this.i + ", textSize=" + this.j + ", textColor='" + this.k + "'}";
-        }
-        return (String) invokeV.objValue;
     }
 }

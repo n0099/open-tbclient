@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.types;
 
 import kotlin.NoWhenBranchMatchedException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TypeWithEnhancementKt {
     public static final KotlinType getEnhancement(KotlinType kotlinType) {
         if (kotlinType instanceof TypeWithEnhancement) {

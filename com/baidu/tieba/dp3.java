@@ -1,60 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class dp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712194, "Lcom/baidu/tieba/dp3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947712194, "Lcom/baidu/tieba/dp3;");
-                return;
-            }
-        }
-        a = ms1.a;
-    }
-
-    public static void a(Context context, IBinder iBinder) {
-        InputMethodManager inputMethodManager;
+    public static void a(SwanAppActivity swanAppActivity) {
+        Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, context, iBinder) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
-            try {
-                inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(65536, null, swanAppActivity) != null) || swanAppActivity == null || (intent = swanAppActivity.getIntent()) == null) {
+            return;
         }
-    }
-
-    public static void b(Context context, boolean z) {
-        InputMethodManager inputMethodManager;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
-            if (z) {
-                i = 2;
-            } else {
-                i = 0;
-            }
-            inputMethodManager.toggleSoftInput(i, 2);
+        if (u73.D()) {
+            g92.k().s();
         }
+        Bundle bundle = new Bundle();
+        bundle.putAll(intent.getExtras());
+        bundle.putBoolean("should_ignore_launch_time", true);
+        Bundle bundle2 = bundle.getBundle("mExtraData");
+        if (bundle2 == null) {
+            bundle2 = new Bundle();
+            bundle.putBundle("mExtraData", bundle2);
+        }
+        bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
+        bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
+        ub3.K().n(new String[0]);
+        bundle.remove("pms_db_info_onload");
+        bundle.remove("pms_db_info_updated");
+        bundle.remove("mPage");
+        bundle.putString("launch_id", SwanLauncher.h());
+        ub3.K().l(bundle, "update_tag_by_activity_on_relaunch");
     }
 }

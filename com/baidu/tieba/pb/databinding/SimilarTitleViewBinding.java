@@ -55,14 +55,14 @@ public final class SimilarTitleViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0921bf;
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0921bf);
+            int i = R.id.obfuscated_res_0x7f0921f1;
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0921f1);
             if (linearLayout != null) {
-                i = R.id.obfuscated_res_0x7f0921c0;
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921c0);
+                i = R.id.obfuscated_res_0x7f0921f2;
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f2);
                 if (textView != null) {
-                    i = R.id.obfuscated_res_0x7f0921c1;
-                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921c1);
+                    i = R.id.obfuscated_res_0x7f0921f3;
+                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921f3);
                     if (imageView != null) {
                         return new SimilarTitleViewBinding((RelativeLayout) view2, linearLayout, textView, imageView);
                     }
@@ -78,7 +78,7 @@ public final class SimilarTitleViewBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0894, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08ae, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

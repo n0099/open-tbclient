@@ -1,41 +1,40 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes5.dex */
-public abstract class fhb<TResult> {
+public class fhb {
     public static /* synthetic */ Interceptable $ic;
+    public static final SharedPreferences a;
+    public static final SharedPreferences.Editor b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fhb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947765545, "Lcom/baidu/tieba/fhb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947765545, "Lcom/baidu/tieba/fhb;");
+                return;
             }
         }
+        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("csj_ad_ripper", 0);
+        a = sharedPreferences;
+        b = sharedPreferences.edit();
     }
 
-    public abstract fhb<TResult> a(chb<TResult> chbVar);
-
-    public abstract fhb<TResult> b(dhb dhbVar);
-
-    public abstract fhb<TResult> c(ehb<TResult> ehbVar);
-
-    public abstract Exception d();
-
-    public abstract TResult e();
-
-    public abstract boolean f();
-
-    public abstract boolean g();
-
-    public abstract boolean h();
+    public static long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.getLong("key_ad_anti_spam_time", 0L) : invokeV.longValue;
+    }
 }

@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
-public class zr1 implements wr1 {
+public class zr1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yr1 a;
+    public Object a;
+    public Class<?> b;
+    public Method c;
 
     public zr1() {
         Interceptable interceptable = $ic;
@@ -27,20 +29,24 @@ public class zr1 implements wr1 {
         }
     }
 
-    @Override // com.baidu.tieba.wr1
-    public String a() {
-        InterceptResult invokeV;
+    public final String a(Context context, Method method) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wr1
-    public void a(Context context, xr1 xr1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, xr1Var) == null) {
-            yr1 yr1Var = new yr1(context);
-            this.a = yr1Var;
-            yr1Var.b();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, method)) == null) {
+            Object obj = this.a;
+            if (obj == null || method == null) {
+                return null;
+            }
+            try {
+                Object invoke = method.invoke(obj, context);
+                if (invoke != null) {
+                    return (String) invoke;
+                }
+                return null;
+            } catch (Throwable unused) {
+                return null;
+            }
         }
+        return (String) invokeLL.objValue;
     }
 }

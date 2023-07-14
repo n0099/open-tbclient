@@ -1,35 +1,36 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.sailor.BdSailorWebView;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class yg2 {
+public class yg2 implements xg2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yg2 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, wg2> a;
 
     /* loaded from: classes8.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ PrefetchEvent b;
+        public final /* synthetic */ yg2 b;
 
-        public a(String str, PrefetchEvent prefetchEvent) {
+        public a(yg2 yg2Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, prefetchEvent};
+                Object[] objArr = {yg2Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,77 +40,152 @@ public class yg2 {
                     return;
                 }
             }
+            this.b = yg2Var;
             this.a = str;
-            this.b = prefetchEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                yg2.d(this.a);
-                yg2.d(yg2.e(this.a, this.b.pageUrl));
+                this.b.h(this.a);
             }
         }
     }
 
-    public static void c(@NonNull PrefetchEvent prefetchEvent) {
+    public yg2() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, prefetchEvent) != null) || !d63.a()) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        String str = prefetchEvent.appPath;
-        if (TextUtils.isEmpty(str) || !new File(str).exists()) {
-            return;
-        }
-        wo3.k(new a(str, prefetchEvent), "addFileResToMemoryCache");
+        this.a = new HashMap();
     }
 
-    public static void d(String str) {
+    public static yg2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file = new File(str);
-        if (!file.exists()) {
-            return;
-        }
-        if (file.isDirectory()) {
-            String[] list = file.list();
-            if (list != null && list.length != 0) {
-                for (String str2 : list) {
-                    if (!TextUtils.isEmpty(str2)) {
-                        String str3 = str + File.separator + str2;
-                        File file2 = new File(str3);
-                        if (file2.exists() && file2.isFile() && (str3.endsWith(FileHelper.FILE_CACHE_CSS) || str3.endsWith(".js"))) {
-                            BdSailorWebView.addToWebCache("file://" + str3, true);
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (yg2.class) {
+                    if (b == null) {
+                        b = new yg2();
                     }
                 }
             }
-        } else if (file.isFile()) {
-            String absolutePath = file.getAbsolutePath();
-            if (TextUtils.isEmpty(absolutePath)) {
-                return;
+            return b;
+        }
+        return (yg2) invokeV.objValue;
+    }
+
+    public synchronized yg2 b(String str, UbcFlowEvent ubcFlowEvent) {
+        InterceptResult invokeLL;
+        wg2 wg2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
+            synchronized (this) {
+                if (c(str) && (wg2Var = this.a.get(str)) != null) {
+                    wg2Var.a(str, ubcFlowEvent);
+                    return this;
+                }
+                return this;
             }
-            if (absolutePath.endsWith(FileHelper.FILE_CACHE_CSS) || absolutePath.endsWith(".js")) {
-                BdSailorWebView.addToWebCache("file://" + absolutePath, true);
+        }
+        return (yg2) invokeLL.objValue;
+    }
+
+    public synchronized yg2 f(String str, zg2 zg2Var) {
+        InterceptResult invokeLL;
+        wg2 wg2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, zg2Var)) == null) {
+            synchronized (this) {
+                if (c(str) && (wg2Var = this.a.get(str)) != null) {
+                    wg2Var.e(str, zg2Var);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (yg2) invokeLL.objValue;
+    }
+
+    public void j(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
+            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
+        }
+    }
+
+    public final boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return !TextUtils.isEmpty(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final synchronized void h(String str) {
+        wg2 wg2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                if (c(str) && (wg2Var = this.a.get(str)) != null) {
+                    this.a.remove(str);
+                    wg2Var.h(str);
+                }
             }
         }
     }
 
-    public static String e(@NonNull String str, String str2) {
-        InterceptResult invokeLL;
-        int lastIndexOf;
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            String f = up3.f(str2);
-            if (TextUtils.isEmpty(f) || (lastIndexOf = f.lastIndexOf(File.separator)) <= 0) {
-                return null;
-            }
-            String substring = f.substring(0, lastIndexOf);
-            return str + File.separator + substring;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            j(str, 0L);
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public synchronized yg2 e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        wg2 wg2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (c(str) && (wg2Var = this.a.get(str)) != null) {
+                    wg2Var.d(str, z);
+                    if (z2) {
+                        i(str);
+                    }
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (yg2) invokeCommon.objValue;
+    }
+
+    public synchronized yg2 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c(str) && !this.a.containsKey(str)) {
+                    wg2 wg2Var = new wg2();
+                    this.a.put(str, wg2Var);
+                    wg2Var.f(str);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (yg2) invokeL.objValue;
     }
 }

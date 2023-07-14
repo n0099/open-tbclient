@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.types.model;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum TypeVariance {
     IN("in"),
     OUT("out"),

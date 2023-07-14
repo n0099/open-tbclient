@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.ActivityManager;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Choreographer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.sn3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,30 +17,162 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 /* loaded from: classes7.dex */
-public abstract class s92 {
+public class s92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile s92 b;
-    public static ii3 c;
-    public static Timer d;
-    public static boolean e;
+    public static final boolean i;
+    public static final String j;
+    public static final String k;
+    public static final String l;
+    public static final String m;
+    public static final String n;
+    public static final String o;
+    public static final String p;
+    public static final String q;
+    public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void h(String str);
+    public e a;
+    public f b;
+    public c c;
+    public b d;
+    public ConcurrentMap<String, Object> e;
+    public boolean f;
+    public int g;
+    public int h;
 
     /* loaded from: classes7.dex */
-    public class a extends TimerTask {
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ s92 b;
+
+        public b(s92 s92Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s92Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = s92Var;
+        }
+
+        public /* synthetic */ b(s92 s92Var, a aVar) {
+            this(s92Var);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a = true;
+                String a = u92.a();
+                if (!TextUtils.isEmpty(a)) {
+                    this.b.e.put("cpu", a);
+                }
+                this.a = false;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Choreographer.FrameCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public int b;
+        public final /* synthetic */ s92 c;
+
+        public c(s92 s92Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s92Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = s92Var;
+            this.a = -1L;
+            this.b = -1;
+        }
+
+        public /* synthetic */ c(s92 s92Var, a aVar) {
+            this(s92Var);
+        }
+
+        @Override // android.view.Choreographer.FrameCallback
+        public void doFrame(long j) {
+            int i;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeJ(1048576, this, j) != null) || !this.c.f) {
+                return;
+            }
+            long j2 = this.a;
+            if (j2 > 0 && this.b != (i = (int) ((1.0d / (j - j2)) * 1.0E9d))) {
+                this.b = i;
+                this.c.e.put("frame", Integer.valueOf(i));
+            }
+            this.a = j;
+            Choreographer.getInstance().postFrameCallback(this);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final s92 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-475727747, "Lcom/baidu/tieba/s92$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-475727747, "Lcom/baidu/tieba/s92$d;");
+                    return;
+                }
+            }
+            a = new s92(null);
+        }
+    }
+
+    @SuppressLint({"HandlerLeak"})
+    /* loaded from: classes7.dex */
+    public class e extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ s92 a;
 
-        public a(s92 s92Var) {
+        public e(s92 s92Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,171 +190,59 @@ public abstract class s92 {
             this.a = s92Var;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
+        public /* synthetic */ e(s92 s92Var, a aVar) {
+            this(s92Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (s92.a) {
-                    Log.d("RemoteDebugStatistic", "timer: send remote debug ubc flow");
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.e != null) {
+                this.a.f();
+                this.a.e.put("mem", Long.valueOf(((ActivityManager) cv2.c().getSystemService("activity")).getProcessMemoryInfo(new int[]{Process.myPid()})[0].getTotalPss() / 1000));
+                if (this.a.a != null) {
+                    this.a.a.sendEmptyMessageDelayed(0, this.a.g);
                 }
-                this.a.e();
-                this.a.n();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b extends s92 {
+    public class f implements sn3.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s92 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b() {
-            super(null);
+        public f(s92 s92Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s92Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = s92Var;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
+        public /* synthetic */ f(s92 s92Var, a aVar) {
+            this(s92Var);
         }
 
-        @Override // com.baidu.tieba.s92
-        public void h(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oq3
+        /* renamed from: b */
+        public void a(Set<qn3<?>> set) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
-                return;
-            }
-            if (s92.a) {
-                Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 50335962) {
-                if (hashCode != 1109597094) {
-                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
-                        c = 1;
-                    }
-                } else if (str.equals("downloadfail")) {
-                    c = 2;
-                }
-            } else if (str.equals("downloadstart")) {
-                c = 0;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        ii3 ii3Var = s92.c;
-                        if (ii3Var != null) {
-                            ji3.d(ii3Var, str, f());
-                            return;
-                        }
-                        return;
-                    }
-                    e();
-                    n();
-                    return;
-                }
-                ii3 ii3Var2 = s92.c;
-                if (ii3Var2 != null) {
-                    ji3.b(ii3Var2);
-                }
-                n();
-                return;
-            }
-            p(true);
-            ji3.d(s92.c, str, f());
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c extends s92 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c() {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.s92
-        public void h(String str) {
-            SwanAppActivity w;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && !t92.c()) {
-                if (s92.a) {
-                    Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
-                }
-                char c = 65535;
-                int hashCode = str.hashCode();
-                boolean z = true;
-                if (hashCode != 511060680) {
-                    if (hashCode == 900970612 && str.equals("pageready")) {
-                        c = 1;
-                    }
-                } else if (str.equals("loadmaster")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        ii3 ii3Var = s92.c;
-                        if (ii3Var != null) {
-                            ji3.d(ii3Var, str, f());
-                            return;
-                        }
-                        return;
-                    }
-                    ii3 ii3Var2 = s92.c;
-                    if (ii3Var2 != null) {
-                        ji3.d(ii3Var2, str, f());
-                        e();
-                        n();
-                        return;
-                    }
-                    return;
-                }
-                if (cc3.b0() != null && (w = cc3.b0().w()) != null && !w.isFinishing()) {
-                    z = false;
-                }
-                p(z);
-                if (z) {
-                    ii3 ii3Var3 = s92.c;
-                    ji3.d(ii3Var3, str + "-destroy", f());
-                    boolean unused = s92.e = false;
-                } else if (s92.e) {
-                    ii3 ii3Var4 = s92.c;
-                    ji3.d(ii3Var4, str + "-preload", f());
-                    boolean unused2 = s92.e = false;
-                } else {
-                    ji3.d(s92.c, str, f());
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set) == null) && set != null && set.size() > 0) {
+                for (qn3<?> qn3Var : set) {
+                    this.a.e.put(qn3Var.a, qn3Var.a());
                 }
             }
         }
@@ -235,7 +261,45 @@ public abstract class s92 {
                 return;
             }
         }
-        a = ms1.a;
+        i = fs1.a;
+        j = rn3.d.a;
+        k = rn3.b.a;
+        l = rn3.c.a;
+        String str = rn3.g.a;
+        m = rn3.i.a;
+        n = rn3.e.a;
+        o = rn3.f.a;
+        p = rn3.h.a;
+        q = rn3.j.a;
+        r = rn3.k.a;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (!this.f) {
+                if (i) {
+                    Log.d("PropertyMonitor", "System monitor not started yet");
+                    return;
+                }
+                return;
+            }
+            this.f = false;
+            e eVar = this.a;
+            if (eVar != null) {
+                eVar.removeMessages(0);
+                this.a = null;
+            }
+            if (this.b != null) {
+                sn3.a().j(this.b, new qn3[0]);
+                this.b = null;
+            }
+            this.c = null;
+            this.d = null;
+            if (i) {
+                Log.d("PropertyMonitor", "Stop system monitor");
+            }
+        }
     }
 
     public s92() {
@@ -243,68 +307,53 @@ public abstract class s92 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.e = new ConcurrentHashMap();
+        this.g = 1000;
     }
 
-    public static void d() {
+    public static s92 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            fj3 fj3Var = new fj3();
-            fj3Var.a = "swan";
-            fj3Var.b = "launch";
-            fj3Var.c = "remote-debug";
-            fj3Var.e = "appready";
-            vi3.onEvent(fj3Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return d.a;
+        }
+        return (s92) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.d.a) {
+            po3.k(this.d, "swanAppCpuMonitor");
         }
     }
 
-    public static void k() {
+    public Map<String, Object> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            fj3 fj3Var = new fj3();
-            fj3Var.a = "swan";
-            fj3Var.b = "launch";
-            fj3Var.c = "remote-debug";
-            fj3Var.e = "loadmaster";
-            vi3.onEvent(fj3Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.h++;
+            j();
+            return this.e;
         }
+        return (Map) invokeV.objValue;
     }
 
-    public static void l() {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            fj3 fj3Var = new fj3();
-            fj3Var.a = "swan";
-            fj3Var.b = "launch";
-            fj3Var.c = "remote-debug";
-            fj3Var.e = "downloadstart";
-            vi3.onEvent(fj3Var);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Timer timer = d;
-            if (timer != null) {
-                timer.cancel();
-                d = null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int i2 = this.h - 1;
+            this.h = i2;
+            if (i2 <= 0) {
+                k();
             }
-            b = null;
-            c = null;
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            e = true;
         }
     }
 
@@ -312,133 +361,28 @@ public abstract class s92 {
         this();
     }
 
-    public static s92 g() {
-        InterceptResult invokeV;
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (b == null) {
-                synchronized (px2.class) {
-                    if (b == null) {
-                        if (ll1.g()) {
-                            b = new b(null);
-                        } else {
-                            b = new c(null);
-                        }
-                    }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.f) {
+                if (i) {
+                    Log.d("PropertyMonitor", "System monitor already started");
+                    return;
                 }
+                return;
             }
-            return b;
-        }
-        return (s92) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
-            } catch (JSONException e2) {
-                if (a) {
-                    Log.d("RemoteDebugStatistic", "add event content fail", e2);
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void i(JSONArray jSONArray) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(0);
-            if (optJSONObject != null) {
-                str = optJSONObject.optString("actionId");
-            } else {
-                str = "";
-            }
-            if (!TextUtils.isEmpty(str) && b != null) {
-                b.h(str);
+            this.f = true;
+            this.c = new c(this, null);
+            Choreographer.getInstance().postFrameCallback(this.c);
+            this.d = new b(this, null);
+            this.b = new f(this, null);
+            sn3.a().g(this.b, rn3.d, rn3.b, rn3.c, rn3.i, rn3.e, rn3.f, rn3.g, rn3.h, rn3.j, rn3.k);
+            e eVar = new e(this, null);
+            this.a = eVar;
+            eVar.sendEmptyMessage(0);
+            if (i) {
+                Log.d("PropertyMonitor", "Start system monitor");
             }
         }
-    }
-
-    public static void m(ax2 ax2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, ax2Var) == null) {
-            fj3 fj3Var = new fj3();
-            fj3Var.j(ax2Var);
-            fj3Var.a = vi3.n(ax2Var.G());
-            fj3Var.b = "launch";
-            fj3Var.c = "remote-debug";
-            fj3Var.e = "downloadsuccess";
-            vi3.onEvent(fj3Var);
-        }
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || c != null) {
-            return;
-        }
-        ii3 c2 = vi3.c("1153");
-        c = c2;
-        if (!z) {
-            ji3.d(c2, "downloadstart", f());
-            ji3.d(c, "downloadsuccess", f());
-        }
-        Timer timer = new Timer();
-        d = timer;
-        timer.schedule(new a(this), 40000L);
-    }
-
-    public static void j(ax2 ax2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, ax2Var) == null) {
-            ax2Var.s0().putString("aiapp_extra_need_download", "1");
-            ax2Var.s0().putString("aiapp_extra_pkg_downloading", "0");
-            ax2Var.s0().putLong("launch_flag_for_statistic", System.currentTimeMillis());
-            fj3 fj3Var = new fj3();
-            fj3Var.a = vi3.n(ax2Var.G());
-            fj3Var.j(ax2Var);
-            fj3Var.b = "launch";
-            fj3Var.o = "1";
-            fj3Var.c = "remote-debug";
-            JSONObject k = vi3.k(ax2Var.W());
-            fj3Var.d(ax2Var.s0().getString("ubc"));
-            fj3Var.b(k);
-            vi3.onEvent(fj3Var);
-        }
-    }
-
-    public void e() {
-        String O;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || c == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            cc3 b0 = cc3.b0();
-            if (b0 == null) {
-                O = "";
-            } else {
-                O = b0.O();
-            }
-            jSONObject2.putOpt("appid", O);
-            jSONObject2.putOpt("from", "remote-debug");
-            ui3.a(jSONObject2);
-            jSONObject.putOpt("from", "swan");
-            jSONObject.putOpt("ext", jSONObject2);
-        } catch (JSONException unused) {
-            if (a) {
-                Log.d("RemoteDebugStatistic", "page ready statistic value is invalid ");
-            }
-        }
-        ji3.f(c, jSONObject.toString());
-        ji3.c(c);
     }
 }

@@ -1,173 +1,409 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBSplash;
-import com.win.opensdk.PBSplashListener;
-/* loaded from: classes6.dex */
-public class mab extends ReporterPidLoader<PBSplash> {
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public class mab {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, HashMap> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements PBSplashListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ PBSplash c;
-        public final /* synthetic */ mab d;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(String str);
 
-        public a(mab mabVar, PBSplash pBSplash) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mabVar, pBSplash};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = mabVar;
-            this.c = pBSplash;
-        }
+        void b();
 
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClicked((mab) this.c, this.b, new String[0]);
-                this.b = true;
-            }
-        }
+        void c(String str);
 
-        @Override // com.win.opensdk.PBSplashListener
-        public void onDisplayError(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
-                LogPrinter.d();
-                this.d.onAdError(this.c, pBError.getCode(), pBError.getMsg());
-            }
-        }
+        void d();
 
-        @Override // com.win.opensdk.PBSplashListener
-        public void onDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow((mab) this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
+        void e(boolean z);
 
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) {
-                LogPrinter.e("JySplashAd onError code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
-                this.d.onError(pBError.getCode(), pBError.getMsg());
-            }
-        }
+        void f(boolean z);
 
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-                this.d.onAdLoaded(this.c, new String[0]);
-            }
-        }
+        void g(int i);
 
-        @Override // com.win.opensdk.PBSplashListener
-        public void onSkip() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClose(this.c);
-            }
-        }
+        void h();
 
-        @Override // com.win.opensdk.PBSplashListener
-        public void onTimeOver() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClose(this.c);
-            }
-        }
+        void i();
+
+        void j(String str);
+
+        void k(int i);
+
+        void onRecordEnd();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mab(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947967355, "Lcom/baidu/tieba/mab;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947967355, "Lcom/baidu/tieba/mab;");
                 return;
             }
         }
+        a = new HashMap<>();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    public static HashMap a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            PBSplash pBSplash = new PBSplash(context.getApplicationContext(), this.mPid.pid);
-            pBSplash.setLoadTimeOut(5000L);
-            pBSplash.setSplashListener(new a(this, pBSplash));
-            pBSplash.load();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_clear");
+            return hashMap;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        PBSplash pBSplash;
+    public static HashMap b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBSplash = (PBSplash) obj) != null) {
-            pBSplash.destroy();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_start");
+            return hashMap;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public static HashMap c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
-            PBSplash pBSplash = (PBSplash) obj;
-            onShowStart(pBSplash);
-            pBSplash.show(viewGroup);
-            return true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            HashMap hashMap = new HashMap();
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("sex_type", Integer.valueOf(i));
+            hashMap.put("event_name", "sex_event");
+            hashMap.put("event_data", hashMap2);
+            return hashMap;
         }
-        return invokeLLLL.booleanValue;
+        return (HashMap) invokeI.objValue;
+    }
+
+    public static HashMap e(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d)})) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "audio_volume");
+            hashMap.put("event_data", String.valueOf(Math.ceil(d)));
+            return hashMap;
+        }
+        return (HashMap) invokeCommon.objValue;
+    }
+
+    public static HashMap d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (a.get(str) != null) {
+                return a.get(str);
+            }
+            HashMap hashMap = null;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1909077165:
+                    if (str.equals("startRecord")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -1848594969:
+                    if (str.equals("pauseRecord")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -815530368:
+                    if (str.equals("resetRecord")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -793791417:
+                    if (str.equals("startOverRecord")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 473974106:
+                    if (str.equals("capture_timer_clear")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 488985455:
+                    if (str.equals("capture_timer_start")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                if (c == 5) {
+                                    hashMap = i();
+                                }
+                            } else {
+                                hashMap = b();
+                            }
+                        } else {
+                            hashMap = a();
+                        }
+                    } else {
+                        hashMap = g();
+                    }
+                } else {
+                    hashMap = f();
+                }
+            } else {
+                hashMap = h();
+            }
+            if (hashMap != null) {
+                a.put(str, hashMap);
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static HashMap f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_pause");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_reset");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start_over");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static void j(HashMap<String, Object> hashMap, a aVar) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, hashMap, aVar) == null) && !kab.f(hashMap) && aVar != null && (obj = hashMap.get("event_name")) != null && (obj instanceof String)) {
+            String str = (String) obj;
+            char c = 65535;
+            boolean z = true;
+            int i = 0;
+            switch (str.hashCode()) {
+                case -1903331025:
+                    if (str.equals("show_text")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -1768834290:
+                    if (str.equals("game_end")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case -1584838740:
+                    if (str.equals("filter_adjust_enable")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case -1272940549:
+                    if (str.equals("game_is_ready")) {
+                        c = '\n';
+                        break;
+                    }
+                    break;
+                case -708270859:
+                    if (str.equals("phone_shake")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -672934016:
+                    if (str.equals("case_reset")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -548493597:
+                    if (str.equals("need_volume")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case 902635637:
+                    if (str.equals("child_status")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case 967087977:
+                    if (str.equals("game_pause")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 969912325:
+                    if (str.equals("game_score")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 1000807605:
+                    if (str.equals("game_http")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case 1001154298:
+                    if (str.equals("game_time")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 1076032614:
+                    if (str.equals("need_face")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    if (hashMap.get("text_content") instanceof String) {
+                        aVar.c((String) hashMap.get("text_content"));
+                        return;
+                    }
+                    return;
+                case 1:
+                    aVar.d();
+                    return;
+                case 2:
+                case 3:
+                    if (hashMap.get("game_score") != null) {
+                        aVar.a(hashMap.get("game_score").toString());
+                        return;
+                    }
+                    return;
+                case 4:
+                    if (hashMap.get("game_score") != null) {
+                        aVar.a(hashMap.get("game_score").toString());
+                    }
+                    aVar.onRecordEnd();
+                    return;
+                case 5:
+                    aVar.h();
+                    return;
+                case 6:
+                    aVar.b();
+                    return;
+                case 7:
+                    if (hashMap.get("text_content") instanceof Float) {
+                        try {
+                            i = ((Float) hashMap.get("text_content")).intValue();
+                        } catch (Exception e) {
+                            fab.g(e);
+                        }
+                        aVar.g(i);
+                        return;
+                    }
+                    return;
+                case '\b':
+                    if (hashMap.get("isDefaultChild") != null) {
+                        String obj2 = hashMap.get("isDefaultChild").toString();
+                        if (!TextUtils.equals(obj2, "1.0") && !TextUtils.equals(obj2, "1")) {
+                            z = false;
+                        }
+                        aVar.f(z);
+                        return;
+                    }
+                    return;
+                case '\t':
+                    if (hashMap.get("volume_ability") != null) {
+                        if (jab.a(hashMap.get("volume_ability").toString(), 0.0f) != 1.0f) {
+                            z = false;
+                        }
+                        aVar.e(z);
+                        return;
+                    }
+                    return;
+                case '\n':
+                    aVar.i();
+                    return;
+                case 11:
+                    if (hashMap.get("globalBeautyMakeupFilter") != null && (hashMap.get("globalBeautyMakeupFilter") instanceof Float)) {
+                        aVar.k(((Float) hashMap.get("globalBeautyMakeupFilter")).intValue());
+                        return;
+                    }
+                    return;
+                case '\f':
+                    if (hashMap.get("set_content") != null) {
+                        aVar.j(hashMap.get("set_content").toString());
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
+        }
     }
 }

@@ -1,18 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.os.MessageQueue;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
-import com.baidu.tieba.i90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,99 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.Personalized.DataRes;
 /* loaded from: classes8.dex */
 public class z18 {
     public static /* synthetic */ Interceptable $ic;
-    public static final z18 d;
+    public static z18 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile DataRes a;
-    public volatile boolean b;
-    public volatile boolean c;
-
-    /* loaded from: classes8.dex */
-    public class a implements i90.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Runnable a;
-
-        public a(z18 z18Var, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z18Var, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-        }
-
-        @Override // com.baidu.tieba.i90.b
-        public void a(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                RecPersonalizePageModel.e().l(responsedMessage);
-            }
-        }
-
-        @Override // com.baidu.tieba.i90.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                yg.a().post(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Runnable a;
-
-        public b(z18 z18Var, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z18Var, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    this.a.run();
-                    return false;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-    }
+    public long a;
+    public SparseArray<Long> b;
+    public SparseArray<Long> c;
+    public SparseArray<Long> d;
+    public SparseArray<Long> e;
 
     static {
         InterceptResult invokeClinit;
@@ -127,7 +34,25 @@ public class z18 {
                 return;
             }
         }
-        d = new z18();
+        f = new z18();
+    }
+
+    public static z18 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return f;
+        }
+        return (z18) invokeV.objValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
     }
 
     public z18() {
@@ -143,134 +68,97 @@ public class z18 {
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
+        this.a = 0L;
+        this.b = new SparseArray<>();
+        this.c = new SparseArray<>();
+        this.d = new SparseArray<>();
+        this.e = new SparseArray<>();
     }
 
-    public static synchronized z18 c() {
-        InterceptResult invokeV;
-        z18 z18Var;
+    public long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (z18.class) {
-                z18Var = d;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            Long l = this.c.get(i);
+            if (l == null) {
+                return -1L;
             }
-            return z18Var;
+            return l.longValue();
         }
-        return (z18) invokeV.objValue;
+        return invokeI.longValue;
     }
 
-    public synchronized DataRes a() {
-        InterceptResult invokeV;
-        DataRes dataRes;
+    public long c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    f();
-                }
-                this.b = true;
-                dataRes = this.a;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            Long l = this.b.get(i);
+            if (l == null) {
+                return -1L;
             }
-            return dataRes;
+            return l.longValue();
         }
-        return (DataRes) invokeV.objValue;
+        return invokeI.longValue;
     }
 
-    public synchronized boolean e() {
-        InterceptResult invokeV;
-        boolean z;
+    public long e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                z = this.c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            Long l = this.e.get(i);
+            if (l == null) {
+                return -1L;
             }
-            return z;
+            return l.longValue();
         }
-        return invokeV.booleanValue;
+        return invokeI.longValue;
     }
 
-    public synchronized void b(Runnable runnable) {
+    public long f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            synchronized (this) {
-                i90.d(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, new a(this, runnable));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            Long l = this.d.get(i);
+            if (l == null) {
+                return -1L;
             }
+            return l.longValue();
         }
+        return invokeI.longValue;
     }
 
-    public synchronized void h(Runnable runnable) {
+    public void h(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, runnable) == null) {
-            synchronized (this) {
-                if (!d()) {
-                    this.c = false;
-                    return;
-                }
-                this.c = true;
-                Looper.myQueue().addIdleHandler(new b(this, runnable));
-            }
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.a = j;
         }
     }
 
-    public synchronized boolean d() {
-        InterceptResult invokeV;
-        boolean z;
+    public void g(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                long r = r95.p().r("recommend_frs_cache_time", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT) * 1000;
-                r95 p = r95.p();
-                long r2 = p.r("recommend_frs_refresh_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
-                if (r2 != 0) {
-                    if (Math.abs(System.currentTimeMillis() - r2) <= r) {
-                        z = false;
-                    }
-                }
-                z = true;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void f() {
-        xe<byte[]> c;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (TbadkCoreApplication.getCurrentAccount() == null) {
-                t05.t().z();
-            }
-            if ((!o95.q().u() || o95.q().o() < o95.q().p()) && (c = f55.c("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount())) != null && (bArr = c.get("0")) != null && bArr.length != 0) {
-                try {
-                    DataRes dataRes = (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                    if (dataRes != null && dataRes.thread_list != null && dataRes.thread_list.size() > 0) {
-                        this.a = dataRes;
-                    }
-                } catch (IOException e) {
-                    BdLog.e(e);
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921687, null));
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            this.c.put(i, Long.valueOf(j));
         }
     }
 
-    public synchronized void g() {
+    public void i(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                    return;
-                }
-                f();
-                if (this.a == null || d()) {
-                    ew5 ew5Var = new ew5();
-                    ew5Var.b = "";
-                    ew5Var.a = 0;
-                    RecPersonalizePageModel.e().m(1, 0, ew5Var, 1, 0);
-                }
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            this.b.put(i, Long.valueOf(j));
+        }
+    }
+
+    public void j(long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            this.e.put(i, Long.valueOf(j));
+        }
+    }
+
+    public void k(long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            this.d.put(i, Long.valueOf(j));
         }
     }
 }

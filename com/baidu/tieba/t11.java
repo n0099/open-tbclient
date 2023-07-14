@@ -1,46 +1,103 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.player.constants.PlayerStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class t11 {
+/* loaded from: classes8.dex */
+public abstract class t11 implements v11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xw0 a;
+    public t01 a;
+    public Context b;
+    public y11 c;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.ny0
+    public void a(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mx0Var) == null) {
+        }
     }
 
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final t11 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.ny0
+    public void d(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mx0Var) == null) {
+        }
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-454516617, "Lcom/baidu/tieba/t11$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-454516617, "Lcom/baidu/tieba/t11$b;");
-                    return;
-                }
-            }
-            a = new t11(null);
+    @Override // com.baidu.tieba.v11
+    public void g(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mx0Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ny0
+    public int getExpectOrder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ny0
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ny0
+    public void h(@NonNull PlayerStatus playerStatus, @NonNull PlayerStatus playerStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, playerStatus, playerStatus2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ny0
+    public void j(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, mx0Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ny0
+    public void k(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, mx0Var) == null) {
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ny0
+    public void n(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, mx0Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ny0
+    public void q(@NonNull mx0 mx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, mx0Var) == null) {
         }
     }
 
@@ -54,72 +111,101 @@ public class t11 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        l(null);
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c = null;
+        }
+    }
+
+    public void f() {
+        t01 t01Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (t01Var = this.a) != null) {
+            t01Var.e(this);
+            this.a = null;
+        }
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Nullable
+    public su0 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            y11 y11Var = this.c;
+            if (y11Var != null) {
+                return y11Var.b();
+            }
+            return null;
+        }
+        return (su0) invokeV.objValue;
+    }
+
+    public final void o() {
+        int[] subscribeEvent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (subscribeEvent = getSubscribeEvent()) != null && subscribeEvent.length > 0) {
+            for (int i : subscribeEvent) {
+                this.a.c(i, this);
             }
         }
     }
 
-    public static t11 c() {
-        InterceptResult invokeV;
+    public t11(@Nullable Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (t11) invokeV.objValue;
+        l(context);
     }
 
-    public s11 b() {
-        InterceptResult invokeV;
+    public void b(@NonNull y11 y11Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new s11();
-        }
-        return (s11) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            xw0 xw0Var = new xw0();
-            this.a = xw0Var;
-            xw0Var.registerReceiver();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y11Var) == null) {
+            this.c = y11Var;
         }
     }
 
-    public final void f() {
+    public void c(@NonNull t01 t01Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a == null) {
-            e();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t01Var) == null) {
+            this.a = t01Var;
+            o();
         }
     }
 
-    public /* synthetic */ t11(a aVar) {
-        this();
-    }
-
-    public void a(@NonNull eu0 eu0Var) {
+    public void l(@Nullable Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eu0Var) == null) {
-            f();
-            i21.a("session manager bind player =>" + eu0Var);
-            this.a.b(eu0Var.x());
-        }
-    }
-
-    public void d(@NonNull yw0 yw0Var) {
-        xw0 xw0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yw0Var) == null) && (xw0Var = this.a) != null) {
-            xw0Var.c(yw0Var);
-        }
-    }
-
-    public void g(@NonNull eu0 eu0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, eu0Var) == null) {
-            i21.a("session manager unbind player =>" + eu0Var);
-            xw0 xw0Var = this.a;
-            if (xw0Var != null) {
-                xw0Var.d(eu0Var.x());
+        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
+            if (context == null) {
+                this.b = ru0.b();
+            } else {
+                this.b = context;
             }
         }
     }

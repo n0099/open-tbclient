@@ -1,70 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.CustomGrid;
 /* loaded from: classes5.dex */
 public class bj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
-    public int e;
-    public long f;
-    public String g;
-    public String h;
+    public TbPageContext a;
+    public boolean b;
+    public b45 c;
 
-    public bj9() {
+    public bj9(TbPageContext tbPageContext) {
+        Uri uri;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+        this.a = tbPageContext;
+        if (tbPageContext.getPageActivity() != null && this.a.getPageActivity().getIntent() != null && (uri = (Uri) this.a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+            String queryParameter = uri.getQueryParameter("tid");
+            b45 b45Var = new b45();
+            this.c = b45Var;
+            b45Var.a = uri.getQueryParameter("tid");
+            this.c.b = uri.getQueryParameter(TiebaStatic.Params.EQID);
+            if (!TextUtils.isEmpty(queryParameter) && h9.f().g() <= 3) {
+                this.b = true;
             }
         }
     }
 
-    public void a(CustomGrid customGrid) {
+    public void a(PbModel pbModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customGrid) == null) {
-            this.a = customGrid.title;
-            this.b = customGrid.action_uri;
-            this.c = customGrid.action_type.intValue();
-            this.d = customGrid.icon;
-            this.e = customGrid.type.intValue();
-            this.g = customGrid.desc;
-            this.h = customGrid.mark_text;
-            this.f = customGrid.red_point_version.longValue();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) && this.b && this.c != null && pbModel != null && pbModel.z1() != null && pbModel.z1().k() != null) {
+            ForumData k = pbModel.z1().k();
+            this.c.c = k.getFirst_class();
+            this.c.d = k.getSecond_class();
+            TbSingleton.getInstance().setPbToHomeUpdateData(this.c);
+            if (h9.f().h("MainTabActivity")) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
+            } else {
+                TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
+            }
         }
-    }
-
-    public kj9 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            kj9 kj9Var = new kj9();
-            kj9Var.e = this.a;
-            kj9Var.m = true;
-            kj9Var.k = this.d;
-            kj9Var.f = this.b;
-            kj9Var.a = this.e;
-            kj9Var.l = this.c;
-            mj9 mj9Var = new mj9();
-            mj9Var.b = this.g;
-            mj9Var.i = this.h;
-            kj9Var.h = mj9Var;
-            return kj9Var;
-        }
-        return (kj9) invokeV.objValue;
     }
 }

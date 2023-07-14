@@ -6,18 +6,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class tc implements wc {
+/* loaded from: classes8.dex */
+public class tc implements xc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public char a;
+    public byte a;
 
-    public tc(char c) {
+    public tc(byte b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Character.valueOf(c)};
+            Object[] objArr = {Byte.valueOf(b)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,65 +27,65 @@ public class tc implements wc {
                 return;
             }
         }
-        this.a = c;
+        this.a = b;
     }
 
-    @Override // com.baidu.tieba.wc
-    public Object a(fe feVar) {
+    @Override // com.baidu.tieba.xc
+    public Object a(ge geVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, feVar)) == null) {
-            return String.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, geVar)) == null) {
+            return Byte.valueOf(this.a);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.wc
-    public Object b(fe feVar) {
+    @Override // com.baidu.tieba.xc
+    public Object b(ge geVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feVar)) == null) {
-            return Character.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, geVar)) == null) {
+            return Byte.valueOf(this.a);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.wc
-    public Object c(fe feVar) {
+    @Override // com.baidu.tieba.xc
+    public Object c(ge geVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, feVar)) == null) {
-            return Character.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, geVar)) == null) {
+            return Byte.valueOf(this.a);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.wc
-    public Object d(fe feVar) {
+    @Override // com.baidu.tieba.xc
+    public Object d(ge geVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, feVar)) == null) {
-            return Character.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, geVar)) == null) {
+            return Byte.valueOf(this.a);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.wc
-    public Object e(fe feVar) {
+    @Override // com.baidu.tieba.xc
+    public Object e(ge geVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, feVar)) == null) {
-            return d(feVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, geVar)) == null) {
+            return d(geVar);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.wc
-    public Object f(fe feVar) {
+    @Override // com.baidu.tieba.xc
+    public Object f(ge geVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, feVar)) == null) {
-            return String.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, geVar)) == null) {
+            return Integer.valueOf(this.a);
         }
         return invokeL.objValue;
     }

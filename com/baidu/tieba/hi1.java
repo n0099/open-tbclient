@@ -1,50 +1,162 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileDescriptor;
+import com.tencent.connect.common.Constants;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hi1 {
+public final class hi1 {
     public static /* synthetic */ Interceptable $ic;
+    public static long a;
+    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            int i5 = 1;
-            if (i3 > i2 || i4 > i) {
-                int i6 = i3 / 2;
-                int i7 = i4 / 2;
-                while (i6 / i5 >= i2 && i7 / i5 >= i) {
-                    i5 *= 2;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947824569, "Lcom/baidu/tieba/hi1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return i5;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947824569, "Lcom/baidu/tieba/hi1;");
+                return;
+            }
         }
-        return invokeLII.intValue;
+        b = new JSONObject();
     }
 
-    public static Bitmap b(FileDescriptor fileDescriptor, int i, int i2) {
-        InterceptResult invokeLII;
+    public static final void a(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, fileDescriptor, i, i2)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
-            int a = a(options, i, i2);
-            options.inSampleSize = a;
-            options.inJustDecodeBounds = false;
-            if (a <= 1) {
-                return BitmapFactory.decodeFileDescriptor(fileDescriptor);
+        if (interceptable == null || interceptable.invokeLJ(65537, null, str, j) == null) {
+            try {
+                if (b == null) {
+                    b = new JSONObject();
+                }
+                JSONObject jSONObject = b;
+                if (jSONObject != null) {
+                    jSONObject.put(str, j);
+                }
+            } catch (Exception unused) {
+                ui1.g("add panelShow json error");
             }
-            return BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
         }
-        return (Bitmap) invokeLII.objValue;
+    }
+
+    public static final void b(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("exceptionCode", 3);
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("errno", str2);
+                }
+                if (!TextUtils.isEmpty(str3)) {
+                    jSONObject.put("errmsg", str3);
+                }
+            } catch (Exception unused) {
+            }
+            ii1 ii1Var = new ii1(str);
+            ii1Var.c(jSONObject);
+            li1.e(ii1Var);
+        }
+    }
+
+    public static final void c(String str, HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, hashMap) == null) {
+            if (hashMap != null) {
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+                ii1 ii1Var = new ii1(str);
+                ii1Var.c(jSONObject);
+                li1.e(ii1Var);
+                return;
+            }
+            li1.e(new ii1(str));
+        }
+    }
+
+    public static final void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && a > 0) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("3", a);
+                jSONObject.put("4", System.currentTimeMillis());
+            } catch (Exception unused) {
+            }
+            ii1 ii1Var = new ii1(Constants.DEFAULT_UIN);
+            ii1Var.c(jSONObject);
+            li1.e(ii1Var);
+            a = 0L;
+        }
+    }
+
+    public static final void e() {
+        JSONObject jSONObject;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (jSONObject = b) != null) {
+            if (jSONObject != null) {
+                i = jSONObject.length();
+            } else {
+                i = 0;
+            }
+            if (i > 0) {
+                a("2", System.currentTimeMillis());
+                ii1 ii1Var = new ii1(Constants.DEFAULT_UIN);
+                ii1Var.c(b);
+                li1.e(ii1Var);
+                b = null;
+            }
+        }
+    }
+
+    public static final void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
+            a = j;
+        }
+    }
+
+    public static final void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("exceptionCode", 0);
+            } catch (Exception unused) {
+            }
+            ii1 ii1Var = new ii1(str);
+            ii1Var.c(jSONObject);
+            li1.e(ii1Var);
+        }
+    }
+
+    public static final void g(int i, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("exceptionType", i);
+            jSONObject.put("payChannel", str2);
+            jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str3);
+            jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str4);
+            ii1 ii1Var = new ii1(str);
+            ii1Var.c(jSONObject);
+            li1.e(ii1Var);
+        }
     }
 }

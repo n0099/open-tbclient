@@ -1,84 +1,118 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.TopicList;
-import tbclient.TopicList.TopicListModule;
+import tbclient.Personalized.CardForum;
+import tbclient.Personalized.PersonalForum;
 /* loaded from: classes5.dex */
-public class d68 implements xn {
+public class d68 extends iq6 implements qq6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+    public CardForum e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947656611, "Lcom/baidu/tieba/d68;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947656611, "Lcom/baidu/tieba/d68;");
-                return;
-            }
+    public static boolean h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 1 : invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qq6
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
         }
-        a = BdUniqueId.gen();
+        return invokeV.booleanValue;
     }
 
     public d68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
+    @Override // com.baidu.tieba.qq6
+    public int getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            CardForum cardForum = this.e;
+            if (cardForum != null) {
+                return cardForum.position.intValue();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a;
+            if (ListUtils.getCount(getDataList()) <= 0) {
+                return false;
+            }
+            return true;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void a(TopicList topicList) {
+    @Override // com.baidu.tieba.qq6
+    public void O(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) && topicList != null) {
-            topicList.topic_id.longValue();
-            String str = topicList.topic_name;
-            topicList.tag.intValue();
-            topicList.discuss_num.longValue();
-            String str2 = topicList.topic_desc;
-            String str3 = topicList.topic_pic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.showBottomDivider = z;
         }
     }
 
-    public void b(TopicListModule topicListModule) {
+    @Override // com.baidu.tieba.qq6
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
-            try {
-                String str = topicListModule.module_title;
-                String str2 = topicListModule.tips;
-                String str3 = topicListModule.rule_jump_url;
-            } catch (Exception e) {
-                BdLog.e(e.toString());
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.showTopDivider = z;
+        }
+    }
+
+    public void k(CardForum cardForum) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, cardForum) == null) && cardForum != null) {
+            this.e = cardForum;
+            this.mGroupTitle = cardForum.card_title;
+            if (cardForum.position != null) {
+                g(e() + cardForum.position.intValue());
+            } else {
+                g(e() + 0);
+            }
+            if (ListUtils.getCount(cardForum.forum_list) > 0) {
+                for (PersonalForum personalForum : cardForum.forum_list) {
+                    if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
+                        hq6 hq6Var = new hq6();
+                        hq6Var.b = personalForum.avatar;
+                        hq6Var.c = personalForum.forum_name;
+                        hq6Var.d = wg.e("" + personalForum.forum_id, -1);
+                        boolean z = true;
+                        if (personalForum.is_like.intValue() != 1) {
+                            z = false;
+                        }
+                        hq6Var.e = z;
+                        c(hq6Var);
+                    }
+                }
             }
         }
     }

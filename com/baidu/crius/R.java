@@ -12,7 +12,7 @@ public final class R {
     /* loaded from: classes3.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int transparent = 0x7f060b79;
+        public static final int transparent = 0x7f060b80;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -33,12 +33,12 @@ public final class R {
     /* loaded from: classes3.dex */
     public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int dimens_1dp = 0x7f07033d;
-        public static final int dimens_1px = 0x7f07033e;
-        public static final int dimens_2dp = 0x7f070340;
-        public static final int dimens_3dp = 0x7f070341;
-        public static final int dimens_4dp = 0x7f070342;
-        public static final int dimens_5dp = 0x7f070345;
+        public static final int dimens_1dp = 0x7f070343;
+        public static final int dimens_1px = 0x7f070344;
+        public static final int dimens_2dp = 0x7f070346;
+        public static final int dimens_3dp = 0x7f070347;
+        public static final int dimens_4dp = 0x7f070348;
+        public static final int dimens_5dp = 0x7f07034b;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {

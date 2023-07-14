@@ -60,45 +60,45 @@ import com.baidu.tbadk.data.TbMusicData;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a17;
-import com.baidu.tieba.c17;
-import com.baidu.tieba.cs6;
-import com.baidu.tieba.ds6;
-import com.baidu.tieba.eq9;
+import com.baidu.tieba.a65;
+import com.baidu.tieba.aj;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.dta;
+import com.baidu.tieba.du6;
 import com.baidu.tieba.external.filter.ResponseGetQmFiltersMessage;
 import com.baidu.tieba.external.filter.TbFilterValue;
 import com.baidu.tieba.external.music.data.MusicData;
 import com.baidu.tieba.external.sticker.data.QmStickerItem;
-import com.baidu.tieba.fka;
 import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.gg0;
-import com.baidu.tieba.hda;
-import com.baidu.tieba.ky5;
-import com.baidu.tieba.l17;
-import com.baidu.tieba.lka;
-import com.baidu.tieba.m17;
-import com.baidu.tieba.n17;
-import com.baidu.tieba.ny5;
-import com.baidu.tieba.p17;
-import com.baidu.tieba.p55;
-import com.baidu.tieba.r55;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.rca;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.tca;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.hg0;
+import com.baidu.tieba.hu6;
+import com.baidu.tieba.i37;
+import com.baidu.tieba.ila;
+import com.baidu.tieba.iu6;
+import com.baidu.tieba.j37;
+import com.baidu.tieba.jta;
+import com.baidu.tieba.kla;
+import com.baidu.tieba.l37;
+import com.baidu.tieba.lw9;
+import com.baidu.tieba.ola;
+import com.baidu.tieba.oz5;
+import com.baidu.tieba.rz5;
+import com.baidu.tieba.u37;
+import com.baidu.tieba.v37;
 import com.baidu.tieba.video.EditVideoData;
 import com.baidu.tieba.view.widget.RecordPreviewContainer;
 import com.baidu.tieba.view.widget.TbGLMediaPreviewView;
 import com.baidu.tieba.view.widget.pickcover.PreViewPickCoverView;
 import com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout;
 import com.baidu.tieba.view.widget.recordeffect.VideoControllerLayout;
-import com.baidu.tieba.xca;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yg;
-import com.baidu.tieba.yr6;
-import com.baidu.tieba.z07;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.w37;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.y37;
+import com.baidu.tieba.y55;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.yla;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -112,7 +112,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> implements a17 {
+public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> implements j37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float A;
@@ -133,12 +133,12 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
     public Runnable P;
     public RecordPreviewContainer.f Q;
     public HttpMessageListener R;
-    public l17.b S;
+    public u37.b S;
 
     /* renamed from: T  reason: collision with root package name */
-    public RecordEffectLayout.i f1172T;
+    public RecordEffectLayout.i f1178T;
     @NonNull
-    public final ky5 U;
+    public final oz5 U;
     public NavigationBar a;
     public TextView b;
     public TextView c;
@@ -158,10 +158,10 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
     public RelativeLayout q;
     public RelativeLayout r;
     public VideoControllerLayout s;
-    public cs6 t;
-    public n17 u;
-    public m17 v;
-    public z07 w;
+    public hu6 t;
+    public w37 u;
+    public v37 v;
+    public i37 w;
     public boolean x;
     public TbMultiMediaData y;
     public VideoInfo z;
@@ -269,10 +269,10 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                 ofFloat.addListener(new a(this));
                 int height = this.a.a.getHeight();
                 int height2 = this.a.j.getHeight();
-                int j = xi.j(this.a.getPageContext().getPageActivity());
-                float l = xi.l(this.a.getPageContext().getPageActivity()) * this.a.A;
+                int j = yi.j(this.a.getPageContext().getPageActivity());
+                float l = yi.l(this.a.getPageContext().getPageActivity()) * this.a.A;
                 this.a.L = (j - height) - height2;
-                float l2 = (this.a.L * 1.0f) / xi.l(this.a.getPageContext().getPageActivity());
+                float l2 = (this.a.L * 1.0f) / yi.l(this.a.getPageContext().getPageActivity());
                 TbEditVideoActivity tbEditVideoActivity = this.a;
                 tbEditVideoActivity.M = height - ((j - tbEditVideoActivity.L) * 0.5f);
                 ObjectAnimator duration = ObjectAnimator.ofFloat(this.a.n, Key.TRANSLATION_Y, 0.0f, this.a.M).setDuration(250L);
@@ -391,10 +391,10 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                 ofFloat.addListener(new a(this));
                 int height = this.a.a.getHeight();
                 int height2 = this.a.j.getHeight();
-                int j = xi.j(this.a.getPageContext().getPageActivity());
-                float l = xi.l(this.a.getPageContext().getPageActivity()) * this.a.A;
+                int j = yi.j(this.a.getPageContext().getPageActivity());
+                float l = yi.l(this.a.getPageContext().getPageActivity()) * this.a.A;
                 this.a.L = (j - height) - height2;
-                float l2 = (this.a.L * 1.0f) / xi.l(this.a.getPageContext().getPageActivity());
+                float l2 = (this.a.L * 1.0f) / yi.l(this.a.getPageContext().getPageActivity());
                 TbEditVideoActivity tbEditVideoActivity = this.a;
                 tbEditVideoActivity.M = height - ((j - tbEditVideoActivity.L) * 0.5f);
                 ObjectAnimator duration = ObjectAnimator.ofFloat(this.a.n, Key.TRANSLATION_Y, 0.0f, this.a.M).setDuration(250L);
@@ -492,19 +492,19 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                     }
                 }
                 if (this.a.w != null && TextUtils.isEmpty(this.a.B)) {
-                    yg.a().postDelayed(new a(this), 300L);
+                    zg.a().postDelayed(new a(this), 300L);
                 }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class q implements ny5.b {
+    public static class q implements rz5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<TbEditVideoActivity> a;
 
-        @Override // com.baidu.tieba.ny5.b
+        @Override // com.baidu.tieba.rz5.b
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -563,7 +563,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             this.a = new WeakReference<>(tbEditVideoActivity);
         }
 
-        @Override // com.baidu.tieba.ny5.b
+        @Override // com.baidu.tieba.rz5.b
         public void b() {
             TbEditVideoActivity tbEditVideoActivity;
             Interceptable interceptable = $ic;
@@ -572,7 +572,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             }
         }
 
-        @Override // com.baidu.tieba.ny5.b
+        @Override // com.baidu.tieba.rz5.b
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -588,17 +588,17 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             }
         }
 
-        @Override // com.baidu.tieba.ny5.b
+        @Override // com.baidu.tieba.rz5.b
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 TbEditVideoActivity tbEditVideoActivity = this.a.get();
                 File file = new File(str);
-                File file2 = new File(hda.g);
+                File file2 = new File(yla.g);
                 if (!file2.exists()) {
                     file2.mkdir();
                 }
-                String str2 = hda.g + file.getName();
+                String str2 = yla.g + file.getName();
                 if (!str2.equals(file.getAbsolutePath())) {
                     FileHelper.copyFileByAbsolutelyPath(file.getAbsolutePath(), str2);
                 }
@@ -609,26 +609,26 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                     tbEditVideoActivity.sendBroadcast(intent);
                 } catch (Exception e) {
                     tbEditVideoActivity.E = false;
-                    tbEditVideoActivity.q2();
-                    tbEditVideoActivity.r2();
+                    tbEditVideoActivity.n2();
+                    tbEditVideoActivity.o2();
                     BdLog.d(e.getMessage());
                 }
                 tbEditVideoActivity.E = false;
                 tbEditVideoActivity.showToast(tbEditVideoActivity.getResources().getString(R.string.save_success));
-                tbEditVideoActivity.q2();
-                tbEditVideoActivity.r2();
+                tbEditVideoActivity.n2();
+                tbEditVideoActivity.o2();
                 e();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class a implements cs6.a {
+    public class a implements hu6.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbEditVideoActivity a;
 
-        @Override // com.baidu.tieba.cs6.a
+        @Override // com.baidu.tieba.hu6.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -653,7 +653,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             this.a = tbEditVideoActivity;
         }
 
-        @Override // com.baidu.tieba.cs6.a
+        @Override // com.baidu.tieba.hu6.a
         public void b() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.u != null) {
@@ -661,12 +661,12 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             }
         }
 
-        @Override // com.baidu.tieba.cs6.a
+        @Override // com.baidu.tieba.hu6.a
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (this.a.G != 1) {
-                    this.a.s2();
+                    this.a.p2();
                 }
                 this.a.U.a();
             }
@@ -674,18 +674,18 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
     }
 
     /* loaded from: classes8.dex */
-    public class b implements r55.f {
+    public class b implements a65.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p55 a;
+        public final /* synthetic */ y55 a;
         public final /* synthetic */ TbEditVideoActivity b;
 
-        public b(TbEditVideoActivity tbEditVideoActivity, p55 p55Var) {
+        public b(TbEditVideoActivity tbEditVideoActivity, y55 y55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbEditVideoActivity, p55Var};
+                Object[] objArr = {tbEditVideoActivity, y55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -696,13 +696,13 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                 }
             }
             this.b = tbEditVideoActivity;
-            this.a = p55Var;
+            this.a = y55Var;
         }
 
-        @Override // com.baidu.tieba.r55.f
-        public void M0(r55 r55Var, int i, View view2) {
+        @Override // com.baidu.tieba.a65.f
+        public void L0(a65 a65Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, r55Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, a65Var, i, view2) == null) {
                 if (i == 0) {
                     this.b.finish();
                 } else {
@@ -784,10 +784,10 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                 this.a.j.setVisibility(0);
                 int height = this.a.a.getHeight();
                 int height2 = this.a.j.getHeight();
-                int j = xi.j(this.a.getPageContext().getPageActivity());
-                float l = xi.l(this.a.getPageContext().getPageActivity()) * this.a.A;
+                int j = yi.j(this.a.getPageContext().getPageActivity());
+                float l = yi.l(this.a.getPageContext().getPageActivity()) * this.a.A;
                 this.a.L = (j - height) - height2;
-                float l2 = (this.a.L * 1.0f) / xi.l(this.a.getPageContext().getPageActivity());
+                float l2 = (this.a.L * 1.0f) / yi.l(this.a.getPageContext().getPageActivity());
                 TbEditVideoActivity tbEditVideoActivity = this.a;
                 tbEditVideoActivity.M = height - ((j - tbEditVideoActivity.L) * 0.5f);
                 this.a.n.setTranslationY(this.a.M);
@@ -923,7 +923,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         public void c(MotionEvent motionEvent, float f, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.a.t2();
+                this.a.q2();
                 if (this.a.s != null && this.a.s.p()) {
                     this.a.s.m(null, false);
                 }
@@ -934,7 +934,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         public void d(MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) {
-                this.a.t2();
+                this.a.q2();
                 if (this.a.s != null && this.a.s.p()) {
                     this.a.s.m(null, false);
                 }
@@ -988,8 +988,8 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                 }
                 QmFilterItem qmFilterItem = new QmFilterItem();
                 qmFilterItem.id = "-1";
-                qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080c23 + "";
-                qmFilterItem.name = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0735);
+                qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080c2e + "";
+                qmFilterItem.name = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f073e);
                 qmFilterItem.isSelect = true;
                 qmFilterItem.localPath = "origin";
                 list.add(0, qmFilterItem);
@@ -999,7 +999,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
     }
 
     /* loaded from: classes8.dex */
-    public class k implements l17.b {
+    public class k implements u37.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbEditVideoActivity a;
@@ -1022,15 +1022,15 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             this.a = tbEditVideoActivity;
         }
 
-        @Override // com.baidu.tieba.l17.b
+        @Override // com.baidu.tieba.u37.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 if (this.a.s != null) {
                     QmFilterItem qmFilterItem = new QmFilterItem();
                     qmFilterItem.id = "-1";
-                    qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080c23 + "";
-                    qmFilterItem.name = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0735);
+                    qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080c2e + "";
+                    qmFilterItem.name = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f073e);
                     qmFilterItem.isSelect = true;
                     qmFilterItem.localPath = "origin";
                     this.a.s.z(qmFilterItem);
@@ -1040,13 +1040,13 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                     this.a.s.setDownLoadFilter(null);
                 }
                 if (StringUtils.isNull(str)) {
-                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f143e);
+                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1454);
                 }
                 this.a.showToast(str);
             }
         }
 
-        @Override // com.baidu.tieba.l17.b
+        @Override // com.baidu.tieba.u37.b
         public void b() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.s != null) {
@@ -1054,7 +1054,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             }
         }
 
-        @Override // com.baidu.tieba.l17.b
+        @Override // com.baidu.tieba.u37.b
         public void c(QmFilterItem qmFilterItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qmFilterItem) == null) {
@@ -1100,21 +1100,21 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         }
 
         @Override // com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout.i
-        public void b(fka fkaVar, Object obj) {
+        public void b(dta dtaVar, Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fkaVar, obj) != null) || fkaVar == null) {
+            if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dtaVar, obj) != null) || dtaVar == null) {
                 return;
             }
-            int type = fkaVar.getType();
+            int type = dtaVar.getType();
             if (type != 2) {
-                if (type == 3 && (fkaVar.c() instanceof MusicData)) {
-                    MusicData musicData = (MusicData) fkaVar.c();
+                if (type == 3 && (dtaVar.c() instanceof MusicData)) {
+                    MusicData musicData = (MusicData) dtaVar.c();
                     TbMusicData tbMusicData = new TbMusicData();
                     tbMusicData.id = musicData.id;
                     tbMusicData.title = musicData.name;
                     tbMusicData.url = musicData.resource;
                     tbMusicData.icon = musicData.img;
-                    tbMusicData.type = vg.e(musicData.type, 1);
+                    tbMusicData.type = wg.e(musicData.type, 1);
                     if (MusicData.MUSIC_NORMAL_ID.equals(musicData.id) || MusicData.MUSIC_CLOUD_ID.equals(musicData.id)) {
                         this.a.u.f(this.a.J);
                         this.a.J = tbMusicData;
@@ -1129,14 +1129,14 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                     if (!MusicData.MUSIC_CLOUD_ID.equals(musicData.id)) {
                         this.a.s.setMusicName(this.a.J.title, "");
                     }
-                    this.a.u.d((MusicData) fkaVar.c(), obj);
+                    this.a.u.d((MusicData) dtaVar.c(), obj);
                     if (this.a.t != null) {
                         this.a.u.a(((float) this.a.t.getCurrentPlayTime()) / 1000.0f);
                     }
                     this.a.x = true;
                 }
-            } else if (this.a.v != null && (fkaVar.c() instanceof QmFilterItem)) {
-                QmFilterItem qmFilterItem = (QmFilterItem) fkaVar.c();
+            } else if (this.a.v != null && (dtaVar.c() instanceof QmFilterItem)) {
+                QmFilterItem qmFilterItem = (QmFilterItem) dtaVar.c();
                 String f = this.a.v.f(qmFilterItem.fileUrl);
                 if (StringUtils.isNull(f) && !"-1".equals(qmFilterItem.id)) {
                     if (this.a.s != null) {
@@ -1217,7 +1217,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 TbEditVideoActivity tbEditVideoActivity = this.a;
-                tbEditVideoActivity.showToast(tbEditVideoActivity.getString(R.string.obfuscated_res_0x7f0f0610));
+                tbEditVideoActivity.showToast(tbEditVideoActivity.getString(R.string.obfuscated_res_0x7f0f0613));
             }
         }
     }
@@ -1250,7 +1250,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         public void run() {
             VideoFileInfo c;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (c = rca.c(this.a.y.path)) == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (c = ila.c(this.a.y.path)) == null) {
                 return;
             }
             this.a.z = new VideoInfo();
@@ -1264,7 +1264,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             this.a.z.setIsCompressedVideo(true);
             EditVideoData editVideoData = new EditVideoData();
             if (StringUtils.isNull(this.a.B)) {
-                editVideoData.coverPath = hda.b;
+                editVideoData.coverPath = yla.b;
             } else {
                 editVideoData.coverPath = this.a.B;
             }
@@ -1309,18 +1309,18 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         this.F = false;
         this.G = 1;
         this.H = false;
-        this.L = xi.j(getPageContext().getPageActivity());
+        this.L = yi.j(getPageContext().getPageActivity());
         this.M = 0.0f;
         this.O = new q(this);
         this.P = new h(this);
         this.Q = new i(this);
         this.R = new j(this, CmdConfigHttp.CMD_GET_QM_FILTERS, true);
         this.S = new k(this);
-        this.f1172T = new l(this);
-        this.U = new ky5(new m(this));
+        this.f1178T = new l(this);
+        this.U = new oz5(new m(this));
     }
 
-    public final int i2(int i2) {
+    public final int f2(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
@@ -1335,7 +1335,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void showLoadingView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, view2) == null) {
             super.showLoadingView(view2);
             if (getLoadingView() != null && getLoadingView().k() != null) {
                 getLoadingView().k().setVisibility(8);
@@ -1343,44 +1343,44 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.a17
-    public void b0(String str) {
+    @Override // com.baidu.tieba.j37
+    public void a0(String str) {
         List<MultiMediaData> j2;
-        z07 z07Var;
+        i37 i37Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !StringUtils.isNull(str) && !str.equals(this.B)) {
-            z07 z07Var2 = this.w;
-            if (z07Var2 != null) {
-                this.D = z07Var2.p();
+            i37 i37Var2 = this.w;
+            if (i37Var2 != null) {
+                this.D = i37Var2.p();
             }
             this.B = str;
-            if (this.j.getCurrentMode() == 2 && (z07Var = this.w) != null) {
-                z07Var.l();
+            if (this.j.getCurrentMode() == 2 && (i37Var = this.w) != null) {
+                i37Var.l();
             }
             if (this.H) {
-                yg.a().post(new o(this));
+                zg.a().post(new o(this));
                 if (this.G != 3) {
-                    cs6 cs6Var = this.t;
-                    if (cs6Var != null) {
-                        cs6Var.start();
+                    hu6 hu6Var = this.t;
+                    if (hu6Var != null) {
+                        hu6Var.start();
                     }
-                    n17 n17Var = this.u;
-                    if (n17Var != null) {
-                        n17Var.onResume();
-                        cs6 cs6Var2 = this.t;
-                        if (cs6Var2 != null) {
-                            this.u.a(((float) cs6Var2.getCurrentPlayTime()) / 1000.0f);
+                    w37 w37Var = this.u;
+                    if (w37Var != null) {
+                        w37Var.onResume();
+                        hu6 hu6Var2 = this.t;
+                        if (hu6Var2 != null) {
+                            this.u.a(((float) hu6Var2.getCurrentPlayTime()) / 1000.0f);
                         }
                     }
                 }
                 this.x = true;
             }
-            z07 z07Var3 = this.w;
-            if (z07Var3 != null && (j2 = z07Var3.j()) != null) {
+            i37 i37Var3 = this.w;
+            if (i37Var3 != null && (j2 = i37Var3.j()) != null) {
                 this.y.setCoverStickerList(j2);
             }
             if (this.G == 3) {
-                yg.a().post(new p(this));
+                zg.a().post(new p(this));
             }
         }
     }
@@ -1393,9 +1393,9 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         }
     }
 
-    public final void j2() {
+    public final void g2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a.setVisibility(8);
             this.l.setVisibility(8);
             this.m.setVisibility(8);
@@ -1403,9 +1403,9 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         }
     }
 
-    public final void k2() {
+    public final void h2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.a.setVisibility(0);
             this.l.setVisibility(0);
             this.m.setVisibility(0);
@@ -1413,93 +1413,93 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         }
     }
 
+    public final void n2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            hu6 hu6Var = this.t;
+            if (hu6Var != null) {
+                hu6Var.onPause();
+            }
+            w37 w37Var = this.u;
+            if (w37Var != null) {
+                w37Var.onPause();
+            }
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onPause();
-            q2();
+            n2();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onResume();
-            r2();
+            o2();
+        }
+    }
+
+    public final void p2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            hu6 hu6Var = this.t;
+            if (hu6Var != null) {
+                hu6Var.pause();
+            }
+            w37 w37Var = this.u;
+            if (w37Var != null) {
+                w37Var.onPause();
+            }
         }
     }
 
     public final void q2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            cs6 cs6Var = this.t;
-            if (cs6Var != null) {
-                cs6Var.onPause();
-            }
-            n17 n17Var = this.u;
-            if (n17Var != null) {
-                n17Var.onPause();
-            }
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c2d));
+            this.g.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c30));
         }
     }
 
-    public final void s2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            cs6 cs6Var = this.t;
-            if (cs6Var != null) {
-                cs6Var.pause();
-            }
-            n17 n17Var = this.u;
-            if (n17Var != null) {
-                n17Var.onPause();
-            }
-        }
-    }
-
-    public final void t2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c22));
-            this.g.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c25));
-        }
-    }
-
-    public final void g2() {
+    public final void d2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.x) {
-                p55 p55Var = new p55(getPageContext(), new r55(getPageContext().getPageActivity()));
-                p55Var.i(getResources().getString(R.string.obfuscated_res_0x7f0f060f), new String[]{getResources().getString(R.string.obfuscated_res_0x7f0f11a0)}, new b(this, p55Var));
-                p55Var.l();
+                y55 y55Var = new y55(getPageContext(), new a65(getPageContext().getPageActivity()));
+                y55Var.i(getResources().getString(R.string.obfuscated_res_0x7f0f0612), new String[]{getResources().getString(R.string.obfuscated_res_0x7f0f11b2)}, new b(this, y55Var));
+                y55Var.l();
                 return;
             }
             finish();
         }
     }
 
-    public final void u2() {
+    public final void r2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             this.G = 2;
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0611, 0);
-            t2();
+            q2();
             VideoControllerLayout videoControllerLayout = this.s;
             if (videoControllerLayout != null && videoControllerLayout.p()) {
                 this.s.m(null, false);
             }
             this.b.setVisibility(0);
             this.c.setVisibility(0);
-            yg.a().post(new e(this));
+            zg.a().post(new e(this));
             this.l.setVisibility(8);
             this.m.setVisibility(8);
             this.i.setVisibility(8);
         }
     }
 
-    public final void h2() {
+    public final void e2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b.setVisibility(0);
@@ -1512,56 +1512,82 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         }
     }
 
-    public final void m2() {
+    public final void j2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.G = 1;
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0105, 0);
             this.b.setVisibility(8);
             this.c.setVisibility(8);
-            yg.a().post(new f(this));
+            zg.a().post(new f(this));
             this.l.setVisibility(0);
             this.m.setVisibility(0);
             this.i.setVisibility(0);
         }
     }
 
+    public final void o2() {
+        w37 w37Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            ViewGroup viewGroup = this.e;
+            if (viewGroup != null) {
+                viewGroup.setSystemUiVisibility(4100);
+            }
+            hu6 hu6Var = this.t;
+            if (hu6Var != null) {
+                hu6Var.onResume();
+            }
+            if (this.G == 1 && (w37Var = this.u) != null) {
+                w37Var.onResume();
+                hu6 hu6Var2 = this.t;
+                if (hu6Var2 != null) {
+                    this.u.a(((float) hu6Var2.getCurrentPlayTime()) / 1000.0f);
+                }
+            }
+            v37 v37Var = this.v;
+            if (v37Var != null) {
+                v37Var.h();
+            }
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onBackPressed() {
-        z07 z07Var;
+        i37 i37Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             if (this.G == 2) {
-                if (this.j.getCurrentMode() == 2 && (z07Var = this.w) != null) {
-                    z07Var.l();
+                if (this.j.getCurrentMode() == 2 && (i37Var = this.w) != null) {
+                    i37Var.l();
                 }
-                z07 z07Var2 = this.w;
-                if (z07Var2 != null) {
-                    z07Var2.reset();
+                i37 i37Var2 = this.w;
+                if (i37Var2 != null) {
+                    i37Var2.reset();
                 }
-                yg.a().post(new c(this));
-                m2();
+                zg.a().post(new c(this));
+                j2();
                 return;
             }
-            g2();
+            d2();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onDestroy();
-            cs6 cs6Var = this.t;
-            if (cs6Var != null) {
-                cs6Var.onDestroy();
+            hu6 hu6Var = this.t;
+            if (hu6Var != null) {
+                hu6Var.onDestroy();
                 if (!this.F) {
                     this.t.e();
                 }
             }
-            n17 n17Var = this.u;
-            if (n17Var != null) {
-                n17Var.b();
+            w37 w37Var = this.u;
+            if (w37Var != null) {
+                w37Var.b();
                 this.u.e();
             }
             VideoMuxer videoMuxer = this.N;
@@ -1571,131 +1597,17 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         }
     }
 
-    public final void r2() {
-        n17 n17Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            ViewGroup viewGroup = this.e;
-            if (viewGroup != null) {
-                viewGroup.setSystemUiVisibility(4100);
-            }
-            cs6 cs6Var = this.t;
-            if (cs6Var != null) {
-                cs6Var.onResume();
-            }
-            if (this.G == 1 && (n17Var = this.u) != null) {
-                n17Var.onResume();
-                cs6 cs6Var2 = this.t;
-                if (cs6Var2 != null) {
-                    this.u.a(((float) cs6Var2.getCurrentPlayTime()) / 1000.0f);
-                }
-            }
-            m17 m17Var = this.v;
-            if (m17Var != null) {
-                m17Var.h();
-            }
-        }
-    }
-
-    public final void initView() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091f38);
-            this.a = (NavigationBar) findViewById(R.id.navigation_bar);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09096a);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090551);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090553);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090971);
-            this.m = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090972);
-            this.l = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09054c);
-            this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090552);
-            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090554);
-            this.r = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09054e);
-            this.j.setVisibility(4);
-            RecordPreviewContainer recordPreviewContainer = (RecordPreviewContainer) findViewById(R.id.obfuscated_res_0x7f090970);
-            this.n = recordPreviewContainer;
-            recordPreviewContainer.setOnViewClickListener(this.Q);
-            TextView centerTextTitle = this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f1090));
-            this.b = centerTextTitle;
-            centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
-            this.b.setVisibility(8);
-            View addSystemImageButton = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.d = addSystemImageButton;
-            ((ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c09));
-            TextView addTextButton = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f12b4));
-            this.c = addTextButton;
-            addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));
-            this.c.setVisibility(8);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090550);
-            this.o = relativeLayout;
-            int i2 = 0;
-            if (this.K == 1) {
-                relativeLayout.setVisibility(8);
-            } else {
-                relativeLayout.setVisibility(0);
-            }
-            if (this.s.getRecrodButton() != null) {
-                this.s.getRecrodButton().setVisibility(8);
-            }
-            this.s.setEffectChoosedListener(this.f1172T);
-            this.d.setOnClickListener(this);
-            this.c.setOnClickListener(this);
-            this.j.setOnClickListener(this);
-            this.i.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            this.o.setOnClickListener(this);
-            this.p.setOnClickListener(this);
-            this.q.setOnClickListener(this);
-            this.r.setOnClickListener(this);
-            s75 d2 = s75.d(this.h);
-            d2.D(R.string.F_X02);
-            d2.B(R.array.S_O_X001);
-            s75 d3 = s75.d(findViewById(R.id.obfuscated_res_0x7f090971));
-            d3.o(R.string.J_X01);
-            d3.f(R.color.CAM_X0302);
-            s75.d(findViewById(R.id.obfuscated_res_0x7f090974)).B(R.array.S_O_X001);
-            s75.d(findViewById(R.id.obfuscated_res_0x7f090558)).B(R.array.S_O_X001);
-            s75.d(findViewById(R.id.obfuscated_res_0x7f090559)).B(R.array.S_O_X001);
-            s75.d(findViewById(R.id.obfuscated_res_0x7f090557)).B(R.array.S_O_X001);
-            s75.d(findViewById(R.id.obfuscated_res_0x7f09055a)).B(R.array.S_O_X001);
-            TbMultiMediaData tbMultiMediaData = this.y;
-            if (tbMultiMediaData != null && tbMultiMediaData.coverSource == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                this.j.setCurrentMode(2);
-            } else {
-                this.j.setCurrentMode(1);
-            }
-            if (this.G == 3) {
-                h2();
-                this.U.b();
-            } else if (WorkPublishManager.isWorkPublishLocate()) {
-                int i3 = this.K;
-                if (i3 == 1) {
-                    i2 = 2;
-                } else if (i3 == 2) {
-                    i2 = 1;
-                }
-                TiebaStatic.log(new StatisticItem("c14309").param("obj_source", i2));
-            }
-        }
-    }
-
-    public final lka l2() {
+    public final jta i2() {
         InterceptResult invokeV;
-        n17 n17Var;
+        w37 w37Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            lka lkaVar = new lka();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            jta jtaVar = new jta();
             TbMultiMediaData tbMultiMediaData = this.y;
             float f2 = 0.0f;
             if (tbMultiMediaData != null) {
-                lkaVar.j(tbMultiMediaData);
-                lkaVar.n(this.A);
+                jtaVar.j(tbMultiMediaData);
+                jtaVar.n(this.A);
                 TbMultiMediaData tbMultiMediaData2 = this.y;
                 int i2 = tbMultiMediaData2.width;
                 int i3 = tbMultiMediaData2.height;
@@ -1713,19 +1625,19 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                     } else if (f6 != 0.0f) {
                         i2 = (int) (f4 / f6);
                     }
-                    int i22 = i2(i2);
-                    int i23 = i2(i3);
-                    lkaVar.m(i22);
-                    lkaVar.l(i23);
+                    int f22 = f2(i2);
+                    int f23 = f2(i3);
+                    jtaVar.m(f22);
+                    jtaVar.l(f23);
                 }
             }
-            m17 m17Var = this.v;
-            if (m17Var != null && m17Var.b() != null) {
+            v37 v37Var = this.v;
+            if (v37Var != null && v37Var.b() != null) {
                 QmFilterItem b2 = this.v.b();
                 String str = b2.localPath;
                 Filter filter = new Filter();
                 if (!StringUtils.isNull(str) && !"origin".equals(str)) {
-                    f2 = (vg.d(b2.effect, 100.0f) * 1.0f) / 100.0f;
+                    f2 = (wg.d(b2.effect, 100.0f) * 1.0f) / 100.0f;
                     filter.setDataType(1);
                     filter.setLevel(f2);
                     filter.setFile(new File(b2.localPath));
@@ -1737,65 +1649,65 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                 tbFilterValue.setFilterType(2);
                 tbFilterValue.setFilterPath(str);
                 tbFilterValue.mFilter = filter;
-                tbFilterValue.mComplex = vg.e(b2.complex, 0);
+                tbFilterValue.mComplex = wg.e(b2.complex, 0);
                 tbFilterValue.mRootFilePath = str;
-                lkaVar.h(tbFilterValue);
+                jtaVar.h(tbFilterValue);
             }
-            cs6 cs6Var = this.t;
-            if (cs6Var != null) {
-                lkaVar.i(cs6Var.getMediaTrackConfig());
+            hu6 hu6Var = this.t;
+            if (hu6Var != null) {
+                jtaVar.i(hu6Var.getMediaTrackConfig());
             }
             TbMusicData tbMusicData = this.J;
-            if (tbMusicData != null && (n17Var = this.u) != null) {
-                tbMusicData.localPath = n17Var.c();
-                lkaVar.k(this.J);
+            if (tbMusicData != null && (w37Var = this.u) != null) {
+                tbMusicData.localPath = w37Var.c();
+                jtaVar.k(this.J);
             }
-            return lkaVar;
+            return jtaVar;
         }
-        return (lka) invokeV.objValue;
+        return (jta) invokeV.objValue;
     }
 
-    public final void n2() {
+    public final void k2() {
         TbMusicData tbMusicData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             boolean booleanExtra = getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false);
-            this.k = (TbGLMediaPreviewView) findViewById(R.id.obfuscated_res_0x7f090975);
-            this.j = (PreViewPickCoverView) findViewById(R.id.obfuscated_res_0x7f091c47);
-            c17 c17Var = new c17(getPageContext(), this.k, this.j, this.y, booleanExtra);
-            this.w = c17Var;
-            c17Var.d(this);
+            this.k = (TbGLMediaPreviewView) findViewById(R.id.obfuscated_res_0x7f090976);
+            this.j = (PreViewPickCoverView) findViewById(R.id.obfuscated_res_0x7f091c5e);
+            l37 l37Var = new l37(getPageContext(), this.k, this.j, this.y, booleanExtra);
+            this.w = l37Var;
+            l37Var.d(this);
             this.H = false;
-            ds6 ds6Var = new ds6(getPageContext(), this.k, this.y, this.w, booleanExtra);
-            this.t = ds6Var;
-            ds6Var.f(this.A);
+            iu6 iu6Var = new iu6(getPageContext(), this.k, this.y, this.w, booleanExtra);
+            this.t = iu6Var;
+            iu6Var.f(this.A);
             this.t.b(new a(this));
-            this.s = (VideoControllerLayout) findViewById(R.id.obfuscated_res_0x7f091e3b);
-            p17 p17Var = new p17(getPageContext(), this.s);
-            this.u = p17Var;
-            this.s.setMusicManager(p17Var);
+            this.s = (VideoControllerLayout) findViewById(R.id.obfuscated_res_0x7f091e5d);
+            y37 y37Var = new y37(getPageContext(), this.s);
+            this.u = y37Var;
+            this.s.setMusicManager(y37Var);
             if (this.u != null && (tbMusicData = this.J) != null && !TextUtils.isEmpty(tbMusicData.localPath) && !TextUtils.isEmpty(this.J.id)) {
                 TbMusicData tbMusicData2 = this.J;
                 if (tbMusicData2.type == 2) {
-                    this.s.setEffectLayoutCurrentMusicName(getResources().getString(R.string.obfuscated_res_0x7f0f0ce5));
+                    this.s.setEffectLayoutCurrentMusicName(getResources().getString(R.string.obfuscated_res_0x7f0f0cf0));
                 } else {
                     this.s.setEffectLayoutCurrentMusicName(tbMusicData2.title);
                 }
-                n17 n17Var = this.u;
+                w37 w37Var = this.u;
                 TbMusicData tbMusicData3 = this.J;
-                n17Var.g(tbMusicData3.localPath, tbMusicData3.id);
-                cs6 cs6Var = this.t;
-                if (cs6Var != null) {
-                    this.u.a(((float) cs6Var.getCurrentPlayTime()) / 1000.0f);
+                w37Var.g(tbMusicData3.localPath, tbMusicData3.id);
+                hu6 hu6Var = this.t;
+                if (hu6Var != null) {
+                    this.u.a(((float) hu6Var.getCurrentPlayTime()) / 1000.0f);
                 }
                 this.s.setMusicName(this.J.title, "");
             }
-            l17 l17Var = new l17(null, this.t, this.s);
-            this.v = l17Var;
-            l17Var.d(this.S);
+            u37 u37Var = new u37(null, this.t, this.s);
+            this.v = u37Var;
+            u37Var.d(this.S);
             this.v.h();
             this.s.setEditManager(this.t);
-            p2();
+            m2();
             QmFilterItem videoFilter = this.y.getVideoFilter();
             if (videoFilter != null) {
                 this.v.a(videoFilter);
@@ -1804,30 +1716,118 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         }
     }
 
-    public final void p2() {
+    public final void m2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_QM_FILTERS);
-            if (eq9.b()) {
-                httpMessage.addParam(HttpRequest.UH, zi.f() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (tca.b(this) ? 1 : 0));
-                httpMessage.addParam("ut", zi.g() + "_" + zi.k() + "_" + tca.a() + "_" + Build.BRAND.replace("_", ""));
+            if (lw9.b()) {
+                httpMessage.addParam(HttpRequest.UH, aj.f() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (kla.b(this) ? 1 : 0));
+                httpMessage.addParam("ut", aj.g() + "_" + aj.k() + "_" + kla.a() + "_" + Build.BRAND.replace("_", ""));
             } else {
-                httpMessage.addParam(HttpRequest.NEED_DECRYPT, eq9.c());
-                String g2 = eq9.g(HttpRequest.UH);
+                httpMessage.addParam(HttpRequest.NEED_DECRYPT, lw9.c());
+                String g2 = lw9.g(HttpRequest.UH);
                 if (!TextUtils.isEmpty(g2)) {
-                    httpMessage.addParam(g2, eq9.a(zi.f() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (tca.b(this) ? 1 : 0)));
+                    httpMessage.addParam(g2, lw9.a(aj.f() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (kla.b(this) ? 1 : 0)));
                 }
-                String g3 = eq9.g("ut");
+                String g3 = lw9.g("ut");
                 if (!TextUtils.isEmpty(g3)) {
-                    httpMessage.addParam(g3, eq9.a(zi.g() + "_" + zi.k() + "_" + tca.a() + "_" + Build.BRAND.replace("_", "")));
+                    httpMessage.addParam(g3, lw9.a(aj.g() + "_" + aj.k() + "_" + kla.a() + "_" + Build.BRAND.replace("_", "")));
                 }
             }
-            httpMessage.addParam("sdk_version", gg0.h() + "");
+            httpMessage.addParam("sdk_version", hg0.h() + "");
             sendMessage(httpMessage);
         }
     }
 
-    public final void o2() {
+    public final void initView() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091f6a);
+            this.a = (NavigationBar) findViewById(R.id.navigation_bar);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09096b);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090552);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090554);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090972);
+            this.m = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090973);
+            this.l = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09054d);
+            this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090553);
+            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090555);
+            this.r = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09054f);
+            this.j.setVisibility(4);
+            RecordPreviewContainer recordPreviewContainer = (RecordPreviewContainer) findViewById(R.id.obfuscated_res_0x7f090971);
+            this.n = recordPreviewContainer;
+            recordPreviewContainer.setOnViewClickListener(this.Q);
+            TextView centerTextTitle = this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f10a2));
+            this.b = centerTextTitle;
+            centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
+            this.b.setVisibility(8);
+            View addSystemImageButton = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.d = addSystemImageButton;
+            ((ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c14));
+            TextView addTextButton = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f12c9));
+            this.c = addTextButton;
+            addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));
+            this.c.setVisibility(8);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090551);
+            this.o = relativeLayout;
+            int i2 = 0;
+            if (this.K == 1) {
+                relativeLayout.setVisibility(8);
+            } else {
+                relativeLayout.setVisibility(0);
+            }
+            if (this.s.getRecrodButton() != null) {
+                this.s.getRecrodButton().setVisibility(8);
+            }
+            this.s.setEffectChoosedListener(this.f1178T);
+            this.d.setOnClickListener(this);
+            this.c.setOnClickListener(this);
+            this.j.setOnClickListener(this);
+            this.i.setOnClickListener(this);
+            this.m.setOnClickListener(this);
+            this.o.setOnClickListener(this);
+            this.p.setOnClickListener(this);
+            this.q.setOnClickListener(this);
+            this.r.setOnClickListener(this);
+            d85 d2 = d85.d(this.h);
+            d2.D(R.string.F_X02);
+            d2.B(R.array.S_O_X001);
+            d85 d3 = d85.d(findViewById(R.id.obfuscated_res_0x7f090972));
+            d3.o(R.string.J_X01);
+            d3.f(R.color.CAM_X0302);
+            d85.d(findViewById(R.id.obfuscated_res_0x7f090975)).B(R.array.S_O_X001);
+            d85.d(findViewById(R.id.obfuscated_res_0x7f090559)).B(R.array.S_O_X001);
+            d85.d(findViewById(R.id.obfuscated_res_0x7f09055a)).B(R.array.S_O_X001);
+            d85.d(findViewById(R.id.obfuscated_res_0x7f090558)).B(R.array.S_O_X001);
+            d85.d(findViewById(R.id.obfuscated_res_0x7f09055b)).B(R.array.S_O_X001);
+            TbMultiMediaData tbMultiMediaData = this.y;
+            if (tbMultiMediaData != null && tbMultiMediaData.coverSource == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                this.j.setCurrentMode(2);
+            } else {
+                this.j.setCurrentMode(1);
+            }
+            if (this.G == 3) {
+                e2();
+                this.U.b();
+            } else if (WorkPublishManager.isWorkPublishLocate()) {
+                int i3 = this.K;
+                if (i3 == 1) {
+                    i2 = 2;
+                } else if (i3 == 2) {
+                    i2 = 1;
+                }
+                TiebaStatic.log(new StatisticItem("c14309").param("obj_source", i2));
+            }
+        }
+    }
+
+    public final void l2() {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -1862,14 +1862,14 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
-        z07 z07Var;
+        i37 i37Var;
         TbMultiMediaData tbMultiMediaData;
         TbMultiMediaData tbMultiMediaData2;
-        z07 z07Var2;
+        i37 i37Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048588, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048591, this, i2, i3, intent) == null) {
             if (intent == null) {
-                if (this.j.getCurrentMode() == 2 && i2 == 12002 && (z07Var2 = this.w) != null && !z07Var2.o()) {
+                if (this.j.getCurrentMode() == 2 && i2 == 12002 && (i37Var2 = this.w) != null && !i37Var2.o()) {
                     this.j.setCurrentMode(1);
                     this.w.l();
                 }
@@ -1885,35 +1885,35 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                         String str = tbMusicData.localPath;
                         if (this.u != null && !TextUtils.isEmpty(str)) {
                             this.u.g(str, stringExtra);
-                            cs6 cs6Var = this.t;
-                            if (cs6Var != null) {
-                                this.u.a(((float) cs6Var.getCurrentPlayTime()) / 1000.0f);
+                            hu6 hu6Var = this.t;
+                            if (hu6Var != null) {
+                                this.u.a(((float) hu6Var.getCurrentPlayTime()) / 1000.0f);
                             }
                             this.s.y(tbMusicData);
                         }
                     }
                 }
             } else if (i2 == 25062) {
-                xca.c(intent, this.k);
+                ola.c(intent, this.k);
                 if (i3 == -1 && (tbMultiMediaData = (TbMultiMediaData) intent.getParcelableExtra(TbEditVideoActivityConfig.KEY_EDIT_VIDEO_DATA)) != null && this.t != null && (tbMultiMediaData2 = this.y) != null && (tbMultiMediaData.start != tbMultiMediaData2.start || tbMultiMediaData.end != tbMultiMediaData2.end)) {
                     this.y = tbMultiMediaData;
                     this.t.c(tbMultiMediaData);
                     this.s.post(new n(this));
                     this.x = true;
                 }
-                k2();
+                h2();
             } else if (i2 == 12002) {
                 if (i3 == -1) {
                     String stringExtra2 = intent.getStringExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH);
-                    if (!TextUtils.isEmpty(stringExtra2) && (z07Var = this.w) != null) {
-                        z07Var.m(stringExtra2);
+                    if (!TextUtils.isEmpty(stringExtra2) && (i37Var = this.w) != null) {
+                        i37Var.m(stringExtra2);
                         this.C = stringExtra2;
                         return;
                     }
                     return;
                 }
-                z07 z07Var3 = this.w;
-                if (z07Var3 != null && !z07Var3.o()) {
+                i37 i37Var3 = this.w;
+                if (i37Var3 != null && !i37Var3.o()) {
                     this.j.setCurrentMode(1);
                     this.w.l();
                 }
@@ -1923,74 +1923,74 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        z07 z07Var;
+        i37 i37Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, view2) == null) {
             super.onClick(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f090552) {
-                t2();
+            if (view2.getId() == R.id.obfuscated_res_0x7f090553) {
+                q2();
                 if (this.s.q()) {
-                    this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c22));
+                    this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c2d));
                 } else {
-                    this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c24));
+                    this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c2f));
                 }
                 this.s.v();
                 if (this.s.t()) {
-                    p2();
+                    m2();
                     return;
                 }
                 return;
             }
             int i2 = 2;
-            if (view2.getId() == R.id.obfuscated_res_0x7f090554) {
-                t2();
+            if (view2.getId() == R.id.obfuscated_res_0x7f090555) {
+                q2();
                 if (this.s.r()) {
-                    this.g.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c25));
+                    this.g.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c30));
                 } else {
-                    this.g.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c26));
+                    this.g.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c31));
                 }
                 this.s.w();
                 TbMusicData tbMusicData = this.J;
                 if (tbMusicData != null && tbMusicData.type == 2) {
                     this.s.postDelayed(new g(this), 300L);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090550) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090551) {
                 TbFileVideoActivityConfig tbFileVideoActivityConfig = new TbFileVideoActivityConfig(getPageContext().getPageActivity());
                 tbFileVideoActivityConfig.setForResult();
                 tbFileVideoActivityConfig.setFrom(2);
                 tbFileVideoActivityConfig.setTbMultiMediaData(this.y);
-                m17 m17Var = this.v;
-                if (m17Var != null && m17Var.b() != null) {
+                v37 v37Var = this.v;
+                if (v37Var != null && v37Var.b() != null) {
                     tbFileVideoActivityConfig.setFilter(this.v.b());
                 }
-                tbFileVideoActivityConfig.setEnterAnimValues(xca.a(this.k));
+                tbFileVideoActivityConfig.setEnterAnimValues(ola.a(this.k));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921582, tbFileVideoActivityConfig));
-                j2();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09054e) {
-                z07 z07Var2 = this.w;
-                if (z07Var2 != null) {
-                    z07Var2.i(this.D);
-                    s2();
+                g2();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09054f) {
+                i37 i37Var2 = this.w;
+                if (i37Var2 != null) {
+                    i37Var2.i(this.D);
+                    p2();
                     if (this.j.getCurrentMode() == 2 && !StringUtils.isNull(this.C)) {
                         this.w.m(this.C);
                     } else {
                         this.j.setCurrentMode(1);
                     }
                     this.w.q(this.y.getCoverStickerList());
-                    u2();
+                    r2();
                 }
-                r95.p().A("key_edit_video_pick_cover_tip_show", true);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090972) {
+                da5.p().A("key_edit_video_pick_cover_tip_show", true);
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090973) {
                 if (!this.E) {
                     this.E = true;
-                    s2();
+                    p2();
                     VideoMuxer videoMuxer = this.N;
                     if (videoMuxer != null) {
                         videoMuxer.interruptProcess();
                     }
-                    this.N = ny5.d(l2(), this.O);
+                    this.N = rz5.d(i2(), this.O);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090971) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090972) {
                 if (WorkPublishManager.isWorkPublishLocate()) {
                     int i3 = this.K;
                     if (i3 != 1) {
@@ -2002,22 +2002,22 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                     }
                     TiebaStatic.log(new StatisticItem("c14310").param("obj_source", i2));
                 }
-                if (!r95.p().l("key_edit_video_pick_cover_tip_show", false)) {
-                    yr6 yr6Var = new yr6(getPageContext(), this.r);
-                    yr6Var.L(R.drawable.pic_sign_tip_right);
-                    yr6Var.l(1);
-                    yr6Var.N(true);
-                    yr6Var.C(R.color.CAM_X0101);
-                    yr6Var.J(R.dimen.T_X08);
-                    yr6Var.p(R.dimen.T_X08);
-                    yr6Var.F(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
-                    yr6Var.I(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
-                    yr6Var.S(getResources().getString(R.string.obfuscated_res_0x7f0f0611));
-                    r95.p().A("key_edit_video_pick_cover_tip_show", true);
+                if (!da5.p().l("key_edit_video_pick_cover_tip_show", false)) {
+                    du6 du6Var = new du6(getPageContext(), this.r);
+                    du6Var.L(R.drawable.pic_sign_tip_right);
+                    du6Var.l(1);
+                    du6Var.N(true);
+                    du6Var.C(R.color.CAM_X0101);
+                    du6Var.J(R.dimen.T_X08);
+                    du6Var.p(R.dimen.T_X08);
+                    du6Var.F(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+                    du6Var.I(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+                    du6Var.S(getResources().getString(R.string.obfuscated_res_0x7f0f0614));
+                    da5.p().A("key_edit_video_pick_cover_tip_show", true);
                     return;
                 }
-                s2();
-                VideoFileInfo c2 = rca.c(this.y.path);
+                p2();
+                VideoFileInfo c2 = ila.c(this.y.path);
                 if (c2 == null) {
                     return;
                 }
@@ -2033,7 +2033,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                 this.z.setIsCompressedVideo(true);
                 EditVideoData editVideoData = new EditVideoData();
                 if (StringUtils.isNull(this.B)) {
-                    editVideoData.coverPath = hda.b;
+                    editVideoData.coverPath = yla.b;
                 } else {
                     editVideoData.coverPath = this.B;
                 }
@@ -2053,7 +2053,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                 this.F = true;
                 this.y.lastCoverPercent = this.D;
                 MessageManager.getInstance().registerStickyMode(2921584);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921584, l2()));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921584, i2()));
                 if (!WorkPublishOpenHelper.Companion.e(getIntent(), this.z, getPageContext().getPageActivity(), true, true)) {
                     WriteActivityConfig newInstance = WriteActivityConfig.newInstance(getPageContext().getPageActivity());
                     newInstance.getIntent().putExtras(getIntent());
@@ -2072,36 +2072,36 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             } else if (view2 == this.c) {
                 int i4 = this.G;
                 if (i4 == 2) {
-                    z07 z07Var3 = this.w;
-                    if (z07Var3 != null) {
+                    i37 i37Var3 = this.w;
+                    if (i37Var3 != null) {
                         this.H = true;
-                        z07Var3.f();
+                        i37Var3.f();
                     }
-                    m2();
-                } else if (i4 == 3 && (z07Var = this.w) != null) {
+                    j2();
+                } else if (i4 == 3 && (i37Var = this.w) != null) {
                     this.H = true;
-                    z07Var.f();
+                    i37Var.f();
                 }
             } else if (view2.getId() == this.j.getVideoPick().getId()) {
                 if (this.j.getCurrentMode() != 1) {
                     this.j.setCurrentMode(1);
-                    z07 z07Var4 = this.w;
-                    if (z07Var4 != null) {
-                        z07Var4.i(this.D);
+                    i37 i37Var4 = this.w;
+                    if (i37Var4 != null) {
+                        i37Var4.i(this.D);
                         this.w.l();
                     }
                 }
             } else if (view2.getId() == this.j.getImagePick().getId()) {
                 if (this.j.getCurrentMode() != 2) {
                     this.j.setCurrentMode(2);
-                    z07 z07Var5 = this.w;
-                    if (z07Var5 != null) {
-                        this.D = z07Var5.p();
+                    i37 i37Var5 = this.w;
+                    if (i37Var5 != null) {
+                        this.D = i37Var5.p();
                     }
-                    o2();
+                    l2();
                 }
             } else if (view2.getId() == this.j.getCoverImageView().getId() && this.j.getCurrentMode() == 2) {
-                o2();
+                l2();
             }
         }
     }
@@ -2109,9 +2109,9 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0058);
+            setContentView(R.layout.obfuscated_res_0x7f0d0057);
             setSwipeBackEnabled(false);
             if (getIntent() != null) {
                 this.G = getIntent().getIntExtra(TbEditVideoActivityConfig.KEY_EDIT_PAGE_MODE_TYPE, 1);
@@ -2130,7 +2130,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_QM_FILTERS, TbConfig.SERVER_ADDRESS + TbConfig.GET_QM_FILTERS);
             tbHttpMessageTask.setResponsedClass(ResponseGetQmFiltersMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            n2();
+            k2();
             initView();
             registerListener(this.R);
         }

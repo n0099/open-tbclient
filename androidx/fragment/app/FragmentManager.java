@@ -515,7 +515,7 @@ public abstract class FragmentManager {
 
     @Nullable
     public static Fragment getViewFragment(@NonNull View view2) {
-        Object tag = view2.getTag(R.id.obfuscated_res_0x7f090c18);
+        Object tag = view2.getTag(R.id.obfuscated_res_0x7f090c24);
         if (tag instanceof Fragment) {
             return (Fragment) tag;
         }
@@ -551,10 +551,10 @@ public abstract class FragmentManager {
     private void setVisibleRemovingFragment(@NonNull Fragment fragment) {
         ViewGroup fragmentContainer = getFragmentContainer(fragment);
         if (fragmentContainer != null) {
-            if (fragmentContainer.getTag(R.id.obfuscated_res_0x7f092943) == null) {
-                fragmentContainer.setTag(R.id.obfuscated_res_0x7f092943, fragment);
+            if (fragmentContainer.getTag(R.id.obfuscated_res_0x7f092979) == null) {
+                fragmentContainer.setTag(R.id.obfuscated_res_0x7f092979, fragment);
             }
-            ((Fragment) fragmentContainer.getTag(R.id.obfuscated_res_0x7f092943)).setNextAnim(fragment.getNextAnim());
+            ((Fragment) fragmentContainer.getTag(R.id.obfuscated_res_0x7f092979)).setNextAnim(fragment.getNextAnim());
         }
     }
 

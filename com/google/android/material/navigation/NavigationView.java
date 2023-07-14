@@ -50,7 +50,7 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes9.dex */
 public class NavigationView extends ScrimInsetsFrameLayout {
-    public static final int DEF_STYLE_RES = 2131755849;
+    public static final int DEF_STYLE_RES = 2131755850;
     public static final int PRESENTER_NAVIGATION_VIEW_ID = 1;
     public OnNavigationItemSelectedListener listener;
     public final int maxWidth;
@@ -347,7 +347,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     }
 
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04052c);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04052d);
     }
 
     @Override // android.widget.FrameLayout, android.view.View

@@ -1,179 +1,105 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class cl3 extends dl3 {
+public final class cl3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean g;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ArrayList a;
-        public final /* synthetic */ cl3 b;
-
-        public a(cl3 cl3Var, ArrayList arrayList) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947678559, "Lcom/baidu/tieba/cl3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cl3Var, arrayList};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = cl3Var;
-            this.a = arrayList;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.m(this.a);
-                this.b.j();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cl3(yk3 yk3Var) {
-        super(yk3Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yk3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((yk3) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947678559, "Lcom/baidu/tieba/cl3;");
                 return;
             }
         }
+        a = fs1.a;
     }
 
-    @Override // com.baidu.tieba.dl3
-    public void f() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.a()) {
-            return;
-        }
-        long j = 0;
-        if (dl3.f) {
-            j = System.currentTimeMillis();
-        }
-        this.a.g(new a(this, this.b.n()));
-        if (dl3.f) {
-            Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - j));
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-            return;
-        }
-        long j = 0;
-        if (dl3.f) {
-            j = System.currentTimeMillis();
-        }
-        this.a.b();
-        this.g = true;
-        if (dl3.f) {
-            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - j));
-        }
-    }
-
-    public void l() {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (dl3.f) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            this.a.h();
-            if (dl3.f) {
-                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - j));
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File c = c();
+            if (c.exists()) {
+                zr4.j(c);
             }
         }
     }
 
-    public ArrayList<xk3> k(String str) {
-        InterceptResult invokeL;
-        long j;
+    public static long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (dl3.f) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return jk3.a().getLong("aiapps_cur_debug_ver_key", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new File(nw2.d().get(0).a, "/aiapps_debug_swan_core/");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static File d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File c = c();
+            if (!c.exists()) {
+                c.mkdirs();
             }
-            ArrayList<xk3> arrayList = new ArrayList<>();
+            return new File(c, "debugSwanCore.zip");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            File file = new File(c().getPath(), "pkginfo.json");
+            if (!file.exists()) {
+                return false;
+            }
+            JSONObject jSONObject = null;
             try {
-                arrayList = this.a.e(str);
-            } catch (Exception e) {
-                c92.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
-            }
-            if (dl3.f) {
-                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - j));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void m(ArrayList<xk3> arrayList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
-            if (dl3.f) {
-                Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
-            }
-            Iterator<xk3> it = arrayList.iterator();
-            while (it.hasNext()) {
-                xk3 next = it.next();
-                if (next != null) {
-                    if (dl3.f) {
-                        Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
-                    }
-                    int i = next.i;
-                    if (i != 0) {
-                        if (i != 2) {
-                            if (i == 3) {
-                                this.a.d(next.a, next.b, next.c);
-                                this.a.a(next);
-                                this.b.y(next);
-                            }
-                        } else {
-                            this.a.d(next.a, next.b, next.c);
-                            this.b.g(next);
-                        }
-                    } else {
-                        this.a.a(next);
-                        this.b.y(next);
-                    }
+                jSONObject = new JSONObject(zr4.E(file));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
                 }
             }
+            if (jSONObject == null) {
+                return false;
+            }
+            String optString = jSONObject.optString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
+            if (!TextUtils.isEmpty(optString)) {
+                jk3.a().putLong("aiapps_cur_debug_ver_key", kp3.b(optString));
+                return true;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 }

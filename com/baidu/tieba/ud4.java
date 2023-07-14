@@ -1,19 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class ud4 {
+public final class ud4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    @JvmField
+    public final byte[] message;
+    @V8JavascriptField
+    @JvmField
+    public final Object remoteInfo;
 
-    public static void a(kj2 kj2Var, String str) {
+    public ud4(byte[] message, Object remoteInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, kj2Var, str) == null) && kj2Var != null && kj2Var.m().hasEventListener("deviceOrientationChange")) {
-            JSEvent jSEvent = new JSEvent("deviceOrientationChange");
-            jSEvent.data = new wd4(str);
-            kj2Var.dispatchEvent(jSEvent);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {message, remoteInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        Intrinsics.checkNotNullParameter(message, "message");
+        Intrinsics.checkNotNullParameter(remoteInfo, "remoteInfo");
+        this.message = message;
+        this.remoteInfo = remoteInfo;
     }
 }

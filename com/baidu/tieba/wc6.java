@@ -1,117 +1,125 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.ala.AlaSharedPrefConfig;
+import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernNotificationViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class wc6 {
+public class wc6 extends ln<ad6, LiveTabConcernNotificationViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static wc6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StatisticItem> a;
+    public TbPageContext a;
+    public boolean b;
+    public up6<ad6> c;
 
-    public wc6() {
+    /* loaded from: classes8.dex */
+    public class a extends up6<ad6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wc6 b;
+
+        public a(wc6 wc6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wc6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wc6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.up6
+        /* renamed from: d */
+        public void a(View view2, ad6 ad6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ad6Var) == null) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09101c) {
+                    if (!this.b.b) {
+                        this.b.b = true;
+                        AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
+                    }
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f09101d) {
+                    dd6.b(this.b.a);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wc6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), ad6.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.c = new a(this);
+        this.a = tbPageContext;
     }
 
-    public static wc6 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (wc6.class) {
-                    if (b == null) {
-                        b = new wc6();
-                    }
-                }
-            }
-            return b;
-        }
-        return (wc6) invokeV.objValue;
-    }
-
-    public void a(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
-            return;
-        }
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        List<StatisticItem> list = this.a;
-        if (list != null) {
-            list.add(statisticItem);
-        }
-    }
-
-    public final long c(ThreadData threadData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: x */
+    public LiveTabConcernNotificationViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData)) == null) {
-            if (threadData != null && threadData.getThreadAlaInfo() != null) {
-                return threadData.getThreadAlaInfo().live_id;
-            }
-            return -1L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            jd6 jd6Var = new jd6(this.a, viewGroup);
+            jd6Var.k(this.c);
+            return new LiveTabConcernNotificationViewHolder(jd6Var);
         }
-        return invokeL.longValue;
+        return (LiveTabConcernNotificationViewHolder) invokeL.objValue;
     }
 
-    public StatisticItem d(int i, String str, int i2, String str2, ThreadData threadData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: y */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ad6 ad6Var, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
         InterceptResult invokeCommon;
-        String str3;
+        jd6 jd6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, threadData})) == null) {
-            if (threadData == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ad6Var, liveTabConcernNotificationViewHolder})) == null) {
+            if (liveTabConcernNotificationViewHolder != null && (jd6Var = liveTabConcernNotificationViewHolder.a) != null) {
+                this.b = false;
+                jd6Var.i(ad6Var);
+                return liveTabConcernNotificationViewHolder.getView();
             }
-            if (threadData.getThreadAlaInfo() != null && !StringUtils.isNull(threadData.getThreadAlaInfo().appId)) {
-                str3 = threadData.getThreadAlaInfo().appId;
-            } else {
-                str3 = "";
-            }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_type", 1);
-            statisticItem.param("obj_id", c(threadData));
-            statisticItem.param("tid", threadData.getId());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
-            statisticItem.param("entryid", i2);
-            statisticItem.param("name", str2);
-            statisticItem.param("is_small_follow", i);
-            return statisticItem;
+            return null;
         }
-        return (StatisticItem) invokeCommon.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || ListUtils.getCount(this.a) == 0) {
-            return;
-        }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                TiebaStatic.log(statisticItem);
-            }
-        }
-        this.a.clear();
+        return (View) invokeCommon.objValue;
     }
 }

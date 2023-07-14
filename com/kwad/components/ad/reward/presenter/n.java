@@ -6,7 +6,7 @@ import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class n extends com.kwad.components.ad.reward.presenter.a implements com.kwad.components.ad.reward.d.e, com.kwad.components.ad.reward.d.f, x.b {
     public float pY;
     public boolean qn;
@@ -23,7 +23,7 @@ public final class n extends com.kwad.components.ad.reward.presenter.a implement
     public boolean qv;
     public boolean qw;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends com.kwad.components.core.video.h {
         public long qx;
         public long videoDuration;

@@ -24,11 +24,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ft7;
-import com.baidu.tieba.l4a;
-import com.baidu.tieba.nt7;
-import com.baidu.tieba.rt7;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.cy7;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.gy7;
+import com.baidu.tieba.ux7;
+import com.baidu.tieba.wca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? R.layout.obfuscated_res_0x7f0d03a4 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? R.layout.obfuscated_res_0x7f0d03ad : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
@@ -131,28 +131,28 @@ public class FunAdNativePbView extends FunAbsAdView {
         }
     }
 
-    public final void k(@NonNull FunNativeAd2 funNativeAd2, l4a l4aVar) {
+    public final void k(@NonNull FunNativeAd2 funNativeAd2, wca wcaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, funNativeAd2, l4aVar) == null) {
-            ChannelNativeAds d = nt7.d(funNativeAd2);
-            this.r.setTag(l4aVar);
-            rt7 rt7Var = new rt7(this.r, l4aVar, d);
+        if (interceptable == null || interceptable.invokeLL(1048592, this, funNativeAd2, wcaVar) == null) {
+            ChannelNativeAds d = cy7.d(funNativeAd2);
+            this.r.setTag(wcaVar);
+            gy7 gy7Var = new gy7(this.r, wcaVar, d);
             if (d != null) {
                 Object obj = d.ksNative;
                 if (obj instanceof KsNativeAd) {
-                    ((KsNativeAd) obj).setDownloadListener(rt7Var);
+                    ((KsNativeAd) obj).setDownloadListener(gy7Var);
                     return;
                 }
             }
             if (d != null) {
                 Object obj2 = d.csjNative;
                 if (obj2 instanceof TTNativeAd) {
-                    ((TTNativeAd) obj2).setDownloadListener(rt7Var);
+                    ((TTNativeAd) obj2).setDownloadListener(gy7Var);
                     return;
                 }
             }
             if (d != null && d.gdtNative != null) {
-                d.setGdtADStatusChangeListener(rt7Var);
+                d.setGdtADStatusChangeListener(gy7Var);
             }
         }
     }
@@ -217,7 +217,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
-    public ft7.f getLogItem() {
+    public ux7.f getLogItem() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -227,9 +227,9 @@ public class FunAdNativePbView extends FunAbsAdView {
             } else {
                 str = "0";
             }
-            return ft7.b("pb", str);
+            return ux7.b("pb", str);
         }
-        return (ft7.f) invokeV.objValue;
+        return (ux7.f) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
@@ -264,7 +264,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public void e(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            if (bdUniqueId != AdvertAppInfo.H && bdUniqueId != AdvertAppInfo.I) {
+            if (bdUniqueId != AdvertAppInfo.I && bdUniqueId != AdvertAppInfo.J) {
                 this.p.setVisibility(0);
             } else {
                 this.p.setVisibility(8);
@@ -275,7 +275,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public void i(@NonNull FunNativeAd2 funNativeAd2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, funNativeAd2) == null) {
-            nt7.L(this.n, funNativeAd2);
+            cy7.L(this.n, funNativeAd2);
         }
     }
 
@@ -312,15 +312,15 @@ public class FunAdNativePbView extends FunAbsAdView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
-    public void f(@NonNull l4a l4aVar, @NonNull Activity activity) {
+    public void f(@NonNull wca wcaVar, @NonNull Activity activity) {
         List<String> list;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, l4aVar, activity) != null) || l4aVar.e() == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, wcaVar, activity) != null) || wcaVar.e() == null) {
             return;
         }
-        FunNativeAd2 funNativeAd2 = (FunNativeAd2) l4aVar.e();
-        nt7.C(funNativeAd2);
+        FunNativeAd2 funNativeAd2 = (FunNativeAd2) wcaVar.e();
+        cy7.C(funNativeAd2);
         if (funNativeAd2 != null && funNativeAd2.getNativeInfo() != null) {
             this.c = funNativeAd2.getNativeInfo().getTitle();
             str = funNativeAd2.getNativeInfo().getDescription();
@@ -329,13 +329,13 @@ public class FunAdNativePbView extends FunAbsAdView {
             list = null;
             str = "";
         }
-        if (StringUtils.isNull(this.c) || this.c.equals(activity.getString(R.string.obfuscated_res_0x7f0f089f))) {
-            this.c = activity.getString(R.string.obfuscated_res_0x7f0f08a2);
+        if (StringUtils.isNull(this.c) || this.c.equals(activity.getString(R.string.obfuscated_res_0x7f0f08a9))) {
+            this.c = activity.getString(R.string.obfuscated_res_0x7f0f08ac);
         }
         this.l.setText(this.c);
         this.k.setText(str);
         this.i.removeAllViews();
-        if (nt7.z(funNativeAd2, list)) {
+        if (cy7.z(funNativeAd2, list)) {
             this.f.setVisibility(8);
             this.g.setVisibility(0);
             this.g.setData(funNativeAd2, (String) ListUtils.getItem(list, 0));
@@ -343,9 +343,9 @@ public class FunAdNativePbView extends FunAbsAdView {
         }
         this.f.setVisibility(0);
         this.g.setVisibility(8);
-        if (nt7.m(funNativeAd2) != null) {
-            nt7.J(this.h, nt7.B(funNativeAd2));
-            View m = nt7.m(funNativeAd2);
+        if (cy7.m(funNativeAd2) != null) {
+            cy7.J(this.h, cy7.B(funNativeAd2));
+            View m = cy7.m(funNativeAd2);
             if (m.getParent() != null && (m.getParent() instanceof ViewGroup)) {
                 ((ViewGroup) m.getParent()).removeView(m);
             }
@@ -353,17 +353,17 @@ public class FunAdNativePbView extends FunAbsAdView {
             this.i.setVisibility(0);
             this.j.setVisibility(8);
         } else {
-            nt7.H(this.h, nt7.A(funNativeAd2, list), list);
+            cy7.H(this.h, cy7.A(funNativeAd2, list), list);
             this.i.setVisibility(8);
             this.j.setFunNativeAd(list);
         }
         i(funNativeAd2);
-        if (StringUtils.isNull(l4aVar.c())) {
-            l4aVar.l(nt7.o(funNativeAd2, activity));
+        if (StringUtils.isNull(wcaVar.c())) {
+            wcaVar.l(cy7.o(funNativeAd2, activity));
         }
-        this.q.setText(l4aVar.c());
-        j(nt7.y(funNativeAd2));
-        k(funNativeAd2, l4aVar);
+        this.q.setText(wcaVar.c());
+        j(cy7.y(funNativeAd2));
+        k(funNativeAd2, wcaVar);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
@@ -371,21 +371,21 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             LayoutInflater.from(context).inflate(getLayoutId(), (ViewGroup) this, true);
-            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d9e);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09090f);
-            this.k = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d9d);
-            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090d8c);
-            this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0916d7);
-            this.i = (CardView) findViewById(R.id.obfuscated_res_0x7f0916df);
-            this.j = (FunAdNativePicView) findViewById(R.id.obfuscated_res_0x7f0916e0);
-            this.g = (FunAdSmallPicView) findViewById(R.id.obfuscated_res_0x7f0916de);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090d9c);
-            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d98);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d95);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090d97);
-            this.q = (FunAdButton) findViewById(R.id.obfuscated_res_0x7f090d88);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d8e);
-            this.s = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f090da2);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090dab);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090910);
+            this.k = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090daa);
+            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090d98);
+            this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0916e8);
+            this.i = (CardView) findViewById(R.id.obfuscated_res_0x7f0916f0);
+            this.j = (FunAdNativePicView) findViewById(R.id.obfuscated_res_0x7f0916f1);
+            this.g = (FunAdSmallPicView) findViewById(R.id.obfuscated_res_0x7f0916ef);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090da9);
+            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090da4);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f090da1);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090da3);
+            this.q = (FunAdButton) findViewById(R.id.obfuscated_res_0x7f090d94);
+            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d9a);
+            this.s = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f090daf);
         }
     }
 
@@ -395,10 +395,10 @@ public class FunAdNativePbView extends FunAbsAdView {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             WebPManager.setPureDrawable(this.p, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-            s75.d(this.k).x(R.color.CAM_X0105);
-            s75.d(this.l).x(R.color.CAM_X0109);
-            s75.d(this.o).x(R.color.CAM_X0101);
-            s75 d = s75.d(this.m);
+            d85.d(this.k).x(R.color.CAM_X0105);
+            d85.d(this.l).x(R.color.CAM_X0109);
+            d85.d(this.o).x(R.color.CAM_X0101);
+            d85 d = d85.d(this.m);
             d.o(R.string.J_X01);
             d.f(R.color.CAM_X0606);
             this.q.g();

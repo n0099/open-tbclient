@@ -23,7 +23,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.types.ErrorUtils;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ErrorSimpleFunctionDescriptorImpl extends SimpleFunctionDescriptorImpl {
     public final ErrorUtils.ErrorScope ownerScope;
 

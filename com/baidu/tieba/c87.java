@@ -1,115 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
-import java.util.Map;
-@Autowired
 /* loaded from: classes5.dex */
-public class c87 {
+public class c87 extends z77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947628711, "Lcom/baidu/tieba/c87;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947628711, "Lcom/baidu/tieba/c87;");
-                return;
-            }
-        }
-        j05.e();
+    @Override // com.baidu.tieba.mc7
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "browse_location" : (String) invokeV.objValue;
     }
 
     public c87() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Inject
-    public static y77 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return pq6.a();
-        }
-        return (y77) invokeV.objValue;
-    }
-
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(str.trim());
-                try {
-                    sb.append("&");
-                    sb.append(URLEncoder.encode(str2, "UTF-8"));
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(str3, "UTF-8"));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String b(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
-            if (!TextUtils.isEmpty(str) && map != null && !map.isEmpty()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(str.trim());
-                try {
-                    for (String str2 : map.keySet()) {
-                        sb.append("&");
-                        sb.append(URLEncoder.encode(str2, "UTF-8"));
-                        sb.append("=");
-                        sb.append(URLEncoder.encode(map.get(str2), "UTF-8"));
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
-            d().a(context, str);
         }
     }
 }

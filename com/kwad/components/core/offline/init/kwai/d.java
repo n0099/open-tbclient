@@ -8,7 +8,7 @@ import com.kwad.sdk.core.network.o;
 import com.kwad.sdk.utils.AbiUtil;
 import com.kwad.sdk.utils.SystemUtil;
 import com.kwad.sdk.utils.az;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d implements IEnvironment {
     @Override // com.kwad.components.offline.api.core.api.IEnvironment
     public final String getAppId() {

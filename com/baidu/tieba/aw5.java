@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class aw5 {
+public class aw5 extends zv5 {
     public static /* synthetic */ Interceptable $ic;
-    public static aw5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public kc5 a;
-    public ABTestExtraData b;
+    public List<yn> a;
 
     public aw5() {
         Interceptable interceptable = $ic;
@@ -28,73 +22,6 @@ public class aw5 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public static aw5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (aw5.class) {
-                    if (c == null) {
-                        c = new aw5();
-                    }
-                }
-            }
-            return c;
-        }
-        return (aw5) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == null) {
-                ABTestExtraData aBTestExtraData = new ABTestExtraData();
-                this.b = aBTestExtraData;
-                aBTestExtraData.parserABTestExtraFormSharedPref();
-            }
-            return this.b.getABTestResult();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void a(kc5 kc5Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kc5Var) == null) {
-            if (kc5Var != null && this.a != null && kc5Var.a() == this.a.a()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            this.a = kc5Var;
-            if (z) {
-                b("zan_or_cai_smallflow");
-            }
-        }
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
-        }
-    }
-
-    public void e(kc5 kc5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kc5Var) == null) {
-            a(kc5Var);
-        }
-    }
-
-    public void f(ABTestExtraData aBTestExtraData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
-            this.b = aBTestExtraData;
         }
     }
 }

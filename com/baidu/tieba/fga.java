@@ -1,62 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.EditText;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.videoplay.editor.VideoPlayInputContainer;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconRequest;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fga extends oi5 {
+public class fga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText t;
+    public final MainTabActivity a;
+    public final pfa b;
+    public final Runnable c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fga(Context context) {
-        super(context, (String) null, 28);
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fga a;
+
+        public a(fga fgaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fgaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fgaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
+                if (this.a.b != null && this.a.b.y() != null && this.a.b.y().getCurrentTabType() == 22) {
+                    videoRedIconRequest.setCallFrom("video_tab");
+                }
+                this.a.a.sendMessage(videoRedIconRequest);
+                int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
+                if (videoRedIconInterval > 5) {
+                    zg.a().postDelayed(this.a.c, videoRedIconInterval * 1000);
+                }
+            }
+        }
+    }
+
+    public fga(MainTabActivity mainTabActivity, pfa pfaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {mainTabActivity, pfaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.n = 3;
-        VideoPlayInputContainer videoPlayInputContainer = new VideoPlayInputContainer(context);
-        this.m = videoPlayInputContainer;
-        this.t = videoPlayInputContainer.getInputView();
-        this.p = new int[]{4, 24, 3, 9, 6};
+        this.c = new a(this);
+        this.a = mainTabActivity;
+        this.b = pfaVar;
     }
 
-    public EditText g() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.t;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zg.a().removeCallbacks(this.c);
         }
-        return (EditText) invokeV.objValue;
-    }
-
-    public VideoPlayInputContainer h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (VideoPlayInputContainer) this.m;
-        }
-        return (VideoPlayInputContainer) invokeV.objValue;
     }
 }

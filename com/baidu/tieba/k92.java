@@ -3,8 +3,6 @@ package com.baidu.tieba;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,22 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class k92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public JSONArray c;
+    public JSONArray b;
+    public String c;
     public String d;
-    public String e;
-    public String f;
-    public String g;
-    public long h;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +38,7 @@ public class k92 {
                 return;
             }
         }
-        i = ms1.a;
+        e = fs1.a;
     }
 
     public k92() {
@@ -51,62 +46,52 @@ public class k92 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @NonNull
-    public static k92 c(JSONObject jSONObject) {
+    public static k92 b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
             k92 k92Var = new k92();
             try {
-                k92Var.c = jSONObject.getJSONArray("host");
-                k92Var.b = jSONObject.getString("appKey");
-                k92Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                k92Var.d = jSONObject.getString("serverPort");
-                k92Var.f = jSONObject.getString("wsServerPort");
-                Uri.decode(jSONObject.optString("url"));
-                k92Var.g = jSONObject.optString("notInHistory", "1");
-                k92Var.h = jSONObject.optLong("coreVersion");
+                k92Var.b = jSONObject.getJSONArray("host");
+                k92Var.a = jSONObject.getString("appKey");
+                jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                k92Var.c = jSONObject.getString(ClientCookie.PORT_ATTR);
+                k92Var.d = Uri.decode(jSONObject.optString("url"));
+                return k92Var;
             } catch (JSONException unused) {
-                if (i) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
+                if (e) {
+                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
+                    return null;
                 }
+                return null;
             }
-            return k92Var;
         }
         return (k92) invokeL.objValue;
     }
 
-    public String a(int i2) {
+    public String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            JSONArray jSONArray = this.c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            JSONArray jSONArray = this.b;
             if (jSONArray == null) {
                 return "";
             }
-            return jSONArray.optString(i2);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+            String optString = jSONArray.optString(i);
+            if (TextUtils.isEmpty(optString)) {
                 return "";
             }
-            return "http://" + str + ":" + this.d + "/app.zip";
+            return "http://" + optString + ":" + this.c;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeI.objValue;
     }
 }

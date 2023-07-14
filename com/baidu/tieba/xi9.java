@@ -1,156 +1,118 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.personCenter.data.PersonVipCardData;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class xi9 {
+public class xi9 extends wh9<a45, PbRecommendNovelHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pi9 a;
-    public mi9 b;
-    public ui9 c;
-    public vi9 d;
-    public qi9 e;
-    public ti9 f;
-    public oi9 g;
-    public ri9 h;
-    public si9 i;
-    public BdTypeListView j;
-    public ni9 k;
-    public wi9 l;
-    public List<kn> m;
+    public ze9 g;
+    public PbRecommendNovelHolder.b h;
 
-    public xi9(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    /* loaded from: classes8.dex */
+    public class a implements PbRecommendNovelHolder.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xi9 a;
+
+        public a(xi9 xi9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xi9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xi9Var;
+        }
+
+        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
+        public void a(a45 a45Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, a45Var) == null) && a45Var != null) {
+                xm9.a(this.a.g, a45Var, a45Var.e0, 6);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xi9(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView, tbPageContext, bdUniqueId};
+            Object[] objArr = {pbFragment, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((bn9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = new ArrayList();
-        this.j = bdTypeListView;
-        a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.h = new a(this);
     }
 
-    public final void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public void r(ze9 ze9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdTypeListView, tbPageContext, bdUniqueId) == null) {
-            this.a = new pi9(tbPageContext, lj9.b);
-            this.b = new mi9(tbPageContext, fj9.f);
-            this.c = new ui9(tbPageContext, rj9.b);
-            this.d = new vi9(tbPageContext, sj9.c);
-            this.e = new qi9(tbPageContext, hj9.b);
-            this.f = new ti9(tbPageContext, ij9.b);
-            this.k = new ni9(tbPageContext, jj9.c);
-            this.h = new ri9(tbPageContext, nj9.b);
-            this.i = new si9(tbPageContext, oj9.b);
-            this.g = new oi9(tbPageContext, kj9.p);
-            this.l = new wi9(tbPageContext, PersonVipCardData.PERSON_VIP_CARD_DATA);
-            this.m.add(this.a);
-            this.m.add(this.l);
-            this.m.add(this.b);
-            this.m.add(this.e);
-            this.m.add(this.f);
-            this.m.add(this.c);
-            this.m.add(this.d);
-            this.m.add(this.h);
-            this.m.add(this.i);
-            this.m.add(this.g);
-            this.m.add(this.k);
-            bdTypeListView.addAdapters(this.m);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ze9Var) == null) {
+            this.g = ze9Var;
         }
     }
 
-    public void b() {
-        BdTypeListView bdTypeListView;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: x */
+    public PbRecommendNovelHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.j) != null && (bdTypeListView.getAdapter2() instanceof on)) {
-            this.j.getAdapter2().notifyDataSetChanged();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new PbRecommendNovelHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07a4, viewGroup, false), this.h);
         }
+        return (PbRecommendNovelHolder) invokeL.objValue;
     }
 
-    public void c() {
-        wi9 wi9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (wi9Var = this.l) != null) {
-            wi9Var.onDestroy();
-        }
+    @Override // com.baidu.tieba.wh9, com.baidu.tieba.ln
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        y(i, view2, viewGroup, (a45) obj, (PbRecommendNovelHolder) viewHolder);
+        return view2;
     }
 
-    public void d() {
+    public View y(int i, View view2, ViewGroup viewGroup, a45 a45Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            wi9 wi9Var = this.l;
-            if (wi9Var != null) {
-                wi9Var.onPause();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a45Var, pbRecommendNovelHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) a45Var, (a45) pbRecommendNovelHolder);
+            if (a45Var == null) {
+                return view2;
             }
-            ui9 ui9Var = this.c;
-            if (ui9Var != null) {
-                ui9Var.onPause();
-            }
+            a45Var.e0 = i + 1;
+            xm9.d(this.b.getUniqueId(), this.g, a45Var, a45Var.e0, 6);
+            pbRecommendNovelHolder.e(a45Var);
+            return view2;
         }
-    }
-
-    public void f() {
-        wi9 wi9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (wi9Var = this.l) != null) {
-            wi9Var.onResume();
-        }
-    }
-
-    public void g() {
-        ri9 ri9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (ri9Var = this.h) != null) {
-            ri9Var.onScroll();
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            wi9 wi9Var = this.l;
-            if (wi9Var != null) {
-                wi9Var.u(z);
-            }
-            ni9 ni9Var = this.k;
-            if (ni9Var != null) {
-                ni9Var.x(z);
-            }
-            ti9 ti9Var = this.f;
-            if (ti9Var != null) {
-                ti9Var.u(z);
-            }
-            ui9 ui9Var = this.c;
-            if (ui9Var != null) {
-                ui9Var.u(z);
-            }
-        }
-    }
-
-    public void h(boolean z) {
-        ni9 ni9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (ni9Var = this.k) != null) {
-            ni9Var.u(z);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

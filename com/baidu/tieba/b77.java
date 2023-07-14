@@ -1,115 +1,137 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import com.baidu.tieba.a87;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.helper.CommonOnClickKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedContentResource;
-import tbclient.FeedItem;
-import tbclient.FeedKV;
-import tbclient.FeedOriginComponent;
-import tbclient.FeedOriginPic;
-import tbclient.PicInfo;
-import tbclient.VideoField;
 /* loaded from: classes5.dex */
-public final class b77 {
+public final class b77 implements mc7<b77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final Function2<View, String, Unit> c;
+    public final u97 d;
 
-    public static final void a(FeedOriginComponent feedOriginComponent, List<t87<?>> dataList, v57 feedExtraData) {
-        u47 u47Var;
-        y47 y47Var;
-        String str;
-        n47 n47Var;
-        r47 r47Var;
-        String str2;
-        boolean z;
+    @Override // com.baidu.tieba.mc7
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedOriginComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedOriginComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            List<FeedContentResource> _abstract = feedOriginComponent._abstract;
-            Intrinsics.checkNotNullExpressionValue(_abstract, "_abstract");
-            m47 a = t67.a(spannableStringBuilder, _abstract, new v57());
-            if (a.g()) {
-                FeedOriginPic feedOriginPic = feedOriginComponent.pic_info;
-                if (feedOriginPic != null && feedOriginPic.pics != null) {
-                    String str3 = feedOriginPic.schema;
-                    if (str3 == null) {
-                        str3 = "";
-                    } else {
-                        Intrinsics.checkNotNullExpressionValue(str3, "pic_info.schema ?: \"\"");
-                    }
-                    List<PicInfo> list = feedOriginComponent.pic_info.pics;
-                    Intrinsics.checkNotNullExpressionValue(list, "pic_info.pics");
-                    u47Var = c77.a(list, str3, new v57());
-                } else {
-                    u47Var = null;
-                }
-                if (feedOriginComponent.video != null) {
-                    p67 p67Var = new p67();
-                    String schema = feedOriginComponent.schema;
-                    Intrinsics.checkNotNullExpressionValue(schema, "schema");
-                    p67Var.g(schema);
-                    VideoField video = feedOriginComponent.video;
-                    Intrinsics.checkNotNullExpressionValue(video, "video");
-                    y47Var = g77.b(video, p67Var, new v57());
-                } else {
-                    y47Var = null;
-                }
-                a87.a aVar = a87.a;
-                List<FeedKV> list2 = feedOriginComponent.item.business_info;
-                Intrinsics.checkNotNullExpressionValue(list2, "item.business_info");
-                HashMap<String, String> a2 = aVar.a(list2);
-                String str4 = a2.get("apk_detail");
-                String str5 = feedExtraData.a().a().get("origin_thread_id");
-                if (str5 == null) {
-                    str = "";
-                } else {
-                    str = str5;
-                }
-                long g = vg.g(a2.get("item_id"), 0L);
-                if (str4 == null) {
-                    String str6 = feedOriginComponent.item.name;
-                    if (str6 != null && str6.length() != 0) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (!z) {
-                        FeedItem item = feedOriginComponent.item;
-                        Intrinsics.checkNotNullExpressionValue(item, "item");
-                        r47 b = x67.b(item, g, str, "", "");
-                        b.a().j = R.color.CAM_X0205;
-                        b.d(false);
-                        r47Var = b;
-                    } else {
-                        r47Var = null;
-                    }
-                    n47Var = null;
-                } else {
-                    FeedItem item2 = feedOriginComponent.item;
-                    Intrinsics.checkNotNullExpressionValue(item2, "item");
-                    n47 a3 = x67.a(item2, str4, g, str, "", "");
-                    a3.a().j = R.color.CAM_X0205;
-                    a3.d(false);
-                    n47Var = a3;
-                    r47Var = null;
-                }
-                m67 b2 = w57.b(feedExtraData, "origin_card_click");
-                String str7 = feedOriginComponent.schema;
-                if (str7 == null) {
-                    str2 = "";
-                } else {
-                    str2 = str7;
-                }
-                dataList.add(new u87(new t47(a, u47Var, y47Var, r47Var, n47Var, str2, b2, null, 128, null), "origin_card"));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "feed_entrybar" : (String) invokeV.objValue;
+    }
+
+    public b77 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (b77) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof b77) {
+                b77 b77Var = (b77) obj;
+                return Intrinsics.areEqual(this.a, b77Var.a) && Intrinsics.areEqual(this.b, b77Var.b) && Intrinsics.areEqual(this.c, b77Var.c) && Intrinsics.areEqual(this.d, b77Var.d);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
+            u97 u97Var = this.d;
+            return hashCode + (u97Var == null ? 0 : u97Var.hashCode());
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "CardForumEnterUiState(forumName=" + this.a + ", jumpSchema=" + this.b + ", onClick=" + this.c + ", statData=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public b77(String forumName, String jumpSchema, Function2<? super View, ? super String, Unit> onClick, u97 u97Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forumName, jumpSchema, onClick, u97Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(forumName, "forumName");
+        Intrinsics.checkNotNullParameter(jumpSchema, "jumpSchema");
+        Intrinsics.checkNotNullParameter(onClick, "onClick");
+        this.a = forumName;
+        this.b = jumpSchema;
+        this.c = onClick;
+        this.d = u97Var;
+    }
+
+    public /* synthetic */ b77(String str, String str2, Function2 function2, u97 u97Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, str2, (i & 4) != 0 ? CommonOnClickKt.b() : function2, (i & 8) != 0 ? null : u97Var);
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.mc7
+    public /* bridge */ /* synthetic */ b77 b() {
+        c();
+        return this;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Function2<View, String, Unit> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (Function2) invokeV.objValue;
     }
 }

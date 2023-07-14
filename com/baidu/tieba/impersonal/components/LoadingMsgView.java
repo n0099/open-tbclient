@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d85;
 import com.baidu.tieba.impersonal.components.LoadingMsgView;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -141,7 +141,7 @@ public final class LoadingMsgView extends FrameLayout {
                     Handler handler = this.a.e;
                     final LoadingMsgView loadingMsgView = this.a;
                     final ValueAnimator valueAnimator = this.b;
-                    handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.mp8
+                    handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.nv8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -279,7 +279,7 @@ public final class LoadingMsgView extends FrameLayout {
             ofFloat.setDuration(8000L);
             ofFloat.setRepeatCount(-1);
             ofFloat.setInterpolator(new LinearInterpolator());
-            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.kp8
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.lv8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -329,8 +329,8 @@ public final class LoadingMsgView extends FrameLayout {
             this.c.setVisibility(8);
             this.c.setTextColor(getContext().getResources().getColor(R.color.CAM_X0109));
             this.c.setSingleLine();
-            s75.d(this.c).C(R.dimen.T_X05);
-            this.c.setPadding(0, xi.g(getContext(), R.dimen.M_H_X003), 0, xi.g(getContext(), R.dimen.M_H_X003));
+            d85.d(this.c).C(R.dimen.T_X05);
+            this.c.setPadding(0, yi.g(getContext(), R.dimen.M_H_X003), 0, yi.g(getContext(), R.dimen.M_H_X003));
             addView(this.c, layoutParams);
         }
     }
@@ -342,8 +342,8 @@ public final class LoadingMsgView extends FrameLayout {
             this.d.setVisibility(8);
             this.d.setTextColor(getContext().getResources().getColor(R.color.CAM_X0109));
             this.d.setSingleLine();
-            s75.d(this.d).C(R.dimen.T_X05);
-            this.d.setPadding(0, xi.g(getContext(), R.dimen.M_H_X003), 0, xi.g(getContext(), R.dimen.M_H_X003));
+            d85.d(this.d).C(R.dimen.T_X05);
+            this.d.setPadding(0, yi.g(getContext(), R.dimen.M_H_X003), 0, yi.g(getContext(), R.dimen.M_H_X003));
             addView(this.d, layoutParams);
         }
     }

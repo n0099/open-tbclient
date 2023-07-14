@@ -5,7 +5,7 @@ import kotlin._Assertions;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.CallableMemberDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class VisibilityUtilKt {
     public static final CallableMemberDescriptor findMemberWithMaxVisibility(Collection<? extends CallableMemberDescriptor> collection) {
         Integer compare;

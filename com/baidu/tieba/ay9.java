@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public class ay9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zx9 a;
+    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized zx9 a() {
-        InterceptResult invokeV;
-        zx9 zx9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ay9.class) {
-                if (a == null) {
-                    a = new zx9();
-                }
-                zx9Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947631656, "Lcom/baidu/tieba/ay9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return zx9Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947631656, "Lcom/baidu/tieba/ay9;");
+                return;
+            }
         }
-        return (zx9) invokeV.objValue;
+        TimeUnit.DAYS.toMillis(1L);
+        TimeUnit.HOURS.toMillis(1L);
+        TimeUnit.MINUTES.toMillis(1L);
+        a = TimeUnit.SECONDS.toMillis(1L);
     }
 }

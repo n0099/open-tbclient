@@ -1,40 +1,33 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.text.TextPaint;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.RadialGradient;
+import android.graphics.Shader;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.canvas.view.CanvasView;
+import com.baidu.ar.gesture.GestureAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Stack;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j52 implements Cloneable {
+public class j52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Stack<j52> a;
-    public Paint b;
-    public Paint c;
-    public Paint d;
-    public TextPaint e;
-    public Path f;
-    public boolean g;
-    public CanvasView h;
-    public s62 i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
+    public String a;
+    public int b;
+    public Shader c;
 
-    public j52(CanvasView canvasView) {
+    public j52(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {canvasView};
+            Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,104 +37,103 @@ public class j52 implements Cloneable {
                 return;
             }
         }
-        this.a = new Stack<>();
-        this.b = new Paint();
-        this.c = new Paint();
-        this.d = new Paint();
-        this.e = new TextPaint();
-        this.f = new Path();
-        this.g = false;
-        this.j = -1;
-        this.k = 0;
-        this.l = 0;
-        this.m = -16777216;
-        this.h = canvasView;
-        d();
+        this.a = "";
+        e(jSONArray);
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.l;
+            return this.b;
         }
         return invokeV.intValue;
     }
 
-    public void b(int i) {
+    public Shader b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.l = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (Shader) invokeV.objValue;
     }
 
-    public void c(Paint paint) {
-        s62 s62Var;
-        q52 q52Var;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paint) != null) || paint == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TextUtils.equals(this.a, "linearGradient") && !TextUtils.equals(this.a, "circularGradient")) {
+                return false;
+            }
+            return true;
         }
-        if (this.h != null && (s62Var = this.i) != null && (q52Var = s62Var.d) != null && !q52Var.c()) {
-            s62 s62Var2 = this.i;
-            paint.setShadowLayer(s62Var2.c, s62Var2.a, s62Var2.b, s62Var2.d.a());
-        }
-        int i = this.j;
-        if (i >= 0 && i <= 255) {
-            paint.setAlpha(Math.min((paint.getAlpha() * this.j) >> 8, 255));
-        }
+        return invokeV.booleanValue;
     }
 
-    public void d() {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.m = -16777216;
-            this.c.setStyle(Paint.Style.STROKE);
-            this.b.setColor(-16777216);
-            this.c.setColor(-16777216);
-            this.d.setColor(-16777216);
-            this.e.setColor(-16777216);
-            this.c.setStrokeWidth(tp3.g(1.0f));
-            this.c.setAntiAlias(true);
-            this.e.setAntiAlias(true);
-            this.d.setAntiAlias(true);
-            this.f.reset();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
         }
+        return invokeV.booleanValue;
     }
 
-    public void e() {
+    public void e(JSONArray jSONArray) {
+        float[] fArr;
+        int length;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a.empty()) {
-            return;
-        }
-        j52 pop = this.a.pop();
-        this.b = pop.b;
-        this.c = pop.c;
-        this.d = pop.d;
-        this.e = pop.e;
-        this.f = pop.f;
-        this.g = pop.g;
-        this.a = pop.a;
-        this.i = pop.i;
-        this.j = pop.j;
-        this.k = pop.k;
-        this.l = pop.l;
-        this.m = pop.m;
-    }
-
-    public void f() throws CloneNotSupportedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            j52 j52Var = (j52) super.clone();
-            j52Var.b = new Paint(this.b);
-            j52Var.c = new Paint(this.c);
-            j52Var.d = new Paint(this.d);
-            j52Var.e = new TextPaint(this.e);
-            j52Var.f = new Path(this.f);
-            j52Var.k = this.k;
-            j52Var.l = this.l;
-            j52Var.m = this.m;
-            this.a.push(j52Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONArray) == null) {
+            int i = 0;
+            try {
+                String optString = jSONArray.optString(0);
+                int i2 = 4;
+                int i3 = 1;
+                if (TextUtils.equals(optString, "normal")) {
+                    JSONArray optJSONArray = jSONArray.optJSONArray(1);
+                    if (optJSONArray.length() == 4) {
+                        this.b = Color.argb(optJSONArray.optInt(3), optJSONArray.optInt(0), optJSONArray.optInt(1), optJSONArray.optInt(2));
+                        this.a = "normal";
+                    }
+                } else if (TextUtils.equals(optString, "linearGradient") || TextUtils.equals(optString, "circularGradient")) {
+                    JSONArray optJSONArray2 = jSONArray.optJSONArray(1);
+                    int[] iArr = null;
+                    if (optJSONArray2 != null && (length = optJSONArray2.length()) > 0) {
+                        iArr = new int[length];
+                        fArr = new float[length];
+                        int i4 = 0;
+                        while (i4 < length) {
+                            JSONObject optJSONObject = optJSONArray2.optJSONObject(i4);
+                            JSONArray optJSONArray3 = optJSONObject.optJSONArray("color");
+                            if (optJSONArray3.length() == i2) {
+                                iArr[i4] = Color.argb(optJSONArray3.optInt(3), optJSONArray3.optInt(i), optJSONArray3.optInt(i3), optJSONArray3.optInt(2));
+                            }
+                            fArr[i4] = (float) optJSONObject.optDouble("stop");
+                            i4++;
+                            i = 0;
+                            i2 = 4;
+                            i3 = 1;
+                        }
+                    } else {
+                        fArr = null;
+                    }
+                    if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
+                        JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
+                        if (TextUtils.equals(optString, "linearGradient")) {
+                            this.c = new LinearGradient(mp3.g(optJSONObject2.optInt("x0")), mp3.g(optJSONObject2.optInt("y0")), mp3.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), mp3.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
+                            this.a = "linearGradient";
+                            return;
+                        }
+                        this.c = new RadialGradient(mp3.g(optJSONObject2.optInt("x")), mp3.g(optJSONObject2.optInt("y")), mp3.g(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.a = "circularGradient";
+                    }
+                }
+            } catch (Exception e) {
+                if (fs1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

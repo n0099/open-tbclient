@@ -2,7 +2,7 @@ package com.kwad.components.core.internal.api;
 
 import android.text.TextUtils;
 import com.kwad.sdk.api.KsImage;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements KsImage {
     public String EA;
     public int height;

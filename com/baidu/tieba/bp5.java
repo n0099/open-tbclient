@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
 /* loaded from: classes5.dex */
 public interface bp5 {
-    void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
-
-    void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
+    @WorkerThread
+    void a(long j, int i, String str, IChatRoomEnterListener.ChatRoomInfo chatRoomInfo);
 }

@@ -1,32 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class mw6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class mw6 extends kw6<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static lw6 a(BaseFragment baseFragment, int i) {
-        InterceptResult invokeLI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mw6() {
+        super(1, false, 2, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragment, i)) == null) {
-            if (baseFragment == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super(((Integer) objArr[0]).intValue(), ((Boolean) objArr[1]).booleanValue(), ((Integer) objArr[2]).intValue(), (DefaultConstructorMarker) objArr[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (i == 1) {
-                return new qw6(baseFragment, i);
-            }
-            if (i == 2) {
-                return new pw6(baseFragment, i);
-            }
-            if (i != 3) {
-                return null;
-            }
-            return new nw6(baseFragment, i);
         }
-        return (lw6) invokeLI.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kw6
+    /* renamed from: e */
+    public Integer c(pv6 data) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return Integer.valueOf(data.j());
+        }
+        return (Integer) invokeL.objValue;
     }
 }

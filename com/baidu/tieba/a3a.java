@@ -1,93 +1,190 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.FeedForumData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class a3a implements xn {
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.HashMap;
+/* loaded from: classes5.dex */
+public class a3a {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static a3a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FeedForumData> a;
-    public String b;
+    public HashMap<String, String> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947565626, "Lcom/baidu/tieba/a3a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(HashMap<String, String> hashMap);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends wy5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a3a a;
+
+        public a(a3a a3aVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a3aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947565626, "Lcom/baidu/tieba/a3a;");
-                return;
+            this.a = a3aVar;
+        }
+
+        @Override // com.baidu.tieba.wy5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Reader reader;
+            Throwable th;
+            InputStream inputStream;
+            BufferedReader bufferedReader;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    try {
+                        inputStream = TbadkCoreApplication.getInst().getAssets().open("schema_map1.txt");
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                    try {
+                        bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                String[] split = readLine.split(",");
+                                if (split.length == 2 && split[0] != null && split[1] != null) {
+                                    this.a.a.put(split[0], split[1]);
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                e.printStackTrace();
+                                vg.c(inputStream);
+                                vg.e(bufferedReader);
+                                return null;
+                            }
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        bufferedReader = null;
+                    } catch (Throwable th3) {
+                        reader = null;
+                        th = th3;
+                        vg.c(inputStream);
+                        vg.e(reader);
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    inputStream = null;
+                    bufferedReader = null;
+                } catch (Throwable th4) {
+                    reader = null;
+                    th = th4;
+                    inputStream = null;
+                }
+                vg.c(inputStream);
+                vg.e(bufferedReader);
+                return null;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements ay5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ a3a b;
+
+        public b(a3a a3aVar, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a3aVar, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = a3aVar;
+            this.a = cVar;
+        }
+
+        @Override // com.baidu.tieba.ay5
+        public void onReturnDataInUI(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                this.a.a(this.b.a);
             }
         }
-        c = BdUniqueId.gen();
     }
 
     public a3a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        new HashMap();
     }
 
-    public List<FeedForumData> a() {
+    public static a3a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (a3a.class) {
+                    if (b == null) {
+                        b = new a3a();
+                    }
+                }
+            }
+            return b;
         }
-        return (List) invokeV.objValue;
+        return (a3a) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void b(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(List<FeedForumData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            if (!this.a.isEmpty()) {
+                cVar.a(this.a);
+            } else {
+                az5.b(new a(this), new b(this, cVar));
+            }
         }
     }
 }

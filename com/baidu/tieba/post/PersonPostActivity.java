@@ -36,17 +36,17 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo;
-import com.baidu.tieba.ip9;
-import com.baidu.tieba.jp9;
-import com.baidu.tieba.kp9;
-import com.baidu.tieba.op9;
+import com.baidu.tieba.co;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.gca;
 import com.baidu.tieba.personExtra.PersonExtraStatic;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.v3a;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.pv9;
+import com.baidu.tieba.qv9;
+import com.baidu.tieba.rv9;
+import com.baidu.tieba.vv9;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, kp9, ip9 {
+public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, rv9, pv9 {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,17 +81,17 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     public VoiceManager.i f1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.cs5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.gt5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "a080" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "a080" : (String) invokeV.objValue;
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -177,7 +177,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     str = "2";
                 }
                 TiebaStatic.log(param.param("obj_type", str).param("obj_locate", 1));
-                this.a.p0(false);
+                this.a.o0(false);
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{PersonPostActivity.r});
             }
         }
@@ -262,8 +262,8 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     public final void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            v3a.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, v3a.a("c/u/feed/userpost", 303002));
+            gca.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, gca.a("c/u/feed/userpost", 303002));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -273,39 +273,27 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
-    @Override // com.baidu.tieba.kp9
-    public void B() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.n != null) {
-            for (int i = 0; i < this.n.getCount(); i++) {
-                if (this.n.getItem(i) instanceof jp9) {
-                    ((jp9) this.n.getItem(i)).P0();
-                }
-            }
-        }
-    }
-
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
-    public bo onGetPreLoadListView() {
+    public co onGetPreLoadListView() {
         InterceptResult invokeV;
-        op9 op9Var;
+        vv9 vv9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             PersonPostAdapter personPostAdapter = this.n;
             if (personPostAdapter != null) {
                 PersonThreadFragment c2 = personPostAdapter.c();
                 if (c2 != null) {
-                    op9Var = c2.R1();
+                    vv9Var = c2.R1();
                 } else {
-                    op9Var = null;
+                    vv9Var = null;
                 }
-                if (op9Var != null && op9Var.f() != null) {
-                    return op9Var.f().getPreLoadHandle();
+                if (vv9Var != null && vv9Var.f() != null) {
+                    return vv9Var.f().getPreLoadHandle();
                 }
             }
             return null;
         }
-        return (bo) invokeV.objValue;
+        return (co) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -327,14 +315,26 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
+    @Override // com.baidu.tieba.rv9
+    public void u() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && this.n != null) {
+            for (int i = 0; i < this.n.getCount(); i++) {
+                if (this.n.getItem(i) instanceof qv9) {
+                    ((qv9) this.n.getItem(i)).P0();
+                }
+            }
+        }
+    }
+
     public String w1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             if (this.f) {
-                return getPageContext().getString(R.string.obfuscated_res_0x7f0f1074);
+                return getPageContext().getString(R.string.obfuscated_res_0x7f0f1086);
             }
-            return String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f1073), z1());
+            return String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f1085), z1());
         }
         return (String) invokeV.objValue;
     }
@@ -452,7 +452,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
 
     public final void C1(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             this.p = TbadkCoreApplication.getInst().getSkinType();
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.g = navigationBar;
@@ -460,27 +460,27 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             View view2 = (View) this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).getParent();
             this.h = view2;
             view2.setOnClickListener(new a(this));
-            RelativeLayout relativeLayout = (RelativeLayout) this.g.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d07d4, (View.OnClickListener) null);
+            RelativeLayout relativeLayout = (RelativeLayout) this.g.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d07ec, (View.OnClickListener) null);
             this.i = relativeLayout;
             relativeLayout.setOnClickListener(new b(this));
-            this.j = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092711);
-            this.k = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091205);
-            if (r95.p().l(r95.t("key_person_post_recycle_bin_red_tip_show"), false)) {
+            this.j = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092746);
+            this.k = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091217);
+            if (da5.p().l(da5.t("key_person_post_recycle_bin_red_tip_show"), false)) {
                 this.k.setVisibility(0);
             } else {
                 this.k.setVisibility(8);
             }
-            this.l = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f091bf5);
+            this.l = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f091c0c);
             this.b = new int[]{0, 1};
             this.n = new PersonPostAdapter(this);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f0922fc);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09232f);
             this.m = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.m.setOnPageChangeListener(this);
             this.m.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07019a));
-            this.m.getFragmentTabWidget().setDviderRectWidth(xi.g(getActivity(), R.dimen.obfuscated_res_0x7f070258));
+            this.m.getFragmentTabWidget().setDviderRectWidth(yi.g(getActivity(), R.dimen.obfuscated_res_0x7f070258));
             initTabSpec();
-            ((RelativeLayout.LayoutParams) this.m.getTabWrapper().getLayoutParams()).setMargins(0, UtilHelper.getLightStatusBarHeight() + xi.g(getActivity(), R.dimen.obfuscated_res_0x7f07041a), 0, 0);
+            ((RelativeLayout.LayoutParams) this.m.getTabWrapper().getLayoutParams()).setMargins(0, UtilHelper.getLightStatusBarHeight() + yi.g(getActivity(), R.dimen.obfuscated_res_0x7f070420), 0, 0);
             if (bundle != null) {
                 this.a = bundle.getInt("CurrTabIndex");
             } else {
@@ -493,7 +493,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     public final void initTabSpec() {
         PersonPostAdapter personPostAdapter;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (personPostAdapter = this.n) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (personPostAdapter = this.n) != null) {
             int count = personPostAdapter.getCount();
             for (int i = 0; i < count; i++) {
                 Fragment item = this.n.getItem(i);
@@ -502,11 +502,55 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     if (b2 == 0) {
                         v1(item, 0, getPageContext().getString(R.string.person_post_thread_new));
                     } else if (b2 == 1) {
-                        v1(item, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f120e));
+                        v1(item, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f1220));
                     }
                 }
             }
             this.m.l();
+        }
+    }
+
+    @Override // com.baidu.tieba.pv9
+    public void o0(boolean z) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || (imageView = this.k) == null) {
+            return;
+        }
+        if (z && imageView.getVisibility() == 8) {
+            this.k.setVisibility(0);
+            da5.p().A(da5.t("key_person_post_recycle_bin_red_tip_show"), true);
+        } else if (!z && this.k.getVisibility() == 0) {
+            this.k.setVisibility(8);
+            da5.p().A(da5.t("key_person_post_recycle_bin_red_tip_show"), false);
+        }
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && i >= 0 && i < 2 && i != this.a) {
+            this.a = i;
+            int[] iArr = this.b;
+            if (iArr[i] == 0) {
+                Context context = getPageContext().getContext();
+                if (this.f) {
+                    str2 = "pp_my_thread";
+                } else {
+                    str2 = "pp_his_thread";
+                }
+                TiebaStatic.eventStat(context, str2, "click", 1, new Object[0]);
+            } else if (iArr[i] == 1) {
+                Context context2 = getPageContext().getContext();
+                if (this.f) {
+                    str = "pp_my_reply";
+                } else {
+                    str = "pp_his_reply";
+                }
+                TiebaStatic.eventStat(context2, str, "click", 1, new Object[0]);
+            }
         }
     }
 
@@ -558,9 +602,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             super.onCreate(bundle);
             A1();
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                showToast(R.string.obfuscated_res_0x7f0f0e0f);
+                showToast(R.string.obfuscated_res_0x7f0f0e1f);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d07ce);
+            setContentView(R.layout.obfuscated_res_0x7f0d07e6);
             VoiceManager y0 = y0();
             this.o = y0;
             if (y0 != null) {
@@ -575,18 +619,18 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             }
             this.c = str;
             if (str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f0c49);
+                this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f0c54);
                 this.f = true;
             } else {
                 int intExtra = getIntent().getIntExtra("key_sex", 0);
                 if (intExtra != 1) {
                     if (intExtra != 2) {
-                        this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f1593);
+                        this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f15a9);
                     } else {
-                        this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f13af);
+                        this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f13c5);
                     }
                 } else {
-                    this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f099f);
+                    this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f09aa);
                 }
             }
             TbadkCoreApplication.isMyLive = false;
@@ -595,50 +639,6 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             } else {
                 C1(bundle);
             }
-        }
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && i >= 0 && i < 2 && i != this.a) {
-            this.a = i;
-            int[] iArr = this.b;
-            if (iArr[i] == 0) {
-                Context context = getPageContext().getContext();
-                if (this.f) {
-                    str2 = "pp_my_thread";
-                } else {
-                    str2 = "pp_his_thread";
-                }
-                TiebaStatic.eventStat(context, str2, "click", 1, new Object[0]);
-            } else if (iArr[i] == 1) {
-                Context context2 = getPageContext().getContext();
-                if (this.f) {
-                    str = "pp_my_reply";
-                } else {
-                    str = "pp_his_reply";
-                }
-                TiebaStatic.eventStat(context2, str, "click", 1, new Object[0]);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ip9
-    public void p0(boolean z) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048595, this, z) != null) || (imageView = this.k) == null) {
-            return;
-        }
-        if (z && imageView.getVisibility() == 8) {
-            this.k.setVisibility(0);
-            r95.p().A(r95.t("key_person_post_recycle_bin_red_tip_show"), true);
-        } else if (!z && this.k.getVisibility() == 0) {
-            this.k.setVisibility(8);
-            r95.p().A(r95.t("key_person_post_recycle_bin_red_tip_show"), false);
         }
     }
 

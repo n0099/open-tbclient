@@ -20,11 +20,11 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d56;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.os9;
-import com.baidu.tieba.r31;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.h66;
+import com.baidu.tieba.n41;
+import com.baidu.tieba.v15;
+import com.baidu.tieba.vy9;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView f;
     public TextView g;
     public RelativeLayout h;
-    public n15 i;
+    public v15 i;
     public AdvertAppInfo j;
     public int k;
     public int l;
@@ -109,7 +109,7 @@ public class AdAppInfoView extends FrameLayout {
                 return;
             }
         }
-        this.k = R.layout.obfuscated_res_0x7f0d0068;
+        this.k = R.layout.obfuscated_res_0x7f0d0067;
         this.l = R.color.CAM_X0109;
         this.m = new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdAppInfoView.1
             public static /* synthetic */ Interceptable $ic;
@@ -145,7 +145,7 @@ public class AdAppInfoView extends FrameLayout {
                 int id = view2.getId();
                 String str3 = "";
                 if (id == R.id.ad_privacy) {
-                    n15.b bVar = this.a.i.g;
+                    v15.b bVar = this.a.i.g;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -155,20 +155,20 @@ public class AdAppInfoView extends FrameLayout {
                     str2 = str;
                 } else {
                     if (id == R.id.ad_permission) {
-                        n15.a aVar = this.a.i.h;
+                        v15.a aVar = this.a.i.h;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
                             str2 = "app_permission";
                         }
                     } else if (id == R.id.ad_author_full_name) {
-                        xi.Q(this.a.getContext(), this.a.i.d);
+                        yi.R(this.a.getContext(), this.a.i.d);
                         return;
                     }
                     str = "";
                     str2 = str;
                 }
-                os9.a(this.a.getContext(), str3, null, null, str);
+                vy9.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };
@@ -180,7 +180,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, d56.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, h66.SimpleAdInfoView);
         this.k = obtainStyledAttributes.getResourceId(0, this.k);
         obtainStyledAttributes.recycle();
     }
@@ -212,14 +212,14 @@ public class AdAppInfoView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             setLayoutByAttrs(attributeSet);
             LayoutInflater.from(getContext()).inflate(getLayoutId(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f3);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f2);
             this.b = (AdStarRatingBar) findViewById(R.id.obfuscated_res_0x7f0900fd);
             this.c = (TextView) findViewById(R.id.ad_version);
             this.d = (TextView) findViewById(R.id.ad_author_full_name);
             this.e = (TextView) findViewById(R.id.ad_privacy);
             this.f = (TextView) findViewById(R.id.ad_permission);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09010b);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090922);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090923);
             this.e.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
         }
@@ -303,7 +303,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.j != null && !TextUtils.isEmpty(str)) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.FREE_CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.j.position + 1)).j(str).p(this.j.g);
-            r31.b(clogBuilder);
+            n41.e(clogBuilder);
         }
     }
 
@@ -319,60 +319,60 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(n15 n15Var) {
+    public void setAppInfo(v15 v15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, n15Var) == null) {
-            if (n15Var != null && n15.c(n15Var)) {
-                this.i = n15Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, v15Var) == null) {
+            if (v15Var != null && v15.c(v15Var)) {
+                this.i = v15Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(n15Var.c)) {
+                    if (!TextUtils.isEmpty(v15Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(n15Var.c);
+                        this.a.setText(v15Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = n15Var.e;
+                    float f = v15Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(n15Var.e);
+                        this.b.setRating(v15Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(n15Var.f)) {
+                    if (!TextUtils.isEmpty(v15Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(n15Var.f);
+                        this.c.setText(v15Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(n15Var.d)) {
+                    if (!TextUtils.isEmpty(v15Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(n15Var.d);
+                        this.d.setText(v15Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    n15.b bVar = n15Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(n15Var.g.a)) {
+                    v15.b bVar = v15Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(v15Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(n15Var.g.a);
+                        this.e.setText(v15Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.f != null) {
-                    n15.a aVar = n15Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(n15Var.h.a)) {
+                    v15.a aVar = v15Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(v15Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(n15Var.h.a);
+                        this.f.setText(v15Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }

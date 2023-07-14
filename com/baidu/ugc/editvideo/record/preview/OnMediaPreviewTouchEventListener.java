@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.preview;
 
 import android.graphics.PointF;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface OnMediaPreviewTouchEventListener {
     PointF getStickerCenterPoint();
 

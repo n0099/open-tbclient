@@ -1,141 +1,142 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes8.dex */
-public final class zgb {
+public class zgb extends ogb<xgb> {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<Class<?>, vgb> b;
-    public static Map<Class<?>, Object> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Class<?>, vgb> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948360404, "Lcom/baidu/tieba/zgb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a implements TTAdNative.FullScreenVideoAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zgb a;
+
+        public a(zgb zgbVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zgbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948360404, "Lcom/baidu/tieba/zgb;");
-                return;
+            this.a = zgbVar;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
             }
         }
-        b = new HashMap();
-        c = new HashMap();
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) {
+                LogPrinter.d();
+                this.a.onAdLoaded(new xgb(tTFullScreenVideoAd), new String[0]);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached(TTFullScreenVideoAd tTFullScreenVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, tTFullScreenVideoAd) == null) {
+            }
+        }
     }
 
-    public zgb(List<vgb> list, Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zgb(FunAdType funAdType, Ssp.Pid pid) {
+        super(funAdType, pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {funAdType, pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        new HashMap();
-        c(list, context);
     }
 
-    public static Constructor a(Class cls, Class... clsArr) {
-        InterceptResult invokeLL;
-        Constructor<?>[] declaredConstructors;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
-            boolean z = false;
-            for (Constructor<?> constructor : cls.getDeclaredConstructors()) {
-                Class<?>[] parameterTypes = constructor.getParameterTypes();
-                if (parameterTypes.length == clsArr.length) {
-                    for (int i = 0; i < clsArr.length; i++) {
-                        z = parameterTypes[i] == clsArr[i];
-                    }
-                    if (z) {
-                        return constructor;
-                    }
-                }
-            }
-            return null;
-        }
-        return (Constructor) invokeLL.objValue;
-    }
-
-    public final void b(String str, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, exc) == null) {
-            Log.e("ServiceRepository", "Instantiate shared service " + str + exc.getLocalizedMessage());
-            StringBuilder sb = new StringBuilder();
-            sb.append("cause message:");
-            sb.append(exc.getCause() != null ? exc.getCause().getMessage() : "");
-            Log.e("ServiceRepository", sb.toString());
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            xgb xgbVar = (xgb) obj;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x005f A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0068 A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(List<vgb> list, Context context) {
-        Map<Class<?>, vgb> map;
-        String str;
+    @Override // com.baidu.tieba.ogb
+    public void f(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, context) == null) || list == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            this.e.loadFullScreenVideoAd(i(funAdSlot), new a(this));
         }
-        for (vgb vgbVar : list) {
-            if (vgbVar.c()) {
-                if (!b.containsKey(vgbVar.a())) {
-                    map = b;
-                }
-                if (vgbVar.b() && vgbVar.getType() != null && !c.containsKey(vgbVar.a())) {
-                    try {
-                        Constructor a = a(vgbVar.getType(), Context.class);
-                        c.put(vgbVar.a(), a == null ? a.newInstance(context) : vgbVar.getType().newInstance());
-                    } catch (IllegalAccessException e) {
-                        e = e;
-                        str = "AccessException";
-                        b(str, e);
-                    } catch (InstantiationException e2) {
-                        e = e2;
-                        str = "InstantiationException";
-                        b(str, e);
-                    } catch (InvocationTargetException e3) {
-                        e = e3;
-                        str = "TargetException";
-                        b(str, e);
-                    }
-                }
-            } else {
-                map = this.a;
-            }
-            map.put(vgbVar.a(), vgbVar);
-            if (vgbVar.b()) {
-                Constructor a2 = a(vgbVar.getType(), Context.class);
-                c.put(vgbVar.a(), a2 == null ? a2.newInstance(context) : vgbVar.getType().newInstance());
-            }
+    }
+
+    public AdSlot i(FunAdSlot funAdSlot) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, funAdSlot)) == null) {
+            return new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setOrientation(this.mPid.isHorizontal ? 2 : 1).build();
         }
+        return (AdSlot) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            xgb xgbVar = (xgb) obj;
+            onShowStart(xgbVar);
+            ((TTFullScreenVideoAd) xgbVar.a).setFullScreenVideoAdInteractionListener(new chb(this, xgbVar));
+            ((TTFullScreenVideoAd) xgbVar.a).setDownloadListener(new egb(null));
+            ((TTFullScreenVideoAd) xgbVar.a).showFullScreenVideoAd(activity);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

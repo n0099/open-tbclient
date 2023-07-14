@@ -3,7 +3,7 @@ package com.baidu.tieba.pbextra.praise;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.lh9;
+import com.baidu.tieba.rn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
     public int mErrCode;
     public String mErrMsg;
     public int mTotalNum;
-    public List<lh9> mZanItemDataList;
+    public List<rn9> mZanItemDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PraiseListResponsedMessage(int i) {
@@ -61,7 +61,7 @@ public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
                     this.mZanItemDataList = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        this.mZanItemDataList.add(new lh9(jSONObject2.optString("id"), jSONObject2.optString("name"), jSONObject2.optString("portrait"), jSONObject2.optString("name_show"), 1000 * jSONObject2.optLong("zan_time")));
+                        this.mZanItemDataList.add(new rn9(jSONObject2.optString("id"), jSONObject2.optString("name"), jSONObject2.optString("portrait"), jSONObject2.optString("name_show"), 1000 * jSONObject2.optLong("zan_time")));
                     }
                 }
             }
@@ -95,7 +95,7 @@ public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public List<lh9> getmZanItemDataList() {
+    public List<rn9> getmZanItemDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

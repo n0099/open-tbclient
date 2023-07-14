@@ -1,173 +1,143 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailThemeData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.data.UserPendantData;
-import com.baidu.tieba.person.ProfileHttpResponseMessage;
-import com.baidu.tieba.person.ProfileSocketResponseMessage;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.square.ForumSquareActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Pendant;
 /* loaded from: classes5.dex */
-public class b9a extends kb {
+public class b9a extends ln<d9a, CardViewHolder<u9a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final p7a b;
+    public TbPageContext<?> a;
+    public up6<d9a> b;
+
+    /* loaded from: classes5.dex */
+    public class a extends up6<d9a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b9a b;
+
+        public a(b9a b9aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b9aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = b9aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.up6
+        /* renamed from: d */
+        public void a(View view2, d9a d9aVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, d9aVar) == null) && d9aVar != null && (this.b.a.getPageActivity() instanceof ForumSquareActivity)) {
+                String className = ((ForumSquareActivity) this.b.a.getPageActivity()).u1().getClassName();
+                if (!"推荐".equals(className)) {
+                    StatisticItem statisticItem = new StatisticItem("c13652");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("fid", d9aVar.a);
+                    statisticItem.param("resource_id", className);
+                    TiebaStatic.log(statisticItem);
+                    return;
+                }
+                StatisticItem statisticItem2 = new StatisticItem("c13643");
+                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem2.param("fid", d9aVar.a);
+                statisticItem2.param("obj_locate", 3);
+                TiebaStatic.log(statisticItem2);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b9a(MainTabActivity mainTabActivity, e7a e7aVar) {
-        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+    public b9a(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), d9a.h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, e7aVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.b = new a(this);
+        this.a = tbPageContext;
     }
 
-    public final void a() {
-        p7a p7aVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: t */
+    public CardViewHolder<u9a> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (p7aVar = this.b) != null && p7aVar.a() != null && this.a.y == 1) {
-            this.b.a().d();
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            MainTabActivity mainTabActivity = this.a;
-            if (currentActivity == mainTabActivity && mainTabActivity.z.intValue() != 1) {
-                this.b.a().f();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            u9a u9aVar = new u9a(this.a);
+            u9aVar.o(this.mPageId);
+            return new CardViewHolder<>(u9aVar);
         }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public final void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
-        boolean z;
-        boolean z2;
-        p7a p7aVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, d9a d9aVar, CardViewHolder<u9a> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileHttpResponseMessage) == null) {
-            boolean z3 = true;
-            if (profileHttpResponseMessage != null && profileHttpResponseMessage.GetUser() != null) {
-                this.a.y = profileHttpResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.y == 1 && (p7aVar = this.b) != null && p7aVar.a() != null) {
-                    this.b.a().d();
-                    this.b.a().f();
-                }
-                a();
-                ProfileVirtualImageInfo.getInstance().parseProto(profileHttpResponseMessage.GetUser().virtual_image_info);
-                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileHttpResponseMessage.GetUser().theme_tail));
-                d(profileHttpResponseMessage.GetUser().pendant);
-            }
-            if (profileHttpResponseMessage != null && profileHttpResponseMessage.getMemberBlockInfo() != null) {
-                MainTabActivity mainTabActivity = this.a;
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                mainTabActivity.J = z;
-                MainTabActivity mainTabActivity2 = this.a;
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                mainTabActivity2.K = z2;
-                TbSingleton tbSingleton = TbSingleton.getInstance();
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
-                    z3 = false;
-                }
-                tbSingleton.setUserBan(z3);
-            }
-        }
-    }
-
-    public final void c(ProfileSocketResponseMessage profileSocketResponseMessage) {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, profileSocketResponseMessage) == null) {
-            boolean z3 = true;
-            if (profileSocketResponseMessage != null && profileSocketResponseMessage.GetUser() != null) {
-                this.a.y = profileSocketResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.y == 1) {
-                    p7a p7aVar = this.b;
-                    if (p7aVar != null && p7aVar.a() != null) {
-                        this.b.a().d();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, d9aVar, cardViewHolder})) == null) {
+            if (d9aVar != null && cardViewHolder != null && cardViewHolder.b() != null) {
+                cardViewHolder.b().i(d9aVar);
+                cardViewHolder.b().k(this.b);
+                if (this.a.getPageActivity() instanceof ForumSquareActivity) {
+                    String className = ((ForumSquareActivity) this.a.getPageActivity()).u1().getClassName();
+                    if (!"推荐".equals(className)) {
+                        StatisticItem statisticItem = new StatisticItem("c13651");
+                        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                        statisticItem.param("fid", d9aVar.a);
+                        statisticItem.param("resource_id", className);
+                        TiebaStatic.log(statisticItem);
+                    } else {
+                        StatisticItem statisticItem2 = new StatisticItem("c13642");
+                        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                        statisticItem2.param("fid", d9aVar.d());
+                        statisticItem2.param("obj_locate", 3);
+                        TiebaStatic.log(statisticItem2);
                     }
-                    a();
                 }
-                ProfileVirtualImageInfo.getInstance().parseProto(profileSocketResponseMessage.GetUser().virtual_image_info);
-                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileSocketResponseMessage.GetUser().theme_tail));
-                d(profileSocketResponseMessage.GetUser().pendant);
+                return cardViewHolder.getView();
             }
-            if (profileSocketResponseMessage != null && profileSocketResponseMessage.getMemberBlockInfo() != null) {
-                MainTabActivity mainTabActivity = this.a;
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                mainTabActivity.J = z;
-                MainTabActivity mainTabActivity2 = this.a;
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                mainTabActivity2.K = z2;
-                TbSingleton tbSingleton = TbSingleton.getInstance();
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
-                    z3 = false;
-                }
-                tbSingleton.setUserBan(z3);
-            }
+            return null;
         }
-    }
-
-    public final void d(Pendant pendant) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pendant) == null) {
-            UserPendantData userPendantData = new UserPendantData();
-            userPendantData.parserProtobuf(pendant);
-            TbSingleton.getInstance().setUserPendantData(userPendantData);
-        }
-    }
-
-    @Override // com.baidu.tieba.kb
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, responsedMessage) == null) {
-            boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
-            if (!z && !(responsedMessage instanceof ProfileHttpResponseMessage)) {
-                return;
-            }
-            if (z) {
-                c((ProfileSocketResponseMessage) responsedMessage);
-            }
-            if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                b((ProfileHttpResponseMessage) responsedMessage);
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

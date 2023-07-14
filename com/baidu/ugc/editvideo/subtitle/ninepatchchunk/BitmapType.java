@@ -8,7 +8,7 @@ import android.graphics.drawable.NinePatchDrawable;
 import com.baidu.ugc.editvideo.data.Div;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum BitmapType {
     NinePatch { // from class: com.baidu.ugc.editvideo.subtitle.ninepatchchunk.BitmapType.1
         @Override // com.baidu.ugc.editvideo.subtitle.ninepatchchunk.BitmapType

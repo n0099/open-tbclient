@@ -1,54 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class t8a extends CustomMessageListener {
+/* loaded from: classes8.dex */
+public class t8a extends BitmapDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+    @NonNull
+    public final Drawable a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t8a(@NonNull MainTabActivity mainTabActivity) {
-        super(2921752);
+    public t8a(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
+        this.a = drawable;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        TbPageContext<BaseFragmentActivity> pageContext;
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof YyLiveRoomConfig) && ProcessUtils.isMainProcess() && (pageContext = this.a.getPageContext()) != null) {
-            Intent intent = ((YyLiveRoomConfig) customResponsedMessage.getData()).getIntent();
-            YYLiveUtil.jumpToYYLiveRoom(pageContext, intent.getStringExtra("sid"), intent.getStringExtra(YyLiveRoomConfig.KEY_SSID), intent.getStringExtra(YyLiveRoomConfig.KEY_TEMPLATE_ID), intent.getStringExtra("room_id"), intent.getStringExtra(YyLiveRoomConfig.KEY_STREAMINFO), intent.getStringExtra("source"));
+        if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || canvas == null) {
+            return;
         }
+        canvas.save();
+        canvas.translate(0.0f, (((canvas.getHeight() / 2) - (this.a.getIntrinsicHeight() / 2)) * 1.0f) / 2.0f);
+        this.a.draw(canvas);
+        canvas.restore();
+    }
+
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getIntrinsicHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getIntrinsicWidth();
+        }
+        return invokeV.intValue;
     }
 }

@@ -1,61 +1,78 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Hottopic.CommonInteraction;
 /* loaded from: classes8.dex */
-public class wa8 {
+public class wa8 implements yn {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wa8 b;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public long a;
+    public int b;
+    public long c;
+    public long d;
+    public int e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948263963, "Lcom/baidu/tieba/wa8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948263963, "Lcom/baidu/tieba/wa8;");
+                return;
+            }
+        }
+        f = BdUniqueId.gen();
+    }
 
     public wa8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static wa8 a() {
+    @Override // com.baidu.tieba.yn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (wa8.class) {
-                    if (b == null) {
-                        b = new wa8();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return f;
         }
-        return (wa8) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void a(CommonInteraction commonInteraction) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, commonInteraction) != null) || commonInteraction == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
+        String str = commonInteraction.module_name;
+        String str2 = commonInteraction.ques_desc;
+        this.a = commonInteraction.total_num.longValue();
+        this.b = commonInteraction.has_clicked.intValue();
+        String str3 = commonInteraction.before_click_pic;
+        String str4 = commonInteraction.after_click_pic;
+        this.c = commonInteraction.pk_id.longValue();
+        this.d = commonInteraction.user_pk_id.longValue();
     }
 }

@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topicdetail.adapter.TopicTimelineAdapter;
-import com.baidu.tieba.o48;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.j98;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -113,13 +113,13 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         a(context);
     }
 
-    public void setData(o48 o48Var) {
+    public void setData(j98 j98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o48Var) == null) {
-            if (o48Var != null && !ListUtils.isEmpty(o48Var.b)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j98Var) == null) {
+            if (j98Var != null && !ListUtils.isEmpty(j98Var.b)) {
                 setVisibility(0);
-                this.b.setText(o48Var.a);
-                this.d.setData(o48Var.b);
+                this.b.setText(j98Var.a);
+                this.d.setData(j98Var.b);
                 this.d.notifyDataSetChanged();
                 return;
             }
@@ -177,15 +177,15 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d097d, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09261c);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09261b);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0997, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092650);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09264f);
             TopicTimelineAdapter topicTimelineAdapter = new TopicTimelineAdapter(context);
             this.d = topicTimelineAdapter;
             this.c.setAdapter(topicTimelineAdapter);
             this.c.setLayoutManager(new LinearLayoutManager(context, 0, false));
             this.c.setItemAnimator(new DefaultItemAnimator());
-            this.c.addItemDecoration(new a(this, xi.g(context, R.dimen.tbds44), xi.g(context, R.dimen.tbds20), xi.g(context, R.dimen.tbds44)));
+            this.c.addItemDecoration(new a(this, yi.g(context, R.dimen.tbds44), yi.g(context, R.dimen.tbds20), yi.g(context, R.dimen.tbds44)));
             b();
         }
     }

@@ -50,17 +50,17 @@ public final class RawTypeImpl extends FlexibleType implements RawType {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.FlexibleType, kotlin.reflect.jvm.internal.impl.types.KotlinType
     public MemberScope getMemberScope() {
-        ClassifierDescriptor mo2099getDeclarationDescriptor = getConstructor().mo2099getDeclarationDescriptor();
-        if (!(mo2099getDeclarationDescriptor instanceof ClassDescriptor)) {
-            mo2099getDeclarationDescriptor = null;
+        ClassifierDescriptor mo2101getDeclarationDescriptor = getConstructor().mo2101getDeclarationDescriptor();
+        if (!(mo2101getDeclarationDescriptor instanceof ClassDescriptor)) {
+            mo2101getDeclarationDescriptor = null;
         }
-        ClassDescriptor classDescriptor = (ClassDescriptor) mo2099getDeclarationDescriptor;
+        ClassDescriptor classDescriptor = (ClassDescriptor) mo2101getDeclarationDescriptor;
         if (classDescriptor != null) {
             MemberScope memberScope = classDescriptor.getMemberScope(RawSubstitution.INSTANCE);
             Intrinsics.checkExpressionValueIsNotNull(memberScope, "classDescriptor.getMemberScope(RawSubstitution)");
             return memberScope;
         }
-        throw new IllegalStateException(("Incorrect classifier: " + getConstructor().mo2099getDeclarationDescriptor()).toString());
+        throw new IllegalStateException(("Incorrect classifier: " + getConstructor().mo2101getDeclarationDescriptor()).toString());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

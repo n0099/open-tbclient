@@ -16,7 +16,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeUtils;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.typesApproximation.CapturedTypeApproximationKt;
 import kotlin.text.StringsKt__StringBuilderJVMKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class UtilsKt {
     public static final KotlinType approximate(KotlinType kotlinType) {
         return CapturedTypeApproximationKt.approximateCapturedTypes(kotlinType).getUpper();
@@ -42,9 +42,9 @@ public final class UtilsKt {
         function1.invoke("type: " + typeConstructor);
         function1.invoke("hashCode: " + typeConstructor.hashCode());
         function1.invoke("javaClass: " + typeConstructor.getClass().getCanonicalName());
-        for (DeclarationDescriptor mo2099getDeclarationDescriptor = typeConstructor.mo2099getDeclarationDescriptor(); mo2099getDeclarationDescriptor != null; mo2099getDeclarationDescriptor = mo2099getDeclarationDescriptor.getContainingDeclaration()) {
-            function1.invoke("fqName: " + DescriptorRenderer.FQ_NAMES_IN_TYPES.render(mo2099getDeclarationDescriptor));
-            function1.invoke("javaClass: " + mo2099getDeclarationDescriptor.getClass().getCanonicalName());
+        for (DeclarationDescriptor mo2101getDeclarationDescriptor = typeConstructor.mo2101getDeclarationDescriptor(); mo2101getDeclarationDescriptor != null; mo2101getDeclarationDescriptor = mo2101getDeclarationDescriptor.getContainingDeclaration()) {
+            function1.invoke("fqName: " + DescriptorRenderer.FQ_NAMES_IN_TYPES.render(mo2101getDeclarationDescriptor));
+            function1.invoke("javaClass: " + mo2101getDeclarationDescriptor.getClass().getCanonicalName());
         }
         String sb2 = sb.toString();
         Intrinsics.checkExpressionValueIsNotNull(sb2, "StringBuilder().apply(builderAction).toString()");
@@ -102,7 +102,7 @@ public final class UtilsKt {
                 }
                 throw new AssertionError("Type constructors should be equals!\nsubstitutedSuperType: " + debugInfo(constructor3) + ", \n\nsupertype: " + debugInfo(constructor) + " \n" + typeCheckingProcedureCallbacks.assertEqualTypeConstructors(constructor3, constructor));
             }
-            for (KotlinType immediateSupertype : constructor2.mo2100getSupertypes()) {
+            for (KotlinType immediateSupertype : constructor2.mo2102getSupertypes()) {
                 Intrinsics.checkExpressionValueIsNotNull(immediateSupertype, "immediateSupertype");
                 arrayDeque.add(new SubtypePathNode(immediateSupertype, subtypePathNode));
             }

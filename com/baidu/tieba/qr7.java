@@ -1,183 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.os.MessageQueue;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tieba.frs.mc.FrsModelController;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class qr7 {
+public class qr7 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<FrsModelController> a;
+    public MvcHttpResponsedMessage<nba> b;
+    public MvcHttpMessage<FrsRequestData, nba> c;
+    public MvcNetMessage<FrsRequestData, nba> d;
+    public uba e;
 
-    public static int d(int i) {
-        InterceptResult invokeI;
+    public qr7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 5) {
-                        if (i != 6) {
-                            if (i != 7) {
-                                return i != 8 ? -1 : 4;
-                            }
-                            return 3;
-                        }
-                        return 2;
-                    }
-                    return 0;
-                }
-                return 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            return i != 4 ? -1 : 8;
-                        }
-                        return 7;
-                    }
-                    return 6;
-                }
-                return 3;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            return 1;
-                        }
-                        if (i != 4) {
-                            return -1;
-                        }
-                    }
-                    return 4;
-                }
-                return 3;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            try {
-                SharedPreferences.Editor edit = c().edit();
-                edit.clear();
-                edit.commit();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String b() {
+    @Override // android.os.MessageQueue.IdleHandler
+    public boolean queueIdle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return "pref_name_frs_sortType_" + TbadkCoreApplication.getCurrentAccount();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static SharedPreferences c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return TbadkCoreApplication.getInst().getSharedPreferences(b(), 0);
-        }
-        return (SharedPreferences) invokeV.objValue;
-    }
-
-    public static int e(int i, FrsRequestData frsRequestData) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, frsRequestData)) == null) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 5) {
-                        if (i != 6) {
-                            if (i != 7) {
-                                if (i == 8 && frsRequestData != null) {
-                                    frsRequestData.setSortType(4);
-                                    frsRequestData.j0(0);
-                                }
-                            } else if (frsRequestData != null) {
-                                frsRequestData.setSortType(3);
-                                frsRequestData.j0(0);
-                            }
-                        } else if (frsRequestData != null) {
-                            frsRequestData.setSortType(2);
-                            frsRequestData.j0(0);
-                        }
-                    } else if (frsRequestData != null) {
-                        frsRequestData.setSortType(0);
-                        frsRequestData.j0(1);
-                    }
-                } else if (frsRequestData != null) {
-                    frsRequestData.setSortType(1);
-                    frsRequestData.j0(0);
-                }
-            } else if (frsRequestData != null) {
-                frsRequestData.setSortType(0);
-                frsRequestData.j0(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            FrsModelController frsModelController = this.a.get();
+            if (frsModelController == null) {
+                return false;
             }
-            return 1;
+            frsModelController.Z0(this.b, this.c, this.d);
+            uba ubaVar = this.e;
+            if (ubaVar != null) {
+                ubaVar.b();
+            }
+            return false;
         }
-        return invokeIL.intValue;
+        return invokeV.booleanValue;
     }
 
-    public static int h(String str) {
-        InterceptResult invokeL;
+    public void a(FrsModelController frsModelController) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            try {
-                return c().getInt(str, -1);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -1;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
+            this.a = new WeakReference<>(frsModelController);
         }
-        return invokeL.intValue;
     }
 
-    public static void i(String str, int i) {
+    public void b(uba ubaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65544, null, str, i) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ubaVar) == null) {
+            this.e = ubaVar;
         }
-        try {
-            SharedPreferences.Editor edit = c().edit();
-            edit.putInt(str, i);
-            edit.apply();
-        } catch (Exception e) {
-            e.printStackTrace();
+    }
+
+    public void c(MvcHttpMessage<FrsRequestData, nba> mvcHttpMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcHttpMessage) == null) {
+            this.c = mvcHttpMessage;
+        }
+    }
+
+    public void d(MvcNetMessage<FrsRequestData, nba> mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
+            this.d = mvcNetMessage;
+        }
+    }
+
+    public void e(MvcHttpResponsedMessage<nba> mvcHttpResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mvcHttpResponsedMessage) == null) {
+            this.b = mvcHttpResponsedMessage;
         }
     }
 }

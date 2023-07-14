@@ -1,16 +1,16 @@
 package com.baidu.ugc.editvideo.editvideo.muxer;
 
-import com.baidu.tieba.h1b;
+import com.baidu.tieba.fab;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class MultiAudioMixer {
     public OnAudioMixListener mOnAudioMixListener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnAudioMixListener {
         void onMixComplete();
 
@@ -21,7 +21,7 @@ public abstract class MultiAudioMixer {
 
     public abstract byte[] mixRawAudioBytes(byte[][] bArr, float[] fArr);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class AudioMixException extends IOException {
         public static final long serialVersionUID = -1344782236320621800L;
 
@@ -30,7 +30,7 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class AverageAudioMixer extends MultiAudioMixer {
         public AverageAudioMixer() {
         }
@@ -46,7 +46,7 @@ public abstract class MultiAudioMixer {
             }
             for (int i = 0; i < bArr.length; i++) {
                 if (bArr[i].length != bArr2.length) {
-                    h1b.d("column of the road of audio + " + i + " is diffrent.");
+                    fab.d("column of the road of audio + " + i + " is diffrent.");
                     return null;
                 }
             }

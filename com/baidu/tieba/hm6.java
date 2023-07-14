@@ -1,116 +1,69 @@
 package com.baidu.tieba;
 
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.exception.JsInterfaceException;
-import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.em6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class hm6 {
+public class hm6 implements gm6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Class<? extends AbsJsInterface>> a;
+    public static volatile hm6 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final hm6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-742506214, "Lcom/baidu/tieba/hm6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-742506214, "Lcom/baidu/tieba/hm6$b;");
-                    return;
-                }
-            }
-            a = new hm6(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947828568, "Lcom/baidu/tieba/hm6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947828568, "Lcom/baidu/tieba/hm6;");
-                return;
-            }
-        }
-        a = new HashMap();
-    }
+    public gm6 a;
 
     public hm6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static hm6 a() {
+    public static hm6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (hm6.class) {
+                    if (b == null) {
+                        b = new hm6();
+                    }
+                }
+            }
+            return b;
         }
         return (hm6) invokeV.objValue;
     }
 
-    public Map<String, Class<? extends AbsJsInterface>> b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gm6
+    public WebResourceResponse a(String str, WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
-            if (!a.isEmpty()) {
-                hashMap.putAll(a);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, webResourceRequest)) == null) {
+            gm6 gm6Var = this.a;
+            if (gm6Var == null) {
+                return null;
             }
-            return hashMap;
+            return gm6Var.a(str, webResourceRequest);
         }
-        return (Map) invokeV.objValue;
+        return (WebResourceResponse) invokeLL.objValue;
     }
 
-    public /* synthetic */ hm6(a aVar) {
-        this();
-    }
-
-    public void c(String str, Class<? extends AbsJsInterface> cls) {
+    public void c(em6.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls) == null) {
-            if (!a.containsKey(str)) {
-                a.put(str, cls);
-                return;
-            }
-            throw new JsInterfaceException("注册JsInterface失败！");
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && aVar != null) {
+            this.a = aVar.b();
         }
     }
 }

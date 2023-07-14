@@ -1,27 +1,51 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.pm.PackageManager;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class fx9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ex9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ex9 a() {
+    public static boolean a() {
         InterceptResult invokeV;
-        ex9 ex9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (fx9.class) {
-                if (a == null) {
-                    a = new ex9();
-                }
-                ex9Var = a;
+            String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
+            if (StringUtils.isNull(systemProperty) || wg.e(systemProperty.replace(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ""), 0) < 9) {
+                return false;
             }
-            return ex9Var;
+            return true;
         }
-        return (ex9) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
+            try {
+                try {
+                } catch (PackageManager.NameNotFoundException unused) {
+                    if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.StartBgActivityControlActivity"), 0) != null) {
+                        return true;
+                    }
+                }
+            } catch (PackageManager.NameNotFoundException unused2) {
+            }
+            if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

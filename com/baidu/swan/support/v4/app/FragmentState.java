@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-import com.baidu.tieba.xp4;
-import com.baidu.tieba.zp4;
+import com.baidu.tieba.qp4;
+import com.baidu.tieba.sp4;
 /* loaded from: classes4.dex */
 public final class FragmentState implements Parcelable {
     public static final Parcelable.Creator<FragmentState> CREATOR = new a();
@@ -81,12 +81,12 @@ public final class FragmentState implements Parcelable {
         this.mArguments = fragment.h;
     }
 
-    public Fragment instantiate(xp4 xp4Var, Fragment fragment) {
+    public Fragment instantiate(qp4 qp4Var, Fragment fragment) {
         Fragment fragment2 = this.mInstance;
         if (fragment2 != null) {
             return fragment2;
         }
-        Context context = xp4Var.getContext();
+        Context context = qp4Var.getContext();
         Bundle bundle = this.mArguments;
         if (bundle != null) {
             bundle.setClassLoader(context.getClassLoader());
@@ -106,8 +106,8 @@ public final class FragmentState implements Parcelable {
         fragment3.y = this.mTag;
         fragment3.B = this.mRetainInstance;
         fragment3.A = this.mDetached;
-        fragment3.s = xp4Var.e;
-        if (zp4.x) {
+        fragment3.s = qp4Var.e;
+        if (sp4.x) {
             Log.v("FragmentManager", "Instantiated fragment " + this.mInstance);
         }
         return this.mInstance;

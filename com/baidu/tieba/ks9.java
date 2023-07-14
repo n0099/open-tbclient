@@ -1,36 +1,68 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface ks9 {
-    kn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
+public class ks9 extends BaseCardInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId l;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public boolean c;
+    public String d;
+    public String e;
+    public long f;
+    public String g;
+    public String h;
+    public boolean i;
+    public int j;
+    public int k;
 
-    fs9 b();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923800, "Lcom/baidu/tieba/ks9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947923800, "Lcom/baidu/tieba/ks9;");
+                return;
+            }
+        }
+        l = BdUniqueId.gen();
+    }
 
-    as9 c();
+    public ks9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    kn<?, ?> d(js9 js9Var, BdUniqueId bdUniqueId);
-
-    void e();
-
-    List<AdvertAppInfo> f();
-
-    kn<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
-
-    IAdBaseAsyncController h(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
-
-    hs9 i();
-
-    void j(AdvertAppInfo advertAppInfo);
-
-    void k(HashMap<String, String> hashMap, Context context);
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return l;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
 }

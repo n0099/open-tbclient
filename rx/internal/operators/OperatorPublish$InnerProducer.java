@@ -1,26 +1,26 @@
 package rx.internal.operators;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.dtb;
-import com.baidu.tieba.etb;
-import com.baidu.tieba.mub;
-import com.baidu.tieba.zsb;
+import com.baidu.tieba.a2c;
+import com.baidu.tieba.b2c;
+import com.baidu.tieba.i3c;
+import com.baidu.tieba.w1c;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements zsb, etb {
+public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements w1c, b2c {
     public static final long NOT_REQUESTED = -4611686018427387904L;
     public static final long UNSUBSCRIBED = Long.MIN_VALUE;
     public static final long serialVersionUID = -4453897557930727610L;
-    public final dtb<? super T> child;
-    public final mub<T> parent;
+    public final a2c<? super T> child;
+    public final i3c<T> parent;
 
-    public OperatorPublish$InnerProducer(mub<T> mubVar, dtb<? super T> dtbVar) {
-        this.parent = mubVar;
-        this.child = dtbVar;
+    public OperatorPublish$InnerProducer(i3c<T> i3cVar, a2c<? super T> a2cVar) {
+        this.parent = i3cVar;
+        this.child = a2cVar;
         lazySet(-4611686018427387904L);
     }
 
-    @Override // com.baidu.tieba.etb
+    @Override // com.baidu.tieba.b2c
     public boolean isUnsubscribed() {
         if (get() == Long.MIN_VALUE) {
             return true;
@@ -28,7 +28,7 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
         return false;
     }
 
-    @Override // com.baidu.tieba.etb
+    @Override // com.baidu.tieba.b2c
     public void unsubscribe() {
         if (get() != Long.MIN_VALUE && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
             this.parent.h(this);
@@ -59,7 +59,7 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
         throw new IllegalArgumentException("Cant produce zero or less");
     }
 
-    @Override // com.baidu.tieba.zsb
+    @Override // com.baidu.tieba.w1c
     public void request(long j) {
         long j2;
         long j3;

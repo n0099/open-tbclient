@@ -2,22 +2,24 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.widget.ImageView;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tieba.xh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class vh1 implements xh1 {
+public class vh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static vh1 b;
-    public static zh1 c;
-    public static di1 d;
-    public static ci1 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public xh1 a;
 
     public vh1(Context context) {
         Interceptable interceptable = $ic;
@@ -34,70 +36,70 @@ public class vh1 implements xh1 {
                 return;
             }
         }
-        this.a = context.getApplicationContext();
-        d = new di1();
-        e = new ci1(context);
-        c = new zh1();
+        File b = b(context, "bitmap");
+        if (!b.exists()) {
+            b.mkdirs();
+        }
+        try {
+            this.a = xh1.q(b, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static ci1 b(Context context) {
-        InterceptResult invokeL;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (e == null) {
-                e = new ci1(context);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a == null) {
+            return;
+        }
+        try {
+            xh1.c m = this.a.m(bi1.b(str));
+            if (m == null) {
+                return;
             }
-            return e;
-        }
-        return (ci1) invokeL.objValue;
-    }
-
-    public static vh1 d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (b == null) {
-                synchronized (vh1.class) {
-                    if (b == null) {
-                        b = new vh1(context);
-                    }
-                }
-            }
-            return b;
-        }
-        return (vh1) invokeL.objValue;
-    }
-
-    public static di1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                d = new di1();
-            }
-            return d;
-        }
-        return (di1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xh1
-    public void a(ImageView imageView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) {
-            e(imageView, str, 0, 0);
-        }
-    }
-
-    public void e(ImageView imageView, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, str, i, i2) == null) {
-            imageView.setTag(str);
-            Bitmap c2 = d.c(str);
-            if (c2 != null) {
-                imageView.setImageBitmap(c2);
+            if (rh1.b(str, m.f(0))) {
+                m.e();
             } else {
-                ti1.a(new bi1(this.a, c, str, imageView, i, i2));
+                m.a();
             }
+            this.a.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
+
+    public File b(Context context, String str) {
+        InterceptResult invokeLL;
+        String path;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
+                path = context.getExternalCacheDir().getPath();
+            } else {
+                path = context.getCacheDir().getPath();
+            }
+            return new File(path + File.separator + str);
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public Bitmap c(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i, i2)) == null) {
+            if (this.a == null) {
+                return null;
+            }
+            xh1.e o = this.a.o(bi1.b(str));
+            if (o == null) {
+                return null;
+            }
+            FileInputStream fileInputStream = (FileInputStream) o.a(0);
+            if (i > 0 && i2 > 0) {
+                return ai1.b(fileInputStream.getFD(), i, i2);
+            }
+            return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
+        }
+        return (Bitmap) invokeLII.objValue;
     }
 }

@@ -15,10 +15,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.DynamicLottieSwitch;
-import com.baidu.tieba.a16;
-import com.baidu.tieba.si;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.z06;
+import com.baidu.tieba.d26;
+import com.baidu.tieba.e26;
+import com.baidu.tieba.ti;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,21 +28,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TBLottieAnimationView extends LottieAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public a16 a;
+    public e26 a;
     public String b;
     public boolean c;
     public boolean d;
     public boolean e;
     public boolean f;
-    public a16.a g;
+    public e26.a g;
 
-    /* loaded from: classes4.dex */
-    public class a implements a16.a {
+    /* loaded from: classes5.dex */
+    public class a implements e26.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBLottieAnimationView a;
@@ -65,16 +65,16 @@ public class TBLottieAnimationView extends LottieAnimationView {
             this.a = tBLottieAnimationView;
         }
 
-        @Override // com.baidu.tieba.a16.a
+        @Override // com.baidu.tieba.e26.a
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !wi.isEmpty(str)) {
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !xi.isEmpty(str)) {
                 this.a.setAnimationDir(str);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements LottieListener<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements LottieListener<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements LottieListener<LottieComposition> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +190,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -342,7 +342,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             try {
                 return file.mkdirs();
             } catch (Exception e2) {
-                TiebaStatic.file(e2, wi.join("FileHelper", ".", "CheckTempDir", " ", str));
+                TiebaStatic.file(e2, xi.join("FileHelper", ".", "CheckTempDir", " ", str));
                 return false;
             }
         }
@@ -428,7 +428,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             if (!file.exists() || file.length() <= 0) {
                 return null;
             }
-            return si.v(file);
+            return ti.v(file);
         }
         return (InputStream) invokeLL.objValue;
     }
@@ -446,18 +446,18 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public final void q(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || wi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || xi.isEmpty(str)) {
             return;
         }
-        z06 z06Var = new z06();
-        z06Var.d(str);
-        z06Var.c(getFristLoadInternal());
-        setImageAssetDelegate(z06Var);
+        d26 d26Var = new d26();
+        d26Var.d(str);
+        d26Var.c(getFristLoadInternal());
+        setImageAssetDelegate(d26Var);
     }
 
     public void setAnimationDir(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || wi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || xi.isEmpty(str)) {
             return;
         }
         q(str);
@@ -491,7 +491,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public final void r(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || wi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || xi.isEmpty(str)) {
             return;
         }
         boolean z = this.c;
@@ -506,11 +506,11 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public void setAnimationUrl(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && !wi.isEmpty(str) && !str.equals(this.b)) {
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && !xi.isEmpty(str) && !str.equals(this.b)) {
             this.b = str;
-            a16 a16Var = new a16(getAnimationPath(), str, this.g);
-            this.a = a16Var;
-            a16Var.execute(new Void[0]);
+            e26 e26Var = new e26(getAnimationPath(), str, this.g);
+            this.a = e26Var;
+            e26Var.execute(new Void[0]);
         }
     }
 }

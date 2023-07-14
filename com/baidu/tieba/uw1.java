@@ -1,14 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.SwanAppActivity;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes8.dex */
-public interface uw1 {
-    void a();
+public interface uw1 extends m53 {
+    File a();
 
-    void b(String str, s02 s02Var);
+    void e(String str, String str2);
 
-    void c(SwanAppActivity swanAppActivity, String str, s02 s02Var);
+    void e(String str, String str2, Throwable th);
 
-    void d(String str, String str2, JSONObject jSONObject, s02 s02Var);
+    void flush(boolean z);
+
+    void i(String str, String str2);
+
+    void w(String str, String str2);
+
+    void w(String str, String str2, Throwable th);
 }

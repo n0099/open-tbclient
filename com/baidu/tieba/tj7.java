@@ -1,70 +1,81 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import tbclient.GameForumGuideTab.GameForumSubTab;
-import tbclient.ThreadInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tj7 {
+public class tj7 implements dj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<ak7> a(List<GameForumSubTab> list) {
-        InterceptResult invokeL;
+    public tj7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (GameForumSubTab gameForumSubTab : list) {
-                ak7 ak7Var = new ak7();
-                if (gameForumSubTab != null) {
-                    ak7Var.a = gameForumSubTab.id.intValue();
-                    ak7Var.b = gameForumSubTab.sub_tab_name;
-                    LabelDataList labelDataList = new LabelDataList();
-                    labelDataList.parseProtu(gameForumSubTab.sub_label_list);
-                    ak7Var.c = labelDataList;
-                    arrayList.add(ak7Var);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
     }
 
-    public static List<xn> b(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dj7
+    public ln<? extends z45, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            LinkedList linkedList = new LinkedList();
-            for (int i = 0; i < list.size(); i++) {
-                rj7 rj7Var = new rj7();
-                ThreadData threadData = new ThreadData();
-                rj7Var.c(threadData);
-                threadData.parserProtobuf(list.get(i));
-                threadData.parser_title();
-                if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                    d35 d35Var = new d35();
-                    d35Var.e(threadData.getLegoCard());
-                    linkedList.add(d35Var);
-                } else {
-                    linkedList.add(rj7Var);
-                }
-            }
-            return linkedList;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
+            return new nm7(tbPageContext, ThreadData.TYPE_STAR_INTERVIEW, bdUniqueId, z);
         }
-        return (List) invokeL.objValue;
+        return (ln) invokeLLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.dj7
+    public yh7<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            return new zq7(tbPageContext, bdUniqueId, bdUniqueId2);
+        }
+        return (yh7) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dj7
+    public ln<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            if (bdUniqueId == ThreadData.TYPE_LOTTERY) {
+                return new ql7(tbPageContext, bdUniqueId, bdUniqueId2);
+            }
+            throw new IllegalArgumentException("Unsupported adapter type.");
+        }
+        return (ln) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dj7
+    public ln<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
+            if (bdUniqueId == aca.d) {
+                return new ml7(tbPageContext, bdUniqueId, z);
+            }
+            if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {
+                return new om7(tbPageContext, bdUniqueId, bdUniqueId2, z);
+            }
+            throw new IllegalArgumentException("Unsupported adapter type.");
+        }
+        return (ln) invokeCommon.objValue;
     }
 }

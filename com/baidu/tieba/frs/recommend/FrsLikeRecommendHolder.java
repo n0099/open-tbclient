@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b3a;
-import com.baidu.tieba.pa5;
-import com.baidu.tieba.s2a;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.dba;
+import com.baidu.tieba.hb5;
+import com.baidu.tieba.mba;
 import com.baidu.tieba.view.SymbolEMTextView;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -53,12 +53,12 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.f = themeColorInfo;
-        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090cd7);
+        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ce3);
         this.a = linearLayout;
         this.b = (BarImageView) linearLayout.findViewById(R.id.forum_head_image);
-        this.c = (SymbolEMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bdb);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bd6);
-        this.e = (TBSpecificationBtn) this.a.findViewById(R.id.obfuscated_res_0x7f090bcb);
+        this.c = (SymbolEMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090be7);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090be2);
+        this.e = (TBSpecificationBtn) this.a.findViewById(R.id.obfuscated_res_0x7f090bd7);
         BarImageView barImageView = this.b;
         if (barImageView != null) {
             barImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -66,7 +66,7 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
             barImageView2.setContentDescription(barImageView2.getResources().getString(R.string.obfuscated_res_0x7f0f0320));
             this.b.setStrokeColorResId(R.color.CAM_X0401);
             BarImageView barImageView3 = this.b;
-            barImageView3.setStrokeWith(xi.g(barImageView3.getContext(), R.dimen.tbds3));
+            barImageView3.setStrokeWith(yi.g(barImageView3.getContext(), R.dimen.tbds3));
             this.b.setShowOval(true);
             this.b.setPlaceHolder(1);
         }
@@ -77,28 +77,28 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
     }
 
     @SuppressLint({"SetTextI18n"})
-    public void a(b3a b3aVar) {
+    public void b(mba mbaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, b3aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, mbaVar) == null) {
             BarImageView barImageView = this.b;
             if (barImageView != null) {
-                barImageView.N(b3aVar.a, 10, false);
+                barImageView.N(mbaVar.a, 10, false);
             }
             SymbolEMTextView symbolEMTextView = this.c;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(b3aVar.b + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f076a));
+                symbolEMTextView.setText(mbaVar.b + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f0773));
             }
             TextView textView = this.d;
             if (textView != null) {
-                textView.setText(b3aVar.c);
+                textView.setText(mbaVar.c);
             }
             if (this.e != null) {
-                if (b3aVar.d) {
-                    pa5 pa5Var = new pa5();
-                    pa5Var.r(R.color.CAM_X0903, R.color.CAM_X0109);
-                    this.e.setConfig(pa5Var);
+                if (mbaVar.d) {
+                    hb5 hb5Var = new hb5();
+                    hb5Var.s(R.color.CAM_X0903, R.color.CAM_X0109);
+                    this.e.setConfig(hb5Var);
                     TBSpecificationBtn tBSpecificationBtn = this.e;
-                    tBSpecificationBtn.setText(tBSpecificationBtn.getContext().getString(R.string.obfuscated_res_0x7f0f0755));
+                    tBSpecificationBtn.setText(tBSpecificationBtn.getContext().getString(R.string.obfuscated_res_0x7f0f075e));
                     return;
                 }
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -112,33 +112,33 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
                         str = themeElement2.font_color;
                     }
                 }
-                pa5 pa5Var2 = new pa5();
-                pa5Var2.u(s2a.f(str));
-                this.e.setConfig(pa5Var2);
+                hb5 hb5Var2 = new hb5();
+                hb5Var2.v(dba.f(str));
+                this.e.setConfig(hb5Var2);
                 TBSpecificationBtn tBSpecificationBtn2 = this.e;
-                tBSpecificationBtn2.setText(tBSpecificationBtn2.getContext().getString(R.string.obfuscated_res_0x7f0f0836));
+                tBSpecificationBtn2.setText(tBSpecificationBtn2.getContext().getString(R.string.obfuscated_res_0x7f0f083f));
             }
         }
     }
 
-    public void b() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                s75 d = s75.d(linearLayout);
+                d85 d = d85.d(linearLayout);
                 d.o(R.string.J_X05);
                 d.f(R.color.CAM_X0201);
             }
             SymbolEMTextView symbolEMTextView = this.c;
             if (symbolEMTextView != null) {
-                s75 d2 = s75.d(symbolEMTextView);
+                d85 d2 = d85.d(symbolEMTextView);
                 d2.D(R.string.F_X01);
                 d2.x(R.color.CAM_X0105);
             }
             TextView textView = this.d;
             if (textView != null) {
-                s75.d(textView).x(R.color.CAM_X0109);
+                d85.d(textView).x(R.color.CAM_X0109);
             }
             TBSpecificationBtn tBSpecificationBtn = this.e;
             if (tBSpecificationBtn != null) {
@@ -147,7 +147,7 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void c(View.OnClickListener onClickListener) {
+    public void d(View.OnClickListener onClickListener) {
         TBSpecificationBtn tBSpecificationBtn;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) && (tBSpecificationBtn = this.e) != null) {

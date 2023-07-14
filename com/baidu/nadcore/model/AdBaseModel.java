@@ -9,17 +9,17 @@ import com.baidu.searchbox.interaction.cloudcontrol.ccs.InteractionPrivacySwitch
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
-import com.baidu.tieba.b31;
 import com.baidu.tieba.bs0;
-import com.baidu.tieba.es0;
 import com.baidu.tieba.fs0;
-import com.baidu.tieba.lr0;
-import com.baidu.tieba.mr0;
-import com.baidu.tieba.or0;
-import com.baidu.tieba.qr0;
-import com.baidu.tieba.rj0;
-import com.baidu.tieba.ur0;
+import com.baidu.tieba.hs0;
+import com.baidu.tieba.ms0;
+import com.baidu.tieba.ps0;
+import com.baidu.tieba.qs0;
+import com.baidu.tieba.uj0;
 import com.baidu.tieba.wr0;
+import com.baidu.tieba.x31;
+import com.baidu.tieba.xr0;
+import com.baidu.tieba.zr0;
 import com.fun.ad.sdk.FunAdSdk;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
@@ -36,29 +36,29 @@ public class AdBaseModel {
     @NonNull
     public final List<MonitorUrl> e;
     @NonNull
-    public final ur0 f;
+    public final fs0 f;
     @Nullable
-    public final lr0 g;
+    public final wr0 g;
     @Nullable
     public final AdOperator h;
     @Nullable
-    public final fs0 i;
+    public final qs0 i;
     @Nullable
-    public final bs0 j;
+    public final ms0 j;
     @Nullable
-    public final List<wr0> k;
+    public final List<hs0> k;
     @Nullable
-    public final mr0 l;
+    public final xr0 l;
     @Nullable
-    public qr0 m;
+    public bs0 m;
     public int n;
     @NonNull
     public List<String> o;
-    public es0 p;
-    public rj0 q;
+    public ps0 p;
+    public uj0 q;
 
-    public AdBaseModel(@NonNull ur0 ur0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        this(ur0Var, jSONObject, false);
+    public AdBaseModel(@NonNull fs0 fs0Var, @NonNull JSONObject jSONObject) throws ParseError {
+        this(fs0Var, jSONObject, false);
     }
 
     /* loaded from: classes3.dex */
@@ -95,29 +95,29 @@ public class AdBaseModel {
         }
     }
 
-    public AdBaseModel(@NonNull ur0 ur0Var, @NonNull JSONObject jSONObject, boolean z) throws ParseError {
-        lr0 a;
+    public AdBaseModel(@NonNull fs0 fs0Var, @NonNull JSONObject jSONObject, boolean z) throws ParseError {
+        wr0 a;
         AdOperator a2;
         boolean z2;
-        fs0 c;
+        qs0 c;
         int length;
         int length2;
         this.e = new ArrayList();
         this.o = new ArrayList();
-        String str = ur0Var.b;
+        String str = fs0Var.b;
         JSONObject optJSONObject = jSONObject.optJSONObject(GameGuideConfigInfo.KEY_CLOSE_INFO);
         if (optJSONObject == null) {
             a = null;
         } else {
-            a = lr0.a(optJSONObject);
+            a = wr0.a(optJSONObject);
         }
         this.g = a;
-        this.f = ur0Var;
-        this.j = bs0.b(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO), z);
-        this.k = wr0.a(jSONObject.optJSONArray("prefetch_video"));
-        this.l = mr0.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
-        this.m = qr0.a(jSONObject.optJSONObject("enhance"));
-        or0.a(jSONObject.optJSONObject(InteractionPrivacySwitch.MODULE));
+        this.f = fs0Var;
+        this.j = ms0.b(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO), z);
+        this.k = hs0.a(jSONObject.optJSONArray("prefetch_video"));
+        this.l = xr0.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
+        this.m = bs0.a(jSONObject.optJSONObject("enhance"));
+        zr0.a(jSONObject.optJSONObject(InteractionPrivacySwitch.MODULE));
         JSONObject optJSONObject2 = jSONObject.optJSONObject("operate");
         if (optJSONObject2 == null) {
             a2 = null;
@@ -135,7 +135,7 @@ public class AdBaseModel {
         if (optJSONObject3 == null) {
             c = null;
         } else {
-            c = fs0.c(optJSONObject3);
+            c = qs0.c(optJSONObject3);
         }
         this.i = (c == null || !c.k) ? null : c;
         JSONArray optJSONArray = jSONObject.optJSONArray("ad_monitor_url");
@@ -150,7 +150,7 @@ public class AdBaseModel {
                 String optString = optJSONObject4.optString("show_url");
                 String optString2 = optJSONObject4.optString("click_url");
                 if (!TextUtils.isEmpty(optString) || !TextUtils.isEmpty(optString2)) {
-                    b31.b(this.e, new MonitorUrl(optString, optString2));
+                    x31.b(this.e, new MonitorUrl(optString, optString2));
                 }
             }
         }
@@ -165,26 +165,26 @@ public class AdBaseModel {
             if (optJSONObject5 != null) {
                 String optString3 = optJSONObject5.optString(DownloadStatisticConstants.UBC_VALUE_WORD);
                 if (!TextUtils.isEmpty(optString3)) {
-                    b31.b(this.o, optString3);
+                    x31.b(this.o, optString3);
                 }
             }
         }
-        bs0 bs0Var = this.j;
-        if (bs0Var != null) {
-            bs0Var.d(this);
+        ms0 ms0Var = this.j;
+        if (ms0Var != null) {
+            ms0Var.d(this);
         }
         this.c = null;
     }
 
-    public void a(@Nullable es0 es0Var) {
-        List<wr0> list;
-        this.p = es0Var;
-        if (es0Var == null || es0Var.c) {
+    public void a(@Nullable ps0 ps0Var) {
+        List<hs0> list;
+        this.p = ps0Var;
+        if (ps0Var == null || ps0Var.c) {
             this.f.b();
         }
-        if ((es0Var == null || es0Var.d) && (list = this.k) != null && list.size() > 0) {
-            for (wr0 wr0Var : this.k) {
-                wr0Var.b();
+        if ((ps0Var == null || ps0Var.d) && (list = this.k) != null && list.size() > 0) {
+            for (hs0 hs0Var : this.k) {
+                hs0Var.b();
             }
         }
     }

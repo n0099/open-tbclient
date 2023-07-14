@@ -1,99 +1,27 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.webkit.ValueCallback;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.activity.NadWebViewActivity;
-import com.baidu.nadcore.webview.activity.NadWebViewActivityStandard;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.pa1;
+import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.nadcore.webarch.feature.NadWebFeature;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-@Service
 /* loaded from: classes6.dex */
-public final class k91 extends ak0 {
+public final class k91 {
     public static /* synthetic */ Interceptable $ic;
+    public static k91 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-
-    @Override // com.baidu.tieba.ak0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "easybrowse" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ak0
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interceptorEasybrowse" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a implements pa1.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k91 a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ HashMap c;
-        public final /* synthetic */ gk0 d;
-        public final /* synthetic */ ck0 e;
-
-        public a(k91 k91Var, Context context, HashMap hashMap, gk0 gk0Var, ck0 ck0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k91Var, context, hashMap, gk0Var, ck0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k91Var;
-            this.b = context;
-            this.c = hashMap;
-            this.d = gk0Var;
-            this.e = ck0Var;
-        }
-
-        @Override // com.baidu.tieba.pa1.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = 0;
-                boolean i2 = this.a.i(this.b, this.c, false);
-                String str = this.a.a;
-                ua1.a(str, "调起SDK落地页, 结果 " + i2);
-                k91 k91Var = this.a;
-                gk0 gk0Var = this.d;
-                ck0 ck0Var = this.e;
-                if (!i2) {
-                    i = 1001;
-                }
-                k91Var.c(gk0Var, ck0Var, i, i2);
-            }
-        }
-
-        @Override // com.baidu.tieba.pa1.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ua1.c(this.b, "初始化失败，降级为原生打开");
-            }
-        }
-    }
+    public boolean a;
+    public HashMap<String, NadWebFeature> b;
 
     public k91() {
         Interceptable interceptable = $ic;
@@ -108,110 +36,109 @@ public final class k91 extends ak0 {
                 return;
             }
         }
-        this.a = "EasyBrowseInterceptor";
+        this.a = false;
+        this.b = new HashMap<>(4);
     }
 
-    public final boolean j() {
+    public static synchronized k91 c() {
         InterceptResult invokeV;
+        k91 k91Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (io0.b().a().a("use_nairobi", 0) != 1) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (k91.class) {
+                if (c == null) {
+                    c = new k91();
+                }
+                k91Var = c;
+            }
+            return k91Var;
+        }
+        return (k91) invokeV.objValue;
+    }
+
+    @RequiresApi(api = 21)
+    public static boolean h(Activity activity, ValueCallback<Uri[]> valueCallback, h91 h91Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, valueCallback, h91Var)) == null) {
+            if (valueCallback == null) {
                 return false;
             }
+            if (activity == null) {
+                valueCallback.onReceiveValue(null);
+                return false;
+            }
+            NadWebFeature b = c().b(BdSailorConfig.SAILOR_BASE_UPLOAD);
+            if (b != null && b.c()) {
+                if (b instanceof j91) {
+                    return ((j91) b).h(activity, valueCallback, h91Var);
+                }
+                valueCallback.onReceiveValue(null);
+            } else {
+                valueCallback.onReceiveValue(null);
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public NadWebFeature a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return b(str);
+        }
+        return (NadWebFeature) invokeL.objValue;
+    }
+
+    public NadWebFeature b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.b.get(str);
+        }
+        return (NadWebFeature) invokeL.objValue;
+    }
+
+    public boolean d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            e(context);
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ak0
-    public boolean d(Context context, ck0 schemeModel, Map<String, Object> map, gk0 gk0Var) {
-        InterceptResult invokeLLLL;
+    public final void e(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, schemeModel, map, gk0Var)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
-            int i = 0;
-            if (!j()) {
-                ua1.c(context, "未命中新架构");
-                return false;
-            }
-            HashMap<String, String> d = schemeModel.d();
-            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
-            s31.b((String) d31.b(d, "charge_url"));
-            int b = l91.b(context.getApplicationContext(), new a(this, context, d, gk0Var, schemeModel));
-            if (b == 0) {
-                c(gk0Var, schemeModel, 1001, false);
-                ua1.d(new IllegalStateException("web app init failed, state=" + b));
-                return false;
-            } else if (2 != b && 1 != b) {
-                if (4 == b) {
-                    ua1.c(context, "初始化失败，降级为原生打开");
-                    h(context, schemeModel, gk0Var);
-                    return true;
-                } else if (5 == b) {
-                    ua1.c(context, "低版本不支持t7，降级为原生打开");
-                    h(context, schemeModel, gk0Var);
-                    return true;
-                } else {
-                    boolean i2 = i(context, d, false);
-                    String str = this.a;
-                    ua1.a(str, "调起SDK落地页, 结果 " + i2);
-                    if (!i2) {
-                        i = 1001;
-                    }
-                    c(gk0Var, schemeModel, i, i2);
-                    return true;
-                }
-            } else {
-                ua1.c(context, "正在初始化，降级为原生打开");
-                h(context, schemeModel, gk0Var);
-                return true;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void h(Context context, ck0 ck0Var, gk0 gk0Var) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, ck0Var, gk0Var) == null) {
-            HashMap<String, String> d = ck0Var.d();
-            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
-            d.put("downgrade_to_native", "1");
-            boolean i2 = i(context, ck0Var.d(), true);
-            if (i2) {
-                i = 0;
-            } else {
-                i = 1001;
-            }
-            c(gk0Var, ck0Var, i, i2);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.a) {
+            j91 j91Var = new j91(context);
+            j91Var.a();
+            i(j91Var);
+            this.a = true;
         }
     }
 
-    public final boolean i(Context context, HashMap<String, String> hashMap, boolean z) {
-        InterceptResult invokeLLZ;
-        String str;
-        Class cls;
+    public void f(Activity activity) {
+        NadWebFeature a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, context, hashMap, z)) == null) {
-            if (!z && !h91.a().a(hashMap, h91.b())) {
-                ua1.a(this.a, "调起SDK落地页, Activity 调起失败, 内核未成功初始化");
-                return false;
-            }
-            if (hashMap != null) {
-                str = hashMap.remove("newbrowser");
-            } else {
-                str = null;
-            }
-            if (Intrinsics.areEqual("1", str)) {
-                cls = NadWebViewActivityStandard.class;
-            } else {
-                cls = NadWebViewActivity.class;
-            }
-            Intent intent = new Intent(context, cls);
-            intent.putExtra("map", hashMap);
-            return y51.d(context, intent);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && (a = a(BdSailorConfig.SAILOR_BASE_UPLOAD)) != null && a.c() && (a instanceof j91)) {
+            ((j91) a).f(activity);
         }
-        return invokeLLZ.booleanValue;
+    }
+
+    public final void i(NadWebFeature nadWebFeature) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, nadWebFeature) == null) && nadWebFeature != null) {
+            this.b.put(nadWebFeature.b(), nadWebFeature);
+        }
+    }
+
+    public void g(Activity activity, int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) && 11 == i && (a(BdSailorConfig.SAILOR_BASE_UPLOAD) instanceof j91)) {
+            ((j91) a(BdSailorConfig.SAILOR_BASE_UPLOAD)).g(activity, i2, intent);
+        }
     }
 }

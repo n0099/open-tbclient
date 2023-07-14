@@ -1,197 +1,103 @@
 package com.baidu.tieba;
 
-import androidx.lifecycle.SavedStateHandle;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.tencent.open.SocialConstants;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.ubs.analytics.SampleResult;
 /* loaded from: classes5.dex */
-public class e6b extends s6b {
+public final class e6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<a> a;
 
-    /* loaded from: classes5.dex */
-    public static class a extends s6b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final Map<String, Set<Object>> b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i, ObjectInput objectInput) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = objectInput.readUTF();
-            HashMap hashMap = new HashMap();
-            int readInt = objectInput.readInt();
-            for (int i4 = 0; i4 < readInt; i4++) {
-                String readUTF = objectInput.readUTF();
-                int readInt2 = objectInput.readInt();
-                HashSet hashSet = new HashSet();
-                for (int i5 = 0; i5 < readInt2; i5++) {
-                    try {
-                        hashSet.add(objectInput.readObject());
-                    } catch (ClassNotFoundException e) {
-                        LogPrinter.e(e);
-                    }
-                }
-                hashMap.put(readUTF, Collections.unmodifiableSet(hashSet));
-            }
-            this.b = Collections.unmodifiableMap(hashMap);
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(JSONObject jSONObject) {
-            super(1);
-            Map<String, Set<Object>> unmodifiableMap;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = jSONObject.getString("key");
-            JSONArray optJSONArray = jSONObject.optJSONArray("content");
-            if (optJSONArray == null) {
-                unmodifiableMap = Collections.emptyMap();
-            } else {
-                HashMap hashMap = new HashMap();
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
-                    String string = jSONObject2.getString(CriusAttrConstants.COLUMN);
-                    JSONArray optJSONArray2 = jSONObject2.optJSONArray(SavedStateHandle.VALUES);
-                    int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
-                    HashSet hashSet = new HashSet();
-                    for (int i4 = 0; i4 < length; i4++) {
-                        hashSet.add(optJSONArray2.get(i4));
-                    }
-                    hashMap.put(string, Collections.unmodifiableSet(hashSet));
-                }
-                unmodifiableMap = Collections.unmodifiableMap(hashMap);
-            }
-            this.b = unmodifiableMap;
-        }
-
-        @Override // com.baidu.tieba.s6b
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
-                objectOutput.writeUTF(this.a);
-                objectOutput.writeInt(this.b.size());
-                for (Map.Entry<String, Set<Object>> entry : this.b.entrySet()) {
-                    Set<Object> value = entry.getValue();
-                    objectOutput.writeUTF(entry.getKey());
-                    objectOutput.writeInt(value.size());
-                    for (Object obj : value) {
-                        objectOutput.writeObject(obj);
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e6b(int i, ObjectInput objectInput) {
-        super(i);
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null && !str.equals("")) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 79) {
+                    switch (hashCode) {
+                        case 2126:
+                            if (str.equals("C1")) {
+                                c = 5;
+                                break;
+                            }
+                            break;
+                        case 2127:
+                            if (str.equals("C2")) {
+                                c = 6;
+                                break;
+                            }
+                            break;
+                        case 2128:
+                            if (str.equals("C3")) {
+                                c = 7;
+                                break;
+                            }
+                            break;
+                        default:
+                            switch (hashCode) {
+                                case 2653:
+                                    if (str.equals("T1")) {
+                                        c = 0;
+                                        break;
+                                    }
+                                    break;
+                                case 2654:
+                                    if (str.equals("T2")) {
+                                        c = 1;
+                                        break;
+                                    }
+                                    break;
+                                case 2655:
+                                    if (str.equals("T3")) {
+                                        c = 2;
+                                        break;
+                                    }
+                                    break;
+                                case 2656:
+                                    if (str.equals("T4")) {
+                                        c = 3;
+                                        break;
+                                    }
+                                    break;
+                                case 2657:
+                                    if (str.equals("T5")) {
+                                        c = 4;
+                                        break;
+                                    }
+                                    break;
+                            }
+                    }
+                } else if (str.equals("O")) {
+                    c = '\b';
+                }
+                switch (c) {
+                    case 0:
+                        return SampleResult.T1;
+                    case 1:
+                        return SampleResult.T2;
+                    case 2:
+                        return SampleResult.T3;
+                    case 3:
+                        return SampleResult.T4;
+                    case 4:
+                        return SampleResult.T5;
+                    case 5:
+                        return SampleResult.C1;
+                    case 6:
+                        return SampleResult.C2;
+                    case 7:
+                        return SampleResult.C3;
+                    case '\b':
+                        return SampleResult.OTHERE;
+                    default:
+                        return SampleResult.OTHERE;
+                }
             }
+            return SampleResult.OTHERE;
         }
-        int readInt = objectInput.readInt();
-        HashSet hashSet = new HashSet();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            hashSet.add(new a(objectInput.readInt(), objectInput));
-        }
-        this.a = Collections.unmodifiableSet(hashSet);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e6b(JSONObject jSONObject) {
-        super(1);
-        Set<a> unmodifiableSet;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray(SocialConstants.PARAM_EXCLUDE);
-        if (optJSONArray == null) {
-            unmodifiableSet = Collections.emptySet();
-        } else {
-            HashSet hashSet = new HashSet();
-            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                hashSet.add(new a(optJSONArray.getJSONObject(i3)));
-            }
-            unmodifiableSet = Collections.unmodifiableSet(hashSet);
-        }
-        this.a = unmodifiableSet;
-    }
-
-    @Override // com.baidu.tieba.s6b
-    public void srzableInternal(ObjectOutput objectOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
-            objectOutput.writeInt(this.a.size());
-            for (a aVar : this.a) {
-                aVar.srzable(objectOutput);
-            }
-        }
+        return (SampleResult) invokeL.objValue;
     }
 }

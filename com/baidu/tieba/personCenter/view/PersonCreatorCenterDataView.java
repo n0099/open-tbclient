@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.dialog.RoundLinearLayout;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.ux4;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.nx4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -141,25 +141,25 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07b5, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07cd, (ViewGroup) this, true);
             inflate.setOnClickListener(this);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b8f);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b91);
-            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b97);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba6);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba8);
+            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091bae);
             this.d = roundLinearLayout;
-            roundLinearLayout.setRadius(xi.g(getContext(), R.dimen.obfuscated_res_0x7f07039f));
+            roundLinearLayout.setRadius(yi.g(getContext(), R.dimen.obfuscated_res_0x7f0703a5));
             this.d.setRoundCount(8);
-            s75.d(this.d).o(R.string.J_X03);
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b98);
-            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b99);
-            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b92);
+            d85.d(this.d).o(R.string.J_X03);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091baf);
+            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bb0);
+            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba9);
         }
     }
 
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            TbWebViewActivityConfig g = ux4.g(getContext(), "", str, true);
+            TbWebViewActivityConfig g = nx4.g(getContext(), "", str, true);
             g.setFixTitle(true);
             g.start();
         }
@@ -170,22 +170,22 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             String str = (String) ((PersonCreatorCenterDataView) view2).h.getText();
-            if (getContext().getString(R.string.obfuscated_res_0x7f0f18da).equals(str)) {
+            if (getContext().getString(R.string.obfuscated_res_0x7f0f18f0).equals(str)) {
                 d("3", "1", "2");
                 c(this.a);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f18db).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f18f1).equals(str)) {
                 d("3", "1", "3");
                 c(this.a);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f18d9).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f18ef).equals(str)) {
                 d("3", "1", "1");
                 c(this.a);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f18d8).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f18ee).equals(str)) {
                 d("3", "2", "2");
                 c(this.b);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f18d7).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f18ed).equals(str)) {
                 d("3", "2", "3");
                 c(this.b);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f18d6).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f18ec).equals(str)) {
                 d("3", "2", "1");
                 c(this.b);
             }

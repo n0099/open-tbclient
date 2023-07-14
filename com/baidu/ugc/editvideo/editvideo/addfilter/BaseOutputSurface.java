@@ -10,7 +10,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.view.Surface;
 import androidx.annotation.RequiresApi;
-import com.baidu.tieba.h1b;
+import com.baidu.tieba.fab;
 import com.baidu.ugc.editvideo.faceunity.gles.EglCore;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.OffscreenSurface;
@@ -20,7 +20,7 @@ import com.faceunity.gles.GeneratedTexture;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     public EglCore mEglCore;
     public boolean mFrameAvailable;
@@ -149,7 +149,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
             this.mPboNextIndex = (i3 + 1) % 2;
             return createBitmap;
         } catch (OutOfMemoryError e) {
-            h1b.g(e);
+            fab.g(e);
             return null;
         }
     }
@@ -174,7 +174,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
             }, null);
             new WindowSurface(this.mEglCore, newInstance.getSurface(), true).makeCurrent();
         } catch (OutOfMemoryError e) {
-            h1b.g(e);
+            fab.g(e);
         }
         return null;
     }
@@ -187,7 +187,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         while (true) {
             int glGetError = GLES20.glGetError();
             if (glGetError != 0) {
-                h1b.d(str + ": glError " + glGetError);
+                fab.d(str + ": glError " + glGetError);
             } else {
                 return;
             }
@@ -239,7 +239,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
             System.currentTimeMillis();
             return createBitmap;
         } catch (OutOfMemoryError e) {
-            h1b.g(e);
+            fab.g(e);
             return null;
         }
     }

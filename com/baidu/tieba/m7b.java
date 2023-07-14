@@ -1,104 +1,242 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes6.dex */
-public class m7b implements TTNativeAd.AdInteractionListener {
+public class m7b implements i7b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ w7b c;
-    public final /* synthetic */ FunAdInteractionListener d;
-    public final /* synthetic */ String e;
-    public final /* synthetic */ j7b f;
+    public s8b a;
+    public ExecutorService b;
+    public a9b c;
+    public boolean d;
+    public int e;
+    public int f;
+    public String g;
 
-    public m7b(j7b j7bVar, w7b w7bVar, FunAdInteractionListener funAdInteractionListener, String str) {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ byte[] a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ m7b d;
+
+        public a(m7b m7bVar, byte[] bArr, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m7bVar, bArr, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = m7bVar;
+            this.a = bArr;
+            this.b = i;
+            this.c = i2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.d.a.c(this.a, this.b, this.c);
+                } catch (Exception e) {
+                    if (this.d.c == null || this.d.d) {
+                        return;
+                    }
+                    this.d.c.onExceptionThrown(pab.g(e));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m7b a;
+
+        public b(m7b m7bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m7bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m7bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.a.a();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    if (this.a.c == null || this.a.d) {
+                        return;
+                    }
+                    this.a.c.onFinishedWriting(false);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends a9b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m7b a;
+
+        public c(m7b m7bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m7bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m7bVar;
+        }
+
+        @Override // com.baidu.tieba.a9b
+        public void onFinishedWriting(boolean z) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.c == null || this.a.d) {
+                return;
+            }
+            this.a.c.onFinishedWriting(z);
+        }
+    }
+
+    public m7b(String str, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j7bVar, w7bVar, funAdInteractionListener, str};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = j7bVar;
-        this.c = w7bVar;
-        this.d = funAdInteractionListener;
-        this.e = str;
+        this.e = i;
+        this.f = i2;
+        this.b = Executors.newSingleThreadExecutor();
+        this.d = false;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-    public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    public void b() throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
-            LogPrinter.d();
-            this.f.onAdClicked((j7b) this.c, this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.d;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.isShutdown()) {
+            return;
+        }
+        this.b.submit(new b(this));
+        this.b.shutdown();
+    }
+
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            this.e = i;
+            this.f = i2;
+            try {
+                y8b y8bVar = new y8b(i, i2);
+                this.a = y8bVar;
+                y8bVar.b(this.g);
+                this.a.d(new c(this));
+            } catch (Exception e) {
+                e.printStackTrace();
+                a9b a9bVar = this.c;
+                if (a9bVar != null) {
+                    a9bVar.onExceptionThrown(pab.g(e));
+                }
             }
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-    public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    @Override // com.baidu.tieba.i7b
+    public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
-            LogPrinter.d();
-            this.f.onAdClicked((j7b) this.c, this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.d;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public void d(a9b a9bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, a9bVar) == null) {
+            this.c = a9bVar;
+        }
+    }
+
+    public void e(String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = true;
+            try {
+                this.b.shutdownNow();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-    public void onAdShow(TTNativeAd tTNativeAd) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    @Override // com.baidu.tieba.i7b
+    public int write(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
-            LogPrinter.d();
-            this.f.onAdShow((j7b) this.c, this.a, new String[0]);
-            this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.d;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
+            byte[] copyOf = Arrays.copyOf(bArr, bArr.length);
+            if (!this.b.isShutdown()) {
+                this.b.submit(new a(this, copyOf, i, i2));
             }
+            return i2 - i;
         }
+        return invokeLII.intValue;
     }
 }

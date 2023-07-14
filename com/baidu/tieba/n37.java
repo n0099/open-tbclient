@@ -1,53 +1,68 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.aa5;
-import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionData;
-import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionVoteEntryView;
+import com.baidu.minivideo.arface.utils.ThreadPool;
+import com.baidu.tieba.m8b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.RecordConstants;
 /* loaded from: classes7.dex */
-public class n37 {
+public abstract class n37 implements q37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public ba5 c;
-    public RelativeLayout d;
-    public NoNetworkView e;
-    public PbListView f;
-    public x27 g;
-    public ForumEmotionVoteEntryView h;
-    public dn5 i;
-    public NoDataView j;
-    public LinearLayout k;
+    public t37 a;
+    public r37 b;
+    public Thread c;
+    public boolean d;
 
-    public n37(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public abstract void f();
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n37 a;
+
+        public a(n37 n37Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n37Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n37Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
+            }
+        }
+    }
+
+    public n37() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -57,224 +72,158 @@ public class n37 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0318, (ViewGroup) null);
-        this.d = relativeLayout;
-        this.e = (NoNetworkView) relativeLayout.findViewById(R.id.no_network_view);
-        BdTypeListView bdTypeListView = (BdTypeListView) this.d.findViewById(R.id.obfuscated_res_0x7f090ba9);
-        this.b = bdTypeListView;
-        bdTypeListView.addHeaderView(this.k);
-        this.b.setDivider(null);
-        ba5 ba5Var = new ba5(this.a);
-        this.c = ba5Var;
-        ba5Var.a0(bdUniqueId);
-        this.b.setPullRefresh(this.c);
-        PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-        this.f = pbListView;
-        pbListView.a();
-        j();
-        i();
-        k();
-        q();
+        this.d = false;
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.q37
+    public void a(t37 t37Var, r37 r37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.y();
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, t37Var, r37Var) != null) || r37Var == null) {
+            return;
         }
+        this.b = r37Var;
+        if (t37Var == null) {
+            r37Var.onError(StringUtil.NULL_STRING, "cover config is null !!");
+            return;
+        }
+        this.a = t37Var;
+        this.c = new Thread(new a(this));
+        ThreadPool.b().e(this.c);
     }
 
-    public BdTypeListView b() {
+    public int[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            t37 t37Var = this.a;
+            int[] iArr = {t37Var.a, t37Var.b};
+            if (!t37Var.g && !t37Var.e) {
+                float f = t37Var.d;
+                if (f != 0.0f) {
+                    m8b.a e = m8b.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                    iArr[0] = e.b();
+                    iArr[1] = e.a();
+                }
+            } else {
+                m8b.a e2 = e();
+                float f2 = this.a.d;
+                if (f2 != 0.0f) {
+                    m8b.a f3 = m8b.f(f2, e2.b(), e2.a());
+                    iArr[0] = f3.b();
+                    iArr[1] = f3.a();
+                }
+                m8b.a d = m8b.d(iArr[0], iArr[1]);
+                iArr[0] = d.b();
+                iArr[1] = d.a();
+            }
+            return iArr;
         }
-        return (BdTypeListView) invokeV.objValue;
+        return (int[]) invokeV.objValue;
     }
 
-    public View c() {
-        InterceptResult invokeV;
+    public Bitmap c(Bitmap bitmap, float f, MultiMediaData multiMediaData) {
+        InterceptResult invokeCommon;
+        Bitmap bitmap2;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Float.valueOf(f), multiMediaData})) == null) {
+            if (multiMediaData != null && ((i2 = 360 - (((int) multiMediaData.angle) % 360)) == 90 || i2 == 270)) {
+                Matrix matrix = new Matrix();
+                matrix.setRotate(i2);
+                bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            } else {
+                bitmap2 = null;
+            }
+            if (bitmap2 != null) {
+                bitmap = bitmap2;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (bitmap.getHeight() / bitmap.getWidth() > f) {
+                width = (int) (bitmap.getHeight() * f);
+            } else {
+                height = (int) (bitmap.getWidth() * f);
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(createBitmap);
+            canvas.save();
+            int i3 = 0;
+            if (height != bitmap.getHeight()) {
+                i = Math.abs(height - bitmap.getHeight()) / 2;
+            } else {
+                i = 0;
+            }
+            if (width != bitmap.getWidth()) {
+                i3 = Math.abs(width - bitmap.getWidth()) / 2;
+            }
+            canvas.drawBitmap(bitmap, i3, i, (Paint) null);
+            canvas.restore();
+            bitmap.recycle();
+            return createBitmap;
         }
-        return (View) invokeV.objValue;
+        return (Bitmap) invokeCommon.objValue;
     }
 
-    public ViewGroup d() {
-        InterceptResult invokeV;
+    public String d(int i, int i2, Bitmap bitmap, boolean z) {
+        InterceptResult invokeCommon;
+        String a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
+            if (i != 0 && i2 != 0) {
+                Bitmap h = gab.h(bitmap, i, i2, z);
+                if (this.d) {
+                    a2 = ysa.b();
+                } else {
+                    a2 = ysa.a();
+                }
+                String c = ysa.c(a2, h, System.currentTimeMillis() + ".jpg");
+                if (h != null) {
+                    h.recycle();
+                    return c;
+                }
+                return c;
+            }
+            return "";
         }
-        return (ViewGroup) invokeV.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public ForumEmotionVoteEntryView e() {
+    public m8b.a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
-        }
-        return (ForumEmotionVoteEntryView) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            PbListView pbListView = this.f;
-            if (pbListView != null) {
-                pbListView.g();
+            MultiMediaData multiMediaData = this.a.c;
+            int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
+            int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+            if (multiMediaData == null) {
+                return new m8b.a(i, i2);
             }
-            this.b.setNextPage(null);
-        }
-    }
-
-    public void g() {
-        dn5 dn5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (dn5Var = this.i) != null) {
-            dn5Var.dettachView(this.d);
-            this.i = null;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NoDataView noDataView = this.j;
-            if (noDataView != null) {
-                noDataView.setVisibility(8);
+            if (multiMediaData.type == 1) {
+                float f = multiMediaData.angle;
+                float f2 = multiMediaData.rotation;
+                if ((f + f2) % 360.0f != 90.0f && (f + f2) % 360.0f != 270.0f) {
+                    i = multiMediaData.width;
+                    i2 = multiMediaData.height;
+                } else {
+                    i = multiMediaData.height;
+                    i2 = multiMediaData.width;
+                }
             }
-            this.g.c().setVisibility(0);
-            this.h.setVisibility(0);
+            return new m8b.a(i, i2);
         }
+        return (m8b.a) invokeV.objValue;
     }
 
-    public final void i() {
+    public void g(s37 s37Var, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            x27 x27Var = new x27(this.a);
-            this.g = x27Var;
-            x27Var.c().setVisibility(8);
-            this.b.addHeaderView(this.g.c());
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
-            this.k = linearLayout;
-            linearLayout.setGravity(17);
-            this.b.addHeaderView(this.k);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ForumEmotionVoteEntryView forumEmotionVoteEntryView = new ForumEmotionVoteEntryView(this.a.getPageActivity());
-            this.h = forumEmotionVoteEntryView;
-            this.b.addHeaderView(forumEmotionVoteEntryView);
-        }
-    }
-
-    public void p() {
-        PbListView pbListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (pbListView = this.f) != null) {
-            if (pbListView.c().getParent() == null) {
-                this.b.setNextPage(this.f);
+        if (interceptable == null || interceptable.invokeLL(1048582, this, s37Var, bitmap) == null) {
+            if (s37Var == null) {
+                s37Var = new s37();
             }
-            this.f.S();
-            this.f.U();
-        }
-    }
-
-    public void q() {
-        TbPageContext tbPageContext;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (tbPageContext = this.a) != null && this.d != null) {
-            dn5 dn5Var = new dn5(tbPageContext.getPageActivity());
-            this.i = dn5Var;
-            dn5Var.attachView(this.d, false);
-            this.i.onChangeSkinType();
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.f.s(R.color.CAM_X0204);
-            this.f.e(i);
-            this.c.H(i);
-            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
-            SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
-            this.e.d(this.a, i);
-            ForumEmotionVoteEntryView forumEmotionVoteEntryView = this.h;
-            if (forumEmotionVoteEntryView != null) {
-                forumEmotionVoteEntryView.b(i);
-            }
-        }
-    }
-
-    public void m(ForumEmotionData forumEmotionData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, forumEmotionData) != null) || forumEmotionData == null) {
-            return;
-        }
-        g();
-        if (forumEmotionData.banner != null) {
-            this.g.c().setVisibility(0);
-            this.g.f(this.a.getUniqueId());
-            this.g.e(new b37(forumEmotionData.banner));
-            this.g.h();
-        }
-        List<String> list = forumEmotionData.forum_avatar;
-        if (list != null) {
-            this.h.setAvatarList(list);
-        }
-    }
-
-    public void n(aa5.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, gVar) == null) {
-            this.c.f(gVar);
-        }
-    }
-
-    public void o(BdListView.p pVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, pVar) == null) {
-            this.b.setOnSrollToBottomListener(pVar);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            if (this.j == null) {
-                this.j = NoDataViewFactory.b(this.a.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070358)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0639)), null, true);
-            }
-            this.j.setVisibility(0);
-            this.g.c().setVisibility(4);
-            this.h.setVisibility(4);
-            this.j.f(this.a, TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void s() {
-        PbListView pbListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (pbListView = this.f) != null) {
-            if (pbListView.c().getParent() == null) {
-                this.b.setNextPage(this.f);
-            }
-            this.f.H(this.a.getResources().getString(R.string.list_no_more));
-            this.f.g();
+            int[] b = b();
+            s37Var.a = d(b[0], b[1], bitmap, true);
+            this.b.a(this.a.f, s37Var);
         }
     }
 }

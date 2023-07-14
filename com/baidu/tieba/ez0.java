@@ -1,38 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ez0 implements fz0 {
+public class ez0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dz0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ez0() {
+    public static synchronized dz0 a() {
+        InterceptResult invokeV;
+        dz0 dz0Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ez0.class) {
+                if (a == null) {
+                    a = new dz0();
+                }
+                dz0Var = a;
             }
+            return dz0Var;
         }
-    }
-
-    @Override // com.baidu.tieba.fz0
-    @NonNull
-    public yy0 create(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return new dz0();
-        }
-        return (yy0) invokeL.objValue;
+        return (dz0) invokeV.objValue;
     }
 }

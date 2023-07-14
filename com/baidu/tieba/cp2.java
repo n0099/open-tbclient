@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.view.KeyEvent;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cp2 implements ap2 {
+public class cp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ap2> a;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public JSONObject d;
 
     public cp2() {
         Interceptable interceptable = $ic;
@@ -27,125 +30,196 @@ public class cp2 implements ap2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new CopyOnWriteArrayList();
-    }
-
-    @Override // com.baidu.tieba.ap2
-    public void b() {
-        List<ap2> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (ap2 ap2Var : this.a) {
-                ap2Var.b();
             }
         }
     }
 
-    @Override // com.baidu.tieba.ap2
-    public void c() {
-        List<ap2> list;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (ap2 ap2Var : this.a) {
-                ap2Var.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (ub3.K().k() == 0) {
+                return c(this.d, "bbasp_guide_");
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ap2
-    public void d() {
-        List<ap2> list;
+    public final JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (ap2 ap2Var : this.a) {
-                ap2Var.d();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ap2
-    public void e() {
-        List<ap2> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (ap2 ap2Var : this.a) {
-                ap2Var.e();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ap2
-    public void f() {
-        List<ap2> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (ap2 ap2Var : this.a) {
-                ap2Var.f();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ap2
-    public void g() {
-        List<ap2> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (ap2 ap2Var : this.a) {
-                ap2Var.g();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ap2
-    public void a() {
-        List<ap2> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (ap2 ap2Var : this.a) {
-                if (ap2Var != null) {
-                    ap2Var.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String string = jk3.a().getString("swan_guide_toast", "");
+            if (!TextUtils.isEmpty(string)) {
+                try {
+                    return new JSONObject(string);
+                } catch (JSONException unused) {
+                    return null;
                 }
             }
+            return null;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public void h(@NonNull ap2 ap2Var) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ap2Var) == null) {
-            this.a.add(ap2Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a) {
+                return "special";
+            }
+            if (this.b) {
+                return "normal";
+            }
+            return null;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void i(@NonNull ap2 ap2Var) {
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ap2Var) == null) {
-            this.a.remove(ap2Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ap2
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, keyEvent)) == null) {
-            List<ap2> list = this.a;
-            if (list == null || list.size() <= 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (!this.b && !this.a) {
                 return false;
             }
-            while (true) {
-                boolean z = false;
-                for (ap2 ap2Var : this.a) {
-                    boolean onKeyDown = ap2Var.onKeyDown(i, keyEvent);
-                    if (z || onKeyDown) {
-                        z = true;
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONArray optJSONArray = this.d.optJSONArray("custom_guide_list");
+            if (optJSONArray != null && optJSONArray.length() != 0) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    String optString = optJSONObject.optString("appid", "");
+                    if (vb3.g0() == null || TextUtils.equals(vb3.g0(), optString)) {
+                        return c(optJSONObject, "");
                     }
                 }
-                return z;
             }
+            return false;
         }
-        return invokeIL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public final boolean c(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        int i;
+        long j;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
+            boolean z2 = false;
+            if (jSONObject == null) {
+                return false;
+            }
+            String optString = jSONObject.optString(str + "count", "3");
+            try {
+                if (!TextUtils.isEmpty(optString)) {
+                    i = Integer.valueOf(optString).intValue();
+                } else {
+                    i = 0;
+                }
+                String optString2 = jSONObject.optString(str + "interval", "72");
+                if (!TextUtils.isEmpty(optString2)) {
+                    j = Long.valueOf(optString2).longValue();
+                } else {
+                    j = 0;
+                }
+                long optLong = jSONObject.optLong(str + "last_time", 0L);
+                int optInt = jSONObject.optInt(str + "shown_count", 0);
+                int optInt2 = jSONObject.optInt(str + "image_index", 0);
+                if (System.currentTimeMillis() - optLong > j * 3600000) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                boolean i2 = i(jSONObject.optJSONArray("scenes"));
+                if (optInt < i && z && i2) {
+                    z2 = true;
+                }
+                if (z2) {
+                    g(jSONObject, optInt2, str + "images");
+                }
+            } catch (NumberFormatException unused) {
+            }
+            return z2;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final int g(JSONObject jSONObject, int i, String str) {
+        InterceptResult invokeLIL;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048582, this, jSONObject, i, str)) == null) {
+            if (jSONObject == null || i < 0 || TextUtils.isEmpty(str) || (optJSONArray = jSONObject.optJSONArray(str)) == null || optJSONArray.length() == 0) {
+                return 0;
+            }
+            if (i >= optJSONArray.length()) {
+                i = 0;
+            }
+            this.c = optJSONArray.optString(i);
+            return i;
+        }
+        return invokeLIL.intValue;
+    }
+
+    public cp2 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            this.a = false;
+            this.b = false;
+            this.c = null;
+            JSONObject d = d();
+            this.d = d;
+            if (d != null && d.length() != 0) {
+                boolean b = b();
+                this.a = b;
+                if (b) {
+                    return this;
+                }
+                this.b = a();
+            }
+            return this;
+        }
+        return (cp2) invokeV.objValue;
+    }
+
+    public final boolean i(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONArray)) == null) {
+            if (jSONArray == null || jSONArray.length() <= 0) {
+                return true;
+            }
+            String T2 = ub3.K().q().W().T();
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                if (TextUtils.equals(T2, jSONArray.optString(i))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

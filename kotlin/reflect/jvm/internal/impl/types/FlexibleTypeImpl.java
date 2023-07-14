@@ -14,14 +14,14 @@ import kotlin.reflect.jvm.internal.impl.renderer.DescriptorRendererOptions;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeChecker;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FlexibleTypeImpl extends FlexibleType implements CustomTypeVariable {
     public static final Companion Companion = new Companion(null);
     @JvmField
     public static boolean RUN_SLOW_ASSERTIONS;
     public boolean assertionsDone;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -65,7 +65,7 @@ public final class FlexibleTypeImpl extends FlexibleType implements CustomTypeVa
 
     @Override // kotlin.reflect.jvm.internal.impl.types.CustomTypeVariable
     public boolean isTypeVariable() {
-        if ((getLowerBound().getConstructor().mo2099getDeclarationDescriptor() instanceof TypeParameterDescriptor) && Intrinsics.areEqual(getLowerBound().getConstructor(), getUpperBound().getConstructor())) {
+        if ((getLowerBound().getConstructor().mo2101getDeclarationDescriptor() instanceof TypeParameterDescriptor) && Intrinsics.areEqual(getLowerBound().getConstructor(), getUpperBound().getConstructor())) {
             return true;
         }
         return false;

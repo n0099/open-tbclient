@@ -1,29 +1,34 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.view.Choreographer;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.ks5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@TargetApi(16)
 /* loaded from: classes7.dex */
-public class ss5 implements Choreographer.FrameCallback {
+public abstract class ss5<D, S extends ks5> implements vba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public int d;
-    public int e;
-    public boolean f;
+    public D a;
+    public S b;
+    public final View c;
+    public TbPageContext<?> d;
 
-    public ss5() {
+    public ss5(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,80 +38,92 @@ public class ss5 implements Choreographer.FrameCallback {
                 return;
             }
         }
-        this.a = 0L;
-        this.d = 0;
-        this.e = -1;
-        this.f = false;
+        this.d = tbPageContext;
+        this.c = view2;
     }
 
-    public int b() {
+    public TbPageContext<?> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (TbPageContext) invokeV.objValue;
+    }
+
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+            return this.c;
         }
-        return invokeV.intValue;
+        return (View) invokeV.objValue;
     }
 
-    public void c() {
+    public S d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.c = currentTimeMillis;
-            this.b = currentTimeMillis + 1000;
-            this.a = 0L;
-            this.d = 0;
-            this.e = -1;
-            this.f = false;
-            Choreographer.getInstance().postFrameCallback(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (S) invokeV.objValue;
+    }
+
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d.getPageActivity();
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d.getContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public Resources getResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d.getResources();
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    public String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return getResources().getString(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void f(D d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, d) == null) {
+            this.a = d;
         }
     }
 
-    public void d() {
+    public void h(S s) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = true;
-            Choreographer.getInstance().removeFrameCallback(this);
-            a(System.currentTimeMillis());
-            this.d = 0;
-            this.c = 0L;
+        if (interceptable == null || interceptable.invokeL(1048585, this, s) == null) {
+            this.b = s;
         }
     }
 
-    public final void a(long j) {
+    public void g(D d, S s) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            long j2 = this.c;
-            if (j2 <= 0) {
-                return;
-            }
-            long j3 = j - j2;
-            if (j3 > 0 && this.e <= 0) {
-                this.e = (int) (60 - ((this.d * 1000) / j3));
-            }
-        }
-    }
-
-    @Override // android.view.Choreographer.FrameCallback
-    public void doFrame(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            long j2 = this.a;
-            if (j2 != 0) {
-                long j3 = (j - j2) / 1000000;
-                if (j3 > 16 && j3 < 960) {
-                    this.d = (int) (this.d + (j3 / 16));
-                }
-            }
-            this.a = j;
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis < this.b && !this.f) {
-                Choreographer.getInstance().postFrameCallback(this);
-                return;
-            }
-            a(currentTimeMillis);
-            this.d = 0;
-            this.c = 0L;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, d, s) == null) {
+            f(d);
+            h(s);
         }
     }
 }

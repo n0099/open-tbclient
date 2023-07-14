@@ -1,46 +1,188 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.PopupWindow;
+import android.os.Build;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class b95 extends PopupWindow {
+public class b95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a95 a;
-    public int b;
-    public int c;
-    public int d;
-    public View e;
-    public View f;
-    public Activity g;
+    public b a;
 
     /* loaded from: classes5.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b95 a;
+    }
 
-        public a(b95 b95Var) {
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Class<?> a;
+        public final Object b;
+        public final Class<?> c;
+        public final Method d;
+        public final Object e;
+        public final Method f;
+        public final c g;
+        public final int h;
+        public final e95 i;
+        public int j;
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.i.a(this.a.f());
+                    this.a.g.c();
+                    this.a.g();
+                }
+            }
+        }
+
+        public b(int i, e95 e95Var) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {b95Var};
+                Object[] objArr = {Integer.valueOf(i), e95Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.j = 0;
+            this.c = Class.forName("android.view.Choreographer");
+            this.a = Class.forName("android.view.Choreographer$FrameCallback");
+            this.g = new c(this);
+            this.b = Proxy.newProxyInstance(this.a.getClassLoader(), new Class[]{this.a}, this.g);
+            Method method = this.c.getMethod("getInstance", new Class[0]);
+            this.d = method;
+            this.e = method.invoke(null, new Object[0]);
+            this.f = this.c.getMethod("postFrameCallback", this.a);
+            this.h = i <= 0 ? 16 : i;
+            this.i = e95Var;
+        }
+
+        public /* synthetic */ b(int i, e95 e95Var, a aVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+            this(i, e95Var);
+        }
+
+        public final List<Long> f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ArrayList arrayList = new ArrayList(24);
+                List<Long> h = h();
+                int size = h.size();
+                int i = 0;
+                while (i < size - 1) {
+                    long longValue = h.get(i).longValue();
+                    i++;
+                    arrayList.add(Long.valueOf(h.get(i).longValue() - longValue));
+                }
+                return arrayList;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public final void g() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.g.c();
+            }
+        }
+
+        public final List<Long> h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.g.a;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public final void i() throws InvocationTargetException, IllegalAccessException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.f.invoke(this.e, this.b);
+            }
+        }
+
+        public final void j() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                int i = this.j;
+                if (i >= this.h) {
+                    zg.a().post(new a(this));
+                    return;
+                }
+                this.j = i + 1;
+                try {
+                    i();
+                } catch (Throwable th) {
+                    BdLog.e(th);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements InvocationHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final List<Long> a;
+        public final List<Integer> b;
+        public b c;
+
+        public c(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,116 +192,104 @@ public class b95 extends PopupWindow {
                     return;
                 }
             }
-            this.a = b95Var;
+            this.c = bVar;
+            this.a = new ArrayList(240);
+            this.b = new ArrayList(15);
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        public final void d(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.e != null) {
-                this.a.e();
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                this.a.add(Long.valueOf(j));
+                this.c.j();
             }
+        }
+
+        public final void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c = null;
+                this.a.clear();
+                this.b.clear();
+            }
+        }
+
+        @Override // java.lang.reflect.InvocationHandler
+        public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, method, objArr)) == null) {
+                String name = method.getName();
+                Class<?>[] parameterTypes = method.getParameterTypes();
+                if ("doFrame".equals(name) && parameterTypes.length == 1 && parameterTypes[0] == Long.TYPE) {
+                    d(((Long) objArr[0]).longValue());
+                    return null;
+                }
+                return null;
+            }
+            return invokeLLL.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b95(Activity activity) {
-        super(activity);
+    /* loaded from: classes5.dex */
+    public static final class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b95 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-962333941, "Lcom/baidu/tieba/b95$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-962333941, "Lcom/baidu/tieba/b95$d;");
+                    return;
+                }
+            }
+            a = new b95();
+        }
+    }
+
+    public b95() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = activity;
-        View inflate = ((LayoutInflater) activity.getSystemService("layout_inflater")).inflate(R.layout.keyboard_height_popupwindow, (ViewGroup) null, false);
-        this.e = inflate;
-        setContentView(inflate);
-        GreyUtil.grey(this);
-        setSoftInputMode(21);
-        setInputMethodMode(1);
-        this.f = activity.findViewById(16908290);
-        setWidth(0);
-        setHeight(-1);
-        this.e.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
+        this.a = null;
     }
 
-    public void g(a95 a95Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, a95Var) == null) {
-            this.a = a95Var;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            dismiss();
-        }
-    }
-
-    public final int d() {
+    public static b95 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g.getResources().getConfiguration().orientation;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return d.a;
         }
-        return invokeV.intValue;
+        return (b95) invokeV.objValue;
     }
 
-    public void h() {
+    public void b(int i, e95 e95Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !isShowing() && this.f.getWindowToken() != null) {
-            setBackgroundDrawable(new ColorDrawable(0));
-            showAtLocation(this.f, 0, 0, 0);
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, e95Var) != null) || Build.VERSION.SDK_INT < 16) {
+            return;
         }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Point point = new Point();
-            this.g.getWindowManager().getDefaultDisplay().getSize(point);
-            Rect rect = new Rect();
-            this.e.getWindowVisibleDisplayFrame(rect);
-            int d = d();
-            int i = point.y - rect.bottom;
-            if (i == 0) {
-                f(0, d);
-            } else if (d == 1) {
-                this.d = i;
-                f(i, d);
-            } else {
-                this.c = i;
-                f(i, d);
-            }
-        }
-    }
-
-    public final void f(int i, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            if (i <= 0) {
-                this.b = i;
-                i3 = 0;
-            } else {
-                i3 = i - this.b;
-            }
-            a95 a95Var = this.a;
-            if (a95Var != null) {
-                a95Var.onKeyboardHeightChanged(i3, i2);
-            }
+        try {
+            b bVar = new b(i, e95Var, null);
+            this.a = bVar;
+            bVar.j();
+        } catch (Throwable th) {
+            BdLog.e(th);
         }
     }
 }

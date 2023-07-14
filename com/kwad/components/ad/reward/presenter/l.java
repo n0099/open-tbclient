@@ -7,7 +7,7 @@ import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.components.core.webview.KsAdWebView;
 import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class l extends a {
     public com.kwad.components.core.playable.a mk;
     public PlayableSource qe;
@@ -115,7 +115,7 @@ public final class l extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        ((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091318)).setVisibility(4);
+        ((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09132c)).setVisibility(4);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

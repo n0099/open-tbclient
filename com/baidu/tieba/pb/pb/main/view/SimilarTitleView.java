@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d85;
 import com.baidu.tieba.pb.databinding.SimilarTitleViewBinding;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -106,9 +106,9 @@ public final class SimilarTitleView extends RelativeLayout {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.a = xi.g(context, R.dimen.M_W_X002);
-        this.b = xi.g(context, R.dimen.M_W_X002);
-        this.c = xi.g(context, R.dimen.tbds42);
+        this.a = yi.g(context, R.dimen.M_W_X002);
+        this.b = yi.g(context, R.dimen.M_W_X002);
+        this.c = yi.g(context, R.dimen.tbds42);
         this.d = new ArrayList();
         this.e = LazyKt__LazyJVMKt.lazy(new Function0<SimilarTitleViewBinding>(context, this) { // from class: com.baidu.tieba.pb.pb.main.view.SimilarTitleView$binding$2
             public static /* synthetic */ Interceptable $ic;
@@ -171,7 +171,7 @@ public final class SimilarTitleView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            s75 d = s75.d(getBinding().c);
+            d85 d = d85.d(getBinding().c);
             d.C(R.dimen.T_X07);
             d.D(R.string.F_X02);
             d.x(R.color.CAM_X0105);
@@ -196,7 +196,7 @@ public final class SimilarTitleView extends RelativeLayout {
                 layoutParams.leftMargin = this.b;
                 textView.setLayoutParams(layoutParams);
                 textView.setText(str);
-                s75 d = s75.d(textView);
+                d85 d = d85.d(textView);
                 d.C(R.dimen.T_X10);
                 d.x(R.color.CAM_X0108);
                 d.o(R.string.J_X04);

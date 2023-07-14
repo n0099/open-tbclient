@@ -12,18 +12,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.al5;
-import com.baidu.tieba.f55;
+import com.baidu.tieba.fda;
 import com.baidu.tieba.kb;
 import com.baidu.tieba.l9;
+import com.baidu.tieba.o55;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.tieba.setting.person.PersonPostListData;
-import com.baidu.tieba.u4a;
-import com.baidu.tieba.vg;
-import com.baidu.tieba.xe;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.ye;
+import com.baidu.tieba.zl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public NicknameInfo b;
     public final Context c;
     public Handler d;
-    public u4a e;
+    public fda e;
     public boolean f;
     public kb g;
 
@@ -52,30 +52,30 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public void l0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
+    public void m0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        }
+    }
+
     /* loaded from: classes7.dex */
-    public class b implements xe.a<byte[]> {
+    public class b implements ye.a<byte[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreDiscoveryModel a;
@@ -135,7 +135,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xe.a
+        @Override // com.baidu.tieba.ye.a
         /* renamed from: b */
         public void a(String str, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                 if (bArr != null) {
                     boolean z = true;
                     try {
-                        this.a.h0(((ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class)).data);
+                        this.a.i0(((ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class)).data);
                     } catch (Exception unused) {
                         z = false;
                     }
@@ -201,7 +201,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                         this.a.e.b(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.getDownSize(), 0L, profileSocketResponseMessage.getCostTime());
                         this.a.e = null;
                     }
-                    this.a.f0(profileSocketResponseMessage);
+                    this.a.g0(profileSocketResponseMessage);
                 }
                 if (responsedMessage instanceof ProfileHttpResponseMessage) {
                     ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
@@ -209,7 +209,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                         this.a.e.b(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.getDownSize(), profileHttpResponseMessage.getCostTime(), 0L);
                         this.a.e = null;
                     }
-                    this.a.e0(profileHttpResponseMessage);
+                    this.a.f0(profileHttpResponseMessage);
                 }
             }
         }
@@ -240,33 +240,33 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.a = null;
         this.c = moreActivity.getPageContext().getContext();
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new u4a("profileStat");
+        this.e = new fda("profileStat");
         registerListener(this.g);
     }
 
-    public void e0(ProfileHttpResponseMessage profileHttpResponseMessage) {
+    public void f0(ProfileHttpResponseMessage profileHttpResponseMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, profileHttpResponseMessage) == null) {
             this.f = false;
             if (profileHttpResponseMessage != null) {
-                i0(profileHttpResponseMessage);
-                g0(profileHttpResponseMessage.hasError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.isFrom_db(), profileHttpResponseMessage.isError_hint());
+                j0(profileHttpResponseMessage);
+                h0(profileHttpResponseMessage.hasError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.isFrom_db(), profileHttpResponseMessage.isError_hint());
             }
         }
     }
 
-    public void f0(ProfileSocketResponseMessage profileSocketResponseMessage) {
+    public void g0(ProfileSocketResponseMessage profileSocketResponseMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, profileSocketResponseMessage) == null) {
             this.f = false;
             if (profileSocketResponseMessage != null) {
-                j0(profileSocketResponseMessage);
-                g0(profileSocketResponseMessage.hasError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.isFrom_db(), profileSocketResponseMessage.isError_hint());
+                k0(profileSocketResponseMessage);
+                h0(profileSocketResponseMessage.hasError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.isFrom_db(), profileSocketResponseMessage.isError_hint());
             }
         }
     }
 
-    public void h0(DataRes dataRes) {
+    public void i0(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048586, this, dataRes) != null) || dataRes == null) {
             return;
@@ -289,25 +289,25 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         }
     }
 
-    public void a0(boolean z, boolean z2) {
+    public void b0(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             cancelMessage();
-            d0(z, z2);
+            e0(z, z2);
         }
     }
 
-    public final xe<byte[]> Z() {
+    public final ye<byte[]> a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            f55.d();
-            return f55.c("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+            o55.e();
+            return o55.d("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         }
-        return (xe) invokeV.objValue;
+        return (ye) invokeV.objValue;
     }
 
-    public NicknameInfo b0() {
+    public NicknameInfo c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -316,32 +316,32 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         return (NicknameInfo) invokeV.objValue;
     }
 
-    public void c0() {
+    public void d0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Z().f("profile_cache_key", new b(this));
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a0().f("profile_cache_key", new b(this));
         }
     }
 
     public UserData getUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.a;
         }
         return (UserData) invokeV.objValue;
     }
 
-    public final void k0() {
+    public final void l0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.e == null) {
-            u4a u4aVar = new u4a("profileStat");
-            this.e = u4aVar;
-            u4aVar.f();
+            fda fdaVar = new fda("profileStat");
+            this.e = fdaVar;
+            fdaVar.f();
         }
     }
 
-    public void d0(boolean z, boolean z2) {
+    public void e0(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || this.f) {
             return;
@@ -349,10 +349,10 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.f = true;
         ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
         if (TbadkCoreApplication.getCurrentAccount() != null) {
-            profileRequestMessage.set_uid(Long.valueOf(vg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
+            profileRequestMessage.set_uid(Long.valueOf(wg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
         }
         if (z) {
-            c0();
+            d0();
             return;
         }
         profileRequestMessage.set_need_post_count(1);
@@ -364,13 +364,13 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         profileRequestMessage.setSelf(true);
         profileRequestMessage.setIs_from_usercenter(1);
         profileRequestMessage.setPage(2);
-        k0();
+        l0();
         sendMessage(profileRequestMessage);
     }
 
-    public void g0(boolean z, String str, boolean z2, boolean z3) {
+    public void h0(boolean z, String str, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), str, Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), str, Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             if (!z) {
                 UserData user = getUser();
                 if (user != null) {
@@ -380,7 +380,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                     getUser().setBimg_url(TbadkCoreApplication.getInst().getDefaultBubble());
                     getUser().setDynamicUrl(TbadkCoreApplication.getInst().getDefaultBubbleDynamicRes());
                 }
-                al5.d().i(getUser());
+                zl5.d().i(getUser());
                 this.mLoadDataMode = 1;
                 this.mLoadDataCallBack.c(Boolean.TRUE);
                 return;
@@ -388,14 +388,14 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             if (z3) {
                 setErrorString(str);
             } else {
-                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0e0f));
+                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0e1f));
             }
             this.mLoadDataMode = 1;
             this.mLoadDataCallBack.c(Boolean.FALSE);
         }
     }
 
-    public void i0(ProfileHttpResponseMessage profileHttpResponseMessage) {
+    public void j0(ProfileHttpResponseMessage profileHttpResponseMessage) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048587, this, profileHttpResponseMessage) != null) || profileHttpResponseMessage == null) {
             return;
@@ -412,7 +412,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         new PersonPostListData().parserData(profileHttpResponseMessage);
     }
 
-    public void j0(ProfileSocketResponseMessage profileSocketResponseMessage) {
+    public void k0(ProfileSocketResponseMessage profileSocketResponseMessage) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048588, this, profileSocketResponseMessage) != null) || profileSocketResponseMessage == null) {
             return;

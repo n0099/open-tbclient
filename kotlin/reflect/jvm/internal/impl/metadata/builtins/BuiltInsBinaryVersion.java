@@ -12,7 +12,7 @@ import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.ranges.IntRange;
 import kotlin.reflect.jvm.internal.impl.metadata.deserialization.BinaryVersion;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BuiltInsBinaryVersion extends BinaryVersion {
     public static final Companion Companion = new Companion(null);
     @JvmField
@@ -20,7 +20,7 @@ public final class BuiltInsBinaryVersion extends BinaryVersion {
     @JvmField
     public static final BuiltInsBinaryVersion INVALID_VERSION = new BuiltInsBinaryVersion(new int[0]);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }

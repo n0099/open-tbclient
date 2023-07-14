@@ -73,6 +73,8 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int CHAT_ROOM_BATCH_TYPE_SUBSCRIBE = 2;
     public static final int CHAT_ROOM_FETCH_ENTER_ACTION = 1;
     public static final int CHAT_ROOM_FETCH_OTHER_ACTION = 0;
+    public static final int CHAT_ROOM_OP_TYPE_ADD = 1;
+    public static final int CHAT_ROOM_OP_TYPE_DEL = 2;
     public static final int CHAT_TYPE_ADVISORY = 58;
     public static final int CHAT_TYPE_BJH_GROUP_POSTING = 60;
     public static final int CHAT_TYPE_CLUE = 16;
@@ -267,7 +269,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_GROUP_JOINTYPE_PULLED = 1;
     public static final int IM_GROUP_JOINTYPE_QRCODE = 3;
     public static final int IM_GROUP_MEMBER = 0;
-    public static final String IM_GROUP_MSG_DEFAULT_RECOMMEND_DESC = "[新消息]";
+    public static final String IM_GROUP_MSG_DEFAULT_RECOMMEND_DESC = "";
     public static final int IM_GROUP_STATE_APPLYING = 1;
     public static final int IM_GROUP_STATE_NORMAL = 0;
     public static final int IM_GROUP_STATE_PASSED = 2;
@@ -400,6 +402,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_MSG_TYPE_PASS = 27;
     public static final int IM_MSG_TYPE_PASS_SAVE = 28;
     public static final int IM_MSG_TYPE_PRODUCT = 25;
+    public static final int IM_MSG_TYPE_QUICK_PRODUCT_CARD = 61;
     public static final int IM_MSG_TYPE_QUIT_GROUP = 1003;
     public static final int IM_MSG_TYPE_REAL_TIME_AUDIO = 5;
     public static final int IM_MSG_TYPE_REAL_TIME_VIDEO = 6;
@@ -448,6 +451,8 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_PL_DEFAULT = 1;
     public static final int IM_PL_MAP = 4;
     public static final int IM_PUSH_MESSAGE = 0;
+    public static final String IM_RECEIVE_SERVER_COMMON_TYPE_HTML = "html";
+    public static final String IM_RECEIVE_SERVER_COMMON_TYPE_TEXT = "text";
     public static final int IM_RECORD_SHOW = 1;
     public static final int IM_REMIND_TYPE_AT_ME_CREATOR = 2;
     public static final int IM_REMIND_TYPE_AT_ME_NOT_CREATOR = 1;
@@ -462,6 +467,8 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_SESSION_TYPE_IM = 0;
     public static final int IM_SESSION_TYPE_MEDIA = 1;
     public static final int IM_SESSION_TYPE_VIRTUAL_AGG = 2;
+    public static final int IM_SETTING_NO_DISTURB_OFF = 5;
+    public static final int IM_SETTING_NO_DISTURB_ON = 6;
     public static final int IM_SETTING_SUB_COMMODITY = 5;
     public static final int IM_SETTING_SUB_DISTURB = 3;
     public static final int IM_SETTING_SUB_GRAPHIC = 4;
@@ -499,7 +506,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int INTERACTIVE_STATUS_DEFAULT = 0;
     public static final int INTERACTIVE_STATUS_SUCCESS = 1;
     public static final int INTERACTIVE_ZAN = 1;
-    public static final String INTER_ACTIVE_MSG_RECOMMEND_DESC = "你有一条互动消息";
+    public static final String INTER_ACTIVE_MSG_RECOMMEND_DESC = "暂无互动消息，快和朋友互动起来吧>";
     public static boolean IS_UPDATE_VERSION = false;
     public static final int KEY_ADVISORY_PA_EXT = 27;
     public static final String KEY_CONNECTION_STATE = "lcs";

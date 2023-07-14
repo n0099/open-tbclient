@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.kwad.components.core.widget.KsStyledTextButton;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class o extends d implements View.OnClickListener {
     public KsStyledTextButton vU;
     public View vV;
@@ -15,13 +15,13 @@ public final class o extends d implements View.OnClickListener {
     public ViewGroup vl;
 
     public o(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
-        this.vl = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04ad, viewGroup, false);
+        this.vl = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04b8, viewGroup, false);
         initView();
     }
 
     private void initView() {
-        this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f0912f0);
-        this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f0912f1);
+        this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f091304);
+        this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f091305);
         this.vU.setOnClickListener(this);
         this.vV.setOnClickListener(this);
     }

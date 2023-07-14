@@ -23,16 +23,16 @@ public class a extends com.kwad.sdk.g.a {
     public d ar;
     public final Map<String, Integer> as;
     public Service at;
-    public final HandlerC0589a au;
+    public final HandlerC0594a au;
 
     /* renamed from: com.ksad.download.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class HandlerC0589a extends Handler {
+    public static class HandlerC0594a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<a> av;
 
-        public HandlerC0589a(a aVar) {
+        public HandlerC0594a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,7 +78,7 @@ public class a extends com.kwad.sdk.g.a {
             }
         }
         this.as = new ConcurrentHashMap();
-        this.au = new HandlerC0589a(this);
+        this.au = new HandlerC0594a(this);
     }
 
     private void b(Intent intent) {

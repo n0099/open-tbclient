@@ -6,7 +6,7 @@ import kotlin.reflect.KDeclarationContainer;
 import kotlin.reflect.KProperty1;
 import kotlin.reflect.jvm.internal.impl.builtins.FunctionTypesKt;
 import kotlin.reflect.jvm.internal.impl.types.UnwrappedType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final /* synthetic */ class MemberDeserializer$containsSuspendFunctionType$1 extends PropertyReference1 {
     public static final KProperty1 INSTANCE = new MemberDeserializer$containsSuspendFunctionType$1();
 

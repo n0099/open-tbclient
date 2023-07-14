@@ -1,23 +1,32 @@
 package com.baidu.tieba;
 
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.pm.ProviderInfo;
+import android.content.res.Resources;
+import android.database.ContentObserver;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.net.Uri;
-import android.os.Bundle;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.tieba.ax2;
+import android.view.KeyCharacterMap;
+import android.view.ViewConfiguration;
+import android.view.WindowManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,44 +34,118 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
+import java.io.Closeable;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Service
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class dg3 extends UnitedSchemeBaseInterceptor {
+public class dg3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final Set<String> b;
+    public static long b;
+    public static ContentObserver c;
+    public static ContentResolver d;
+    public static PackageManager e;
+    public static boolean f;
+    public static long g;
+    public static List<bg3> h;
+    public static Runnable i;
+    public static int j;
+    public static Uri k;
+    public static String l;
+    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
-    public String getInterceptorName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "aiapps_launch_interceptor" : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes5.dex */
-    public class a implements rj4 {
+    public static class a extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Uri b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ dg3 e;
+        public final /* synthetic */ Handler a;
 
-        public a(dg3 dg3Var, String str, Uri uri, String str2, UnitedSchemeEntity unitedSchemeEntity) {
+        /* renamed from: com.baidu.tieba.dg3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0271a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Uri a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0271a(a aVar, Uri uri) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, uri};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = uri;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    dg3.q(this.b.a, this.a);
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Handler handler, Handler handler2) {
+            super(handler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dg3Var, str, uri, str2, unitedSchemeEntity};
+                Object[] objArr = {handler, handler2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Handler) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = handler2;
+        }
+
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z, Uri uri) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, uri) == null) {
+                super.onChange(z, uri);
+                if (dg3.a) {
+                    Log.d("SYSTEM_SCREENSHOT", "onChange(), uri: " + uri);
+                }
+                ExecutorUtilsExt.postOnElastic(new RunnableC0271a(this, uri), "systemScreenShot", 1);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Handler b;
+        public final /* synthetic */ d c;
+
+        public b(String str, Handler handler, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, handler, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -72,28 +155,116 @@ public class dg3 extends UnitedSchemeBaseInterceptor {
                     return;
                 }
             }
-            this.e = dg3Var;
             this.a = str;
+            this.b = handler;
+            this.c = dVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            long j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                dg3.e();
+                if (dg3.a) {
+                    Log.d("SYSTEM_SCREENSHOT", "mCount: " + dg3.j);
+                }
+                if (co3.a()) {
+                    j = 500;
+                } else {
+                    j = 100;
+                }
+                if (!dg3.m(this.a, dg3.k) && dg3.j <= 10) {
+                    this.b.postDelayed(dg3.i, j);
+                } else if (dg3.m(this.a, dg3.k) && dg3.l() && !dg3.o(this.a, dg3.k)) {
+                    for (bg3 bg3Var : dg3.h) {
+                        if (bg3Var != null) {
+                            bg3Var.a(this.c);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static String a;
+        public static String[] b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-862653286, "Lcom/baidu/tieba/dg3$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-862653286, "Lcom/baidu/tieba/dg3$c;");
+                    return;
+                }
+            }
+            a = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            b = new String[]{"_display_name", "_data", "date_added", "_id"};
+        }
+
+        public static boolean e(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+                if (str != null && (str.toLowerCase().contains(StatisticConstants.SCREENSHOT) || str.contains("截屏") || str.contains("截图"))) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public static boolean f(long j, long j2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+                if (Math.abs(j - j2) <= 10) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public Uri b;
+
+        public d(String str, Long l, Uri uri) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, l, uri};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            l.longValue();
             this.b = uri;
-            this.c = str2;
-            this.d = unitedSchemeEntity;
         }
 
-        @Override // com.baidu.tieba.rj4
-        public void a(@Nullable Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, map) != null) || map == null) {
-                return;
-            }
-            this.e.e(this.b, map.get(this.a), this.c, this.d);
-        }
-
-        @Override // com.baidu.tieba.rj4
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && dg3.a) {
-                Log.e("SwanLaunchInterceptor", "getOpenBundleId", exc);
-            }
+        public /* synthetic */ d(String str, Long l, Uri uri, a aVar) {
+            this(str, l, uri);
         }
     }
 
@@ -110,235 +281,291 @@ public class dg3 extends UnitedSchemeBaseInterceptor {
                 return;
             }
         }
-        a = ms1.a;
-        HashSet hashSet = new HashSet();
-        b = hashSet;
-        hashSet.add("_baiduboxapp");
-        b.add(WebChromeClient.KEY_ARG_CALLBACK);
-        b.add("upgrade");
-        b.add("_naExtParams");
+        a = fs1.a;
+        g = System.currentTimeMillis() - 10000;
+        h = new ArrayList();
+        j = 0;
+        l = null;
+        m = null;
     }
 
-    public dg3() {
+    public static int j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            boolean hasPermanentMenuKey = ViewConfiguration.get(AppRuntime.getAppContext()).hasPermanentMenuKey();
+            boolean deviceHasKey = KeyCharacterMap.deviceHasKey(4);
+            if (!hasPermanentMenuKey && !deviceHasKey) {
+                Resources resources = AppRuntime.getAppContext().getResources();
+                return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", EMABTest.TYPE_DIMEN, "android"));
             }
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public final String c(Uri uri) {
+    public static boolean m(String str, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, uri)) == null) {
+            if (co3.a()) {
+                return n(uri);
+            }
+            new BitmapFactory.Options().inJustDecodeBounds = true;
+            if (BitmapFactory.decodeFile(str) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static /* synthetic */ int e() {
+        int i2 = j;
+        j = i2 + 1;
+        return i2;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - b;
+            if (jx2.a().b() && currentTimeMillis > 2000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            if (System.currentTimeMillis() - g <= 1000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static double i(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            if (uri == null) {
-                return "";
-            }
-            HashSet hashSet = new HashSet();
-            hashSet.add("_naExtParams");
-            return up3.m(uri, hashSet);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String d(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            return up3.i(uri.getEncodedQuery(), b);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:62:0x023f  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x024d  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void e(Uri uri, String str, String str2, UnitedSchemeEntity unitedSchemeEntity) {
-        String str3;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, str, str2, unitedSchemeEntity) == null) {
-            String d = d(uri);
-            if (a) {
-                Log.d("SwanLaunchInterceptor", "query: " + d);
-            }
-            String n = up3.n(str, uri, true);
-            if (a) {
-                Log.d("SwanLaunchInterceptor", "pagePath: " + n);
-            }
-            String h = SwanLauncher.h();
-            bc3.K().q().W().J0(h);
-            String uri2 = uri.toString();
-            String queryParameter = uri.getQueryParameter("_naExtParams");
-            if (!TextUtils.isEmpty(queryParameter)) {
-                uri2 = c(uri);
-            }
-            ax2.a aVar = (ax2.a) ((ax2.a) ((ax2.a) new ax2.a().v0(str)).K0(uri2)).J0(h);
-            if (!TextUtils.isEmpty(n) && !TextUtils.isEmpty(d)) {
-                aVar.R0(n + "?" + d);
-            } else if (!TextUtils.isEmpty(n)) {
-                aVar.R0(n);
-            }
-            if (TextUtils.isEmpty(str2)) {
-                str3 = "_naExtParams";
-            } else {
-                try {
-                    JSONObject jSONObject = new JSONObject(str2);
-                    if (a) {
-                        j = System.nanoTime();
-                    } else {
-                        j = 0;
-                    }
-                    ai3.h(jSONObject, str);
-                    if (a) {
-                        Log.d("SwanLaunchInterceptor", "SwanAppStabilityConfig#parseConfig 耗时(ns): " + (System.nanoTime() - j));
-                    }
-                    aVar.I0(jSONObject.optString("from"));
-                    aVar.P0(jSONObject.optString("notinhis"));
-                    aVar.X0(jSONObject.optString("subscribeWithoutClick"));
-                    JSONObject optJSONObject = jSONObject.optJSONObject("ext");
-                    aVar.r0("srcAppId", jSONObject.optString("srcAppId"));
-                    if (cc3.b0() == null) {
-                        str3 = "_naExtParams";
-                    } else {
-                        String O = cc3.b0().O();
-                        aVar.r0("srcAppKey", O);
-                        int type = cc3.b0().W().getType();
-                        str3 = "_naExtParams";
-                        try {
-                            aVar.q0("srcPkgType", type);
-                            if (a) {
-                                Log.d("SwanLaunchInterceptor", "srcAppKey = " + O + "  ,srcPkgType = " + type);
-                            }
-                        } catch (JSONException e) {
-                            e = e;
-                            if (a) {
-                                Log.d("SwanLaunchInterceptor", "getLaunchFrom failed: " + Log.getStackTraceString(e));
-                            }
-                            aVar.z("tool_ip", unitedSchemeEntity.getParam("tip"));
-                            aVar.z("tool_port", unitedSchemeEntity.getParam("tport"));
-                            aVar.z("projectId", unitedSchemeEntity.getParam("projectId"));
-                            aVar.z("fromHost", unitedSchemeEntity.getParam("fromHost"));
-                            aVar.z("spuId", unitedSchemeEntity.getParam("spuId"));
-                            aVar.z("contentId", unitedSchemeEntity.getParam("contentId"));
-                            Bundle bundle = null;
-                            if (!TextUtils.isEmpty(queryParameter)) {
-                            }
-                            if (a) {
-                            }
-                            SwanLauncher.j().n(aVar, bundle);
-                        }
-                    }
-                    if (!jSONObject.isNull(PrefetchEvent.EVENT_DATA_EXTRA_DATA)) {
-                        aVar.r0(PrefetchEvent.EVENT_DATA_EXTRA_DATA, jSONObject.optString(PrefetchEvent.EVENT_DATA_EXTRA_DATA));
-                    }
-                    aVar.r0("srcAppPage", jSONObject.optString("srcAppPage"));
-                    JSONObject b2 = fs4.b(aVar.T(), jSONObject.optJSONObject("ubc"));
-                    if (b2 != null) {
-                        aVar.r0("ubc", b2.toString());
-                    }
-                    if (optJSONObject != null) {
-                        aVar.y0(optJSONObject.optString("clkid"));
-                        aVar.r0("aiapp_abtest_info", optJSONObject.optString("aiapp_abtest_info"));
-                        aVar.r0(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, optJSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT));
-                        aVar.q0("click_time", optJSONObject.optLong("click", -1L));
-                    }
-                    String optString = jSONObject.optString("veloce");
-                    if (!TextUtils.isEmpty(optString)) {
-                        long optLong = new JSONObject(optString).optLong(LaunchedTaskSpeedStats.KEY_START_TIME);
-                        if (optLong > 0) {
-                            aVar.x("veloce_start_time", optLong);
-                        }
-                    }
-                } catch (JSONException e2) {
-                    e = e2;
-                    str3 = "_naExtParams";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(d, uri);
+                if (bitmap == null) {
+                    return 0.0d;
                 }
+                int height = bitmap.getHeight();
+                int width = bitmap.getWidth();
+                if (width == 0) {
+                    return 0.0d;
+                }
+                return height / (width * 1.0d);
+            } catch (Exception unused) {
+                return 0.0d;
             }
-            aVar.z("tool_ip", unitedSchemeEntity.getParam("tip"));
-            aVar.z("tool_port", unitedSchemeEntity.getParam("tport"));
-            aVar.z("projectId", unitedSchemeEntity.getParam("projectId"));
-            aVar.z("fromHost", unitedSchemeEntity.getParam("fromHost"));
-            aVar.z("spuId", unitedSchemeEntity.getParam("spuId"));
-            aVar.z("contentId", unitedSchemeEntity.getParam("contentId"));
-            Bundle bundle2 = null;
-            if (!TextUtils.isEmpty(queryParameter)) {
-                bundle2 = new Bundle();
-                bundle2.putString(str3, queryParameter);
-            }
-            if (a) {
-                Log.d("SwanLaunchInterceptor", "launchParams: " + aVar + " \n_naExtParmas: " + queryParameter);
-            }
-            SwanLauncher.j().n(aVar, bundle2);
         }
+        return invokeL.doubleValue;
     }
 
-    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
-    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLL;
+    public static boolean n(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, unitedSchemeEntity, callbackHandler)) == null) {
-            Uri uri = unitedSchemeEntity.getUri();
-            if (uri == null || !TextUtils.equals(uri.getHost(), "swan")) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, uri)) == null) {
+            if (uri == null) {
                 return false;
             }
-            if (unitedSchemeEntity.isOnlyVerify()) {
-                return true;
-            }
-            String j = up3.j(uri);
-            if (a) {
-                Log.d("SwanLaunchInterceptor", "mAppId: " + j);
-            }
-            if (TextUtils.isEmpty(j)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                vn3 vn3Var = new vn3();
-                vn3Var.k(1L);
-                vn3Var.i(1L);
-                vn3Var.f("appId is empty");
-                zn3.a().f(vn3Var);
-                dj3 dj3Var = new dj3();
-                dj3Var.q(vi3.n(0));
-                dj3Var.p(vn3Var);
-                dj3Var.l("scheme", uri.toString());
-                vi3.R(dj3Var);
-                h53.k(vn3Var);
-                return true;
-            }
-            rr4.f().b(5000);
-            String uri2 = uri.toString();
-            c92.i("SwanLaunchInterceptor", "launch scheme = " + uri2);
-            String param = unitedSchemeEntity.getParam("_baiduboxapp");
-            String str = null;
-            if (!TextUtils.isEmpty(param)) {
-                try {
-                    str = new JSONObject(param).optString("navi");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            String str2 = str;
-            if (ro4.e().g(!wp3.G()) && TextUtils.equals(str2, "naviTo")) {
-                if (!PMSConstants.a(nj4.b())) {
-                    c92.c("SwanLaunchInterceptor", "STOP :: Not Support BDTLS");
+            try {
+                if (MediaStore.Images.Media.getBitmap(d, uri) == null) {
                     return false;
                 }
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(j);
-                mj4.e(arrayList, bc3.K().q().O(), new a(this, j, uri, param, unitedSchemeEntity));
-            } else {
-                e(uri, j, param, unitedSchemeEntity);
+                return true;
+            } catch (Exception unused) {
+                return false;
             }
-            sw2.n(str2, j, callbackHandler, unitedSchemeEntity, unitedSchemeEntity.getParam("cb"));
-            return true;
         }
-        return invokeLLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean p(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || yp4.a(context, com.kuaishou.weapon.p0.h.i) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void r(bg3 bg3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65554, null, bg3Var) == null) && bg3Var != null) {
+            h.add(bg3Var);
+        }
+    }
+
+    public static void u(bg3 bg3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65557, null, bg3Var) == null) && bg3Var != null) {
+            h.remove(bg3Var);
+        }
+    }
+
+    public static boolean k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (co3.a()) {
+                Uri uri = k;
+                if (uri != null && !TextUtils.equals(l, uri.toString())) {
+                    return false;
+                }
+                return true;
+            } else if (!TextUtils.isEmpty(str) && !TextUtils.equals(m, str)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean o(String str, Uri uri) {
+        InterceptResult invokeLL;
+        double d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, uri)) == null) {
+            Point point = new Point();
+            WindowManager windowManager = (WindowManager) AppRuntime.getAppContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
+            if (windowManager.getDefaultDisplay() != null) {
+                windowManager.getDefaultDisplay().getSize(point);
+            }
+            int j2 = point.y + j();
+            int i2 = point.x;
+            double d3 = 0.0d;
+            if (i2 != 0) {
+                d2 = j2 / (i2 * 1.0d);
+            } else {
+                d2 = 0.0d;
+            }
+            double d4 = d2 * 1.2d;
+            if (co3.a()) {
+                d3 = i(uri);
+            }
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(str, options);
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            if (i4 != 0) {
+                d3 = i3 / (i4 * 1.0d);
+            }
+            if (d3 > d4) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 4, insn: 0x0157: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:44:0x0157 */
+    public static void q(Handler handler, Uri uri) {
+        Cursor cursor;
+        Closeable closeable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65553, null, handler, uri) == null) {
+            if (!uri.toString().matches(c.a + ".*")) {
+                return;
+            }
+            if (t() && f) {
+                g = System.currentTimeMillis();
+                return;
+            }
+            j = 0;
+            g = System.currentTimeMillis();
+            Closeable closeable2 = null;
+            try {
+                try {
+                    cursor = d.query(uri, c.b, null, null, "date_added DESC");
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToFirst()) {
+                                String string = cursor.getString(cursor.getColumnIndex("_data"));
+                                long j2 = cursor.getLong(cursor.getColumnIndex("date_added"));
+                                long currentTimeMillis = System.currentTimeMillis() / 1000;
+                                k = uri;
+                                if (co3.a()) {
+                                    k = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex("_id")));
+                                }
+                                if (a) {
+                                    Log.d("SYSTEM_SCREENSHOT", "imagepath: " + string);
+                                    Log.d("SYSTEM_SCREENSHOT", "dateAdded: " + j2);
+                                    Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + currentTimeMillis);
+                                    Log.d("SYSTEM_SCREENSHOT", "imageUri: " + k.toString());
+                                }
+                                if (k(string)) {
+                                    zr4.d(cursor);
+                                    return;
+                                }
+                                l = k.toString();
+                                m = string;
+                                if (c.e(string) && c.f(currentTimeMillis, j2)) {
+                                    f = true;
+                                    b bVar = new b(string, handler, new d(string, Long.valueOf(j2), k, null));
+                                    i = bVar;
+                                    handler.post(bVar);
+                                } else {
+                                    f = false;
+                                }
+                            }
+                        } catch (RuntimeException unused) {
+                            if (e != null) {
+                                List<ProviderInfo> queryContentProviders = e.queryContentProviders(null, 0, 131072);
+                                HashMap hashMap = new HashMap();
+                                hashMap.put("from", "SystemScreenshot");
+                                hashMap.put("page", "SystemScreenshot");
+                                hashMap.put("ext", queryContentProviders.toString());
+                                ci3.j(BdNetTypeUtil.NATION_CODE, hashMap);
+                            }
+                            zr4.d(cursor);
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    closeable2 = closeable;
+                    zr4.d(closeable2);
+                    throw th;
+                }
+            } catch (RuntimeException unused2) {
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                zr4.d(closeable2);
+                throw th;
+            }
+            zr4.d(cursor);
+        }
+    }
+
+    public static void s(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65555, null, context) == null) {
+            e = context.getPackageManager();
+            Handler handler = new Handler(Looper.getMainLooper());
+            d = context.getContentResolver();
+            c = new a(handler, handler);
+            if (p(context)) {
+                d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, c);
+            } else if (a && pp3.G()) {
+                v82.i("SYSTEM_SCREENSHOT", "WRITE_EXTERNAL_STORAGE permission denied");
+            }
+        }
     }
 }

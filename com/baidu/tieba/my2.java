@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,11 +8,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class my2 extends oy2 {
+/* loaded from: classes7.dex */
+public class my2 implements u13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String z;
+    public oy2 a;
+    public int b;
+    public int c;
+    public int d;
+    public float e;
 
     public my2() {
         Interceptable interceptable = $ic;
@@ -28,28 +31,50 @@ public class my2 extends oy2 {
                 return;
             }
         }
-        this.z = "";
+        this.b = 0;
+        this.c = -16777216;
+        this.d = -1;
+        this.e = 0.0f;
     }
 
-    @Override // com.baidu.tieba.s72, com.baidu.tieba.b23
+    @Override // com.baidu.tieba.u13
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !TextUtils.isEmpty(this.z);
+            oy2 oy2Var = this.a;
+            if (oy2Var != null && oy2Var.isValid() && this.d != -1) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.oy2, com.baidu.tieba.s72, com.baidu.tieba.b23
+    @Override // com.baidu.tieba.u13
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("radius")) {
             return;
         }
-        super.a(jSONObject);
-        this.z = jSONObject.optString("cb");
-        jSONObject.optDouble("latitude");
-        jSONObject.optDouble("longitude");
+        oy2 oy2Var = new oy2();
+        this.a = oy2Var;
+        oy2Var.a(jSONObject);
+        if (!this.a.isValid()) {
+            return;
+        }
+        this.b = iy2.a(jSONObject.optString("color"), 0);
+        this.c = iy2.a(jSONObject.optString("fillColor"), -16777216);
+        this.d = jSONObject.optInt("radius", -1);
+        this.e = Math.abs(iy2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
+        }
+        return (String) invokeV.objValue;
     }
 }

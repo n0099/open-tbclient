@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.godreply;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n4a;
+import com.baidu.tieba.yca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import tbclient.Post;
 public class LookMoreSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<n4a> list;
+    public List<yca> list;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LookMoreSocketResMessage() {
@@ -60,10 +60,10 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
             }
             if (getPostListResIdl != null && (dataRes = getPostListResIdl.data) != null && (list = dataRes.post_list) != null && list.size() > 0) {
                 for (Post post : list) {
-                    n4a n4aVar = new n4a();
-                    n4aVar.H0(post);
-                    n4aVar.O = 102;
-                    this.list.add(n4aVar);
+                    yca ycaVar = new yca();
+                    ycaVar.H0(post);
+                    ycaVar.O = 102;
+                    this.list.add(ycaVar);
                 }
             }
             return getPostListResIdl;
@@ -71,7 +71,7 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List<n4a> getData() {
+    public List<yca> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

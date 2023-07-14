@@ -1,7 +1,7 @@
 package com.kwad.components.ad.interstitial.widget;
 
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface i {
     void a(KSFrameLayout kSFrameLayout);
 
@@ -20,7 +20,7 @@ public interface i {
     void dn();
 
     /* renamed from: do */
-    void mo167do();
+    void mo169do();
 
     void dp();
 

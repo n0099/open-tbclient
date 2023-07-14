@@ -1,15 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
-import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes8.dex */
-public interface um7 extends FrsLoadMoreModel.b {
-    FrsViewData c1();
+public interface um7 {
+    void a(boolean z);
 
-    l9 getPageContext();
+    void b(boolean z, boolean z2);
 
-    BdUniqueId getUniqueId();
+    boolean c();
 
-    String v();
+    void onChangeSkinType(int i);
 }

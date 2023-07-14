@@ -1,19 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class gk4 extends ck4<bl4> {
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+/* loaded from: classes6.dex */
+public class gk4 implements dk4<sk4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "framework" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dk4
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
+        }
+    }
 
     public gk4() {
         Interceptable interceptable = $ic;
@@ -29,56 +42,20 @@ public class gk4 extends ck4<bl4> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ck4
-    /* renamed from: f */
-    public ContentValues c(bl4 bl4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dk4
+    public void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bl4Var)) == null) {
-            ContentValues a = super.a(bl4Var);
-            a.put("pkg_type", Integer.valueOf(bl4Var.o));
-            return a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(b());
         }
-        return (ContentValues) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ck4
-    /* renamed from: g */
-    public bl4 d(Cursor cursor) {
-        InterceptResult invokeL;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                bl4 bl4Var = new bl4();
-                if (b(cursor, bl4Var)) {
-                    return bl4Var;
-                }
-                return null;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT UNIQUE,category INT NOT NULL," + NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME + " TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0);";
         }
-        return (bl4) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ck4
-    public List<bl4> e(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    bl4 bl4Var = new bl4();
-                    if (b(cursor, bl4Var)) {
-                        arrayList.add(bl4Var);
-                    }
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

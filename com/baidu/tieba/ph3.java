@@ -1,37 +1,15 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ProviderInfo;
-import android.content.pm.ResolveInfo;
-import android.content.pm.ShortcutInfo;
-import android.content.pm.ShortcutManager;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Icon;
-import android.net.Uri;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
 import android.text.TextUtils;
-import android.text.style.ClickableSpan;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
-import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.core.content.pm.ShortcutManagerCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.statistic.ConfigSpeedStat;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.ax2;
-import com.baidu.tieba.gb3;
-import com.baidu.tieba.wf2;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.swan.apps.so.SoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,45 +17,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.zip.ZipFile;
 /* loaded from: classes7.dex */
-public final class ph3 {
+public class ph3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final String b;
+    public static final boolean c;
+    public static final String[] d;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface f {
-        void a(int i);
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "v8.engine" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
-    public static class c implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
 
+        /* renamed from: com.baidu.tieba.ph3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class a implements DialogInterface.OnClickListener {
+        public static class RunnableC0452a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                }
-            }
-
-            public a(c cVar) {
+            public RunnableC0452a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -87,247 +63,20 @@ public final class ph3 {
                     }
                 }
             }
-        }
 
-        public c(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ph3.a();
                 }
             }
-            this.a = context;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public static void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gb3.a aVar = new gb3.a(this.a);
-                aVar.n(new kr3());
-                gb3 c = aVar.c();
-                aVar.U(R.string.obfuscated_res_0x7f0f0130);
-                aVar.w(ph3.p(this.a, c));
-                aVar.y();
-                aVar.H(R.string.obfuscated_res_0x7f0f0148, new a(this));
-                aVar.J(jv2.M().a());
-                aVar.a();
-                c.setCancelable(false);
-                c.show();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements wf2.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zw2 a;
-        public final /* synthetic */ ax2.a b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ f d;
-
-        public a(zw2 zw2Var, ax2.a aVar, int i, f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zw2Var, aVar, Integer.valueOf(i), fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zw2Var;
-            this.b = aVar;
-            this.c = i;
-            this.d = fVar;
-        }
-
-        @Override // com.baidu.tieba.wf2.b
-        public void a(Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) && cc3.M() != null) {
-                SwanAppActivity w = bc3.K().w();
-                ph3.q(w, this.a, this.b, bitmap, this.c);
-                ph3.r(w, this.a, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zw2 a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ zw2 d;
-        public final /* synthetic */ Bitmap e;
-        public final /* synthetic */ ax2 f;
-
-        public b(zw2 zw2Var, Context context, int i, zw2 zw2Var2, Bitmap bitmap, ax2 ax2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zw2Var, context, Integer.valueOf(i), zw2Var2, bitmap, ax2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zw2Var;
-            this.b = context;
-            this.c = i;
-            this.d = zw2Var2;
-            this.e = bitmap;
-            this.f = ax2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                bw1 X = jv2.X();
-                String q1 = this.a.q1();
-                if (!TextUtils.isEmpty(q1) && X.b(this.b, q1)) {
-                    ph3.n("click");
-                    if (X.a(this.b, q1)) {
-                        if (this.c == 1) {
-                            return;
-                        }
-                        ph3.u(this.b);
-                        return;
-                    } else if (X.c(this.b, q1)) {
-                        ph3.n("show");
-                        if (this.c == 1) {
-                            return;
-                        }
-                        ph3.u(this.b);
-                        return;
-                    }
-                }
-                if (jo3.j()) {
-                    ph3.t(this.b, this.d.H(), this.d.K(), this.e, ax2.g1(this.b, this.f));
-                } else {
-                    try {
-                        this.b.sendBroadcast(ph3.m(this.d.K(), this.e, ax2.g1(this.b, this.f)));
-                    } catch (Throwable th) {
-                        if (ph3.a) {
-                            th.printStackTrace();
-                        }
-                        try {
-                            this.b.sendBroadcast(ph3.m(this.d.K(), ap3.a(this.e, ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT, true), ax2.g1(this.b, this.f)));
-                        } catch (Throwable th2) {
-                            if (ph3.a) {
-                                th2.printStackTrace();
-                            }
-                            ub3.f(this.b, R.string.obfuscated_res_0x7f0f01f4).G();
-                        }
-                    }
-                }
-                if (this.c == 1) {
-                    return;
-                }
-                ph3.u(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d extends ClickableSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gb3 a;
-        public final /* synthetic */ Context b;
-
-        public d(gb3 gb3Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gb3Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gb3Var;
-            this.b = context;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-                gp3.g(this.b);
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                textPaint.setUnderlineText(false);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ zw2 c;
-
-        public e(f fVar, Context context, zw2 zw2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fVar, context, zw2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fVar;
-            this.b = context;
-            this.c = zw2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(ph3.s(this.b, this.c.K(), this.c.H()));
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                ExecutorUtilsExt.postOnElastic(new RunnableC0452a(), "V8SoCleaner", 3);
             }
         }
     }
@@ -345,214 +94,291 @@ public final class ph3 {
                 return;
             }
         }
-        a = ms1.a;
+        a = fs1.a;
+        b = ru2.g() + "/v8_so/";
+        c = cv2.e0().b();
+        d = cv2.e0().a();
+        e = null;
     }
 
-    public static void k(Context context, zw2 zw2Var, f fVar) {
+    public static void a() {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, context, zw2Var, fVar) == null) {
-            j(context, zw2Var, 0, fVar);
-        }
-    }
-
-    public static Intent m(String str, Bitmap bitmap, Intent intent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, str, bitmap, intent)) == null) {
-            Intent intent2 = new Intent(ShortcutManagerCompat.ACTION_INSTALL_SHORTCUT);
-            intent2.putExtra("android.intent.extra.shortcut.INTENT", intent);
-            intent2.putExtra("android.intent.extra.shortcut.NAME", str);
-            intent2.putExtra("android.intent.extra.shortcut.ICON", bitmap);
-            intent2.putExtra("duplicate", false);
-            return intent2;
-        }
-        return (Intent) invokeLLL.objValue;
-    }
-
-    public static void r(Context context, zw2 zw2Var, f fVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65554, null, context, zw2Var, fVar) != null) || fVar == null) {
-            return;
-        }
-        if (context == null) {
-            fVar.a(-1);
-        } else {
-            wo3.d(new e(fVar, context, zw2Var), "SwanAppShortcutHelper", 1000L, TimeUnit.MILLISECONDS);
-        }
-    }
-
-    public static void l(zw2 zw2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, zw2Var) == null) {
-            zw2Var.R0(null);
-            zw2Var.I0("1230000000000000");
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void u(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, null, context) == null) {
-            if (!(context instanceof Activity)) {
-                if (!a) {
-                    return;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File file = new File(b);
+            if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+                String D = pp3.D();
+                for (File file2 : listFiles) {
+                    if (!TextUtils.equals(file2.getName(), D)) {
+                        zr4.L(file2);
+                    }
                 }
-                throw new IllegalArgumentException("context must be activity.");
             }
-            wp3.a0(new c(context));
-        }
-    }
-
-    public static void i(Context context, zw2 zw2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, context, zw2Var) == null) {
-            k(context, zw2Var, null);
-        }
-    }
-
-    public static void j(Context context, zw2 zw2Var, int i, f fVar) {
-        Uri C;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65546, null, context, zw2Var, i, fVar) == null) {
-            String Q = zw2Var.Q();
-            if (TextUtils.isEmpty(Q) || (C = wp3.C(Q)) == null) {
-                return;
-            }
-            l(zw2Var);
-            ax2.a aVar = (ax2.a) ((ax2.a) ((ax2.a) ((ax2.a) ((ax2.a) ((ax2.a) ((ax2.a) ((ax2.a) ((ax2.a) ((ax2.a) ((ax2.a) new ax2.a().v0(zw2Var.H())).I0(zw2Var.T())).P0(zw2Var.c0())).R0(zw2Var.e0())).y0(zw2Var.L())).A0(zw2Var.n0())).L0(zw2Var.p0())).a1(zw2Var.k0())).u0(zw2Var.G())).Q0(zw2Var.d0())).K0(ax2.h1(zw2Var.H(), zw2Var.T(), zw2Var.G()));
-            if (zo3.d(C)) {
-                q(context, zw2Var, aVar, zo3.c(C, context), i);
-                r(context, zw2Var, fVar);
-                return;
-            }
-            wf2.c(Q, aVar.G(), new a(zw2Var, aVar, i, fVar));
-        }
-    }
-
-    public static void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
-            ej3 ej3Var = new ej3();
-            ej3Var.f = bc3.K().getAppId();
-            ej3Var.b = str;
-            ej3Var.a = vi3.n(bc3.K().k());
-            if (cc3.b0() != null && cc3.b0().W() != null) {
-                ej3Var.c = cc3.b0().W().T();
-            }
-            vi3.x("1591", ej3Var);
         }
     }
 
     @NonNull
-    public static String o(Context context) {
-        InterceptResult invokeL;
-        ActivityInfo activityInfo;
-        String[] split;
+    public static ArrayList<String> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            Intent intent = new Intent("android.intent.action.MAIN");
-            intent.addCategory("android.intent.category.HOME");
-            ResolveInfo resolveActivity = context.getPackageManager().resolveActivity(intent, 0);
-            if (resolveActivity != null && (activityInfo = resolveActivity.activityInfo) != null && !"android".equals(activityInfo.packageName)) {
-                PackageManager packageManager = context.getPackageManager();
-                ActivityInfo activityInfo2 = resolveActivity.activityInfo;
-                List<ProviderInfo> queryContentProviders = packageManager.queryContentProviders(activityInfo2.processName, activityInfo2.applicationInfo.uid, 65536);
-                if (queryContentProviders == null) {
-                    return "com.android.launcher3.settings";
-                }
-                for (ProviderInfo providerInfo : queryContentProviders) {
-                    if (!TextUtils.isEmpty(providerInfo.authority) && !TextUtils.isEmpty(providerInfo.readPermission) && Pattern.matches(".*launcher.*permission\\.READ_SETTINGS", providerInfo.readPermission)) {
-                        for (String str : providerInfo.authority.split(ParamableElem.DIVIDE_PARAM)) {
-                            if (str != null && str.endsWith(".settings")) {
-                                return str;
-                            }
-                        }
-                        continue;
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add("v8.engine");
+            arrayList.add("zeusv8");
+            if (c) {
+                arrayList.add("com.baidu.zeus");
             }
-            return "com.android.launcher3.settings";
+            String[] strArr = d;
+            if (strArr != null && strArr.length != 0) {
+                arrayList.addAll(Arrays.asList(strArr));
+            }
+            return arrayList;
         }
-        return (String) invokeL.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public static SpannableStringBuilder p(Context context, gb3 gb3Var) {
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c) {
+                return e;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"BDSoLoader"})
+    public static boolean e(@Nullable String str, @NonNull SoLoader soLoader) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, gb3Var)) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            String string = context.getString(R.string.obfuscated_res_0x7f0f012f);
-            String string2 = context.getString(R.string.obfuscated_res_0x7f0f0131);
-            int indexOf = string.indexOf(string2);
-            int length = string2.length() + indexOf;
-            spannableStringBuilder.append((CharSequence) string);
-            spannableStringBuilder.setSpan(new d(gb3Var, context), indexOf, length, 33);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.obfuscated_res_0x7f060430)), indexOf, length, 33);
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeLL.objValue;
-    }
-
-    public static void q(Context context, zw2 zw2Var, ax2 ax2Var, Bitmap bitmap, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65553, null, new Object[]{context, zw2Var, ax2Var, bitmap, Integer.valueOf(i)}) != null) || context == null) {
-            return;
-        }
-        if (bitmap == null) {
-            ub3.f(context, R.string.obfuscated_res_0x7f0f1558).G();
-        } else if (cc3.b0() == null) {
-        } else {
-            ExecutorUtilsExt.postOnElastic(new b(cc3.b0().W(), context, i, zw2Var, bitmap, ax2Var), "add quick app shortcut", 2);
-        }
-    }
-
-    @TargetApi(26)
-    public static void t(Context context, String str, String str2, Bitmap bitmap, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65556, null, context, str, str2, bitmap, intent) == null) {
-            ShortcutManager shortcutManager = (ShortcutManager) context.getSystemService(ShortcutManager.class);
-            if (shortcutManager.isRequestPinShortcutSupported() && bitmap != null) {
-                try {
-                    shortcutManager.requestPinShortcut(new ShortcutInfo.Builder(context, str).setShortLabel(str2).setLongLabel(str2).setIcon(Icon.createWithBitmap(bitmap)).setIntent(intent).build(), null);
-                    return;
-                } catch (IllegalStateException e2) {
-                    if (a) {
-                        throw e2;
-                    }
-                    return;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, soLoader)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            ub3.f(context, R.string.obfuscated_res_0x7f0f01f5).G();
-        }
-    }
-
-    public static int s(@NonNull Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, str, str2)) == null) {
             try {
-                Cursor query = context.getContentResolver().query(Uri.parse(String.format("content://%s/favorites?notify=true", o(context))), new String[]{"title", "intent"}, "title = ?", new String[]{str}, null);
-                while (query != null && query.moveToNext()) {
-                    String string = query.getString(query.getColumnIndex("intent"));
-                    if (string != null && string.contains(str2)) {
-                        if (query != null) {
-                            query.close();
-                        }
-                        return 1;
-                    }
-                }
-                if (query != null) {
-                    query.close();
-                }
-                return 0;
-            } catch (Exception e2) {
-                if (a) {
-                    Log.d("SwanAppShortcutHelper", "fail: " + e2);
-                    return -1;
-                }
-                return -1;
+                System.loadLibrary(str);
+                return true;
+            } catch (Throwable th) {
+                soLoader.appendErrorLog("loadLibsSo: " + th.getMessage());
+                return false;
             }
         }
-        return invokeLLL.intValue;
+        return invokeLL.booleanValue;
+    }
+
+    @SuppressLint({"UnsafeDynamicallyLoadedCode", "BDSoLoader"})
+    public static boolean f(@Nullable String str, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, soLoader)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                System.load(str);
+                return true;
+            } catch (Throwable th) {
+                soLoader.appendErrorLog("loadSoByPath: " + th.getMessage());
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean l(@Nullable HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        boolean f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, hashMap, soLoader)) == null) {
+            String[] strArr = d;
+            boolean z = true;
+            if (strArr != null && strArr.length != 0) {
+                for (String str : strArr) {
+                    if (hashMap == null) {
+                        f = e(str, soLoader);
+                    } else {
+                        f = f(hashMap.get(str), soLoader);
+                    }
+                    if (!f) {
+                        z = false;
+                    }
+                }
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, soLoader)) == null) {
+            if (c) {
+                File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, "com.baidu.zeus");
+                if (findSoFilesInLibrary == null || findSoFilesInLibrary.length() == 0) {
+                    return false;
+                }
+                e = findSoFilesInLibrary.getAbsolutePath();
+                m("loadV8EngineSo: v8 dependentFile:" + e);
+            }
+            boolean l = l(null, soLoader);
+            boolean e2 = e("v8.engine", soLoader);
+            if (!l || !e2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static qh3 h(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, soLoader)) == null) {
+            if (g(context, soLoader)) {
+                m("loadV8EngineBySystemMethod:success.");
+                return qh3.e();
+            }
+            qh3 k = k(context, soLoader);
+            if (k.b()) {
+                m("loadV8EngineSoWithSystemPath:success.");
+                return k;
+            }
+            qh3 j = j(context, soLoader);
+            if (!j.b()) {
+                SoUtils.onEvent("26", soLoader.getErrorLog());
+            } else {
+                m("loadV8EngineSoWithCustomPath:success.");
+            }
+            return j;
+        }
+        return (qh3) invokeLL.objValue;
+    }
+
+    public static qh3 k(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        boolean z;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, soLoader)) == null) {
+            e = null;
+            HashMap hashMap = new HashMap();
+            Iterator<String> it = b().iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, next);
+                if (findSoFilesInLibrary != null && findSoFilesInLibrary.exists() && findSoFilesInLibrary.length() != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    str = findSoFilesInLibrary.getAbsolutePath();
+                } else {
+                    str = null;
+                }
+                hashMap.put(next, str);
+            }
+            return i(hashMap, soLoader);
+        }
+        return (qh3) invokeLL.objValue;
+    }
+
+    public static qh3 i(@NonNull HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, hashMap, soLoader)) == null) {
+            m("loadV8EngineSoByMap:" + hashMap);
+            String str = hashMap.get("com.baidu.zeus");
+            boolean z = false;
+            if (c && str == null) {
+                return qh3.d(false, false);
+            }
+            boolean f = f(hashMap.get("zeusv8"), soLoader);
+            boolean l = l(hashMap, soLoader);
+            boolean f2 = f(hashMap.get("v8.engine"), soLoader);
+            if (f2) {
+                e = str;
+            }
+            if (l && f2) {
+                z = true;
+            }
+            return qh3.d(f, z);
+        }
+        return (qh3) invokeLL.objValue;
+    }
+
+    public static qh3 j(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, soLoader)) == null) {
+            e = null;
+            HashMap hashMap = new HashMap();
+            String D = pp3.D();
+            File file = new File(b, D);
+            Iterator<String> it = b().iterator();
+            while (true) {
+                boolean z = true;
+                if (!it.hasNext()) {
+                    break;
+                }
+                String next = it.next();
+                File file2 = new File(file, SoUtils.getFullName(next));
+                if ((!file2.exists() || file2.length() == 0) ? false : false) {
+                    str = file2.getAbsolutePath();
+                } else {
+                    str = null;
+                }
+                hashMap.put(next, str);
+            }
+            if (!hashMap.containsValue(null)) {
+                return i(hashMap, soLoader);
+            }
+            String str2 = "swan_v8so_unzip_times_" + D;
+            int i = jk3.a().getInt(str2, 0);
+            if (i >= 3) {
+                soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:reach max unzip times.");
+                return k(context, soLoader);
+            }
+            jk3.a().putInt(str2, i + 1);
+            String str3 = "lib" + File.separator + SoUtils.getCurrentCpuAbi();
+            ZipFile apkZipFile = soLoader.getApkZipFile(context);
+            try {
+                if (apkZipFile == null) {
+                    soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:zipFile is null.");
+                    return k(context, soLoader);
+                }
+                try {
+                    for (String str4 : hashMap.keySet()) {
+                        if (hashMap.get(str4) == null) {
+                            String fullName = SoUtils.getFullName(str4);
+                            File file3 = new File(file, fullName);
+                            if (soLoader.executeRelease(apkZipFile, fullName, str3, file3)) {
+                                hashMap.put(str4, file3.getAbsolutePath());
+                            }
+                        }
+                    }
+                } catch (Exception e2) {
+                    soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:" + e2.getMessage());
+                    if (a) {
+                        Log.e("V8InnerSoLoader", "loadV8EngineSoWithCustomPath:" + e2);
+                    }
+                }
+                return i(hashMap, soLoader);
+            } finally {
+                zr4.d(apkZipFile);
+            }
+        }
+        return (qh3) invokeLL.objValue;
+    }
+
+    public static void m(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && a) {
+            Log.d("V8InnerSoLoader", str);
+        }
     }
 }

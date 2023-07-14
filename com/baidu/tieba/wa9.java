@@ -1,48 +1,42 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity;
-import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class wa9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FoldCommentActivity a;
-    public BdTypeListView b;
-    public je9 c;
-    public le9 d;
-    public View.OnClickListener e;
-    public View.OnClickListener f;
-    public TbRichTextView.z g;
-    public ba9 h;
-    public View.OnLongClickListener i;
-    public SubPbReplyAdapter j;
-    public xa9 k;
-    public List<kn> l;
-    public u89 m;
-    public ArrayList<xn> n;
+    public TbPageContext<?> a;
+    public BdUniqueId b;
+    public BdTypeRecyclerView c;
+    public ua9 d;
+    public na9 e;
+    public pa9 f;
+    public oa9 g;
+    public qa9 h;
+    public va9 i;
+    public ra9 j;
+    public sa9 k;
+    public ma9 l;
+    public xa9 m;
+    public ta9 n;
+    public List<ln> o;
 
-    public wa9(FoldCommentActivity foldCommentActivity, BdTypeListView bdTypeListView) {
+    public wa9(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {foldCommentActivity, bdTypeListView};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,143 +46,85 @@ public class wa9 {
                 return;
             }
         }
-        this.l = new ArrayList();
-        this.n = new ArrayList<>();
-        this.a = foldCommentActivity;
-        this.b = bdTypeListView;
+        this.o = new LinkedList();
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        this.c = bdTypeRecyclerView;
+        a();
     }
 
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.a, ig9.b);
-            this.j = subPbReplyAdapter;
-            subPbReplyAdapter.u(false);
-            this.l.add(this.j);
-            FoldCommentActivity foldCommentActivity = this.a;
-            xa9 xa9Var = new xa9(foldCommentActivity, n4a.X0, foldCommentActivity.getPageContext());
-            this.k = xa9Var;
-            xa9Var.e0(this.c);
-            this.k.f0(this.d);
-            this.k.h0(this.a);
-            this.k.k(this.e);
-            this.k.e(this.f);
-            this.k.n(this.g);
-            this.k.g0(this.h);
-            this.k.d(this.i);
-            this.l.add(this.k);
-            this.b.addAdapters(this.l);
+            ua9 ua9Var = new ua9(this.a, ThreadData.TYPE_USER_NORMAL, this.b);
+            this.d = ua9Var;
+            ua9Var.C(this.c);
+            this.o.add(this.d);
+            na9 na9Var = new na9(this.a, ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.b);
+            this.e = na9Var;
+            na9Var.D(this.c);
+            this.o.add(this.e);
+            pa9 pa9Var = new pa9(this.a, ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.b);
+            this.f = pa9Var;
+            pa9Var.C(this.c);
+            this.o.add(this.f);
+            oa9 oa9Var = new oa9(this.a, ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.b);
+            this.g = oa9Var;
+            oa9Var.C(this.c);
+            this.o.add(this.g);
+            qa9 qa9Var = new qa9(this.a, ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.b);
+            this.h = qa9Var;
+            qa9Var.C(this.c);
+            this.o.add(this.h);
+            va9 va9Var = new va9(this.a, ThreadData.TYPE_VIDEO, this.b);
+            this.i = va9Var;
+            va9Var.F(this.c);
+            this.o.add(this.i);
+            ra9 ra9Var = new ra9(this.a, ThreadData.TYPE_ENTER_FORUM, this.b);
+            this.j = ra9Var;
+            ra9Var.C(this.c);
+            this.o.add(this.j);
+            sa9 sa9Var = new sa9(this.a, ThreadData.TYPE_BOTTOM_NORMAL, this.b);
+            this.k = sa9Var;
+            sa9Var.C(this.c);
+            this.o.add(this.k);
+            ma9 ma9Var = new ma9(this.a, ThreadData.TYPE_ARTICLE, this.b);
+            this.l = ma9Var;
+            ma9Var.D(this.c);
+            this.o.add(this.l);
+            xa9 xa9Var = new xa9(this.a, s25.b);
+            this.m = xa9Var;
+            xa9Var.B(this.c);
+            this.o.add(this.m);
+            ta9 ta9Var = new ta9(this.a, kq6.u0);
+            this.n = ta9Var;
+            this.o.add(ta9Var);
+            this.c.addAdapters(this.o);
         }
     }
 
-    public void b() {
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b.getAdapter2() != null) {
-            this.b.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public void c(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f = onClickListener;
-        }
-    }
-
-    public void d(boolean z) {
-        xa9 xa9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (xa9Var = this.k) != null) {
-            xa9Var.setFromCDN(z);
-        }
-    }
-
-    public void e(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.e = onClickListener;
-        }
-    }
-
-    public void f(boolean z) {
-        xa9 xa9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (xa9Var = this.k) != null) {
-            xa9Var.d0(z);
-        }
-    }
-
-    public void g(TbRichTextView.z zVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zVar) == null) {
-            this.g = zVar;
-        }
-    }
-
-    public void h(View.OnLongClickListener onLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
-            this.i = onLongClickListener;
-        }
-    }
-
-    public void j(je9 je9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, je9Var) == null) {
-            this.c = je9Var;
-        }
-    }
-
-    public void k(le9 le9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, le9Var) == null) {
-            this.d = le9Var;
-        }
-    }
-
-    public void l(ba9 ba9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ba9Var) == null) {
-            this.h = ba9Var;
-        }
-    }
-
-    public void i(u89 u89Var) {
-        xa9 xa9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, u89Var) == null) {
-            this.m = u89Var;
-            xa9 xa9Var2 = this.k;
-            if (xa9Var2 != null) {
-                xa9Var2.r(u89Var);
-            }
-            this.n.clear();
-            u89 u89Var2 = this.m;
-            if (u89Var2 != null && u89Var2.F() != null && this.m.F().size() > 0) {
-                ig9 ig9Var = new ig9();
-                ig9Var.b(u89Var.F().size());
-                this.n.add(ig9Var);
-                Iterator<n4a> it = this.m.F().iterator();
-                while (it.hasNext()) {
-                    n4a next = it.next();
-                    if (next.getType() != n4a.W0) {
-                        this.n.add(next);
-                    }
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            for (ln lnVar : this.o) {
+                if (lnVar instanceof la9) {
+                    ((la9) lnVar).u(z);
                 }
             }
-            if (u89Var != null && u89Var.N() != null && u89Var.N().getAuthor() != null && (xa9Var = this.k) != null) {
-                xa9Var.o(u89Var.N().getAuthor().getUserId());
-            }
-            if (this.m != null) {
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_HAS_FOLD_ICON_SHOW);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("fid", this.m.l());
-                statisticItem.param("fname", this.m.m());
-                statisticItem.param("tid", this.m.P());
-                TiebaStatic.log(statisticItem);
-            }
-            this.b.setData(this.n);
-            this.b.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void d(List<? extends yn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.c.setData(list);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.getAdapter().notifyDataSetChanged();
         }
     }
 }

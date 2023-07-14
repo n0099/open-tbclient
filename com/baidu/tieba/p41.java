@@ -1,183 +1,107 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes7.dex */
 public class p41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<a> a;
-    public final List<n41> b;
+    public ClogBuilder.LogType a;
+    public String b;
     public String c;
-    public String d;
-    public l41 e;
-    public m41 f;
-    public o41 g;
-    public int h;
-    public int i;
+    public boolean d;
+    public String e;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final b41[] b;
-
-        public a(String str, b41[] b41VarArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, b41VarArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = b41VarArr;
-        }
-    }
-
-    public p41() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public p41(ClogBuilder.LogType logType, String str, String str2, boolean z) {
+        this(logType, str, str2, z, "");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {logType, str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((ClogBuilder.LogType) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), (String) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList(4);
-        this.b = new ArrayList(2);
-        this.h = -1;
-        this.i = -1;
     }
 
-    public static p41 e() {
-        InterceptResult invokeV;
+    public p41(ClogBuilder.LogType logType, String str, String str2, boolean z, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new p41();
-        }
-        return (p41) invokeV.objValue;
-    }
-
-    public String[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            l41 l41Var = this.e;
-            if (l41Var == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {logType, str, str2, Boolean.valueOf(z), str3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return l41Var.e();
         }
-        return (String[]) invokeV.objValue;
+        this.c = "";
+        this.a = logType;
+        this.b = str;
+        this.c = str2;
+        this.d = z;
+        this.e = str3;
     }
 
-    public String f() {
+    public u41 a(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            return b(i, str, "normal");
+        }
+        return (u41) invokeIL.objValue;
+    }
+
+    public u41 b(int i, String str, String str2) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
+            u41 u41Var = new u41();
+            try {
+                u41Var.g("1030").h(this.c).b("f1", this.a.type).b("f2", str2).b("f3", URLEncoder.encode(this.b, "utf-8")).b("f4", String.valueOf(i)).b("f5", str);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return u41Var;
+        }
+        return (u41) invokeILL.objValue;
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return d(null).toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
         return (String) invokeV.objValue;
-    }
-
-    public p41 a(String str, b41... b41VarArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, b41VarArr)) == null) {
-            this.a.add(new a(str, b41VarArr));
-            return this;
-        }
-        return (p41) invokeLL.objValue;
-    }
-
-    public p41 c(String str, k41 k41Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, k41Var)) == null) {
-            this.d = str;
-            this.c = k41Var.b().g();
-            return this;
-        }
-        return (p41) invokeLL.objValue;
-    }
-
-    public final StringBuilder d(StringBuilder sb) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sb)) == null) {
-            if (sb == null) {
-                sb = new StringBuilder();
-            }
-            sb.append("SELECT ");
-            int size = this.a.size();
-            String str = "";
-            for (int i = 0; i < size; i++) {
-                int i2 = 0;
-                while (i2 < this.a.get(i).b.length) {
-                    sb.append(str);
-                    String str2 = this.a.get(i).a;
-                    if (!TextUtils.isEmpty(str2)) {
-                        sb.append(str2);
-                        sb.append(".");
-                    }
-                    sb.append(this.a.get(i).b[i2].b);
-                    i2++;
-                    str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
-                }
-            }
-            sb.append(" ");
-            sb.append("FROM ");
-            sb.append(this.c);
-            if (!TextUtils.isEmpty(this.d)) {
-                sb.append(" AS ");
-                sb.append(this.d);
-            }
-            for (n41 n41Var : this.b) {
-                sb.append(n41Var.c());
-            }
-            l41 l41Var = this.e;
-            if (l41Var != null) {
-                sb.append(l41Var.k());
-            }
-            m41 m41Var = this.f;
-            if (m41Var != null) {
-                sb.append(m41Var.a());
-            }
-            o41 o41Var = this.g;
-            if (o41Var != null) {
-                sb.append(o41Var.a());
-            }
-            if (this.h > -1) {
-                sb.append(" LIMIT ");
-                sb.append(this.h);
-            }
-            if (this.i > -1) {
-                sb.append(" OFFSET ");
-                sb.append(this.i);
-            }
-            return sb;
-        }
-        return (StringBuilder) invokeL.objValue;
     }
 }

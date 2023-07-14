@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class ls9 {
+public class ls9 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final ls9 a;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<os9> a;
 
     static {
         InterceptResult invokeClinit;
@@ -27,7 +30,7 @@ public final class ls9 {
                 return;
             }
         }
-        a = new ls9();
+        b = BdUniqueId.gen();
     }
 
     public ls9() {
@@ -44,27 +47,13 @@ public final class ls9 {
         }
     }
 
-    public final boolean a() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (a56.a().b("tieba_download_btn_upgrade", 0) != 1) {
-                return false;
-            }
-            return true;
+            return b;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a56.a().b("tieba_flow_video_preload", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

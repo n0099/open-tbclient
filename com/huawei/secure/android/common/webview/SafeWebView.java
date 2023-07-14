@@ -23,8 +23,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qib;
-import com.baidu.tieba.rib;
+import com.baidu.tieba.nrb;
+import com.baidu.tieba.orb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -547,7 +547,7 @@ public class SafeWebView extends WebView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qib.f(this);
+            nrb.f(this);
             setWebViewClient(null);
         }
     }
@@ -728,12 +728,12 @@ public class SafeWebView extends WebView {
                 String[] whitelistNotMatchSubDomain = getWhitelistNotMatchSubDomain();
                 String[] whitelist = getWhitelist();
                 if (whitelistWithPath != null && whitelistWithPath.length != 0) {
-                    return rib.c(str, whitelistWithPath);
+                    return orb.c(str, whitelistWithPath);
                 }
                 if (whitelistNotMatchSubDomain != null && whitelistNotMatchSubDomain.length != 0) {
-                    return rib.h(str, whitelistNotMatchSubDomain);
+                    return orb.h(str, whitelistNotMatchSubDomain);
                 }
-                return rib.e(str, whitelist);
+                return orb.e(str, whitelist);
             }
         }
         return invokeL.booleanValue;

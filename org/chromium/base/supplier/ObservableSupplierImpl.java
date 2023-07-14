@@ -38,7 +38,7 @@ public class ObservableSupplierImpl<E> implements ObservableSupplier<E> {
         this.mObservers.addObserver(callback);
         final E e = this.mObject;
         if (e != null) {
-            this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.grb
+            this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.d0c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

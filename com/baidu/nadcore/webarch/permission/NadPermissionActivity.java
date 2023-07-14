@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.appframework.BaseActivity;
-import com.baidu.tieba.d71;
-import com.baidu.tieba.g71;
-import com.baidu.tieba.h71;
+import com.baidu.tieba.e81;
+import com.baidu.tieba.h81;
+import com.baidu.tieba.i81;
 /* loaded from: classes3.dex */
 public class NadPermissionActivity extends BaseActivity {
     public int u;
@@ -29,16 +29,16 @@ public class NadPermissionActivity extends BaseActivity {
         if (strArr != null && strArr.length != 0) {
             boolean z = false;
             for (String str : strArr) {
-                if (!z && !d71.b(this, str)) {
+                if (!z && !e81.b(this, str)) {
                     z = false;
                 } else {
                     z = true;
                 }
             }
             if (z) {
-                d71.requestPermissions(this, this.v, this.u);
-            } else if (h71.a(this, this.u)) {
-                d71.requestPermissions(this, this.v, this.u);
+                e81.requestPermissions(this, this.v, this.u);
+            } else if (i81.a(this, this.u)) {
+                e81.requestPermissions(this, this.v, this.u);
             } else {
                 onRequestPermissionsResult(this.u, this.v, new int[0]);
             }
@@ -53,7 +53,7 @@ public class NadPermissionActivity extends BaseActivity {
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        d71.b c = g71.b().c(this.u);
+        e81.b c = h81.b().c(this.u);
         if (c != null) {
             c.onRequestPermissionsResult(i, strArr, iArr);
         }

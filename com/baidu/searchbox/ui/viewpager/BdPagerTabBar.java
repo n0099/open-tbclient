@@ -103,7 +103,7 @@ public class BdPagerTabBar extends HorizontalScrollView {
             PagerTabBarItem pagerTabBarItem = new PagerTabBarItem(context);
             this.mPagerTabBarItem = pagerTabBarItem;
             pagerTabBarItem.setUIStandard(this.mUseStandardStyle, this.mLayoutInActionBar);
-            this.mPagerTabBarItem.setId(R.id.obfuscated_res_0x7f09178a);
+            this.mPagerTabBarItem.setId(R.id.obfuscated_res_0x7f09179c);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
             addView(this.mPagerTabBarItem, layoutParams);
@@ -420,7 +420,7 @@ public class BdPagerTabBar extends HorizontalScrollView {
 
     public void addTab(BdPagerTab bdPagerTab) {
         if (bdPagerTab != null) {
-            bdPagerTab.setTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070744));
+            bdPagerTab.setTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070756));
             Adapter adapter = getAdapter();
             if (adapter instanceof TabAdapter) {
                 ((TabAdapter) adapter).addTab(bdPagerTab);
@@ -640,7 +640,7 @@ public class BdPagerTabBar extends HorizontalScrollView {
         this.mLeftShadow = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, SHADOWS_COLORS);
         this.mRightShadow = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, SHADOWS_COLORS);
         setFillViewport(true);
-        setTabTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070744));
+        setTabTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070756));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

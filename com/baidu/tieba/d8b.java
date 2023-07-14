@@ -1,83 +1,93 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
-import java.util.Map;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class d8b extends p7b<TTRewardVideoAd> {
+public class d8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public File b;
+    public long c;
+    public long d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d8b(TTRewardVideoAd tTRewardVideoAd) {
-        super(tTRewardVideoAd);
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
+    }
+
+    public d8b(String str, String str2, File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tTRewardVideoAd};
+            Object[] objArr = {str, str2, file};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = file;
     }
 
-    @Override // com.baidu.tieba.p7b
-    public double a() {
+    public File a() {
         InterceptResult invokeV;
-        Map<String, Object> mediaExtraInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                A a = this.a;
-                if (a == 0 || (mediaExtraInfo = ((TTRewardVideoAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
-                    return 0.0d;
-                }
-                return ((Integer) mediaExtraInfo.get("price")).intValue() / 100.0d;
-            } catch (Exception unused) {
-                return 0.0d;
-            }
+            return this.b;
         }
-        return invokeV.doubleValue;
+        return (File) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.p7b
-    public void b(String str, double d, double d2, boolean z, int i) {
-        A a;
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a = this.a) == 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        TTRewardVideoAd tTRewardVideoAd = (TTRewardVideoAd) a;
-        if (z) {
-            tTRewardVideoAd.win(Double.valueOf(d2));
-        } else {
-            tTRewardVideoAd.loss(Double.valueOf(d), str, String.valueOf(i));
-        }
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.p7b
-    public String c() {
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b.isEmpty() && ((TTRewardVideoAd) this.a).getMediaExtraInfo() != null) {
-                this.b = (String) ((TTRewardVideoAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
-            }
-            return this.b;
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
         return (String) invokeV.objValue;
+    }
+
+    public void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.d = j;
+        }
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.c = j;
+        }
     }
 }

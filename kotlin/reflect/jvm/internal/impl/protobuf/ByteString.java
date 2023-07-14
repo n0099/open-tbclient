@@ -7,12 +7,12 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class ByteString implements Iterable<Byte> {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final ByteString EMPTY = new LiteralByteString(new byte[0]);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface ByteIterator extends Iterator<Byte> {
         byte nextByte();
     }
@@ -45,7 +45,7 @@ public abstract class ByteString implements Iterable<Byte> {
 
     public abstract void writeToInternal(OutputStream outputStream, int i, int i2) throws IOException;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Output extends OutputStream {
         public static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
         public byte[] buffer;

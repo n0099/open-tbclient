@@ -60,8 +60,8 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092688);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0926ce);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926bc);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f092703);
         }
     }
 
@@ -99,7 +99,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.d.s(this.a);
+                this.d.t(this.a);
                 if (this.d.b != null) {
                     this.d.b.a(this.b.itemView, this.a, this.c);
                 }
@@ -130,7 +130,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.a = context;
     }
 
-    public String l(int i) {
+    public String m(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -139,7 +139,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         return (String) invokeI.objValue;
     }
 
-    public int m(String str) {
+    public int n(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -148,14 +148,14 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         return invokeL.intValue;
     }
 
-    public void r(b bVar) {
+    public void s(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             this.b = bVar;
         }
     }
 
-    public void s(int i) {
+    public void t(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.d = i;
@@ -177,21 +177,43 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         return invokeV.intValue;
     }
 
-    public String n() {
+    public String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return l(this.d);
+            return m(this.d);
         }
         return (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: o */
+    @NonNull
+    /* renamed from: q */
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
+            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0599, viewGroup, false));
+        }
+        return (ViewHolder) invokeLI.objValue;
+    }
+
+    public void r(int i, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list) == null) {
+            this.d = i;
+            this.c = list;
+            notifyDataSetChanged();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    /* renamed from: p */
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
             String str = this.c.get(i);
             viewHolder.itemView.setTag(Integer.valueOf(i));
             viewHolder.a.setText(str);
@@ -205,35 +227,13 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                 SkinManager.setBackgroundColor(viewHolder.itemView, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(viewHolder.a, (int) R.color.CAM_X0107);
             }
-            if ("推荐".equals(n())) {
+            if ("推荐".equals(o())) {
                 StatisticItem statisticItem = new StatisticItem("c13641");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_locate", 3);
                 TiebaStatic.log(statisticItem);
             }
             viewHolder.itemView.setOnClickListener(new a(this, i, viewHolder, str));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    @NonNull
-    /* renamed from: p */
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
-            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d058d, viewGroup, false));
-        }
-        return (ViewHolder) invokeLI.objValue;
-    }
-
-    public void q(int i, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list) == null) {
-            this.d = i;
-            this.c = list;
-            notifyDataSetChanged();
         }
     }
 }

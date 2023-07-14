@@ -15,7 +15,7 @@ import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.types.model.CapturedTypeMarker;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CapturedType extends SimpleType implements SubtypingRepresentatives, CapturedTypeMarker {
     public final Annotations annotations;
     public final CapturedTypeConstructor constructor;

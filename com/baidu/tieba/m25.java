@@ -1,18 +1,22 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.ForumBookInfo;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class m25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
     public int b;
+    public int c;
 
     public m25() {
         Interceptable interceptable = $ic;
@@ -28,43 +32,47 @@ public class m25 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                b(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public final void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(ForumBookInfo forumBookInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumBookInfo) != null) || forumBookInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = forumBookInfo.book_id;
-        this.b = forumBookInfo.book_type.intValue();
-        String str = forumBookInfo.book_title;
-        String str2 = forumBookInfo.book_cover;
-        String str3 = forumBookInfo.author;
-        String str4 = forumBookInfo.forum_pic;
-        String str5 = forumBookInfo.show_chapter_id;
-        String str6 = forumBookInfo.show_chapter_no;
-        String str7 = forumBookInfo.show_chapter_title;
-        forumBookInfo.history_page_id.longValue();
-        forumBookInfo.history_paragraph_id.longValue();
-        forumBookInfo.history_word_id.longValue();
-        forumBookInfo.history_percent.longValue();
-        forumBookInfo.show_page_id.longValue();
-        forumBookInfo.show_paragraph_id.longValue();
+        try {
+            jSONObject.optInt("switch");
+            JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
+            if (optJSONObject != null) {
+                this.c = optJSONObject.optInt("num");
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
+            if (optJSONObject2 != null) {
+                this.b = optJSONObject2.optInt("time");
+                this.a = optJSONObject2.optInt("num");
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject(MultiRatePlayUrlHelper.RANK);
+            if (optJSONObject3 != null) {
+                optJSONObject3.optInt("succ");
+                optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                optJSONObject3.optInt("slow");
+            }
+            if (this.b > 0 && this.a > 0) {
+                int i = this.c;
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

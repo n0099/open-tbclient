@@ -21,9 +21,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s16;
-import com.baidu.tieba.u16;
-import com.baidu.tieba.v16;
+import com.baidu.tieba.w26;
+import com.baidu.tieba.y26;
+import com.baidu.tieba.z26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,8 +32,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
-public abstract class LoadingLayout extends FrameLayout implements s16 {
+/* loaded from: classes5.dex */
+public abstract class LoadingLayout extends FrameLayout implements w26 {
     public static /* synthetic */ Interceptable $ic;
     public static final Interpolator l;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public abstract class LoadingLayout extends FrameLayout implements s16 {
 
     public abstract void k();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -215,7 +215,7 @@ public abstract class LoadingLayout extends FrameLayout implements s16 {
             this.k = context.getString(R.string.pull_to_refresh_release_label);
         }
         if (typedArray.hasValue(7) && (drawable = typedArray.getDrawable(7)) != null) {
-            v16.b(this, drawable);
+            z26.b(this, drawable);
         }
         if (typedArray.hasValue(9)) {
             TypedValue typedValue = new TypedValue();
@@ -238,13 +238,13 @@ public abstract class LoadingLayout extends FrameLayout implements s16 {
             if (typedArray.hasValue(5)) {
                 drawable2 = typedArray.getDrawable(5);
             } else if (typedArray.hasValue(6)) {
-                u16.a("ptrDrawableTop", "ptrDrawableStart");
+                y26.a("ptrDrawableTop", "ptrDrawableStart");
                 drawable2 = typedArray.getDrawable(6);
             }
         } else if (typedArray.hasValue(4)) {
             drawable2 = typedArray.getDrawable(4);
         } else if (typedArray.hasValue(3)) {
-            u16.a("ptrDrawableBottom", "ptrDrawableEnd");
+            y26.a("ptrDrawableBottom", "ptrDrawableEnd");
             drawable2 = typedArray.getDrawable(3);
         }
         setLoadingDrawable(drawable2 == null ? SkinManager.getDrawable(getDefaultDrawableResId()) : drawable2);
@@ -324,7 +324,7 @@ public abstract class LoadingLayout extends FrameLayout implements s16 {
         }
     }
 
-    @Override // com.baidu.tieba.s16
+    @Override // com.baidu.tieba.w26
     public void setLastUpdatedLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, charSequence) == null) {
@@ -332,7 +332,7 @@ public abstract class LoadingLayout extends FrameLayout implements s16 {
         }
     }
 
-    @Override // com.baidu.tieba.s16
+    @Override // com.baidu.tieba.w26
     public final void setLoadingDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
@@ -342,7 +342,7 @@ public abstract class LoadingLayout extends FrameLayout implements s16 {
         }
     }
 
-    @Override // com.baidu.tieba.s16
+    @Override // com.baidu.tieba.w26
     public void setPullLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, charSequence) == null) {
@@ -350,7 +350,7 @@ public abstract class LoadingLayout extends FrameLayout implements s16 {
         }
     }
 
-    @Override // com.baidu.tieba.s16
+    @Override // com.baidu.tieba.w26
     public void setRefreshingLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, charSequence) == null) {
@@ -358,7 +358,7 @@ public abstract class LoadingLayout extends FrameLayout implements s16 {
         }
     }
 
-    @Override // com.baidu.tieba.s16
+    @Override // com.baidu.tieba.w26
     public void setReleaseLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, charSequence) == null) {

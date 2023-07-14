@@ -5,11 +5,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.transition.Transition;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.dm8;
-import com.baidu.tieba.ew8;
+import com.baidu.tieba.h29;
 import com.baidu.tieba.immessagecenter.arch.utils.IMLog;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.chatdialog.GroupChatDialogFragment;
 import com.baidu.tieba.immessagecenter.mention.MessageCenterActivity;
@@ -17,7 +17,8 @@ import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
 import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.ChatTabFragment;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgTabNotifyFragment;
-import com.baidu.tieba.ne8;
+import com.baidu.tieba.jj8;
+import com.baidu.tieba.tr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,9 +84,9 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            dm8 l = this.b.l(i);
-            if (l != null) {
-                return l.c();
+            tr8 m = this.b.m(i);
+            if (m != null) {
+                return m.c();
             }
             return super.getItemId(i);
         }
@@ -107,49 +108,75 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         InterceptResult invokeI;
         Fragment msgTabNotifyFragment;
         Long l;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             this.d.add(Long.valueOf(getItemId(i)));
             int itemViewType = getItemViewType(i);
             if (itemViewType != 1) {
                 if (itemViewType != 2) {
-                    String str = null;
+                    String str3 = null;
                     if (itemViewType != 3) {
-                        ew8 iMLog = IMLog.getInstance();
+                        h29 iMLog = IMLog.getInstance();
                         StringBuilder sb = new StringBuilder();
                         sb.append("dataId == null,position=");
                         sb.append(i);
                         sb.append(",item=");
-                        dm8 l2 = this.b.l(i);
-                        if (l2 != null) {
-                            str = l2.toString();
+                        tr8 m = this.b.m(i);
+                        if (m != null) {
+                            str2 = m.toString();
+                        } else {
+                            str2 = null;
                         }
-                        sb.append(str);
+                        sb.append(str2);
                         iMLog.c("MsgTabViewPagerAdapter", sb.toString());
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append("dataId == null,position=");
+                        sb2.append(i);
+                        sb2.append(",item=");
+                        tr8 m2 = this.b.m(i);
+                        if (m2 != null) {
+                            str3 = m2.toString();
+                        }
+                        sb2.append(str3);
+                        BdLog.e(new IllegalStateException(sb2.toString()));
                         msgTabNotifyFragment = new Fragment();
                     } else {
-                        dm8 l3 = this.b.l(i);
-                        if (l3 != null) {
-                            l = Long.valueOf(l3.c());
+                        tr8 m3 = this.b.m(i);
+                        if (m3 != null) {
+                            l = Long.valueOf(m3.c());
                         } else {
                             l = null;
                         }
                         if (l != null) {
                             long longValue = l.longValue();
                             MsgTabForumData e = ForumChannelDataObs.c.a().e(l.longValue());
-                            msgTabNotifyFragment = new GroupChatDialogFragment(longValue, (e == null || (r2 = e.getForumName()) == null) ? "" : "", 0L, null, false, ne8.c, "msgTabFragment");
+                            msgTabNotifyFragment = new GroupChatDialogFragment(longValue, (e == null || (r2 = e.getForumName()) == null) ? "" : "", 0L, null, false, jj8.c, "msgTabFragment");
                         } else {
-                            ew8 iMLog2 = IMLog.getInstance();
-                            StringBuilder sb2 = new StringBuilder();
-                            sb2.append("dataId == null,position=");
-                            sb2.append(i);
-                            sb2.append(",item=");
-                            dm8 l4 = this.b.l(i);
-                            if (l4 != null) {
-                                str = l4.toString();
+                            h29 iMLog2 = IMLog.getInstance();
+                            StringBuilder sb3 = new StringBuilder();
+                            sb3.append("dataId == null,position=");
+                            sb3.append(i);
+                            sb3.append(",item=");
+                            tr8 m4 = this.b.m(i);
+                            if (m4 != null) {
+                                str = m4.toString();
+                            } else {
+                                str = null;
                             }
-                            sb2.append(str);
-                            iMLog2.c("MsgTabViewPagerAdapter", sb2.toString());
+                            sb3.append(str);
+                            iMLog2.c("MsgTabViewPagerAdapter", sb3.toString());
+                            StringBuilder sb4 = new StringBuilder();
+                            sb4.append("dataId == null,position=");
+                            sb4.append(i);
+                            sb4.append(",dataType=Channel,item=");
+                            tr8 m5 = this.b.m(i);
+                            if (m5 != null) {
+                                str3 = m5.toString();
+                            }
+                            sb4.append(str3);
+                            BdLog.e(new IllegalStateException(sb4.toString()));
                             msgTabNotifyFragment = new Fragment();
                         }
                     }
@@ -182,7 +209,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('f' char), (r0v2 long)] */
-    public final Fragment k(int i) {
+    public final Fragment l(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {

@@ -1,162 +1,176 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
+import android.app.ActivityManager;
 import android.os.Build;
-import android.util.Log;
-import android.view.Window;
-import android.widget.Toast;
+import android.os.StatFs;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.android.ActivityUtils;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.ol3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.DecimalFormat;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class lo3 {
+public class lo3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static volatile String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int c() {
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ oq3 c;
+
+        public a(int i, long j, oq3 oq3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), oq3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = j;
+            this.c = oq3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    lo3.f(jSONObject, i33.c(), this.a, this.b);
+                } catch (Exception e) {
+                    vo3.f(jSONObject, "errorMsg", e.getMessage());
+                }
+                this.c.a(jSONObject);
+            }
+        }
+    }
+
+    public lo3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 5894;
-        }
-        return invokeV.intValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947949561, "Lcom/baidu/tieba/lo3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+            if (TextUtils.isEmpty(a)) {
+                synchronized (lo3.class) {
+                    a = e();
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947949561, "Lcom/baidu/tieba/lo3;");
-                return;
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            return new DecimalFormat("#.##").format(j / 1.073741824E9d);
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static void d(@NonNull sw2 sw2Var, @NonNull oq3<JSONObject> oq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, sw2Var, oq3Var) == null) {
+            ExecutorUtilsExt.postOnElastic(new a(sw2Var.i("host_launch_type"), sw2Var.k("box_cold_launch"), oq3Var), "getDeviceInfoAsync", 2);
+        }
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        String replace;
+        String replace2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String str = Build.MODEL;
+            String str2 = "NUL";
+            if (TextUtils.isEmpty(str)) {
+                replace = "NUL";
+            } else {
+                replace = str.replace("_", "-");
             }
-        }
-        a = ms1.a;
-    }
-
-    public static void a(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, activity) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-            Window window = activity.getWindow();
-            window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
-            if (ya3.b) {
-                systemUiVisibility |= 5120;
+            String str3 = Build.VERSION.RELEASE;
+            if (TextUtils.isEmpty(str3)) {
+                replace2 = "0.0";
+            } else {
+                replace2 = str3.replace("_", "-");
             }
-            window.getDecorView().setSystemUiVisibility(systemUiVisibility);
-        }
-    }
-
-    public static void b(Activity activity, Dialog dialog) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, activity, dialog) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null && dialog != null && dialog.getWindow() != null && dialog.getWindow().getDecorView() != null) {
-            dialog.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
-        }
-    }
-
-    public static boolean d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
-                return true;
+            int i = Build.VERSION.SDK_INT;
+            String str4 = Build.MANUFACTURER;
+            if (!TextUtils.isEmpty(str4)) {
+                str2 = str4.replace("_", "-");
             }
-            return false;
+            return replace + "_" + replace2 + "_" + i + "_" + str2;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static void e(Activity activity) {
+    public static void f(@NonNull JSONObject jSONObject, int i, int i2, long j) {
+        int i3;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, activity) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-            Window window = activity.getWindow();
-            window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | c());
-        }
-    }
-
-    public static void j(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
-            if (a) {
-                Log.i(ActivityUtils.TAG, "tryFinishAndRemoveTask: " + activity);
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            vo3.f(jSONObject, "model", Build.MODEL);
+            vo3.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
+            vo3.f(jSONObject, "netStatus", Integer.valueOf(i));
+            ol3.a a2 = ol3.a(cv2.c());
+            if (a2 == null) {
+                i3 = -1;
+            } else {
+                i3 = a2.a;
             }
-            if (activity != null && !activity.isDestroyed()) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    activity.finishAndRemoveTask();
+            vo3.f(jSONObject, "batteryLevel", Integer.valueOf(i3));
+            vo3.f(jSONObject, "appCurVersion", pp3.D());
+            vo3.f(jSONObject, "startupType", String.valueOf(i2));
+            vo3.f(jSONObject, "coldLaunchTime", Long.valueOf(j));
+            StatFs statFs = new StatFs(ru2.i());
+            vo3.f(jSONObject, "totalDiskSpace", b(statFs.getTotalBytes()));
+            vo3.f(jSONObject, "freeDiskSpace", b(statFs.getAvailableBytes()));
+            ActivityManager activityManager = (ActivityManager) ub3.K().getSystemService("activity");
+            if (activityManager != null) {
+                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+                activityManager.getMemoryInfo(memoryInfo);
+                vo3.f(jSONObject, "totalMemory", b(memoryInfo.totalMem));
+                vo3.f(jSONObject, "freeMemory", b(memoryInfo.availMem));
+                if (memoryInfo.lowMemory) {
+                    str = "1";
                 } else {
-                    activity.finish();
+                    str = "0";
                 }
+                vo3.f(jSONObject, "lowMemory", str);
             }
         }
-    }
-
-    public static void f(Activity activity, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, activity, intent) == null) {
-            h(activity, intent, true);
-        }
-    }
-
-    public static boolean g(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, intent)) == null) {
-            return h(context, intent, false);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean h(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, intent, z)) == null) {
-            return i(context, intent, z, true);
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean i(Context context, Intent intent, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z || !(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            try {
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException unused) {
-                if (!z2) {
-                    return false;
-                }
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f147a, 0).show();
-                return false;
-            } catch (SecurityException e) {
-                if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f147a, 0).show();
-                }
-                if (!a) {
-                    return false;
-                }
-                Log.e(ActivityUtils.TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
     }
 }

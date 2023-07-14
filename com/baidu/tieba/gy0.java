@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,115 +11,152 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class gy0 implements qx0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public pz0 a;
+public interface gy0 {
+    public static final gy0 a = new a();
 
-    public abstract void f(yw0 yw0Var);
+    @NonNull
+    iy0 a(Map<String, String> map, Object obj);
 
-    public abstract void g(yw0 yw0Var);
+    /* loaded from: classes6.dex */
+    public class a implements gy0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void h(yw0 yw0Var);
+        /* renamed from: com.baidu.tieba.gy0$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0320a implements iy0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void i(yw0 yw0Var);
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947810123, "Lcom/baidu/tieba/gy0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+            @Override // com.baidu.tieba.ey0
+            public void a(boolean z) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947810123, "Lcom/baidu/tieba/gy0;");
-                return;
+
+            @Override // com.baidu.tieba.fy0
+            public boolean b(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                    return false;
+                }
+                return invokeL.booleanValue;
             }
-        }
-        du0.f();
-    }
 
-    public gy0(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            @Override // com.baidu.tieba.fy0
+            public void c(mx0 mx0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mx0Var) == null) {
+                }
             }
-        }
-        j(map);
-    }
 
-    @Override // com.baidu.tieba.qx0
-    public final <T extends lz0> void d(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.a = (pz0) t;
-        }
-    }
+            @Override // com.baidu.tieba.ey0
+            public <T extends zz0> void d(T t) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                }
+            }
 
-    @Override // com.baidu.tieba.rx0
-    public final void c(yw0 yw0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, yw0Var) == null) && yw0Var != null && this.a != null) {
-            int type = yw0Var.getType();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (type == 4) {
-                            h(yw0Var);
-                            return;
-                        }
-                        return;
+            @Override // com.baidu.tieba.iy0
+            public void e(Object obj) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                }
+            }
+
+            @Override // com.baidu.tieba.ey0
+            public void onDestroy() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                }
+            }
+
+            @Override // com.baidu.tieba.ey0
+            public void onLayerRelease() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                }
+            }
+
+            public C0320a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
                     }
-                    g(yw0Var);
+                }
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gy0
+        @NonNull
+        public iy0 a(Map<String, String> map, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
+                return new C0320a(this);
+            }
+            return (iy0) invokeLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static gy0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-760231859, "Lcom/baidu/tieba/gy0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-760231859, "Lcom/baidu/tieba/gy0$b;");
                     return;
                 }
-                f(yw0Var);
-                return;
             }
-            i(yw0Var);
+            a = ry0.a();
         }
-    }
 
-    public void j(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, map) == null) && map != null && map.size() > 0) {
-            if (map.containsKey(WriteActivityConfig.VIDEO_INFO)) {
-                String str = (String) d31.b(map, WriteActivityConfig.VIDEO_INFO);
+        @NonNull
+        public static gy0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if (a == null) {
+                    rl0.e("IAdVideoLayerProxyFactory", "Fetch IAdVideoSuffixProxyFactory implementation failed, IAdVideoSuffixProxyFactory.EMPTY applied");
+                    a = gy0.a;
+                }
+                return a;
             }
-            if (map.containsKey("channel_id")) {
-                String str2 = (String) d31.b(map, "channel_id");
-            }
-            if (map.containsKey("channel_title")) {
-                String str3 = (String) d31.b(map, "channel_title");
-            }
-            if (map.containsKey("type")) {
-                String str4 = (String) d31.b(map, "type");
-            }
-            if (map.containsKey("source")) {
-                String str5 = (String) d31.b(map, "source");
-            }
-            if (map.containsKey("from")) {
-                String str6 = (String) d31.b(map, "from");
-            }
-            if (map.containsKey("pd")) {
-                String str7 = (String) d31.b(map, "pd");
-            }
-            if (map.containsKey("tpl")) {
-                String str8 = (String) d31.b(map, "tpl");
-            }
-            if (map.containsKey("ext_request")) {
-                String str9 = (String) d31.b(map, "ext_request");
-            }
+            return (gy0) invokeV.objValue;
         }
     }
 }

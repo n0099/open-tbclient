@@ -1,14 +1,14 @@
 package rx.internal.util;
 
-import com.baidu.tieba.atb;
-import com.baidu.tieba.bxb;
-import com.baidu.tieba.cub;
-import com.baidu.tieba.ltb;
-import com.baidu.tieba.mtb;
-import com.baidu.tieba.otb;
-import com.baidu.tieba.ptb;
-import com.baidu.tieba.qtb;
-import com.baidu.tieba.xsb;
+import com.baidu.tieba.i2c;
+import com.baidu.tieba.j2c;
+import com.baidu.tieba.l2c;
+import com.baidu.tieba.m2c;
+import com.baidu.tieba.n2c;
+import com.baidu.tieba.u1c;
+import com.baidu.tieba.x1c;
+import com.baidu.tieba.y5c;
+import com.baidu.tieba.z2c;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import rx.Notification;
@@ -17,17 +17,17 @@ import rx.exceptions.OnErrorNotImplementedException;
 public enum InternalObservableUtils {
     ;
     
-    public static final h LONG_COUNTER = new qtb<Long, Object, Long>() { // from class: rx.internal.util.InternalObservableUtils.h
+    public static final h LONG_COUNTER = new n2c<Long, Object, Long>() { // from class: rx.internal.util.InternalObservableUtils.h
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qtb
+        @Override // com.baidu.tieba.n2c
         public Long call(Long l2, Object obj) {
             return Long.valueOf(l2.longValue() + 1);
         }
     };
-    public static final f OBJECT_EQUALS = new qtb<Object, Object, Boolean>() { // from class: rx.internal.util.InternalObservableUtils.f
+    public static final f OBJECT_EQUALS = new n2c<Object, Object, Boolean>() { // from class: rx.internal.util.InternalObservableUtils.f
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.qtb
+        @Override // com.baidu.tieba.n2c
         public Boolean call(Object obj, Object obj2) {
             boolean z;
             if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
@@ -38,49 +38,49 @@ public enum InternalObservableUtils {
             return Boolean.valueOf(z);
         }
     };
-    public static final q TO_ARRAY = new ptb<List<? extends xsb<?>>, xsb<?>[]>() { // from class: rx.internal.util.InternalObservableUtils.q
+    public static final q TO_ARRAY = new m2c<List<? extends u1c<?>>, u1c<?>[]>() { // from class: rx.internal.util.InternalObservableUtils.q
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ptb
-        public xsb<?>[] call(List<? extends xsb<?>> list) {
-            return (xsb[]) list.toArray(new xsb[list.size()]);
+        @Override // com.baidu.tieba.m2c
+        public u1c<?>[] call(List<? extends u1c<?>> list) {
+            return (u1c[]) list.toArray(new u1c[list.size()]);
         }
     };
     public static final o RETURNS_VOID = new o();
-    public static final g COUNTER = new qtb<Integer, Object, Integer>() { // from class: rx.internal.util.InternalObservableUtils.g
+    public static final g COUNTER = new n2c<Integer, Object, Integer>() { // from class: rx.internal.util.InternalObservableUtils.g
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qtb
+        @Override // com.baidu.tieba.n2c
         public Integer call(Integer num, Object obj) {
             return Integer.valueOf(num.intValue() + 1);
         }
     };
     public static final e ERROR_EXTRACTOR = new e();
-    public static final ltb<Throwable> ERROR_NOT_IMPLEMENTED = new ltb<Throwable>() { // from class: rx.internal.util.InternalObservableUtils.c
+    public static final i2c<Throwable> ERROR_NOT_IMPLEMENTED = new i2c<Throwable>() { // from class: rx.internal.util.InternalObservableUtils.c
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ltb
+        @Override // com.baidu.tieba.i2c
         public void call(Throwable th) {
             throw new OnErrorNotImplementedException(th);
         }
     };
-    public static final xsb.b<Boolean, Object> IS_EMPTY = new cub(UtilityFunctions.a(), true);
+    public static final u1c.b<Boolean, Object> IS_EMPTY = new z2c(UtilityFunctions.a(), true);
 
     /* loaded from: classes2.dex */
-    public static final class o implements ptb<Object, Void> {
+    public static final class o implements m2c<Object, Void> {
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ptb
+        @Override // com.baidu.tieba.m2c
         public Void call(Object obj) {
             return null;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class a<T, R> implements qtb<R, T, R> {
-        public final mtb<R, ? super T> a;
+    public static final class a<T, R> implements n2c<R, T, R> {
+        public final j2c<R, ? super T> a;
 
-        public a(mtb<R, ? super T> mtbVar) {
-            this.a = mtbVar;
+        public a(j2c<R, ? super T> j2cVar) {
+            this.a = j2cVar;
         }
 
-        @Override // com.baidu.tieba.qtb
+        @Override // com.baidu.tieba.n2c
         public R call(R r, T t) {
             this.a.call(r, t);
             return r;
@@ -88,7 +88,7 @@ public enum InternalObservableUtils {
     }
 
     /* loaded from: classes2.dex */
-    public static final class b implements ptb<Object, Boolean> {
+    public static final class b implements m2c<Object, Boolean> {
         public final Object a;
 
         public b(Object obj) {
@@ -97,7 +97,7 @@ public enum InternalObservableUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.ptb
+        @Override // com.baidu.tieba.m2c
         public Boolean call(Object obj) {
             boolean z;
             Object obj2 = this.a;
@@ -111,7 +111,7 @@ public enum InternalObservableUtils {
     }
 
     /* loaded from: classes2.dex */
-    public static final class d implements ptb<Object, Boolean> {
+    public static final class d implements m2c<Object, Boolean> {
         public final Class<?> a;
 
         public d(Class<?> cls) {
@@ -120,184 +120,184 @@ public enum InternalObservableUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.ptb
+        @Override // com.baidu.tieba.m2c
         public Boolean call(Object obj) {
             return Boolean.valueOf(this.a.isInstance(obj));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class i implements ptb<xsb<? extends Notification<?>>, xsb<?>> {
-        public final ptb<? super xsb<? extends Void>, ? extends xsb<?>> a;
+    public static final class i implements m2c<u1c<? extends Notification<?>>, u1c<?>> {
+        public final m2c<? super u1c<? extends Void>, ? extends u1c<?>> a;
 
-        public i(ptb<? super xsb<? extends Void>, ? extends xsb<?>> ptbVar) {
-            this.a = ptbVar;
+        public i(m2c<? super u1c<? extends Void>, ? extends u1c<?>> m2cVar) {
+            this.a = m2cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ptb
-        public xsb<?> call(xsb<? extends Notification<?>> xsbVar) {
-            return this.a.call(xsbVar.p(InternalObservableUtils.RETURNS_VOID));
+        @Override // com.baidu.tieba.m2c
+        public u1c<?> call(u1c<? extends Notification<?>> u1cVar) {
+            return this.a.call(u1cVar.p(InternalObservableUtils.RETURNS_VOID));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class j<T> implements otb<bxb<T>> {
-        public final xsb<T> a;
+    public static final class j<T> implements l2c<y5c<T>> {
+        public final u1c<T> a;
         public final int b;
 
-        public j(xsb<T> xsbVar, int i) {
-            this.a = xsbVar;
+        public j(u1c<T> u1cVar, int i) {
+            this.a = u1cVar;
             this.b = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.otb
-        public bxb<T> call() {
-            return this.a.y(this.b);
+        @Override // com.baidu.tieba.l2c
+        public y5c<T> call() {
+            return this.a.z(this.b);
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class k<T> implements otb<bxb<T>> {
+    public static final class k<T> implements l2c<y5c<T>> {
         public final TimeUnit a;
-        public final xsb<T> b;
+        public final u1c<T> b;
         public final long c;
-        public final atb d;
+        public final x1c d;
 
-        public k(xsb<T> xsbVar, long j, TimeUnit timeUnit, atb atbVar) {
+        public k(u1c<T> u1cVar, long j, TimeUnit timeUnit, x1c x1cVar) {
             this.a = timeUnit;
-            this.b = xsbVar;
+            this.b = u1cVar;
             this.c = j;
-            this.d = atbVar;
+            this.d = x1cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.otb
-        public bxb<T> call() {
-            return this.b.A(this.c, this.a, this.d);
+        @Override // com.baidu.tieba.l2c
+        public y5c<T> call() {
+            return this.b.B(this.c, this.a, this.d);
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class l<T> implements otb<bxb<T>> {
-        public final xsb<T> a;
+    public static final class l<T> implements l2c<y5c<T>> {
+        public final u1c<T> a;
 
-        public l(xsb<T> xsbVar) {
-            this.a = xsbVar;
+        public l(u1c<T> u1cVar) {
+            this.a = u1cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.otb
-        public bxb<T> call() {
-            return this.a.x();
+        @Override // com.baidu.tieba.l2c
+        public y5c<T> call() {
+            return this.a.y();
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class m<T> implements otb<bxb<T>> {
+    public static final class m<T> implements l2c<y5c<T>> {
         public final long a;
         public final TimeUnit b;
-        public final atb c;
+        public final x1c c;
         public final int d;
-        public final xsb<T> e;
+        public final u1c<T> e;
 
-        public m(xsb<T> xsbVar, int i, long j, TimeUnit timeUnit, atb atbVar) {
+        public m(u1c<T> u1cVar, int i, long j, TimeUnit timeUnit, x1c x1cVar) {
             this.a = j;
             this.b = timeUnit;
-            this.c = atbVar;
+            this.c = x1cVar;
             this.d = i;
-            this.e = xsbVar;
+            this.e = u1cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.otb
-        public bxb<T> call() {
-            return this.e.z(this.d, this.a, this.b, this.c);
+        @Override // com.baidu.tieba.l2c
+        public y5c<T> call() {
+            return this.e.A(this.d, this.a, this.b, this.c);
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class n implements ptb<xsb<? extends Notification<?>>, xsb<?>> {
-        public final ptb<? super xsb<? extends Throwable>, ? extends xsb<?>> a;
+    public static final class n implements m2c<u1c<? extends Notification<?>>, u1c<?>> {
+        public final m2c<? super u1c<? extends Throwable>, ? extends u1c<?>> a;
 
-        public n(ptb<? super xsb<? extends Throwable>, ? extends xsb<?>> ptbVar) {
-            this.a = ptbVar;
+        public n(m2c<? super u1c<? extends Throwable>, ? extends u1c<?>> m2cVar) {
+            this.a = m2cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ptb
-        public xsb<?> call(xsb<? extends Notification<?>> xsbVar) {
-            return this.a.call(xsbVar.p(InternalObservableUtils.ERROR_EXTRACTOR));
+        @Override // com.baidu.tieba.m2c
+        public u1c<?> call(u1c<? extends Notification<?>> u1cVar) {
+            return this.a.call(u1cVar.p(InternalObservableUtils.ERROR_EXTRACTOR));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class p<T, R> implements ptb<xsb<T>, xsb<R>> {
-        public final ptb<? super xsb<T>, ? extends xsb<R>> a;
-        public final atb b;
+    public static final class p<T, R> implements m2c<u1c<T>, u1c<R>> {
+        public final m2c<? super u1c<T>, ? extends u1c<R>> a;
+        public final x1c b;
 
-        public p(ptb<? super xsb<T>, ? extends xsb<R>> ptbVar, atb atbVar) {
-            this.a = ptbVar;
-            this.b = atbVar;
+        public p(m2c<? super u1c<T>, ? extends u1c<R>> m2cVar, x1c x1cVar) {
+            this.a = m2cVar;
+            this.b = x1cVar;
         }
 
-        public xsb<R> call(xsb<T> xsbVar) {
-            return this.a.call(xsbVar).s(this.b);
+        public u1c<R> call(u1c<T> u1cVar) {
+            return this.a.call(u1cVar).s(this.b);
         }
 
-        @Override // com.baidu.tieba.ptb
+        @Override // com.baidu.tieba.m2c
         public /* bridge */ /* synthetic */ Object call(Object obj) {
-            return call((xsb) ((xsb) obj));
+            return call((u1c) ((u1c) obj));
         }
     }
 
-    public static <T, R> ptb<xsb<T>, xsb<R>> createReplaySelectorAndObserveOn(ptb<? super xsb<T>, ? extends xsb<R>> ptbVar, atb atbVar) {
-        return new p(ptbVar, atbVar);
+    public static <T, R> m2c<u1c<T>, u1c<R>> createReplaySelectorAndObserveOn(m2c<? super u1c<T>, ? extends u1c<R>> m2cVar, x1c x1cVar) {
+        return new p(m2cVar, x1cVar);
     }
 
-    public static <T> otb<bxb<T>> createReplaySupplier(xsb<T> xsbVar, int i2) {
-        return new j(xsbVar, i2);
+    public static <T> l2c<y5c<T>> createReplaySupplier(u1c<T> u1cVar, int i2) {
+        return new j(u1cVar, i2);
     }
 
     /* loaded from: classes2.dex */
-    public static final class e implements ptb<Notification<?>, Throwable> {
+    public static final class e implements m2c<Notification<?>, Throwable> {
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ptb
+        @Override // com.baidu.tieba.m2c
         public Throwable call(Notification<?> notification) {
             return notification.e();
         }
     }
 
-    public static <T, R> qtb<R, T, R> createCollectorCaller(mtb<R, ? super T> mtbVar) {
-        return new a(mtbVar);
+    public static <T, R> n2c<R, T, R> createCollectorCaller(j2c<R, ? super T> j2cVar) {
+        return new a(j2cVar);
     }
 
-    public static ptb<xsb<? extends Notification<?>>, xsb<?>> createRepeatDematerializer(ptb<? super xsb<? extends Void>, ? extends xsb<?>> ptbVar) {
-        return new i(ptbVar);
+    public static m2c<u1c<? extends Notification<?>>, u1c<?>> createRepeatDematerializer(m2c<? super u1c<? extends Void>, ? extends u1c<?>> m2cVar) {
+        return new i(m2cVar);
     }
 
-    public static <T> otb<bxb<T>> createReplaySupplier(xsb<T> xsbVar) {
-        return new l(xsbVar);
+    public static <T> l2c<y5c<T>> createReplaySupplier(u1c<T> u1cVar) {
+        return new l(u1cVar);
     }
 
-    public static ptb<xsb<? extends Notification<?>>, xsb<?>> createRetryDematerializer(ptb<? super xsb<? extends Throwable>, ? extends xsb<?>> ptbVar) {
-        return new n(ptbVar);
+    public static m2c<u1c<? extends Notification<?>>, u1c<?>> createRetryDematerializer(m2c<? super u1c<? extends Throwable>, ? extends u1c<?>> m2cVar) {
+        return new n(m2cVar);
     }
 
-    public static ptb<Object, Boolean> equalsWith(Object obj) {
+    public static m2c<Object, Boolean> equalsWith(Object obj) {
         return new b(obj);
     }
 
-    public static ptb<Object, Boolean> isInstanceOf(Class<?> cls) {
+    public static m2c<Object, Boolean> isInstanceOf(Class<?> cls) {
         return new d(cls);
     }
 
-    public static <T> otb<bxb<T>> createReplaySupplier(xsb<T> xsbVar, int i2, long j2, TimeUnit timeUnit, atb atbVar) {
-        return new m(xsbVar, i2, j2, timeUnit, atbVar);
+    public static <T> l2c<y5c<T>> createReplaySupplier(u1c<T> u1cVar, int i2, long j2, TimeUnit timeUnit, x1c x1cVar) {
+        return new m(u1cVar, i2, j2, timeUnit, x1cVar);
     }
 
-    public static <T> otb<bxb<T>> createReplaySupplier(xsb<T> xsbVar, long j2, TimeUnit timeUnit, atb atbVar) {
-        return new k(xsbVar, j2, timeUnit, atbVar);
+    public static <T> l2c<y5c<T>> createReplaySupplier(u1c<T> u1cVar, long j2, TimeUnit timeUnit, x1c x1cVar) {
+        return new k(u1cVar, j2, timeUnit, x1cVar);
     }
 }

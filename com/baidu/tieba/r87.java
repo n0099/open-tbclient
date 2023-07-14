@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class r87 implements f87 {
+public class r87 implements mb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Runnable> a;
-    public boolean b;
+    public List<mc7<?>> a;
+    public int b;
+    public boolean c;
+    public int d;
+    public String e;
 
     public r87() {
         Interceptable interceptable = $ic;
@@ -25,47 +27,22 @@ public class r87 implements f87 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        this.c = true;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
-        Runnable runnable;
+    @Override // com.baidu.tieba.mb7
+    public void d(@NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference<Runnable> weakReference = this.a;
-            if (weakReference != null) {
-                runnable = weakReference.get();
-            } else {
-                runnable = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            for (mc7<?> mc7Var : this.a) {
+                if (mc7Var instanceof mb7) {
+                    ((mb7) mc7Var).d(obj);
+                }
             }
-            if (runnable != null) {
-                runnable.run();
-            }
-            if (runnable != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.f87
-    public final void a(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.b = true;
-            this.a = new WeakReference<>(runnable);
-        }
-    }
-
-    public final void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.a = new WeakReference<>(runnable);
         }
     }
 }

@@ -1,181 +1,194 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.Surface;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.banner2.UnifiedBannerADListener;
-import com.qq.e.ads.banner2.UnifiedBannerView;
-import com.qq.e.comm.util.AdError;
+import com.faceunity.encoder.VideoEncoderCore;
+import com.google.android.exoplayer2.util.MimeTypes;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+@TargetApi(16)
 /* loaded from: classes8.dex */
-public class u9b extends e9b<aab> {
+public class u9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Surface a;
+    public t9b b;
+    public MediaCodec c;
+    public MediaCodec.BufferInfo d;
+    public int e;
+    public boolean f;
+    public Bundle g;
+    public long h;
+    public int i;
 
-    /* loaded from: classes8.dex */
-    public class a implements UnifiedBannerADListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public aab c;
-        public final /* synthetic */ UnifiedBannerView[] d;
-        public final /* synthetic */ u9b e;
-
-        public a(u9b u9bVar, UnifiedBannerView[] unifiedBannerViewArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u9bVar, unifiedBannerViewArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = u9bVar;
-            this.d = unifiedBannerViewArr;
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.e.onAdClicked((u9b) this.c, this.b, new String[0]);
-                this.b = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADClosed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.e();
-                this.e.onAdClose(this.c);
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADExposure() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.e.onAdShow((u9b) this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADLeftApplication() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADReceive() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-                aab aabVar = new aab(this.d[0]);
-                this.c = aabVar;
-                this.e.onAdLoaded(aabVar, new String[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onNoAD(AdError adError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, adError) == null) {
-                this.e.onError(adError.getErrorCode(), adError.getErrorMsg());
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u9b(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid, false);
+    @TargetApi(18)
+    public u9b(int i, int i2, int i3, boolean z, t9b t9bVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), t9bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.g = new Bundle();
+        this.h = 0L;
+        this.i = 10000;
+        String str = MimeTypes.VIDEO_H265;
+        str = (!z || pab.m(MimeTypes.VIDEO_H265) == null) ? "video/avc" : "video/avc";
+        this.d = new MediaCodec.BufferInfo();
+        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i, i2);
+        createVideoFormat.setInteger("color-format", 2130708361);
+        createVideoFormat.setInteger("bitrate", i3);
+        createVideoFormat.setInteger("frame-rate", 30);
+        createVideoFormat.setInteger("i-frame-interval", 5);
+        MediaCodec createEncoderByType = MediaCodec.createEncoderByType(str);
+        this.c = createEncoderByType;
+        createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+        this.a = this.c.createInputSurface();
+        this.c.start();
+        this.g.putInt("request-sync", 0);
+        if (Build.VERSION.SDK_INT >= 19) {
+            this.c.setParameters(this.g);
+        }
+        this.e = -1;
+        this.f = false;
+        this.b = t9bVar;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    public Surface a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new l9b(pid) : (AdRipper) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Surface) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.e9b
-    public void e(Context context, FunAdSlot funAdSlot) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            if (!(context instanceof Activity)) {
-                onError(0, "NoA");
-                return;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    @RequiresApi(api = 18)
+    public void c(boolean z) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) {
+            return;
+        }
+        if (z) {
+            this.c.signalEndOfInputStream();
+        }
+        while (true) {
+            ByteBuffer[] outputBuffers = this.c.getOutputBuffers();
+            while (true) {
+                int dequeueOutputBuffer = this.c.dequeueOutputBuffer(this.d, this.i);
+                if (dequeueOutputBuffer == -1) {
+                    if (!z) {
+                        return;
+                    }
+                } else if (dequeueOutputBuffer == -3) {
+                    break;
+                } else if (dequeueOutputBuffer == -2) {
+                    if (this.f) {
+                        throw new RuntimeException("format changed twice");
+                    }
+                    MediaFormat outputFormat = this.c.getOutputFormat();
+                    fab.c(VideoEncoderCore.TAG, "encoder output format changed: " + outputFormat);
+                    this.e = this.b.a(outputFormat);
+                    if (!this.b.c()) {
+                        synchronized (this.b) {
+                            while (!this.b.e()) {
+                                try {
+                                    this.b.wait(100L);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                    this.f = true;
+                } else if (dequeueOutputBuffer < 0) {
+                    fab.l(VideoEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                } else {
+                    ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
+                    if (byteBuffer == null) {
+                        throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                    }
+                    MediaCodec.BufferInfo bufferInfo = this.d;
+                    if ((bufferInfo.flags & 2) != 0) {
+                        bufferInfo.size = 0;
+                    }
+                    MediaCodec.BufferInfo bufferInfo2 = this.d;
+                    if (bufferInfo2.size != 0) {
+                        if (!this.f) {
+                            throw new RuntimeException("muxer hasn't started");
+                        }
+                        byteBuffer.position(bufferInfo2.offset);
+                        MediaCodec.BufferInfo bufferInfo3 = this.d;
+                        byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
+                        this.b.b(this.e, byteBuffer, this.d);
+                    }
+                    this.c.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.h >= 500) {
+                        this.c.setParameters(this.g);
+                        this.h = System.currentTimeMillis();
+                    }
+                    if ((this.d.flags & 4) != 0) {
+                        if (z) {
+                            return;
+                        }
+                        fab.l(VideoEncoderCore.TAG, "reached end of stream unexpectedly");
+                        return;
+                    }
+                }
             }
-            UnifiedBannerView unifiedBannerView = new UnifiedBannerView((Activity) context, this.mPid.pid, new a(this, r6));
-            unifiedBannerView.setRefresh(0);
-            unifiedBannerView.loadAD();
-            UnifiedBannerView[] unifiedBannerViewArr = {unifiedBannerView};
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        aab aabVar;
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (aabVar = (aab) obj) != null) {
-            ((UnifiedBannerView) aabVar.a).destroy();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            aab aabVar = (aab) obj;
-            onShowStart(aabVar);
-            if (((UnifiedBannerView) aabVar.a).getParent() != null) {
-                ((ViewGroup) ((UnifiedBannerView) aabVar.a).getParent()).removeView((View) aabVar.a);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MediaCodec mediaCodec = this.c;
+            if (mediaCodec != null) {
+                mediaCodec.stop();
+                this.c.release();
+                this.c = null;
             }
-            viewGroup.removeAllViews();
-            int width = viewGroup.getWidth();
-            viewGroup.addView((View) aabVar.a, new ViewGroup.LayoutParams(width, Math.round(width / 6.4f)));
-            return true;
+            t9b t9bVar = this.b;
+            if (t9bVar != null) {
+                try {
+                    t9bVar.d();
+                } catch (IllegalStateException e) {
+                    fab.g(e);
+                }
+                this.b = null;
+            }
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+            }
+        }
     }
 }

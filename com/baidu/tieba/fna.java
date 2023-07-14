@@ -1,278 +1,210 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.message.EvaluateRelevanceItemSelectedMessage;
-import com.baidu.tbadk.coreExtra.data.HeadItem;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
-import com.baidu.tieba.write.view.WriteEvaluationHeaderView;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.text.TextUtils;
+import android.view.Surface;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.gna;
+import com.baidu.tieba.kna;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.util.ArrayList;
+import java.io.FileOutputStream;
+import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
-public class fna extends tna<goa> {
+public class fna extends gna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public WriteEvaluationHeaderView g;
-    public final CustomMessageListener h;
-
-    public final int D(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)})) == null) ? (int) ((d + 1.0d) / 2.0d) : invokeCommon.intValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fna a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(fna fnaVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fnaVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fnaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof EvaluateRelevanceItemSelectedMessage)) {
-                return;
-            }
-            this.a.E((EvaluateRelevanceItemSelectedMessage) customResponsedMessage);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements WriteEvaluationHeaderView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fna a;
-
-        public b(fna fnaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fnaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fnaVar;
-        }
-
-        @Override // com.baidu.tieba.write.view.WriteEvaluationHeaderView.c
-        public void onClose() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.i();
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fna(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, goa.class);
+    public fna(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new a(this, 2921516);
     }
 
-    @Override // com.baidu.tieba.yna
-    public void e(@NonNull WriteData writeData) {
-        WriteEvaluationHeaderView writeEvaluationHeaderView;
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00f9 A[Catch: all -> 0x020d, TryCatch #0 {all -> 0x020d, blocks: (B:24:0x00ac, B:26:0x00b2, B:28:0x00ba, B:31:0x00f3, B:33:0x00f9, B:35:0x00ff, B:36:0x0109, B:38:0x010d, B:40:0x0125, B:42:0x012b, B:44:0x0139, B:46:0x013f, B:50:0x014c, B:57:0x015c, B:59:0x0163, B:60:0x016d, B:61:0x0189, B:63:0x0192, B:66:0x019d, B:69:0x01ac, B:29:0x00d8, B:71:0x01cb, B:73:0x01d1, B:74:0x01d9), top: B:86:0x00ac }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x019a  */
+    @TargetApi(16)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public gna.b a(String str, boolean z, kna.a aVar, kna.a aVar2) throws Exception {
+        InterceptResult invokeCommon;
+        MediaFormat mediaFormat;
+        double d;
+        int dequeueOutputBuffer;
+        byte[] bArr;
+        byte[] bArr2;
+        byte[] bArr3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, writeData) != null) || (writeEvaluationHeaderView = this.g) == null) {
-            return;
-        }
-        writeData.setItemInfo(writeEvaluationHeaderView.getEvaluateItemInfo());
-        writeData.setEvaluationStar(this.g.getStarCount());
-    }
-
-    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
-    public void j(@NonNull aoa aoaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aoaVar) == null) {
-            super.j(aoaVar);
-            this.a.registerListener(this.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.yna
-    public void onChangeSkinType(int i) {
-        WriteEvaluationHeaderView writeEvaluationHeaderView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (writeEvaluationHeaderView = this.g) != null) {
-            writeEvaluationHeaderView.f();
-        }
-    }
-
-    public final String C() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            WriteEvaluationHeaderView writeEvaluationHeaderView = this.g;
-            if (writeEvaluationHeaderView != null) {
-                i = writeEvaluationHeaderView.getStarCount();
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), aVar, aVar2})) == null) {
+            if (TextUtils.isEmpty(str) || aVar == null || aVar2 == null) {
+                return null;
             }
-            arrayList.add(new HeadItem("", String.valueOf(i), 2));
-            return new Gson().toJson(arrayList);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void E(EvaluateRelevanceItemSelectedMessage evaluateRelevanceItemSelectedMessage) {
-        WriteEvaluationHeaderView writeEvaluationHeaderView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, evaluateRelevanceItemSelectedMessage) != null) || (writeEvaluationHeaderView = this.g) == null) {
-            return;
-        }
-        writeEvaluationHeaderView.setVisibility(0);
-        TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
-        tbRichTextEvaluateItemInfo.setItemID(evaluateRelevanceItemSelectedMessage.item_id);
-        tbRichTextEvaluateItemInfo.setTags(evaluateRelevanceItemSelectedMessage.tags);
-        tbRichTextEvaluateItemInfo.setScore(evaluateRelevanceItemSelectedMessage.score);
-        tbRichTextEvaluateItemInfo.setStar(evaluateRelevanceItemSelectedMessage.star);
-        tbRichTextEvaluateItemInfo.setIconUrl(evaluateRelevanceItemSelectedMessage.icon_url);
-        tbRichTextEvaluateItemInfo.setIconSize(evaluateRelevanceItemSelectedMessage.icon_size);
-        tbRichTextEvaluateItemInfo.setTitle(evaluateRelevanceItemSelectedMessage.item_name);
-        this.g.setItemInfo(tbRichTextEvaluateItemInfo);
-    }
-
-    @Override // com.baidu.tieba.yna
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) && this.g != null && writeData.getItemInfo() != null) {
-            WriteData writeData2 = this.e;
-            if (writeData2 != null) {
-                writeData2.setItemInfo(writeData.getItemInfo());
-                this.e.setEvaluationStar(writeData.getEvaluationStar());
-            }
-            this.g.setItemInfo(writeData.getItemInfo());
-            this.g.setStarCount(writeData.getEvaluationStar());
-        }
-    }
-
-    @Override // com.baidu.tieba.yna
-    public void c(WriteData writeData) {
-        WriteEvaluationHeaderView writeEvaluationHeaderView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) && (writeEvaluationHeaderView = this.g) != null) {
-            writeData.setItemInfo(writeEvaluationHeaderView.getEvaluateItemInfo());
-            if (this.g.getEvaluateItemInfo() != null) {
-                writeData.setItem_id(this.g.getEvaluateItemInfo().getItemID());
-                writeData.setComment_head(C());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.yna
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0506, viewGroup, false);
-            this.c = inflate;
-            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) inflate.findViewById(R.id.obfuscated_res_0x7f0929f8);
-            this.g = writeEvaluationHeaderView;
-            if (writeEvaluationHeaderView != null) {
-                writeEvaluationHeaderView.setItemCloseListener(new b(this));
-                WriteData writeData = this.e;
-                if (writeData != null) {
-                    if (writeData.isFromItemDetail()) {
-                        this.g.setShowItemInfo(false);
+            long currentTimeMillis = System.currentTimeMillis();
+            String str2 = this.a;
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            mediaExtractor.setDataSource(str2);
+            boolean z2 = false;
+            int i = 0;
+            while (true) {
+                if (i < mediaExtractor.getTrackCount()) {
+                    mediaFormat = mediaExtractor.getTrackFormat(i);
+                    if (mediaFormat.getString("mime").startsWith("audio/")) {
+                        mediaExtractor.selectTrack(i);
+                        break;
                     }
-                    if (this.e.getIntentItemInfo() != null) {
-                        TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
-                        tbRichTextEvaluateItemInfo.setItemID(String.valueOf(this.e.getIntentItemInfo().id));
-                        tbRichTextEvaluateItemInfo.setTags(this.e.getIntentItemInfo().tags);
-                        tbRichTextEvaluateItemInfo.setScore(this.e.getIntentItemInfo().averageScore);
-                        tbRichTextEvaluateItemInfo.setStar(D(this.e.getIntentItemInfo().averageScore));
-                        tbRichTextEvaluateItemInfo.setIconUrl(this.e.getIntentItemInfo().icon_url);
-                        tbRichTextEvaluateItemInfo.setIconSize(this.e.getIntentItemInfo().icon_size);
-                        tbRichTextEvaluateItemInfo.setTitle(this.e.getIntentItemInfo().name);
-                        this.g.setItemInfo(tbRichTextEvaluateItemInfo);
-                        this.g.setStarCount(this.e.getIntentStarCount());
-                        this.e.setItemInfo(tbRichTextEvaluateItemInfo);
-                        WriteData writeData2 = this.e;
-                        writeData2.setEvaluationStar(writeData2.getIntentStarCount());
-                    } else if (this.e.getItemInfo() != null) {
-                        this.g.setItemInfo(this.e.getItemInfo());
-                        this.g.setStarCount(this.e.getEvaluationStar());
-                    }
+                    i++;
+                } else {
+                    mediaFormat = null;
+                    break;
                 }
             }
-            return this.c;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            WriteEvaluationHeaderView writeEvaluationHeaderView = this.g;
-            if (writeEvaluationHeaderView != null && writeEvaluationHeaderView.e()) {
-                return true;
+            if (mediaFormat == null) {
+                BdLog.e("not a valid file with audio track..");
+                mediaExtractor.release();
+                return null;
             }
-            return false;
+            BdLog.e("mediaFormat " + mediaFormat);
+            gna.b bVar = new gna.b();
+            int i2 = aVar2.b;
+            int i3 = aVar2.a;
+            int i4 = aVar2.c;
+            bVar.a = str;
+            FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
+            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
+            createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
+            createDecoderByType.start();
+            ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
+            ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
+            double d2 = mediaFormat.getLong("durationUs");
+            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+            ByteBuffer[] byteBufferArr = outputBuffers;
+            boolean z3 = false;
+            boolean z4 = false;
+            while (!z3) {
+                long j = currentTimeMillis;
+                if (!z4) {
+                    try {
+                        int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
+                        if (dequeueInputBuffer >= 0) {
+                            int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], z2 ? 1 : 0);
+                            if (readSampleData < 0) {
+                                BdLog.i("saw input EOS.");
+                                d = d2;
+                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                z4 = true;
+                            } else {
+                                d = d2;
+                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
+                                mediaExtractor.advance();
+                            }
+                            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
+                            if (dequeueOutputBuffer < 0) {
+                                if ((bufferInfo.flags & 2) != 0) {
+                                    BdLog.i("audio encoder: codec config buffer");
+                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
+                                } else {
+                                    if (bufferInfo.size != 0) {
+                                        ByteBuffer byteBuffer = byteBufferArr[dequeueOutputBuffer];
+                                        byteBuffer.position(bufferInfo.offset);
+                                        byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
+                                        byte[] bArr4 = new byte[bufferInfo.size];
+                                        byteBuffer.get(bArr4);
+                                        if (!z) {
+                                            if (aVar2.a()) {
+                                                bArr2 = kna.b(aVar2.c / 8, aVar.c / 8, bArr4);
+                                            } else {
+                                                bArr2 = null;
+                                            }
+                                            if (aVar2.b()) {
+                                                int i5 = aVar2.b;
+                                                int i6 = aVar.b;
+                                                int i7 = aVar.c / 8;
+                                                if (bArr2 == null) {
+                                                    bArr3 = bArr4;
+                                                } else {
+                                                    bArr3 = bArr2;
+                                                }
+                                                bArr = kna.c(i5, i6, i7, bArr3);
+                                            } else {
+                                                bArr = null;
+                                            }
+                                        } else {
+                                            bArr = null;
+                                            bArr2 = null;
+                                        }
+                                        if (bArr == null) {
+                                            if (bArr2 == null) {
+                                                bArr = bArr4;
+                                            } else {
+                                                bArr = bArr2;
+                                            }
+                                        }
+                                        fileOutputStream.write(bArr);
+                                        if (this.b != null) {
+                                            this.b.a(bArr4, bufferInfo.presentationTimeUs / d);
+                                        }
+                                        BdLog.i(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                        z2 = false;
+                                    }
+                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
+                                    if ((bufferInfo.flags & 4) != 0) {
+                                        BdLog.i("saw output EOS.");
+                                        z3 = true;
+                                    }
+                                }
+                            } else if (dequeueOutputBuffer == -3) {
+                                ByteBuffer[] outputBuffers2 = createDecoderByType.getOutputBuffers();
+                                BdLog.i("output buffers have changed.");
+                                byteBufferArr = outputBuffers2;
+                            } else if (dequeueOutputBuffer == -2) {
+                                BdLog.e("output format has changed to " + createDecoderByType.getOutputFormat());
+                            }
+                            currentTimeMillis = j;
+                            d2 = d;
+                        }
+                    } finally {
+                        fileOutputStream.close();
+                        createDecoderByType.stop();
+                        createDecoderByType.release();
+                        mediaExtractor.release();
+                    }
+                }
+                d = d2;
+                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
+                if (dequeueOutputBuffer < 0) {
+                }
+                currentTimeMillis = j;
+                d2 = d;
+            }
+            long j2 = currentTimeMillis;
+            if (this.b != null) {
+                this.b.a(null, 1.0d);
+            }
+            BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - j2) + " milliseconds !");
+            return bVar;
         }
-        return invokeV.booleanValue;
+        return (gna.b) invokeCommon.objValue;
     }
 }

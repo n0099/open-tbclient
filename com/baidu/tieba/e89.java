@@ -1,78 +1,44 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class e89 extends js6<d89> {
+public class e89 extends lj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a b;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(String str, String str2, String str3);
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e89(a aVar) {
-        super(d89.class);
+    public e89(Context context) {
+        super(context, null, 18, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Class) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = aVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.js6
-    public void onEvent(d89 event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (!TextUtils.isEmpty(event.a())) {
-                try {
-                    String a2 = event.a();
-                    if (a2 != null) {
-                        JSONObject optJSONObject = new JSONObject(a2).optJSONObject("robot_reply_info");
-                        if (optJSONObject != null) {
-                            String token = optJSONObject.optString("loading_post_token");
-                            String content = optJSONObject.optString("content");
-                            String postId = optJSONObject.optString("post_id");
-                            a aVar = this.b;
-                            if (aVar != null) {
-                                Intrinsics.checkNotNullExpressionValue(token, "token");
-                                Intrinsics.checkNotNullExpressionValue(content, "content");
-                                Intrinsics.checkNotNullExpressionValue(postId, "postId");
-                                aVar.a(token, content, postId);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type kotlin.String");
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
-        }
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c57);
+        this.m = new PrivilegeDeskView(context);
+        this.o = true;
+        this.i = false;
+        this.j = true;
+        this.d = R.drawable.icon_pure_post_vip24;
+        this.e = R.drawable.icon_pure_post_vip24_selection;
+        this.n = 6;
+        this.p = new int[]{1};
     }
 }

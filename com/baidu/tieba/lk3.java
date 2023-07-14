@@ -1,73 +1,52 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lk3 {
+public class lk3 extends v73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final String c;
-    public final String d;
 
-    public lk3(String str, int i, String str2, String str3) {
+    public lk3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = i;
-        this.c = str2;
-        this.d = str3;
     }
 
-    public static Bundle a(String str, int i, String str2, String str3) {
-        InterceptResult invokeLILL;
+    public static void e(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65537, null, str, i, str2, str3)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("bundle_sp_name_key", str);
-            bundle.putString("bundle_prefs_key", str2);
-            bundle.putInt("bundle_data_type_key", i);
-            bundle.putString("bundle_data_value_key", str3);
-            return bundle;
+        if ((interceptable != null && interceptable.invokeL(65537, null, ashmemFileDescriptor) != null) || !ProcessUtils.isMainProcess()) {
+            return;
         }
-        return (Bundle) invokeLILL.objValue;
+        Bundle bundle = new Bundle();
+        bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+        bundle.putParcelable("result", ashmemFileDescriptor);
+        p83.a(bundle, lk3.class);
     }
 
-    public static lk3 b(Bundle bundle) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.v73
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) {
-            if (bundle.isEmpty()) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+            AshmemFileDescriptor ashmemFileDescriptor = (AshmemFileDescriptor) bundle.getParcelable("result");
+            if (ashmemFileDescriptor != null) {
+                pk3.b(ashmemFileDescriptor);
             }
-            return new lk3(bundle.getString("bundle_sp_name_key"), bundle.getInt("bundle_data_type_key"), bundle.getString("bundle_prefs_key"), bundle.getString("bundle_data_value_key"));
         }
-        return (lk3) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SpMethodInfo{mDataType=" + this.b + ", mPrefName='" + this.c + "', mDataValue='" + this.d + "'}";
-        }
-        return (String) invokeV.objValue;
     }
 }

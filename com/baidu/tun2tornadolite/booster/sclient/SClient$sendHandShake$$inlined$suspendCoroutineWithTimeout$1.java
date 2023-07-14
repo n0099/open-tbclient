@@ -125,7 +125,7 @@ public final class SClient$sendHandShake$$inlined$suspendCoroutineWithTimeout$1 
                             Continuation<Boolean> continuation = this.$it;
                             Boolean valueOf = Boolean.valueOf(z);
                             Result.Companion companion = Result.Companion;
-                            continuation.resumeWith(Result.m844constructorimpl(valueOf));
+                            continuation.resumeWith(Result.m846constructorimpl(valueOf));
                         }
                     }
                 };

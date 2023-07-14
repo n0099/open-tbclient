@@ -7,7 +7,7 @@ import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.bdprivate.activity.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wp3;
+import com.baidu.tieba.pp3;
 /* loaded from: classes4.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
     public SwanAppActionBar b;
@@ -25,16 +25,16 @@ public class LoginServiceAgreementActivity extends BaseActivity {
 
     @Override // com.baidu.swan.bdprivate.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        int c0 = wp3.c0(this);
+        int c0 = pp3.c0(this);
         super.onCreate(bundle);
-        wp3.g(this, c0);
+        pp3.g(this, c0);
         Intent intent = getIntent();
         if (intent == null) {
             finish();
             return;
         }
         Bundle extras = intent.getExtras();
-        setContentView(R.layout.obfuscated_res_0x7f0d0046);
+        setContentView(R.layout.obfuscated_res_0x7f0d0045);
         NgWebView ngWebView = (NgWebView) findViewById(R.id.obfuscated_res_0x7f0901bc);
         if (extras != null) {
             ngWebView.loadUrl(extras.getString("url"));
@@ -43,7 +43,7 @@ public class LoginServiceAgreementActivity extends BaseActivity {
         this.b = swanAppActionBar;
         swanAppActionBar.setLeftBackViewVisibility(true);
         this.b.setLeftBackViewClickListener(new a());
-        this.b.setTitle(R.string.obfuscated_res_0x7f0f1543);
+        this.b.setTitle(R.string.obfuscated_res_0x7f0f1559);
         this.b.setRightZoneVisibility(false);
     }
 }

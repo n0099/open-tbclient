@@ -1,89 +1,80 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Calendar;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j21 {
+public class j21 implements i21 {
     public static /* synthetic */ Interceptable $ic;
+    public static final j21 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.m21
+    public void end(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                String[] split = str.split(":");
-                String[] split2 = str2.split(":");
-                if (split.length != 0 && split2.length != 0) {
-                    try {
-                        Calendar calendar = Calendar.getInstance();
-                        long timeInMillis = calendar.getTimeInMillis();
-                        calendar.set(11, e21.c(split[0]));
-                        calendar.set(12, e21.c(split[1]));
-                        long timeInMillis2 = calendar.getTimeInMillis();
-                        calendar.set(11, e21.c(split2[0]));
-                        calendar.set(12, e21.c(split2[1]));
-                        long timeInMillis3 = calendar.getTimeInMillis();
-                        if (timeInMillis < timeInMillis2 || timeInMillis > timeInMillis3) {
-                            return false;
-                        }
-                        return true;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.m21
+    public void stop(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends j21 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void b(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) && activity != null) {
-            i21.b("BdVideoSys", "SCREEN_ORIENTATION_LANDSCAPE");
-            if (z) {
-                activity.setRequestedOrientation(8);
-            } else {
-                activity.setRequestedOrientation(0);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947831296, "Lcom/baidu/tieba/j21;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            activity.getWindow().setFlags(1024, 1024);
-        }
-    }
-
-    public static void c(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, activity, z) == null) && activity != null) {
-            if (z) {
-                activity.getWindow().addFlags(128);
-            } else {
-                activity.getWindow().clearFlags(128);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947831296, "Lcom/baidu/tieba/j21;");
+                return;
             }
         }
+        a = new a();
     }
 
-    public static void startActivity(Context context, ComponentName componentName) throws Exception {
+    public j21() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, componentName) == null) {
-            new Intent().setComponent(componentName);
-        }
-    }
-
-    public static void startActivity(Context context, String str, String str2, String str3) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3) == null) {
-            new Intent().setComponent(new ComponentName(str, str2 + str3));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 }

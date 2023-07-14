@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
-public class ae7 implements xn {
+public final class ae7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,46 +37,85 @@ public class ae7 implements xn {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = new a(null);
     }
 
-    public ae7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        public final j97 a(String iconUrl) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iconUrl)) == null) {
+                Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+                if (TextUtils.isEmpty(iconUrl)) {
+                    return null;
+                }
+                int i = 0;
+                if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
+                    Uri parse = Uri.parse(iconUrl);
+                    List<String> pathSegments = parse.getPathSegments();
+                    if (pathSegments.size() > 0) {
+                        boolean z = true;
+                        int identifier = z57.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, z57.a.getPackageName());
+                        String queryParameter = parse.getQueryParameter("type");
+                        if (queryParameter == null) {
+                            queryParameter = "";
+                        }
+                        int identifier2 = z57.a.getResources().getIdentifier(parse.getQueryParameter("color"), "color", z57.a.getPackageName());
+                        String queryParameter2 = parse.getQueryParameter(CriusAttrConstants.PADDING);
+                        if (queryParameter2 != null && queryParameter2.length() != 0) {
+                            z = false;
+                        }
+                        if (!z) {
+                            i = yi.g(z57.a, z57.a.getResources().getIdentifier(queryParameter2, EMABTest.TYPE_DIMEN, z57.a.getPackageName()));
+                        }
+                        if (identifier > 0) {
+                            return new j97(identifier, queryParameter, identifier2, i);
+                        }
+                    }
+                }
+                return null;
+            }
+            return (j97) invokeL.objValue;
         }
-        return invokeV.intValue;
-    }
 
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
+        public final String b(f97 iconData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconData)) == null) {
+                Intrinsics.checkNotNullParameter(iconData, "iconData");
+                String b = iconData.b();
+                int currentSkinType = SkinManager.getCurrentSkinType();
+                if (currentSkinType != 0) {
+                    if (currentSkinType == 4) {
+                        return iconData.a();
+                    }
+                    return b;
+                }
+                return iconData.b();
+            }
+            return (String) invokeL.objValue;
         }
     }
 }

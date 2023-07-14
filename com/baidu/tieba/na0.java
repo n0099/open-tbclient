@@ -1,27 +1,32 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.lcp.sdk.pb.LcmPb$LcmResponse;
+import com.baidu.lcp.sdk.pb.LcmPb$Common;
+import com.baidu.lcp.sdk.pb.LcmPb$LcmNotify;
+import com.baidu.lcp.sdk.pb.LcmPb$LcmRequest;
 import com.baidu.lcp.sdk.pb.LcmPb$RpcData;
 import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcMeta;
-import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcNotifyMeta;
 import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
-import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcResponseMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$event_timestamp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.api.entity.core.JosStatusCodes;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.util.zip.GZIPInputStream;
+import java.nio.ByteBuffer;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes7.dex */
 public class na0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public final int d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) ? z ? 1 : 0 : invokeZ.intValue;
+    }
 
     public na0() {
         Interceptable interceptable = $ic;
@@ -37,226 +42,178 @@ public class na0 {
         }
     }
 
-    public final ca0 a(ca0 ca0Var, byte[] bArr) throws Exception {
-        InterceptResult invokeLL;
+    public final byte[] a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ca0Var, bArr)) == null) {
-            LcmPb$RpcData parseFrom = LcmPb$RpcData.parseFrom(bArr);
-            if (parseFrom.hasLcmResponse()) {
-                LcmPb$LcmResponse lcmResponse = parseFrom.getLcmResponse();
-                if (wa0.a) {
-                    xa0.a("PbProcessor", "methodId ：" + ca0Var.j + ", logId :" + lcmResponse.getLogId() + ", errMsg :" + lcmResponse.getErrorMsg() + ", errCode :" + lcmResponse.getErrorCode() + ", pingMS :" + lcmResponse.getNextIntervalMs());
-                }
-                if (lcmResponse.getErrorCode() == 0) {
-                    long j = ca0Var.j;
-                    if (j == 1) {
-                        ca0Var.k = 0;
-                        ca0Var.h = lcmResponse.getNextIntervalMs();
-                        ca0Var.r = lcmResponse.getServerInfo();
-                    } else if (j == 2) {
-                        ca0Var.k = -1;
-                    } else if (j == 3) {
-                        ca0Var.h = lcmResponse.getNextIntervalMs();
-                    } else if (j == 4 && wa0.a) {
-                        xa0.a("PbProcessor", "parseLcmResponse notify");
-                    }
-                    ca0Var.d = 0;
-                } else {
-                    ca0Var.d = lcmResponse.getErrorCode();
-                    ca0Var.e = lcmResponse.getErrorMsg();
-                    ca0Var.k = -1;
-                }
-            } else if (parseFrom.hasLcmNotify()) {
-                if (wa0.a) {
-                    xa0.a("PbProcessor", "lcmpb hasLcmNotify");
-                }
-            } else if (parseFrom.hasLcmRequest()) {
-                ca0Var.o = parseFrom.getLcmRequest().getLogId();
-                ca0Var.d = 0;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            if (i == 1) {
+                return g(bArr);
             }
-            return ca0Var;
+            return bArr;
         }
-        return (ca0) invokeLL.objValue;
+        return (byte[]) invokeLI.objValue;
     }
 
-    public ca0 b(DataInputStream dataInputStream) throws Exception {
+    public da0 b(da0 da0Var, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, da0Var, z)) == null) {
+            da0Var.p = z;
+            h(da0Var, f(da0Var.i, da0Var.j, da0Var.o, d(false)), a(da0Var.a, d(false)));
+            return da0Var;
+        }
+        return (da0) invokeLZ.objValue;
+    }
+
+    public da0 c(Context context, long j) {
+        InterceptResult invokeLJ;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j)) == null) {
+            long random = (long) ((Math.random() * 1000000.0d) + 10000.0d);
+            da0 da0Var = new da0();
+            da0Var.o = random;
+            boolean z2 = true;
+            da0Var.p = true;
+            da0Var.i = 1L;
+            da0Var.j = j;
+            if (j == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            da0Var.m = z;
+            if (j != 3) {
+                z2 = false;
+            }
+            da0Var.l = z2;
+            da0Var.b = System.currentTimeMillis();
+            h(da0Var, f(1L, j, random, d(false)), a(e(context, random, j), d(false)));
+            return da0Var;
+        }
+        return (da0) invokeLJ.objValue;
+    }
+
+    public final byte[] e(Context context, long j, long j2) {
+        InterceptResult invokeCommon;
+        LcmPb$LcmRequest build;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j2 == 4) {
+                LcmPb$LcmNotify.b newBuilder = LcmPb$LcmNotify.newBuilder();
+                newBuilder.v(j);
+                newBuilder.u(2);
+                LcmPb$LcmNotify build2 = newBuilder.build();
+                LcmPb$RpcData.b newBuilder2 = LcmPb$RpcData.newBuilder();
+                newBuilder2.C(build2);
+                return newBuilder2.build().toByteArray();
+            }
+            if (j2 == 1) {
+                try {
+                    LcmPb$Common lcmPb$Common = (LcmPb$Common) wa0.b(context, false);
+                    LcmPb$LcmRequest.b newBuilder3 = LcmPb$LcmRequest.newBuilder();
+                    newBuilder3.y(j);
+                    newBuilder3.w(lcmPb$Common);
+                    newBuilder3.B(za0.q(context));
+                    newBuilder3.A(System.currentTimeMillis());
+                    newBuilder3.z(s90.d(context));
+                    newBuilder3.x(za0.d(context));
+                    build = newBuilder3.build();
+                    if (xa0.a) {
+                        ya0.a("PbProcessor", "cuid :" + lcmPb$Common.getCuid() + ", device :" + lcmPb$Common.getDeviceType() + ", os:" + lcmPb$Common.getOsVersion() + ", man :" + lcmPb$Common.getManufacture() + ", model :" + lcmPb$Common.getModelType() + ", appId :" + lcmPb$Common.getAppId() + ", app :" + lcmPb$Common.getAppVersion() + ", sdk :" + lcmPb$Common.getSdkVersion() + ", token :" + build.getToken() + ", net :" + lcmPb$Common.getNetwork() + ", rom :" + lcmPb$Common.getRomVersion() + ", start :" + build.getStartType() + "，connType :" + build.getConnType());
+                    }
+                } catch (Exception unused) {
+                    LcmPb$LcmRequest.b newBuilder4 = LcmPb$LcmRequest.newBuilder();
+                    newBuilder4.y(j);
+                    newBuilder4.B(za0.q(context));
+                    newBuilder4.A(System.currentTimeMillis());
+                    newBuilder4.z(s90.d(context));
+                    newBuilder4.x(za0.d(context));
+                    build = newBuilder4.build();
+                }
+            } else if (j2 == 2) {
+                LcmPb$LcmRequest.b newBuilder5 = LcmPb$LcmRequest.newBuilder();
+                newBuilder5.y(j);
+                newBuilder5.A(System.currentTimeMillis());
+                build = newBuilder5.build();
+            } else {
+                LcmPb$LcmRequest.b newBuilder6 = LcmPb$LcmRequest.newBuilder();
+                newBuilder6.y(j);
+                newBuilder6.A(System.currentTimeMillis());
+                build = newBuilder6.build();
+            }
+            if (xa0.a) {
+                ya0.f("PbProcessor", "logId :" + j + ", requestTime :" + build.getTimestamp() + "，methodId :" + j2);
+            }
+            LcmPb$RpcData.b newBuilder7 = LcmPb$RpcData.newBuilder();
+            newBuilder7.D(build);
+            return newBuilder7.build().toByteArray();
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public final byte[] f(long j, long j2, long j3, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)})) == null) {
+            RpcMetaPb$event_timestamp.b newBuilder = RpcMetaPb$event_timestamp.newBuilder();
+            newBuilder.t(x90.a(true));
+            newBuilder.u(System.currentTimeMillis());
+            RpcMetaPb$event_timestamp build = newBuilder.build();
+            RpcMetaPb$RpcRequestMeta.b newBuilder2 = RpcMetaPb$RpcRequestMeta.newBuilder();
+            newBuilder2.u(j3);
+            newBuilder2.x(j);
+            newBuilder2.v(j2);
+            newBuilder2.w(1);
+            newBuilder2.l(build);
+            RpcMetaPb$RpcRequestMeta build2 = newBuilder2.build();
+            RpcMetaPb$RpcMeta.b newBuilder3 = RpcMetaPb$RpcMeta.newBuilder();
+            newBuilder3.E(build2);
+            newBuilder3.D(j3);
+            newBuilder3.C(i);
+            newBuilder3.z(1);
+            return newBuilder3.build().toByteArray();
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public final byte[] g(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataInputStream)) == null) {
-            xa0.a("PbProcessor", "parseResponse");
-            ca0 ca0Var = new ca0();
-            byte readByte = dataInputStream.readByte();
-            byte readByte2 = dataInputStream.readByte();
-            byte readByte3 = dataInputStream.readByte();
-            byte readByte4 = dataInputStream.readByte();
-            int readInt = dataInputStream.readInt();
-            int readInt2 = dataInputStream.readInt();
-            if (readInt <= 1048576 && readInt2 <= 1048576) {
-                byte[] bArr = new byte[readInt2];
-                dataInputStream.readFully(bArr);
-                int i = readInt - readInt2;
-                byte[] bArr2 = new byte[i];
-                dataInputStream.readFully(bArr2);
-                xa0.e("PbProcessor", "l :" + ((int) readByte) + ", c :" + ((int) readByte2) + ", p :" + ((int) readByte3) + ", v :" + ((int) readByte4) + ",data : " + readInt + ", rpc :" + readInt2 + ", payload :" + i);
-                c(ca0Var, bArr, bArr2);
-                ca0Var.t = (long) i;
-                if (ca0Var.d == -1) {
-                    ca0Var.d = JosStatusCodes.RNT_CODE_NO_JOS_INFO;
-                }
-                return ca0Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            xa0.b("PbProcessor", "l :" + ((int) readByte) + ", c :" + ((int) readByte2) + ", p :" + ((int) readByte3) + ", v :" + ((int) readByte4) + ",data : " + readInt + ", rpc :" + readInt2);
-            throw new Exception(" Failed to allocate a larger byte allocation, data length = " + readInt);
+            return byteArrayOutputStream.toByteArray();
         }
-        return (ca0) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public final ca0 c(ca0 ca0Var, byte[] bArr, byte[] bArr2) throws Exception {
+    public final da0 h(da0 da0Var, byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, ca0Var, bArr, bArr2)) == null) {
-            RpcMetaPb$RpcMeta parseFrom = RpcMetaPb$RpcMeta.parseFrom(bArr);
-            if (parseFrom.getCompressType() == 1) {
-                bArr2 = d(bArr2);
-                if (wa0.a) {
-                    xa0.a("PbProcessor", "payload is gzip compressed，length : " + bArr2.length);
-                }
-            }
-            ca0Var.g = bArr2;
-            int i = 0;
-            if (parseFrom.hasNotify()) {
-                RpcMetaPb$RpcNotifyMeta notify = parseFrom.getNotify();
-                ca0Var.d = 0;
-                ca0Var.e = "notify";
-                ca0Var.i = notify.getServiceId();
-                ca0Var.j = notify.getMethodId();
-                ca0Var.o = notify.getLogId();
-                ca0Var.f = true;
-                ca0Var.q.clear();
-                while (i < notify.getEventListCount()) {
-                    ca0Var.q.add(new w90(notify.getEventList(i).getEvent(), notify.getEventList(i).getTimestampMs()));
-                    i++;
-                }
-                ca0Var.q.add(new w90("CLCPNotify", System.currentTimeMillis()));
-            } else if (parseFrom.hasResponse()) {
-                RpcMetaPb$RpcResponseMeta response = parseFrom.getResponse();
-                ca0Var.d = response.getErrorCode();
-                ca0Var.e = response.getErrorText();
-                ca0Var.i = response.getServiceId();
-                ca0Var.j = response.getMethodId();
-                ca0Var.o = response.getLogId();
-                ca0Var.f = false;
-                ca0Var.q.clear();
-                while (i < response.getEventListCount()) {
-                    ca0Var.q.add(new w90(response.getEventList(i).getEvent(), response.getEventList(i).getTimestampMs()));
-                    i++;
-                }
-                ca0Var.q.add(new w90("CLCPResEnd", System.currentTimeMillis()));
-                if (ca0Var.d == 0 && ca0Var.i == 1) {
-                    a(ca0Var, bArr2);
-                    return ca0Var;
-                }
-            } else if (parseFrom.hasRequest()) {
-                RpcMetaPb$RpcRequestMeta request = parseFrom.getRequest();
-                ca0Var.i = request.getServiceId();
-                ca0Var.j = request.getMethodId();
-                if (wa0.a) {
-                    xa0.a("PbProcessor", "parseRpcMeta requestMeta");
-                }
-                a(ca0Var, bArr2);
-            }
-            return ca0Var;
-        }
-        return (ca0) invokeLLL.objValue;
-    }
-
-    /* JADX WARN: Not initialized variable reg: 5, insn: 0x0065: MOVE  (r4 I:??[OBJECT, ARRAY]) = (r5 I:??[OBJECT, ARRAY]), block:B:38:0x0065 */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0068 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
-        GZIPInputStream gZIPInputStream;
-        IOException e;
-        GZIPInputStream gZIPInputStream2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            GZIPInputStream gZIPInputStream3 = null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, da0Var, bArr, bArr2)) == null) {
             try {
-                try {
-                    gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
-                    try {
-                        byte[] bArr2 = new byte[1024];
-                        while (true) {
-                            int read = gZIPInputStream.read(bArr2);
-                            if (read < 0) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr2, 0, read);
-                        }
-                        byte[] byteArray = byteArrayOutputStream.toByteArray();
-                        try {
-                            gZIPInputStream.close();
-                            byteArrayInputStream.close();
-                            byteArrayOutputStream.close();
-                        } catch (Exception e2) {
-                            if (wa0.a) {
-                                xa0.c("SocketTransceiver", "Exception ", e2);
-                            }
-                        }
-                        return byteArray;
-                    } catch (IOException e3) {
-                        e = e3;
-                        if (wa0.a) {
-                            xa0.c("SocketTransceiver", "unzip exception :", e);
-                        }
-                        if (gZIPInputStream != null) {
-                            try {
-                                gZIPInputStream.close();
-                            } catch (Exception e4) {
-                                if (wa0.a) {
-                                    xa0.c("SocketTransceiver", "Exception ", e4);
-                                }
-                                return bArr;
-                            }
-                        }
-                        byteArrayInputStream.close();
-                        byteArrayOutputStream.close();
-                        return bArr;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    gZIPInputStream3 = gZIPInputStream2;
-                    if (gZIPInputStream3 != null) {
-                        try {
-                            gZIPInputStream3.close();
-                        } catch (Exception e5) {
-                            if (wa0.a) {
-                                xa0.c("SocketTransceiver", "Exception ", e5);
-                            }
-                            throw th;
-                        }
-                    }
-                    byteArrayInputStream.close();
-                    byteArrayOutputStream.close();
-                    throw th;
-                }
-            } catch (IOException e6) {
-                gZIPInputStream = null;
-                e = e6;
-            } catch (Throwable th2) {
-                th = th2;
-                if (gZIPInputStream3 != null) {
-                }
-                byteArrayInputStream.close();
-                byteArrayOutputStream.close();
-                throw th;
+                ByteBuffer allocate = ByteBuffer.allocate(bArr.length + 12 + bArr2.length);
+                allocate.put((byte) 108);
+                allocate.put((byte) 99);
+                allocate.put((byte) 112);
+                allocate.put((byte) 1);
+                allocate.putInt(bArr.length + bArr2.length);
+                allocate.putInt(bArr.length);
+                allocate.put(bArr);
+                allocate.put(bArr2);
+                da0Var.a = allocate.array();
+                da0Var.s = bArr2.length;
+            } catch (Exception unused) {
             }
-        } else {
-            return (byte[]) invokeL.objValue;
+            return da0Var;
         }
+        return (da0) invokeLLL.objValue;
     }
 }

@@ -1,170 +1,100 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a8b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class j8b extends q7b<c8b> {
+public class j8b extends g8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<c8b, ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener>> g;
+
+    @Override // com.baidu.tieba.g8b
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 206;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.g8b
+    public void j(l8b l8bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, l8bVar) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.g8b
+    public void n(l8b l8bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, l8bVar) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j8b(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
+    public j8b(d8b d8bVar, l8b l8bVar, a8b.a aVar) {
+        super(d8bVar, l8bVar, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {d8bVar, l8bVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                super((d8b) objArr2[0], (l8b) objArr2[1], (a8b.a) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.q7b
-    public void f(Context context, FunAdSlot funAdSlot) {
+    @Override // com.baidu.tieba.g8b
+    public RandomAccessFile e(File file, String str, long j) throws IOException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            int expressWidth = funAdSlot.getExpressWidth();
-            int expressHeight = funAdSlot.getExpressHeight();
-            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
-                throw new RuntimeException("Invalid expressWidth and expressHeight.");
-            }
-            this.e.loadNativeExpressAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build(), new a(this, funAdSlot));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
+            randomAccessFile.seek(j);
+            return randomAccessFile;
         }
+        return (RandomAccessFile) invokeCommon.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements TTAdNative.NativeExpressAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FunAdSlot a;
-        public final /* synthetic */ j8b b;
-
-        public a(j8b j8bVar, FunAdSlot funAdSlot) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j8bVar, funAdSlot};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = j8bVar;
-            this.a = funAdSlot;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJNativeExpressAd onError code: " + i + ", message: " + str, new Object[0]);
-                this.b.onError(i, str);
-            }
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r6v4, resolved type: com.bytedance.sdk.openadsdk.TTNativeExpressAd */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Type inference failed for: r4v1, types: [A, com.bytedance.sdk.openadsdk.TTNativeExpressAd$ExpressAdInteractionListener, com.baidu.tieba.m8b] */
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
-        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.e("CSJNativeExpressAd onNativeExpressAdLoad", new Object[0]);
-                if (list != null && !list.isEmpty()) {
-                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
-                    j8b j8bVar = this.b;
-                    c8b c8bVar = new c8b(tTNativeExpressAd);
-                    String sid = this.a.getSid();
-                    j8bVar.getClass();
-                    ExpressAdListenerWrapper expressAdListenerWrapper = new ExpressAdListenerWrapper();
-                    ?? m8bVar = new m8b(j8bVar, c8bVar, expressAdListenerWrapper, sid);
-                    expressAdListenerWrapper.listener = m8bVar;
-                    tTNativeExpressAd.setExpressInteractionListener((TTNativeExpressAd.ExpressAdInteractionListener) m8bVar);
-                    tTNativeExpressAd.setCanInterruptVideoPlay(true);
-                    tTNativeExpressAd.render();
-                    return;
-                }
-                LogPrinter.e("CSJNativeExpressAd onNativeExpressAdLoad error: adList is null or empty", new Object[0]);
-                this.b.onError(0, "NoFill");
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    @Override // com.baidu.tieba.g8b
+    public Map<String, String> f(l8b l8bVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            c8b c8bVar = (c8b) obj;
-            this.g.remove(c8bVar);
-            if (c8bVar != null) {
-                ((TTNativeExpressAd) c8bVar.a).destroy();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l8bVar)) == null) {
+            HashMap hashMap = new HashMap();
+            long c = l8bVar.c() + l8bVar.b();
+            long a = l8bVar.a();
+            hashMap.put("Range", "bytes=" + c + "-" + a);
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.g8b
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, obj)) == null) {
-            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (c8b) obj, new p8b(this, this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return j8b.class.getSimpleName();
         }
-        return (FunNativeAd2) invokeLLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            c8b c8bVar = (c8b) obj;
-            View expressAdView = ((TTNativeExpressAd) c8bVar.a).getExpressAdView();
-            if (expressAdView != null && expressAdView.getParent() != null) {
-                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
-            }
-            onShowStart(c8bVar);
-            ((TTNativeExpressAd) c8bVar.a).setDislikeCallback(activity, new o8b(this, expressAdView, c8bVar, null, str));
-            viewGroup.removeAllViews();
-            viewGroup.addView(expressAdView);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

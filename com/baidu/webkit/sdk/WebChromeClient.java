@@ -44,12 +44,12 @@ public class WebChromeClient {
     public static final String MSG_PROMPT_HEADER = "BdboxApp:";
     public static final String MSG_PROMPT_HEADER_IMPACT = MSG_PROMPT_HEADER.toLowerCase();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface CustomViewCallback {
         void onCustomViewHidden();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class FileChooserParams {
         public static final int MODE_OPEN = 0;
         public static final int MODE_OPEN_FOLDER = 2;
@@ -165,12 +165,12 @@ public class WebChromeClient {
         return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:57:0x014b  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x014e A[Catch: InvocationTargetException -> 0x016f, IllegalAccessException -> 0x017e, IllegalArgumentException -> 0x018a, NoSuchMethodException -> 0x01b5, TryCatch #2 {IllegalAccessException -> 0x017e, IllegalArgumentException -> 0x018a, NoSuchMethodException -> 0x01b5, InvocationTargetException -> 0x016f, blocks: (B:33:0x00c3, B:35:0x00c9, B:37:0x00d4, B:39:0x00de, B:41:0x00e2, B:44:0x00ec, B:45:0x0105, B:48:0x010b, B:51:0x013d, B:59:0x0152, B:61:0x0156, B:63:0x0167, B:64:0x016b, B:58:0x014e, B:49:0x0137), top: B:96:0x00c3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x0156 A[Catch: InvocationTargetException -> 0x016f, IllegalAccessException -> 0x017e, IllegalArgumentException -> 0x018a, NoSuchMethodException -> 0x01b5, TryCatch #2 {IllegalAccessException -> 0x017e, IllegalArgumentException -> 0x018a, NoSuchMethodException -> 0x01b5, InvocationTargetException -> 0x016f, blocks: (B:33:0x00c3, B:35:0x00c9, B:37:0x00d4, B:39:0x00de, B:41:0x00e2, B:44:0x00ec, B:45:0x0105, B:48:0x010b, B:51:0x013d, B:59:0x0152, B:61:0x0156, B:63:0x0167, B:64:0x016b, B:58:0x014e, B:49:0x0137), top: B:96:0x00c3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0167 A[Catch: InvocationTargetException -> 0x016f, IllegalAccessException -> 0x017e, IllegalArgumentException -> 0x018a, NoSuchMethodException -> 0x01b5, TryCatch #2 {IllegalAccessException -> 0x017e, IllegalArgumentException -> 0x018a, NoSuchMethodException -> 0x01b5, InvocationTargetException -> 0x016f, blocks: (B:33:0x00c3, B:35:0x00c9, B:37:0x00d4, B:39:0x00de, B:41:0x00e2, B:44:0x00ec, B:45:0x0105, B:48:0x010b, B:51:0x013d, B:59:0x0152, B:61:0x0156, B:63:0x0167, B:64:0x016b, B:58:0x014e, B:49:0x0137), top: B:96:0x00c3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x0198  */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x01b1  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x014c  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x014f A[Catch: InvocationTargetException -> 0x0170, IllegalAccessException -> 0x017f, IllegalArgumentException -> 0x018b, NoSuchMethodException -> 0x01b6, TryCatch #2 {IllegalAccessException -> 0x017f, IllegalArgumentException -> 0x018b, NoSuchMethodException -> 0x01b6, InvocationTargetException -> 0x0170, blocks: (B:33:0x00c4, B:35:0x00ca, B:37:0x00d5, B:39:0x00df, B:41:0x00e3, B:44:0x00ed, B:45:0x0106, B:48:0x010c, B:51:0x013e, B:59:0x0153, B:61:0x0157, B:63:0x0168, B:64:0x016c, B:58:0x014f, B:49:0x0138), top: B:96:0x00c4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0157 A[Catch: InvocationTargetException -> 0x0170, IllegalAccessException -> 0x017f, IllegalArgumentException -> 0x018b, NoSuchMethodException -> 0x01b6, TryCatch #2 {IllegalAccessException -> 0x017f, IllegalArgumentException -> 0x018b, NoSuchMethodException -> 0x01b6, InvocationTargetException -> 0x0170, blocks: (B:33:0x00c4, B:35:0x00ca, B:37:0x00d5, B:39:0x00df, B:41:0x00e3, B:44:0x00ed, B:45:0x0106, B:48:0x010c, B:51:0x013e, B:59:0x0153, B:61:0x0157, B:63:0x0168, B:64:0x016c, B:58:0x014f, B:49:0x0138), top: B:96:0x00c4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0168 A[Catch: InvocationTargetException -> 0x0170, IllegalAccessException -> 0x017f, IllegalArgumentException -> 0x018b, NoSuchMethodException -> 0x01b6, TryCatch #2 {IllegalAccessException -> 0x017f, IllegalArgumentException -> 0x018b, NoSuchMethodException -> 0x01b6, InvocationTargetException -> 0x0170, blocks: (B:33:0x00c4, B:35:0x00ca, B:37:0x00d5, B:39:0x00df, B:41:0x00e3, B:44:0x00ed, B:45:0x0106, B:48:0x010c, B:51:0x013e, B:59:0x0153, B:61:0x0157, B:63:0x0168, B:64:0x016c, B:58:0x014f, B:49:0x0138), top: B:96:0x00c4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x0199  */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x01b2  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.

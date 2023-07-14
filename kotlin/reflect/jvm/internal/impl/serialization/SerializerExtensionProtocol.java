@@ -4,7 +4,7 @@ import java.util.List;
 import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
 import kotlin.reflect.jvm.internal.impl.protobuf.ExtensionRegistryLite;
 import kotlin.reflect.jvm.internal.impl.protobuf.GeneratedMessageLite;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SerializerExtensionProtocol {
     public final GeneratedMessageLite.GeneratedExtension<ProtoBuf.Class, List<ProtoBuf.Annotation>> classAnnotation;
     public final GeneratedMessageLite.GeneratedExtension<ProtoBuf.Property, ProtoBuf.Annotation.Argument.Value> compileTimeValue;

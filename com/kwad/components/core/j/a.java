@@ -20,13 +20,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static boolean HG;
 
     /* renamed from: com.kwad.components.core.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static final class C0645a {
+    /* loaded from: classes10.dex */
+    public static final class C0650a {
         public static final a HH = new a();
     }
 
@@ -43,7 +43,7 @@ public final class a {
     }
 
     public static a og() {
-        return C0645a.HH;
+        return C0650a.HH;
     }
 
     public final void O(@NonNull AdTemplate adTemplate) {

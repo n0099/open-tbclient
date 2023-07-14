@@ -1,5 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import java.util.List;
+/* loaded from: classes6.dex */
 public interface g26 {
-    boolean a(int i);
+    void a();
+
+    void b(List<String> list);
 }

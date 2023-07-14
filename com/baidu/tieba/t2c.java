@@ -1,214 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Gallery;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.u1c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
-import kotlin.TypeCastException;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.ImageLoaderSupplier;
-/* loaded from: classes7.dex */
-public final class t2c extends r2c<BannerConfigItem.BannerInfo> {
+import java.util.Arrays;
+import rx.exceptions.CompositeException;
+/* loaded from: classes8.dex */
+public class t2c<T> implements u1c.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageLoaderSupplier c;
+    public final v1c<? super T> a;
+    public final u1c<T> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948130756, "Lcom/baidu/tieba/t2c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948130756, "Lcom/baidu/tieba/t2c;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public final class a {
+    /* loaded from: classes8.dex */
+    public static final class a<T> extends a2c<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-        public final /* synthetic */ t2c b;
+        public final a2c<? super T> e;
+        public final v1c<? super T> f;
+        public boolean g;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(t2c t2cVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(a2c<? super T> a2cVar, v1c<? super T> v1cVar) {
+            super(a2cVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t2cVar};
+                Object[] objArr = {a2cVar, v1cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((a2c) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = t2cVar;
+            this.e = a2cVar;
+            this.f = v1cVar;
         }
 
-        public final void c(ImageView imageView) {
+        @Override // com.baidu.tieba.v1c
+        public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageView) == null) {
-                this.a = imageView;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.g) {
+                return;
+            }
+            try {
+                this.f.onCompleted();
+                this.g = true;
+                this.e.onCompleted();
+            } catch (Throwable th) {
+                g2c.f(th, this);
             }
         }
 
-        public final ImageView a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.v1c
+        public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                if (this.g) {
+                    h6c.j(th);
+                    return;
+                }
+                this.g = true;
+                try {
+                    this.f.onError(th);
+                    this.e.onError(th);
+                } catch (Throwable th2) {
+                    g2c.e(th2);
+                    this.e.onError(new CompositeException(Arrays.asList(th, th2)));
+                }
             }
-            return (ImageView) invokeV.objValue;
         }
 
-        public final void b(BannerConfigItem.BannerInfo bannerInfo, int i, Context context) {
-            ImageView imageView;
-            ImageLoaderSupplier e;
-            String str;
+        @Override // com.baidu.tieba.v1c
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bannerInfo, i, context) == null) && (imageView = this.a) != null && (e = this.b.e()) != null) {
-                if (bannerInfo != null) {
-                    str = bannerInfo.imageUrl;
-                } else {
-                    str = null;
-                }
-                ImageLoaderSupplier.ImageParam imageParam = new ImageLoaderSupplier.ImageParam(str, -1, -1);
-                if (context instanceof ContextThemeWrapper) {
-                    ContextThemeWrapper contextThemeWrapper = (ContextThemeWrapper) context;
-                    if (e2c.a.a(contextThemeWrapper.getBaseContext())) {
-                        RLog.debug("PluginCenterBannerAdapter", "imageLoaderSupplier load success context.baseContext:" + contextThemeWrapper.getBaseContext());
-                        Context baseContext = contextThemeWrapper.getBaseContext();
-                        Intrinsics.checkExpressionValueIsNotNull(baseContext, "context.baseContext");
-                        e.onLoad(baseContext, imageView, imageParam);
-                        return;
-                    }
-                    RLog.error("PluginCenterBannerAdapter", "imageLoaderSupplier load error context.baseContext null", new Object[0]);
-                } else if (e2c.a.a(context)) {
-                    RLog.debug("PluginCenterBannerAdapter", "imageLoaderSupplier load success context:" + context);
-                    e.onLoad(context, imageView, imageParam);
-                } else {
-                    RLog.error("PluginCenterBannerAdapter", "imageLoaderSupplier load error context null", new Object[0]);
-                }
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.g) {
+                return;
+            }
+            try {
+                this.f.onNext(t);
+                this.e.onNext(t);
+            } catch (Throwable th) {
+                g2c.g(th, this, t);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t2c(Context context) {
-        super(context);
+    public t2c(u1c<T> u1cVar, v1c<? super T> v1cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {u1cVar, v1cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.debug("PluginCenterBannerAdapter", "constructor");
+        this.b = u1cVar;
+        this.a = v1cVar;
     }
 
-    @NonNull
-    public final a d(View view2) {
-        InterceptResult invokeL;
+    public void call(a2c<? super T> a2cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            a aVar = new a(this);
-            aVar.c((ImageView) view2.findViewById(R.id.top_banner_image));
-            ImageView a2 = aVar.a();
-            if (a2 == null) {
-                Intrinsics.throwNpe();
-            }
-            a2.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            view2.setTag(aVar);
-            return aVar;
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public final ImageLoaderSupplier e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (ImageLoaderSupplier) invokeV.objValue;
-    }
-
-    public final void f(BannerConfigItem.BannerInfo bannerInfo, a aVar, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, bannerInfo, aVar, i) == null) && bannerInfo != null) {
-            Context mContext = this.b;
-            Intrinsics.checkExpressionValueIsNotNull(mContext, "mContext");
-            aVar.b(bannerInfo, i, mContext);
+        if (interceptable == null || interceptable.invokeL(1048576, this, a2cVar) == null) {
+            this.b.O(new a(a2cVar, this.a));
         }
     }
 
-    public final void g(ImageLoaderSupplier imageLoaderSupplier) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, imageLoaderSupplier) == null) {
-            this.c = imageLoaderSupplier;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            Object obj = null;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.pay_ui_layout_plugincenter_banner_item, (ViewGroup) null);
-                if (view2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                view2.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-                aVar = d(view2);
-            } else {
-                if (view2 != null) {
-                    obj = view2.getTag();
-                }
-                if (obj != null) {
-                    aVar = (a) obj;
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type tv.athena.revenue.payui.view.banner.PluginCenterBannerAdapter.ViewHolder");
-                }
-            }
-            BannerConfigItem.BannerInfo item = getItem(i);
-            Intrinsics.checkExpressionValueIsNotNull(item, "getItem(position)");
-            f(item, aVar, i);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+    @Override // com.baidu.tieba.u1c.a, com.baidu.tieba.i2c
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((a2c) ((a2c) obj));
     }
 }

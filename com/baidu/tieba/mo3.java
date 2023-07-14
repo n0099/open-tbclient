@@ -1,121 +1,115 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.motion.widget.Key;
+import android.text.TextUtils;
+import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class mo3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            this.a = view2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setTranslationX(0.0f);
+            if (!TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str)) {
+                return false;
             }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void a(lb2 lb2Var, Context context) {
+    public static String b(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, lb2Var, context) == null) {
-            b(lb2Var, context, 2);
-        }
-    }
-
-    public static void b(lb2 lb2Var, Context context, int i) {
-        View b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65537, null, lb2Var, context, i) == null) && lb2Var != null && lb2Var.k() >= i) {
-            ib2 j = lb2Var.j(lb2Var.k() - i);
-            ib2 m = lb2Var.m();
-            if (m != null && m.E0) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            float o = tp3.o(context) >> 2;
-            if (j != null && (b0 = j.b0()) != null) {
-                ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
+            String lowerCase = str.toLowerCase();
+            char c = 65535;
+            switch (lowerCase.hashCode()) {
+                case 99640:
+                    if (lowerCase.equals("doc")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 110834:
+                    if (lowerCase.equals("pdf")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 111220:
+                    if (lowerCase.equals("ppt")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 118783:
+                    if (lowerCase.equals("xls")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3088960:
+                    if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3447940:
+                    if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 3682393:
+                    if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
             }
-        }
-    }
-
-    public static void c(lb2 lb2Var, Context context) {
-        View b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, lb2Var, context) == null) && lb2Var != null && lb2Var.k() >= 2) {
-            ib2 j = lb2Var.j(lb2Var.k() - 2);
-            float o = tp3.o(context) >> 2;
-            if (j != null && (b0 = j.b0()) != null) {
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, 0.0f, -o);
-                ofFloat.setDuration(300L).start();
-                ofFloat.addListener(new a(b0));
+            switch (c) {
+                case 0:
+                    str2 = DocumentOpenUtil.PDF_TYPE;
+                    break;
+                case 1:
+                    str2 = DocumentOpenUtil.WORD_TYPE;
+                    break;
+                case 2:
+                    str2 = DocumentOpenUtil.DOCUMENT_TYPE;
+                    break;
+                case 3:
+                    str2 = DocumentOpenUtil.EXCEL_TYPE;
+                    break;
+                case 4:
+                    str2 = DocumentOpenUtil.SHEET_TYPE;
+                    break;
+                case 5:
+                    str2 = DocumentOpenUtil.PPT_TYPE;
+                    break;
+                case 6:
+                    str2 = DocumentOpenUtil.PRESENT_TYPE;
+                    break;
+                default:
+                    str2 = "";
+                    break;
             }
-        }
-    }
-
-    public static void d(@NonNull aq4 aq4Var, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLII(65539, null, aq4Var, str, i, i2) != null) || aq4Var == null) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1876181062) {
-            if (hashCode != -983638536) {
-                if (hashCode == 1528366175 && str.equals("showModalPage")) {
-                    c = 1;
-                }
-            } else if (str.equals("navigateBack")) {
-                c = 0;
+            if (!a(str2)) {
+                return "";
             }
-        } else if (str.equals("hideModalPage")) {
-            c = 2;
+            return str2;
         }
-        if (c != 0) {
-            if (c != 1 && c != 2) {
-                aq4Var.i(i, i2);
-                return;
-            }
-            return;
-        }
-        lb2 U = px2.T().U();
-        ib2 j = U.j(U.k() - 1);
-        if (j != null && j.E0) {
-            return;
-        }
-        aq4Var.i(i, i2);
+        return (String) invokeL.objValue;
     }
 }

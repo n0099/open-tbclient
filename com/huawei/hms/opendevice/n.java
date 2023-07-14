@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tieba.ggb;
+import com.baidu.tieba.dpb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -295,8 +295,8 @@ public class n {
                 jSONObject.put(HttpConstants.HTTP_HARDWARE, jSONObject4);
                 jSONObject.put("aaid", str);
                 jSONObject.put("token", str2);
-                jSONObject.put("app_id", ggb.c(context).a("client/app_id"));
-                jSONObject.put("region", ggb.c(context).a("region"));
+                jSONObject.put("app_id", dpb.c(context).a("client/app_id"));
+                jSONObject.put("region", dpb.c(context).a("region"));
                 return jSONObject.toString();
             } catch (JSONException unused) {
                 HMSLog.e("ReportAaidToken", "Catch JSONException.");

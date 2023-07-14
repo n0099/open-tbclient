@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br5;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.xe;
-import com.baidu.tieba.xq5;
-import com.baidu.tieba.yq5;
-import com.baidu.tieba.zf;
+import com.baidu.tieba.ag;
+import com.baidu.tieba.bs5;
+import com.baidu.tieba.cs5;
+import com.baidu.tieba.fs5;
+import com.baidu.tieba.o55;
+import com.baidu.tieba.ye;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class MvcJsonHttpResponsedMessage<D extends br5> extends MvcHttpResponsedMessage<D> {
+public class MvcJsonHttpResponsedMessage<D extends fs5> extends MvcHttpResponsedMessage<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,13 +70,13 @@ public class MvcJsonHttpResponsedMessage<D extends br5> extends MvcHttpResponsed
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0698));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06a1));
                 } else if (getError() != 0) {
                     setErrorString(errorData.getError_msg());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0698));
+                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06a1));
             }
         }
     }
@@ -127,7 +127,7 @@ public class MvcJsonHttpResponsedMessage<D extends br5> extends MvcHttpResponsed
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048580, this, i, jSONObject) == null) && (getOrginalMessage() instanceof MvcHttpMessage)) {
             Object createData = createData(((MvcHttpMessage) getOrginalMessage()).getResponseDataClass());
-            if (createData instanceof br5) {
+            if (createData instanceof fs5) {
                 D d = (D) createData;
                 this.data = d;
                 d.initByJson(jSONObject);
@@ -136,10 +136,10 @@ public class MvcJsonHttpResponsedMessage<D extends br5> extends MvcHttpResponsed
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, zf zfVar) {
+    public void logStatInBackground(int i, ag agVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, zfVar) == null) {
-            super.logStatInBackground(i, zfVar);
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, agVar) == null) {
+            super.logStatInBackground(i, agVar);
         }
     }
 
@@ -152,31 +152,31 @@ public class MvcJsonHttpResponsedMessage<D extends br5> extends MvcHttpResponsed
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
-                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof xq5)) {
-                    xq5 xq5Var = (xq5) mvcHttpMessage.getRequestData();
-                    String cacheKey = xq5Var.getCacheKey();
-                    String T2 = xq5Var.T();
-                    if (xq5Var.isNeedUid()) {
+                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof bs5)) {
+                    bs5 bs5Var = (bs5) mvcHttpMessage.getRequestData();
+                    String cacheKey = bs5Var.getCacheKey();
+                    String U = bs5Var.U();
+                    if (bs5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     } else {
                         str = null;
                     }
-                    if (cacheKey != null && !TextUtils.isEmpty(T2) && bArr != null) {
-                        if (xq5Var.C()) {
-                            f55.d();
-                            xe<byte[]> c = f55.c(T2, str);
-                            if (c == null) {
+                    if (cacheKey != null && !TextUtils.isEmpty(U) && bArr != null) {
+                        if (bs5Var.F()) {
+                            o55.e();
+                            ye<byte[]> d = o55.d(U, str);
+                            if (d == null) {
                                 return;
                             }
-                            c.g(cacheKey, bArr);
-                        } else if (mvcHttpMessage.getRequestData() instanceof yq5) {
-                            f55.d();
-                            xe<String> f = f55.f(T2, str);
-                            if (f == null) {
+                            d.g(cacheKey, bArr);
+                        } else if (mvcHttpMessage.getRequestData() instanceof cs5) {
+                            o55.e();
+                            ye<String> g = o55.g(U, str);
+                            if (g == null) {
                                 return;
                             }
                             try {
-                                f.g(cacheKey, new String(bArr, "UTF-8"));
+                                g.g(cacheKey, new String(bArr, "UTF-8"));
                             } catch (UnsupportedEncodingException e) {
                                 e.printStackTrace();
                             }

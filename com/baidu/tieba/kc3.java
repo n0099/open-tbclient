@@ -1,154 +1,172 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
-import com.baidu.tieba.gc3;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kc3 extends yb3 {
+public class kc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean t;
+    public static final jc3<kc3> u;
+    public static final ic3<kc3> v;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fc3 a;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public boolean f;
+    public String g;
+    public boolean h;
+    public boolean i;
+    public String j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public String q;
+    public String r;
+    public String s;
 
-    @Override // com.baidu.tieba.fc3
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+    /* loaded from: classes6.dex */
+    public static class a extends jc3<kc3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-    }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public kc3() {
-        this(null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((fc3) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.jc3
+        /* renamed from: b */
+        public void a(@NonNull kc3 kc3Var, @NonNull bv2 bv2Var) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kc3Var, bv2Var) == null) {
+                bv2Var.writeInt(kc3Var.a);
+                bv2Var.f(kc3Var.b);
+                bv2Var.f(kc3Var.c);
+                bv2Var.f(kc3Var.d);
+                bv2Var.writeInt(kc3Var.e);
+                bv2Var.writeBoolean(kc3Var.f);
+                bv2Var.f(kc3Var.g);
+                bv2Var.writeBoolean(kc3Var.h);
+                bv2Var.writeBoolean(kc3Var.i);
+                bv2Var.f(kc3Var.j);
+                bv2Var.writeBoolean(kc3Var.k);
+                bv2Var.writeBoolean(kc3Var.l);
+                bv2Var.writeBoolean(kc3Var.m);
+                bv2Var.writeBoolean(kc3Var.n);
+                bv2Var.writeBoolean(kc3Var.o);
+                bv2Var.writeBoolean(kc3Var.p);
+                bv2Var.f(kc3Var.q);
+                bv2Var.f(kc3Var.r);
+                bv2Var.f(kc3Var.s);
             }
         }
     }
 
-    @Override // com.baidu.tieba.fc3
-    public me3 B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return H().B();
-        }
-        return (me3) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class b extends ic3<kc3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return H().E();
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeV.booleanValue;
-    }
 
-    public fc3 H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (fc3) invokeV.objValue;
-    }
-
-    public String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return H().getAppId();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return H().k();
-        }
-        return invokeV.intValue;
-    }
-
-    public SwanAppCores m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return H().m();
-        }
-        return (SwanAppCores) invokeV.objValue;
-    }
-
-    public cc3 q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return H().q();
-        }
-        return (cc3) invokeV.objValue;
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            H().s();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ic3
+        /* renamed from: b */
+        public kc3 a(@NonNull av2 av2Var) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, av2Var)) == null) {
+                kc3 kc3Var = new kc3();
+                kc3Var.a = av2Var.readInt();
+                kc3Var.b = av2Var.g();
+                kc3Var.c = av2Var.g();
+                kc3Var.d = av2Var.g();
+                kc3Var.e = av2Var.readInt();
+                kc3Var.f = av2Var.readBoolean();
+                kc3Var.g = av2Var.g();
+                kc3Var.h = av2Var.readBoolean();
+                kc3Var.i = av2Var.readBoolean();
+                kc3Var.j = av2Var.g();
+                kc3Var.k = av2Var.readBoolean();
+                kc3Var.l = av2Var.readBoolean();
+                kc3Var.m = av2Var.readBoolean();
+                kc3Var.n = av2Var.readBoolean();
+                kc3Var.o = av2Var.readBoolean();
+                kc3Var.p = av2Var.readBoolean();
+                kc3Var.q = av2Var.g();
+                kc3Var.r = av2Var.g();
+                kc3Var.s = av2Var.g();
+                return kc3Var;
+            }
+            return (kc3) invokeL.objValue;
         }
     }
 
-    @Override // com.baidu.tieba.fc3
-    public SwanAppActivity w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return H().w();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947908238, "Lcom/baidu/tieba/kc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947908238, "Lcom/baidu/tieba/kc3;");
+                return;
+            }
         }
-        return (SwanAppActivity) invokeV.objValue;
+        t = fs1.a;
+        u = new a();
+        v = new b();
     }
 
-    @Override // com.baidu.tieba.fc3
-    public ft1 x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return H().x();
-        }
-        return (ft1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fc3
-    public x83 y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return H().y();
-        }
-        return (x83) invokeV.objValue;
-    }
-
-    public kc3(fc3 fc3Var) {
+    public kc3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fc3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -158,77 +176,161 @@ public class kc3 extends yb3 {
                 return;
             }
         }
-        this.a = fc3Var == null ? bc3.K() : fc3Var;
+        this.l = false;
+        this.m = false;
+        this.n = true;
+        this.o = false;
+        this.p = false;
+        this.a = -16777216;
+        this.c = "#ffffff";
+        this.j = "default";
+        this.e = -1;
+        this.f = false;
     }
 
-    public void A(gc3.a aVar) {
+    public static kc3 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            H().A(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (t) {
+                Log.w("WindowConfig", "WindowConfig#createNullObject stack=" + Log.getStackTraceString(new Exception()));
+            }
+            return new kc3();
         }
+        return (kc3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fc3
-    public String n(String... strArr) {
+    public static kc3 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, strArr)) == null) {
-            return H().n(strArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d();
+            }
+            return c(jSONObject);
         }
-        return (String) invokeL.objValue;
+        return (kc3) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.fc3
-    public void o(vq3<gc3.a> vq3Var) {
+    public static boolean f(kc3 kc3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, vq3Var) == null) {
-            H().o(vq3Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, kc3Var)) == null) {
+            if (kc3Var == null) {
+                return false;
+            }
+            if (!kc3Var.h && !TextUtils.equals(kc3Var.j, ExceptionHandlerImpl.KEY_CUSTOM)) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void p(String str) {
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            H().p(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.fc3
-    public void r(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, swanAppActivity) == null) {
-            H().r(swanAppActivity);
-        }
-    }
-
-    @Override // com.baidu.tieba.fc3
-    public void t(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, swanAppActivity) == null) {
-            H().t(swanAppActivity);
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.p) {
+            this.p = true;
         }
     }
 
-    @Override // com.baidu.tieba.fc3
-    public void u(vq3<gc3.a> vq3Var) {
+    public static kc3 b(String str, @NonNull kc3 kc3Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, vq3Var) == null) {
-            H().u(vq3Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, kc3Var)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return kc3Var;
+            }
+            try {
+                return e(new JSONObject(str), kc3Var);
+            } catch (JSONException e) {
+                if (t) {
+                    Log.d("WindowConfig", "buildPageWindowConfig jsonString failed: " + Log.getStackTraceString(e));
+                }
+                return kc3Var;
+            }
         }
+        return (kc3) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.fc3
-    public void l(Bundle bundle, String str) {
+    public static kc3 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
-            H().l(bundle, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject(ApkCheckUBCManagerKt.VALUE_WINDOW);
+            if (optJSONObject == null) {
+                return d();
+            }
+            kc3 kc3Var = new kc3();
+            String optString = optJSONObject.optString("navigationBarBackgroundColor");
+            if (TextUtils.isEmpty(optString)) {
+                optString = "#000000";
+            }
+            kc3Var.a = SwanAppConfigData.t(optString);
+            String optString2 = optJSONObject.optString("navigationBarTextStyle");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = "white";
+            }
+            kc3Var.c = optString2;
+            kc3Var.b = optJSONObject.optString("navigationBarTitleText");
+            kc3Var.d = optJSONObject.optString("backgroundTextStyle", "black");
+            kc3Var.e = SwanAppConfigData.t(optJSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
+            kc3Var.f = optJSONObject.optBoolean("enablePullDownRefresh");
+            kc3Var.g = optJSONObject.optString("onReachBottomDistance");
+            kc3Var.h = optJSONObject.optBoolean("enableOpacityNavigationBar");
+            kc3Var.i = optJSONObject.optBoolean("enableOpacityNavigationBarText");
+            kc3Var.j = optJSONObject.optString("navigationStyle", "default");
+            kc3Var.k = optJSONObject.optBoolean("navigationHomeButtonHidden");
+            kc3Var.q = optJSONObject.optString("textSizeAdjust");
+            kc3Var.s = optJSONObject.optString("htmlFontSize");
+            optJSONObject.optJSONArray("fontFace");
+            return kc3Var;
         }
+        return (kc3) invokeL.objValue;
     }
 
-    public void v(String str, Bundle bundle) {
+    public static kc3 e(JSONObject jSONObject, @NonNull kc3 kc3Var) {
+        InterceptResult invokeLL;
+        int t2;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, str, bundle) == null) {
-            H().v(str, bundle);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, kc3Var)) == null) {
+            kc3 kc3Var2 = new kc3();
+            String optString = jSONObject.optString("navigationBarBackgroundColor");
+            if (TextUtils.isEmpty(optString)) {
+                t2 = kc3Var.a;
+            } else {
+                t2 = SwanAppConfigData.t(optString);
+            }
+            kc3Var2.a = t2;
+            kc3Var2.b = jSONObject.optString("navigationBarTitleText", kc3Var.b);
+            String optString2 = jSONObject.optString("navigationBarTextStyle");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = kc3Var.c;
+            }
+            kc3Var2.c = optString2;
+            kc3Var2.d = jSONObject.optString("backgroundTextStyle", kc3Var.d);
+            if (jSONObject.has(TtmlNode.ATTR_TTS_BACKGROUND_COLOR)) {
+                i = SwanAppConfigData.t(jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
+            } else {
+                i = kc3Var.e;
+            }
+            kc3Var2.e = i;
+            kc3Var2.f = jSONObject.optBoolean("enablePullDownRefresh", kc3Var.f);
+            kc3Var2.g = jSONObject.optString("onReachBottomDistance", kc3Var.g);
+            kc3Var2.h = jSONObject.optBoolean("enableOpacityNavigationBar", kc3Var.h);
+            kc3Var2.i = jSONObject.optBoolean("enableOpacityNavigationBarText", kc3Var.i);
+            kc3Var2.j = jSONObject.optString("navigationStyle", kc3Var.j);
+            kc3Var2.k = jSONObject.optBoolean("navigationHomeButtonHidden", kc3Var.k);
+            kc3Var2.l = jSONObject.optBoolean("disableSwipeBack", false);
+            kc3Var2.m = jSONObject.optBoolean("disableFullscreenSwipeBack", false);
+            kc3Var2.n = jSONObject.optBoolean("pageFavoriteEnable", true);
+            kc3Var2.o = jSONObject.optBoolean("_hasVideo", false);
+            kc3Var2.r = jSONObject.optString("viewMode", kc3Var.r);
+            kc3Var2.s = jSONObject.optString("htmlFontSize", kc3Var.s);
+            jSONObject.optJSONArray("fontFace");
+            return kc3Var2;
         }
+        return (kc3) invokeLL.objValue;
     }
 }

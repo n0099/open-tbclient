@@ -1,274 +1,197 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.AutoVideoCardViewHolder;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.lz;
-import com.baidu.tieba.wx;
-import com.baidu.tieba.wz;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class d07 extends kn<r45, AutoVideoCardViewHolder<ThreadData>> {
+public class d07 extends rj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public String b;
-    public TbPageContext<?> c;
-    public Cdo d;
-    public tz e;
-    public qo6<ThreadData> f;
 
-    /* loaded from: classes5.dex */
-    public class a extends qo6<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d07 b;
-
-        public a(d07 d07Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947650814, "Lcom/baidu/tieba/d07;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d07Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = d07Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qo6
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                jo6.b().d(true);
-                by6.a(view2, threadData, this.b.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements wx.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tz a;
-        public final /* synthetic */ d07 b;
-
-        public b(d07 d07Var, tz tzVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d07Var, tzVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = d07Var;
-            this.a = tzVar;
-        }
-
-        @Override // com.baidu.tieba.wx.a
-        public void a(l15 l15Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, l15Var) != null) || l15Var == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947650814, "Lcom/baidu/tieba/d07;");
                 return;
             }
-            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.a.getVideoContainer());
-            if (l15Var instanceof ThreadData) {
-                l15Var.objType = 5;
-                ThreadCardUtils.jumpToPB(l15Var, this.b.mContext, 2, false, computeViewArea);
-                return;
-            }
-            ThreadCardUtils.jumpToPB(l15Var, this.b.mContext, 2, false, computeViewArea);
         }
+        rj5.a.put("video_icon", Integer.valueOf((int) R.drawable.ico_link_video));
+        HashMap<String, Integer> hashMap = rj5.a;
+        Integer valueOf = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da4);
+        hashMap.put("image_emoticon34", valueOf);
+        HashMap<String, Integer> hashMap2 = rj5.a;
+        Integer valueOf2 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da5);
+        hashMap2.put("image_emoticon35", valueOf2);
+        HashMap<String, Integer> hashMap3 = rj5.a;
+        Integer valueOf3 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da6);
+        hashMap3.put("image_emoticon36", valueOf3);
+        HashMap<String, Integer> hashMap4 = rj5.a;
+        Integer valueOf4 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da7);
+        hashMap4.put("image_emoticon37", valueOf4);
+        HashMap<String, Integer> hashMap5 = rj5.a;
+        Integer valueOf5 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da8);
+        hashMap5.put("image_emoticon38", valueOf5);
+        HashMap<String, Integer> hashMap6 = rj5.a;
+        Integer valueOf6 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dab);
+        hashMap6.put("image_emoticon40", valueOf6);
+        HashMap<String, Integer> hashMap7 = rj5.a;
+        Integer valueOf7 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da9);
+        hashMap7.put("image_emoticon39", valueOf7);
+        HashMap<String, Integer> hashMap8 = rj5.a;
+        Integer valueOf8 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dac);
+        hashMap8.put("image_emoticon41", valueOf8);
+        HashMap<String, Integer> hashMap9 = rj5.a;
+        Integer valueOf9 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dad);
+        hashMap9.put("image_emoticon42", valueOf9);
+        HashMap<String, Integer> hashMap10 = rj5.a;
+        Integer valueOf10 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dae);
+        hashMap10.put("image_emoticon43", valueOf10);
+        HashMap<String, Integer> hashMap11 = rj5.a;
+        Integer valueOf11 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080daf);
+        hashMap11.put("image_emoticon44", valueOf11);
+        HashMap<String, Integer> hashMap12 = rj5.a;
+        Integer valueOf12 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db0);
+        hashMap12.put("image_emoticon45", valueOf12);
+        HashMap<String, Integer> hashMap13 = rj5.a;
+        Integer valueOf13 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db1);
+        hashMap13.put("image_emoticon46", valueOf13);
+        HashMap<String, Integer> hashMap14 = rj5.a;
+        Integer valueOf14 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db2);
+        hashMap14.put("image_emoticon47", valueOf14);
+        HashMap<String, Integer> hashMap15 = rj5.a;
+        Integer valueOf15 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db3);
+        hashMap15.put("image_emoticon48", valueOf15);
+        rj5.a.put("image_emoticon49", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db4));
+        rj5.a.put("image_emoticon50", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db6));
+        rj5.a.put("image_emoticon77", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dc9));
+        rj5.a.put("image_emoticon78", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dca));
+        rj5.a.put("image_emoticon79", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dcb));
+        rj5.a.put("image_emoticon80", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dcd));
+        rj5.a.put("image_emoticon81", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dce));
+        rj5.a.put("image_emoticon82", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dcf));
+        rj5.a.put("image_emoticon83", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dd0));
+        rj5.a.put("image_emoticon84", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dd1));
+        rj5.a.put("image_emoticon101", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d66));
+        rj5.a.put("image_emoticon102", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d67));
+        rj5.a.put("image_emoticon103", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d68));
+        rj5.a.put("image_emoticon104", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d69));
+        rj5.a.put("image_emoticon105", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6a));
+        rj5.a.put("image_emoticon106", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6b));
+        rj5.a.put("image_emoticon107", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6c));
+        rj5.a.put("image_emoticon108", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6d));
+        rj5.a.put("image_emoticon109", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6e));
+        rj5.a.put("image_emoticon110", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d70));
+        rj5.a.put("image_emoticon111", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d71));
+        rj5.a.put("image_emoticon112", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d72));
+        rj5.a.put("image_emoticon113", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d73));
+        rj5.a.put("image_emoticon114", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d74));
+        rj5.a.put("image_emoticon115", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d75));
+        rj5.a.put("image_emoticon116", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d76));
+        rj5.a.put("image_emoticon117", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d77));
+        rj5.a.put("image_emoticon118", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d78));
+        rj5.a.put("image_emoticon119", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d79));
+        rj5.a.put("image_emoticon120", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7b));
+        rj5.a.put("image_emoticon121", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7c));
+        rj5.a.put("image_emoticon122", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7d));
+        rj5.a.put("image_emoticon123", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7e));
+        rj5.a.put("image_emoticon124", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7f));
+        rj5.b.add(valueOf);
+        rj5.b.add(valueOf2);
+        rj5.b.add(valueOf3);
+        rj5.b.add(valueOf4);
+        rj5.b.add(valueOf5);
+        rj5.b.add(valueOf6);
+        rj5.b.add(valueOf7);
+        rj5.b.add(valueOf8);
+        rj5.b.add(valueOf10);
+        rj5.b.add(valueOf11);
+        rj5.b.add(valueOf15);
+        rj5.b.add(valueOf14);
+        rj5.b.add(valueOf13);
+        rj5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db6));
+        rj5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dc9));
+        rj5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dca));
+        rj5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dcb));
+        rj5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dcd));
+        rj5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dce));
+        rj5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dcf));
+        rj5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dd0));
+        rj5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dd1));
+        rj5.b.add(valueOf12);
+        rj5.b.add(valueOf9);
+        rj5.c.put("#(爱心)", valueOf);
+        rj5.c.put("#(心碎)", valueOf2);
+        rj5.c.put("#(玫瑰)", valueOf3);
+        rj5.c.put("#(礼物)", valueOf4);
+        rj5.c.put("#(彩虹)", valueOf5);
+        rj5.c.put("#(星星月亮)", valueOf7);
+        rj5.c.put("#(太阳)", valueOf6);
+        rj5.c.put("#(钱币)", valueOf8);
+        rj5.c.put("#(灯泡)", valueOf9);
+        rj5.c.put("#(茶杯)", valueOf10);
+        rj5.c.put("#(蛋糕)", valueOf11);
+        rj5.c.put("#(音乐)", valueOf12);
+        rj5.c.put("#(haha)", valueOf13);
+        rj5.c.put("#(胜利)", valueOf14);
+        rj5.c.put("#(大拇指)", valueOf15);
+        rj5.c.put("#(弱)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db4));
+        rj5.c.put("#(OK)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db6));
+        rj5.c.put("#(沙发)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dc9));
+        rj5.c.put("#(手纸)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dca));
+        rj5.c.put("#(香蕉)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dcb));
+        rj5.c.put("#(便便)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dcd));
+        rj5.c.put("#(药丸)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dce));
+        rj5.c.put("#(红领巾)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dcf));
+        rj5.c.put("#(蜡烛)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dd0));
+        rj5.c.put("#(三道杠)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dd1));
+        rj5.c.put("#(不跟丑人说话)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d66));
+        rj5.c.put("#(么么哒)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d67));
+        rj5.c.put("#(亲亲才能起来)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d68));
+        rj5.c.put("#(伦家只是宝宝)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d69));
+        rj5.c.put("#(你是我的人)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6a));
+        rj5.c.put("#(假装看不见)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6b));
+        rj5.c.put("#(单身等撩)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6c));
+        rj5.c.put("#(吓到宝宝了)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6d));
+        rj5.c.put("#(哈哈哈)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6e));
+        rj5.c.put("#(嗯嗯)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d70));
+        rj5.c.put("#(好幸福)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d71));
+        rj5.c.put("#(宝宝不开心)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d72));
+        rj5.c.put("#(小姐姐别走)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d73));
+        rj5.c.put("#(小姐姐在吗)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d74));
+        rj5.c.put("#(小姐姐来啦)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d75));
+        rj5.c.put("#(小姐姐来玩呀)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d76));
+        rj5.c.put("#(我养你)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d77));
+        rj5.c.put("#(我是不会骗你的)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d78));
+        rj5.c.put("#(扎心了)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d79));
+        rj5.c.put("#(无聊)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7b));
+        rj5.c.put("#(月亮代表我的心)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7c));
+        rj5.c.put("#(来追我呀)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7d));
+        rj5.c.put("#(爱你的形状)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7e));
+        rj5.c.put("#(白眼)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7f));
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements ho {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d07 a;
-
-        public c(d07 d07Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d07Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d07Var;
-        }
-
-        @Override // com.baidu.tieba.ho
-        public void b(View view2, xn xnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, xnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (xnVar instanceof r45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                AutoVideoCardViewHolder autoVideoCardViewHolder = (AutoVideoCardViewHolder) view2.getTag();
-                ThreadData threadData = ((r45) xnVar).t;
-                threadData.objType = 1;
-                if (this.a.f != null) {
-                    this.a.f.a(autoVideoCardViewHolder.getView(), threadData);
-                }
-                ThreadCardUtils.jumpToPB((l15) threadData, view2.getContext(), 2, false, ay.a((Cdo) viewGroup, view2, i));
-                autoVideoCardViewHolder.a().p(new wz.a(1));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d07(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public d07() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f = new a(this);
-        this.c = tbPageContext;
-        this.a = bdUniqueId2;
-        this.b = str;
-    }
-
-    public void B(Cdo cdo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cdo) == null) {
-            this.d = cdo;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: A */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, r45 r45Var, AutoVideoCardViewHolder<ThreadData> autoVideoCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r45Var, autoVideoCardViewHolder})) == null) {
-            if (r45Var == null) {
-                return autoVideoCardViewHolder.getView();
-            }
-            if (autoVideoCardViewHolder == null) {
-                return null;
-            }
-            r45Var.t.statFloor = getPositionByType(i) + 1;
-            autoVideoCardViewHolder.a().r(i);
-            autoVideoCardViewHolder.x(y(r45Var.t));
-            autoVideoCardViewHolder.e(r45Var.t);
-            autoVideoCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-            autoVideoCardViewHolder.a().q(this.f);
-            by6.b(r45Var, this.b);
-            return autoVideoCardViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final to9 y(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, threadData)) == null) {
-            if (threadData != null) {
-                to9 to9Var = new to9();
-                to9Var.a = PayUVEventType.PAY_WALLET_BANNER_SHOW;
-                to9Var.c = threadData.tid;
-                to9Var.f = threadData.mRecomSource;
-                to9Var.g = threadData.mRecomAbTag;
-                to9Var.h = threadData.mRecomWeight;
-                to9Var.i = "14";
-                to9Var.s = this.b;
-                to9Var.q = String.valueOf(threadData.statFloor);
-                if (threadData.getThreadVideoChannelInfo() != null) {
-                    to9Var.k = String.valueOf(threadData.getThreadVideoChannelInfo().a);
-                }
-                if (threadData.getThreadData() != null) {
-                    to9Var.d = String.valueOf(threadData.getThreadData().getFid());
-                    to9Var.v = threadData.getThreadData().getNid();
-                    if (threadData.getThreadData().getThreadVideoInfo() != null) {
-                        to9Var.m = threadData.getThreadData().getThreadVideoInfo().video_md5;
-                        to9Var.p = String.valueOf(threadData.getThreadData().getThreadVideoInfo().is_vertical);
-                    }
-                }
-                to9Var.e = TbadkCoreApplication.getCurrentAccount();
-                if (threadData.getThreadData() != null && threadData.getThreadData().getBaijiahaoData() != null) {
-                    to9Var.t = threadData.getThreadData().getBaijiahaoData().oriUgcNid;
-                    to9Var.u = threadData.getThreadData().getBaijiahaoData().oriUgcVid;
-                    return to9Var;
-                }
-                return to9Var;
-            }
-            return null;
-        }
-        return (to9) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: z */
-    public AutoVideoCardViewHolder<ThreadData> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            lz.b bVar = new lz.b(this.c.getPageActivity(), false);
-            cy cyVar = new cy(this.c.getPageActivity());
-            cyVar.A(new b(this, cyVar));
-            this.e = cyVar;
-            cyVar.C(this.a);
-            this.e.setFrom("14");
-            this.e.setStageType("2001");
-            bVar.n(this.e);
-            lz k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
-            AutoVideoCardViewHolder<ThreadData> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(k);
-            autoVideoCardViewHolder.i(this.a);
-            k.q(this.f);
-            k.s(2);
-            setOnAdapterItemClickListener(new c(this));
-            return autoVideoCardViewHolder;
-        }
-        return (AutoVideoCardViewHolder) invokeL.objValue;
     }
 }

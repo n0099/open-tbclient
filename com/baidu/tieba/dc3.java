@@ -1,33 +1,243 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.ContextWrapper;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.tieba.zb3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class dc3 extends ContextWrapper {
+public class dc3 extends rb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final yb3 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dc3(cc3 cc3Var) {
-        super(cc3Var);
+    @Override // com.baidu.tieba.yb3
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public dc3() {
+        this(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                this((yb3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public fe3 B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return H().B();
+        }
+        return (fe3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return H().E();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public yb3 H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (yb3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public String getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return H().getAppId();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return H().k();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public SwanAppCores m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return H().m();
+        }
+        return (SwanAppCores) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public vb3 q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return H().q();
+        }
+        return (vb3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            H().s();
+        }
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public SwanAppActivity w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return H().w();
+        }
+        return (SwanAppActivity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public ys1 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return H().x();
+        }
+        return (ys1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public q83 y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return H().y();
+        }
+        return (q83) invokeV.objValue;
+    }
+
+    public dc3(yb3 yb3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yb3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = yb3Var == null ? ub3.K() : yb3Var;
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public void A(zb3.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            H().A(aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public String n(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, strArr)) == null) {
+            return H().n(strArr);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public void o(oq3<zb3.a> oq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, oq3Var) == null) {
+            H().o(oq3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            H().p(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public void r(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, swanAppActivity) == null) {
+            H().r(swanAppActivity);
+        }
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public void t(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, swanAppActivity) == null) {
+            H().t(swanAppActivity);
+        }
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public void u(oq3<zb3.a> oq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, oq3Var) == null) {
+            H().u(oq3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public void l(Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
+            H().l(bundle, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.yb3
+    public void v(String str, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, str, bundle) == null) {
+            H().v(str, bundle);
         }
     }
 }

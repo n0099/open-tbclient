@@ -13,17 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.view.SwanAppRoundedImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bc3;
-import com.baidu.tieba.fj3;
-import com.baidu.tieba.ja3;
-import com.baidu.tieba.li3;
-import com.baidu.tieba.vi3;
-import com.baidu.tieba.zo3;
-import com.baidu.tieba.zw2;
+import com.baidu.tieba.ca3;
+import com.baidu.tieba.ei3;
+import com.baidu.tieba.oi3;
+import com.baidu.tieba.so3;
+import com.baidu.tieba.sw2;
+import com.baidu.tieba.ub3;
+import com.baidu.tieba.yi3;
 /* loaded from: classes4.dex */
 public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public Context a;
-    public ja3 b;
+    public ca3 b;
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
@@ -47,7 +47,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 SchemeRouter.invoke(this.a, this.b);
-                SwanAppRelatedSwanListAdapter.k("aboutrelated", "more", "click");
+                SwanAppRelatedSwanListAdapter.l("aboutrelated", "more", "click");
             }
         }
 
@@ -55,8 +55,8 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             super(view2);
         }
 
-        public void a(Context context, String str) {
-            TextView textView = (TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091771);
+        public void b(Context context, String str) {
+            TextView textView = (TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091783);
             if (TextUtils.isEmpty(str)) {
                 textView.setVisibility(8);
                 return;
@@ -71,11 +71,11 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
-            public final /* synthetic */ ja3.a a;
+            public final /* synthetic */ ca3.a a;
             public final /* synthetic */ Context b;
             public final /* synthetic */ int c;
 
-            public a(b bVar, ja3.a aVar, Context context, int i) {
+            public a(b bVar, ca3.a aVar, Context context, int i) {
                 this.a = aVar;
                 this.b = context;
                 this.c = i;
@@ -87,13 +87,13 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                     return;
                 }
                 SchemeRouter.invoke(this.b, this.a.c);
-                SwanAppRelatedSwanListAdapter.k("aboutrelated", String.valueOf(this.c), "click");
+                SwanAppRelatedSwanListAdapter.l("aboutrelated", String.valueOf(this.c), "click");
             }
         }
 
         /* renamed from: com.baidu.swan.apps.relateswans.SwanAppRelatedSwanListAdapter$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0214b implements zo3.b {
+        public class C0214b implements so3.b {
             public final /* synthetic */ SwanAppRoundedImageView a;
             public final /* synthetic */ Context b;
 
@@ -102,7 +102,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                 this.b = context;
             }
 
-            @Override // com.baidu.tieba.zo3.b
+            @Override // com.baidu.tieba.so3.b
             public void a(String str, Bitmap bitmap) {
                 if (bitmap == null) {
                     this.a.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080159));
@@ -116,13 +116,13 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             super(view2);
         }
 
-        public void a(Context context, ja3.a aVar, int i) {
+        public void b(Context context, ca3.a aVar, int i) {
             if (aVar == null) {
                 return;
             }
-            ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091e5d)).setOnClickListener(new a(this, aVar, context, i));
-            zo3.e(aVar.a, new C0214b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0922aa), context));
-            ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0922ac)).setText(aVar.b);
+            ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091e7f)).setOnClickListener(new a(this, aVar, context, i));
+            so3.e(aVar.a, new C0214b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0922dd), context));
+            ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0922df)).setText(aVar.b);
         }
     }
 
@@ -130,20 +130,20 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         this(context, null);
     }
 
-    public void l(ja3 ja3Var) {
-        this.b = ja3Var;
+    public void m(ca3 ca3Var) {
+        this.b = ca3Var;
         notifyDataSetChanged();
     }
 
-    public SwanAppRelatedSwanListAdapter(Context context, ja3 ja3Var) {
+    public SwanAppRelatedSwanListAdapter(Context context, ca3 ca3Var) {
         this.a = context;
-        this.b = ja3Var;
+        this.b = ca3Var;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        ja3 ja3Var = this.b;
-        if (ja3Var == null) {
+        ca3 ca3Var = this.b;
+        if (ca3Var == null) {
             return;
         }
         if (viewHolder instanceof b) {
@@ -151,9 +151,9 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             if (i2 < 0) {
                 return;
             }
-            ((b) viewHolder).a(this.a, ja3Var.a.get(i2), i);
+            ((b) viewHolder).b(this.a, ca3Var.a.get(i2), i);
         } else if (viewHolder instanceof a) {
-            ((a) viewHolder).a(this.a, ja3Var.b);
+            ((a) viewHolder).b(this.a, ca3Var.b);
         }
     }
 
@@ -161,39 +161,39 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
     @NonNull
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         if (i == 0) {
-            return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f3, viewGroup, false));
+            return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d090d, viewGroup, false));
         }
-        return new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f4, viewGroup, false));
+        return new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d090e, viewGroup, false));
     }
 
-    public static void k(String str, String str2, String str3) {
+    public static void l(String str, String str2, String str3) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        fj3 fj3Var = new fj3();
-        fj3Var.e = str;
+        yi3 yi3Var = new yi3();
+        yi3Var.e = str;
         if (!TextUtils.isEmpty(str2)) {
-            fj3Var.a("page", str2);
-            fj3Var.g = str2;
+            yi3Var.a("page", str2);
+            yi3Var.g = str2;
         }
         if (!TextUtils.isEmpty(str3)) {
-            fj3Var.b = str3;
+            yi3Var.b = str3;
         }
-        zw2.a W = bc3.K().q().W();
-        fj3Var.a = vi3.n(bc3.K().k());
-        fj3Var.f = W.H();
-        fj3Var.c = W.T();
-        fj3Var.b(vi3.k(W.W()));
-        fj3Var.d(W.s0().getString("ubc"));
-        li3.b(fj3Var);
+        sw2.a W = ub3.K().q().W();
+        yi3Var.a = oi3.n(ub3.K().k());
+        yi3Var.f = W.H();
+        yi3Var.c = W.T();
+        yi3Var.b(oi3.k(W.W()));
+        yi3Var.d(W.s0().getString("ubc"));
+        ei3.b(yi3Var);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        ja3 ja3Var = this.b;
-        if (ja3Var == null) {
+        ca3 ca3Var = this.b;
+        if (ca3Var == null) {
             return 0;
         }
-        return ja3Var.a.size() + 1;
+        return ca3Var.a.size() + 1;
     }
 }

@@ -1,16 +1,36 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.Surface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.CachedObservable$ReplayProducer;
 /* loaded from: classes8.dex */
-public final class utb<T> extends jvb implements ysb<T> {
+public abstract class utb extends ttb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void c(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
+    public void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+        }
+    }
 
-    public abstract void d();
+    public void e(Context context, Surface surface, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, surface, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        }
+    }
 
-    public abstract void e(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
+    public void f(Context context, Surface surface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, surface) == null) {
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
 }

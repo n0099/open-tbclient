@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.kwad.components.core.webview.b.b.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.kwad.components.core.webview.b.b.d {
     public static WeakReference<b> tT;
     public long tS;

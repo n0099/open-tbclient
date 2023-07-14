@@ -67,7 +67,7 @@ public final /* synthetic */ class FlowKt__MigrationKt {
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'onErrorXxx' is 'catch'. Use 'catch { e -> if (predicate(e)) emit(fallback) else throw e }'", replaceWith = @ReplaceWith(expression = "catch { e -> if (predicate(e)) emit(fallback) else throw e }", imports = {}))
     public static final <T> Flow<T> onErrorReturn(Flow<? extends T> flow, T t, Function1<? super Throwable, Boolean> function1) {
-        return FlowKt.m2316catch(flow, new FlowKt__MigrationKt$onErrorReturn$2(function1, t, null));
+        return FlowKt.m2318catch(flow, new FlowKt__MigrationKt$onErrorReturn$2(function1, t, null));
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow has less verbose 'scan' shortcut", replaceWith = @ReplaceWith(expression = "scan(initial, operation)", imports = {}))

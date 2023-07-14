@@ -1,257 +1,146 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.text.TextUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.img.UploadedImageInfo;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class z17 {
     public static /* synthetic */ Interceptable $ic;
-    public static final z17 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public EnterForumTabFeedFragment a;
+    public BdTypeRecyclerView b;
+    public l27 c;
+    public c27 d;
+    public e27 e;
+    public d27 f;
+    public f27 g;
+    public m27 h;
+    public h27 i;
+    public j27 j;
+    public i27 k;
+    public g27 l;
+    public k27 m;
+    public b27 n;
+    public n27 o;
+    public List<ln> p;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307177, "Lcom/baidu/tieba/z17;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948307177, "Lcom/baidu/tieba/z17;");
-                return;
-            }
-        }
-        a = new z17();
-    }
-
-    public z17() {
+    public z17(EnterForumTabFeedFragment enterForumTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {enterForumTabFeedFragment, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.p = new LinkedList();
+        this.a = enterForumTabFeedFragment;
+        this.b = bdTypeRecyclerView;
+        a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            l27 l27Var = new l27(this.a.getPageContext(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId(), this.a.J1());
+            this.c = l27Var;
+            l27Var.y(this.b);
+            this.p.add(this.c);
+            c27 c27Var = new c27(this.a.getPageContext(), ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.a.getUniqueId(), this.a.J1());
+            this.d = c27Var;
+            c27Var.z(this.b);
+            this.p.add(this.d);
+            e27 e27Var = new e27(this.a.getPageContext(), ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.a.getUniqueId(), this.a.J1());
+            this.e = e27Var;
+            e27Var.y(this.b);
+            this.p.add(this.e);
+            d27 d27Var = new d27(this.a.getPageContext(), ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.a.getUniqueId(), this.a.J1());
+            this.f = d27Var;
+            d27Var.y(this.b);
+            this.p.add(this.f);
+            f27 f27Var = new f27(this.a.getPageContext(), ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.a.getUniqueId(), this.a.J1());
+            this.g = f27Var;
+            f27Var.y(this.b);
+            this.p.add(this.g);
+            m27 m27Var = new m27(this.a.getPageContext(), ThreadData.TYPE_VIDEO, this.a.getUniqueId(), this.a.J1());
+            this.h = m27Var;
+            m27Var.B(this.b);
+            this.p.add(this.h);
+            h27 h27Var = new h27(this.a.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId(), this.a.J1());
+            this.i = h27Var;
+            h27Var.u(this.b);
+            this.p.add(this.i);
+            j27 j27Var = new j27(this.a.getPageContext(), ThreadData.TYPE_SINGLE_LINK, this.a.getUniqueId(), this.a.J1());
+            this.j = j27Var;
+            j27Var.y(this.b);
+            this.p.add(this.j);
+            i27 i27Var = new i27(this.a.getPageContext(), ThreadData.TYPE_MULTI_LINK, this.a.getUniqueId(), this.a.J1());
+            this.k = i27Var;
+            i27Var.u(this.b);
+            this.p.add(this.k);
+            g27 g27Var = new g27(this.a.getPageContext(), ThreadData.TYPE_ENTER_FORUM, this.a.getUniqueId(), this.a.J1());
+            this.l = g27Var;
+            g27Var.y(this.b);
+            this.p.add(this.l);
+            k27 k27Var = new k27(this.a.getPageContext(), ThreadData.TYPE_BOTTOM_NORMAL, this.a.getUniqueId(), this.a.J1());
+            this.m = k27Var;
+            k27Var.y(this.b);
+            this.p.add(this.m);
+            b27 b27Var = new b27(this.a.getPageContext(), ThreadData.TYPE_ARTICLE, this.a.getUniqueId(), this.a.J1());
+            this.n = b27Var;
+            b27Var.z(this.b);
+            this.p.add(this.n);
+            n27 n27Var = new n27(this.a.getPageContext(), q45.d, this.a.getUniqueId(), this.a.J1());
+            this.o = n27Var;
+            n27Var.x(this.b);
+            this.p.add(this.o);
+            this.b.addAdapters(this.p);
         }
     }
 
-    public static z17 c() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
         }
-        return (z17) invokeV.objValue;
     }
 
-    public final boolean a(String str) {
-        InterceptResult invokeL;
+    public void c(ArrayList<yn> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (new File(TbadkCoreApplication.getInst().getFilesDir(), str).exists()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            this.b.setData(arrayList);
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean b(MyEmotionGroupData myEmotionGroupData) {
-        InterceptResult invokeL;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, myEmotionGroupData)) == null) {
-            if (myEmotionGroupData == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            c27 c27Var = this.d;
+            if (c27Var != null) {
+                c27Var.setFromCDN(z);
             }
-            t9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            try {
-                mainDBDatabaseManager.f().delete(EmotionUtil.TABLE_NAME_USER_EMOTIONS, "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
-                return true;
-            } catch (Throwable th) {
-                mainDBDatabaseManager.i(th, "EmotionsDBManager.deleteMyEmotion");
-                return false;
+            d27 d27Var = this.f;
+            if (d27Var != null) {
+                d27Var.setFromCDN(z);
+            }
+            e27 e27Var = this.e;
+            if (e27Var != null) {
+                e27Var.setFromCDN(z);
             }
         }
-        return invokeL.booleanValue;
-    }
-
-    public MyEmotionGroupData d(String str, String str2) {
-        InterceptResult invokeLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            t9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            try {
-                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
-                try {
-                    if (cursor.moveToNext()) {
-                        return i(cursor);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    try {
-                        mainDBDatabaseManager.i(th, "EmotionsDBManager.getMyEmotion");
-                        return null;
-                    } finally {
-                        yi.a(cursor);
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = null;
-            }
-            return null;
-        }
-        return (MyEmotionGroupData) invokeLL.objValue;
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            t9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            Cursor cursor = null;
-            try {
-                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{TbadkCoreApplication.getCurrentAccount(), str});
-                if (!cursor.moveToNext()) {
-                    return false;
-                }
-                return true;
-            } catch (Throwable th) {
-                try {
-                    mainDBDatabaseManager.i(th, "EmotionsDBManager.hasEmotionByPckID");
-                    return false;
-                } finally {
-                    yi.a(cursor);
-                }
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public List<MyEmotionGroupData> h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (TextUtils.isEmpty(str)) {
-                return linkedList;
-            }
-            Cursor cursor = null;
-            try {
-                cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().f().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
-                while (cursor.moveToNext()) {
-                    linkedList.add(i(cursor));
-                }
-            } finally {
-                try {
-                    return linkedList;
-                } finally {
-                }
-            }
-            return linkedList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public MyEmotionGroupData i(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cursor)) == null) {
-            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
-            myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
-            myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex("uid"));
-            myEmotionGroupData.groupId = cursor.getString(cursor.getColumnIndex(TbEnum.SystemMessage.KEY_GROUP_ID));
-            myEmotionGroupData.updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
-            return myEmotionGroupData;
-        }
-        return (MyEmotionGroupData) invokeL.objValue;
-    }
-
-    public int f(e59 e59Var) {
-        InterceptResult invokeL;
-        List<f59> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, e59Var)) == null) {
-            if (e59Var == null || (list = e59Var.e) == null || list.size() == 0) {
-                return 0;
-            }
-            String str = ".emotions/" + e59Var.a;
-            h27 o = h27.o();
-            List<f59> list2 = e59Var.e;
-            int i = 0;
-            for (int i2 = 0; i2 < list2.size(); i2++) {
-                f59 f59Var = list2.get(i2);
-                if (a(str + "/" + f59Var.c)) {
-                    if (a(str + "/" + f59Var.d)) {
-                        StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-                        sb.append(e59Var.a + "_" + f59Var.b);
-                        sb.append(",");
-                        sb.append(f59Var.f);
-                        sb.append(",");
-                        sb.append(f59Var.e);
-                        sb.append(",");
-                        String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + ej.c(sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
-                        boolean isGifImage = FileHelper.isGifImage(no5.b.e(e59Var.a, f59Var.c));
-                        a27.g(e59Var.a, f59Var.d, a27.c(str2, true, false));
-                        a27.g(e59Var.a, f59Var.c, a27.c(str2, false, isGifImage));
-                        if (o.f(str2, e59Var.a, i2 + 1)) {
-                            i++;
-                        }
-                    }
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public int g(String str, InputStream inputStream) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, inputStream)) == null) {
-            h27 o = h27.o();
-            List<String> a2 = a27.a(str, inputStream);
-            int i = 0;
-            int i2 = 0;
-            while (i < a2.size()) {
-                i++;
-                if (o.f(a2.get(i), str, i)) {
-                    i2++;
-                }
-            }
-            return i2;
-        }
-        return invokeLL.intValue;
     }
 }

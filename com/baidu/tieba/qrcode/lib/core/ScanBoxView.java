@@ -24,8 +24,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d56;
-import com.baidu.tieba.er9;
+import com.baidu.tieba.h66;
+import com.baidu.tieba.lx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class ScanBoxView extends View {
     public float S;
 
     /* renamed from: T  reason: collision with root package name */
-    public float f1154T;
+    public float f1161T;
     public Bitmap U;
     public Bitmap V;
     public Bitmap W;
@@ -117,29 +117,29 @@ public class ScanBoxView extends View {
         this.j = paint;
         paint.setAntiAlias(true);
         this.l = Color.parseColor("#33FFFFFF");
-        this.m = er9.b(context, 20.0f);
-        this.n = er9.b(context, 3.0f);
-        this.s = er9.b(context, 1.0f);
+        this.m = lx9.b(context, 20.0f);
+        this.n = lx9.b(context, 3.0f);
+        this.s = lx9.b(context, 1.0f);
         this.t = -1;
-        this.r = er9.b(context, 90.0f);
-        this.o = er9.b(context, 200.0f);
-        this.q = er9.b(context, 140.0f);
+        this.r = lx9.b(context, 90.0f);
+        this.o = lx9.b(context, 200.0f);
+        this.q = lx9.b(context, 140.0f);
         this.u = 0;
         this.v = false;
         this.w = null;
         this.x = null;
-        this.y = er9.b(context, 1.0f);
+        this.y = lx9.b(context, 1.0f);
         this.z = -1;
         this.A = 1000;
         this.B = false;
         this.C = 0;
         this.D = false;
-        this.e = er9.b(context, 2.0f);
+        this.e = lx9.b(context, 2.0f);
         this.G = null;
-        this.H = er9.f(context, 14.0f);
+        this.H = lx9.f(context, 14.0f);
         this.I = -1;
         this.J = false;
-        this.K = er9.b(context, 20.0f);
+        this.K = lx9.b(context, 20.0f);
         this.L = false;
         this.M = Color.parseColor("#22000000");
         this.N = false;
@@ -148,7 +148,7 @@ public class ScanBoxView extends View {
         TextPaint textPaint = new TextPaint();
         this.k = textPaint;
         textPaint.setAntiAlias(true);
-        this.d0 = er9.b(context, 4.0f);
+        this.d0 = lx9.b(context, 4.0f);
         this.e0 = false;
         ColorMatrix colorMatrix = new ColorMatrix();
         colorMatrix.setScale(1.5f, 1.5f, 1.5f, 1.0f);
@@ -186,13 +186,13 @@ public class ScanBoxView extends View {
             }
             if (!TextUtils.isEmpty(this.G)) {
                 if (this.L) {
-                    this.c0 = new StaticLayout(this.G, this.k, er9.d(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
+                    this.c0 = new StaticLayout(this.G, this.k, lx9.d(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
                 } else {
                     this.c0 = new StaticLayout(this.G, this.k, this.o - (this.d0 * 2), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
                 }
             }
             if (this.B) {
-                int i2 = er9.d(getContext()).y;
+                int i2 = lx9.d(getContext()).y;
                 int i3 = this.C;
                 if (i3 == 0) {
                     this.r = (i2 - this.p) / 2;
@@ -512,25 +512,25 @@ public class ScanBoxView extends View {
                 this.W = ((BitmapDrawable) drawable).getBitmap();
             }
             if (this.W == null) {
-                Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f08115f);
+                Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f081174);
                 this.W = decodeResource;
-                this.W = er9.e(decodeResource, this.t);
+                this.W = lx9.e(decodeResource, this.t);
             }
-            Bitmap a = er9.a(this.W, 90);
+            Bitmap a = lx9.a(this.W, 90);
             this.a0 = a;
-            Bitmap a2 = er9.a(a, 90);
+            Bitmap a2 = lx9.a(a, 90);
             this.a0 = a2;
-            this.a0 = er9.a(a2, 90);
+            this.a0 = lx9.a(a2, 90);
             Drawable drawable2 = this.w;
             if (drawable2 != null) {
                 this.U = ((BitmapDrawable) drawable2).getBitmap();
             }
             if (this.U == null) {
-                Bitmap decodeResource2 = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f08115f);
+                Bitmap decodeResource2 = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f081174);
                 this.U = decodeResource2;
-                this.U = er9.e(decodeResource2, this.t);
+                this.U = lx9.e(decodeResource2, this.t);
             }
-            this.V = er9.a(this.U, 90);
+            this.V = lx9.a(this.U, 90);
             this.b0 = (this.n * 1.0f) / 2.0f;
             this.k.setTextSize(this.H);
             this.k.setColor(this.I);
@@ -545,7 +545,7 @@ public class ScanBoxView extends View {
             int i = this.m;
             options.outWidth = i;
             options.outHeight = i;
-            this.a = BitmapHelper.getResBitmap(this.f0, R.drawable.obfuscated_res_0x7f080c57, options);
+            this.a = BitmapHelper.getResBitmap(this.f0, R.drawable.obfuscated_res_0x7f080c62, options);
             Matrix matrix = new Matrix();
             matrix.postRotate(90.0f);
             Bitmap bitmap = this.a;
@@ -574,7 +574,7 @@ public class ScanBoxView extends View {
             if (this.D) {
                 float f = rect.left + this.b0 + 0.5f;
                 this.i = f;
-                this.f1154T = f;
+                this.f1161T = f;
                 return;
             }
             float f2 = rect.top + this.b0 + 0.5f;
@@ -633,7 +633,7 @@ public class ScanBoxView extends View {
                     Rect rect = this.g;
                     float f = this.b0;
                     int i = this.u;
-                    RectF rectF = new RectF(rect.left + f + 0.5f, rect.top + f + i, this.f1154T, (rect.bottom - f) - i);
+                    RectF rectF = new RectF(rect.left + f + 0.5f, rect.top + f + i, this.f1161T, (rect.bottom - f) - i);
                     Rect rect2 = new Rect((int) (this.R.getWidth() - rectF.width()), 0, this.R.getWidth(), this.R.getHeight());
                     if (rect2.left < 0) {
                         rect2.left = 0;
@@ -842,7 +842,7 @@ public class ScanBoxView extends View {
     public void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048613, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d56.QRCodeView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h66.QRCodeView);
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i = 0; i < indexCount; i++) {
                 j(obtainStyledAttributes.getIndex(i), obtainStyledAttributes);
@@ -880,12 +880,12 @@ public class ScanBoxView extends View {
                         }
                     }
                 } else {
-                    float f5 = this.f1154T + this.e;
-                    this.f1154T = f5;
+                    float f5 = this.f1161T + this.e;
+                    this.f1161T = f5;
                     Rect rect3 = this.g;
                     float f6 = this.b0;
                     if (f5 > rect3.right - f6) {
-                        this.f1154T = rect3.left + f6 + 0.5f;
+                        this.f1161T = rect3.left + f6 + 0.5f;
                     }
                 }
             } else if (this.R == null) {

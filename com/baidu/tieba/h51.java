@@ -1,19 +1,22 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class h51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c51 a;
-    public BaseExecutorCell b;
+    public boolean a;
+    public final ArrayList<String> b;
+    public final StringBuilder c;
 
     public h51() {
         Interceptable interceptable = $ic;
@@ -28,37 +31,160 @@ public class h51 {
                 return;
             }
         }
-        this.a = new c51();
-        this.b = BaseExecutorCell.b(1, BaseExecutorCell.ExecutorType.SERIAL);
+        this.a = false;
+        this.b = new ArrayList<>();
+        this.c = new StringBuilder();
     }
 
-    public boolean a() {
+    public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ((x41) this.b).j();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ElasticTask b = this.a.b();
-            if (b == null || !this.b.c(b)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append((CharSequence) this.c);
+            if (this.a) {
+                sb.insert(0, "(");
+                sb.append(SmallTailInfo.EMOTION_SUFFIX);
             }
-            this.a.e(b);
-            return true;
+            sb.insert(0, " WHERE ");
+            return sb.toString();
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void b(Runnable runnable, String str, int i) {
+    public static h51 g(Column column) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str, i) == null) {
-            this.a.c(runnable, str, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, column)) == null) {
+            return i(column.field, column.stringValue());
+        }
+        return (h51) invokeL.objValue;
+    }
+
+    public static h51 h(x41 x41Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, x41Var)) == null) {
+            h51 h51Var = new h51();
+            h51Var.f(null, x41Var, " = ?");
+            return h51Var;
+        }
+        return (h51) invokeL.objValue;
+    }
+
+    public static h51 j(Column... columnArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, columnArr)) == null) {
+            h51 g = g(columnArr[0]);
+            for (int i = 1; i < columnArr.length; i++) {
+                g.b(columnArr[i].field, columnArr[i].stringValue());
+            }
+            return g;
+        }
+        return (h51) invokeL.objValue;
+    }
+
+    public h51 d(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, objArr)) == null) {
+            for (Object obj : objArr) {
+                this.b.add(String.valueOf(obj));
+            }
+            return this;
+        }
+        return (h51) invokeL.objValue;
+    }
+
+    public static h51 i(x41 x41Var, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, x41Var, obj)) == null) {
+            h51 h = h(x41Var);
+            h.d(obj);
+            return h;
+        }
+        return (h51) invokeLL.objValue;
+    }
+
+    public h51 b(x41 x41Var, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x41Var, obj)) == null) {
+            c(null, x41Var, obj);
+            return this;
+        }
+        return (h51) invokeLL.objValue;
+    }
+
+    public h51 a(String str, x41 x41Var, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, x41Var, str2)) == null) {
+            this.a = true;
+            this.c.append(" AND ");
+            f(str, x41Var, str2);
+            return this;
+        }
+        return (h51) invokeLLL.objValue;
+    }
+
+    public h51 c(String str, x41 x41Var, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, x41Var, obj)) == null) {
+            a(str, x41Var, " = ?");
+            d(obj);
+            return this;
+        }
+        return (h51) invokeLLL.objValue;
+    }
+
+    public String[] e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String[] strArr = new String[this.b.size()];
+            for (int i = 0; i < this.b.size(); i++) {
+                strArr[i] = this.b.get(i);
+            }
+            return strArr;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append((CharSequence) this.c);
+            if (this.a) {
+                sb.insert(0, "(");
+                sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void f(String str, x41 x41Var, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, str, x41Var, str2) == null) {
+            if (x41Var != null) {
+                if (str != null) {
+                    this.c.append(str);
+                    this.c.append(".");
+                }
+                this.c.append(x41Var.b);
+                if (str2.charAt(0) != ' ') {
+                    this.c.append(" ");
+                }
+            } else if (str != null) {
+                throw new IllegalArgumentException("prefix should be null when field is null");
+            }
+            this.c.append(str2);
         }
     }
 }

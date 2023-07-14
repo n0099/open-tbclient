@@ -1,145 +1,137 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class o63 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static List<Pair<String, Pair<String, String>>> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
 
-    public o63() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984157, "Lcom/baidu/tieba/o63;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947984157, "Lcom/baidu/tieba/o63;");
+                return;
             }
         }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = true;
+        boolean z = fs1.a;
+        a = z;
+        if (z) {
+            ArrayList arrayList = new ArrayList();
+            b = arrayList;
+            arrayList.add(new Pair("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
+            b.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
+            b.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
+            b.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
+            b.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
+            b.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
+            b.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
+            b.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
         }
     }
 
-    public void c() {
+    public static void a(String str, String str2, List<UbcFlowEvent> list, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
-            d();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = false;
-            c();
-            k();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.b) {
-            b();
-        }
-    }
-
-    public final ViewGroup b() {
-        InterceptResult invokeV;
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (cc3.b0() != null && cc3.b0().w() != null && (viewGroup = (ViewGroup) cc3.b0().w().findViewById(16908290)) != null) {
-                ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f09225e);
-                if (viewGroup2 != null) {
-                    return viewGroup2;
+        if ((interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, list, str3) == null) && !TextUtils.isEmpty(str) && list != null && list.size() > 0) {
+            bi3 c = oi3.c("770");
+            for (UbcFlowEvent ubcFlowEvent : list) {
+                if (ubcFlowEvent != null) {
+                    ci3.e(c, ubcFlowEvent.a, ubcFlowEvent.j(), ubcFlowEvent.g());
                 }
-                ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(cc3.b0().w()).inflate(R.layout.obfuscated_res_0x7f0d08f6, viewGroup);
-                this.b = true;
-                return viewGroup3;
             }
-            return null;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
-
-    public final void d() {
-        cc3 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (b0 = cc3.b0()) != null && b0.w() != null) {
-            ViewGroup viewGroup = (ViewGroup) b0.w().findViewById(R.id.obfuscated_res_0x7f09225e);
-            if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
-                ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.put("from", "swan");
+                jSONObject.put("type", str2);
+                jSONObject2.put("appid", str);
+                jSONObject2.put("mobile", lo3.c());
+                jSONObject2.put("net", SwanAppNetworkUtils.f().type);
+                if (TextUtils.isEmpty(str3)) {
+                    str3 = "0";
+                }
+                jSONObject2.put("scene", str3);
+                ni3.a(jSONObject2);
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            this.b = false;
+            ci3.f(c, jSONObject.toString());
+            ci3.c(c);
+            b(str, list, b);
         }
     }
 
-    public void f(long j) {
+    @SuppressLint({"SwanDebugLog", "LogConditional"})
+    public static void b(String str, List<UbcFlowEvent> list, List<Pair<String, Pair<String, String>>> list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090ada, j, "#80ff0000", "FCP");
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, list, list2) == null) && a && list != null && list2 != null) {
+            HashMap hashMap = new HashMap();
+            StringBuilder sb = new StringBuilder();
+            sb.append("小程序PMS下载耗时Log：");
+            sb.append("\n");
+            sb.append("小程序ID：");
+            sb.append(str);
+            sb.append("\n");
+            sb.append("小程序ID：");
+            sb.append(str);
+            for (UbcFlowEvent ubcFlowEvent : list) {
+                if (ubcFlowEvent != null) {
+                    sb.append("\n");
+                    sb.append(ubcFlowEvent.g());
+                    sb.append(ZeusCrashHandler.NAME_SEPERATOR);
+                    sb.append(ubcFlowEvent.a);
+                    hashMap.put(ubcFlowEvent.a, Long.valueOf(ubcFlowEvent.g()));
+                }
+            }
+            sb.append("\n");
+            sb.append("耗时计算开始：>>>>>>>>>>>>");
+            for (Pair<String, Pair<String, String>> pair : list2) {
+                if (pair != null) {
+                    String str2 = (String) pair.first;
+                    Object obj = pair.second;
+                    String str3 = (String) ((Pair) obj).first;
+                    String str4 = (String) ((Pair) obj).second;
+                    if (hashMap.get(str3) != null && hashMap.get(str4) != null) {
+                        long longValue = ((Long) hashMap.get(str3)).longValue();
+                        String format = String.format(Locale.CHINA, "%-13d", Long.valueOf(((Long) hashMap.get(str4)).longValue() - longValue));
+                        sb.append("\n");
+                        sb.append("耗时：");
+                        sb.append(format);
+                        sb.append(" >>> ");
+                        sb.append(str2);
+                        sb.append("，计算方式：");
+                        sb.append(str4);
+                        sb.append(" - ");
+                        sb.append(str3);
+                    }
+                }
+            }
+            Log.i("SwanAppPMS", sb.toString());
         }
-    }
-
-    public void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090afc, j, "#80ff0000", "FIP");
-        }
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090b5b, j, "#8000ff00", "FMP");
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090d77, j, "#80ff0000", "FTP");
-        }
-    }
-
-    public final void j(int i, long j, String str, String str2) {
-        ViewGroup b;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) != null) || this.a || (b = b()) == null) {
-            return;
-        }
-        TextView textView = (TextView) b.findViewById(i);
-        textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
-        textView.setBackgroundColor(Color.parseColor(str));
-    }
-
-    public void l(long j, long j2) {
-        ViewGroup b;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) != null) || this.a || (b = b()) == null) {
-            return;
-        }
-        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f092299)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
     }
 }

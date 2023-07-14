@@ -11,7 +11,7 @@ import kotlin.reflect.jvm.internal.impl.metadata.deserialization.VersionSpecific
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors.DeserializedContainerSource;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.text.Typography;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DeserializationContext {
     public final DeserializationComponents components;
     public final DeserializedContainerSource containerSource;

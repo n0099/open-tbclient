@@ -16,17 +16,17 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.bj7;
-import com.baidu.tieba.dj7;
-import com.baidu.tieba.ej7;
-import com.baidu.tieba.fj7;
 import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
 import com.baidu.tieba.frs.forumRule.message.ForumRuleDetailHttpResMsg;
 import com.baidu.tieba.frs.forumRule.message.ForumRuleDetailReqMsg;
 import com.baidu.tieba.frs.forumRule.message.ForumRuleDetailScoketResMsg;
+import com.baidu.tieba.gca;
+import com.baidu.tieba.in7;
 import com.baidu.tieba.kb;
+import com.baidu.tieba.kn7;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.v3a;
+import com.baidu.tieba.ln7;
+import com.baidu.tieba.mn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,25 +49,25 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     public int d;
     public String e;
     public String f;
-    public ej7 g;
+    public ln7 g;
     public ForumRuleBaseData h;
-    public bj7 i;
+    public in7 i;
     public kb j;
-
-    public void c0(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-        }
-    }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public void d0(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -125,16 +125,16 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
                             this.a.g = ((ForumRuleDetailScoketResMsg) responsedMessage).getmForumRuleDetailData();
                         }
                         if (this.a.g != null && this.a.i != null) {
-                            bj7 bj7Var = this.a.i;
+                            in7 in7Var = this.a.i;
                             if (this.a.g.b() == 2) {
                                 z = true;
                             } else {
                                 z = false;
                             }
-                            bj7Var.c(z, this.a.g.a());
-                            this.a.i.e(this.a.g.l());
+                            in7Var.c(z, this.a.g.a());
+                            this.a.i.e(this.a.g.k());
                             this.a.i.d(this.a.g);
-                            this.a.k0();
+                            this.a.l0();
                             this.a.i.a(this.a.g.m());
                             this.a.i.finish();
                         }
@@ -170,13 +170,13 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
         this.h = null;
         this.j = new a(this, CmdConfigHttp.CMD_FORUM_RULES_SHOW, 309690);
         this.a = forumRulesShowActivity;
-        h0();
-        b0();
+        i0();
+        c0();
     }
 
-    public void d0(Intent intent) {
+    public void e0(Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, intent) == null) && intent != null) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, intent) == null) && intent != null) {
             this.b = intent.getStringExtra("forum_id");
             this.f = intent.getStringExtra("from");
             this.c = intent.getStringExtra("forum_name");
@@ -185,14 +185,14 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
             this.a.setFrom(this.f);
             if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.f)) {
                 this.h = (ForumRuleBaseData) intent.getSerializableExtra(IntentConfig.DATAS);
-                Z();
+                a0();
                 return;
             }
-            i0();
+            j0();
         }
     }
 
-    public final ForumRuleDetailReqMsg Y(String str) {
+    public final ForumRuleDetailReqMsg Z(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -206,55 +206,55 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
         return (ForumRuleDetailReqMsg) invokeL.objValue;
     }
 
-    public void a0(Bundle bundle) {
+    public void b0(Bundle bundle) {
         ForumRulesShowActivity forumRulesShowActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setUniqueId(getUniqueId());
             if (bundle == null && (forumRulesShowActivity = this.a) != null) {
-                d0(forumRulesShowActivity.getIntent());
+                e0(forumRulesShowActivity.getIntent());
             } else {
-                c0(bundle);
+                d0(bundle);
             }
         }
     }
 
-    public void j0(bj7 bj7Var) {
+    public void k0(in7 in7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bj7Var) == null) {
-            this.i = bj7Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, in7Var) == null) {
+            this.i = in7Var;
         }
     }
 
-    public final void Z() {
+    public final void a0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.h != null) {
             this.i.c(false, "");
             this.i.e(this.h.getTitle());
-            ej7 ej7Var = new ej7();
+            ln7 ln7Var = new ln7();
             BawuRoleInfoPub.Builder builder = new BawuRoleInfoPub.Builder();
             builder.portrait = TbadkCoreApplication.getCurrentPortrait();
             builder.name_show = TbadkCoreApplication.getCurrentAccountNameShow();
             builder.user_level = Integer.valueOf(this.d);
-            ej7Var.o(builder.build(true));
+            ln7Var.o(builder.build(true));
             ForumInfo.Builder builder2 = new ForumInfo.Builder();
             builder2.forum_name = this.c;
-            ej7Var.p(builder2.build(true));
-            ej7Var.q(false);
-            ej7Var.s(this.h.getPreface());
-            this.i.d(ej7Var);
-            k0();
-            dj7 dj7Var = new dj7();
-            dj7Var.i(this.c);
-            dj7Var.h(this.e);
-            dj7Var.k(TbadkCoreApplication.getCurrentAccountNameShow());
-            dj7Var.l(TbadkCoreApplication.getCurrentPortrait());
-            this.i.a(dj7Var);
+            ln7Var.p(builder2.build(true));
+            ln7Var.q(false);
+            ln7Var.r(this.h.getPreface());
+            this.i.d(ln7Var);
+            l0();
+            kn7 kn7Var = new kn7();
+            kn7Var.h(this.c);
+            kn7Var.g(this.e);
+            kn7Var.i(TbadkCoreApplication.getCurrentAccountNameShow());
+            kn7Var.k(TbadkCoreApplication.getCurrentPortrait());
+            this.i.a(kn7Var);
             this.i.finish();
         }
     }
 
-    public final void b0() {
+    public final void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             registerListener(this.j);
@@ -263,20 +263,20 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
 
     public void destory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.a = null;
             MessageManager.getInstance().unRegisterListener(this.j);
         }
     }
 
-    public void i0() {
+    public void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.sendMessage(Y(this.b));
+            super.sendMessage(Z(this.b));
         }
     }
 
-    public final List<PbContent> e0(String str) {
+    public final List<PbContent> f0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
@@ -288,7 +288,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
                 int indexOf = str.indexOf("#(url");
                 if (indexOf == 0) {
                     int indexOf2 = str.indexOf(SmallTailInfo.EMOTION_SUFFIX, indexOf) + 1;
-                    f0(arrayList, str.substring(0, indexOf2));
+                    g0(arrayList, str.substring(0, indexOf2));
                     str = str.substring(indexOf2, str.length());
                 } else if (indexOf == -1) {
                     String substring = str.substring(0, str.length());
@@ -311,7 +311,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
         return (List) invokeL.objValue;
     }
 
-    public final void f0(List<PbContent> list, String str) {
+    public final void g0(List<PbContent> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, list, str) == null) {
             String[] split = str.split(",");
@@ -325,34 +325,34 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
         }
     }
 
-    public final fj7 g0(ForumRuleBaseData.ForumRuleItemData forumRuleItemData) {
+    public final mn7 h0(ForumRuleBaseData.ForumRuleItemData forumRuleItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, forumRuleItemData)) == null) {
             if (forumRuleItemData != null) {
-                fj7 fj7Var = new fj7();
-                fj7Var.h(forumRuleItemData.getTitle());
-                fj7Var.f(e0(forumRuleItemData.getContent()));
-                fj7Var.e(false);
-                return fj7Var;
+                mn7 mn7Var = new mn7();
+                mn7Var.g(forumRuleItemData.getTitle());
+                mn7Var.f(f0(forumRuleItemData.getContent()));
+                mn7Var.e(false);
+                return mn7Var;
             }
             return null;
         }
-        return (fj7) invokeL.objValue;
+        return (mn7) invokeL.objValue;
     }
 
-    public final void h0() {
+    public final void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            v3a.h(309690, ForumRuleDetailScoketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, v3a.a(TbConfig.FORUM_RULES_SHOW, 309690));
+            gca.h(309690, ForumRuleDetailScoketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, gca.a(TbConfig.FORUM_RULES_SHOW, 309690));
             tbHttpMessageTask.setResponsedClass(ForumRuleDetailHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    public final void k0() {
+    public final void l0() {
         ForumRuleBaseData forumRuleBaseData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -361,16 +361,16 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
                 List<ForumRuleBaseData.ForumRuleItemData> list = forumRuleBaseData.getList();
                 if (list != null && list.size() > 0) {
                     for (ForumRuleBaseData.ForumRuleItemData forumRuleItemData : list) {
-                        arrayList.add(g0(forumRuleItemData));
+                        arrayList.add(h0(forumRuleItemData));
                     }
                 }
             } else {
-                List<ForumRule> k = this.g.k();
-                if (k != null && k.size() > 0) {
-                    for (ForumRule forumRule : k) {
-                        fj7 fj7Var = new fj7();
-                        fj7Var.d(forumRule);
-                        arrayList.add(fj7Var);
+                List<ForumRule> i = this.g.i();
+                if (i != null && i.size() > 0) {
+                    for (ForumRule forumRule : i) {
+                        mn7 mn7Var = new mn7();
+                        mn7Var.d(forumRule);
+                        arrayList.add(mn7Var);
                     }
                 }
             }

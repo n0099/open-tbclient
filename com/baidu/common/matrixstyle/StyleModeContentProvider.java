@@ -7,7 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c20;
+import com.baidu.tieba.d20;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -158,7 +158,7 @@ public final class StyleModeContentProvider extends ContentProvider {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
             Intrinsics.checkNotNullParameter(uri, "uri");
             if (c.match(uri) == 0) {
-                return String.valueOf(c20.a.d());
+                return String.valueOf(d20.a.d());
             }
             return null;
         }

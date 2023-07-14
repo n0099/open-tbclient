@@ -1,87 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class x75 implements v75 {
+public final class x75 {
     public static /* synthetic */ Interceptable $ic;
+    public static final x75 a;
+    @JvmField
+    public static final da5 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.v75
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948253299, "Lcom/baidu/tieba/x75;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948253299, "Lcom/baidu/tieba/x75;");
+                return;
+            }
         }
-        return (View) invokeV.objValue;
+        a = new x75();
+        da5 a2 = j75.a();
+        Intrinsics.checkNotNullExpressionValue(a2, "getKvCache()");
+        b = a2;
     }
 
     public x75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.v75
-    public y75 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            y75 y75Var = new y75();
-            y75Var.c(R.drawable.icon_banner_n);
-            y75Var.g(R.drawable.icon_banner_s);
-            y75Var.h(R.dimen.obfuscated_res_0x7f070393);
-            y75Var.d(81);
-            y75Var.e(R.dimen.obfuscated_res_0x7f070393);
-            return y75Var;
-        }
-        return (y75) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v75
-    public b85 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b85 b85Var = new b85();
-            Resources resources = TbadkCoreApplication.getInst().getResources();
-            if (resources != null) {
-                b85Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ba));
-            }
-            return b85Var;
-        }
-        return (b85) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v75
-    public TbImageView d(Context context) {
+    public final String a(String dialogName) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            TbImageView tbImageView = new TbImageView(context);
-            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            tbImageView.setGifIconSupport(false);
-            return tbImageView;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogName)) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            return da5.t("KEY_FREQUENCE_DIALOG_STRATEGY_COUNTER") + '_' + dialogName;
         }
-        return (TbImageView) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public final void c(String dialogName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogName) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String a2 = a(dialogName);
+            da5 da5Var = b;
+            da5Var.F(a2, da5Var.q(a2, 0) + 1);
+        }
+    }
+
+    public final void b(String dialogName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogName) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            h29 yunDialogLog = YunDialogLog.getInstance();
+            yunDialogLog.c("YunDialogManager", "重置弹窗 " + dialogName + " 的本地频次记录");
+            b.F(a(dialogName), 0);
+        }
     }
 }

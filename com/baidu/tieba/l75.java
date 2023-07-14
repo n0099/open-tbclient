@@ -1,24 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class l75 implements b75 {
+public class l75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject
+    public dl1<m75> a;
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            bl1 b = bl1.b();
+            this.a = b;
+            b.a(new n75());
+        }
+    }
 
     public l75() {
         Interceptable interceptable = $ic;
@@ -30,44 +31,9 @@ public final class l75 implements b75 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.b75
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "userIcon");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.b75
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
-        IconPopData iconPopData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            if (!LooperBlockSwitch.getIsOn() || (iconPopData = TbSingleton.getInstance().getIconPopData()) == null || !PollingModel.y0() || iconPopData.getPic160() == null || iconPopData.getTitle() == null) {
-                return false;
-            }
-            Long uid = iconPopData.getUid();
-            long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
-            if (uid == null || uid.longValue() != currentAccountId) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        a();
     }
 }

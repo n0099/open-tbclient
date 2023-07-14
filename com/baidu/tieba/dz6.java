@@ -1,37 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.bdtask.ctrl.model.TaskProcess;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ApkDetail;
 /* loaded from: classes5.dex */
 public class dz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public MetaData f;
-    public boolean g;
-    public boolean h;
 
-    public dz6() {
+    public static void a(sy6 sy6Var) {
+        ItemData itemData;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65536, null, sy6Var) == null) && sy6Var != null && (itemData = sy6Var.a) != null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
+            httpMessage.addParam("item_id", itemData.itemId);
+            httpMessage.addParam("app_name", itemData.mTitle);
+            httpMessage.addParam("source_type", sy6Var.b);
+            httpMessage.addParam("icon_url", itemData.mIconUrl);
+            httpMessage.addParam("score", Double.valueOf(itemData.mScore));
+            httpMessage.addParam(TaskProcess.keyTags, itemData.mTags);
+            httpMessage.addParam("apk_name", itemData.pkgName);
+            ApkDetail apkDetail = itemData.apkDetail;
+            if (apkDetail != null) {
+                httpMessage.addParam("developer", apkDetail.developer);
+                httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
+                httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
+                httpMessage.addParam("version", itemData.apkDetail.version);
+                httpMessage.addParam("version_code", itemData.apkDetail.version_code);
             }
+            MessageManager.getInstance().sendMessageFromBackground(httpMessage);
         }
-        this.g = false;
-        this.h = false;
     }
 }

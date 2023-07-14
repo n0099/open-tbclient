@@ -1,49 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.AugmentedFace;
-import com.google.ar.core.Session;
-import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public final class ndb {
+public class ndb {
     public static /* synthetic */ Interceptable $ic;
+    public static ExecutorService a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Long, AugmentedFace> a;
 
-    public ndb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948000029, "Lcom/baidu/tieba/ndb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948000029, "Lcom/baidu/tieba/ndb;");
                 return;
             }
         }
-        this.a = new com.google.ar.core.j(1, 0.75f, true);
+        a = new ThreadPoolExecutor(4, 1024, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
-    public final synchronized AugmentedFace a(long j, Session session) {
-        InterceptResult invokeJL;
-        AugmentedFace augmentedFace;
+    public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
-            synchronized (this) {
-                augmentedFace = this.a.get(Long.valueOf(j));
-                if (augmentedFace == null) {
-                    augmentedFace = new AugmentedFace(j, session);
-                    this.a.put(Long.valueOf(j), augmentedFace);
-                }
-            }
-            return augmentedFace;
+        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
+            a.execute(runnable);
         }
-        return (AugmentedFace) invokeJL.objValue;
     }
 }

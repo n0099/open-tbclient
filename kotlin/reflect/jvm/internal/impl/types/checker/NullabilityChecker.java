@@ -4,7 +4,7 @@ import kotlin.reflect.jvm.internal.impl.types.AbstractNullabilityChecker;
 import kotlin.reflect.jvm.internal.impl.types.AbstractTypeCheckerContext;
 import kotlin.reflect.jvm.internal.impl.types.FlexibleTypesKt;
 import kotlin.reflect.jvm.internal.impl.types.UnwrappedType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class NullabilityChecker {
     public static final NullabilityChecker INSTANCE = new NullabilityChecker();
 

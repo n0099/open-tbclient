@@ -1,160 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.os.Process;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.q61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import java.io.File;
+import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
 public class ve1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public Runnable f;
-    public final Handler g;
-    public final boolean h;
-    public final int i;
-    public boolean j;
-    public boolean k;
-    public q61.b l;
-    public boolean m;
-    public String n;
-    public String o;
-
-    /* loaded from: classes8.dex */
-    public class a implements q61.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public final /* synthetic */ TelephonyManager c;
-        public final /* synthetic */ Context d;
-        public final /* synthetic */ ve1 e;
-
-        public a(ve1 ve1Var, TelephonyManager telephonyManager, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ve1Var, telephonyManager, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = ve1Var;
-            this.c = telephonyManager;
-            this.d = context;
-            this.a = 0;
-            this.b = 0;
-        }
-
-        @Override // com.baidu.tieba.q61.a
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i == 2) {
-                            ol0.a("NadPSLogger", "监听到通话状态：OFFHOOK");
-                            b(i);
-                            if (this.a == 0) {
-                                this.e.b = System.currentTimeMillis();
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    ol0.a("NadPSLogger", "监听到通话状态：RINGING");
-                    b(i);
-                    this.e.k = true;
-                    return;
-                }
-                ol0.a("NadPSLogger", "监听到通话状态：IDLE");
-                b(i);
-                if (this.a == 2) {
-                    this.e.c = System.currentTimeMillis();
-                    ve1 ve1Var = this.e;
-                    ve1Var.k(this.c, ve1Var.l, this.d);
-                }
-            }
-        }
-
-        public final void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.a = this.b;
-                this.b = i;
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ TelephonyManager b;
-        public final /* synthetic */ q61.b c;
-        public final /* synthetic */ ve1 d;
-
-        public b(ve1 ve1Var, Context context, TelephonyManager telephonyManager, q61.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ve1Var, context, telephonyManager, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ve1Var;
-            this.a = context;
-            this.b = telephonyManager;
-            this.c = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && q61.a(this.a)) {
-                if (this.b.getCallState() == 0) {
-                    if (this.d.m) {
-                        this.d.m = !q61.c(this.a, this.b, this.c);
-                    }
-                    this.d.e = System.currentTimeMillis();
-                    this.d.o();
-                    return;
-                }
-                this.d.l(this.a, this.b, this.c);
-            }
-        }
-    }
+    public Class a;
+    public Class b;
+    public Method c;
+    public Method d;
+    public Method e;
+    public Method f;
+    public boolean g;
 
     public ve1() {
         Interceptable interceptable = $ic;
@@ -169,162 +37,158 @@ public class ve1 {
                 return;
             }
         }
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-        this.e = 0L;
-        this.g = new Handler(Looper.getMainLooper());
-        this.h = io0.b().a().a("psl_switch", 1) == 1;
-        this.i = io0.b().a().a("psl_time", 20);
-        this.j = false;
-        this.k = false;
-        this.m = false;
+        e();
     }
 
-    public final int m(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            if (j <= 0) {
-                return 0;
-            }
-            return (int) TimeUnit.MILLISECONDS.toSeconds(j);
-        }
-        return invokeJ.intValue;
-    }
-
-    public final void k(@NonNull TelephonyManager telephonyManager, @NonNull q61.b bVar, @NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, telephonyManager, bVar, context) == null) {
-            long j = this.b;
-            if (j != 0) {
-                long j2 = this.c;
-                if (j2 != 0 && j2 > j) {
-                    this.g.removeCallbacks(this.f);
-                    if (this.m) {
-                        this.m = !q61.c(context, telephonyManager, bVar);
-                    }
-                    this.e = System.currentTimeMillis();
-                    o();
-                    return;
-                }
-            }
-            l(context, telephonyManager, bVar);
-        }
-    }
-
-    public final void l(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull q61.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, telephonyManager, bVar) == null) {
-            Runnable runnable = this.f;
-            if (runnable != null) {
-                this.g.removeCallbacks(runnable);
-            } else {
-                this.f = new b(this, context, telephonyManager, bVar);
-            }
-            if (!this.m) {
-                this.m = q61.b(context, telephonyManager, bVar);
-            }
-            this.g.postDelayed(this.f, TimeUnit.SECONDS.toMillis(this.i));
-        }
-    }
-
-    public final boolean n() {
+    public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = this.c;
-            if (j != 0) {
-                long j2 = this.b;
-                if (j2 != 0 && j > j2) {
-                    return true;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                return Process.is64Bit();
             }
-            return false;
+            if (i < 21) {
+                return false;
+            }
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr.length <= 0) {
+                return false;
+            }
+            return Build.CPU_ABI.equals(strArr[0]);
         }
         return invokeV.booleanValue;
     }
 
-    public final void o() {
-        String str;
-        String str2;
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.j) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
         }
-        this.j = true;
-        if (TextUtils.isEmpty(this.n)) {
-            return;
-        }
-        String str3 = "1";
-        if (n()) {
-            str = "1";
-        } else {
-            str = "0";
-        }
-        String str4 = "-1";
-        if (!n()) {
-            str2 = "-1";
-        } else {
-            str2 = "" + m(this.c - this.b);
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(PreferencesUtil.LEFT_MOUNT);
-        sb.append(this.i);
-        sb.append(",");
-        sb.append(m(this.e - this.d));
-        sb.append(",");
-        if (n()) {
-            str4 = "" + m(this.b - this.a);
-        }
-        sb.append(str4);
-        sb.append(",");
-        if (!this.k) {
-            str3 = "0";
-        }
-        sb.append(str3);
-        sb.append(PreferencesUtil.RIGHT_MOUNT);
-        String sb2 = sb.toString();
-        ClogBuilder m = new ClogBuilder().y(ClogBuilder.LogType.PHONE_STATE_LISTEN).p(this.n).k(str).l(str2).m(sb2);
-        if (!TextUtils.isEmpty(this.o)) {
-            m.n(this.o);
-        } else {
-            m.n("");
-        }
-        r31.b(m);
-        ol0.a("NadPSLogger", "==========结束监听并打点==========");
-        ol0.a("NadPSLogger", "log_type：" + ClogBuilder.LogType.PHONE_STATE_LISTEN.type);
-        ol0.a("NadPSLogger", "da_ext1 是否监听到主动呼出：" + str);
-        ol0.a("NadPSLogger", "da_ext2 主动呼出时长：" + str2);
-        ol0.a("NadPSLogger", "da_ext3 云控监听时长，实际监听时长，拨号前停留时长，期间有无呼入：" + sb2);
+        return invokeV.booleanValue;
     }
 
-    @Deprecated
-    public void p(@NonNull Context context, String str, String str2) {
+    public final void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, str, str2) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (!this.h || !q61.a(applicationContext)) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            try {
+                this.f.invoke(obj, new Object[0]);
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-            this.b = 0L;
-            this.c = 0L;
-            this.d = 0L;
-            this.e = 0L;
-            this.a = 0L;
-            this.a = System.currentTimeMillis();
-            this.j = false;
-            this.k = false;
-            this.n = str;
-            this.o = str2;
-            TelephonyManager telephonyManager = (TelephonyManager) applicationContext.getSystemService("phone");
-            q61.b bVar = new q61.b();
-            this.l = bVar;
-            bVar.b(new a(this, telephonyManager, applicationContext));
-            l(applicationContext, telephonyManager, this.l);
-            this.d = System.currentTimeMillis();
-            ol0.a("NadPSLogger", "==========开始监听==========");
         }
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public final Object c(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
+            try {
+                return this.c.invoke(null, file);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return null;
+            }
+        }
+        return invokeL.objValue;
+    }
+
+    @TargetApi(21)
+    public boolean b(Object obj, String str, File file) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, str, file)) == null) {
+            try {
+                if (((Integer) this.e.invoke(null, obj, file, str)).intValue() != 1) {
+                    return false;
+                }
+                return true;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public int d(Object obj, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, obj, strArr)) == null) {
+            try {
+                System.currentTimeMillis();
+                return ((Integer) this.d.invoke(null, obj, strArr)).intValue();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1;
+            }
+        }
+        return invokeLL.intValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !af1.d()) {
+            return;
+        }
+        try {
+            Class<?> a = af1.a("com.android.internal.content.NativeLibraryHelper$Handle");
+            this.a = a;
+            Method b = af1.b(a, "create", File.class);
+            this.c = b;
+            b.setAccessible(true);
+            Method b2 = af1.b(this.a, "close", new Class[0]);
+            this.f = b2;
+            b2.setAccessible(true);
+            Class<?> a2 = af1.a("com.android.internal.content.NativeLibraryHelper");
+            this.b = a2;
+            Method b3 = af1.b(a2, "copyNativeBinaries", this.a, File.class, String.class);
+            this.e = b3;
+            b3.setAccessible(true);
+            Method b4 = af1.b(this.b, "findSupportedAbi", this.a, String[].class);
+            this.d = b4;
+            b4.setAccessible(true);
+            this.g = true;
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public boolean f(String str, File file) {
+        InterceptResult invokeLL;
+        String[] strArr;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, file)) == null) {
+            Object c = c(new File(str));
+            if (c == null) {
+                return false;
+            }
+            if (Build.VERSION.SDK_INT >= 21) {
+                if (g()) {
+                    strArr = Build.SUPPORTED_64_BIT_ABIS;
+                } else {
+                    strArr = Build.SUPPORTED_32_BIT_ABIS;
+                }
+            } else {
+                strArr = new String[]{Build.CPU_ABI, Build.CPU_ABI2};
+            }
+            int d = d(c, strArr);
+            if (d == -114) {
+                a(c);
+                return true;
+            }
+            if (d >= 0 && d < strArr.length) {
+                str2 = strArr[d];
+            } else {
+                str2 = null;
+            }
+            boolean b = b(c, str2, file);
+            a(c);
+            return b;
+        }
+        return invokeLL.booleanValue;
     }
 }

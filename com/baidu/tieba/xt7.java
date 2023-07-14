@@ -1,18 +1,24 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
+@Service
 /* loaded from: classes8.dex */
-public class xt7 implements HostBasicInfoService {
+public class xt7 implements m75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.m75
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_GUIDE_STRATEGY" : (String) invokeV.objValue;
+    }
 
     public xt7() {
         Interceptable interceptable = $ic;
@@ -28,23 +34,13 @@ public class xt7 implements HostBasicInfoService {
         }
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService
-    public String getCuid() {
+    @Override // com.baidu.tieba.m75
+    public k75 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbadkCoreApplication.getInst().getCuidGalaxy2();
+            return new wt7();
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService
-    public int getHostIconResId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return TbadkCoreApplication.getInst().getResources().getIdentifier("tb_launcher_icon", ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
-        }
-        return invokeV.intValue;
+        return (k75) invokeV.objValue;
     }
 }

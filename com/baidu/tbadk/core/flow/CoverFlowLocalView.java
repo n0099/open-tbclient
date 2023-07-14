@@ -13,11 +13,11 @@ import com.baidu.adp.widget.IndicatorView;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
-import com.baidu.tieba.v75;
-import com.baidu.tieba.w75;
-import com.baidu.tieba.x75;
-import com.baidu.tieba.y75;
-import com.baidu.tieba.z75;
+import com.baidu.tieba.g85;
+import com.baidu.tieba.h85;
+import com.baidu.tieba.i85;
+import com.baidu.tieba.j85;
+import com.baidu.tieba.k85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,20 +25,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class CoverFlowLocalView<T extends w75> extends FrameLayout {
+public class CoverFlowLocalView<T extends h85> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ListViewPager a;
     public IndicatorView b;
-    public y75 c;
+    public j85 c;
     public View d;
     public CoverFlowLocalAdapter<T> e;
-    public v75 f;
+    public g85 f;
     public CoverFlowLocalView<T>.b g;
     public boolean h;
     public boolean i;
     public boolean j;
-    public z75<T> k;
+    public k85<T> k;
     public CoverFlowLocalView<T>.d l;
     public CoverFlowLocalView<T>.c m;
     public boolean n;
@@ -136,7 +136,7 @@ public class CoverFlowLocalView<T extends w75> extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r7v29, resolved type: com.baidu.tieba.z75 */
+        /* JADX DEBUG: Multi-variable search result rejected for r7v29, resolved type: com.baidu.tieba.k85 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -164,7 +164,7 @@ public class CoverFlowLocalView<T extends w75> extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.baidu.tieba.z75 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.baidu.tieba.k85 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
@@ -216,7 +216,7 @@ public class CoverFlowLocalView<T extends w75> extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             int intValue;
-            w75 b;
+            h85 b;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.k == null || !(view2.getTag() instanceof Integer) || (b = this.a.e.b((intValue = ((Integer) view2.getTag()).intValue()))) == null) {
                 return;
@@ -365,10 +365,10 @@ public class CoverFlowLocalView<T extends w75> extends FrameLayout {
         }
     }
 
-    public void setCallback(z75<T> z75Var) {
+    public void setCallback(k85<T> k85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z75Var) == null) {
-            this.k = z75Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k85Var) == null) {
+            this.k = k85Var;
         }
     }
 
@@ -447,7 +447,7 @@ public class CoverFlowLocalView<T extends w75> extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             q(context);
             p(context);
-            setCoverFlowFactory(new x75());
+            setCoverFlowFactory(new i85());
             addView(this.a);
             addView(this.b);
             CoverFlowLocalAdapter<T> coverFlowLocalAdapter = new CoverFlowLocalAdapter<>(context);
@@ -458,17 +458,17 @@ public class CoverFlowLocalView<T extends w75> extends FrameLayout {
         }
     }
 
-    public void setCoverFlowFactory(v75 v75Var) {
+    public void setCoverFlowFactory(g85 g85Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, v75Var) != null) || v75Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, g85Var) != null) || g85Var == null) {
             return;
         }
-        this.f = v75Var;
-        y75 a2 = v75Var.a();
+        this.f = g85Var;
+        j85 a2 = g85Var.a();
         this.c = a2;
         a2.i(this.b);
-        v75Var.c().b(this.a);
-        View b2 = v75Var.b();
+        g85Var.c().b(this.a);
+        View b2 = g85Var.b();
         this.d = b2;
         if (b2 != null) {
             removeAllViews();

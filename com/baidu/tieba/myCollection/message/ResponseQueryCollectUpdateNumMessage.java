@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.QueryCollectUpdateNum.DataRes;
 import tbclient.QueryCollectUpdateNum.QueryCollectUpdateNumResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ResponseQueryCollectUpdateNumMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

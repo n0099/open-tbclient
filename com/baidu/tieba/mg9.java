@@ -1,7 +1,16 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface mg9 extends ng9 {
-    boolean a();
 
-    CharSequence b();
+import com.baidu.tieba.ng9;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+/* loaded from: classes7.dex */
+public interface mg9<V extends ng9, D extends IBaseDialogData> {
+    int a();
+
+    boolean b();
+
+    boolean c();
+
+    void dismiss();
+
+    void show();
 }

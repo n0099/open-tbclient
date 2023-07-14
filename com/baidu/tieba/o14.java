@@ -1,92 +1,226 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.DisplayMetrics;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.util.BaiduIdentityManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import org.apache.commons.codec.net.QCodec;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 /* loaded from: classes7.dex */
 public class o14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final byte[] b;
+    public static DisplayMetrics a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947979383, "Lcom/baidu/tieba/o14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947979383, "Lcom/baidu/tieba/o14;");
-                return;
-            }
-        }
-        a = new byte[]{48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, 117, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, QCodec.UNDERSCORE, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
-        b = new byte[128];
-        int i = 0;
-        while (true) {
-            byte[] bArr = a;
-            if (i < bArr.length) {
-                b[bArr[i]] = (byte) i;
-                i++;
-            } else {
-                return;
-            }
-        }
-    }
-
-    public o14() {
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
+            return (int) (f * d(AppRuntime.getAppContext()));
         }
+        return invokeF.intValue;
     }
 
-    public String a(String str) {
+    public static float d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            n(AppRuntime.getAppContext());
+            DisplayMetrics displayMetrics = a;
+            if (displayMetrics != null) {
+                return displayMetrics.density;
+            }
+            return 0.0f;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static int h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            n(AppRuntime.getAppContext());
+            DisplayMetrics displayMetrics = a;
+            if (displayMetrics != null) {
+                return displayMetrics.heightPixels;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int i(@Nullable Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            n(AppRuntime.getAppContext());
+            DisplayMetrics displayMetrics = a;
+            if (displayMetrics != null) {
+                return displayMetrics.widthPixels;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void n(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && a == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext != null) {
+                context = appContext;
+            }
+            if (context == null) {
+                return;
+            }
+            a = context.getResources().getDisplayMetrics();
+        }
+    }
+
+    public static int p(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65551, null, f)) == null) {
+            return (int) (f / d(AppRuntime.getAppContext()));
+        }
+        return invokeF.intValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String substring = new h14().a(String.valueOf(System.currentTimeMillis())).substring(4, 14);
+            String e = n04.b().e();
+            return PayUVEventType.PAY_FULL_SPLIT_ORDER_CLOSE_BTN_CLICK + substring + e.substring(0, 4);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                String[] split = str.split(ParamableElem.DIVIDE_PARAM);
+                int length = split.length;
+                for (int i = 0; i != length; i++) {
+                    String trim = split[i].trim();
+                    String[] split2 = trim.split("=");
+                    if (split2.length >= 2 && TextUtils.equals(str2, split2[0])) {
+                        if (split2.length == 2) {
+                            return split2[1];
+                        }
+                        return trim.substring(split2[0].length() + 1);
+                    }
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            String str = Build.MODEL;
             if (TextUtils.isEmpty(str)) {
+                return "NUL";
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String str = Build.VERSION.RELEASE;
+            if (TextUtils.isEmpty(str)) {
+                return "0.0";
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String str = Build.MANUFACTURER;
+            if (TextUtils.isEmpty(str)) {
+                return "NUL";
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return AppRuntime.getAppContext().getPackageName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            try {
+                Context appContext = AppRuntime.getAppContext();
+                return appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
                 return "";
             }
-            for (int length = str.getBytes().length % 3; length > 0 && length < 3; length++) {
-                str = str + "$";
-            }
-            byte[] bytes = str.getBytes();
-            byte[] bArr = new byte[(bytes.length / 3) * 4];
-            int i = 0;
-            int i2 = 0;
-            while (i < bytes.length) {
-                byte[] bArr2 = a;
-                bArr[i2] = bArr2[(bytes[i] & Cea608Decoder.CC_IMPLICIT_DATA_HEADER) >> 2];
-                int i3 = i + 1;
-                bArr[i2 + 1] = bArr2[((bytes[i] & 3) << 4) + ((bytes[i3] & 240) >> 4)];
-                int i4 = i + 2;
-                bArr[i2 + 2] = bArr2[((bytes[i3] & 15) << 2) + ((bytes[i4] & ExifInterface.MARKER_SOF0) >> 6)];
-                bArr[i2 + 3] = bArr2[bytes[i4] & 63];
-                i += 3;
-                i2 += 4;
-            }
-            return new String(bArr);
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return TextUtils.equals(BaiduIdentityManager.VALUE_OSNAME, n04.b().a());
+        }
+        return invokeV.booleanValue;
     }
 }

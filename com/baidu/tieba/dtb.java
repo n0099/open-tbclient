@@ -1,172 +1,373 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.state.StateManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.open.activity.AssistActivity;
+import com.yy.open.activity.BridgeActivity;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class dtb<T> implements ysb<T>, etb {
+public final class dtb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ovb a;
-    public final dtb<?> b;
-    public zsb c;
-    public long d;
+    public SparseArray<c> a;
+    public Handler b;
+    public Context c;
+    public String d;
+    public htb e;
 
-    public void d() {
+    public final void h(int i, Intent intent, atb atbVar, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), intent, atbVar, Long.valueOf(j)}) == null) {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public dtb() {
-        this(null, false);
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ atb b;
+        public final /* synthetic */ Intent c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ dtb e;
+
+        public a(dtb dtbVar, int i, atb atbVar, Intent intent, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dtbVar, Integer.valueOf(i), atbVar, intent, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = dtbVar;
+            this.a = i;
+            this.b = atbVar;
+            this.c = intent;
+            this.d = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            String str;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a == 0) {
+                        this.b.onCancel();
+                        return;
+                    }
+                    String stringExtra = this.c.getStringExtra("resjson");
+                    this.e.e.a(stringExtra);
+                    JSONObject jSONObject = new JSONObject(stringExtra);
+                    if (jSONObject.has("resCode") && jSONObject.has("resMsg")) {
+                        String optString = jSONObject.optString("resMsg");
+                        int optInt = jSONObject.optInt("resCode");
+                        if (optInt != 1000006 && optInt != 1290001) {
+                            optInt = this.a;
+                            this.e.f(this.c, this.b, this.d, optInt, optString);
+                            return;
+                        }
+                        Log.e("chenqiang", "resCode:" + optInt);
+                        this.e.f(this.c, this.b, this.d, optInt, optString);
+                        return;
+                    }
+                    Log.e("chenqiang", "please update yy new version！");
+                    if (jSONObject.has("openid") && jSONObject.has("access_code")) {
+                        i = this.a;
+                        str = "success";
+                    } else {
+                        str = "handleAuthLoginResult--default error!";
+                        i = 444222199;
+                    }
+                    this.e.f(this.c, this.b, this.d, i, str);
+                } catch (Exception unused) {
+                    this.b.onError(new btb(444222105, gtb.h(444222105)));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ atb a;
+        public final /* synthetic */ btb b;
+
+        public b(dtb dtbVar, atb atbVar, btb btbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dtbVar, atbVar, btbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = atbVar;
+            this.b = btbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onError(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public atb a;
+        public long b;
+
+        public c(dtb dtbVar, atb atbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dtbVar, atbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = atbVar;
+            this.b = System.currentTimeMillis();
+        }
+    }
+
+    public dtb(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((dtb) objArr[0], ((Boolean) objArr[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = htb.b();
+        this.c = context;
+        this.d = str;
+        this.a = new SparseArray<>();
+        this.b = new Handler(Looper.getMainLooper());
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public dtb(dtb<?> dtbVar) {
-        this(dtbVar, true);
+    public final void c(Activity activity, String str, atb atbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dtbVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((dtb) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public final void e(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            if (j >= 0) {
-                synchronized (this) {
-                    if (this.c != null) {
-                        this.c.request(j);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, atbVar) == null) {
+            if (ftb.d(activity, BridgeActivity.class) && ftb.d(activity, AssistActivity.class)) {
+                int a2 = gtb.a(activity);
+                if (a2 != 0) {
+                    try {
+                        this.a.put(62345, new c(this, atbVar));
+                        String c2 = gtb.c(this.c, this.d, str, true);
+                        Intent intent = new Intent(activity, AssistActivity.class);
+                        intent.putExtra("type", "type_web");
+                        intent.putExtra("url", c2);
+                        activity.startActivityForResult(intent, 62345);
+                        return;
+                    } catch (Exception unused) {
+                        g(new btb(a2), atbVar);
                         return;
                     }
-                    c(j);
+                }
+                Intent e = gtb.e(activity);
+                this.a.put(62345, new c(this, atbVar));
+                Bundle d = gtb.d(activity, this.d);
+                e.putExtra("action", "action_login");
+                e.putExtra(StateManager.KEY_STATE, d);
+                i(activity, e, 62345);
+                return;
+            }
+            g(new btb(3), atbVar);
+        }
+    }
+
+    public final boolean d(int i, int i2, Intent intent, atb atbVar) {
+        InterceptResult invokeCommon;
+        long currentTimeMillis;
+        atb atbVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, atbVar})) == null) {
+            if (i != 62345 && i != 62347) {
+                return false;
+            }
+            c cVar = this.a.get(i);
+            if (cVar != null) {
+                currentTimeMillis = cVar.b;
+                atbVar2 = cVar.a;
+                this.a.remove(i);
+            } else {
+                currentTimeMillis = System.currentTimeMillis();
+                atbVar2 = atbVar;
+            }
+            if (i == 62345) {
+                e(i2, intent, atbVar2, currentTimeMillis);
+                return true;
+            } else if (i != 62347) {
+                return false;
+            } else {
+                h(i2, intent, atbVar2, currentTimeMillis);
+                return true;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void e(int i, Intent intent, atb atbVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), intent, atbVar, Long.valueOf(j)}) == null) {
+            this.b.postDelayed(new a(this, i, atbVar, intent, j), 10L);
+        }
+    }
+
+    public final void f(Intent intent, atb atbVar, long j, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{intent, atbVar, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            switch (i) {
+                case 1000006:
+                    atbVar.onError(new btb(1000006, str));
                     return;
-                }
+                case 1290001:
+                    atbVar.onError(new btb(1290001, str));
+                    return;
+                case 444111001:
+                    try {
+                        String stringExtra = intent.getStringExtra("resjson");
+                        this.e.a(stringExtra);
+                        JSONObject jSONObject = new JSONObject(stringExtra);
+                        jSONObject.optString("openid");
+                        jSONObject.optString("uid");
+                        jSONObject.optString("access_code");
+                        atbVar.onComplete(jSONObject);
+                        return;
+                    } catch (Exception unused) {
+                        atbVar.onError(new btb(444222105, gtb.h(444222105)));
+                        return;
+                    }
+                case 444111002:
+                    atbVar.onCancel();
+                    return;
+                case 444111003:
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(intent.getStringExtra("resjson"));
+                        if ("1".equals(jSONObject2.optString("appType"))) {
+                            jSONObject2.optString("uid");
+                        } else {
+                            jSONObject2.optString("openid");
+                        }
+                        atbVar.onComplete(jSONObject2);
+                        return;
+                    } catch (Exception unused2) {
+                        atbVar.onError(new btb(444222105, gtb.h(444222105)));
+                        return;
+                    }
+                case 444222000:
+                    atbVar.onError(new btb(444222000, str));
+                    return;
+                case 444222001:
+                    atbVar.onError(new btb(444222001, str));
+                    return;
+                case 444222002:
+                    atbVar.onError(new btb(444222002, str));
+                    return;
+                case 444222003:
+                    atbVar.onError(new btb(444222003, str));
+                    return;
+                case 444222104:
+                    atbVar.onError(new btb(444222104, str));
+                    return;
+                case 444222105:
+                    atbVar.onError(new btb(444222105, str));
+                    return;
+                case 444222106:
+                    try {
+                        new JSONObject(intent.getStringExtra("resjson"));
+                        atbVar.onError(new btb(444222106, str));
+                        return;
+                    } catch (Exception unused3) {
+                        atbVar.onError(new btb(444222105, gtb.h(444222105)));
+                        return;
+                    }
+                case 444222108:
+                    try {
+                        atbVar.onComplete(new JSONObject(intent.getStringExtra("resjson")));
+                        return;
+                    } catch (Exception unused4) {
+                        atbVar.onError(new btb(444222105, gtb.h(444222105)));
+                        return;
+                    }
+                case 444222110:
+                    try {
+                        new JSONObject(intent.getStringExtra("resjson"));
+                        atbVar.onError(new btb(444222110, str));
+                        return;
+                    } catch (Exception unused5) {
+                        atbVar.onError(new btb(444222105, gtb.h(444222105)));
+                        return;
+                    }
+                default:
+                    Log.e("chenqiang", "default  error");
+                    atbVar.onError(new btb(i, gtb.h(i)));
+                    return;
             }
-            throw new IllegalArgumentException("number requested cannot be negative: " + j);
         }
     }
 
-    public void f(zsb zsbVar) {
-        long j;
-        boolean z;
+    public final void g(btb btbVar, atb atbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zsbVar) == null) {
-            synchronized (this) {
-                j = this.d;
-                this.c = zsbVar;
-                if (this.b != null && j == Long.MIN_VALUE) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-            }
-            if (z) {
-                this.b.f(this.c);
-            } else if (j == Long.MIN_VALUE) {
-                this.c.request(Long.MAX_VALUE);
-            } else {
-                this.c.request(j);
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, btbVar, atbVar) == null) && atbVar != null) {
+            this.b.postDelayed(new b(this, atbVar, btbVar), 50L);
         }
     }
 
-    public dtb(dtb<?> dtbVar, boolean z) {
-        ovb ovbVar;
+    public final void i(Activity activity, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dtbVar, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d = Long.MIN_VALUE;
-        this.b = dtbVar;
-        if (z && dtbVar != null) {
-            ovbVar = dtbVar.a;
-        } else {
-            ovbVar = new ovb();
-        }
-        this.a = ovbVar;
-    }
-
-    public final void b(etb etbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, etbVar) == null) {
-            this.a.a(etbVar);
-        }
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            long j2 = this.d;
-            if (j2 == Long.MIN_VALUE) {
-                this.d = j;
-                return;
-            }
-            long j3 = j2 + j;
-            if (j3 < 0) {
-                this.d = Long.MAX_VALUE;
-            } else {
-                this.d = j3;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.etb
-    public final boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.isUnsubscribed();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.etb
-    public final void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a.unsubscribe();
+        if (interceptable == null || interceptable.invokeLLI(1048582, this, activity, intent, i) == null) {
+            intent.putExtra("request_code", i);
+            Intent intent2 = new Intent(activity.getApplicationContext(), BridgeActivity.class);
+            intent2.putExtra("intent", intent);
+            activity.startActivityForResult(intent2, i);
         }
     }
 }

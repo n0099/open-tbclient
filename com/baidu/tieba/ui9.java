@@ -1,84 +1,91 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.pb.pb.adapter.PbNoDataItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ui9 extends kn<rj9, CardViewHolder<bk9>> {
+public class ui9 extends wh9<lf9, PbNoDataItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public bk9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ui9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public ui9(bn9 bn9Var, BdUniqueId bdUniqueId) {
+        super(bn9Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {bn9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((bn9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public CardViewHolder<bk9> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.ln
+    /* renamed from: u */
+    public PbNoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.b = new bk9(this.a);
-            return new CardViewHolder<>(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PbNoDataItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d079e, viewGroup, false), this.mContext);
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (PbNoDataItemViewHolder) invokeL.objValue;
     }
 
-    public void u(boolean z) {
-        bk9 bk9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (bk9Var = this.b) != null) {
-            bk9Var.x(z);
-        }
+    @Override // com.baidu.tieba.wh9, com.baidu.tieba.ln
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        x(i, view2, viewGroup, (lf9) obj, (PbNoDataItemViewHolder) viewHolder);
+        return view2;
     }
 
-    public void onPause() {
-        bk9 bk9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bk9Var = this.b) != null) {
-            bk9Var.u();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rj9 rj9Var, CardViewHolder<bk9> cardViewHolder) {
+    public View x(int i, View view2, ViewGroup viewGroup, lf9 lf9Var, PbNoDataItemViewHolder pbNoDataItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rj9Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(rj9Var);
-            return cardViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lf9Var, pbNoDataItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) lf9Var, (lf9) pbNoDataItemViewHolder);
+            this.d = TbadkCoreApplication.getInst().getSkinType();
+            pbNoDataItemViewHolder.a.setTextOption(NoDataViewFactory.e.c(lf9Var.h1));
+            if (lf9Var.g1 != 0) {
+                int g = yi.g(this.mContext, R.dimen.tbds156);
+                int i2 = lf9Var.i1;
+                if (i2 != 0) {
+                    g = i2;
+                }
+                int g2 = yi.g(this.mContext, R.dimen.tbds312);
+                int g3 = yi.g(this.mContext, R.dimen.tbds312);
+                NoDataViewFactory.d.a aVar = new NoDataViewFactory.d.a();
+                aVar.i(NoDataViewFactory.ImgType.LOCAL);
+                aVar.h(lf9Var.g1);
+                aVar.j(g);
+                aVar.k(g2);
+                aVar.g(g3);
+                pbNoDataItemViewHolder.a.setImgOption(aVar.f());
+            } else {
+                pbNoDataItemViewHolder.a.setImgOption(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, yi.g(this.mContext, R.dimen.tbds156)));
+            }
+            pbNoDataItemViewHolder.a.f(r9.a(view2.getContext()), this.d);
+            pbNoDataItemViewHolder.a.setVisibility(lf9Var.j1);
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }

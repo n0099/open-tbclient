@@ -132,7 +132,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     public ArrayList<Float> values;
     public int widgetHeight;
     public static final String TAG = BaseSlider.class.getSimpleName();
-    public static final int DEF_STYLE_RES = R.style.obfuscated_res_0x7f100396;
+    public static final int DEF_STYLE_RES = R.style.obfuscated_res_0x7f100397;
 
     /* loaded from: classes9.dex */
     public interface TooltipDrawableFactory {
@@ -171,10 +171,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         @NonNull
         private String startOrEndDescription(int i) {
             if (i == this.slider.getValues().size() - 1) {
-                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c42);
+                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c4d);
             }
             if (i == 0) {
-                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c43);
+                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c4e);
             }
             return "";
         }
@@ -666,10 +666,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     }
 
     private void loadResources(@NonNull Resources resources) {
-        this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070622);
-        this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070620);
-        this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070621);
-        this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07061a);
+        this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07062a);
+        this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070628);
+        this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070629);
+        this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070622);
     }
 
     private boolean moveFocus(int i) {
@@ -936,7 +936,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     }
 
     public BaseSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040697);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040698);
     }
 
     private float getClampedValue(int i, float f) {
@@ -959,7 +959,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
 
     @NonNull
     public static TooltipDrawable parseLabelDrawable(@NonNull Context context, @NonNull TypedArray typedArray) {
-        return TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f1003ae));
+        return TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f1003af));
     }
 
     public static int pivotIndex(float[] fArr, float f) {
@@ -1199,24 +1199,6 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    private void warnAboutFloatingPointError() {
-        float f = this.stepSize;
-        if (f == 0.0f) {
-            return;
-        }
-        if (((int) f) != f) {
-            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "stepSize", Float.valueOf(f)));
-        }
-        float f2 = this.valueFrom;
-        if (((int) f2) != f2) {
-            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "valueFrom", Float.valueOf(f2)));
-        }
-        float f3 = this.valueTo;
-        if (((int) f3) != f3) {
-            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "valueTo", Float.valueOf(f3)));
-        }
-    }
-
     private void createLabelPool() {
         if (this.labels.size() > this.values.size()) {
             List<TooltipDrawable> subList = this.labels.subList(this.values.size(), this.labels.size());
@@ -1271,6 +1253,24 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             } else {
                 throw new IllegalStateException(String.format(EXCEPTION_ILLEGAL_VALUE, Float.toString(next.floatValue()), Float.toString(this.valueFrom), Float.toString(this.valueTo)));
             }
+        }
+    }
+
+    private void warnAboutFloatingPointError() {
+        float f = this.stepSize;
+        if (f == 0.0f) {
+            return;
+        }
+        if (((int) f) != f) {
+            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "stepSize", Float.valueOf(f)));
+        }
+        float f2 = this.valueFrom;
+        if (((int) f2) != f2) {
+            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "valueFrom", Float.valueOf(f2)));
+        }
+        float f3 = this.valueTo;
+        if (((int) f3) != f3) {
+            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "valueTo", Float.valueOf(f3)));
         }
     }
 

@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.pcollections;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class IntTree<V> {
     public static final IntTree<Object> EMPTYNODE = new IntTree<>();
     public final long key;

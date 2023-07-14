@@ -1,71 +1,68 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tieba.location.editortool.PbLocationInfoContainer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class zv8 extends oi5 {
+public final class zv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final ArrayList<String> b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zv8(Context context) {
-        super(context, (String) null, 8);
+    public zv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.n = 3;
-        this.m = new PbLocationInfoContainer(context);
-        this.p = new int[]{20, 19};
+        this.a = R.drawable.obfuscated_res_0x7f0808f5;
+        this.b = jw8.a();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zv8(Context context, boolean z) {
-        super(context, (String) null, 8);
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        this.o = false;
-        this.n = 3;
-        this.m = new PbLocationInfoContainer(context);
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, xi.g(getContext(), R.dimen.obfuscated_res_0x7f0703df));
-        ((LinearLayout.LayoutParams) layoutParams).leftMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f070207);
-        ((LinearLayout.LayoutParams) layoutParams).rightMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f070207);
-        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f07038e);
-        ((LinearLayout.LayoutParams) layoutParams).topMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f07038e);
-        ((PbLocationInfoContainer) this.m).setLayoutParams(layoutParams);
-        this.p = new int[]{20, 19};
+        return invokeV.intValue;
+    }
+
+    public final ArrayList<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
+        }
     }
 }

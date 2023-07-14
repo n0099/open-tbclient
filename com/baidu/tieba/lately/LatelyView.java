@@ -16,12 +16,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a56;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
-import com.baidu.tieba.dn5;
-import com.baidu.tieba.en5;
+import com.baidu.tieba.co5;
+import com.baidu.tieba.d17;
+import com.baidu.tieba.do5;
 import com.baidu.tieba.enterForum.data.RecentlyVisitedForumData;
-import com.baidu.tieba.uy6;
-import com.baidu.tieba.w36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,17 +31,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class LatelyView extends FrameLayout implements w36<String> {
+public class LatelyView extends FrameLayout implements a56<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public RecyclerView b;
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
-    public dn5 e;
-    public en5 f;
+    public co5 e;
+    public do5 f;
 
-    @Override // com.baidu.tieba.w36
+    @Override // com.baidu.tieba.a56
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -146,7 +146,7 @@ public class LatelyView extends FrameLayout implements w36<String> {
         f();
     }
 
-    @Override // com.baidu.tieba.w36
+    @Override // com.baidu.tieba.a56
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -154,22 +154,22 @@ public class LatelyView extends FrameLayout implements w36<String> {
             return;
         }
         this.a = skinType;
-        dn5 dn5Var = this.e;
-        if (dn5Var != null) {
-            dn5Var.onChangeSkinType();
+        co5 co5Var = this.e;
+        if (co5Var != null) {
+            co5Var.onChangeSkinType();
         }
-        en5 en5Var = this.f;
-        if (en5Var != null) {
-            en5Var.onChangeSkinType();
+        do5 do5Var = this.f;
+        if (do5Var != null) {
+            do5Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
 
     public void d() {
-        dn5 dn5Var;
+        co5 co5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (dn5Var = this.e) != null) {
-            dn5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (co5Var = this.e) != null) {
+            co5Var.dettachView(this);
             this.e = null;
         }
     }
@@ -177,9 +177,9 @@ public class LatelyView extends FrameLayout implements w36<String> {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            en5 en5Var = this.f;
-            if (en5Var != null) {
-                en5Var.dettachView(this);
+            do5 do5Var = this.f;
+            if (do5Var != null) {
+                do5Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
@@ -190,16 +190,16 @@ public class LatelyView extends FrameLayout implements w36<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            en5 en5Var = this.f;
-            if (en5Var != null) {
-                return en5Var.isViewAttached();
+            do5 do5Var = this.f;
+            if (do5Var != null) {
+                return do5Var.isViewAttached();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w36
+    @Override // com.baidu.tieba.a56
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -209,7 +209,7 @@ public class LatelyView extends FrameLayout implements w36<String> {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w36
+    @Override // com.baidu.tieba.a56
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -220,11 +220,11 @@ public class LatelyView extends FrameLayout implements w36<String> {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0873, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0920f9);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d088d, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09212d);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
-            selectForumItemAdapter.r(1);
+            selectForumItemAdapter.s(1);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
             this.d = linearLayoutManager;
             this.b.setLayoutManager(linearLayoutManager);
@@ -233,12 +233,12 @@ public class LatelyView extends FrameLayout implements w36<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.w36
+    @Override // com.baidu.tieba.a56
     /* renamed from: h */
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            RecentlyVisitedForumData j = uy6.n().j();
+            RecentlyVisitedForumData j = d17.n().j();
             if (j == null) {
                 i(false, false);
                 return;
@@ -276,7 +276,7 @@ public class LatelyView extends FrameLayout implements w36<String> {
                 }
             }
             arrayList2.addAll(arrayList);
-            this.c.p(arrayList2);
+            this.c.q(arrayList2);
             this.c.notifyDataSetChanged();
         }
     }
@@ -287,7 +287,7 @@ public class LatelyView extends FrameLayout implements w36<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new en5(getContext(), new a(this));
+            this.f = new do5(getContext(), new a(this));
         }
         this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);

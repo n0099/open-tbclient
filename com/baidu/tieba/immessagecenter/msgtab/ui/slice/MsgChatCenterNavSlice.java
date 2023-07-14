@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d85;
 import com.baidu.tieba.immessagecenter.msgtab.ui.slice.MsgChatCenterNavSlice;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.lx5;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.py5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public final class MsgChatCenterNavSlice extends Slice {
         this.k = pageContext.getPageActivity();
     }
 
-    public static final void W(MsgChatCenterNavSlice this$0, View view2) {
+    public static final void X(MsgChatCenterNavSlice this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -72,34 +72,34 @@ public final class MsgChatCenterNavSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View M(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    public View N(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
             Intrinsics.checkNotNullParameter(container, "container");
-            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d08a1, container, false);
-            this.l = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091736);
+            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d08bb, container, false);
+            this.l = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091747);
             return inflate;
         }
         return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void T(View view2, Bundle bundle) {
+    public void U(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.T(view2, bundle);
-            lx5.b(view2);
+            super.U(view2, bundle);
+            py5.b(view2);
             NavigationBar navigationBar = this.l;
             if (navigationBar != null) {
                 navigationBar.setStatusBarVisibility(8);
-                EMTextView eMTextView = (EMTextView) navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d06c6, (View.OnClickListener) null).findViewById(R.id.obfuscated_res_0x7f091882);
+                EMTextView eMTextView = (EMTextView) navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d06dd, (View.OnClickListener) null).findViewById(R.id.obfuscated_res_0x7f091898);
                 this.m = eMTextView;
                 if (eMTextView != null) {
-                    eMTextView.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0c9a));
+                    eMTextView.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0ca5));
                 }
-                View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06c5, new View.OnClickListener() { // from class: com.baidu.tieba.vm8
+                View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06dc, new View.OnClickListener() { // from class: com.baidu.tieba.ws8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,15 +107,15 @@ public final class MsgChatCenterNavSlice extends Slice {
                     public final void onClick(View view3) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                            MsgChatCenterNavSlice.W(MsgChatCenterNavSlice.this, view3);
+                            MsgChatCenterNavSlice.X(MsgChatCenterNavSlice.this, view3);
                         }
                     }
                 });
-                this.o = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091880);
-                EMTextView eMTextView2 = (EMTextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091881);
+                this.o = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091896);
+                EMTextView eMTextView2 = (EMTextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091897);
                 this.n = eMTextView2;
                 if (eMTextView2 != null) {
-                    eMTextView2.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0c99));
+                    eMTextView2.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0ca4));
                 }
             }
         }
@@ -130,17 +130,17 @@ public final class MsgChatCenterNavSlice extends Slice {
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(this.j, i);
             }
-            s75 d = s75.d(E());
+            d85 d = d85.d(F());
             d.o(R.string.J_X19);
             d.f(R.color.CAM_X0201);
-            s75 d2 = s75.d(this.n);
+            d85 d2 = d85.d(this.n);
             d2.x(R.color.CAM_X0107);
             d2.C(R.dimen.T_X12);
-            s75 d3 = s75.d(this.m);
+            d85 d3 = d85.d(this.m);
             d3.x(R.color.CAM_X0105);
             d3.C(R.dimen.T_X04);
             d3.D(R.string.F_X02);
-            WebPManager.setPureDrawable(this.o, R.drawable.obfuscated_res_0x7f080af3, R.color.CAM_X0107, null);
+            WebPManager.setPureDrawable(this.o, R.drawable.obfuscated_res_0x7f080afd, R.color.CAM_X0107, null);
         }
     }
 }

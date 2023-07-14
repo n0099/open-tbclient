@@ -4,17 +4,17 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.IDataResponseMessage;
-import com.baidu.tieba.i19;
+import com.baidu.tieba.m79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class DeleteTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<i19> {
+/* loaded from: classes7.dex */
+public class DeleteTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<m79> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i19 resultData;
+    public m79 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DeleteTailHttpResponseMessage() {
@@ -36,13 +36,13 @@ public class DeleteTailHttpResponseMessage extends HttpResponsedMessage implemen
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public i19 getResultData() {
+    public m79 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.resultData;
         }
-        return (i19) invokeV.objValue;
+        return (m79) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

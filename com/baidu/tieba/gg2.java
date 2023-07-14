@@ -1,5 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import com.facebook.cache.common.CacheKey;
+/* loaded from: classes6.dex */
 public interface gg2 {
-    void onFinished();
+    CacheKey a(String str);
 }

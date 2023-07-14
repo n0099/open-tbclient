@@ -12,8 +12,6 @@ import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.chatmessage.response.FetchMsgResponse;
-import com.baidu.android.imsdk.chatmessage.sync.Generator;
-import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.group.GroupMessageManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -31,7 +29,7 @@ import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.tieba.k80;
+import com.baidu.tieba.l80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -518,7 +516,7 @@ public class IMFetchMsgByIdMsg extends Message {
                         LogUtils.e(str, "clientLogId :" + e7.getMessage());
                     }
                     this.this$0.mUbcData.setDebugInfo(this.this$0.mDebugInfo);
-                    k80.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    l80.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
             }
         }
@@ -667,10 +665,10 @@ public class IMFetchMsgByIdMsg extends Message {
                 jSONObject.put("bduid", bduid);
             }
             if (this.mContacterUserType > -1) {
-                jSONObject.put(RequestContants.EXTRA_CONTACTER_USER_TYPE, this.mContacterUserType);
+                jSONObject.put("contacter_user_type", this.mContacterUserType);
             }
             if (this.mContacterPaUid > 0) {
-                jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.mContacterPaUid);
+                jSONObject.put("contacter_pa_uid", this.mContacterPaUid);
             }
             if (this.mContacterBduid > 0) {
                 jSONObject.put("contacter_bduid", this.mContacterBduid);
@@ -701,8 +699,8 @@ public class IMFetchMsgByIdMsg extends Message {
                 int intExtra5 = intent.getIntExtra(Constants.EXTRA_RETRY_TIME, 0);
                 int intExtra6 = intent.getIntExtra(Constants.EXTRA_BUSINESS_TYPE, 0);
                 int intExtra7 = intent.getIntExtra("session_type", -1);
-                int intExtra8 = intent.getIntExtra(RequestContants.EXTRA_CONTACTER_USER_TYPE, 0);
-                long longExtra6 = intent.getLongExtra(RequestContants.EXTRA_CONTACTER_PA_UID, 0L);
+                int intExtra8 = intent.getIntExtra("contacter_user_type", 0);
+                long longExtra6 = intent.getLongExtra("contacter_pa_uid", 0L);
                 long longExtra7 = intent.getLongExtra("contacter_bduid", 0L);
                 long longExtra8 = intent.getLongExtra("contacter_uk", 0L);
                 boolean booleanExtra = intent.getBooleanExtra(Constants.EXTRA_FROM_MEDIA, false);
@@ -731,7 +729,6 @@ public class IMFetchMsgByIdMsg extends Message {
 
     @Override // com.baidu.android.imsdk.request.Message
     public void buildBody() {
-        SyncStrategy generate;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -804,9 +801,6 @@ public class IMFetchMsgByIdMsg extends Message {
                 }
                 this.mBody = jSONObject.toString();
                 LogUtils.d(TAG, "长连接拉消息的消息 is media:" + this.mIsFromMedia + ";body" + this.mBody);
-                if ((this.mCategory == 0 || this.mCategory == 2) && (generate = Generator.generate(this.mContext, 5)) != null) {
-                    generate.resetFetchState();
-                }
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "Exception ", e2);
             }

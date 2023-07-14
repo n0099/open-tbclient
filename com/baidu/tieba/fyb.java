@@ -1,6 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,129 +13,63 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.FormBody;
-import okhttp3.HttpUrl;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes5.dex */
 public class fyb {
-    public static /* synthetic */ Interceptable $ic;
-    public static OkHttpClient b;
-    public static volatile fyb c;
-    public static String d;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 1;
+    public static final char[] d;
+    public static fyb e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, List<Cookie>> a;
+    public final HandlerThread a;
+    public final Handler b;
 
     /* loaded from: classes5.dex */
-    public class a implements CookieJar {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fyb a;
+        public final String[] a;
+        public final /* synthetic */ fyb b;
 
-        public a(fyb fybVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(fyb fybVar, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fybVar};
+                Object[] objArr = {fybVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = fybVar;
+            this.b = fybVar;
+            this.a = new String[]{"tinyvideoplayer", "lpfplayerfirstaccess", "lpfplayerdownload"};
         }
 
-        @Override // okhttp3.CookieJar
-        public List<Cookie> loadForRequest(HttpUrl httpUrl) {
-            InterceptResult invokeL;
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) {
-                List<Cookie> list = (List) this.a.a.get(httpUrl.host());
-                if (list == null) {
-                    return new ArrayList();
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                Log.i("playStats", "handle msg " + message.what);
+                int i = message.what;
+                if (i < this.a.length && i >= 0) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    for (int i2 = 0; !this.b.h(this.a[message.what], (String) message.obj, currentTimeMillis, fyb.c) && i2 < 5; i2++) {
+                    }
+                    fyb.b();
                 }
-                return list;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        @Override // okhttp3.CookieJar
-        public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, list) == null) {
-                this.a.a.put(httpUrl.host(), list);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gyb a;
-        public final /* synthetic */ Request b;
-
-        public b(fyb fybVar, gyb gybVar, Request request) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fybVar, gybVar, request};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gybVar;
-            this.b = request;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                boolean isCanceled = call.isCanceled();
-                RLog.error("HttpCore", "onFailure isCanceled:" + isCanceled, new Object[0]);
-                this.a.a(this.b, isCanceled, iOException);
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--1-onFailure:" + iOException.getMessage(), new Object[0]);
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) != null) {
-                return;
-            }
-            String unused = fyb.d = response.body().string();
-            try {
-                this.a.b(fyb.d);
-                RLog.debug("HttpCore", "HttpCore -- enqueuePost-onResponse:" + fyb.d);
-            } catch (Exception e) {
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--2-onFailure:" + e.getMessage(), new Object[0]);
-                e.printStackTrace();
             }
         }
     }
@@ -148,23 +87,30 @@ public class fyb {
                 return;
             }
         }
-        MediaType.parse("application/json;charset=utf-8");
-        MediaType.parse("application/octet-stream");
-        MediaType.parse("text/x-markdown;charset=utf-8");
+        d = "0123456789abcdef".toCharArray();
+        e = null;
+    }
+
+    public static /* synthetic */ int b() {
+        int i = c;
+        c = i + 1;
+        return i;
     }
 
     public static fyb f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == null) {
-                synchronized (fyb.class) {
-                    if (c == null) {
-                        c = new fyb();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            fyb fybVar = e;
+            if (fybVar != null) {
+                return fybVar;
+            }
+            synchronized (fyb.class) {
+                if (e == null) {
+                    e = new fyb();
                 }
             }
-            return c;
+            return e;
         }
         return (fyb) invokeV.objValue;
     }
@@ -182,118 +128,128 @@ public class fyb {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        OkHttpClient.Builder cookieJar = new OkHttpClient.Builder().addInterceptor(new iyb(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new a(this));
-        cookieJar.dns(hyb.c());
-        b = cookieJar.build();
-        RLog.info("HttpCore", "HttpCore -- init");
+        HandlerThread handlerThread = new HandlerThread("yy-vod-stats-report");
+        this.a = handlerThread;
+        handlerThread.start();
+        this.b = new a(this, this.a.getLooper());
     }
 
-    public static String i(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public static String d(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, map)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            if (map == null) {
-                new HashMap();
-            } else {
-                boolean z = true;
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (z && !str.contains("?")) {
-                        z = false;
-                        sb.append("?");
-                    } else {
-                        sb.append("&");
-                    }
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    if (entry.getValue() == null) {
-                        sb.append(" ");
-                    } else {
-                        sb.append(entry.getValue());
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            char[] cArr = new char[bArr.length * 2];
+            for (int i = 0; i < bArr.length; i++) {
+                int i2 = bArr[i] & 255;
+                int i3 = i * 2;
+                char[] cArr2 = d;
+                cArr[i3] = cArr2[i2 >>> 4];
+                cArr[i3 + 1] = cArr2[i2 & 15];
             }
-            return sb.toString();
+            return new String(cArr);
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void d(int i, int i2) {
+    public static String g(String str) {
+        MessageDigest messageDigest;
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            String g = g(i, i2);
-            RLog.info("HttpCore", "cancelAllRequest appId:" + i + " useChannel:" + i2 + " requestTag：" + g);
-            OkHttpClient okHttpClient = b;
-            if (okHttpClient != null && okHttpClient.dispatcher() != null) {
-                for (Call call : b.dispatcher().queuedCalls()) {
-                    if (g.equals(call.request().tag())) {
-                        RLog.info("HttpCore", "cancel queued call:" + call);
-                        call.cancel();
-                    }
-                }
-                for (Call call2 : b.dispatcher().runningCalls()) {
-                    if (g.equals(call2.request().tag())) {
-                        RLog.info("HttpCore", "cancel running call:" + call2);
-                        call2.cancel();
-                    }
-                }
-                return;
-            }
-            RLog.error("HttpCore", "cancelAllRequest error okHttpClient null", new Object[0]);
-        }
-    }
-
-    public String e(String str, Map<String, String> map, int i, int i2, String str2, String str3, String str4, String str5, int i3, gyb gybVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, map, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, Integer.valueOf(i3), gybVar})) == null) {
-            String g = g(i, i2);
-            RLog.info("HttpCore", "enqueuePost requestTag=" + g);
-            if (map == null) {
-                map = new HashMap<>();
-            }
-            FormBody.Builder builder = new FormBody.Builder();
-            h(map, builder);
-            FormBody build = builder.build();
-            String i4 = i(str, null);
-            RLog.debug("HttpCore", "HttpCore -- enqueuePost--url:" + i4);
-            Request.Builder url = new Request.Builder().url(i4);
-            Request build2 = url.addHeader("X-AppId", i + "").addHeader("traceid", str2).addHeader("version", str3).addHeader("pakagename", str4).addHeader("X-HostId", str5).addHeader("X-AuthType", String.valueOf(i3)).tag(g).post(build).build();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             try {
-                b.newCall(build2).enqueue(new b(this, gybVar, build2));
-            } catch (Exception e) {
-                e.printStackTrace();
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--3-onFailure:" + e.getMessage(), new Object[0]);
+                messageDigest = MessageDigest.getInstance("MD5");
+            } catch (NoSuchAlgorithmException e2) {
+                e2.printStackTrace();
+                messageDigest = null;
             }
-            return d;
+            if (messageDigest == null) {
+                return "";
+            }
+            messageDigest.update(str.getBytes());
+            return d(messageDigest.digest());
         }
-        return (String) invokeCommon.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public String g(int i, int i2) {
-        InterceptResult invokeII;
+    public static String e(String str, long j) {
+        InterceptResult invokeLJ;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            return "payhttp:appId=" + i + "&userchanel=" + i2;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            return ("&time=" + ("" + (j / 1000))) + "&key=" + g(str + str2 + "HiidoYYSystem");
         }
-        return (String) invokeII.objValue;
+        return (String) invokeLJ.objValue;
     }
 
-    public final void h(Map<String, String> map, FormBody.Builder builder) {
-        String value;
+    public static void i(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, map, builder) == null) {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                String key = entry.getKey();
-                if (entry.getValue() == null) {
-                    value = "";
-                } else {
-                    value = entry.getValue();
+        if (interceptable == null || interceptable.invokeIIL(65545, null, i, i2, str) == null) {
+            Log.i("playStats", "tid:" + i + "type:" + i2 + ", stats:" + str);
+            try {
+                f().b.obtainMessage(i2, str).sendToTarget();
+            } catch (NullPointerException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public final boolean h(String str, String str2, long j, int i) {
+        InterceptResult invokeCommon;
+        URL url;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            boolean z = false;
+            if (str2 == null) {
+                return false;
+            }
+            String str3 = "https://mlog.bigda.com/c.gif?act=" + str + e(str, j) + str2 + "&seq=" + i;
+            HttpURLConnection httpURLConnection = null;
+            try {
+                url = new URL(str3);
+            } catch (MalformedURLException e2) {
+                e2.printStackTrace();
+                url = null;
+            }
+            if (url == null) {
+                Log.e("playStats", "report url failed!");
+                return false;
+            }
+            try {
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
+                try {
+                    if (Build.VERSION.SDK_INT < 21 && (httpURLConnection2 instanceof HttpsURLConnection)) {
+                        ((HttpsURLConnection) httpURLConnection2).setSSLSocketFactory(new gyb());
+                    }
+                    httpURLConnection2.setConnectTimeout(10000);
+                    httpURLConnection2.setReadTimeout(6000);
+                    httpURLConnection2.connect();
+                    int responseCode = httpURLConnection2.getResponseCode();
+                    Log.i("playStats", "url : " + str3);
+                    Log.i("playStats", "code : " + responseCode);
+                    if (responseCode == 200) {
+                        z = true;
+                    }
+                    if (httpURLConnection2 != null) {
+                        httpURLConnection2.disconnect();
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    httpURLConnection = httpURLConnection2;
+                    try {
+                        th.printStackTrace();
+                        Log.e("playStats", "open connection except!");
+                        return z;
+                    } finally {
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                        }
+                    }
                 }
-                builder.add(key, value);
+            } catch (Throwable th2) {
+                th = th2;
             }
+            return z;
         }
+        return invokeCommon.booleanValue;
     }
 }

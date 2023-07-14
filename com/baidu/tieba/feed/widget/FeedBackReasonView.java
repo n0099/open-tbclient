@@ -15,7 +15,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -108,7 +108,9 @@ public class FeedBackReasonView extends LinearLayout {
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
+        public int a;
+        public String b;
+        public String c;
 
         public b(int i, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -125,16 +127,17 @@ public class FeedBackReasonView extends LinearLayout {
                     return;
                 }
             }
+            this.a = i2;
             if (str != null && str.contains("%")) {
                 String[] split = str.split("%");
-                this.a = split[0];
+                this.b = split[0];
                 if (split.length > 1) {
-                    String str2 = split[1];
+                    this.c = split[1];
                     return;
                 }
                 return;
             }
-            this.a = str;
+            this.b = str;
         }
     }
 
@@ -322,22 +325,22 @@ public class FeedBackReasonView extends LinearLayout {
                 feedBackReasonCheckBox.setEllipsize(TextUtils.TruncateAt.MIDDLE);
                 feedBackReasonCheckBox.setSingleLine();
                 feedBackReasonCheckBox.setButtonDrawable((Drawable) null);
-                feedBackReasonCheckBox.setTextSize(0, xi.g(getContext(), R.dimen.T_X08));
+                feedBackReasonCheckBox.setTextSize(0, yi.g(getContext(), R.dimen.T_X08));
                 feedBackReasonCheckBox.setId(R.id.left_reason);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, xi.g(getContext(), R.dimen.tbds96));
+                feedBackReasonCheckBox.setGravity(17);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, yi.g(getContext(), R.dimen.tbds96));
                 layoutParams.weight = 1.0f;
-                layoutParams.gravity = 17;
                 linearLayout.addView(feedBackReasonCheckBox, layoutParams);
                 FeedBackReasonCheckBox feedBackReasonCheckBox2 = new FeedBackReasonCheckBox(getContext());
                 feedBackReasonCheckBox2.setEllipsize(TextUtils.TruncateAt.MIDDLE);
                 feedBackReasonCheckBox2.setSingleLine();
                 feedBackReasonCheckBox2.setButtonDrawable((Drawable) null);
-                feedBackReasonCheckBox2.setTextSize(0, xi.g(getContext(), R.dimen.T_X08));
+                feedBackReasonCheckBox2.setTextSize(0, yi.g(getContext(), R.dimen.T_X08));
                 feedBackReasonCheckBox2.setId(R.id.right_reason);
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, xi.g(getContext(), R.dimen.tbds96));
+                feedBackReasonCheckBox2.setGravity(17);
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, yi.g(getContext(), R.dimen.tbds96));
                 layoutParams2.weight = 1.0f;
-                layoutParams2.gravity = 17;
-                layoutParams2.setMargins(xi.g(getContext(), R.dimen.tbds20), 0, 0, 0);
+                layoutParams2.setMargins(yi.g(getContext(), R.dimen.tbds20), 0, 0, 0);
                 linearLayout.addView(feedBackReasonCheckBox2, layoutParams2);
             }
             FeedBackReasonCheckBox feedBackReasonCheckBox3 = (FeedBackReasonCheckBox) linearLayout.findViewById(R.id.left_reason);
@@ -350,12 +353,12 @@ public class FeedBackReasonView extends LinearLayout {
             this.g.put(feedBackReasonCheckBox4, Boolean.FALSE);
             b bVar = list.get(0);
             if (bVar != null) {
-                feedBackReasonCheckBox3.setText(bVar.a);
+                feedBackReasonCheckBox3.setText(bVar.b);
                 feedBackReasonCheckBox3.setTag(bVar);
             }
             if (list.size() > 1 && list.get(1) != null) {
                 b bVar2 = list.get(1);
-                feedBackReasonCheckBox4.setText(bVar2.a);
+                feedBackReasonCheckBox4.setText(bVar2.b);
                 feedBackReasonCheckBox4.setVisibility(0);
                 feedBackReasonCheckBox4.setTag(bVar2);
             } else {
@@ -379,7 +382,7 @@ public class FeedBackReasonView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setOrientation(1);
-            this.h = xi.g(getContext(), R.dimen.M_H_X003);
+            this.h = yi.g(getContext(), R.dimen.M_H_X003);
             this.f = new a(this);
         }
     }
@@ -423,14 +426,14 @@ public class FeedBackReasonView extends LinearLayout {
                     b bVar = new b(i5, this.b.keyAt(i5), this.b.valueAt(i5));
                     SparseArray<String> sparseArray2 = this.c;
                     if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.b.keyAt(i5)))) {
-                        this.c.get(this.b.keyAt(i5));
+                        bVar.c = this.c.get(this.b.keyAt(i5));
                     }
                     arrayList2.add(bVar);
                     if (i4 > i5 && i4 < size) {
                         b bVar2 = new b(i4, this.b.keyAt(i4), this.b.valueAt(i4));
                         SparseArray<String> sparseArray3 = this.c;
                         if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.b.keyAt(i5)))) {
-                            this.c.get(this.b.keyAt(i4));
+                            bVar2.c = this.c.get(this.b.keyAt(i4));
                         }
                         arrayList2.add(bVar2);
                     }

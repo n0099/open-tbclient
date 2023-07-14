@@ -9,10 +9,10 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.iy6;
-import com.baidu.tieba.n2a;
-import com.baidu.tieba.p2a;
+import com.baidu.tieba.aba;
+import com.baidu.tieba.r07;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.yaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iy6 a;
+    public r07 a;
     public boolean b;
     public HttpMessageListener c;
 
@@ -111,27 +111,27 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.c);
     }
 
-    public iy6 Z() {
+    public r07 a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (iy6) invokeV.objValue;
+        return (r07) invokeV.objValue;
     }
 
-    public void a0() {
+    public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST));
         }
     }
 
-    public void b0(Context context) {
-        iy6 iy6Var;
+    public void c0(Context context) {
+        r07 r07Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (iy6Var = this.a) != null && iy6Var.a()) {
-            p2a.g().c(r9.a(context).getUniqueId(), n2a.f("a025", "common_fill", true, 1, 5));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (r07Var = this.a) != null && r07Var.a()) {
+            aba.g().c(r9.a(context).getUniqueId(), yaa.f("a025", "common_fill", true, 1, 5));
             this.b = true;
         }
     }

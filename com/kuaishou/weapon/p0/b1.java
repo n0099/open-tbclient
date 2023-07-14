@@ -93,7 +93,7 @@ public class b1 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (JSONObject) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00c1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00c2, code lost:
         if (r7 != null) goto L41;
      */
     /*

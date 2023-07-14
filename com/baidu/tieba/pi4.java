@@ -1,68 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.DeleteRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class pi4<T> {
+public class pi4 extends DeleteRequest.DeleteRequestBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<T> a;
-    public final int b;
 
-    public pi4(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pi4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {abstractHttpManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = i;
     }
 
-    public synchronized void b(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            synchronized (this) {
-                if (t != null) {
-                    if (this.a.size() >= this.b) {
-                        this.a.remove(this.a.size() - 1);
-                    }
-                    this.a.add(t);
-                }
-            }
-        }
-    }
-
-    public synchronized T a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.DeleteRequest.DeleteRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
+    public DeleteRequest build() {
         InterceptResult invokeV;
-        T remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                do {
-                    if (this.a.size() > 0) {
-                        remove = this.a.remove(this.a.size() - 1);
-                    } else {
-                        return null;
-                    }
-                } while (remove == null);
-                return remove;
-            }
+            ni4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
         }
-        return (T) invokeV.objValue;
+        return (DeleteRequest) invokeV.objValue;
     }
 }

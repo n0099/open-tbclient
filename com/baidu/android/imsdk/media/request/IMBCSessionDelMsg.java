@@ -7,7 +7,6 @@ import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
-import com.baidu.android.imsdk.chatmessage.request.RequestContants;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -139,9 +138,9 @@ public class IMBCSessionDelMsg extends Message {
                 jSONObject.put(Constants.EXTRA_PAUID_TYPE, MediaSessionManager.getInstance(this.mContext).getMeidaPaid());
                 jSONObject.put("user_type", 1);
                 jSONObject.put("contacter_uk", getContacterUk());
-                jSONObject.put(RequestContants.EXTRA_CONTACTER_USER_TYPE, getUserType(this.mBusinessType));
+                jSONObject.put("contacter_user_type", getUserType(this.mBusinessType));
                 if (this.mContacterPaid > 0) {
-                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.mContacterPaid);
+                    jSONObject.put("contacter_pa_uid", this.mContacterPaid);
                 }
                 jSONObject.put("business_type", getRequestBusinessType());
                 jSONObject.put("category", this.mCategory);

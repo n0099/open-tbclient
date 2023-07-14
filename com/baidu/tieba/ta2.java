@@ -1,109 +1,24 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes7.dex */
-public final class ta2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile ta2 d;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public HashMap<String, Long> b;
+import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
+/* loaded from: classes8.dex */
+public interface ta2 {
+    void addJavascriptInterface(@NonNull Object obj, @NonNull String str);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948174404, "Lcom/baidu/tieba/ta2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948174404, "Lcom/baidu/tieba/ta2;");
-                return;
-            }
-        }
-        c = ms1.a;
-    }
+    void continueTimer();
 
-    public ta2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.b = new HashMap<>();
-    }
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
 
-    public static ta2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (ta2.class) {
-                    if (d == null) {
-                        d = new ta2();
-                    }
-                }
-            }
-            return d;
-        }
-        return (ta2) invokeV.objValue;
-    }
+    String getContainerId();
 
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
+    String getUrl();
 
-    public boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            HashMap<String, Long> hashMap = this.b;
-            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.b.get(str).longValue() <= 18000000) {
-                if (c) {
-                    Log.d("SilentUpdateManager", "id = " + str + " 的小程序已在5小时内被标记为无需更新，不走MaxAge逻辑");
-                    return true;
-                }
-                return true;
-            }
-            if (c) {
-                HashMap<String, Long> hashMap2 = this.b;
-                if (hashMap2 != null && hashMap2.containsKey(str)) {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.b.get(str) + " ，id = " + str);
-                } else {
-                    Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    boolean isDestroyed();
+
+    boolean isWebView();
+
+    void onJSLoaded();
+
+    void suspendTimer();
 }

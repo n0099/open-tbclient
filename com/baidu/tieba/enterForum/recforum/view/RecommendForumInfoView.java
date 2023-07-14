@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -113,7 +113,7 @@ public class RecommendForumInfoView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d082e, this);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0846, this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             setOrientation(0);
             setLayoutParams(layoutParams);
@@ -135,18 +135,18 @@ public class RecommendForumInfoView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f091e26);
+            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f091e48);
             this.a = barImageView;
             barImageView.setPlaceHolder(1);
             this.a.setShowOval(true);
             this.a.setAutoChangeStyle(true);
             this.a.setShowInnerBorder(true);
-            this.a.setStrokeWith(xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.a.setStrokeWith(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.a.setStrokeColorResId(R.color.CAM_X0401);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f091e27);
+            this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f091e49);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0902ee);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924dc);
             this.e = (FollowUserButton) findViewById(R.id.like_button);
             e();
         }
@@ -155,21 +155,21 @@ public class RecommendForumInfoView extends LinearLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            s75.d(this).f(R.color.CAM_X0201);
-            s75 d = s75.d(this.b);
+            d85.d(this).f(R.color.CAM_X0201);
+            d85 d = d85.d(this.b);
             d.C(R.dimen.T_X07);
             d.x(R.color.CAM_X0105);
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), null);
             if (pureDrawable != null) {
-                int g = xi.g(getContext(), R.dimen.tbds36);
+                int g = yi.g(getContext(), R.dimen.tbds36);
                 pureDrawable.setBounds(0, 0, g, g);
                 this.b.setCompoundDrawables(null, null, pureDrawable, null);
-                this.b.setCompoundDrawablePadding(xi.g(getContext(), R.dimen.M_W_X002));
+                this.b.setCompoundDrawablePadding(yi.g(getContext(), R.dimen.M_W_X002));
             }
-            s75 d2 = s75.d(this.c);
+            d85 d2 = d85.d(this.c);
             d2.C(R.dimen.T_X09);
             d2.x(R.color.CAM_X0109);
-            s75 d3 = s75.d(this.d);
+            d85 d3 = d85.d(this.d);
             d3.C(R.dimen.T_X09);
             d3.x(R.color.CAM_X0109);
             this.e.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -231,7 +231,7 @@ public class RecommendForumInfoView extends LinearLayout {
             if (!TextUtils.isEmpty(str2)) {
                 this.b.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), str2));
             }
-            this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f04b2), StringHelper.numberUniformFormatExtra(i)));
+            this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f04b5), StringHelper.numberUniformFormatExtra(i)));
             this.d.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i2)));
             this.f = z;
             this.e.q(z);

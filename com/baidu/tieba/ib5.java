@@ -1,138 +1,129 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.text.style.ReplacementSpan;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.drawable.GradientDrawable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ib5 extends ReplacementSpan {
+public class ib5 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public Drawable e;
-    public Drawable f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public boolean o;
+    public boolean v;
+    public int w;
+    public int x;
 
-    public ib5(int i, int i2, int i3, int i4, int i5, boolean z) {
+    public ib5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = R.drawable.icon_pure_evaluation_star24_n;
-        this.b = R.color.CAM_X0112;
-        this.c = R.drawable.icon_pure_evaluation_star24_n;
-        this.d = R.color.CAM_X0305;
-        this.m = 5;
-        this.n = i;
-        this.g = i2;
-        this.h = i3;
-        this.i = i4;
-        this.k = i5;
-        this.o = z;
+        this.w = R.dimen.tbds1;
+        this.x = R.string.A_X07;
+        this.b = R.color.CAM_X0302;
+        this.v = false;
     }
 
-    public final void a() {
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = SvgManager.getInstance().getPureDrawable(this.a, this.b, null);
-            this.f = SvgManager.getInstance().getPureDrawable(this.c, this.d, null);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return v(f);
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void r(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.b = i;
+            this.v = false;
+            this.r = true;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-        int dimenPixelSize;
-        int i6;
-        int i7;
+    public void s(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            a();
-            this.j = (int) paint.getTextSize();
-            int i8 = ((int) f) + this.k;
-            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            int i9 = 0;
-            if (u75.b(charSequence)) {
-                u75.a(fontMetricsInt, (int) paint.getTextSize());
-                dimenPixelSize = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+            this.v = false;
+            this.r = false;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public void t(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
+            this.c = R.color.CAM_X0902;
+            this.v = true;
+            this.r = true;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = R.color.CAM_X0101;
+            this.v = false;
+            this.r = true;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public final Drawable v(float f) {
+        InterceptResult invokeF;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            if (this.v) {
+                gradientDrawable.setStroke(yi.g(TbadkCoreApplication.getInst().getContext(), this.w), SkinManager.getColor(this.s, this.c));
             } else {
-                dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds3) + 0;
-            }
-            int i10 = dimenPixelSize + fontMetricsInt.ascent + i4;
-            int i11 = (this.j - this.h) / 2;
-            if (this.o) {
-                i6 = (i5 - i4) / 2;
-            } else {
-                i6 = 0;
-            }
-            int max = i10 + Math.max(0, i11 + i6);
-            while (true) {
-                i7 = this.n;
-                if (i9 >= i7) {
-                    break;
+                int g = yi.g(TbadkCoreApplication.getInst().getContext(), this.w);
+                if (this.r) {
+                    i = SkinManager.getColor(this.s, this.b);
+                } else {
+                    i = this.b;
                 }
-                Drawable drawable = this.f;
-                if (drawable != null) {
-                    int i12 = this.h;
-                    drawable.setBounds(i8, max, i8 + i12, i12 + max);
-                    this.f.draw(canvas);
-                    i8 += this.g + this.h;
-                }
-                i9++;
+                gradientDrawable.setStroke(g, dba.a(i, b85.b(this.x)));
             }
-            while (i7 < this.m) {
-                Drawable drawable2 = this.e;
-                if (drawable2 != null) {
-                    int i13 = this.h;
-                    drawable2.setBounds(i8, max, i8 + i13, i13 + max);
-                    this.e.draw(canvas);
-                    i8 += this.g + this.h;
-                }
-                i7++;
-            }
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
         }
-    }
-
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            int i3 = this.m;
-            int i4 = (this.h * i3) + (this.g * (i3 - 1)) + this.i + this.k;
-            this.l = i4;
-            return i4;
-        }
-        return invokeCommon.intValue;
+        return (Drawable) invokeF.objValue;
     }
 }

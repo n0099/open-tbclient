@@ -4,11 +4,11 @@ import androidx.annotation.Nullable;
 import com.kwad.components.core.c.kwai.b;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d extends com.kwad.sdk.mvp.a {
     @Nullable
     public b DG;
-    public b.C0643b DH;
+    public b.C0648b DH;
     public AdTemplate mAdTemplate;
     @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;

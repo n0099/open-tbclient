@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.log;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.ew8;
+import com.baidu.tieba.h29;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ public final class ActivityLog {
     public static /* synthetic */ Interceptable $ic;
     public static final ActivityLog INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ew8 instance;
+    public final h29 instance;
 
     static {
         InterceptResult invokeClinit;
@@ -37,13 +37,13 @@ public final class ActivityLog {
         $VALUES = new ActivityLog[]{activityLog};
     }
 
-    public static ew8 getInstance() {
+    public static h29 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return INSTANCE.instance;
         }
-        return (ew8) invokeV.objValue;
+        return (h29) invokeV.objValue;
     }
 
     public static ActivityLog[] values() {
@@ -73,7 +73,7 @@ public final class ActivityLog {
                 return;
             }
         }
-        this.instance = new ew8(Config.DEVICE_PART);
+        this.instance = new h29(Config.DEVICE_PART);
     }
 
     public static ActivityLog valueOf(String str) {

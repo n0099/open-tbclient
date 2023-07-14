@@ -1,139 +1,94 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.emotion.editortool.EmotionTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.GeneralResource;
-import tbclient.HotUserRankEntry;
-import tbclient.Tabfeedlist.DataRes;
-import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class f07 {
+public class f07 extends lj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<xn> a;
-    public ArrayList<i45> b;
-    public c45 c;
-    public h07 d;
-    public boolean e;
 
-    public f07() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f07(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_express), 5, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = R.drawable.icon_pure_post_expression24;
+        this.e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.h = R.drawable.icon_pure_post_expression64_big;
+        this.i = false;
+        this.j = true;
+        this.m = new EmotionTabHost(context);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1, 34, 35};
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public f07 clone() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f07(Context context, int i, boolean z) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_express), 5, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            f07 f07Var = new f07();
-            f07Var.a = this.a;
-            f07Var.b = this.b;
-            f07Var.c = this.c;
-            f07Var.d = this.d;
-            f07Var.e = this.e;
-            return f07Var;
-        }
-        return (f07) invokeV.objValue;
-    }
-
-    public h07 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (h07) invokeV.objValue;
-    }
-
-    public c45 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (c45) invokeV.objValue;
-    }
-
-    public ArrayList<i45> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<xn> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        this.a = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
-        for (ThreadInfo threadInfo : dataRes.thread_list) {
-            ThreadData threadData = new ThreadData();
-            threadData.parserProtobuf(threadInfo);
-            threadData.insertItemToTitleOrAbstractText();
-            this.a.add(threadData);
-        }
-        this.b = new ArrayList<>();
-        if (!ListUtils.isEmpty(dataRes.resource_list)) {
-            for (GeneralResource generalResource : dataRes.resource_list) {
-                i45 i45Var = new i45();
-                i45Var.c(generalResource);
-                this.b.add(i45Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        c45 c45Var = new c45();
-        this.c = c45Var;
-        c45Var.f(dataRes.recommend_forum_info);
-        if (dataRes.hot_userrank_entry != null) {
-            h07 h07Var = new h07();
-            this.d = h07Var;
-            HotUserRankEntry hotUserRankEntry = dataRes.hot_userrank_entry;
-            h07Var.a = hotUserRankEntry.hot_user;
-            h07Var.b = hotUserRankEntry.module_name;
-            h07Var.c = hotUserRankEntry.module_icon;
+        this.d = R.drawable.icon_pure_post_expression24;
+        this.e = R.drawable.icon_pure_post_expression24_selection;
+        this.h = R.drawable.icon_pure_post_expression64_big;
+        this.i = false;
+        this.j = true;
+        EmotionTabHost emotionTabHost = new EmotionTabHost(context);
+        emotionTabHost.setShowBigEmotion(z);
+        this.m = emotionTabHost;
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1, 34, 35};
+    }
+
+    @Override // com.baidu.tieba.lj5
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            ((EmotionTabHost) this.m).setShowUserCollect(z);
         }
-        boolean z = true;
-        if (dataRes.is_new_url.intValue() != 1) {
-            z = false;
+    }
+
+    @Override // com.baidu.tieba.lj5
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            ((EmotionTabHost) this.m).setShowDiyEmotion(z);
+            super.f(z);
         }
-        this.e = z;
     }
 }

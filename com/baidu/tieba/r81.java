@@ -1,28 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.webpanel.model.AdData;
+import com.baidu.tieba.e71;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class r81 extends un0 {
+public class r81 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public r81(int i, AdData adData) {
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), adData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
+            return e71.c.a(rk0.b(), f);
         }
+        return invokeF.intValue;
+    }
+
+    public static int b(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            return e71.c.a(rk0.b(), f);
+        }
+        return invokeF.intValue;
+    }
+
+    public static int c(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) {
+            return Math.round(f / 1.5f);
+        }
+        return invokeF.intValue;
+    }
+
+    public static int d(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
+            return b(f / 1.5f);
+        }
+        return invokeF.intValue;
     }
 }

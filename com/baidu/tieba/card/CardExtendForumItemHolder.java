@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dp6;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import com.baidu.tieba.w58;
+import com.baidu.tieba.hq6;
+import com.baidu.tieba.ra8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public BarImageView b;
     public TextView c;
     public EntelechyUserLikeButton d;
-    public dp6 e;
+    public hq6 e;
     public int f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,7 +53,7 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public ItemViewHolder b(View view2) {
+    public ItemViewHolder c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
@@ -69,47 +69,47 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(w58 w58Var) {
+    public void b(ra8 ra8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, w58Var) == null) {
-            if (w58Var != null && (w58Var instanceof dp6)) {
-                dp6 dp6Var = (dp6) w58Var;
-                this.e = dp6Var;
-                this.b.setTag(dp6Var.b);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ra8Var) == null) {
+            if (ra8Var != null && (ra8Var instanceof hq6)) {
+                hq6 hq6Var = (hq6) ra8Var;
+                this.e = hq6Var;
+                this.b.setTag(hq6Var.b);
                 this.b.setTag(R.id.tag_forum_name, this.e.c);
                 this.b.N(this.e.b, 15, false);
                 TextView textView = this.c;
-                textView.setText(StringHelper.getFixedText(this.e.c, 4, true) + getView().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f076a));
+                textView.setText(StringHelper.getFixedText(this.e.c, 4, true) + getView().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0773));
                 this.c.setTag(R.id.tag_forum_name, this.e.c);
                 this.d.setTag(R.id.tag_forum_id, Long.valueOf(this.e.d));
                 this.d.setTag(R.id.tag_forum_name, this.e.c);
                 getView().setTag(R.id.tag_forum_id, Long.valueOf(this.e.d));
                 getView().setTag(R.id.tag_forum_name, this.e.c);
-                e(this.d, this.e.e);
+                f(this.d, this.e.e);
                 this.b.setOnClickListener(this.a);
                 this.d.setOnClickListener(this.a);
                 this.c.setOnClickListener(this.a);
                 getView().setOnClickListener(this.a);
             }
-            c(TbadkCoreApplication.getInst().getSkinType());
+            d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void c(int i) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (this.f != i) {
                 SkinManager.setBackgroundColor(getView(), R.color.CAM_X0201);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-                e(this.d, this.e.e);
+                f(this.d, this.e.e);
             }
             this.f = i;
         }
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public final void e(EntelechyUserLikeButton entelechyUserLikeButton, boolean z) {
+    public final void f(EntelechyUserLikeButton entelechyUserLikeButton, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048579, this, entelechyUserLikeButton, z) != null) || entelechyUserLikeButton == null) {
             return;

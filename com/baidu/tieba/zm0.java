@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import java.io.File;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
-public interface zm0 {
-    void a(int i, long j, long j2);
+public interface zm0<VIEW extends View> {
+    void c(@NonNull ViewGroup viewGroup);
 
-    void b(long j, File file);
+    @NonNull
+    VIEW getRealView();
 
-    void c(int i, int i2);
-
-    void d(@Nullable lm0 lm0Var);
-
-    void onSuccess(int i);
+    void update(String str, @NonNull gm0 gm0Var);
 }

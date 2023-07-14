@@ -1,115 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class bk8 extends CustomMessageListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final WeakReference<a> a;
+public interface bk8 extends yj8 {
+    void a();
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(CustomResponsedMessage<?> customResponsedMessage);
-    }
+    void c(@NonNull String str);
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public bk8(int i, a callback) {
-        this(i, false, callback, 2, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), callback};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), (a) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(callback, "callback");
-    }
+    void k();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public bk8(int i, boolean z, a callback) {
-        super(i, z);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), callback};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(callback, "callback");
-        this.a = new WeakReference<>(callback);
-    }
+    void l(@NonNull String str);
 
-    public /* synthetic */ bk8(int i, boolean z, a aVar, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(i, (i2 & 2) != 0 ? false : z, aVar);
-    }
+    void m(@NonNull String str, @NonNull CharSequence charSequence);
 
-    public static final void a(bk8 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            MessageManager.getInstance().unRegisterListener(this$0);
-        }
-    }
+    void n(@NonNull zj8 zj8Var);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> responsedMessage) {
-        Unit unit;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-            Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
-            a aVar = this.a.get();
-            if (aVar != null) {
-                aVar.a(responsedMessage);
-                unit = Unit.INSTANCE;
-            } else {
-                unit = null;
-            }
-            if (unit == null) {
-                ch.c(new Runnable() { // from class: com.baidu.tieba.ak8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+    void o(Object obj);
 
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            bk8.a(bk8.this);
-                        }
-                    }
-                });
-            }
-        }
-    }
+    void onDestroy();
+
+    void p();
+
+    void q(boolean z, int i, int i2, @Nullable Map<String, Object> map, boolean z2, long j, long j2);
+
+    void r(@NonNull String str, @Nullable String str2);
+
+    void s(int i, int i2, @Nullable String str);
 }

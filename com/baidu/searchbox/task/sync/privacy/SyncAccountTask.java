@@ -5,8 +5,8 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.g95;
-import com.baidu.tieba.u05;
+import com.baidu.tieba.d15;
+import com.baidu.tieba.s95;
 /* loaded from: classes4.dex */
 public class SyncAccountTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -22,10 +22,10 @@ public class SyncAccountTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-            g95.a(DI.ACCOUNT, -1L, 0, "logo_activity_uninit_account", 0, "", new Object[0]);
+            s95.a(DI.ACCOUNT, -1L, 0, "logo_activity_uninit_account", 0, "", new Object[0]);
             if (!TbadkCoreApplication.getInst().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
-                g95.a(DI.ACCOUNT, -1L, 0, "logo_activity_sync_account", 0, "", new Object[0]);
-                TbadkCoreApplication.setCurrentAccount(u05.e(), TbadkCoreApplication.getInst());
+                s95.a(DI.ACCOUNT, -1L, 0, "logo_activity_sync_account", 0, "", new Object[0]);
+                TbadkCoreApplication.setCurrentAccount(d15.e(), TbadkCoreApplication.getInst());
             }
         }
     }

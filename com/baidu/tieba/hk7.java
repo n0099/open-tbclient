@@ -1,182 +1,160 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout;
-import com.baidu.tieba.frs.gamepaltform.GameRankListViewHolder;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hk7 extends sd7<fu7, GameRankListViewHolder> implements bp7 {
+public class hk7 extends wo6<ik7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zo7 l;
+    public TbImageView i;
+    public TextView j;
+    public TextView k;
+    public View l;
+    public RelativeLayout m;
+    public ConstrainImageGroup n;
 
-    /* loaded from: classes6.dex */
-    public class a implements GameRankHorizontalLayout.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hk7 a;
-
-        public a(hk7 hk7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hk7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hk7Var;
-        }
-
-        @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.b
-        public void a(eu7 eu7Var, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(1048576, this, eu7Var, i) != null) || eu7Var == null) {
-                return;
-            }
-            if (this.a.l != null) {
-                TiebaStatic.log(new StatisticItem("c12105").param("fid", this.a.l.c).param("obj_locate", i + 1));
-            }
-            if (!StringUtils.isNull(eu7Var.c())) {
-                ux4.s(this.a.c.getPageActivity(), eu7Var.c());
-            }
-        }
+    @Override // com.baidu.tieba.wo6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d033e : invokeV.intValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(hk7 hk7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hk7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                r95 p = r95.p();
-                p.J("game_rank_list_info", System.currentTimeMillis() + ",7");
-                r95.p().F("game_rank_list_show_times", 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921005));
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hk7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public hk7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new zo7();
+        View h = h();
+        this.i = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0900fa);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090113);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0900af);
+        this.n = (ConstrainImageGroup) h.findViewById(R.id.obfuscated_res_0x7f0900c2);
+        this.l = h.findViewById(R.id.item_divider);
+        this.m = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090c3b);
+        h.setOnClickListener(this);
+    }
+
+    public void s(ng<TbImageView> ngVar) {
+        ConstrainImageGroup constrainImageGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, ngVar) == null) && (constrainImageGroup = this.n) != null) {
+            constrainImageGroup.setImageViewPool(ngVar);
+        }
+    }
+
+    public void t(ng<ConstrainImageLayout> ngVar) {
+        ConstrainImageGroup constrainImageGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, ngVar) == null) && (constrainImageGroup = this.n) != null) {
+            constrainImageGroup.setConstrainLayoutPool(ngVar);
+        }
+    }
+
+    public void u(double d) {
+        ConstrainImageGroup constrainImageGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d)}) == null) && (constrainImageGroup = this.n) != null) {
+            constrainImageGroup.setSingleImageRatio(d);
+        }
+    }
+
+    @Override // com.baidu.tieba.wo6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.a != i) {
+            this.a = i;
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.m, R.drawable.ad_list_item_bg);
+            this.n.b();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: I */
-    public GameRankListViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.wo6
+    /* renamed from: r */
+    public void i(ik7 ik7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new GameRankListViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03bb, (ViewGroup) null));
+        if ((interceptable != null && interceptable.invokeL(1048580, this, ik7Var) != null) || ik7Var == null) {
+            return;
         }
-        return (GameRankListViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sd7, com.baidu.tieba.kn
-    /* renamed from: J */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fu7 fu7Var, GameRankListViewHolder gameRankListViewHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fu7Var, gameRankListViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) fu7Var, (fu7) gameRankListViewHolder);
-            if (fu7Var == null) {
-                return null;
+        this.i.setPlaceHolder(1);
+        this.i.N(ik7Var.e(), 10, false);
+        this.i.setRadius(yi.g(getContext(), R.dimen.tbds26));
+        this.i.setDrawerType(1);
+        this.i.setDrawBorder(true);
+        this.i.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
+        this.i.setBorderWidth(yi.g(getContext(), R.dimen.tbds1));
+        this.i.setDefaultResource(R.drawable.transparent_bg);
+        this.i.setDefaultBgResource(R.drawable.transparent_bg);
+        this.j.setText(ik7Var.d());
+        this.k.setText(ik7Var.c());
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
+        SkinManager.setBackgroundResource(this.m, R.drawable.ad_list_item_bg);
+        if (ListUtils.getCount(ik7Var.h()) > 0) {
+            b26 b26Var = new b26(3);
+            b26Var.d(1.0d);
+            this.n.setVisibility(0);
+            this.n.setFromCDN(true);
+            this.n.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
+            this.n.setImageProcessor(b26Var);
+            this.n.setImageMediaList(ik7Var.h());
+            if (!ik7Var.g()) {
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, yi.g(getContext(), R.dimen.tbds16));
+                layoutParams.addRule(12);
+                this.l.setLayoutParams(layoutParams);
+                SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
+                this.l.setVisibility(0);
+                return;
             }
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
-            if (this.l != null) {
-                TiebaStatic.log(new StatisticItem("c12104").param("fid", this.l.c));
-            }
-            GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.a;
-            if (gameRankHorizontalLayout != null) {
-                gameRankHorizontalLayout.setData(fu7Var);
-                gameRankListViewHolder.a.setOnCardClickListener(new a(this));
-            }
-            TextView textView = gameRankListViewHolder.b;
-            if (textView != null) {
-                textView.setOnClickListener(new b(this));
-            }
-            h05 layoutMode = this.c.getLayoutMode();
-            if (this.f == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.l(z);
-            this.c.getLayoutMode().k(view2);
-            return view2;
+            this.l.setVisibility(8);
+            return;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.bp7
-    public zo7 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.l;
+        this.n.setVisibility(8);
+        if (!ik7Var.g()) {
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, yi.g(getContext(), R.dimen.tbds1));
+            layoutParams2.addRule(12);
+            this.l.setLayoutParams(layoutParams2);
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
+            this.l.setVisibility(0);
+            return;
         }
-        return (zo7) invokeV.objValue;
+        this.l.setVisibility(8);
     }
 }

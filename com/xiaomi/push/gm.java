@@ -155,7 +155,7 @@ public abstract class gm {
     public gj a(String str, String str2) {
         for (gj gjVar : this.f444a) {
             if (str2 == null || str2.equals(gjVar.b())) {
-                if (str.equals(gjVar.m521a())) {
+                if (str.equals(gjVar.m523a())) {
                     return gjVar;
                 }
             }
@@ -164,12 +164,12 @@ public abstract class gm {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public gq m525a() {
+    public gq m527a() {
         return this.f443a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Object m526a(String str) {
+    public synchronized Object m528a(String str) {
         if (this.f445a == null) {
             return null;
         }
@@ -177,10 +177,10 @@ public abstract class gm {
     }
 
     /* renamed from: a */
-    public abstract String mo524a();
+    public abstract String mo526a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<gj> m527a() {
+    public synchronized Collection<gj> m529a() {
         if (this.f444a == null) {
             return Collections.emptyList();
         }
@@ -318,41 +318,41 @@ public abstract class gm {
         Exception e;
         String str;
         sb = new StringBuilder();
-        for (gj gjVar : m527a()) {
+        for (gj gjVar : m529a()) {
             sb.append(gjVar.d());
         }
         if (this.f445a != null && !this.f445a.isEmpty()) {
             sb.append(bl.b("PHByb3BlcnRpZXMgeG1sbnM9Imh0dHA6Ly93d3cuaml2ZXNvZnR3YXJlLmNvbS94bWxucy94bXBwL3Byb3BlcnRpZXMiPg=="));
             for (String str2 : b()) {
-                Object m526a = m526a(str2);
+                Object m528a = m528a(str2);
                 sb.append("<property>");
                 sb.append("<name>");
                 sb.append(gx.a(str2));
                 sb.append("</name>");
                 sb.append("<value type=\"");
-                if (m526a instanceof Integer) {
+                if (m528a instanceof Integer) {
                     sb.append("integer\">");
-                    sb.append(m526a);
+                    sb.append(m528a);
                     str = "</value>";
-                } else if (m526a instanceof Long) {
+                } else if (m528a instanceof Long) {
                     sb.append("long\">");
-                    sb.append(m526a);
+                    sb.append(m528a);
                     str = "</value>";
-                } else if (m526a instanceof Float) {
+                } else if (m528a instanceof Float) {
                     sb.append("float\">");
-                    sb.append(m526a);
+                    sb.append(m528a);
                     str = "</value>";
-                } else if (m526a instanceof Double) {
+                } else if (m528a instanceof Double) {
                     sb.append("double\">");
-                    sb.append(m526a);
+                    sb.append(m528a);
                     str = "</value>";
-                } else if (m526a instanceof Boolean) {
+                } else if (m528a instanceof Boolean) {
                     sb.append("boolean\">");
-                    sb.append(m526a);
+                    sb.append(m528a);
                     str = "</value>";
-                } else if (m526a instanceof String) {
+                } else if (m528a instanceof String) {
                     sb.append("string\">");
-                    sb.append(gx.a((String) m526a));
+                    sb.append(gx.a((String) m528a));
                     str = "</value>";
                 } else {
                     ObjectOutputStream objectOutputStream2 = null;
@@ -362,7 +362,7 @@ public abstract class gm {
                             objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                             try {
                                 try {
-                                    objectOutputStream.writeObject(m526a);
+                                    objectOutputStream.writeObject(m528a);
                                     sb.append("java-object\">");
                                     sb.append(gx.a(byteArrayOutputStream.toByteArray()));
                                     sb.append("</value>");

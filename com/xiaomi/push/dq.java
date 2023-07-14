@@ -44,7 +44,7 @@ public class dq {
             if (z) {
                 ajVar.a((aj.a) duVar, a(baVar.a(hm.UploadFrequency.a(), 86400)));
             } else {
-                ajVar.m254a((aj.a) duVar);
+                ajVar.m256a((aj.a) duVar);
             }
         }
     }
@@ -78,7 +78,7 @@ public class dq {
             int a4 = a(a3.a(hm.StorageCollectionFrequency.a(), 86400));
             a2.a(new dt(this.f233a, a4), a4, 0);
         }
-        if (j.m706a(this.f233a) && (aVar = this.f234a) != null) {
+        if (j.m708a(this.f233a) && (aVar = this.f234a) != null) {
             aVar.a();
         }
         if (a3.a(hm.ActivityTSSwitch.a(), false)) {
@@ -88,7 +88,7 @@ public class dq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m359a() {
+    public void m361a() {
         aj.a(this.f233a).a(new dr(this));
     }
 }

@@ -3,7 +3,7 @@ package com.kwad.components.core.offline.init.kwai;
 import com.kwad.components.offline.api.core.api.IAsync;
 import com.kwad.sdk.utils.bd;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a implements IAsync {
     @Override // com.kwad.components.offline.api.core.api.IAsync
     public final void execute(Runnable runnable) {

@@ -1,91 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public final class iv3 {
+public class iv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public sv3 b;
 
-    public boolean equals(Object obj) {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static ev3 a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof iv3) {
-                    iv3 iv3Var = (iv3) obj;
-                    return Intrinsics.areEqual(this.a, iv3Var.a) && Intrinsics.areEqual(this.b, iv3Var.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            ev3 ev3Var = null;
+            if (bArr == null) {
+                return null;
+            }
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            byte b = wrap.get();
+            byte b2 = wrap.get();
+            if (b == -27 && b2 == -89) {
+                ev3Var = new ev3();
+                wrap.get();
+                wrap.get();
+                ev3Var.r(wrap.get());
+                ev3Var.p(wrap.get());
+                int i = wrap.getShort();
+                ev3Var.q(i);
+                int i2 = wrap.getInt();
+                ev3Var.k(i2);
+                ev3Var.l(wrap.getLong());
+                byte[] bArr2 = new byte[i];
+                wrap.get(bArr2, 0, i);
+                ev3Var.o(bArr2);
+                if (i2 > 0) {
+                    byte[] bArr3 = new byte[i2];
+                    wrap.get(bArr3, 0, i2);
+                    ev3Var.j(bArr3);
                 }
-                return false;
             }
-            return true;
+            return ev3Var;
         }
-        return invokeL.booleanValue;
+        return (ev3) invokeL.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static byte[] b(ev3 ev3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            sv3 sv3Var = this.b;
-            return hashCode + (sv3Var != null ? sv3Var.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "BdtlsRequestParams(requestData=" + this.a + ", bdtlsRequest=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public iv3(String str, sv3 sv3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, sv3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ev3Var)) == null) {
+            if (ev3Var == null) {
+                return null;
             }
+            ByteBuffer allocate = ByteBuffer.allocate(ev3Var.h() + 20 + ev3Var.b());
+            allocate.put((byte) -27);
+            allocate.put((byte) -89);
+            if (ev3Var.e() != null && ev3Var.e().length == 2) {
+                allocate.put(ev3Var.e()[0]);
+                allocate.put(ev3Var.e()[1]);
+                allocate.put(ev3Var.i());
+                allocate.put(ev3Var.g());
+                if (ev3Var.f() != null && ev3Var.f().length != 0) {
+                    int length = ev3Var.f().length;
+                    allocate.put((byte) ((length >> 8) & 255));
+                    allocate.put((byte) (length & 255));
+                    if (ev3Var.a() != null && ev3Var.a().length != 0) {
+                        allocate.putInt(ev3Var.a().length);
+                    } else {
+                        allocate.putInt(0);
+                    }
+                    allocate.putLong(ev3Var.c());
+                    if (ev3Var.f() != null) {
+                        allocate.put(ev3Var.f());
+                    }
+                    if (ev3Var.a() != null) {
+                        allocate.put(ev3Var.a());
+                    }
+                    return allocate.array();
+                }
+            }
+            return null;
         }
-        this.a = str;
-        this.b = sv3Var;
-    }
-
-    public final sv3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (sv3) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

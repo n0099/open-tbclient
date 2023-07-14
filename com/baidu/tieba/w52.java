@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Typeface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,13 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class w52 extends i52 {
+public class w52 extends b52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public float b;
-    public boolean c;
-    public boolean d;
+
+    @Override // com.baidu.tieba.b52
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public w52() {
         Interceptable interceptable = $ic;
@@ -27,71 +29,19 @@ public class w52 extends i52 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = "sans-serif";
-        this.b = tp3.g(10.0f);
-        this.c = false;
-        this.d = false;
-    }
-
-    @Override // com.baidu.tieba.i52
-    public void a(j52 j52Var, Canvas canvas) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) {
-            if (this.c && this.d) {
-                i = 3;
-            } else if (this.c) {
-                i = 1;
-            } else if (this.d) {
-                i = 2;
-            } else {
-                i = 0;
-            }
-            j52Var.e.setTypeface(Typeface.create(this.a, i));
-            j52Var.e.setTextSize(this.b);
         }
     }
 
-    @Override // com.baidu.tieba.i52
-    public void b(JSONArray jSONArray) {
-        String[] split;
+    @Override // com.baidu.tieba.b52
+    public void a(c52 c52Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, c52Var, canvas) == null) {
             try {
-                if (jSONArray.length() > 0) {
-                    for (String str : jSONArray.optString(0).split(" ")) {
-                        if (str.contains("italic")) {
-                            this.d = true;
-                        } else if (str.contains("oblique")) {
-                            this.d = true;
-                        } else if (str.contains("bold")) {
-                            this.c = true;
-                        } else if (!str.contains("normal")) {
-                            if (Character.isDigit(str.charAt(0))) {
-                                int length = str.length();
-                                int i = 0;
-                                while (true) {
-                                    if (i >= str.length()) {
-                                        break;
-                                    } else if (!Character.isDigit(str.charAt(i))) {
-                                        length = i;
-                                        break;
-                                    } else {
-                                        i++;
-                                    }
-                                }
-                                this.b = tp3.g(Float.parseFloat(str.substring(0, length)));
-                            } else {
-                                this.a = str;
-                            }
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                if (ms1.a) {
+                c52Var.f();
+                canvas.save();
+            } catch (CloneNotSupportedException e) {
+                if (fs1.a) {
                     e.printStackTrace();
                 }
             }

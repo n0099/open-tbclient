@@ -205,11 +205,11 @@ public class ClarityUrlList extends ArrayList<ClarityUrl> {
         public HashMap<String, String> mVideoOption;
         public float mVideoSize;
         public int mWidth;
-        public static final String TEXT_SD = BDPlayerConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1804);
-        public static final String TEXT_HD = BDPlayerConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1802);
-        public static final String TEXT_SC = BDPlayerConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1803);
-        public static final String TEXT_1080P = BDPlayerConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1800);
-        public static final String TEXT_AUTO = BDPlayerConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1801);
+        public static final String TEXT_SD = BDPlayerConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f181a);
+        public static final String TEXT_HD = BDPlayerConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1818);
+        public static final String TEXT_SC = BDPlayerConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1819);
+        public static final String TEXT_1080P = BDPlayerConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1816);
+        public static final String TEXT_AUTO = BDPlayerConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1817);
 
         public ClarityUrl() {
             this.mOriginRank = -1;

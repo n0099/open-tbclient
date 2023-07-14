@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,140 +16,141 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class p85 {
     public static /* synthetic */ Interceptable $ic;
-    public static final c a;
-    public static final c b;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(String str, String str2, String str3);
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b implements c {
+    public static class a extends jb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public b() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.p85.c
-        public void a(String str, String str2, String str3) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.eb
+        public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                if (str2 != null) {
-                    str3 = "code:" + str2 + " message:" + str3;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
+                if (socketMessage != null && socketMessage.getSelf() != null && (socketMessage.getSelf() instanceof NetMessage) && !kh5.a().c(socketMessage.getCmd())) {
+                    ((NetMessage) socketMessage.getSelf()).setSocketErrNo(kh5.a().b());
+                    return null;
                 }
-                Log.e("BridgeLogger", str3);
+                return socketMessage;
             }
+            return (SocketMessage) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class d implements c {
+    public static class b extends ib {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public d() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
         }
 
-        public /* synthetic */ d(a aVar) {
-            this();
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
+        @Override // com.baidu.tieba.fb
+        public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+            SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+            c(socketResponsedMessage2);
+            return socketResponsedMessage2;
         }
 
-        @Override // com.baidu.tieba.p85.c
-        public void a(String str, String str2, String str3) {
+        public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                StatisticItem statisticItem = new StatisticItem("c10729");
-                statisticItem.param("obj_param1", str);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
-                if (BdBaseApplication.getInst() != null) {
-                    TiebaStatic.log(statisticItem);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+                if (socketResponsedMessage != null) {
+                    kh5.a().f(socketResponsedMessage.getCmd());
+                }
+                return socketResponsedMessage;
+            }
+            return (SocketResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        boolean z;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948015932, "Lcom/baidu/tieba/p85;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948015932, "Lcom/baidu/tieba/p85;");
-                return;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
+                kh5.a().e(((Integer) customResponsedMessage.getData()).intValue());
             }
         }
-        a = new b(null);
-        b = new d(null);
-        if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().isDebugMode()) {
-            z = false;
-        } else {
-            z = true;
-        }
-        c = z;
     }
 
-    public static void a(String str) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && c) {
-            a.a(null, null, str);
-        }
-    }
-
-    public static void b(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            a(str3);
-        }
-    }
-
-    public static void c(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            if (c) {
-                a.a(str, str2, str3);
-            }
-            b.a(str, str2, str3);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            a aVar = new a(0);
+            aVar.setPriority(Integer.MIN_VALUE);
+            MessageManager.getInstance().addMessageRule(aVar);
+            MessageManager.getInstance().addResponsedMessageRule(new b(0));
+            c cVar = new c(2000999);
+            cVar.setPriority(Integer.MIN_VALUE);
+            MessageManager.getInstance().registerListener(cVar);
         }
     }
 }

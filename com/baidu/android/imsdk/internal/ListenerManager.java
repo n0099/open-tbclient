@@ -90,23 +90,6 @@ public class ListenerManager {
         return (String) invokeL.objValue;
     }
 
-    public synchronized IMListener removeListener(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this) {
-                if (str == null) {
-                    return null;
-                }
-                if (!this.mMap.containsKey(str)) {
-                    return null;
-                }
-                return this.mMap.remove(str);
-            }
-        }
-        return (IMListener) invokeL.objValue;
-    }
-
     public synchronized boolean addListener(String str, IMListener iMListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -134,6 +117,23 @@ public class ListenerManager {
                     return null;
                 }
                 return this.mMap.get(str);
+            }
+        }
+        return (IMListener) invokeL.objValue;
+    }
+
+    public synchronized IMListener removeListener(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                if (!this.mMap.containsKey(str)) {
+                    return null;
+                }
+                return this.mMap.remove(str);
             }
         }
         return (IMListener) invokeL.objValue;

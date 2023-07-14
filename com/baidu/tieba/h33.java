@@ -1,88 +1,124 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.websocket.WebSocketManager;
+import com.baidu.searchbox.websocket.WebSocketTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.FormBody;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class h33 extends RequestBody {
+public final class h33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaType a;
-    public final FormBody b;
+    public volatile Set<String> a;
 
-    public h33(FormBody formBody) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947772737, "Lcom/baidu/tieba/h33;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947772737, "Lcom/baidu/tieba/h33;");
+        }
+    }
+
+    public h33() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {formBody};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = formBody;
     }
 
-    public void b(MediaType mediaType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mediaType) == null) {
-            this.a = mediaType;
-        }
-    }
-
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bufferedSink) == null) {
-            this.b.writeTo(bufferedSink);
-        }
-    }
-
-    public static h33 a(FormBody formBody, MediaType mediaType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, formBody, mediaType)) == null) {
-            h33 h33Var = new h33(formBody);
-            h33Var.b(mediaType);
-            return h33Var;
-        }
-        return (h33) invokeLL.objValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
+    public final synchronized boolean a() {
         InterceptResult invokeV;
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.contentLength();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            MediaType mediaType = this.a;
-            if (mediaType == null) {
-                return this.b.contentType();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                Set<String> set = this.a;
+                z = false;
+                if (set != null) {
+                    i = set.size();
+                } else {
+                    i = 0;
+                }
+                if (i < 5) {
+                    z = true;
+                }
             }
-            return mediaType;
+            return z;
         }
-        return (MediaType) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final synchronized void b(WebSocketTask task) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
+            synchronized (this) {
+                Intrinsics.checkNotNullParameter(task, "task");
+                if (this.a == null) {
+                    this.a = new LinkedHashSet();
+                }
+                Set<String> set = this.a;
+                if (set != null) {
+                    set.add(task.getTaskId());
+                }
+            }
+        }
+    }
+
+    public final synchronized void c(String taskId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
+            synchronized (this) {
+                Intrinsics.checkNotNullParameter(taskId, "taskId");
+                Set<String> set = this.a;
+                if (set != null) {
+                    set.remove(taskId);
+                }
+            }
+        }
+    }
+
+    public final synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                Set<String> set = this.a;
+                if (set != null) {
+                    for (String str : set) {
+                        try {
+                            WebSocketManager.INSTANCE.close(str, 1001, "aiapp terminate");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                Set<String> set2 = this.a;
+                if (set2 != null) {
+                    set2.clear();
+                }
+            }
+        }
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ForumRuleBaseData;
+import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
 public interface cj7 {
-    void Y0(ForumRuleBaseData forumRuleBaseData, boolean z);
+    ItemInfo B0();
 
-    void l1(int i, ForumRuleBaseData forumRuleBaseData, String str);
+    boolean L();
 
-    void t1(int i, String str, boolean z);
+    void p1(ItemInfo itemInfo);
 }

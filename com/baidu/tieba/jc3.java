@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes6.dex */
-public final class jc3 extends ac3 {
+public abstract class jc3<T> implements zu2<byte[], T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void a(@NonNull T t, @NonNull bv2 bv2Var) throws Exception;
 
     public jc3() {
         Interceptable interceptable = $ic;
@@ -25,23 +29,31 @@ public final class jc3 extends ac3 {
         }
     }
 
-    @Override // com.baidu.tieba.ac3, com.baidu.tieba.bc3
-    public ll4 I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new pf2(this);
-        }
-        return (ll4) invokeV.objValue;
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.tieba.zu2
+    public /* bridge */ /* synthetic */ byte[] call(Object obj) throws Exception {
+        return call2((jc3<T>) obj);
     }
 
-    @Override // com.baidu.tieba.ac3, com.baidu.tieba.bc3
-    public me3 J() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zu2
+    /* renamed from: call  reason: avoid collision after fix types in other method */
+    public final byte[] call2(T t) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new oe3(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t == null) {
+                return null;
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bv2 bv2Var = new bv2(byteArrayOutputStream);
+            a(t, bv2Var);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            bv2Var.close();
+            byteArrayOutputStream.close();
+            return byteArray;
         }
-        return (me3) invokeV.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

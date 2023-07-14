@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k45;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.s45;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
                 return;
             }
         }
-        c = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X001);
+        c = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X001);
         d = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.L_X04);
     }
 
@@ -58,7 +58,7 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
             this.a.setDrawBorder(true);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setPlaceHolder(1);
-            s75.d(this.b).x(R.color.CAM_X0105);
+            d85.d(this.b).x(R.color.CAM_X0105);
         }
     }
 
@@ -138,13 +138,13 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
         a(context);
     }
 
-    public void setData(k45 k45Var) {
+    public void setData(s45 s45Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k45Var) != null) || k45Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s45Var) != null) || s45Var == null) {
             return;
         }
         b();
-        this.a.N(k45Var.a(), 10, false);
-        this.b.setText(k45Var.b());
+        this.a.N(s45Var.a(), 10, false);
+        this.b.setText(s45Var.b());
     }
 }

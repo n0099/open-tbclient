@@ -1,241 +1,181 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.os.RemoteCallbackList;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ukb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.render.IRemoteListener;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class mkb {
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsRewardVideoAd;
+import com.kwad.sdk.api.KsScene;
+import java.util.HashMap;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class mkb extends pjb<zjb> {
     public static /* synthetic */ Interceptable $ic;
-    public static mkb b;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public RemoteCallbackList<IRemoteListener> a;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mkb(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid, moduleConfigKs);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid, moduleConfigKs};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new dkb(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            zjb zjbVar = (zjb) obj;
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String tid = getTid(valueOf);
+            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
+            HashMap hashMap = new HashMap();
+            hashMap.put("thirdUserId", FunAdSdk.getFunAdConfig().userId);
+            hashMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, buildExtra);
+            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).rewardCallbackExtraData(hashMap).build();
+            onLoadStart(funAdSlot, tid);
+            KsLoadManager loadManager = KsAdSDK.getLoadManager();
+            if (loadManager == null) {
+                onError(FunAdSdk.PLATFORM_KS);
+            } else {
+                loadManager.loadRewardVideoAd(build, new a(this, tid));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements KsLoadManager.RewardVideoAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ mkb b;
 
-        public a() {
+        public a(mkb mkbVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mkbVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = mkbVar;
+            this.a = str;
         }
 
-        public final mkb a() {
-            InterceptResult invokeV;
+        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return mkb.b;
-            }
-            return (mkb) invokeV.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947976965, "Lcom/baidu/tieba/mkb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947976965, "Lcom/baidu/tieba/mkb;");
-                return;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str, this.a);
             }
         }
-        c = new a(null);
-        b = new mkb();
-    }
 
-    public mkb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
+        public void onRewardVideoResult(@Nullable List<KsRewardVideoAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+                LogPrinter.d();
             }
         }
-        this.a = new RemoteCallbackList<>();
-    }
 
-    public final synchronized void b(String str, String str2) {
-        boolean z;
-        RemoteCallbackList<IRemoteListener> remoteCallbackList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this) {
-                if (!Intrinsics.areEqual(str, "")) {
-                    int i = 1;
-                    if (str2 != null && str2.length() != 0) {
-                        z = false;
-                    } else {
-                        z = true;
+        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
+        public void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list != null && !list.isEmpty()) {
+                    KsRewardVideoAd ksRewardVideoAd = list.get(0);
+                    if (ksRewardVideoAd == null) {
+                        LogPrinter.e("onNativeAdLoad error: ad is null or empty", new Object[0]);
+                        this.b.onError(0, "No Fill", this.a);
+                        return;
                     }
-                    if (!z) {
-                        try {
-                            int beginBroadcast = this.a.beginBroadcast();
-                            ukb.a aVar = ukb.b;
-                            aVar.a("listener size = " + beginBroadcast);
-                            if (1 <= beginBroadcast) {
-                                while (true) {
-                                    this.a.getBroadcastItem(i - 1).action(str, str2);
-                                    if (i == beginBroadcast) {
-                                        break;
-                                    }
-                                    i++;
-                                }
-                            }
-                            remoteCallbackList = this.a;
-                        } catch (Exception e) {
-                            ukb.a aVar2 = ukb.b;
-                            aVar2.c("(executeAction) ex: " + e.getMessage());
-                            e.printStackTrace();
-                            remoteCallbackList = this.a;
-                        }
-                        remoteCallbackList.finishBroadcast();
+                    zjb zjbVar = new zjb(ksRewardVideoAd);
+                    mkb mkbVar = this.b;
+                    String str = this.a;
+                    mkbVar.getClass();
+                    ksRewardVideoAd.setRewardAdInteractionListener(new nkb(mkbVar, zjbVar, str));
+                    mkb mkbVar2 = this.b;
+                    String str2 = this.a;
+                    mkbVar2.getClass();
+                    if (ksRewardVideoAd != null) {
+                        ksRewardVideoAd.setRewardPlayAgainInteractionListener(new okb(mkbVar2, zjbVar, str2));
                     }
+                    this.b.onAdLoaded(zjbVar, this.a);
+                    return;
                 }
+                LogPrinter.e("onNativeAdLoad error: adList is null or empty", new Object[0]);
+                this.b.onError(0, "No Fill", this.a);
             }
         }
     }
 
-    public final synchronized boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        boolean z;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            synchronized (this) {
-                if (!Intrinsics.areEqual(str, "")) {
-                    if (str2 != null && str2.length() != 0) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (!z) {
-                        try {
-                            int beginBroadcast = this.a.beginBroadcast();
-                            if (1 <= beginBroadcast) {
-                                int i = 1;
-                                while (true) {
-                                    this.a.getBroadcastItem(i - 1).transData(str, str2);
-                                    if (i == beginBroadcast) {
-                                        break;
-                                    }
-                                    i++;
-                                }
-                            }
-                            this.a.finishBroadcast();
-                            return true;
-                        } catch (Exception e) {
-                            ukb.a aVar = ukb.b;
-                            aVar.c("(executeData) ex: " + e.getMessage());
-                            e.printStackTrace();
-                            this.a.finishBroadcast();
-                            return false;
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            zjb zjbVar = (zjb) obj;
+            onShowStart(zjbVar);
+            if (!((KsRewardVideoAd) zjbVar.a).isAdEnable()) {
+                LogPrinter.e("Ad isn't ready now", new Object[0]);
+                onAdError(zjbVar, 0, "F:ad disable");
                 return false;
             }
+            ((KsRewardVideoAd) zjbVar.a).showRewardVideoAd(activity, e());
+            return true;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public final synchronized boolean f(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bitmap)) == null) {
-            synchronized (this) {
-                if (Intrinsics.areEqual(str, "")) {
-                    return false;
-                }
-                try {
-                    int beginBroadcast = this.a.beginBroadcast();
-                    ukb.a aVar = ukb.b;
-                    aVar.f("(sendBitmap) channelId: " + str + ", size = " + beginBroadcast);
-                    if (1 <= beginBroadcast) {
-                        int i = 1;
-                        while (true) {
-                            this.a.getBroadcastItem(i - 1).transBitmap(str, bitmap);
-                            if (i == beginBroadcast) {
-                                break;
-                            }
-                            i++;
-                        }
-                    }
-                    this.a.finishBroadcast();
-                    return true;
-                } catch (Exception e) {
-                    ukb.a aVar2 = ukb.b;
-                    aVar2.c("(sendBitmap) ex: " + e.getMessage());
-                    e.printStackTrace();
-                    this.a.finishBroadcast();
-                    return false;
-                }
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void d(IRemoteListener iRemoteListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iRemoteListener) == null) {
-            this.a.register(iRemoteListener);
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            b("reportCrash", str);
-        }
-    }
-
-    public final boolean g(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, bitmap)) == null) {
-            return f(str, bitmap);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            return c(str, str2);
-        }
-        return invokeLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

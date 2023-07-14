@@ -1,80 +1,109 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.tieba.sw2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class t44 extends i44 {
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+/* loaded from: classes8.dex */
+public class t44 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948131221, "Lcom/baidu/tieba/t44;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948131221, "Lcom/baidu/tieba/t44;");
-                return;
-            }
-        }
-        c = ms1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t44() {
-        super("StartAppUsagePage");
+    public static void a(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+            s44 s44Var = new s44();
+            s44Var.b = str;
+            s44Var.e = str2;
+            if (vb3.M() != null && vb3.M().Y() != null) {
+                sw2.a Y = vb3.M().Y();
+                s44Var.a = oi3.n(Y.G());
+                s44Var.f = Y.H();
+                s44Var.c = Y.T();
+                s44Var.a("play_time", Long.valueOf(j));
             }
+            oi3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, s44Var);
         }
     }
 
-    @Override // com.baidu.tieba.i44
-    public c42 a(@NonNull JSONObject jSONObject, @NonNull gp2 gp2Var) {
-        InterceptResult invokeLL;
+    public static void b(String str, String str2) {
+        String str3;
+        sw2.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, gp2Var)) == null) {
-            cc3 b0 = cc3.b0();
-            if (b0 != null && b0.w() != null) {
-                try {
-                    b0.w().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
-                } catch (Exception e) {
-                    if (c) {
-                        e.printStackTrace();
-                    }
-                    gp3.f(b0.w());
-                }
-                gp2Var.onSuccess(null);
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (vb3.M() != null && vb3.M().Y() != null) {
+                aVar = vb3.M().Y();
+                str3 = oi3.n(aVar.G());
             } else {
-                gp2Var.onFail(100, "swan or activity is null");
-                if (c) {
-                    Log.d("StartAppUsagePage", "swan or activity is null");
-                }
+                str3 = "";
+                aVar = null;
             }
-            return null;
+            if (aVar != null && TextUtils.equals(str3, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
+                s44 s44Var = new s44();
+                s44Var.b = str;
+                s44Var.e = str2;
+                s44Var.a = str3;
+                s44Var.f = aVar.H();
+                s44Var.c = aVar.T();
+                oi3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, s44Var);
+            }
         }
-        return (c42) invokeLL.objValue;
+    }
+
+    public static void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            s44 s44Var = new s44();
+            s44Var.b = str;
+            s44Var.e = str2;
+            if (vb3.M() != null && vb3.M().Y() != null) {
+                sw2.a Y = vb3.M().Y();
+                s44Var.a = oi3.n(Y.G());
+                s44Var.f = Y.H();
+                s44Var.c = Y.T();
+            }
+            s44Var.k = str3;
+            oi3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, s44Var);
+        }
+    }
+
+    public static void d(String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            s44 s44Var = new s44();
+            s44Var.b = str;
+            s44Var.e = "show";
+            if (vb3.M() != null && vb3.M().Y() != null) {
+                sw2.a Y = vb3.M().Y();
+                s44Var.a = oi3.n(Y.G());
+                s44Var.f = Y.H();
+                s44Var.c = Y.T();
+            }
+            if (e()) {
+                str2 = "0";
+            } else {
+                str2 = "1";
+            }
+            s44Var.a("early", str2);
+            oi3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, s44Var);
+        }
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (sc4.c() > 0 && f84.c() && System.currentTimeMillis() - sc4.c() > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

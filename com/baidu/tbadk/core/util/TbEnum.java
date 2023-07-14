@@ -242,6 +242,7 @@ public abstract class TbEnum {
         public static final int MSG_SUBSCRIBE_TIPS = -7015;
         public static final short MSG_SYSTEM = 11;
         public static final short MSG_TOPIC_UPDATE = 12;
+        public static final int MSG_TYPE_SYSTEM_EMOJI_REPLY = 20000;
         public static final int MSG_TYPE_SYSTEM_EXCELLENT = 7018;
         public static final short MSG_UEG_ILLEGAL = 31;
         public static final short MSG_UNSHOW_OPERATER_ACCOUNT = 99;

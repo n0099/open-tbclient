@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g1 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public View b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class g1 extends Dialog {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,11 +113,11 @@ public class g1 extends Dialog {
             setCancelable(true);
             Window window = getWindow();
             window.setGravity(80);
-            window.setWindowAnimations(com.baidu.tieba.R.style.obfuscated_res_0x7f100443);
-            View inflate = View.inflate(this.a, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d098d, null);
+            window.setWindowAnimations(com.baidu.tieba.R.style.obfuscated_res_0x7f100444);
+            View inflate = View.inflate(this.a, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09a7, null);
             this.b = inflate;
-            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0904b1).setOnClickListener(new a(this));
-            this.b.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090f03).setOnClickListener(new b(this));
+            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0904b2).setOnClickListener(new a(this));
+            this.b.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090f12).setOnClickListener(new b(this));
             window.setContentView(this.b);
             window.setLayout(-1, -2);
         }

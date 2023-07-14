@@ -1,24 +1,52 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.zw2;
+import android.os.Bundle;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tieba.ba3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class aa3 extends ej3 {
+public final class aa3 extends v73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void onEvent(@NonNull String str) {
+    public aa3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            zw2.a W = bc3.K().q().W();
-            fj3 fj3Var = new fj3();
-            fj3Var.b = str;
-            fj3Var.a = vi3.n(W.G());
-            fj3Var.f = W.H();
-            fj3Var.c = W.T();
-            vi3.x("1088", fj3Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.v73
+    public void b(Bundle params) {
+        ba3.a b;
+        ba3.a b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            String string = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID);
+            String string2 = params.getString("swanId");
+            String string3 = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+            String string4 = params.getString("hostName");
+            if (ProcessUtils.isMainProcess()) {
+                if (string != null && (b2 = ba3.c.b()) != null) {
+                    b2.a(string, string3, string4);
+                }
+                if (string2 != null && (b = ba3.c.b()) != null) {
+                    b.b(string2, string3, string4);
+                }
+            }
         }
     }
 }

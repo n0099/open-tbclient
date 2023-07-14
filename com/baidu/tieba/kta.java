@@ -1,29 +1,81 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.qua;
+import com.baidu.tieba.yt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsTabInfo;
+import tbclient.SimpleForum;
 /* loaded from: classes6.dex */
-public class kta extends InputStream {
+public class kta implements yt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final jta a;
-    public boolean b;
-    public ByteBuffer c;
-    public IOException d;
+    public qua a;
+    public ArrayList<TransmitForumData> b;
+    public List<SimpleForum> c;
+    public yt6.a d;
+    public boolean e;
+    public int f;
+    public qua.b g;
 
-    public kta(jta jtaVar) {
+    /* loaded from: classes6.dex */
+    public class a implements qua.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kta a;
+
+        public a(kta ktaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ktaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ktaVar;
+        }
+
+        @Override // com.baidu.tieba.qua.b
+        public void a(List<SimpleForum> list, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLI(1048576, this, list, i) != null) {
+                return;
+            }
+            this.a.c = list;
+            this.a.f = i;
+            this.a.h();
+        }
+
+        @Override // com.baidu.tieba.qua.b
+        public void onError() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.g();
+            }
+        }
+    }
+
+    public kta() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jtaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,93 +85,70 @@ public class kta extends InputStream {
                 return;
             }
         }
-        this.a = jtaVar;
+        this.b = new ArrayList<>();
+        this.g = new a(this);
+        BdUniqueId gen = BdUniqueId.gen();
+        qua quaVar = new qua(gen);
+        this.a = quaVar;
+        quaVar.i(this.g);
+        this.a.j(gen);
     }
 
-    public void d(IOException iOException) {
+    @Override // com.baidu.tieba.yt6
+    public void a(yt6.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) {
-            this.d = iOException;
-            this.b = true;
-            this.c = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.d = aVar;
         }
     }
 
-    public final void a() throws IOException {
+    @Override // com.baidu.tieba.yt6
+    public void b() {
+        qua quaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.b) {
-                IOException iOException = this.d;
-                if (iOException == null) {
-                    return;
-                }
-                throw iOException;
-            } else if (!c()) {
-                if (this.c == null) {
-                    this.c = ByteBuffer.allocateDirect(32768);
-                }
-                this.c.clear();
-                this.a.v(this.c);
-                IOException iOException2 = this.d;
-                if (iOException2 == null) {
-                    ByteBuffer byteBuffer = this.c;
-                    if (byteBuffer != null) {
-                        byteBuffer.flip();
-                        return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d != null && (quaVar = this.a) != null) {
+            this.e = false;
+            quaVar.l(null);
+            this.a.k(null);
+            this.a.h();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e) {
+            return;
+        }
+        yt6.a aVar = this.d;
+        if (aVar != null) {
+            aVar.a(null, false, 2, 0);
+        }
+        this.e = true;
+    }
+
+    public final void h() {
+        Long l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.clear();
+            if (ListUtils.getCount(this.c) > 0) {
+                for (SimpleForum simpleForum : this.c) {
+                    if (simpleForum != null && (l = simpleForum.id) != null && l.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
+                        TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
+                        transmitForumData.tabItemDatas = new ArrayList<>();
+                        for (FrsTabInfo frsTabInfo : simpleForum.tab_info) {
+                            if (frsTabInfo != null && frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_id.intValue() > 0 && !StringUtils.isNull(frsTabInfo.tab_name)) {
+                                transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
+                            }
+                        }
+                        this.b.add(transmitForumData);
                     }
-                    return;
                 }
-                throw iOException2;
+            }
+            yt6.a aVar = this.d;
+            if (aVar != null) {
+                aVar.a(this.b, true, 2, this.f);
             }
         }
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ByteBuffer byteBuffer = this.c;
-            if (byteBuffer != null && byteBuffer.hasRemaining()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            a();
-            if (c()) {
-                return this.c.get() & 255;
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-            if (i >= 0 && i2 >= 0 && i + i2 <= bArr.length) {
-                if (i2 == 0) {
-                    return 0;
-                }
-                a();
-                if (c()) {
-                    int min = Math.min(this.c.limit() - this.c.position(), i2);
-                    this.c.get(bArr, i, min);
-                    return min;
-                }
-                return -1;
-            }
-            throw new IndexOutOfBoundsException();
-        }
-        return invokeLII.intValue;
     }
 }

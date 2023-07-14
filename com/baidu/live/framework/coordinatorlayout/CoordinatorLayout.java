@@ -46,9 +46,9 @@ import androidx.customview.view.AbsSavedState;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.live.framework.appbar.AppBarLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad0;
-import com.baidu.tieba.bc0;
 import com.baidu.tieba.bd0;
+import com.baidu.tieba.cc0;
+import com.baidu.tieba.cd0;
 import com.google.android.material.badge.BadgeDrawable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -67,7 +67,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public static final Comparator<View> x;
     public static final Pools.Pool<Rect> y;
     public final List<View> a;
-    public final ad0<View> b;
+    public final bd0<View> b;
     public final List<View> c;
     public final List<View> d;
     public Paint e;
@@ -413,7 +413,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             this.g = 0;
             this.h = 0;
             this.q = new Rect();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, bc0.LiveCoordinatorLayout_Layout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, cc0.LiveCoordinatorLayout_Layout);
             this.c = obtainStyledAttributes.getInteger(0, 0);
             this.f = obtainStyledAttributes.getResourceId(1, -1);
             this.d = obtainStyledAttributes.getInteger(2, 0);
@@ -937,7 +937,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     }
 
     public CoordinatorLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040472);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040473);
     }
 
     public void C(@NonNull View view2, int i) {
@@ -981,7 +981,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     }
 
     public void n(View view2, Rect rect) {
-        bd0.a(this, view2, rect);
+        cd0.a(this, view2, rect);
     }
 
     public void r(View view2, Rect rect) {
@@ -992,22 +992,22 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
         this.a = new ArrayList();
-        this.b = new ad0<>();
+        this.b = new bd0<>();
         this.c = new ArrayList();
         this.d = new ArrayList();
         this.f = new int[2];
         this.g = new int[2];
         this.t = new NestedScrollingParentHelper(this);
         if (i == 0) {
-            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, bc0.LiveCoordinatorLayout, 0, R.style.obfuscated_res_0x7f10012d);
+            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, cc0.LiveCoordinatorLayout, 0, R.style.obfuscated_res_0x7f10012e);
         } else {
-            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, bc0.LiveCoordinatorLayout, i, 0);
+            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, cc0.LiveCoordinatorLayout, i, 0);
         }
         if (Build.VERSION.SDK_INT >= 29) {
             if (i == 0) {
-                saveAttributeDataForStyleable(context, bc0.LiveCoordinatorLayout, attributeSet, obtainStyledAttributes, 0, R.style.obfuscated_res_0x7f10012d);
+                saveAttributeDataForStyleable(context, cc0.LiveCoordinatorLayout, attributeSet, obtainStyledAttributes, 0, R.style.obfuscated_res_0x7f10012e);
             } else {
-                saveAttributeDataForStyleable(context, bc0.LiveCoordinatorLayout, attributeSet, obtainStyledAttributes, i, 0);
+                saveAttributeDataForStyleable(context, cc0.LiveCoordinatorLayout, attributeSet, obtainStyledAttributes, i, 0);
             }
         }
         int resourceId = obtainStyledAttributes.getResourceId(0, 0);

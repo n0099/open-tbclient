@@ -1,84 +1,98 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.g02;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+@Service
 /* loaded from: classes7.dex */
-public class oe4 {
+public class oe4 extends g02 implements ht1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<g02.a> a;
 
-    public static String c(int i) {
-        InterceptResult invokeI;
+    public oe4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "boolean";
-                case 2:
-                case 3:
-                case 5:
-                    return "number";
-                case 4:
-                case 9:
-                case 10:
-                default:
-                    return "object";
-                case 6:
-                    return "array object";
-                case 7:
-                    return EMABTest.TYPE_STRING;
-                case 8:
-                    return "function object";
-                case 11:
-                    return StringUtil.NULL_STRING;
-                case 12:
-                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeI.objValue;
+        this.a = new ArrayList<>();
     }
 
-    public static String a(@NonNull String str, @NonNull JSTypeMismatchException jSTypeMismatchException) {
-        InterceptResult invokeLL;
+    @Nullable
+    public static oe4 c() {
+        InterceptResult invokeV;
+        s74 s74Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSTypeMismatchException)) == null) {
-            return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, c(jSTypeMismatchException.requiredType), c(jSTypeMismatchException.actualType));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            eb2 U = ix2.T().U();
+            if (U == null || (s74Var = (s74) U.n(s74.class)) == null) {
+                return null;
+            }
+            return s74Var.w3();
         }
-        return (String) invokeLL.objValue;
+        return (oe4) invokeV.objValue;
     }
 
-    public static void d(mj2 mj2Var, JSTypeMismatchException jSTypeMismatchException) {
+    public synchronized void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mj2Var, jSTypeMismatchException) == null) {
-            mj2Var.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, c(jSTypeMismatchException.requiredType), c(jSTypeMismatchException.actualType)));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Iterator<g02.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().a();
+                }
+                this.a.clear();
+            }
         }
     }
 
-    public static String b(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ht1
+    public g02 getInstance() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return String.format("%s: %s", str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return c();
         }
-        return (String) invokeLL.objValue;
+        return (g02) invokeV.objValue;
     }
 
-    public static void call(j42 j42Var, boolean z, Object obj) {
+    @Override // com.baidu.tieba.g02
+    public synchronized void a(g02.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{j42Var, Boolean.valueOf(z), obj}) == null) {
-            k64 e = k64.e(j42Var);
-            if (z) {
-                e.d(obj);
-            } else {
-                e.b(obj);
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            synchronized (this) {
+                if (!this.a.contains(aVar)) {
+                    this.a.add(aVar);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.g02
+    public synchronized void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            synchronized (this) {
+                Iterator<g02.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().b(i);
+                }
             }
         }
     }

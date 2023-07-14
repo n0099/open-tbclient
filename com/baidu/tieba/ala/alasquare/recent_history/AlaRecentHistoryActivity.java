@@ -124,7 +124,7 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
     public void setNavigationBar(NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, navigationBar) == null) {
-            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f141c);
+            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f1432);
         }
     }
 }

@@ -71,14 +71,14 @@ public final class MediaFastForward extends FrameLayout {
 
     public final void d(Context context) {
         Resources resources = getResources();
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0912, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d092c, (ViewGroup) this, true);
         this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fe6);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091435);
-        this.d = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091d41);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070861), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070860));
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ff6);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091449);
+        this.d = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091d5b);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070877), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070876));
         layoutParams.gravity = 17;
-        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081479);
+        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f08148e);
         this.a.setLayoutParams(layoutParams);
     }
 

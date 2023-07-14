@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.metadata.deserialization.ProtoTypeTableU
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.sequences.SequencesKt__SequencesKt;
 import kotlin.sequences.SequencesKt___SequencesKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TypeDeserializer$typeConstructor$1 extends Lambda implements Function1<Integer, ClassDescriptor> {
     public final /* synthetic */ ProtoBuf.Type $proto;
     public final /* synthetic */ TypeDeserializer this$0;

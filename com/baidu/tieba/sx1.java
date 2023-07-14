@@ -1,9 +1,13 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface sx1 {
-    String[] a();
+    void a(Context context, oq3<Boolean> oq3Var);
 
-    boolean b();
+    void b(boolean z, oq3<String> oq3Var);
 
-    String c();
+    void c(Context context, oq3<String> oq3Var);
+
+    void d(oq3<Integer> oq3Var);
 }

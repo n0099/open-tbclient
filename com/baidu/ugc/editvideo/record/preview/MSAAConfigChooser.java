@@ -5,7 +5,7 @@ import com.baidu.webkit.internal.monitor.MonitorType;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MSAAConfigChooser implements GLSurfaceView.EGLConfigChooser {
     @Override // android.opengl.GLSurfaceView.EGLConfigChooser
     public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {

@@ -1,61 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
+import androidx.annotation.CallSuper;
 import com.baidu.bdtask.ctrl.SubTaskState;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.tieba.qv;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class rv implements qv {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface rv {
+    @CallSuper
+    void a(SubTaskState subTaskState);
 
-    public rv() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    boolean b(TaskInfo taskInfo, int i);
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static boolean b(rv rvVar, TaskInfo taskInfo, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, rvVar, taskInfo, i)) == null) ? i == 304 : invokeLLI.booleanValue;
+        }
+
+        public static void a(rv rvVar, SubTaskState subTaskState) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(65536, null, rvVar, subTaskState) == null) && !rvVar.b(subTaskState.getTaskInfo(), subTaskState.getTaskStatus().getCurStatusCode())) {
+                rvVar.a(subTaskState);
             }
         }
-    }
 
-    @Override // com.baidu.tieba.qv
-    public void a(SubTaskState subTaskState) {
-        cv d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
-            qv.a.c(this, subTaskState);
-            bv v = BDPTask.m.v();
-            if (v != null && (d = v.d()) != null) {
-                d.c(subTaskState.getTaskInfo().getActionId(), subTaskState.getTaskStatus().getCurStatusCodeMsg());
+        @CallSuper
+        public static void c(rv rvVar, SubTaskState subTaskState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65538, null, rvVar, subTaskState) == null) {
+                uv.c.b(subTaskState);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.qv
-    public boolean b(TaskInfo taskInfo, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) {
-            return qv.a.b(this, taskInfo, i);
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public void c(SubTaskState subTaskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
-            qv.a.a(this, subTaskState);
         }
     }
 }

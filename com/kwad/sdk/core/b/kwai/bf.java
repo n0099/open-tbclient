@@ -47,10 +47,10 @@ public final class bf {
         dd.tm().put(SplashMonitorInfo.class, new fi());
         dd.tm().put(com.kwad.components.core.webview.b.a.n.class, new ew());
         dd.tm().put(com.kwad.components.core.webview.b.a.c.class, new ak());
-        dd.tm().put(a.C0653a.class, new bo());
+        dd.tm().put(a.C0658a.class, new bo());
         dd.tm().put(com.kwad.components.core.webview.b.a.o.class, new ex());
         dd.tm().put(com.kwad.components.core.f.a.class, new n());
-        dd.tm().put(a.C0658a.class, new ci());
+        dd.tm().put(a.C0663a.class, new ci());
         dd.tm().put(com.kwad.components.core.webview.b.a.e.class, new av());
         dd.tm().put(com.kwad.components.a.kwai.b.class, new dk());
         dd.tm().put(m.a.class, new eg());

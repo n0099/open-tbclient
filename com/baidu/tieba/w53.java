@@ -1,105 +1,211 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class w53 implements y53 {
-    public static /* synthetic */ Interceptable $ic;
+public class w53 implements zw2 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Boolean c = null;
+    public static int d = -1;
+    public static int e = -1;
+    public static int f = -1;
+    public static int g = -1;
+    public static int h = -1;
+    public static int i = -1;
+    public static int j = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
-    public Set<String> c;
 
-    public w53() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948221524, "Lcom/baidu/tieba/w53;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = "boxjs.";
-        this.c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948221524, "Lcom/baidu/tieba/w53;");
+        }
     }
 
-    @Override // com.baidu.tieba.y53
-    public List<k53> a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String optString = jSONObject.optString("apiName");
-            c("api-name " + optString);
-            if (TextUtils.isEmpty(optString)) {
-                return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == -1) {
+                f = b("swanswitch_file_res_cache_option");
             }
-            int optInt = jSONObject.optInt("count");
-            c("api-count " + optInt);
-            if (optInt <= 0) {
-                return arrayList;
+            if (f == 1) {
+                return true;
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("startTime");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("endTime");
-            if (optJSONArray != null && optJSONArray2 != null) {
-                int min = Math.min(optJSONArray.length(), optJSONArray2.length());
-                if (min <= 0) {
-                    return arrayList;
-                }
-                for (int i = 0; i < min; i++) {
-                    k53 k53Var = new k53();
-                    k53Var.f(optString);
-                    k53Var.g(b(k53Var));
-                    k53Var.i(optJSONArray.optLong(i));
-                    k53Var.h(optJSONArray2.optLong(i));
-                    arrayList.add(k53Var);
-                    if (y53.a) {
-                        c(k53Var.toString());
-                    }
-                }
-                return arrayList;
-            }
-            c("startTimes or endTimes is empty");
-            return arrayList;
+            return false;
         }
-        return (List) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final int b(k53 k53Var) {
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (i == -1) {
+                i = b("swan_http_interceptor_opt");
+            }
+            if (i > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (f() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (j == -1) {
+                j = b("swan_js_thread_opt");
+            }
+            return j;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (h == -1) {
+                h = b("swan_preload_slave_opt");
+            }
+            return h;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (d == -1) {
+                d = b("swan_http_thread_opt");
+            }
+            if (d > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (d == -1) {
+                d = b("swan_http_thread_opt");
+            }
+            int i2 = d;
+            if (i2 > 0 && i2 != 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (g == -1) {
+                g = b("swan_ubc_samping_opt");
+            }
+            return g;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (j() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (c == null) {
+                c = Boolean.valueOf(d("swan_js_thread_dispatch"));
+            }
+            return c.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            if (e == -1) {
+                e = b("swan_webview_ssl_opt");
+            }
+            if (e > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var)) == null) {
-            String a = k53Var.a();
-            if (TextUtils.isEmpty(a)) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            cv2.g0().getSwitch(str, 0);
+            if (zw2.a) {
+                Log.d("SwanPerformance", "packing[" + str + " = 0" + PreferencesUtil.RIGHT_MOUNT);
             }
-            if (!a.startsWith(this.b) && !this.c.contains(a)) {
-                return 0;
-            }
-            return 1;
+            return 0;
         }
         return invokeL.intValue;
     }
 
-    public final void c(String str) {
+    public static boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && y53.a) {
-            Log.d("Api-Parser", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (b(str) != 0) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

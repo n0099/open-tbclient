@@ -1,45 +1,35 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UploadDataProvider;
-import com.baidu.turbonet.net.UploadDataSink;
-import java.io.IOException;
-import java.net.ProtocolException;
-import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public final class gta extends lta {
+public class gta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int d;
-    public final UploadDataProvider e;
-    public ByteBuffer f;
-    public boolean g;
+    public fta a;
+    public final l9 b;
+    public final ao c;
+    public Runnable d;
+    public boolean e;
+    public Runnable f;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // com.baidu.tieba.lta
-    public void e() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends UploadDataProvider {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gta a;
 
-        public b(gta gtaVar) {
+        public a(gta gtaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,60 +47,21 @@ public final class gta extends lta {
             this.a = gtaVar;
         }
 
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void c(UploadDataSink uploadDataSink) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
-                this.a.f.position(0);
-                uploadDataSink.c();
-            }
-        }
-
-        public /* synthetic */ b(gta gtaVar, a aVar) {
-            this(gtaVar);
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public long a() {
-            InterceptResult invokeV;
-            int position;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.d == -1) {
-                    if (this.a.g) {
-                        position = this.a.f.limit();
-                    } else {
-                        position = this.a.f.position();
-                    }
-                    return position;
-                }
-                return this.a.d;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
-                int remaining = byteBuffer.remaining();
-                if (remaining < this.a.f.remaining()) {
-                    byteBuffer.put(this.a.f.array(), this.a.f.position(), remaining);
-                    this.a.f.position(this.a.f.position() + remaining);
-                } else {
-                    byteBuffer.put(this.a.f);
-                }
-                uploadDataSink.a(false);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.e();
             }
         }
     }
 
-    public gta(jta jtaVar) {
+    public gta(l9 l9Var, ao aoVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jtaVar};
+            Object[] objArr = {l9Var, aoVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -120,105 +71,123 @@ public final class gta extends lta {
                 return;
             }
         }
-        this.e = new b(this, null);
-        if (jtaVar != null) {
-            this.d = -1;
-            this.f = ByteBuffer.allocate(16384);
+        this.f = new a(this);
+        this.b = l9Var;
+        this.c = aoVar;
+    }
+
+    @NonNull
+    public final Rect b(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            Rect rect = new Rect();
+            view2.getGlobalVisibleRect(rect);
+            return rect;
+        }
+        return (Rect) invokeL.objValue;
+    }
+
+    public final boolean c(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) {
+            float j = yi.j(TbadkCoreApplication.getInst());
+            int i = (int) (0.0f * j);
+            int i2 = (int) (j * 0.66f);
+            if (rect.top >= i && rect.bottom <= i2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (view2.getTag(R.id.virtual_image_user_head) instanceof fta)) {
+            ((fta) view2.getTag(R.id.virtual_image_user_head)).f();
+            view2.setTag(R.id.virtual_image_user_head, null);
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.e) {
             return;
         }
-        throw null;
-    }
+        if (this.d == null) {
+            this.d = new Runnable() { // from class: com.baidu.tieba.eta
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public gta(jta jtaVar, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jtaVar, Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = new b(this, null);
-        if (jtaVar != null) {
-            if (j <= 2147483647L) {
-                if (j >= 0) {
-                    int i3 = (int) j;
-                    this.d = i3;
-                    this.f = ByteBuffer.allocate(i3);
-                    return;
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        gta.this.f();
+                    }
                 }
-                throw new IllegalArgumentException("Content length < 0.");
-            }
-            throw new IllegalArgumentException("Use setFixedLengthStreamingMode() or setChunkedStreamingMode() for requests larger than 2GB.");
+            };
         }
-        throw new NullPointerException("Argument connection cannot be null.");
+        zg.a().postDelayed(this.d, i);
     }
 
-    @Override // java.io.OutputStream
-    public void write(int i) throws IOException {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            c();
-            l(1);
-            this.f.put((byte) i);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d != null) {
+            zg.a().removeCallbacks(this.d);
         }
     }
 
-    @Override // com.baidu.tieba.lta
-    public UploadDataProvider f() {
-        InterceptResult invokeV;
+    public final void f() {
+        ao aoVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (UploadDataProvider) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lta
-    public void g() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g = true;
-            if (this.f.position() >= this.d) {
-                this.f.flip();
-                return;
-            }
-            throw new ProtocolException("Content received is less than Content-Length");
-        }
-    }
-
-    public final void l(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (this.d != -1 && this.f.position() + i > this.d) {
-                throw new ProtocolException("exceeded content-length limit of " + this.d + " bytes");
-            } else if (!this.g) {
-                if (this.d != -1 || this.f.limit() - this.f.position() > i) {
-                    return;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b != null && (aoVar = this.c) != null && aoVar.getListView().getChildCount() != 0 && this.c.getContentViewsCount() != 0) {
+            Context context = this.c.getListView().getContext();
+            if (context instanceof Activity) {
+                Activity activity = (Activity) context;
+                if (!activity.isFinishing() && !activity.isDestroyed()) {
+                    int childCount = this.c.getListView().getChildCount();
+                    for (int i = 0; i < childCount; i++) {
+                        View childAt = this.c.getListView().getChildAt(i);
+                        if (childAt != null && (childAt.getTag(R.id.virtual_image_user_head) instanceof fta)) {
+                            fta ftaVar = (fta) childAt.getTag(R.id.virtual_image_user_head);
+                            if (c(b(childAt))) {
+                                ftaVar.play();
+                            }
+                        }
+                    }
                 }
-                ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.f.capacity() * 2, this.f.capacity() + i));
-                this.f.flip();
-                allocate.put(this.f);
-                this.f = allocate;
-            } else {
-                throw new IllegalStateException("Use setFixedLengthStreamingMode() or setChunkedStreamingMode() for writing after connect");
             }
         }
     }
 
-    @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
+    public void g() {
+        ao aoVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
-            c();
-            l(i2);
-            this.f.put(bArr, i, i2);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.e && this.b != null && (aoVar = this.c) != null && aoVar.getListView() != null && this.c.getListView().getChildCount() != 0 && this.c.getContentViewsCount() != 0) {
+            int childCount = this.c.getListView().getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = this.c.getListView().getChildAt(i);
+                if (childAt != null && (childAt.getTag(R.id.virtual_image_user_head) instanceof fta)) {
+                    fta ftaVar = (fta) childAt.getTag(R.id.virtual_image_user_head);
+                    this.a = ftaVar;
+                    if (ftaVar.d()) {
+                        this.a.c();
+                        da5.p().A("key_reaction_guide_show_number", true);
+                        zg.a().postDelayed(this.f, 4000L);
+                        return;
+                    }
+                }
+            }
         }
     }
 }

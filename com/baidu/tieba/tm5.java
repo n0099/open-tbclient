@@ -1,25 +1,24 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 /* loaded from: classes8.dex */
-public class tm5 extends pm5 {
+public class tm5 implements xm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+    public ByteBuffer a;
 
-    @Override // com.baidu.tieba.pm5
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xm5
+    public void close() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "round_corner" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
     }
 
     public tm5() {
@@ -32,33 +31,61 @@ public class tm5 extends pm5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        d(10240);
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.position();
+        }
+        return invokeV.intValue;
+    }
+
+    public byte[] f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a.array();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public void b(byte b) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b) == null) {
+            this.a.put(b);
         }
     }
 
-    @Override // com.baidu.tieba.pm5
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
+    public void c(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            if (this.a <= 0.0f) {
-                return bitmap;
-            }
-            TbImageMemoryCache.u().s(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.getRoundedCornerBitmap(bitmap, this.a, z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
+            this.a.put(bArr);
         }
-        return (Bitmap) invokeLZ.objValue;
     }
 
-    @Override // com.baidu.tieba.pm5
-    public void d(String str) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            ByteBuffer byteBuffer = this.a;
+            if (byteBuffer == null || i > byteBuffer.capacity()) {
+                ByteBuffer allocate = ByteBuffer.allocate(i);
+                this.a = allocate;
+                allocate.order(ByteOrder.LITTLE_ENDIAN);
+            }
+            this.a.clear();
         }
-        this.a = vg.d(str, 0.0f);
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a.position(i + a());
+        }
     }
 }

@@ -28,7 +28,7 @@ public class PayMemberInfoData extends OrmObject {
         }
     }
 
-    public void U(PayMemberInfo payMemberInfo) {
+    public void V(PayMemberInfo payMemberInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, payMemberInfo) != null) || payMemberInfo == null) {
             return;

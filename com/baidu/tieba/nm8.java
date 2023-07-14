@@ -1,157 +1,161 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
-import com.baidu.tbadk.core.atomData.OfficialBarFeedActivityConfig;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.immessagecenter.StrangerListActivityConfig;
-import com.baidu.tieba.immessagecenter.im.chat.notify.MessageAggregationListAdapter;
-import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
-import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class nm8 implements AdapterView.OnItemClickListener {
+public class nm8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final int b;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final BdUniqueId b;
-    public final MsgChatCenterSliceView c;
-    public final MessageAggregationListAdapter d;
-    public final MsgChatCenterSliceViewModel e;
 
-    public nm8(Context context, BdUniqueId uniqueId, MsgChatCenterSliceView sliceView, MessageAggregationListAdapter messageAggregationListAdapter, MsgChatCenterSliceViewModel viewModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, uniqueId, sliceView, messageAggregationListAdapter, viewModel};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948007376, "Lcom/baidu/tieba/nm8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948007376, "Lcom/baidu/tieba/nm8;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
-        Intrinsics.checkNotNullParameter(sliceView, "sliceView");
-        Intrinsics.checkNotNullParameter(viewModel, "viewModel");
-        this.a = context;
-        this.b = uniqueId;
-        this.c = sliceView;
-        this.d = messageAggregationListAdapter;
-        this.e = viewModel;
+        a = UtilHelper.getDimenPixelSize(R.dimen.tbds28_5);
+        b = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
+        c = UtilHelper.getDimenPixelSize(R.dimen.tbds83);
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        ImMessageCenterShowItemData imMessageCenterShowItemData;
-        boolean z;
-        String str;
-        String str2;
+    public static boolean e() {
+        InterceptResult invokeV;
+        Integer num;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i < 0) {
-            return;
-        }
-        MessageAggregationListAdapter messageAggregationListAdapter = this.d;
-        String str3 = null;
-        if (messageAggregationListAdapter != null) {
-            imMessageCenterShowItemData = messageAggregationListAdapter.getItem(i);
-        } else {
-            imMessageCenterShowItemData = null;
-        }
-        if (imMessageCenterShowItemData != null && imMessageCenterShowItemData.getDataType() == 2) {
-            z = true;
-        } else {
-            z = false;
-        }
-        if (z) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a).createNormalCfg(imMessageCenterShowItemData.getForumName(), FrsActivityConfig.FRS_FROM_IM_REC_FORUM)));
-            uo8.a.f(imMessageCenterShowItemData);
-            return;
-        }
-        if (imMessageCenterShowItemData != null) {
-            uo8.a.d(imMessageCenterShowItemData, this.a);
-        }
-        StatisticItem statisticItem = new StatisticItem("c13720");
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        if (imMessageCenterShowItemData != null) {
-            str = imMessageCenterShowItemData.getOwnerName();
-        } else {
-            str = null;
-        }
-        if (TextUtils.isEmpty(str)) {
-            wo8.a(imMessageCenterShowItemData, this.a, this.b);
-            statisticItem.param("obj_type", 6);
-        } else if (Intrinsics.areEqual(str, "5")) {
-            TiebaStatic.log("c12931");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialBarFeedActivityConfig(this.a)));
-        } else if (Intrinsics.areEqual(str, "8")) {
-            long g = vg.g(imMessageCenterShowItemData.getFriendId(), 0L);
-            OfficalBarChatActivityConfig officalBarChatActivityConfig = new OfficalBarChatActivityConfig(this.a, g, imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendPortrait(), 0, imMessageCenterShowItemData.getUserType());
-            uo8.a.g(g);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002006, officalBarChatActivityConfig));
-        } else if (Intrinsics.areEqual(str, "7")) {
-            TiebaStatic.log(new StatisticItem("c12614"));
-            statisticItem.param("obj_type", 6);
-            uo8.a.e(imMessageCenterShowItemData);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new StrangerListActivityConfig(this.a)));
-            return;
-        } else if (Intrinsics.areEqual(str, "9")) {
-            this.c.V(imMessageCenterShowItemData);
-            if (imMessageCenterShowItemData.getAtInfoData() != null) {
-                imMessageCenterShowItemData.setAtInfoData(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            HashMap<String, Integer> baseSwitchs = SwitchManager.getInstance().getBaseSwitchs();
+            if (baseSwitchs == null || !baseSwitchs.containsKey("is_shield_emoji_reply_entrance") || (num = baseSwitchs.get("is_shield_emoji_reply_entrance")) == null || num.intValue() == 1) {
+                return true;
             }
-            imMessageCenterShowItemData.setUnReadCount(0);
-            this.e.B(false);
-            this.e.o().T(vg.g(imMessageCenterShowItemData.getFriendId(), 0L));
-            this.e.E(null, imMessageCenterShowItemData, 2);
-            uo8.a.c(imMessageCenterShowItemData);
-            this.e.o().I();
-        } else {
-            wo8.a(imMessageCenterShowItemData, this.a, this.b);
-            statisticItem.param("obj_type", 6);
+            return false;
         }
-        if (imMessageCenterShowItemData != null) {
-            str2 = imMessageCenterShowItemData.getFriendName();
-        } else {
-            str2 = null;
+        return invokeV.booleanValue;
+    }
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (yi.l(TbadkApplication.getInst()) - (a * 2)) / ((b * 2) + c);
         }
-        if (!TextUtils.isEmpty(str2)) {
-            if (imMessageCenterShowItemData != null) {
-                str3 = imMessageCenterShowItemData.getFriendName();
-            }
-            if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cac))) {
-                statisticItem.param("obj_type", 8);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0caf))) {
-                statisticItem.param("obj_type", 9);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cad))) {
-                statisticItem.param("obj_type", 10);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0ca8))) {
-                statisticItem.param("obj_type", 4);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0caa))) {
-                statisticItem.param("obj_type", 5);
+        return invokeV.intValue;
+    }
+
+    @Nullable
+    public static EmojiData b(@NonNull String str, @NonNull List<EmojiData> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            try {
+                URL url = new URL(str);
+                for (EmojiData emojiData : list) {
+                    URL url2 = new URL(emojiData.getContent());
+                    if (url.getHost().equals(url2.getHost()) && url.getPath().equals(url2.getPath())) {
+                        return emojiData;
+                    }
+                }
+                return null;
+            } catch (Exception unused) {
+                return null;
             }
         }
-        TiebaStatic.log(statisticItem);
-        if (imMessageCenterShowItemData != null) {
-            uo8.a.b(imMessageCenterShowItemData, this.a);
+        return (EmojiData) invokeLL.objValue;
+    }
+
+    public static boolean c(@NonNull GroupInputViewController groupInputViewController) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, groupInputViewController)) == null) {
+            return !groupInputViewController.k1(Arrays.asList(Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE)));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(@NonNull Reaction reaction, @NonNull List<EmojiData> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, reaction, list)) == null) {
+            EmojiData b2 = b(reaction.getContent(), list);
+            if (b2 != null) {
+                return b2.hasReplied();
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void f(@NonNull ml8 ml8Var, int i, @NonNull BaseMsg baseMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65542, null, ml8Var, i, baseMsg) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("scene", Integer.valueOf(i));
+            ml8Var.d(new AbilityItem("open_emoji_panel", hashMap, null), baseMsg, null);
+        }
+    }
+
+    public static void g(@NonNull ml8 ml8Var, @NonNull EmojiData emojiData, @NonNull BaseMsg baseMsg, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65543, null, ml8Var, emojiData, baseMsg, i) == null) {
+            h(ml8Var, new Reaction("", emojiData.getContent()), baseMsg, i);
+        }
+    }
+
+    public static void h(@NonNull ml8 ml8Var, @NonNull Reaction reaction, @NonNull BaseMsg baseMsg, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65544, null, ml8Var, reaction, baseMsg, i) == null) {
+            List<EmojiData> emojiList = baseMsg.getCommonMsgField().getEmojiList();
+            boolean z = true;
+            if (emojiList != null) {
+                boolean d = d(reaction, emojiList);
+                if (i != 1) {
+                    int i2 = 2;
+                    if (i == 2) {
+                        z = true ^ d;
+                        if (!z) {
+                            i2 = 3;
+                        }
+                        ep8.h(i2);
+                    }
+                } else if (d) {
+                    return;
+                } else {
+                    ep8.h(1);
+                }
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("content", reaction.getContent());
+            hashMap.put(SpeedStatsUtils.UBC_KEY_OPTION, Boolean.valueOf(z));
+            ml8Var.d(new AbilityItem("send_emoji_msg", hashMap, null), baseMsg, null);
         }
     }
 }

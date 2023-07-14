@@ -36,8 +36,8 @@ import com.baidu.tieba.aa;
 import com.baidu.tieba.ba;
 import com.baidu.tieba.db;
 import com.baidu.tieba.eb;
-import com.baidu.tieba.ew8;
 import com.baidu.tieba.fb;
+import com.baidu.tieba.h29;
 import com.baidu.tieba.hb;
 import com.baidu.tieba.kb;
 import com.baidu.tieba.lb;
@@ -49,10 +49,10 @@ import com.baidu.tieba.ob;
 import com.baidu.tieba.pa;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.th;
-import com.baidu.tieba.uf;
+import com.baidu.tieba.uh;
+import com.baidu.tieba.vf;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -177,7 +177,7 @@ public class MessageManager {
     public void addMessageRule(eb<?, ?> ebVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ebVar) == null) {
-            if (xi.E()) {
+            if (yi.F()) {
                 this.mController.b(ebVar);
             } else {
                 this.mUIHandler.post(new Runnable(this, ebVar) { // from class: com.baidu.adp.framework.MessageManager.10
@@ -220,7 +220,7 @@ public class MessageManager {
     public void addRemovedMessageRule(db dbVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dbVar) == null) {
-            if (xi.E()) {
+            if (yi.F()) {
                 this.mController.a(dbVar);
             } else {
                 this.mUIHandler.post(new Runnable(this, dbVar) { // from class: com.baidu.adp.framework.MessageManager.13
@@ -263,7 +263,7 @@ public class MessageManager {
     public void addResponsedMessageRule(fb<?> fbVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fbVar) == null) {
-            if (xi.E()) {
+            if (yi.F()) {
                 this.mController.c(fbVar);
             } else {
                 this.mUIHandler.post(new Runnable(this, fbVar) { // from class: com.baidu.adp.framework.MessageManager.12
@@ -325,7 +325,7 @@ public class MessageManager {
         if ((interceptable != null && interceptable.invokeL(1048591, this, messageListener) != null) || messageListener == null) {
             return;
         }
-        if (xi.E()) {
+        if (yi.F()) {
             registerListenerInternal(messageListener);
         } else {
             this.mUIHandler.post(new Runnable(this, messageListener) { // from class: com.baidu.adp.framework.MessageManager.6
@@ -370,7 +370,7 @@ public class MessageManager {
         if ((interceptable != null && interceptable.invokeL(1048593, this, messageListener) != null) || messageListener == null) {
             return;
         }
-        if (xi.E()) {
+        if (yi.F()) {
             registerListener(messageListener);
         } else {
             this.mUIHandler.post(new Runnable(this, messageListener) { // from class: com.baidu.adp.framework.MessageManager.5
@@ -445,7 +445,7 @@ public class MessageManager {
     public void removeMessageRule(eb<?, ?> ebVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, ebVar) == null) {
-            if (xi.E()) {
+            if (yi.F()) {
                 this.mController.d(ebVar);
             } else {
                 this.mUIHandler.post(new Runnable(this, ebVar) { // from class: com.baidu.adp.framework.MessageManager.11
@@ -542,7 +542,7 @@ public class MessageManager {
 
     public void unRegisterListener(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048612, this, i) == null) && xi.E()) {
+        if ((interceptable == null || interceptable.invokeI(1048612, this, i) == null) && yi.F()) {
             this.mCustomManager.s(i);
         }
     }
@@ -550,7 +550,7 @@ public class MessageManager {
     public void unRegisterStickyMode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
-            xi.c();
+            yi.c();
             pb<?, ?, ?, ?> manager = getManager(i);
             if (manager != null) {
                 manager.v(i);
@@ -586,7 +586,7 @@ public class MessageManager {
         if ((interceptable != null && interceptable.invokeIL(1048589, this, i, messageListener) != null) || messageListener == null) {
             return;
         }
-        if (xi.E()) {
+        if (yi.F()) {
             registerListenerInternal(i, messageListener);
         } else {
             this.mUIHandler.post(new Runnable(this, i, messageListener) { // from class: com.baidu.adp.framework.MessageManager.7
@@ -741,7 +741,7 @@ public class MessageManager {
         if ((interceptable != null && interceptable.invokeL(1048592, this, kbVar) != null) || kbVar == null) {
             return;
         }
-        if (xi.E()) {
+        if (yi.F()) {
             this.mHttpManager.n(0, kbVar.getHttpMessageListener());
             this.mSocketManager.n(0, kbVar.getSocketMessageListener());
             return;
@@ -803,7 +803,7 @@ public class MessageManager {
         if ((interceptable != null && interceptable.invokeL(1048615, this, kbVar) != null) || kbVar == null) {
             return;
         }
-        if (xi.E()) {
+        if (yi.F()) {
             this.mHttpManager.u(kbVar.getHttpMessageListener());
             this.mSocketManager.u(kbVar.getSocketMessageListener());
             return;
@@ -919,7 +919,7 @@ public class MessageManager {
             if (netMessage == null) {
                 return false;
             }
-            boolean netABTest = ((uf) ServiceManager.getService(uf.a)).netABTest();
+            boolean netABTest = ((vf) ServiceManager.getService(vf.a)).netABTest();
             if (netMessage.getNetType() == NetMessage.NetType.SOCKET) {
                 return sendMessage(netMessage.getSocketMessage());
             }
@@ -963,7 +963,7 @@ public class MessageManager {
     public void unRegisterListener(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, bdUniqueId) == null) {
-            if (xi.E()) {
+            if (yi.F()) {
                 unRegisterListenerInternal(bdUniqueId);
             } else {
                 this.mUIHandler.post(new Runnable(this, bdUniqueId) { // from class: com.baidu.adp.framework.MessageManager.9
@@ -1014,7 +1014,7 @@ public class MessageManager {
         if (interceptable == null || interceptable.invokeL(1048580, this, responsedMessage) == null) {
             if (responsedMessage == null) {
                 BdLog.e("responsedMessage is null!!!");
-            } else if (!xi.E()) {
+            } else if (!yi.F()) {
                 this.mUIHandler.post(new Runnable(this, responsedMessage) { // from class: com.baidu.adp.framework.MessageManager.14
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -1061,7 +1061,7 @@ public class MessageManager {
                     if (responsedMessage.getError() != 0) {
                         if (BdNetTypeUtil.isNetWorkAvailable()) {
                             this.mHttpMsgCWSendFailedCnt++;
-                            if (this.mHttpMsgCWSendFailedCnt >= th.o().q("alert_http", 3)) {
+                            if (this.mHttpMsgCWSendFailedCnt >= uh.o().q("alert_http", 3)) {
                                 BdStatisticsManager.getInstance().alert("alert_http", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                             }
                         }
@@ -1080,7 +1080,7 @@ public class MessageManager {
                     if (responsedMessage.getError() != 0) {
                         if (BdNetTypeUtil.isNetWorkAvailable()) {
                             this.mSocketMsgCWSendFailedCnt++;
-                            if (this.mSocketMsgCWSendFailedCnt >= th.o().q("alert_im", 3)) {
+                            if (this.mSocketMsgCWSendFailedCnt >= uh.o().q("alert_im", 3)) {
                                 BdStatisticsManager.getInstance().alert("alert_im", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                             }
                         }
@@ -1209,7 +1209,7 @@ public class MessageManager {
         if ((interceptable != null && interceptable.invokeIL(1048590, this, i, kbVar) != null) || kbVar == null) {
             return;
         }
-        if (xi.E()) {
+        if (yi.F()) {
             this.mHttpManager.n(i, kbVar.getHttpMessageListener());
             this.mSocketManager.n(i, kbVar.getSocketMessageListener());
             return;
@@ -1331,7 +1331,7 @@ public class MessageManager {
                 return this.mHttpManager.c((HttpMessage) message, null);
             } else if (message instanceof SocketMessage) {
                 w9.h("Request_Socket", message);
-                ew8 netLog = NetLog.getInstance();
+                h29 netLog = NetLog.getInstance();
                 netLog.c("Request_Http", "触发请求： ClientLogId : " + message.getClientLogID());
                 return this.mSocketManager.c((SocketMessage) message, null);
             } else if (message instanceof CustomMessage) {
@@ -1378,12 +1378,12 @@ public class MessageManager {
             }
             if ((message instanceof HttpMessage) && (messageTask instanceof HttpMessageTask)) {
                 w9.h("Request_Http", message);
-                ew8 netLog = NetLog.getInstance();
+                h29 netLog = NetLog.getInstance();
                 netLog.c("Request_Http", " ClientLogId : " + message.getClientLogID());
                 return this.mHttpManager.c((HttpMessage) message, (HttpMessageTask) messageTask);
             } else if ((message instanceof SocketMessage) && (messageTask instanceof SocketMessageTask)) {
                 w9.h("Request_Socket", message);
-                ew8 netLog2 = NetLog.getInstance();
+                h29 netLog2 = NetLog.getInstance();
                 netLog2.c("Request_Http", " ClientLogId : " + message.getClientLogID());
                 return this.mSocketManager.c((SocketMessage) message, (SocketMessageTask) messageTask);
             } else if ((message instanceof CustomMessage) && (messageTask instanceof CustomMessageTask)) {
@@ -1428,7 +1428,7 @@ public class MessageManager {
         if ((interceptable != null && interceptable.invokeL(1048614, this, messageListener) != null) || messageListener == null) {
             return;
         }
-        if (xi.E()) {
+        if (yi.F()) {
             unRegisterListenerInternal(messageListener);
         } else {
             this.mUIHandler.post(new Runnable(this, messageListener) { // from class: com.baidu.adp.framework.MessageManager.8

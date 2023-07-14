@@ -2,7 +2,7 @@ package com.kwad.components.ad.reward.e;
 
 import com.ksad.json.annotation.KsJson;
 @KsJson
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public long en = -1;
     public int oV = 0;

@@ -5,25 +5,25 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.u19;
-import com.baidu.tieba.x19;
-import com.baidu.tieba.y19;
+import com.baidu.tieba.b89;
+import com.baidu.tieba.c89;
+import com.baidu.tieba.y79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u19 a;
-    public x19 b;
-    public y19 c;
-    public u19.f d;
+    public y79 a;
+    public b89 b;
+    public c89 c;
+    public y79.f d;
     public View.OnClickListener e;
 
-    /* loaded from: classes6.dex */
-    public class a implements u19.f {
+    /* loaded from: classes7.dex */
+    public class a implements y79.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailManagementActivity a;
@@ -46,7 +46,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             this.a = tailManagementActivity;
         }
 
-        @Override // com.baidu.tieba.u19.f
+        @Override // com.baidu.tieba.y79.f
         public void callback() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -57,16 +57,16 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     this.a.b.l(g);
                 }
                 TailManagementActivity tailManagementActivity = this.a;
-                y19 y19Var = tailManagementActivity.c;
+                c89 c89Var = tailManagementActivity.c;
                 if (tailManagementActivity.b.h().size() != 0) {
                     z = false;
                 }
-                y19Var.e(g, z);
+                c89Var.e(g, z);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,11 +101,11 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     boolean z2 = !this.a.b.g();
                     this.a.b.l(z2);
                     TailManagementActivity tailManagementActivity = this.a;
-                    y19 y19Var = tailManagementActivity.c;
+                    c89 c89Var = tailManagementActivity.c;
                     if (tailManagementActivity.b.h().size() != 0) {
                         z = false;
                     }
-                    y19Var.e(z2, z);
+                    c89Var.e(z2, z);
                     this.a.a.j();
                 }
             }
@@ -145,19 +145,19 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0938);
-            this.b = new x19(getPageContext());
-            this.a = new u19(getPageContext(), this.b, this.d);
-            y19 y19Var = new y19(this, this.e);
-            this.c = y19Var;
-            y19Var.d(this.a);
-            y19 y19Var2 = this.c;
+            setContentView(R.layout.obfuscated_res_0x7f0d0952);
+            this.b = new b89(getPageContext());
+            this.a = new y79(getPageContext(), this.b, this.d);
+            c89 c89Var = new c89(this, this.e);
+            this.c = c89Var;
+            c89Var.d(this.a);
+            c89 c89Var2 = this.c;
             if (this.b.h().size() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            y19Var2.e(false, z);
+            c89Var2.e(false, z);
             if (this.b.i(getIntent().getSerializableExtra("list"))) {
                 this.a.j();
             }

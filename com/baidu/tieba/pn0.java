@@ -1,43 +1,68 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yn0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.mn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Map;
+@Service
 /* loaded from: classes7.dex */
-public class pn0 implements wn0, Runnable {
+public class pn0 extends bk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentLinkedQueue<yn0.b<?>> a;
-    public final AtomicBoolean b;
+
+    @Override // com.baidu.tieba.bk0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "scheduledDownload" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements mn0.b {
         public static /* synthetic */ Interceptable $ic;
-        public static final pn0 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jk0 a;
+        public final /* synthetic */ fk0 b;
+        public final /* synthetic */ pn0 c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-512728262, "Lcom/baidu/tieba/pn0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-512728262, "Lcom/baidu/tieba/pn0$a;");
+        public a(pn0 pn0Var, jk0 jk0Var, fk0 fk0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pn0Var, jk0Var, fk0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new pn0();
+            this.c = pn0Var;
+            this.a = jk0Var;
+            this.b = fk0Var;
+        }
+
+        @Override // com.baidu.tieba.mn0.b
+        public void onResult(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z) {
+                    this.c.c(this.a, this.b, 0, true);
+                } else {
+                    this.c.c(this.a, this.b, 202, true);
+                }
+            }
         }
     }
 
@@ -51,47 +76,19 @@ public class pn0 implements wn0, Runnable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentLinkedQueue<>();
-        this.b = new AtomicBoolean(false);
-    }
-
-    public static wn0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (wn0) invokeV.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-            return;
-        }
-        while (true) {
-            yn0.b<?> poll = this.a.poll();
-            if (poll != null) {
-                poll.a.onEvent(poll.b);
-            } else {
-                this.b.set(false);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.wn0
-    public <T extends un0> void a(zn0 zn0Var, xn0<T> xn0Var, T t) {
+    @Override // com.baidu.tieba.bk0
+    public boolean b(@NonNull Context context, @NonNull fk0 fk0Var, @Nullable Map<String, Object> map, @Nullable jk0 jk0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, zn0Var, xn0Var, t) == null) {
-            this.a.offer(new yn0.b<>(zn0Var, xn0Var, t));
-            if (this.b.compareAndSet(false, true)) {
-                s41.c(this, "AsyncDeliver", 3);
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fk0Var, map, jk0Var)) == null) {
+            super.b(context, fk0Var, map, jk0Var);
+            mn0.b().c(context, fk0Var.d(), new a(this, jk0Var, fk0Var));
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

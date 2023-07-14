@@ -40,7 +40,7 @@ import javax.net.ssl.SSLSession;
 import javax.security.auth.x500.X500Principal;
 import okhttp3.CertificatePinner;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BdNetEngine extends HandlerThread implements INoProGuard {
     public static final int ALT_DNS_NAME = 2;
     public static final int ALT_IPA_NAME = 7;
@@ -73,7 +73,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     public static Object mSelfLock = new Object();
     public static long mWaitTime = 10000;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public final String a;
         public final int b;
@@ -383,7 +383,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         BdNetTask onNetDownloadComplete(BdNetEngine bdNetEngine, BdNetTask bdNetTask, boolean z);
 

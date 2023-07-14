@@ -186,8 +186,8 @@ public class FullScreenFloatView extends FrameLayout {
 
     public void moveToDefaultPosition() {
         if (this.mFloatImgView != null) {
-            int dimensionPixelOffset = getResources().getDimensionPixelOffset(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07033f);
-            int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070343);
+            int dimensionPixelOffset = getResources().getDimensionPixelOffset(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070345);
+            int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070349);
             this.mFloatImgView.animate().x((DeviceUtil.ScreenInfo.getDisplayWidth(getContext()) - dimensionPixelOffset) - this.mFloatViewWidth).y((DeviceUtil.ScreenInfo.getDisplayHeight(getContext()) - dimensionPixelOffset2) - this.mFloatViewHeight).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
         }
     }

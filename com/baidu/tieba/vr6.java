@@ -1,41 +1,39 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.switchs.TbBrowseModeSwitch;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.util.ItemClickJumpUtil;
+import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tieba.b67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ApkDetail;
 /* loaded from: classes8.dex */
-public class vr6 {
+public class vr6 implements b67.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity a;
-    public g55 b;
-    public g55 c;
-    public g55 d;
-    public int e;
-    public View.OnClickListener f;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vr6 a;
+        public final /* synthetic */ a77 a;
+        public final /* synthetic */ ItemData b;
 
-        public a(vr6 vr6Var) {
+        public a(vr6 vr6Var, a77 a77Var, ItemData itemData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vr6Var};
+                Object[] objArr = {vr6Var, a77Var, itemData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,125 +43,105 @@ public class vr6 {
                     return;
                 }
             }
-            this.a = vr6Var;
+            this.a = a77Var;
+            this.b = itemData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int id = view2.getId();
-                if (id == R.id.private_yes || id == R.id.obfuscated_res_0x7f092a1a) {
-                    this.a.j();
-                } else if (id == R.id.private_no) {
-                    if (this.a.b.isShowing()) {
-                        this.a.b.dismiss();
-                        iz9.a("1", "2");
-                    }
-                    if (this.a.c == null) {
-                        vr6 vr6Var = this.a;
-                        vr6Var.c = c56.a(vr6Var.a.getPageContext(), this.a.f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
-                    }
-                    this.a.c.show();
-                    iz9.b("2");
-                } else if (id == R.id.obfuscated_res_0x7f090484) {
-                    vr6.g(this.a);
-                    if (this.a.c.isShowing()) {
-                        this.a.c.dismiss();
-                        iz9.a("2", "2");
-                        if (this.a.d == null) {
-                            vr6 vr6Var2 = this.a;
-                            TbPageContext<BaseFragmentActivity> pageContext = vr6Var2.a.getPageContext();
-                            View.OnClickListener onClickListener = this.a.f;
-                            if (TbBrowseModeSwitch.isOn()) {
-                                i = R.string.secret_hint_browser;
-                            } else {
-                                i = R.string.secret_hint_browser_exit;
-                            }
-                            vr6Var2.d = c56.a(pageContext, onClickListener, R.string.privacy_policy_guide_two, i);
-                            this.a.d.show();
-                            iz9.b("3");
-                        }
-                    }
-                    if (this.a.d.isShowing() && this.a.e == 2) {
-                        this.a.d.dismiss();
-                        iz9.a("3", "2");
-                        if (TbBrowseModeSwitch.isOn()) {
-                            PermissionUtil.doBrowseModeInit();
-                            PermissionUtil.starMainTabActivity(this.a.a, 2);
-                        }
-                        this.a.a.finish();
-                    }
+                int i = 2;
+                int i2 = 0;
+                if (ImageViewerConfig.FROM_CONCERN.equals(this.a.c().b)) {
+                    i2 = 2;
+                } else {
+                    i = 0;
                 }
+                ItemData itemData = this.b;
+                ItemClickJumpUtil.itemClickJump(itemData.forumName, String.valueOf(itemData.itemId), i, Integer.valueOf(i2));
             }
         }
     }
 
-    public vr6(@NonNull BaseFragmentActivity baseFragmentActivity) {
+    public vr6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = 0;
-        this.f = new a(this);
-        this.a = baseFragmentActivity;
     }
 
-    public static /* synthetic */ int g(vr6 vr6Var) {
-        int i = vr6Var.e;
-        vr6Var.e = i + 1;
-        return i;
-    }
-
-    public final void j() {
+    @Override // com.baidu.tieba.b67.r
+    public void a(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g55 g55Var = this.b;
-            if (g55Var != null && g55Var.isShowing()) {
-                this.b.dismiss();
-                SmartLaunchStats.onConfirmPrivacy();
-                iz9.a("1", "1");
-                g85.k("logoController", false);
-            }
-            g55 g55Var2 = this.c;
-            if (g55Var2 != null && g55Var2.isShowing()) {
-                this.c.dismiss();
-                iz9.a("2", "1");
-                g85.k("logoController", false);
-            }
-            g55 g55Var3 = this.d;
-            if (g55Var3 != null && g55Var3.isShowing()) {
-                this.d.dismiss();
-                iz9.a("3", "1");
-                g85.k("logoController", false);
-            }
-            r95.p().H("key_first_enter_app_timestamp", System.currentTimeMillis());
-            PermissionUtil.doAgreePrivacyInit();
-            PermissionUtil.starMainTabActivity(this.a, 2);
-            this.a.finish();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof ItemCardView)) {
+            ((ItemCardView) viewGroup).G();
         }
     }
 
-    public void k() {
+    @Override // com.baidu.tieba.b67.h
+    @NonNull
+    public ViewGroup create(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g55 b = c56.b(this.a.getPageContext(), this.f);
-            this.b = b;
-            b.show();
-            iz9.b("1");
-            TbSingleton.setExceptInsertAdDiaShow(true);
-            SmartLaunchStats.onPrivacyDialogShow();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new ItemCardView(context);
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b67.h
+    public void update(@NonNull ViewGroup viewGroup, @NonNull a77 a77Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, a77Var) == null) && viewGroup != null && a77Var != null && a77Var.a() != null) {
+            b87 a2 = a77Var.a();
+            ItemData itemData = new ItemData();
+            itemData.itemId = a2.a;
+            itemData.buttonName = a2.h;
+            itemData.buttonLink = a2.r;
+            itemData.buttonLinkType = 1;
+            itemData.pkgName = a2.n;
+            itemData.appId = a2.l;
+            itemData.mIconUrl = a2.b;
+            itemData.mTitle = a2.m;
+            itemData.mTags = a2.g;
+            itemData.mScore = a2.f;
+            itemData.mStar = a2.e;
+            itemData.mIconSize = a2.c;
+            itemData.forumName = a2.k;
+            ApkDetail.Builder builder = new ApkDetail.Builder();
+            builder.developer = a2.s;
+            builder.publisher = a2.t;
+            builder.version = a2.o;
+            builder.version_code = Integer.valueOf(a2.p);
+            builder.size = String.valueOf(a2.q);
+            builder.authority_url = a2.u;
+            builder.privacy_url = a2.v;
+            builder.pkg_source = Integer.valueOf(a2.w);
+            itemData.apkDetail = builder.build(false);
+            int i = a2.j;
+            if (i != 0) {
+                ((ItemCardView) viewGroup).setBackGroundColor(i);
+            }
+            if (a77Var.c() != null) {
+                str = a77Var.c().a;
+            } else {
+                str = "";
+            }
+            ((ItemCardView) viewGroup).setData(itemData, 13, str);
+            if (a77Var.b()) {
+                viewGroup.setOnClickListener(new a(this, a77Var, itemData));
+            } else {
+                viewGroup.setClickable(false);
+            }
         }
     }
 }

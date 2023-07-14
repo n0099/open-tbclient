@@ -1,58 +1,128 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Proxy;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.advert.sdk.data.WirelessNetworkType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes5.dex */
-public class g96 extends iu1 {
+/* loaded from: classes6.dex */
+public class g96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.mw1
-    @Nullable
-    public String A() {
-        InterceptResult invokeV;
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SpeedRuntimeProvider.MAIN_ACTIVITY_NAME : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            String imei = TbadkCoreApplication.getInst().getImei();
+            if (imei == null || Config.NULL_DEVICE_ID.equals(imei)) {
+                return "-";
+            }
+            return imei;
+        }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.mw1
-    public String l() {
-        InterceptResult invokeV;
+    public static Integer e(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "flFqXclepWs7RdugAszy9eERL7G5dS0I" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return Integer.valueOf(context.getResources().getDisplayMetrics().heightPixels);
+        }
+        return (Integer) invokeL.objValue;
     }
 
-    public g96() {
+    public static Integer f(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return Integer.valueOf(context.getResources().getDisplayMetrics().widthPixels);
+        }
+        return (Integer) invokeL.objValue;
+    }
+
+    public static Integer b(Context context) {
+        InterceptResult invokeL;
+        int value;
+        WirelessNetworkType wirelessNetworkType;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                String typeName = activeNetworkInfo.getTypeName();
+                if (typeName.equalsIgnoreCase("WIFI")) {
+                    return Integer.valueOf(WirelessNetworkType.WIFI.getValue());
+                }
+                if (typeName.equalsIgnoreCase("MOBILE")) {
+                    if (TextUtils.isEmpty(Proxy.getDefaultHost())) {
+                        if (g(context)) {
+                            wirelessNetworkType = WirelessNetworkType.MOBILE_3G;
+                        } else {
+                            wirelessNetworkType = WirelessNetworkType.MOBILE_2G;
+                        }
+                        value = wirelessNetworkType.getValue();
+                    } else {
+                        value = WirelessNetworkType.NETWORKTYPE_WAP.getValue();
+                    }
+                    return Integer.valueOf(value);
+                }
+                return valueOf;
+            }
+            return Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
+        }
+        return (Integer) invokeL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return aj.g();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return aj.k();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                    return true;
+                case 4:
+                case 7:
+                case 11:
+                default:
+                    return false;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.mw1
-    public boolean N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return isDebug();
-        }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+/* loaded from: classes7.dex */
+public interface mp5 {
+    void a(long j);
 
-import com.baidu.tieba.lp5;
-/* loaded from: classes6.dex */
-public interface mp5<T extends lp5> {
-    boolean onEvent(T t);
+    void b(long j, int i, String str);
 }

@@ -1,37 +1,57 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xr3 {
+public class xr3 extends ActivityDelegation implements oq3<Bundle> {
     public static /* synthetic */ Interceptable $ic;
-    public static zr3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static zr3 a() {
-        InterceptResult invokeV;
+    public xr3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (a == null) {
-                a = new zr3("0");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return a;
         }
-        return (zr3) invokeV.objValue;
     }
 
-    public static void b(@NonNull String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oq3
+    /* renamed from: c */
+    public void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            zr3 zr3Var = a;
-            if (zr3Var == null) {
-                a = new zr3(str);
-            } else {
-                zr3Var.n(str);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            this.mResult.putBundle("result", bundle);
+            finish();
         }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            boolean c = uo3.c(this.mParams, "isRealName", false);
+            String g = uo3.g(this.mParams, "swanAppId");
+            if (c) {
+                wr3.H(getAgent(), g, this);
+            } else {
+                wr3.K(getAgent(), g, this);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

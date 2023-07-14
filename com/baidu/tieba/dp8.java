@@ -1,91 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.switchs.BaseNormalSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dp8 extends BaseNormalSwitch {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+public class dp8 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947712349, "Lcom/baidu/tieba/dp8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947712349, "Lcom/baidu/tieba/dp8;");
-        }
-    }
-
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ef
-    public int getDefaultType() {
-        InterceptResult invokeV;
+    public static void a(TbPageContext<?> tbPageContext, String str, int i) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ef
-    public int getMaxCrashTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 5;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ef
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "12_44_msg_tab_opt_switch" : (String) invokeV.objValue;
-    }
-
-    public dp8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLI(65536, null, tbPageContext, str, i) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("level", i);
+                jSONObject.put("success_jump_url", str);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("page", "pass/accountAuth");
+                jSONObject2.put("pageParams", jSONObject);
+                String jSONObject3 = jSONObject2.toString();
+                Uri.Builder builder = new Uri.Builder();
+                builder.scheme("tiebaapp").authority(DI.ROUTER_NAME).path("/portal").appendQueryParameter("params", jSONObject3);
+                str2 = builder.build().toString();
+            } catch (JSONException e) {
+                BdLog.e(e);
+                str2 = "";
             }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str2});
         }
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == -1) {
-                a = SwitchManager.getInstance().findType("12_44_msg_tab_opt_switch");
-            }
-            if (a == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -1,91 +1,63 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class hl2 {
+public class hl2 extends cl2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Integer, Integer> a;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final hl2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-743548930, "Lcom/baidu/tieba/hl2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-743548930, "Lcom/baidu/tieba/hl2$a;");
-                    return;
-                }
-            }
-            a = new hl2();
-        }
-    }
-
-    public hl2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hl2(@NonNull bl2 bl2Var) {
+        super(bl2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bl2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((bl2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
     }
 
-    public static hl2 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.cl2
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (hl2) invokeV.objValue;
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a.put(Integer.valueOf(i), Integer.valueOf(c(i) + 1));
-            c92.k("SwanRecoveryCounter", "addRecoveryCount level=" + i);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d();
+            h();
+            g();
         }
     }
 
-    public int c(int i) {
-        InterceptResult invokeI;
-        int i2;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            Integer num = this.a.get(Integer.valueOf(i));
-            if (num != null) {
-                i2 = num.intValue();
-            } else {
-                i2 = 0;
-            }
-            c92.k("SwanRecoveryCounter", "getRecoveryCount level=" + i + ";count=" + i2);
-            return i2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            em2.f(0).f().c();
+            em2.f(0).e().f();
+            mn2.i(0, true);
+            zr4.M(fn2.a);
         }
-        return invokeI.intValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            fl3.b(0);
+            dl3.b(0);
+            dl3.v(true, 0);
+            zr4.L(al3.d(0));
+        }
     }
 }

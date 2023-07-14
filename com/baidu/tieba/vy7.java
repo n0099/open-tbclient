@@ -1,24 +1,32 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.util.MessageUtils;
+import com.baidu.tieba.uz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecomTopicList;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes8.dex */
-public class vy7 {
+public class vy7 implements uz4.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
-    public int d;
-    public boolean e;
-    public int f;
-    public long g;
+
+    @Override // com.baidu.tieba.uz4.c
+    @NonNull
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "personCenter.sendGif" : (String) invokeV.objValue;
+    }
 
     public vy7() {
         Interceptable interceptable = $ic;
@@ -30,53 +38,41 @@ public class vy7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = true;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.uz4.c
+    public void a(@NonNull String str) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public vy7(@NonNull RecomTopicList recomTopicList, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recomTopicList, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("picId");
+                String optString2 = jSONObject.optString("url");
+                String optString3 = jSONObject.optString("uid");
+                int optInt = jSONObject.optInt("width");
+                int optInt2 = jSONObject.optInt("height");
+                String optString4 = jSONObject.optString("toUserName");
+                String optString5 = jSONObject.optString("toUserNameShow");
+                String optString6 = jSONObject.optString("toUserPortrait");
+                int optInt3 = jSONObject.optInt("isFriend");
+                if (!TextUtils.equals(optString3, TbadkCoreApplication.getCurrentAccount()) && !TextUtils.equals(optString6, TbadkCoreApplication.getCurrentPortrait())) {
+                    long g = wg.g(optString3, 0L);
+                    if (optInt3 == 1) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    MessageUtils.createAndSendPersonalReactionsPicChatMessage(optString, optString2, optInt, optInt2, g, optString4, optString5, optString6, z);
+                }
+                h29 defaultLog = DefaultLog.getInstance();
+                defaultLog.c("SendGifHybridNotify", "发送私聊图片消息失败，uid或头像不一致" + optString3 + " " + TbadkCoreApplication.getCurrentAccount() + " " + optString6 + " " + TbadkCoreApplication.getCurrentPortrait());
+            } catch (Exception e) {
+                h29 defaultLog2 = DefaultLog.getInstance();
+                defaultLog2.c("SendGifHybridNotify", "发送私聊图片消息失败" + e);
             }
         }
-        this.a = recomTopicList.topic_id.longValue();
-        this.b = recomTopicList.topic_name;
-        this.c = recomTopicList.tag.intValue();
-        this.d = i + 1;
-        this.f = recomTopicList.is_video_topic.intValue();
-        this.g = recomTopicList.discuss_num.longValue();
     }
 }

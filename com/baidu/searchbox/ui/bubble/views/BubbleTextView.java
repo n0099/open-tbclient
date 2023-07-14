@@ -58,10 +58,10 @@ public class BubbleTextView extends BubbleBaseView {
             return false;
         }
         int textColor = getTextColor();
-        TextView textView = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09050b);
+        TextView textView = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09050c);
         this.mBubbleText = textView;
         textView.setTextColor(textColor);
-        FontSizeTextViewExtKt.setScaledSizeRes(this.mBubbleText, 0, R.dimen.obfuscated_res_0x7f0701f4);
+        FontSizeTextViewExtKt.setScaledSizeRes(this.mBubbleText, 0, R.dimen.obfuscated_res_0x7f0701f8);
         this.mBubbleText.setVisibility(0);
         if (this.mIsMiniBubble) {
             adjustBubbleSize();
@@ -97,7 +97,7 @@ public class BubbleTextView extends BubbleBaseView {
                     return;
                 }
             }
-            FontSizeTextViewExtKt.setScaledSizeRes(this.mBubbleText, 0, R.dimen.obfuscated_res_0x7f0701f4);
+            FontSizeTextViewExtKt.setScaledSizeRes(this.mBubbleText, 0, R.dimen.obfuscated_res_0x7f0701f8);
         }
     }
 
@@ -110,7 +110,7 @@ public class BubbleTextView extends BubbleBaseView {
             layoutParams.height = -2;
             this.mBubbleContent.setPadding(DeviceUtils.ScreenInfo.dp2px(AppRuntime.getAppContext(), 10.0f), DeviceUtils.ScreenInfo.dp2px(AppRuntime.getAppContext(), 2.0f), DeviceUtils.ScreenInfo.dp2px(context, 7.0f), DeviceUtils.ScreenInfo.dp2px(AppRuntime.getAppContext(), 2.0f));
             this.mBubbleContent.setLayoutParams(layoutParams);
-            FontSizeTextViewExtKt.setScaledSize(this.mBubbleText, 0, 0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e9) * 1.0f);
+            FontSizeTextViewExtKt.setScaledSize(this.mBubbleText, 0, 0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701ed) * 1.0f);
         }
         ArrowView arrowView = this.mArrowDown;
         if (arrowView != null) {

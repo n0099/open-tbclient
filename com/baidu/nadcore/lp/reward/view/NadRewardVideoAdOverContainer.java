@@ -1,9 +1,11 @@
 package com.baidu.nadcore.lp.reward.view;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,10 +18,11 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.slidingtag.NadRewardSlidingTagView;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ns0;
-import com.baidu.tieba.qs0;
-import com.baidu.tieba.ue1;
-import com.baidu.tieba.yr0;
+import com.baidu.tieba.bt0;
+import com.baidu.tieba.et0;
+import com.baidu.tieba.jq0;
+import com.baidu.tieba.js0;
+import com.baidu.tieba.me1;
 /* loaded from: classes3.dex */
 public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     public LinearLayout A;
@@ -29,8 +32,8 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     public View.OnClickListener z;
 
     @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
-    public int getLayoutId() {
-        return R.layout.nad_reward_video_ad_over_layout;
+    public String n(String str) {
+        return str;
     }
 
     /* loaded from: classes3.dex */
@@ -47,7 +50,7 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
                 NadRewardVideoAdOverContainer.this.z.onClick(view2);
             }
             NadRewardVideoAdOverContainer.this.C.setVisibility(8);
-            NadRewardVideoAdOverContainer.this.z(ClogBuilder.LogType.FREE_CLICK, "packet", this.a);
+            NadRewardVideoAdOverContainer.this.D(ClogBuilder.LogType.FREE_CLICK, "packet", this.a);
         }
     }
 
@@ -91,25 +94,30 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
         this.z = null;
     }
 
-    public final void H(@NonNull AdBaseModel adBaseModel) {
-        ns0 ns0Var;
-        if (adBaseModel instanceof yr0) {
-            ns0Var = ((yr0) adBaseModel).i();
+    public final void L(@NonNull AdBaseModel adBaseModel) {
+        bt0 bt0Var;
+        if (adBaseModel instanceof js0) {
+            bt0Var = ((js0) adBaseModel).j();
         } else {
-            ns0Var = null;
+            bt0Var = null;
         }
-        if (ns0Var == null) {
+        if (bt0Var == null) {
             this.y.setVisibility(8);
             return;
         }
         this.y.setVisibility(0);
-        this.y.F(ns0Var);
-        this.y.setOnClickListener(s(adBaseModel, ClogBuilder.Area.REWARD_SLIDING_TAG.type));
+        this.y.G(bt0Var);
+        this.y.setOnClickListener(w(adBaseModel, ClogBuilder.Area.REWARD_SLIDING_TAG.type));
     }
 
     @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
-    public void n(Context context) {
-        super.n(context);
+    public float q(Drawable drawable) {
+        return getResources().getDimension(jq0.a().m());
+    }
+
+    @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
+    public void r(Context context) {
+        super.r(context);
         this.y = (NadRewardSlidingTagView) findViewById(R.id.ad_sliding_tag);
         this.A = (LinearLayout) findViewById(R.id.festival_entrance_container);
         this.C = (LottieAnimationView) findViewById(R.id.festival_bubble_lottie);
@@ -119,8 +127,9 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
     public void setData(AdBaseModel adBaseModel) {
         super.setData(adBaseModel);
-        H(adBaseModel);
-        G(adBaseModel);
+        L(adBaseModel);
+        K(adBaseModel);
+        this.q.setFontSize(R.dimen.nad_dimen_10dp, R.dimen.nad_dimen_10dp, R.dimen.nad_dimen_10dp, R.dimen.nad_dimen_10dp);
     }
 
     public void setFestivalClickCallback(@NonNull View.OnClickListener onClickListener) {
@@ -137,7 +146,7 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
         this.z = null;
     }
 
-    public final void I(@NonNull Context context, @NonNull LottieAnimationView lottieAnimationView, @Nullable String str) {
+    public final void M(@NonNull Context context, @NonNull LottieAnimationView lottieAnimationView, @Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             lottieAnimationView.setVisibility(8);
         } else {
@@ -145,26 +154,26 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
         }
     }
 
-    public final void G(@NonNull AdBaseModel adBaseModel) {
-        qs0 qs0Var;
-        if (adBaseModel instanceof yr0) {
-            qs0Var = ((yr0) adBaseModel).g().m();
-        } else {
-            qs0Var = null;
-        }
-        if (qs0Var == null) {
-            this.A.setVisibility(8);
-            return;
-        }
-        I(getContext(), this.C, qs0Var.b);
-        I(getContext(), this.B, qs0Var.a);
-        this.A.setVisibility(0);
-        z(ClogBuilder.LogType.FREE_SHOW, "packet", adBaseModel);
-        this.A.setOnClickListener(new a(adBaseModel));
+    @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
+    public me1<View> l(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull View view2) {
+        return new NadRewardEnhanceButtonView(context, viewGroup, view2);
     }
 
-    @NonNull
-    public ue1<View> getTransitionButtonView() {
+    @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
+    public void C() {
+        super.C();
+        this.y.x();
+        this.C.cancelAnimation();
+        this.B.cancelAnimation();
+    }
+
+    @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
+    public int getLayoutId() {
+        return jq0.a().s();
+    }
+
+    @Nullable
+    public me1<View> getTransitionButtonView() {
         return this.j;
     }
 
@@ -172,11 +181,21 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
         this.A.setVisibility(8);
     }
 
-    @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
-    public void y() {
-        super.y();
-        this.y.x();
-        this.C.cancelAnimation();
-        this.B.cancelAnimation();
+    public final void K(@NonNull AdBaseModel adBaseModel) {
+        et0 et0Var;
+        if (adBaseModel instanceof js0) {
+            et0Var = ((js0) adBaseModel).h().m();
+        } else {
+            et0Var = null;
+        }
+        if (et0Var == null) {
+            this.A.setVisibility(8);
+            return;
+        }
+        M(getContext(), this.C, et0Var.b);
+        M(getContext(), this.B, et0Var.a);
+        this.A.setVisibility(0);
+        D(ClogBuilder.LogType.FREE_SHOW, "packet", adBaseModel);
+        this.A.setOnClickListener(new a(adBaseModel));
     }
 }

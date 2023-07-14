@@ -2,35 +2,42 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.tieba.zv1;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tieba.hd3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class cu1 implements zv1 {
+public class cu1 implements hw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Boolean a;
 
-    @Override // com.baidu.tieba.zv1
-    public void c(qs1 qs1Var) {
+    @Override // com.baidu.tieba.hw1
+    public boolean a(Activity activity, String str, hd3.b bVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qs1Var) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, bVar)) == null) {
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zv1
-    public void j(os1 os1Var) {
+    @Override // com.baidu.tieba.hw1
+    public boolean b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, os1Var) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
     public cu1() {
@@ -47,95 +54,32 @@ public class cu1 implements zv1 {
         }
     }
 
-    @Override // com.baidu.tieba.zv1
-    public void a(zv1.a aVar) {
+    @Override // com.baidu.tieba.hw1
+    public boolean c(Activity activity, Uri uri, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && aVar != null) {
-            aVar.onFinish();
-        }
-    }
-
-    @Override // com.baidu.tieba.zv1
-    public String d(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            return nz1.a.a();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.zv1
-    public boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            boolean g = SwanAppAllianceLoginHelper.d.g();
-            this.a = Boolean.TRUE;
-            return g;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zv1
-    public String f(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return os4.b(context).a();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.zv1
-    public void g(zv1.c cVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) && cVar != null) {
-            cVar.b();
-        }
-    }
-
-    @Override // com.baidu.tieba.zv1
-    public String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            return qz1.b.a();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.zv1
-    public String i(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-            return os4.b(context).a();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
-            if (this.a == null) {
-                e(context);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, uri, str)) == null) {
+            if (activity != null && uri != null && uri.getPath() != null && !TextUtils.isEmpty(str)) {
+                if (co3.i()) {
+                    uri = sp3.a(activity, new File(uri.getPath()));
+                }
+                d(activity, uri, str);
+                return true;
             }
-            Boolean bool = this.a;
-            if (bool == null) {
-                return false;
-            }
-            return bool.booleanValue();
+            return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zv1
-    public void b(Activity activity, Bundle bundle, os1 os1Var) {
+    public final void d(Activity activity, Uri uri, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, os1Var) == null) {
-            SwanAppAllianceLoginHelper.d.i(os1Var);
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, uri, str) == null) {
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
+            intent.addCategory("android.intent.category.DEFAULT");
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            intent.addFlags(1);
+            intent.setDataAndType(uri, str);
+            eo3.f(activity, intent);
         }
     }
 }

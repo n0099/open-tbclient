@@ -1,125 +1,378 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.log.DefaultLog;
+import android.content.DialogInterface;
+import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gametab.FrsSpriteGuideTipController;
-import com.baidu.tieba.w55;
-import com.baidu.tieba.yr6;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ForumBroadcastHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.frs.broadcast.ForumManagerRightsResMsg;
+import com.baidu.tieba.p55;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.view.ScreenTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public final class zk7 extends w55 {
+public class zk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yk7 c;
-    public final FrsSpriteGuideTipController d;
+    public TbPageContext a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public p55 f;
+    public CustomMessageListener g;
+    public DialogInterface.OnDismissListener h;
+    public HttpMessageListener i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zk7(Activity activity, yk7 yk7Var, FrsSpriteGuideTipController frsSpriteGuideTipController) {
-        super(activity);
+    /* loaded from: classes8.dex */
+    public class c implements p55.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ zk7 b;
+
+        /* loaded from: classes8.dex */
+        public class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("_forumId", this.a.b.c);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.b.a.getPageActivity(), "ForumGradePage", hashMap)));
+                }
+            }
+        }
+
+        public c(zk7 zk7Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zk7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zk7Var;
+            this.a = i;
+        }
+
+        @Override // com.baidu.tieba.p55.e
+        public void onClick(p55 p55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
+                da5.p().A("key_forum_broadcast_no_tip_again", this.b.f.isNoTipAgainChecked());
+                this.b.f.dismiss();
+                if (this.a == 0) {
+                    ScreenTopToast screenTopToast = new ScreenTopToast(this.b.a.getPageActivity());
+                    screenTopToast.m(this.b.a.getPageActivity().getString(R.string.frs_forum_bawu_send_broadcast_none_tip));
+                    screenTopToast.k(this.b.a.getString(R.string.frs_recommend_fail_tip_btn));
+                    screenTopToast.j(new a(this));
+                    screenTopToast.n((ViewGroup) this.b.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090c35));
+                    return;
+                }
+                ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(this.b.a.getPageActivity());
+                if (this.b.b == 1) {
+                    forumBroadcastHelper.jumpFlutterEditGenear(this.b.c, this.b.d, "3");
+                } else if (this.b.b == 2) {
+                    forumBroadcastHelper.jumpFlutterEditGenear(this.b.c, this.b.d, "4");
+                } else {
+                    forumBroadcastHelper.jumpFlutterEditGenear(this.b.c, this.b.d, "0");
+                }
+                forumBroadcastHelper.clipCopy(this.b.e);
+                forumBroadcastHelper.start();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zk7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zk7 zk7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zk7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zk7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921745) {
+                this.a.l();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zk7 a;
+
+        public b(zk7 zk7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zk7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zk7Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                MessageManager.getInstance().unRegisterListener(this.a.g);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements p55.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zk7 a;
+
+        public d(zk7 zk7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zk7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zk7Var;
+        }
+
+        @Override // com.baidu.tieba.p55.e
+        public void onClick(p55 p55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
+                da5.p().A("key_call_fans_no_tip_again", false);
+                this.a.f.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zk7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(zk7 zk7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zk7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zk7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ForumManagerRightsResMsg)) {
+                ForumManagerRightsResMsg forumManagerRightsResMsg = (ForumManagerRightsResMsg) httpResponsedMessage;
+                boolean l = da5.p().l("key_forum_broadcast_no_tip_again", false);
+                int i = forumManagerRightsResMsg.broadcastTotalCount - forumManagerRightsResMsg.broadcastUsedCount;
+                if (l) {
+                    if (this.a.b == 1) {
+                        this.a.a.showToast(R.string.top_success);
+                        return;
+                    } else if (this.a.b == 2) {
+                        this.a.a.showToast(R.string.set_good_success);
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                this.a.n(i);
+            }
+        }
+    }
+
+    public zk7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, yk7Var, frsSpriteGuideTipController};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        this.c = yk7Var;
-        this.d = frsSpriteGuideTipController;
+        this.g = new a(this, 2921745);
+        this.h = new b(this);
+        this.i = new e(this, CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS);
+        this.a = tbPageContext;
+        m();
+        tbPageContext.registerListener(this.i);
     }
 
-    public static final void g(zk7 this$0) {
+    public final void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS);
+            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
+            httpMessage.addParam("forum_id", str);
+            this.a.sendMessage(httpMessage);
         }
     }
 
-    public static final void h(zk7 this$0) {
+    public void j(int i, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            this.b = i;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            k(str);
         }
     }
 
-    @Override // com.baidu.tieba.w55
-    public void d(w55.a shouldShowCallback) {
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
-            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
-            shouldShowCallback.callback(true);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f != null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            this.a.getPageActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            WindowManager.LayoutParams attributes = this.f.getWindow().getAttributes();
+            attributes.width = displayMetrics.widthPixels - (this.f.getDialogMargin() * 2);
+            this.f.getWindow().setAttributes(attributes);
         }
     }
 
-    @Override // com.baidu.tieba.w55
-    public void b() {
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            yk7 yk7Var = this.c;
-            if (yk7Var != null) {
-                yk7Var.o();
-            }
-            FrsSpriteGuideTipController frsSpriteGuideTipController = this.d;
-            if (frsSpriteGuideTipController != null) {
-                frsSpriteGuideTipController.g();
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS, TbConfig.SERVER_ADDRESS + "c/f/forum/getForumMangerRights");
+            tbHttpMessageTask.setResponsedClass(ForumManagerRightsResMsg.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            messageManager.registerTask(tbHttpMessageTask);
         }
     }
 
-    @Override // com.baidu.tieba.w55
-    public void e() {
+    public final void n(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            DefaultLog.getInstance().c("FrsGuide", "开始显示frs吧引导");
-            yk7 yk7Var = this.c;
-            if (yk7Var != null) {
-                DefaultLog.getInstance().c("FrsGuide", "展示线上吧引导样式");
-                yk7Var.t(new yr6.e() { // from class: com.baidu.tieba.uk7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.yr6.e
-                    public final void onDismiss() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            zk7.g(zk7.this);
-                        }
-                    }
-                });
-                yk7Var.w();
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            p55 p55Var = new p55(this.a.getPageActivity());
+            this.f = p55Var;
+            p55Var.setUseNoTipAgainStyle(true);
+            this.f.setNegativeTextColor(R.color.CAM_X0105);
+            int i2 = this.b;
+            if (i2 == 1) {
+                this.f.setTitle(R.string.top_success);
+            } else if (i2 == 2) {
+                this.f.setTitle(R.string.set_good_success);
             }
-            FrsSpriteGuideTipController frsSpriteGuideTipController = this.d;
-            if (frsSpriteGuideTipController != null) {
-                DefaultLog.getInstance().c("FrsGuide", "展示精灵吧引导样式");
-                frsSpriteGuideTipController.j(new yr6.e() { // from class: com.baidu.tieba.vk7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.yr6.e
-                    public final void onDismiss() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            zk7.h(zk7.this);
-                        }
-                    }
-                });
-                frsSpriteGuideTipController.l();
-            }
+            this.f.setMessage(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0778), Integer.valueOf(i)));
+            this.f.setContentViewSize(1);
+            this.f.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f1351), new c(this, i));
+            this.f.setNegativeButton(this.a.getString(R.string.next_time), new d(this));
+            this.f.setOnDismissListener(this.h);
+            this.f.create(this.a).show();
+            MessageManager.getInstance().registerListener(this.g);
         }
     }
 }

@@ -1,447 +1,198 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ct5 extends bt5 {
+public class ct5 {
     public static /* synthetic */ Interceptable $ic;
-    public static ct5 E;
+    public static ct5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long A;
-    public long B;
-    public long C;
-    public long D;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public long f;
-    public long g;
-    public long h;
-    public long i;
-    public long j;
-    public long k;
-    public long l;
-    public long m;
-    public long n;
-    public long o;
-    public long p;
-    public long q;
-    public long r;
-    public long s;
-    public long t;
-    public long u;
-    public long v;
-    public long w;
-    public long x;
-    public long y;
-    public long z;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947686309, "Lcom/baidu/tieba/ct5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947686309, "Lcom/baidu/tieba/ct5;");
-        }
-    }
-
-    public void B(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-        }
-    }
-
-    public void p(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
-        }
-    }
+    public List<String> a;
+    public List<String> b;
 
     public ct5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.e = false;
-        this.f = -1L;
-        this.g = -1L;
-        this.h = -1L;
-        this.i = -1L;
-        this.j = -1L;
-        this.k = -1L;
-        this.l = -1L;
-        this.m = -1L;
-        this.n = -1L;
-        this.o = -1L;
-        this.p = -1L;
-        this.q = -1L;
-        this.r = -1L;
-        this.s = -1L;
-        this.t = -1L;
-        this.u = -1L;
-        this.v = -1L;
-        this.w = -1L;
-        this.x = -1L;
-        this.y = -1L;
-        this.z = -1L;
-        this.A = -1L;
-        this.B = -1L;
-        this.C = -1L;
-        this.D = -1L;
+        this.a = i(da5.p().w("key_need_add_source_stat_list", ""));
+        this.b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
     }
 
-    public final void h() {
+    public static void b(Context context, StatisticItem statisticItem, jt5 jt5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.b = false;
-            this.c = false;
-            this.f = -1L;
-            this.g = -1L;
-            this.w = -1L;
-            this.h = -1L;
-            this.i = -1L;
-            this.j = -1L;
-            this.B = -1L;
-            this.t = -1L;
-            this.u = -1L;
-            this.r = -1L;
-            this.C = -1L;
-            this.D = -1L;
-            this.k = -1L;
-            this.l = -1L;
-            this.m = -1L;
-            this.n = -1L;
-            this.o = -1L;
-            this.p = -1L;
-            this.q = -1L;
-            this.s = -1L;
-            this.v = -1L;
-            this.x = -1L;
-            this.y = -1L;
-            this.z = -1L;
-            this.A = -1L;
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, context, statisticItem, jt5Var) == null) && jt5Var != null && statisticItem != null && !TextUtils.isEmpty(statisticItem.getKey())) {
+            at5 k = jt5Var.k();
+            if (k == null || k.f()) {
+                k = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            }
+            if (k != null && !k.f()) {
+                c(statisticItem, k);
+            }
+            TbPageExtraHelper.printLog(statisticItem.toString());
         }
     }
 
-    public static ct5 b() {
+    public static void c(StatisticItem statisticItem, at5 at5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, statisticItem, at5Var) == null) && statisticItem != null && at5Var != null && !TextUtils.isEmpty(statisticItem.getKey())) {
+            String a = at5Var.a();
+            if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
+                statisticItem.param("page_key", a);
+            }
+            String a2 = bt5.a(at5Var.d(), a, 6);
+            if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
+                statisticItem.param("page_source", a2);
+            }
+        }
+    }
+
+    public static ct5 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (E == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
                 synchronized (ct5.class) {
-                    if (E == null) {
-                        E = new ct5();
+                    if (c == null) {
+                        c = new ct5();
                     }
                 }
             }
-            return E;
+            return c;
         }
         return (ct5) invokeV.objValue;
     }
 
-    public long c() {
-        InterceptResult invokeV;
+    public final void a(StatisticItem statisticItem) {
+        Activity currentActivity;
+        at5 currentVisiblePageExtra;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.w;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void A(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.i = j;
-        }
-    }
-
-    public void C(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.y = j;
-        }
-    }
-
-    public void D(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048579, this, j) != null) || this.z > 0) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(currentActivity)) == null) {
             return;
         }
-        this.z = j;
-    }
-
-    public void E(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.A = j;
+        String a = currentVisiblePageExtra.a();
+        if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
+            statisticItem.param("page_key", a);
         }
-    }
-
-    public void F(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.g = j;
+        String b = currentVisiblePageExtra.b();
+        if (!TextUtils.isEmpty(b) && !statisticItem.hasParam("page_tag")) {
+            statisticItem.param("page_tag", b);
         }
-    }
-
-    public void G(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.o = j;
-        }
-    }
-
-    public void H(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.n = j;
-        }
-    }
-
-    public void I(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.x = j;
-        }
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.r = j;
-        }
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.s = j;
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            this.u = j;
-        }
-    }
-
-    public void m(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
-            this.t = j;
-        }
-    }
-
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            this.p = j;
-        }
-    }
-
-    public void o(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048597, this, j) != null) || this.v > 0) {
-            return;
-        }
-        this.v = j;
-        this.w = System.currentTimeMillis() - this.f;
-    }
-
-    public void q(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
-            this.k = j;
-        }
-    }
-
-    public void r(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            this.m = j;
-        }
-    }
-
-    public void s(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
-            this.l = j;
-        }
-    }
-
-    public void t(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
-            this.f = j;
-        }
-    }
-
-    public void u(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
-            this.h = j;
-        }
-    }
-
-    public void v(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
-            this.B = j;
-        }
-    }
-
-    public void w(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048605, this, j) == null) {
-            this.C = j;
-        }
-    }
-
-    public void x(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
-            this.D = j;
-            this.c = true;
-        }
-    }
-
-    public void y(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
-            this.q = j;
-        }
-    }
-
-    public void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            long j = 0;
-            if (this.D - this.f <= 0 || this.d || this.v <= 0 || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-                return;
+        ArrayList<String> d = currentVisiblePageExtra.d();
+        String a2 = bt5.a(d, a, 6);
+        if (statisticItem.getKey().equals("common_exp") && statisticItem.hasParam("common_exp_source_pb_comment") && d.size() == 0 && (currentActivity instanceof gt5)) {
+            List<String> currentPageSourceKeyList = ((gt5) currentActivity).getCurrentPageSourceKeyList();
+            if (currentPageSourceKeyList instanceof ArrayList) {
+                a2 = bt5.a((ArrayList) currentPageSourceKeyList, a, 6);
+                statisticItem.delete("common_exp_source_pb_comment");
             }
-            long j2 = this.g - this.f;
-            long j3 = -1;
-            long j4 = this.t;
-            if (j4 > 0) {
-                j3 = this.u - j4;
+        }
+        if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
+            statisticItem.param("page_source", a2);
+        }
+        TbPageExtraHelper.printLog(statisticItem.toString());
+    }
+
+    public final <T> List<T> d(T[] tArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tArr)) == null) {
+            if (tArr != null && tArr.length != 0) {
+                ArrayList arrayList = new ArrayList(tArr.length);
+                for (T t : tArr) {
+                    if (t != null && !TextUtils.isEmpty(t.toString())) {
+                        arrayList.add(t);
+                    }
+                }
+                return arrayList;
             }
-            this.d = true;
-            long j5 = this.D - this.C;
-            dh a = bt5.a();
-            a.b("procname", "main");
-            a.b("appc", String.valueOf(j2));
-            a.b("loadclass", String.valueOf(this.h));
-            a.b("sapiinit", String.valueOf(this.i));
-            a.b("acctinit", String.valueOf(this.A));
-            a.b("iminit", String.valueOf(this.y));
-            a.b("plugininit", String.valueOf(this.z));
-            a.b("patchloaded", String.valueOf(this.j));
-            a.b("naslibinit", String.valueOf(this.k));
-            a.b("websocketinit", String.valueOf(this.l));
-            a.b("settinginit", String.valueOf(this.m));
-            a.b("toastinit", String.valueOf(this.n));
-            a.b("tiebastaticinit", String.valueOf(this.o));
-            a.b("cdninit", String.valueOf(this.p));
-            a.b("messagesetinit", String.valueOf(this.q));
-            a.b("logores", String.valueOf(this.B));
-            a.b("opttest", String.valueOf(1));
-            long j6 = this.r;
-            String str = "1";
-            if (j6 > 0 && this.t > 0 && j3 > 0) {
-                a.b("adc", String.valueOf(j6 + this.s));
-                a.b(SpeedStatsMainTable.AD_SHOW, String.valueOf(j3));
-                a.b("adrequest", String.valueOf(this.s));
-                j = this.r + this.s + j3;
-                a.b("hasad", "1");
-            } else {
-                a.b("hasad", "0");
-                long j7 = this.s;
-                if (j7 > 0) {
-                    j = j7;
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.b) && !xi.isEmpty(str)) {
+                for (String str2 : this.b) {
+                    if (str.equals(str2)) {
+                        return true;
+                    }
                 }
             }
-            a.b("tabc", String.valueOf(j5));
-            a.b("costt", String.valueOf(this.w - j));
-            if (!this.b) {
-                str = "0";
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.a) && !xi.isEmpty(str)) {
+                for (String str2 : this.a) {
+                    if (str.equals(str2)) {
+                        return true;
+                    }
+                }
             }
-            a.b("newinst", str);
-            a.c("pluginloadsync", Boolean.valueOf(this.e));
-            a.b("hptotal", String.valueOf(this.v));
-            a.b("locationinit", String.valueOf(j2 + this.B + this.r + j3 + this.s + j5 + this.v));
-            a.b("userperceptiont", String.valueOf(this.x - j));
-            BdStatisticsManager.getInstance().performance("startt", a);
-            h();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, statisticItem) == null) && statisticItem != null && !statisticItem.hasParam("page_source")) {
+            if (h(statisticItem.getKey()) || g(statisticItem.getKey())) {
+                a(statisticItem);
+            }
         }
     }
 
-    public void g(long j) {
+    public final List<String> i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048589, this, j) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && j > 0) {
-            dh a = bt5.a();
-            a.b("procname", "remote");
-            a.b("costt", String.valueOf(j));
-            BdStatisticsManager.getInstance().performance("startt", a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (xi.isEmpty(str)) {
+                return null;
+            }
+            return d(str.split(","));
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = i(str);
+            if (str == null) {
+                str = "";
+            }
+            da5.p().J("key_need_add_source_stat_list", str);
         }
     }
 }

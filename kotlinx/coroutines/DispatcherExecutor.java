@@ -17,7 +17,7 @@ public final class DispatcherExecutor implements Executor {
 
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        this.dispatcher.mo2339dispatch(EmptyCoroutineContext.INSTANCE, runnable);
+        this.dispatcher.mo2341dispatch(EmptyCoroutineContext.INSTANCE, runnable);
     }
 
     public String toString() {

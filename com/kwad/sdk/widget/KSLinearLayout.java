@@ -60,10 +60,10 @@ public class KSLinearLayout extends LinearLayout implements i {
 
     private void b(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         if (attributeSet != null) {
-            int[] iArr = {R.attr.obfuscated_res_0x7f0403db};
+            int[] iArr = {R.attr.obfuscated_res_0x7f0403dc};
             Arrays.sort(iArr);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.aqJ = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403db), 0.0f);
+            this.aqJ = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403dc), 0.0f);
             obtainStyledAttributes.recycle();
         }
         g gVar = new g(this, this);

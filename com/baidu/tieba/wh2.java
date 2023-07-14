@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Application;
 import android.content.Context;
-import android.util.Log;
+import android.os.Process;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.browser.sailor.BdSailor;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,15 +14,177 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
+import com.baidu.webkit.sdk.CookieSyncManager;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebKitFactory;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.Executors;
 /* loaded from: classes8.dex */
-public class wh2 extends xh2 {
+public final class wh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final String c;
+    public static final boolean h;
+    public static volatile wh2 i;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public volatile boolean b;
+    public boolean c;
+    public boolean d;
+    public final Object e;
+    public final Object f;
+    public ArrayList<e> g;
+
+    /* loaded from: classes8.dex */
+    public interface e {
+        void a();
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ wh2 c;
+
+        public a(wh2 wh2Var, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh2Var, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = wh2Var;
+            this.a = z;
+            this.b = z2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Process.setThreadPriority(10);
+                this.c.g(this.a, this.b);
+                this.c.b = true;
+                synchronized (this.c.f) {
+                    this.c.d = true;
+                    this.c.f.notifyAll();
+                    this.c.m();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(wh2 wh2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                WebView.setWebContentsDebuggingEnabled(true);
+                Log.setMinLogLevel(3, true);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wh2 a;
+
+        public c(wh2 wh2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wh2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                CookieSyncManager.createInstance(this.a.a);
+                BdSailor.initCookieSyncManager(this.a.a);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements pq3<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Runnable a;
+
+        public d(wh2 wh2Var, Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh2Var, runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pq3
+        /* renamed from: a */
+        public Void create() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.a.run();
+                return null;
+            }
+            return (Void) invokeV.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,71 +199,174 @@ public class wh2 extends xh2 {
                 return;
             }
         }
-        b = ms1.a;
-        c = "swan_preset" + File.separator + "preset_list.json";
+        h = fs1.a;
     }
 
-    public wh2() {
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            j(true, ProcessUtils.checkIsMainProcess(ProcessUtils.getCurProcessName()));
+        }
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && l()) {
+            BdSailor.getInstance().destroy();
+        }
+    }
+
+    public wh2(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.e = new Object();
+        this.f = new Object();
+        this.g = new ArrayList<>();
+        this.a = context.getApplicationContext();
     }
 
-    @Override // com.baidu.tieba.xh2
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return no3.b(jv2.c(), c);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xh2
-    public boolean e(yh2 yh2Var) {
+    public static synchronized wh2 h(Context context) {
         InterceptResult invokeL;
+        wh2 wh2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yh2Var)) == null) {
-            if (yh2Var == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            synchronized (wh2.class) {
+                if (i == null) {
+                    i = new wh2(context);
+                }
+                wh2Var = i;
             }
-            Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + yh2Var.g + File.separator + yh2Var.q;
-            try {
-                File j = j(yh2Var.h, yh2Var.g, yh2Var.i);
-                if (j == null) {
-                    if (b) {
-                        Log.e("AssetPresetController", "获取解压路径失败");
+            return wh2Var;
+        }
+        return (wh2) invokeL.objValue;
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            j(false, z);
+        }
+    }
+
+    public void f(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
+            synchronized (this.f) {
+                if (h) {
+                    android.util.Log.d("BlinkInitHelper", "addBlinkInitListener.");
+                }
+                if (!this.g.contains(eVar)) {
+                    this.g.add(eVar);
+                }
+                if (this.d) {
+                    m();
+                }
+            }
+        }
+    }
+
+    public final void g(boolean z, boolean z2) {
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            WebKitFactory.setNeedDownloadCloudResource(false);
+            WebKitFactory.setProcessType("1");
+            com.baidu.webkit.sdk.WebView.setDataDirectorySuffix(ProcessUtils.getCurProcessName());
+            BdSailor.getInstance().init(this.a, null, null);
+            if (h) {
+                pp3.a0(new b(this));
+            }
+            if (h && u73.G().booleanValue()) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            BdSailor.getInstance().setWebkitEnable(!z3);
+            BdSailor.getInstance().initWebkit("swan", false);
+            BdSailor.getInstance().getSailorSettings().setJavaScriptEnabledOnFileScheme(true);
+            if (BdZeusUtil.isWebkitLoaded()) {
+                if (h) {
+                    android.util.Log.d("BlinkInitHelper", "WebKitFactory.setEngine(WebKitFactory.ENGINE_BLINK) success ^V^");
+                }
+            } else if (h) {
+                android.util.Log.d("BlinkInitHelper", "WebKitFactory.setEngine(WebKitFactory.ENGINE_BLINK) fail !!!!");
+            }
+            c cVar = new c(this);
+            if (z2) {
+                ub3.M().post(cVar);
+            } else {
+                mq3.b(new d(this, cVar));
+            }
+        }
+    }
+
+    public final void j(boolean z, boolean z2) {
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && !this.b) {
+            if (z && pp3.O()) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            synchronized (this.e) {
+                if (!this.c) {
+                    Executors.newSingleThreadExecutor().execute(new a(this, z2, z3));
+                    this.c = true;
+                }
+            }
+            if (!z) {
+                return;
+            }
+            synchronized (this.f) {
+                while (!this.d) {
+                    try {
+                        this.f.wait(1000L);
+                    } catch (InterruptedException e2) {
+                        e2.printStackTrace();
                     }
-                    return false;
                 }
-                return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
-            } catch (IOException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return false;
             }
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xh2
-    public String f(String str) {
-        InterceptResult invokeL;
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Application c2 = jv2.c();
-            return no3.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            synchronized (this.f) {
+                if (h) {
+                    android.util.Log.d("BlinkInitHelper", "notifyBlinkLoaded.");
+                }
+                Iterator<e> it = this.g.iterator();
+                while (it.hasNext()) {
+                    it.next().a();
+                }
+                this.g.clear();
+            }
         }
-        return (String) invokeL.objValue;
     }
 }

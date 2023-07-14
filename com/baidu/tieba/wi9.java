@@ -1,102 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.app.Activity;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.personCenter.data.PersonVipCardData;
+import com.baidu.adp.base.BdBaseFragmentActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wi9 extends kn<PersonVipCardData, CardViewHolder<gk9>> {
+public class wi9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public gk9 b;
+    public final PbActivity a;
+    public bl9 b;
+    public cl9 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wi9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public wi9(PbActivity pbActivity) {
+        super(2921728);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {pbActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = pbActivity;
+        this.b = new bl9(pbActivity);
+        cl9 cl9Var = new cl9(pbActivity);
+        this.c = cl9Var;
+        PriorityOrganizer.u(this.b, cl9Var);
+        setPriority(1);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public CardViewHolder<gk9> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            this.b = new gk9(this.a);
-            return new CardViewHolder<>(this.b);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            BdUniqueId bdUniqueId = null;
+            if (currentActivity instanceof BdBaseFragmentActivity) {
+                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
+            }
+            if (getTag() == bdUniqueId && !this.b.v(true)) {
+                this.b.E(true);
+                this.a.r0().A(this.b);
+            }
         }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void u(boolean z) {
-        gk9 gk9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (gk9Var = this.b) != null) {
-            gk9Var.x(z);
-        }
-    }
-
-    public void onDestroy() {
-        gk9 gk9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (gk9Var = this.b) != null) {
-            gk9Var.t();
-        }
-    }
-
-    public void onPause() {
-        gk9 gk9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (gk9Var = this.b) != null) {
-            gk9Var.u();
-        }
-    }
-
-    public void onResume() {
-        gk9 gk9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (gk9Var = this.b) != null) {
-            gk9Var.y();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PersonVipCardData personVipCardData, CardViewHolder<gk9> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, personVipCardData, cardViewHolder})) == null) {
-            cardViewHolder.a().i(personVipCardData);
-            return cardViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
     }
 }

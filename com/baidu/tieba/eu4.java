@@ -1,8 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bp4;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.message.UserGrowthTaskRequestMessage;
+import com.baidu.tbadk.core.message.UserGrowthTaskResponseMessage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,138 +17,75 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+import tbclient.CommonTaskInfo;
+import tbclient.TaskProgress;
 /* loaded from: classes5.dex */
-public final class eu4 implements bp4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean c;
-    public static final Set<bp4.a> d;
+public class eu4 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String c = "TaskManager";
+    public static eu4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public List<CommonTaskInfo> a;
+    public final HttpMessageListener b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947746821, "Lcom/baidu/tieba/eu4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947746821, "Lcom/baidu/tieba/eu4;");
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements WebKitFactory.WebkitInstallListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ eu4 c;
+        public final /* synthetic */ eu4 a;
 
-        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-        public void onInstallStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.eu4$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0287a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0287a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    eu4 eu4Var = this.a.c;
-                    eu4Var.j(eu4Var.b);
-                }
-            }
-        }
-
-        public a(eu4 eu4Var, String str, File file) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(eu4 eu4Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eu4Var, str, file};
+                Object[] objArr = {eu4Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = eu4Var;
-            this.a = str;
-            this.b = file;
+            this.a = eu4Var;
         }
 
-        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-        public void onInstallFinish(int i, String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                boolean z = true;
-                if (gs4.B(this.a, str)) {
-                    synchronized (eu4.d) {
-                        this.c.i(true);
-                    }
-                    return;
-                }
-                if (eu4.e(this.c) <= 2) {
-                    if (8 == i) {
-                        this.c.b = this.a;
-                    } else {
-                        eu4 eu4Var = this.c;
-                        eu4Var.b = this.a + File.pathSeparator + this.c.a;
-                        if (gs4.f(this.b, new File(this.c.b)) != this.b.length()) {
-                            z = false;
-                        }
-                    }
-                    if (z && bc3.M().postDelayed(new RunnableC0287a(this), 1000L)) {
-                        return;
-                    }
-                }
-                if (8 == i) {
-                    gs4.k(this.a);
-                }
-                synchronized (eu4.d) {
-                    this.c.i(false);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746821, "Lcom/baidu/tieba/eu4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947746821, "Lcom/baidu/tieba/eu4;");
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof UserGrowthTaskResponseMessage)) {
                 return;
             }
+            int errCode = ((UserGrowthTaskResponseMessage) httpResponsedMessage).getErrCode();
+            h29 defaultLog = DefaultLog.getInstance();
+            String str = eu4.c;
+            defaultLog.c(str, "任务完成：errCode=" + errCode);
+            if (errCode == 0) {
+                this.a.g();
+            }
         }
-        d = new HashSet();
     }
 
     public eu4() {
@@ -157,63 +101,102 @@ public final class eu4 implements bp4 {
                 return;
             }
         }
-        this.a = 0;
+        this.b = new a(this, CmdConfigHttp.CMD_YINJI_TASK_SHARE_REPORT);
     }
 
-    @Override // com.baidu.tieba.bp4
-    public void a(String str, bp4.a aVar) {
+    public static eu4 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            synchronized (d) {
-                d.add(aVar);
-                if (c) {
-                    return;
-                }
-                c = true;
-                j(str);
-            }
-        }
-    }
-
-    public static /* synthetic */ int e(eu4 eu4Var) {
-        int i = eu4Var.a + 1;
-        eu4Var.a = i;
-        return i;
-    }
-
-    public final void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            synchronized (d) {
-                for (bp4.a aVar : d) {
-                    if (aVar != null) {
-                        aVar.a(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (d == null) {
+                synchronized (eu4.class) {
+                    if (d == null) {
+                        eu4 eu4Var = new eu4();
+                        d = eu4Var;
+                        eu4Var.f();
                     }
                 }
-                d.clear();
-                c = false;
-                this.a = 0;
             }
+            return d;
+        }
+        return (eu4) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().registerListener(this.b);
         }
     }
 
-    public final void j(String str) {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                synchronized (d) {
-                    i(false);
-                }
-                return;
-            }
-            File file = new File(str);
-            if (!file.isFile()) {
-                synchronized (d) {
-                    i(false);
-                }
-                return;
-            }
-            WebKitFactory.installAsync("file://" + str, new a(this, str, file));
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            bu4.w().I();
         }
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return c(str, "");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void h(List<CommonTaskInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.a = list;
+        }
+    }
+
+    public boolean c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            h29 defaultLog = DefaultLog.getInstance();
+            String str3 = c;
+            defaultLog.c(str3, "尝试完成任务：" + str);
+            if (!e(str)) {
+                return false;
+            }
+            h29 defaultLog2 = DefaultLog.getInstance();
+            String str4 = c;
+            defaultLog2.c(str4, "开始完成任务：" + str + " data=" + str2);
+            UserGrowthTaskRequestMessage userGrowthTaskRequestMessage = new UserGrowthTaskRequestMessage(str);
+            userGrowthTaskRequestMessage.addActData(str2);
+            MessageManager.getInstance().sendMessage(userGrowthTaskRequestMessage);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        TaskProgress taskProgress;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (!StringUtils.isNull(str) && !ListUtils.isEmpty(this.a)) {
+                StringBuilder sb = new StringBuilder();
+                for (CommonTaskInfo commonTaskInfo : this.a) {
+                    sb.append(commonTaskInfo.act_type);
+                    sb.append("=");
+                    sb.append(commonTaskInfo.dotask_status);
+                    sb.append(",");
+                    if (str.equals(commonTaskInfo.act_type) && commonTaskInfo.dotask_status.intValue() == 1 && ((taskProgress = commonTaskInfo.task_progress) == null || taskProgress.total.intValue() <= 0 || commonTaskInfo.task_progress.current.intValue() < commonTaskInfo.task_progress.total.intValue())) {
+                        return true;
+                    }
+                }
+                h29 defaultLog = DefaultLog.getInstance();
+                String str2 = c;
+                defaultLog.b(str2, "任务列表中无此任务:" + sb.toString());
+                return false;
+            }
+            DefaultLog.getInstance().b(c, "任务列表为空，无法完成");
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

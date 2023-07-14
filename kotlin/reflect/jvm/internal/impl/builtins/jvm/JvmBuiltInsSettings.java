@@ -346,14 +346,14 @@ public class JvmBuiltInsSettings implements AdditionalClassPartsProvider, Platfo
                     Intrinsics.checkExpressionValueIsNotNull(it, "it");
                     TypeConstructor typeConstructor = it.getTypeConstructor();
                     Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "it.typeConstructor");
-                    Collection<KotlinType> mo2100getSupertypes = typeConstructor.mo2100getSupertypes();
-                    Intrinsics.checkExpressionValueIsNotNull(mo2100getSupertypes, "it.typeConstructor.supertypes");
+                    Collection<KotlinType> mo2102getSupertypes = typeConstructor.mo2102getSupertypes();
+                    Intrinsics.checkExpressionValueIsNotNull(mo2102getSupertypes, "it.typeConstructor.supertypes");
                     ArrayList arrayList = new ArrayList();
-                    for (KotlinType kotlinType : mo2100getSupertypes) {
-                        ClassifierDescriptor mo2099getDeclarationDescriptor = kotlinType.getConstructor().mo2099getDeclarationDescriptor();
+                    for (KotlinType kotlinType : mo2102getSupertypes) {
+                        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
                         LazyJavaClassDescriptor lazyJavaClassDescriptor = null;
-                        if (mo2099getDeclarationDescriptor != null) {
-                            classifierDescriptor = mo2099getDeclarationDescriptor.getOriginal();
+                        if (mo2101getDeclarationDescriptor != null) {
+                            classifierDescriptor = mo2101getDeclarationDescriptor.getOriginal();
                         } else {
                             classifierDescriptor = null;
                         }
@@ -550,9 +550,9 @@ public class JvmBuiltInsSettings implements AdditionalClassPartsProvider, Platfo
             Intrinsics.checkExpressionValueIsNotNull(valueParameters, "valueParameters");
             Object single = CollectionsKt___CollectionsKt.single((List<? extends Object>) valueParameters);
             Intrinsics.checkExpressionValueIsNotNull(single, "valueParameters.single()");
-            ClassifierDescriptor mo2099getDeclarationDescriptor = ((ValueParameterDescriptor) single).getType().getConstructor().mo2099getDeclarationDescriptor();
-            if (mo2099getDeclarationDescriptor != null) {
-                fqNameUnsafe = DescriptorUtilsKt.getFqNameUnsafe(mo2099getDeclarationDescriptor);
+            ClassifierDescriptor mo2101getDeclarationDescriptor = ((ValueParameterDescriptor) single).getType().getConstructor().mo2101getDeclarationDescriptor();
+            if (mo2101getDeclarationDescriptor != null) {
+                fqNameUnsafe = DescriptorUtilsKt.getFqNameUnsafe(mo2101getDeclarationDescriptor);
             } else {
                 fqNameUnsafe = null;
             }

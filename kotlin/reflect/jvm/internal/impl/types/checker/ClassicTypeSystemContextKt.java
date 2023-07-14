@@ -3,10 +3,10 @@ package kotlin.reflect.jvm.internal.impl.types.checker;
 import kotlin.NoWhenBranchMatchedException;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeVariance;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ClassicTypeSystemContextKt {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
         public static final /* synthetic */ int[] $EnumSwitchMapping$1;

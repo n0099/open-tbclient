@@ -14,13 +14,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.view.SwanAppRoundedImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj2;
-import com.baidu.tieba.bc3;
-import com.baidu.tieba.fq4;
-import com.baidu.tieba.jv2;
-import com.baidu.tieba.wp3;
-import com.baidu.tieba.zo3;
-import com.baidu.tieba.zw2;
+import com.baidu.tieba.cv2;
+import com.baidu.tieba.pp3;
+import com.baidu.tieba.so3;
+import com.baidu.tieba.sw2;
+import com.baidu.tieba.ti2;
+import com.baidu.tieba.ub3;
+import com.baidu.tieba.yp4;
 /* loaded from: classes4.dex */
 public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchListener {
     public TextView a;
@@ -49,11 +49,11 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
     }
 
     /* loaded from: classes4.dex */
-    public class a implements zo3.b {
+    public class a implements so3.b {
         public a() {
         }
 
-        @Override // com.baidu.tieba.zo3.b
+        @Override // com.baidu.tieba.so3.b
         public void a(String str, Bitmap bitmap) {
             if (bitmap != null && SwanAppMenuHeaderView.this.b != null) {
                 SwanAppMenuHeaderView.this.b.setImageBitmap(bitmap);
@@ -138,23 +138,23 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         super(context, attributeSet, i);
         this.k = false;
         this.n = new d();
-        g(FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d08ec, this));
-        setAttentionBtnStates(aj2.n(bc3.K().getAppId()));
+        g(FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0906, this));
+        setAttentionBtnStates(ti2.n(ub3.K().getAppId()));
     }
 
     public final void g(View view2) {
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090ef1);
-        this.b = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922aa);
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922ae);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904ba);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090f00);
+        this.b = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922dd);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922e1);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904bb);
         this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902c1);
-        zw2.a W = bc3.K().q().W();
-        this.b.setImageBitmap(wp3.k(W.Q(), "SwanAppMenuHeaderView", false, new a()));
+        sw2.a W = ub3.K().q().W();
+        this.b.setImageBitmap(pp3.k(W.Q(), "SwanAppMenuHeaderView", false, new a()));
         this.a.setText(W.K());
-        this.a.setMaxWidth(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070802));
-        if (wp3.P()) {
+        this.a.setMaxWidth(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070818));
+        if (pp3.P()) {
             this.c.setVisibility(0);
-            this.a.setMaxWidth(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070803));
+            this.a.setMaxWidth(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070819));
         }
         this.d.setOnTouchListener(this);
         this.d.setOnClickListener(new b());
@@ -162,20 +162,20 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
     }
 
     public void setAttentionBtnStates(boolean z) {
-        if (jv2.y0().d()) {
+        if (cv2.y0().d()) {
             this.e.setText(R.string.obfuscated_res_0x7f0f018d);
-            this.e.setBackground(fq4.d(getContext(), R.drawable.obfuscated_res_0x7f081456));
-            this.e.setTextColor(fq4.b(getContext(), R.color.obfuscated_res_0x7f060b07));
+            this.e.setBackground(yp4.d(getContext(), R.drawable.obfuscated_res_0x7f08146b));
+            this.e.setTextColor(yp4.b(getContext(), R.color.obfuscated_res_0x7f060b0e));
         } else if (!z) {
             this.e.setText(R.string.obfuscated_res_0x7f0f018d);
             this.e.setTypeface(Typeface.create("sans-serif-medium", 1));
-            this.e.setBackground(fq4.d(getContext(), R.drawable.obfuscated_res_0x7f08142a));
-            this.e.setTextColor(fq4.c(getContext(), R.color.obfuscated_res_0x7f060af6));
+            this.e.setBackground(yp4.d(getContext(), R.drawable.obfuscated_res_0x7f08143f));
+            this.e.setTextColor(yp4.c(getContext(), R.color.obfuscated_res_0x7f060afd));
         } else {
-            this.e.setText(R.string.obfuscated_res_0x7f0f1506);
+            this.e.setText(R.string.obfuscated_res_0x7f0f151c);
             this.e.setTypeface(Typeface.create("sans-serif", 0));
-            this.e.setBackground(fq4.d(getContext(), R.drawable.obfuscated_res_0x7f081431));
-            this.e.setTextColor(fq4.c(getContext(), R.color.obfuscated_res_0x7f060af7));
+            this.e.setBackground(yp4.d(getContext(), R.drawable.obfuscated_res_0x7f081446));
+            this.e.setTextColor(yp4.c(getContext(), R.color.obfuscated_res_0x7f060afe));
         }
     }
 

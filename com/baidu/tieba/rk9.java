@@ -1,76 +1,59 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tieba.xx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rk9 {
+public abstract class rk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public up6 b;
+    public xx.a c;
+    public OriginalThreadInfo d;
+    public int e;
 
-    public static void a(View view2, l15 l15Var, int i) {
+    public abstract View a();
+
+    public abstract void b(TbPageContext tbPageContext, int i);
+
+    public abstract void c(OriginalThreadInfo originalThreadInfo);
+
+    public rk9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65536, null, view2, l15Var, i) == null) && view2 != null && l15Var != null && l15Var.getThreadData() != null && !StringUtils.isNull(l15Var.getThreadData().getTid())) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
-            statisticItem.param("obj_source", 3);
-            ThreadData threadData = l15Var.getThreadData();
-            if (threadData.isBJHArticleThreadType()) {
-                statisticItem.param("obj_type", 1);
-            } else if (threadData.isBJHVideoThreadType()) {
-                statisticItem.param("obj_type", 2);
-            } else if (threadData.isBJHNormalThreadType()) {
-                statisticItem.param("obj_type", 3);
-            } else if (threadData.isBJHVideoDynamicThreadType()) {
-                statisticItem.param("obj_type", 4);
-            } else if (threadData.threadType == 0) {
-                statisticItem.param("obj_type", 5);
-            } else if (threadData.isVideoThreadType()) {
-                statisticItem.param("obj_type", 6);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (l15Var.getThreadData().getAuthor() != null) {
-                statisticItem.param("uid", l15Var.getThreadData().getAuthor().getUserId());
-            }
-            if (threadData.getBaijiahaoData() != null) {
-                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
-            } else {
-                statisticItem.param("obj_id", threadData.getTid());
-            }
-            statisticItem.param("obj_locate", i);
-            TiebaStatic.log(statisticItem);
+        }
+        this.e = 3;
+        this.a = tbPageContext;
+    }
+
+    public void d(xx.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.c = aVar;
         }
     }
 
-    public static void b(l15 l15Var) {
+    public void e(up6 up6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, l15Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_SHOW);
-            ThreadData threadData = l15Var.getThreadData();
-            if (threadData.isBJHArticleThreadType()) {
-                statisticItem.param("obj_type", 1);
-            } else if (threadData.isBJHVideoThreadType()) {
-                statisticItem.param("obj_type", 2);
-            } else if (threadData.isBJHNormalThreadType()) {
-                statisticItem.param("obj_type", 3);
-            } else if (threadData.isBJHVideoDynamicThreadType()) {
-                statisticItem.param("obj_type", 4);
-            } else if (threadData.threadType == 0) {
-                statisticItem.param("obj_type", 5);
-            } else if (threadData.isVideoThreadType()) {
-                statisticItem.param("obj_type", 6);
-            }
-            if (threadData.getBaijiahaoData() != null) {
-                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
-            } else {
-                statisticItem.param("obj_id", threadData.getTid());
-            }
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeL(1048580, this, up6Var) == null) {
+            this.b = up6Var;
         }
     }
 }

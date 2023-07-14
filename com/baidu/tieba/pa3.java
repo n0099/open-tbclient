@@ -1,24 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class pa3<T> implements ra3 {
+public final class pa3 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
+    public final WheelView3d a;
 
-    public pa3(List<T> list) {
+    public pa3(WheelView3d wheelView3d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list};
+            Object[] objArr = {wheelView3d};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,29 +28,26 @@ public class pa3<T> implements ra3 {
                 return;
             }
         }
-        this.a = list;
+        this.a = wheelView3d;
     }
 
-    @Override // com.baidu.tieba.ra3
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    @Override // android.os.Handler
+    public final void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            int i = message.what;
+            if (i != 1000) {
+                if (i != 2000) {
+                    if (i == 3000) {
+                        this.a.n();
+                        return;
+                    }
+                    return;
+                }
+                this.a.r(WheelView3d.ACTION.FLING);
+                return;
             }
-            return "";
+            this.a.invalidate();
         }
-        return invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.ra3
-    public int getItemsCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.size();
-        }
-        return invokeV.intValue;
     }
 }

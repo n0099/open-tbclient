@@ -75,7 +75,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             this.mText2 = (TextView) view2.findViewById(16908309);
             this.mIcon1 = (ImageView) view2.findViewById(16908295);
             this.mIcon2 = (ImageView) view2.findViewById(16908296);
-            this.mIconRefine = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090976);
+            this.mIconRefine = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090977);
         }
     }
 
@@ -192,7 +192,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     private CharSequence formatUrl(CharSequence charSequence) {
         if (this.mUrlColor == null) {
             TypedValue typedValue = new TypedValue();
-            this.mContext.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f04075a, typedValue, true);
+            this.mContext.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f04075c, typedValue, true);
             this.mUrlColor = this.mContext.getResources().getColorStateList(typedValue.resourceId);
         }
         SpannableString spannableString = new SpannableString(charSequence);
@@ -422,7 +422,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
         View newView = super.newView(context, cursor, viewGroup);
         newView.setTag(new ChildViewCache(newView));
-        ((ImageView) newView.findViewById(R.id.obfuscated_res_0x7f090976)).setImageResource(this.mCommitIconResId);
+        ((ImageView) newView.findViewById(R.id.obfuscated_res_0x7f090977)).setImageResource(this.mCommitIconResId);
         return newView;
     }
 

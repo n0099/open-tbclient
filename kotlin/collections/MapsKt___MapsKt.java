@@ -532,7 +532,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <K, V> float m1283maxOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> selector) {
+    public static final <K, V> float m1285maxOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> selector) {
         Intrinsics.checkNotNullParameter(map, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<T> it = map.entrySet().iterator();
@@ -550,7 +550,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <K, V> Double m1285maxOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Double> selector) {
+    public static final <K, V> Double m1287maxOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Double> selector) {
         Intrinsics.checkNotNullParameter(map, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<T> it = map.entrySet().iterator();
@@ -568,7 +568,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <K, V> float m1287minOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> selector) {
+    public static final <K, V> float m1289minOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> selector) {
         Intrinsics.checkNotNullParameter(map, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<T> it = map.entrySet().iterator();
@@ -586,7 +586,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <K, V> Double m1289minOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Double> selector) {
+    public static final <K, V> Double m1291minOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Double> selector) {
         Intrinsics.checkNotNullParameter(map, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<T> it = map.entrySet().iterator();
@@ -604,7 +604,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <K, V, R extends Comparable<? super R>> R m1284maxOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> selector) {
+    public static final <K, V, R extends Comparable<? super R>> R m1286maxOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> selector) {
         Intrinsics.checkNotNullParameter(map, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<T> it = map.entrySet().iterator();
@@ -625,7 +625,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <K, V> Float m1286maxOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> selector) {
+    public static final <K, V> Float m1288maxOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> selector) {
         Intrinsics.checkNotNullParameter(map, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<T> it = map.entrySet().iterator();
@@ -643,7 +643,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <K, V, R extends Comparable<? super R>> R m1288minOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> selector) {
+    public static final <K, V, R extends Comparable<? super R>> R m1290minOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> selector) {
         Intrinsics.checkNotNullParameter(map, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<T> it = map.entrySet().iterator();
@@ -664,7 +664,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <K, V> Float m1290minOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> selector) {
+    public static final <K, V> Float m1292minOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> selector) {
         Intrinsics.checkNotNullParameter(map, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<T> it = map.entrySet().iterator();

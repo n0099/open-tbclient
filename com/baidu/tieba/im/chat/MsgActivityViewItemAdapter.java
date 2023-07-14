@@ -66,7 +66,7 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
+    @Override // com.baidu.tieba.ln
     /* renamed from: G */
     public MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -79,7 +79,7 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.kn
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.ln
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -91,13 +91,13 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
-            MsgActivityView a2 = msgViewHolder.a();
-            a2.V(i);
-            a2.p0(chatMessage);
-            a2.T(this.b);
-            a2.U(this.c);
-            a2.K(this.d);
-            a2.R(chatMessage.getCacheData().getLastMsgTime());
+            MsgActivityView b = msgViewHolder.b();
+            b.W(i);
+            b.q0(chatMessage);
+            b.U(this.b);
+            b.V(this.c);
+            b.M(this.d);
+            b.S(chatMessage.getCacheData().getLastMsgTime());
             this.a.getLayoutMode().l(false);
             this.a.getLayoutMode().k(view2);
             return view2;

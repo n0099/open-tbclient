@@ -1,15 +1,15 @@
 package com.baidu.tieba.livesdk.dispatcher;
 
 import android.content.Context;
-import com.baidu.tieba.lx8;
-import com.baidu.tieba.xu9;
+import com.baidu.tieba.o39;
+import com.baidu.tieba.y2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class YYFeedbackDispatcher implements xu9 {
+public class YYFeedbackDispatcher implements y2a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFIX = "bdtiebalive://video/yylive/feedback";
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,11 +28,11 @@ public class YYFeedbackDispatcher implements xu9 {
         }
     }
 
-    @Override // com.baidu.tieba.xu9
+    @Override // com.baidu.tieba.y2a
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
-            lx8.j().F(context, PREFIX);
+            o39.j().F(context, PREFIX);
         }
     }
 }

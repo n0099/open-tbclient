@@ -1,5 +1,5 @@
 package com.kwad.components.ad.reward;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class q {
     public static void a(int i, int i2, k kVar, com.kwad.components.ad.reward.model.c cVar) {
         if (i == 0) {

@@ -14,40 +14,40 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.ax5;
+import com.baidu.tieba.a15;
+import com.baidu.tieba.ey5;
 import com.baidu.tieba.fc;
-import com.baidu.tieba.g95;
 import com.baidu.tieba.hc;
-import com.baidu.tieba.in;
-import com.baidu.tieba.og;
+import com.baidu.tieba.jn;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.r05;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.qg;
+import com.baidu.tieba.s95;
+import com.baidu.tieba.tg;
 import com.baidu.tieba.yb;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ImageLoaderProc implements sg<in> {
+public class ImageLoaderProc implements tg<jn> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GIF_PLAY_LOG_TYPE = "gifplay";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public in m124decodeToResource(byte[] bArr, Object... objArr) {
+    public jn m124decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
             return null;
         }
-        return (in) invokeLL.objValue;
+        return (jn) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.sg
+    @Override // com.baidu.tieba.tg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class ImageLoaderProc implements sg<in> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sg
+    @Override // com.baidu.tieba.tg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,20 +87,20 @@ public class ImageLoaderProc implements sg<in> {
         }
     }
 
-    @Override // com.baidu.tieba.sg
+    @Override // com.baidu.tieba.tg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return r05.c().g();
+            return a15.c().g();
         }
         return invokeV.booleanValue;
     }
 
-    public static in readGifFromDisk(String str, pg pgVar, String str2, String str3, int i, int i2) {
+    public static jn readGifFromDisk(String str, qg qgVar, String str2, String str3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, pgVar, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, qgVar, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             byte[] bArr = new byte[0];
             hc hcVar = new hc("images", str, DiskFileOperate.Action.READ);
             hcVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
@@ -109,10 +109,10 @@ public class ImageLoaderProc implements sg<in> {
             hcVar.setSdCard(false);
             hcVar.setSavedCache(true);
             hcVar.setLock(bArr);
-            if (pgVar != null) {
+            if (qgVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(hcVar);
-                pgVar.a = diskCancelWorker;
+                qgVar.a = diskCancelWorker;
             }
             if (!fc.f().a(hcVar)) {
                 return null;
@@ -131,81 +131,81 @@ public class ImageLoaderProc implements sg<in> {
             if (!hcVar.isSuccess()) {
                 return null;
             }
-            boolean D = xi.D(hcVar.getData());
-            if (D) {
+            boolean E = yi.E(hcVar.getData());
+            if (E) {
                 hcVar.formatData(hcVar.getData());
             }
             if (hcVar.a() != null) {
-                return new in((yb) hcVar.a(), BitmapHelper.Bytes2Bitmap(hcVar.getData()), true);
+                return new jn((yb) hcVar.a(), BitmapHelper.Bytes2Bitmap(hcVar.getData()), true);
             }
-            if (D) {
+            if (E) {
                 BdLog.e("BIGIMAGE gif parse fail ");
-                g95.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
+                s95.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
             }
-            return new in(BitmapHelper.checkBitmapSize(BitmapHelper.Bytes2Bitmap(hcVar.getData()), i, i2), false, str2);
+            return new jn(BitmapHelper.checkBitmapSize(BitmapHelper.Bytes2Bitmap(hcVar.getData()), i, i2), false, str2);
         }
-        return (in) invokeCommon.objValue;
+        return (jn) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.sg
-    public in getFromLocal(String str, String str2, int i, int i2, pg pgVar, Object... objArr) {
+    @Override // com.baidu.tieba.tg
+    public jn getFromLocal(String str, String str2, int i, int i2, qg qgVar, Object... objArr) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), pgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), qgVar, objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            in readGifFromDisk = readGifFromDisk(TbMd5.getNameMd5FromUrl(str2), pgVar, str2, "ImageLoaderProc.getFromLocal", i, i2);
+            jn readGifFromDisk = readGifFromDisk(TbMd5.getNameMd5FromUrl(str2), qgVar, str2, "ImageLoaderProc.getFromLocal", i, i2);
             if (readGifFromDisk != null) {
                 z = true;
             } else {
                 z = false;
             }
-            og.f(z, System.currentTimeMillis() - currentTimeMillis);
+            pg.f(z, System.currentTimeMillis() - currentTimeMillis);
             return readGifFromDisk;
         }
-        return (in) invokeCommon.objValue;
+        return (jn) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.sg
-    public in getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tieba.tg
+    public jn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            in w = TbImageMemoryCache.u().w(str);
+            jn A = TbImageMemoryCache.v().A(str);
             if (z) {
-                if (w != null) {
+                if (A != null) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
-                og.i(z2, System.currentTimeMillis() - currentTimeMillis);
+                pg.i(z2, System.currentTimeMillis() - currentTimeMillis);
             }
-            return w;
+            return A;
         }
-        return (in) invokeCommon.objValue;
+        return (jn) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.sg
-    public in getFromRemote(String str, String str2, int i, int i2, pg pgVar, Object... objArr) {
+    @Override // com.baidu.tieba.tg
+    public jn getFromRemote(String str, String str2, int i, int i2, qg qgVar, Object... objArr) {
         InterceptResult invokeCommon;
         String str3;
         boolean z;
-        in inVar;
+        jn jnVar;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), pgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), qgVar, objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             WebClient webClient = new WebClient();
-            ax5.e(true, str, str);
-            Pair<Boolean, String> d = ax5.d(str);
+            ey5.e(true, str, str);
+            Pair<Boolean, String> d = ey5.d(str);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -217,14 +217,14 @@ public class ImageLoaderProc implements sg<in> {
             boolean needCache = webClient.needCache();
             if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                 BdLog.e("BIGIMAGE imageLoaderProc too big");
-                g95.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
+                s95.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
             }
             NSGif nSGif = null;
             if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
                 Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                 if (z && Bytes2Bitmap == null) {
-                    ax5.b(str3);
-                    g95.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
+                    ey5.b(str3);
+                    s95.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
                     downloadImageBytes = webClient.downloadImageBytes(str, false);
                     needCache = webClient.needCache();
                     if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
@@ -234,23 +234,23 @@ public class ImageLoaderProc implements sg<in> {
                 if (downloadImageBytes != null && Bytes2Bitmap != null) {
                     synchronized (BitmapHelper.lockForSyncImageDecoder) {
                         String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2);
-                        TbImageMemoryCache.u().s(TbConfig.getPbImageSize() + downloadImageBytes.length);
-                        boolean D = xi.D(downloadImageBytes);
-                        if (NSGif.f && D) {
+                        TbImageMemoryCache.v().t(TbConfig.getPbImageSize() + downloadImageBytes.length);
+                        boolean E = yi.E(downloadImageBytes);
+                        if (NSGif.f && E) {
                             nSGif = NSGif.f(downloadImageBytes, 0, downloadImageBytes.length);
                         }
                         NSGif nSGif2 = nSGif;
                         if (nSGif2 != null) {
-                            inVar = new in((yb) nSGif2, Bytes2Bitmap, true, downloadImageBytes);
-                            inVar.y(needCache);
+                            jnVar = new jn((yb) nSGif2, Bytes2Bitmap, true, downloadImageBytes);
+                            jnVar.y(needCache);
                         } else {
-                            if (D) {
+                            if (E) {
                                 BdLog.e("BIGIMAGE gif parse fail ");
-                                g95.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
+                                s95.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
                             }
-                            in inVar2 = new in(BitmapHelper.checkBitmapSize(Bytes2Bitmap, i, i2), false, str);
-                            inVar2.y(needCache);
-                            inVar = inVar2;
+                            jn jnVar2 = new jn(BitmapHelper.checkBitmapSize(Bytes2Bitmap, i, i2), false, str);
+                            jnVar2.y(needCache);
+                            jnVar = jnVar2;
                         }
                         if (needCache) {
                             hc hcVar = new hc("images", nameMd5FromUrl, DiskFileOperate.Action.WRITE);
@@ -260,43 +260,43 @@ public class ImageLoaderProc implements sg<in> {
                             hcVar.setSdCard(false);
                             hcVar.setSavedCache(true);
                             fc.f().a(hcVar);
-                            if (pgVar != null) {
+                            if (qgVar != null) {
                                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                                 diskCancelWorker.setOperate(hcVar);
-                                pgVar.a = diskCancelWorker;
+                                qgVar.a = diskCancelWorker;
                             }
                         }
-                        if (D) {
+                        if (E) {
                             z2 = false;
-                            BigImageLoaderProc.updateLocal(str, downloadImageBytes, false, pgVar);
+                            BigImageLoaderProc.updateLocal(str, downloadImageBytes, false, qgVar);
                         } else {
                             z2 = false;
                         }
                         if (downloadImageBytes.length > 1) {
                             z2 = true;
                         }
-                        og.j(z2, str3, webClient.mStat, System.currentTimeMillis() - currentTimeMillis, downloadImageBytes.length);
+                        pg.j(z2, str3, webClient.mStat, System.currentTimeMillis() - currentTimeMillis, downloadImageBytes.length);
                     }
-                    return inVar;
+                    return jnVar;
                 }
-                og.j(false, str3, webClient.mStat, 0L, 0L);
+                pg.j(false, str3, webClient.mStat, 0L, 0L);
                 return null;
             }
-            og.j(false, str3, webClient.mStat, 0L, 0L);
+            pg.j(false, str3, webClient.mStat, 0L, 0L);
             return null;
         }
-        return (in) invokeCommon.objValue;
+        return (jn) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.sg
+    @Override // com.baidu.tieba.tg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof in)) {
-            in inVar = (in) obj;
-            if (inVar.u()) {
-                inVar.A(i);
-                inVar.z(i2);
-                TbImageMemoryCache.u().l(str, inVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof jn)) {
+            jn jnVar = (jn) obj;
+            if (jnVar.u()) {
+                jnVar.A(i);
+                jnVar.z(i2);
+                TbImageMemoryCache.v().m(str, jnVar);
             }
         }
     }

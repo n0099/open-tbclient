@@ -1,11 +1,11 @@
 package kotlin.reflect.jvm.internal.impl.util;
 
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class CheckResult {
     public final boolean isSuccess;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class IllegalFunctionName extends CheckResult {
         public static final IllegalFunctionName INSTANCE = new IllegalFunctionName();
 
@@ -14,7 +14,7 @@ public abstract class CheckResult {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class IllegalSignature extends CheckResult {
         public final String error;
 
@@ -24,7 +24,7 @@ public abstract class CheckResult {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class SuccessCheck extends CheckResult {
         public static final SuccessCheck INSTANCE = new SuccessCheck();
 

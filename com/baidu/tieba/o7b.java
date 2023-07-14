@@ -1,96 +1,392 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
+import android.annotation.SuppressLint;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.text.TextUtils;
+import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j7b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+@SuppressLint({"NewApi"})
 /* loaded from: classes7.dex */
-public class o7b extends FunNativeAd2Bridger<w7b, com.fun.module.csj.f0> {
+public class o7b implements c7b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TTNativeAd.AdInteractionListener b;
-    public final /* synthetic */ j7b c;
+    public long a;
+    public volatile long b;
+    public MediaCodec.BufferInfo c;
+    public MediaCodec d;
+    public MediaExtractor e;
+    public MediaFormat f;
+    public ByteBuffer[] g;
+    public ByteBuffer[] h;
+    public byte[] i;
+    public volatile boolean j;
+    public long k;
+    public volatile boolean l;
+    public p7b m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o7b(j7b j7bVar, ReporterPidLoader reporterPidLoader, w7b w7bVar) {
-        super(reporterPidLoader);
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0050  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0077  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00ae  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0073 A[EDGE_INSN: B:46:0x0073->B:28:0x0073 ?: BREAK  , SYNTHETIC] */
+    @SuppressLint({"NewApi"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public o7b(String str) throws Exception {
+        int i;
+        MediaFormat mediaFormat;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j7bVar, reporterPidLoader, w7bVar};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = j7bVar;
-        this.b = new j7b.b(j7bVar, w7bVar);
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.csj.f0, android.view.View] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public com.fun.module.csj.f0 createExpressView(w7b w7bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, w7bVar)) == null) {
-            return k7b.a((TTNativeAd) w7bVar.a);
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, w7b w7bVar, BaseNativeAd2<w7b, com.fun.module.csj.f0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, w7bVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.c.k(activity, w7bVar, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.b, funAdInteractionListener);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, w7b w7bVar, BaseNativeAd2<w7b, com.fun.module.csj.f0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, w7bVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            w7b w7bVar2 = w7bVar;
-            j7b j7bVar = this.c;
-            FunNativeAdListenerHelper<w7b, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = j7bVar.g;
-            pid = j7bVar.mPid;
-            funNativeAdListenerHelper.startShow(w7bVar2, str, pid, this.b, funAdInteractionListener);
-            com.fun.module.csj.f0 expressView = baseNativeAd2.getExpressView();
-            if (expressView == null) {
-                if (!FunAdSdk.isLogEnabled()) {
-                    LogPrinter.e("The image mode of ad is not support!", new Object[0]);
-                    return;
-                }
-                throw new RuntimeException("The image mode of ad is not support!");
+        this.k = -1L;
+        this.e = new MediaExtractor();
+        try {
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            this.e = mediaExtractor;
+            mediaExtractor.setDataSource(str);
+        } catch (IOException unused) {
+            try {
+                Thread.sleep(25L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            this.c.j(activity, w7bVar2, expressInflater.inflate(), expressView, this.b);
+            try {
+                try {
+                    MediaExtractor mediaExtractor2 = new MediaExtractor();
+                    this.e = mediaExtractor2;
+                    mediaExtractor2.setDataSource(str);
+                } catch (InterruptedException e2) {
+                    e2.printStackTrace();
+                    MediaExtractor mediaExtractor3 = new MediaExtractor();
+                    this.e = mediaExtractor3;
+                    mediaExtractor3.setDataSource(str);
+                    i = 0;
+                    while (true) {
+                        if (i >= this.e.getTrackCount()) {
+                        }
+                        i++;
+                    }
+                    mediaFormat = this.f;
+                    if (mediaFormat == null) {
+                    }
+                }
+            } catch (IOException unused2) {
+                Thread.sleep(25L);
+                MediaExtractor mediaExtractor32 = new MediaExtractor();
+                this.e = mediaExtractor32;
+                mediaExtractor32.setDataSource(str);
+                i = 0;
+                while (true) {
+                    if (i >= this.e.getTrackCount()) {
+                    }
+                    i++;
+                }
+                mediaFormat = this.f;
+                if (mediaFormat == null) {
+                }
+            }
+        }
+        i = 0;
+        while (true) {
+            if (i >= this.e.getTrackCount()) {
+                break;
+            }
+            MediaFormat trackFormat = this.e.getTrackFormat(i);
+            String string = trackFormat.getString("mime");
+            if (!TextUtils.isEmpty(string) && string.startsWith("audio/")) {
+                this.e.selectTrack(i);
+                this.f = trackFormat;
+                break;
+            }
+            i++;
+        }
+        mediaFormat = this.f;
+        if (mediaFormat == null) {
+            throw new NullPointerException("format is null");
+        }
+        String string2 = mediaFormat.getString("mime");
+        this.a = this.f.getLong("durationUs");
+        MediaCodec createDecoderByType = MediaCodec.createDecoderByType(string2);
+        this.d = createDecoderByType;
+        createDecoderByType.configure(this.f, (Surface) null, (MediaCrypto) null, 0);
+        this.d.start();
+        this.g = this.d.getInputBuffers();
+        this.h = this.d.getOutputBuffers();
+        this.c = new MediaCodec.BufferInfo();
+    }
+
+    @Override // com.baidu.tieba.c7b
+    public int a() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (this.f.containsKey("bit-width") ? this.f.getInteger("bit-width") : 16) / 8;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.c7b
+    public int b() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f.containsKey("sample-rate")) {
+                return this.f.getInteger("sample-rate");
+            }
+            throw new IOException("Not a valid audio file");
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.c7b
+    public boolean c() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            i();
+            int dequeueOutputBuffer = this.d.dequeueOutputBuffer(this.c, 10000L);
+            if (dequeueOutputBuffer < 0) {
+                if (dequeueOutputBuffer != -1) {
+                    if (dequeueOutputBuffer == -2) {
+                        MediaFormat outputFormat = this.d.getOutputFormat();
+                        this.f = outputFormat;
+                        p7b p7bVar = this.m;
+                        if (p7bVar != null) {
+                            p7bVar.a(outputFormat);
+                        }
+                    } else if (dequeueOutputBuffer == -3) {
+                        this.h = this.d.getOutputBuffers();
+                    } else {
+                        str = "decodeChunk,res=" + dequeueOutputBuffer;
+                    }
+                    return false;
+                }
+                str = "decodeChunk:INFO_TRY_AGAIN_LATER";
+                fab.j("VideoMuxer", str);
+                return false;
+            }
+            MediaCodec.BufferInfo bufferInfo = this.c;
+            if ((bufferInfo.flags & 2) != 0) {
+                this.d.releaseOutputBuffer(dequeueOutputBuffer, false);
+                return false;
+            }
+            int i = bufferInfo.size;
+            if (i - bufferInfo.offset < 0) {
+                ByteBuffer byteBuffer = this.h[dequeueOutputBuffer];
+                byte[] bArr = this.i;
+                if (bArr == null || bArr.length != i) {
+                    this.i = new byte[this.c.size];
+                }
+                byteBuffer.get(this.i);
+                byteBuffer.clear();
+                this.d.releaseOutputBuffer(dequeueOutputBuffer, false);
+            } else {
+                j(dequeueOutputBuffer);
+            }
+            if ((this.c.flags & 4) != 0) {
+                long j = this.k;
+                if (j <= 0) {
+                    j = this.a;
+                }
+                this.b = j;
+                this.j = true;
+                return true;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.c7b
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                this.d.stop();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                this.d.release();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            this.d = null;
+            try {
+                this.e.release();
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
+            this.e = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.c7b
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.l = false;
+            this.j = false;
+            this.c.flags = 0;
+        }
+    }
+
+    @Override // com.baidu.tieba.c7b
+    public int e() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.f.containsKey("channel-count")) {
+                return this.f.getInteger("channel-count");
+            }
+            throw new IOException("Not a valid audio file");
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.c7b
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.c7b
+    public byte[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i : (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c7b
+    public long getCurrentPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.c7b
+    public long getDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.c7b
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.k = j;
+        }
+    }
+
+    public final void i() {
+        int dequeueInputBuffer;
+        long sampleTime;
+        int sampleFlags;
+        int i;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.l || (dequeueInputBuffer = this.d.dequeueInputBuffer(10000L)) < 0) {
+            return;
+        }
+        int readSampleData = this.e.readSampleData(this.g[dequeueInputBuffer], 0);
+        if (readSampleData < 0) {
+            this.l = true;
+            fab.j("VideoMuxer", "extractor to end, audioEndTimeUs" + this.k);
+            sampleTime = 0L;
+            readSampleData = 0;
+        } else {
+            sampleTime = this.e.getSampleTime();
+        }
+        long j = this.k;
+        if (j > 0 && sampleTime > j) {
+            fab.j("VideoMuxer", "extractor audioEndTimeUs:" + this.k + ",presentationTimeUs:" + sampleTime);
+            this.l = true;
+        }
+        boolean z = this.l;
+        MediaCodec mediaCodec = this.d;
+        if (z) {
+            i = 0;
+            sampleTime = 0;
+            sampleFlags = 4;
+        } else {
+            sampleFlags = this.e.getSampleFlags();
+            i = readSampleData;
+        }
+        mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, i, sampleTime, sampleFlags);
+        if (this.l) {
+            return;
+        }
+        this.e.advance();
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0014, code lost:
+        if (r1 != (r2.size - r2.offset)) goto L13;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            ByteBuffer byteBuffer = this.h[i];
+            byte[] bArr = this.i;
+            if (bArr != null) {
+                int length = bArr.length;
+                MediaCodec.BufferInfo bufferInfo = this.c;
+            }
+            MediaCodec.BufferInfo bufferInfo2 = this.c;
+            this.i = new byte[bufferInfo2.size - bufferInfo2.offset];
+            MediaCodec.BufferInfo bufferInfo3 = this.c;
+            if (bufferInfo3.size > 0) {
+                this.b = bufferInfo3.presentationTimeUs;
+            }
+            byteBuffer.position(this.c.offset);
+            byteBuffer.get(this.i);
+            byteBuffer.clear();
+            this.d.releaseOutputBuffer(i, false);
+        }
+    }
+
+    public void k(p7b p7bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, p7bVar) == null) {
+            this.m = p7bVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.c7b
+    public void seek(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            d();
+            this.e.seekTo(j, 2);
+            this.b = j;
+            this.c = new MediaCodec.BufferInfo();
+            this.d.flush();
         }
     }
 }

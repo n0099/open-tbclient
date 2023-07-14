@@ -1,5 +1,5 @@
 package com.kwad.components.ad.reward.presenter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class q extends a {
     public q() {
         a(new com.kwad.components.ad.reward.presenter.d.b());

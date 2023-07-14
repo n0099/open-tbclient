@@ -1,242 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.RemoveFansController;
-import com.baidu.tieba.iha;
-import com.baidu.tieba.xa7;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class ya7 {
+public class ya7 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public RemoveFansController b;
-    public xa7 c;
-    public uh9 d;
-    public iha e;
-    public e f;
 
-    /* loaded from: classes8.dex */
-    public interface e {
-        void a();
-
-        void b(int i, String str, boolean z, int i2, long j);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements xa7.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ya7 a;
-
-        public a(ya7 ya7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ya7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ya7Var;
-        }
-
-        @Override // com.baidu.tieba.xa7.b
-        public void a(int i, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) && this.a.f != null) {
-                this.a.f.b(i, str, z, 0, 0L);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements RemoveFansController.IResultCallBack {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ya7 a;
-
-        public b(ya7 ya7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ya7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ya7Var;
-        }
-
-        @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
-        public void onResultCallBack(int i, String str, long j, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) && this.a.f != null) {
-                this.a.f.b(i, str, z, 1, j);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements iha.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ya7 a;
-
-        public c(ya7 ya7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ya7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ya7Var;
-        }
-
-        @Override // com.baidu.tieba.iha.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d.dismiss();
-                if (this.a.f != null) {
-                    this.a.f.a();
-                }
-                this.a.c.d();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements iha.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ya7 a;
-
-        public d(ya7 ya7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ya7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ya7Var;
-        }
-
-        @Override // com.baidu.tieba.iha.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.d == null) {
-                return;
-            }
-            this.a.d.dismiss();
-        }
-    }
-
-    public ya7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public ya7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
-        xa7 xa7Var = new xa7(tbPageContext, bdUniqueId);
-        this.c = xa7Var;
-        xa7Var.e(new a(this));
-        RemoveFansController removeFansController = new RemoveFansController(tbPageContext, bdUniqueId);
-        this.b = removeFansController;
-        removeFansController.setResultCallBack(new b(this));
     }
 
-    public void f(long j) {
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint ds) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.b.removeFans(j);
-        }
-    }
-
-    public void g(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f = eVar;
-        }
-    }
-
-    public void d() {
-        iha ihaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ihaVar = this.e) != null) {
-            ihaVar.e();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h();
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.d == null) {
-                iha ihaVar = new iha(this.a.getContext());
-                this.e = ihaVar;
-                ihaVar.h(this.a.getString(R.string.obfuscated_res_0x7f0f04c4));
-                ArrayList arrayList = new ArrayList();
-                iha.b bVar = new iha.b(this.a.getString(R.string.obfuscated_res_0x7f0f04be), this.e);
-                bVar.h(new c(this));
-                arrayList.add(bVar);
-                this.e.g(new d(this));
-                this.e.f(arrayList);
-                uh9 uh9Var = new uh9(this.a.getPageActivity(), this.e.b());
-                this.d = uh9Var;
-                uh9Var.a(0.7f);
-            }
-            this.d.show();
+        if (interceptable == null || interceptable.invokeL(1048576, this, ds) == null) {
+            Intrinsics.checkNotNullParameter(ds, "ds");
+            ds.setUnderlineText(false);
         }
     }
 }

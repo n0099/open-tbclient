@@ -1,38 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.graphics.Bitmap;
+import android.net.http.SslError;
+import android.os.Message;
+import android.view.KeyEvent;
+import android.webkit.SslErrorHandler;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
 /* loaded from: classes5.dex */
-public class ec1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
+public interface ec1 extends kb1 {
+    void C(AbsNadBrowserView absNadBrowserView, float f, float f2);
 
-    public ec1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-        this.e = 0L;
-        this.f = 0L;
-    }
+    void E0(AbsNadBrowserView absNadBrowserView, String str, boolean z);
+
+    void F0(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
+
+    void J0(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    boolean N(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    boolean N0(AbsNadBrowserView absNadBrowserView, String str);
+
+    void T(AbsNadBrowserView absNadBrowserView, String str);
+
+    void U0(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
+
+    void V0(AbsNadBrowserView absNadBrowserView, fc1 fc1Var, String str, String str2);
+
+    void a1();
+
+    void b(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
+
+    void e(AbsNadBrowserView absNadBrowserView, String str);
+
+    void f(AbsNadBrowserView absNadBrowserView);
+
+    void l0();
+
+    hc1 p0(AbsNadBrowserView absNadBrowserView, String str);
+
+    void q1(AbsNadBrowserView absNadBrowserView, int i);
+
+    void t(AbsNadBrowserView absNadBrowserView, String str);
+
+    void t0(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
 }

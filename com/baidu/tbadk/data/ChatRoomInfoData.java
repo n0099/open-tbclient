@@ -289,6 +289,7 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
         public long fromUid;
         public long msgId;
         public String specialMsg;
+        public String specialMsgType;
 
         public ChatroomMEMsgInfoData() {
             Interceptable interceptable = $ic;
@@ -349,9 +350,18 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
             return (String) invokeV.objValue;
         }
 
+        public String getSpecialMsgType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.specialMsgType;
+            }
+            return (String) invokeV.objValue;
+        }
+
         public void parseProto(ChatroomMEMsgInfo chatroomMEMsgInfo) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048581, this, chatroomMEMsgInfo) != null) || chatroomMEMsgInfo == null) {
+            if ((interceptable != null && interceptable.invokeL(1048582, this, chatroomMEMsgInfo) != null) || chatroomMEMsgInfo == null) {
                 return;
             }
             this.fromUid = chatroomMEMsgInfo.from_uid.longValue();
@@ -359,40 +369,48 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
             this.content = chatroomMEMsgInfo.content;
             this.msgId = chatroomMEMsgInfo.msg_id.longValue();
             this.specialMsg = chatroomMEMsgInfo.special_msg;
+            this.specialMsgType = chatroomMEMsgInfo.special_msg_type;
         }
 
         public void setContent(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
                 this.content = str;
             }
         }
 
         public void setFromName(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
                 this.fromName = str;
             }
         }
 
         public void setFromUid(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
                 this.fromUid = j;
             }
         }
 
         public void setMsgId(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
                 this.msgId = j;
             }
         }
 
         public void setSpecialMsg(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
                 this.specialMsg = str;
+            }
+        }
+
+        public void setSpecialMsgType(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+                this.specialMsgType = str;
             }
         }
     }

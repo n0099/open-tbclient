@@ -4,17 +4,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.NavTabInfo;
-import tbclient.FrsTabInfo;
+import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes5.dex */
 public class e3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FrsTabInfo> a;
-    public List<FrsTabInfo> b;
-    public List<FrsTabInfo> c;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public String k;
+    public long l;
+    public long m;
+    public boolean n;
+    public boolean o;
+    public int p;
+    public String q;
+    public String r;
+    public long s;
+    public long t;
 
     public e3a() {
         Interceptable interceptable = $ic;
@@ -29,18 +43,40 @@ public class e3a {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = new ArrayList();
+        this.k = "";
     }
 
-    public void a(NavTabInfo navTabInfo) {
+    public e3a(MsgContent msgContent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, navTabInfo) != null) || navTabInfo == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {msgContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        this.a = new ArrayList(navTabInfo.tab);
-        this.b = new ArrayList(navTabInfo.menu);
-        this.c = new ArrayList(navTabInfo.head);
+        this.k = "";
+        this.d = msgContent.title;
+        this.q = msgContent.url;
+        this.f = msgContent.src;
+        this.e = msgContent.text;
+        a(this);
+    }
+
+    public static void a(e3a e3aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, e3aVar) == null) {
+            e3aVar.i = 0;
+            e3aVar.g = 4;
+            e3aVar.h = 4;
+            e3aVar.l = System.currentTimeMillis();
+            e3aVar.n = true;
+        }
     }
 }

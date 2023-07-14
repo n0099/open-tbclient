@@ -1,23 +1,52 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class q63 implements u63 {
+public class q63 implements zw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
+    public Map<Runnable, String> c;
 
-    @Override // com.baidu.tieba.u63
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageInitRender" : (String) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final q63 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-535726883, "Lcom/baidu/tieba/q63$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-535726883, "Lcom/baidu/tieba/q63$b;");
+                    return;
+                }
+            }
+            a = new q63(null);
+        }
     }
 
     public q63() {
@@ -33,41 +62,60 @@ public class q63 implements u63 {
                 return;
             }
         }
-        this.a = -1L;
-        this.b = -1L;
+        this.c = new ConcurrentHashMap();
     }
 
-    @Override // com.baidu.tieba.u63
-    public long a() {
+    public static q63 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j = this.a;
-            if (j >= 0) {
-                long j2 = this.b;
-                if (j2 >= 0) {
-                    return j2 - j;
-                }
-                return -1L;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (q63) invokeV.objValue;
+    }
+
+    public /* synthetic */ q63(a aVar) {
+        this();
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (zw2.a) {
+                Log.e("SwanPerformance", "main process launch start，appId = " + str);
             }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.u63
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.b = j;
+            System.currentTimeMillis();
         }
     }
 
-    @Override // com.baidu.tieba.u63
-    public void c(long j) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.a = j;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c.isEmpty()) {
+            return;
         }
+        if (zw2.a) {
+            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.c.size());
+        }
+        for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
+            if (entry != null) {
+                ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
+            }
+        }
+        this.c.clear();
+    }
+
+    public void c(Message message) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) != null) || message == null || (obj = message.obj) == null || !(obj instanceof Bundle)) {
+            return;
+        }
+        Bundle bundle = (Bundle) obj;
+        boolean z = bundle.getBoolean("is_timeout", false);
+        String string = bundle.getString("app_id", null);
+        if (zw2.a) {
+            Log.e("SwanPerformance", "main process launch end，timeout = " + z + " ; appId = " + string);
+        }
+        a();
     }
 }

@@ -1,64 +1,46 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.faceshop.EmotionGroupData;
+import com.baidu.tieba.faceshop.MyEmotionGroupData;
+import com.baidu.tieba.pj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class v47 implements t87<v47> {
+public class v47 extends pj5 {
     public static /* synthetic */ Interceptable $ic;
+    public static v47 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b67 a;
+    public LinkedList<sj5> a;
 
-    @Override // com.baidu.tieba.t87
-    public String a() {
+    @Override // com.baidu.tieba.pj5
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "card_single_link" : (String) invokeV.objValue;
-    }
-
-    public v47 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (v47) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            return (obj instanceof v47) && Intrinsics.areEqual(this.a, ((v47) obj).a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 4;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.pj5
+    public void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CardSingleLinkUiState(data=" + this.a + ')';
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return (String) invokeV.objValue;
     }
 
-    public v47(b67 data) {
+    public v47() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,23 +50,43 @@ public final class v47 implements t87<v47> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
+        this.a = new LinkedList<>();
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.t87
-    public /* bridge */ /* synthetic */ v47 b() {
-        c();
-        return this;
-    }
-
-    public final b67 d() {
+    public static v47 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (v47.class) {
+                    if (b == null) {
+                        b = new v47();
+                    }
+                }
+            }
+            return b;
         }
-        return (b67) invokeV.objValue;
+        return (v47) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pj5
+    public void b(pj5.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
+            List<MyEmotionGroupData> h = i47.c().h(TbadkCoreApplication.getCurrentAccount());
+            this.a.clear();
+            for (MyEmotionGroupData myEmotionGroupData : h) {
+                EmotionGroupData n = q47.o().n(myEmotionGroupData.getGroupId());
+                if (n != null) {
+                    k47 k47Var = new k47(n);
+                    if (k47Var.d() != null) {
+                        this.a.add(k47Var);
+                        if (aVar != null) {
+                            aVar.a(k47Var);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

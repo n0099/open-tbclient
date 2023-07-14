@@ -1,117 +1,57 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.wordscommand.WordCommandManager;
-import com.baidu.searchbox.wordscommand.data.CommandContent;
-import com.baidu.searchbox.wordscommand.listener.PictureCommandInvokeCallBack;
-import com.baidu.searchbox.wordscommand.runtime.IWordCommandApp;
-import com.baidu.tbadk.GrowthStatsUtil;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.helper.ProgressHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public class vu9 implements IWordCommandApp {
+public class vu9 extends ProgressHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BDVideoPlayer a;
 
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public boolean canPreloadSwanApp(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public void getPictureCommandContent(String str, PictureCommandInvokeCallBack pictureCommandInvokeCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, pictureCommandInvokeCallBack) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public void handlePreloadSwanApp() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public vu9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vu9(@NonNull BDVideoPlayer bDVideoPlayer) {
+        super(bDVideoPlayer);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bDVideoPlayer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BDVideoPlayer) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = bDVideoPlayer;
     }
 
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public boolean isMainProcess() {
-        InterceptResult invokeV;
+    public final void callPlayerBack(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return TbadkCoreApplication.getInst().isMainProcess(false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public boolean isNewInstall() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return TbadkCoreApplication.getInst().getIsFirstUse();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public void doOnShowParseCommandDialogWithPopupExclusion(Context context, CommandContent commandContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, commandContent) == null) {
-            WordCommandManager.getInstance().doOnShowParseCommandDialog(context, commandContent, null, null);
+        if ((interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) && i2 > 0) {
+            this.a.getPlayerCallbackManager().onUpdateProgress(i, (i3 * 100) / i2, i2);
         }
     }
 
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public void schemeInvoke(String str) {
-        Uri parse;
+    @Override // com.baidu.searchbox.player.helper.ProgressHelper, com.baidu.searchbox.player.helper.ITimerTask
+    public void doTask() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || !PermissionUtil.isAgreePrivacyPolicy() || (parse = Uri.parse(str)) == null) {
-            return;
-        }
-        if (str.startsWith("com.baidu.tieba://unidispatch/tbwebview")) {
-            if (!str.contains("tbwebview?url=https%3A") && !str.contains("tbwebview?url=http%3A")) {
-                str = str.replace("com.baidu.tieba://unidispatch/tbwebview?url=", "");
-            } else {
-                str = parse.getQueryParameter("url");
-            }
-        }
-        Activity b = h9.f().b();
-        if (b != null && (r9.a(b) instanceof TbPageContext)) {
-            UrlManager.getInstance().dealOneLink((TbPageContext) r9.a(b), new String[]{str});
-            bv4.c(Uri.parse(str));
-            GrowthStatsUtil.statisticClipBoard(str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int position = this.a.getPosition();
+            int durationMs = this.a.getDurationMs();
+            int bufferingPosition = this.a.getBufferingPosition();
+            int positionMs = this.a.getPositionMs();
+            this.a.getControlEventTrigger().syncPos(position, positionMs, durationMs, bufferingPosition);
+            callPlayerBack(positionMs, durationMs, bufferingPosition);
         }
     }
 }

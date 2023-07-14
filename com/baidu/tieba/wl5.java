@@ -1,22 +1,11 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
-import java.io.InputStream;
+import android.view.View;
 /* loaded from: classes8.dex */
 public interface wl5 {
-    InputStream a() throws IOException;
+    void b();
 
-    int available() throws IOException;
+    View getView();
 
-    void close() throws IOException;
-
-    byte peek() throws IOException;
-
-    int position();
-
-    int read(byte[] bArr, int i, int i2) throws IOException;
-
-    void reset() throws IOException;
-
-    long skip(long j) throws IOException;
+    void onClick();
 }

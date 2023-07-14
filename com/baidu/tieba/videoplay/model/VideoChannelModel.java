@@ -19,7 +19,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class VideoChannelModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -131,7 +131,7 @@ public class VideoChannelModel extends BdBaseModel {
                             this.a.b.b(arrayList);
                         }
                     }
-                    VideoChannelModel.V(this.a);
+                    VideoChannelModel.W(this.a);
                 }
             }
         }
@@ -173,7 +173,7 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                xi.N(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e0f));
+                yi.O(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e1f));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -181,7 +181,7 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
             this.a.d = true;
-            this.a.c0();
+            this.a.d0();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.a.e)));
         }
     }
@@ -217,20 +217,20 @@ public class VideoChannelModel extends BdBaseModel {
         registerListener(this.g);
     }
 
-    public static /* synthetic */ int V(VideoChannelModel videoChannelModel) {
+    public static /* synthetic */ int W(VideoChannelModel videoChannelModel) {
         int i = videoChannelModel.c;
         videoChannelModel.c = i + 1;
         return i;
     }
 
-    public void d0(int i) {
+    public void e0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.e = i;
         }
     }
 
-    public void e0(c cVar) {
+    public void f0(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
             this.b = cVar;
@@ -243,26 +243,26 @@ public class VideoChannelModel extends BdBaseModel {
             if (this.c < 2) {
                 this.c = 2;
             }
-            sendMessage(b0(2));
+            sendMessage(c0(2));
         }
     }
 
-    public void c0() {
+    public void d0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.c = 1;
-            sendMessage(b0(1));
+            sendMessage(c0(1));
         }
     }
 
-    public final HttpMessage b0(int i) {
+    public final HttpMessage c0(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED);
-            httpMessage.addParam("scr_w", xi.l(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("scr_h", xi.j(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("scr_dip", Float.valueOf(xi.i(TbadkCoreApplication.getInst())));
+            httpMessage.addParam("scr_w", yi.l(TbadkCoreApplication.getInst()));
+            httpMessage.addParam("scr_h", yi.j(TbadkCoreApplication.getInst()));
+            httpMessage.addParam("scr_dip", Float.valueOf(yi.i(TbadkCoreApplication.getInst())));
             httpMessage.addParam("new_net_type", BdNetTypeUtil.netType());
             httpMessage.addParam("load_type", i);
             return httpMessage;

@@ -165,10 +165,22 @@ public class MediaChatMessageManager implements IChatMessageManager {
         return invokeL.longValue;
     }
 
-    private boolean shouldSendByUser(ChatMsg chatMsg) {
+    private boolean shouldSaveByCUser(ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, chatMsg)) == null) {
+            if (chatMsg.getCategory() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private boolean shouldSendByUser(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, chatMsg)) == null) {
             if (chatMsg.getCategory() == 1) {
                 return true;
             }
@@ -183,6 +195,10 @@ public class MediaChatMessageManager implements IChatMessageManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, chatMsg)) == null) {
             if (chatMsg == null || !AccountManager.isLogin(this.mAppContext)) {
+                return -1;
+            }
+            if (shouldSaveByCUser(chatMsg)) {
+                ChatMsgManager.saveMessage(this.mAppContext, chatMsg);
                 return -1;
             }
             return saveOrUpdateMsg(chatMsg, -1);
@@ -292,7 +308,7 @@ public class MediaChatMessageManager implements IChatMessageManager {
     private void updateChatMsgStatus(ChatMsg chatMsg, int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65548, this, chatMsg, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65549, this, chatMsg, i) == null) {
             if (i == 0) {
                 i2 = 0;
             } else {

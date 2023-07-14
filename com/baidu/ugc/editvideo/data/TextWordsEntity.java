@@ -3,9 +3,9 @@ package com.baidu.ugc.editvideo.data;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.face.platform.ConstPath;
-import com.baidu.tieba.b2b;
-import com.baidu.tieba.j1b;
-import com.baidu.tieba.q1b;
+import com.baidu.tieba.hab;
+import com.baidu.tieba.oab;
+import com.baidu.tieba.zab;
 import com.facebook.imagepipeline.producers.ProducerConstants;
 import com.google.gson.annotations.SerializedName;
 import java.io.File;
@@ -14,13 +14,13 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TextWordsEntity {
     public List<TextFontEntity> mCoverFontList;
     public List<TextStyleEntity> mCoverStyleList;
     public List<TextColorEntity> mCoverTextColorList;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class StyleBackgroudInfoEntity {
         @SerializedName(Key.ALPHA)
         public String mBackgroudAlpha;
@@ -56,7 +56,7 @@ public class TextWordsEntity {
         }
 
         public boolean isNeedDown() {
-            return b2b.a(this.mBackgroudImageUrl);
+            return zab.a(this.mBackgroudImageUrl);
         }
 
         public static StyleBackgroudInfoEntity parse(JSONObject jSONObject) {
@@ -145,13 +145,13 @@ public class TextWordsEntity {
         }
 
         public File getSourceFile() {
-            if (b2b.a(this.mBackgroudImageUrl)) {
+            if (zab.a(this.mBackgroudImageUrl)) {
                 return new File("");
             }
             if (this.mSourceFile == null) {
                 String str = this.mLocalParentFile;
                 StringBuilder sb = new StringBuilder();
-                sb.append(q1b.b(this.mBackgroudImageUrl));
+                sb.append(oab.b(this.mBackgroudImageUrl));
                 String str2 = this.mBackgroudImageUrl;
                 sb.append(str2.substring(str2.lastIndexOf(".")));
                 this.mSourceFile = new File(str, sb.toString());
@@ -160,7 +160,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class TextFontEntity {
         public String mDownloadUrl;
         public String mIconUrl;
@@ -173,7 +173,7 @@ public class TextWordsEntity {
         public File getSourceFile() {
             if (this.mSourceFile == null) {
                 File file = this.mRootDir;
-                this.mSourceFile = new File(file, q1b.b(this.mDownloadUrl) + getSuffix());
+                this.mSourceFile = new File(file, oab.b(this.mDownloadUrl) + getSuffix());
             }
             return this.mSourceFile;
         }
@@ -242,7 +242,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class StyleShadowInfoEntity {
         @SerializedName(Key.ALPHA)
         public String mShadowAlpha;
@@ -292,7 +292,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class StyleStrokeInfoEntity {
         @SerializedName(Key.ALPHA)
         public String mStrokeAlpha;
@@ -332,7 +332,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class StyleTextInfoEntity {
         @SerializedName(Key.ALPHA)
         public String mTextAlpha;
@@ -368,7 +368,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class TextColorEntity {
         public String mAlpha;
         public String mColor;
@@ -383,7 +383,7 @@ public class TextWordsEntity {
                 textColorEntity.mColor = jSONObject.optString("color");
                 String optString = jSONObject.optString(Key.ALPHA);
                 textColorEntity.mAlpha = optString;
-                textColorEntity.mColorInfo = j1b.b(textColorEntity.mColor, optString);
+                textColorEntity.mColorInfo = hab.b(textColorEntity.mColor, optString);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -406,7 +406,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class TextStyleEntity {
         public static final int TEXT_STYLE_TYPE_1 = 1;
         public static final int TEXT_STYLE_TYPE_2 = 2;

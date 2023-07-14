@@ -1,45 +1,19 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wn4 c;
+    public static volatile wn4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a a;
-    public vn4 b;
-
-    /* loaded from: classes8.dex */
-    public static class a extends ms4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("swan_clean_stratey");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
 
     public wn4() {
         Interceptable interceptable = $ic;
@@ -51,67 +25,49 @@ public class wn4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new a();
     }
 
-    public static wn4 b() {
+    public static wn4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
+            if (a == null) {
                 synchronized (wn4.class) {
-                    if (c == null) {
-                        c = new wn4();
+                    if (a == null) {
+                        a = new wn4();
                     }
                 }
             }
-            return c;
+            return a;
         }
         return (wn4) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.getString("version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public vn4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b == null) {
-                synchronized (wn4.class) {
-                    if (this.b == null) {
-                        this.b = vn4.b(this.a.getString("data", ""));
-                    }
-                }
-            }
-            return this.b;
-        }
-        return (vn4) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString)) {
-            return;
+        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && gj4.b() != null && gj4.b().i() != null) {
+            JSONArray optJSONArray = optJSONObject.optJSONArray(AlbumActivityConfig.FROM_WEB_VIEW);
+            JSONArray optJSONArray2 = optJSONObject.optJSONArray("js");
+            boolean z2 = true;
+            if (optJSONArray != null) {
+                z = gj4.b().o(false, optJSONArray);
+            } else {
+                z = true;
+            }
+            if (optJSONArray2 != null) {
+                z2 = gj4.b().o(true, optJSONArray2);
+            }
+            if (z && z2) {
+                gj4.b().i().putString("key_online_description_fix_version", optString);
+            }
         }
-        String optString2 = jSONObject.optString("data");
-        if (TextUtils.isEmpty(optString2)) {
-            return;
-        }
-        this.a.edit().putString("version", optString).putString("data", optString2).apply();
     }
 }

@@ -49,7 +49,7 @@ import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeChecker;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeCheckerImpl;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.utils.SmartSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class OverridingUtil {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final OverridingUtil DEFAULT;
@@ -751,7 +751,7 @@ public class OverridingUtil {
     }
 
     /* renamed from: kotlin.reflect.jvm.internal.impl.resolve.OverridingUtil$9  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass9 {
         public static final /* synthetic */ int[] $SwitchMap$org$jetbrains$kotlin$descriptors$Modality;
         public static final /* synthetic */ int[] $SwitchMap$org$jetbrains$kotlin$resolve$ExternalOverridabilityCondition$Result;
@@ -811,13 +811,13 @@ public class OverridingUtil {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class OverrideCompatibilityInfo {
         public static final OverrideCompatibilityInfo SUCCESS = new OverrideCompatibilityInfo(Result.OVERRIDABLE, "SUCCESS");
         public final String debugMessage;
         public final Result overridable;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public enum Result {
             OVERRIDABLE,
             INCOMPATIBLE,

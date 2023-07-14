@@ -3,37 +3,76 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.card.Align;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
-import com.baidu.tieba.pb.videopb.viewholder.VideoTabPbFloatEnterForumViewHolder;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.mz;
+import com.baidu.tieba.xz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yg9 extends kn<p99, VideoTabPbFloatEnterForumViewHolder> {
+public class yg9 extends ln<kq6, ThreadCardViewHolder<kq6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public boolean b;
+    public BdUniqueId a;
+    public TbPageContext<?> b;
+    public eo c;
+    public up6<kq6> d;
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public class a extends up6<kq6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yg9 b;
+
+        public a(yg9 yg9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yg9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = yg9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.up6
+        /* renamed from: d */
+        public void a(View view2, kq6 kq6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, kq6Var) == null) {
+                np6.b().d(true);
+                if (view2 != null && kq6Var != null && kq6Var.getThreadData() != null && !StringUtils.isNull(kq6Var.getThreadData().getTid())) {
+                    this.b.y(view2, kq6Var);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements io {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yg9 a;
 
-        public a(yg9 yg9Var) {
+        public b(yg9 yg9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,32 +90,30 @@ public class yg9 extends kn<p99, VideoTabPbFloatEnterForumViewHolder> {
             this.a = yg9Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.io
+        public void b(View view2, yn ynVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.a instanceof VideoPbCommentFloatFragment)) {
-                VideoPbCommentFloatFragment videoPbCommentFloatFragment = (VideoPbCommentFloatFragment) this.a.a;
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                statisticItem.param("fid", videoPbCommentFloatFragment.Q().getForumId());
-                statisticItem.param("tid", videoPbCommentFloatFragment.Q().R1());
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("post_id", videoPbCommentFloatFragment.Q().W0());
-                statisticItem.param("obj_source", 1);
-                statisticItem.param("obj_type", 16);
-                statisticItem.param("obj_locate", videoPbCommentFloatFragment.r3());
-                TiebaStatic.log(statisticItem);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, ynVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ynVar instanceof kq6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                kq6 kq6Var = (kq6) ynVar;
+                kq6Var.f = 1;
+                if (this.a.d != null) {
+                    this.a.d.a(threadCardViewHolder.getView(), kq6Var);
+                }
+                ThreadCardUtils.jumpToPB((t15) kq6Var, view2.getContext(), kq6Var.C, false, by.a((eo) viewGroup, view2, i));
+                threadCardViewHolder.b().p(new xz.a(1));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yg9(Context context, BdUniqueId bdUniqueId, BaseFragment baseFragment) {
-        super(context, bdUniqueId);
+    public yg9(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, baseFragment};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -88,72 +125,68 @@ public class yg9 extends kn<p99, VideoTabPbFloatEnterForumViewHolder> {
                 return;
             }
         }
-        this.a = baseFragment;
+        this.d = new a(this);
+        this.b = tbPageContext;
     }
 
-    public void x(boolean z) {
+    public void z(eo eoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeL(1048581, this, eoVar) == null) {
+            this.c = eoVar;
         }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, p99 p99Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
-        u(i, view2, viewGroup, p99Var, videoTabPbFloatEnterForumViewHolder);
-        return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public VideoTabPbFloatEnterForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.ln
+    /* renamed from: u */
+    public ThreadCardViewHolder<kq6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.mContext);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = xi.g(this.mContext, R.dimen.tbds156);
-            layoutParams.topMargin = xi.g(this.mContext, R.dimen.M_H_X003);
-            layoutParams.rightMargin = xi.g(this.mContext, R.dimen.M_W_X007);
-            layoutParams.bottomMargin = xi.g(this.mContext, R.dimen.M_H_X005);
-            frameLayout.addView(flowLabelLayout, layoutParams);
-            View view2 = new View(this.mContext);
-            view2.setId(R.id.obfuscated_res_0x7f090b54);
-            view2.setAlpha(0.5f);
-            frameLayout.addView(view2, new FrameLayout.LayoutParams(-1, -1));
-            return new VideoTabPbFloatEnterForumViewHolder(this.mContext, frameLayout);
+            mz.b bVar = new mz.b(this.b.getPageActivity());
+            bVar.l().k(true);
+            bVar.o(new ky(this.b.getPageActivity()));
+            ThreadCardViewHolder<kq6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.c));
+            threadCardViewHolder.j(this.a);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
-        return (VideoTabPbFloatEnterForumViewHolder) invokeL.objValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public View u(int i, View view2, ViewGroup viewGroup, p99 p99Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kq6 kq6Var, ThreadCardViewHolder<kq6> threadCardViewHolder) {
         InterceptResult invokeCommon;
-        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, p99Var, videoTabPbFloatEnterForumViewHolder})) == null) {
-            if (p99Var != null) {
-                videoTabPbFloatEnterForumViewHolder.setData(p99Var.a);
-                videoTabPbFloatEnterForumViewHolder.b(new a(this));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kq6Var, threadCardViewHolder})) == null) {
+            if (kq6Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kq6Var.a == null) {
+                return null;
             }
-            if (this.b) {
-                videoTabPbFloatEnterForumViewHolder.d.setVisibility(0);
-            } else {
-                videoTabPbFloatEnterForumViewHolder.d.setVisibility(8);
-            }
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
-            View view3 = videoTabPbFloatEnterForumViewHolder.d;
-            if (this.b) {
-                i2 = R.color.CAM_X0201;
-            } else {
-                i2 = R.color.transparent;
-            }
-            SkinManager.setBackgroundColor(view3, i2);
-            videoTabPbFloatEnterForumViewHolder.a();
-            return view2;
+            kq6Var.B(kq6Var.position + 1);
+            threadCardViewHolder.b().r(i);
+            threadCardViewHolder.r(false, Align.ALIGN_RIGHT_TOP, null);
+            threadCardViewHolder.f(kq6Var);
+            threadCardViewHolder.b().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().q(this.d);
+            return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public final void y(View view2, kq6 kq6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, kq6Var) == null) {
+            int id = view2.getId();
+            if (kq6Var == null) {
+                return;
+            }
+            if (id != R.id.forum_head_image && id != R.id.forum_head_barname && id != R.id.forum_head_info_attention && id != R.id.forum_head_info_thread) {
+                xm9.m(kq6Var, 1, this.b);
+            } else {
+                xm9.m(kq6Var, 2, this.b);
+            }
+        }
     }
 }

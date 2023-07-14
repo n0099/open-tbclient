@@ -17,7 +17,7 @@ import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.proxy.app.AdWebViewActivity;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     public static final String KEY_PAGE_TITLE = "key_page_title";
     public static final String KEY_PAGE_URL = "key_page_url";
@@ -26,14 +26,14 @@ public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     public String title;
 
     private void initView() {
-        this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0912c9);
+        this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0912dd);
         String stringExtra = getIntent().getStringExtra("key_page_title");
         this.title = stringExtra;
         if (!TextUtils.isEmpty(stringExtra)) {
             this.mTitle.setText(this.title);
         }
-        findViewById(R.id.obfuscated_res_0x7f0912cb).setVisibility(8);
-        findViewById(R.id.obfuscated_res_0x7f0912ca).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.SimpleWebViewActivity.1
+        findViewById(R.id.obfuscated_res_0x7f0912df).setVisibility(8);
+        findViewById(R.id.obfuscated_res_0x7f0912de).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.SimpleWebViewActivity.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 SimpleWebViewActivity.this.finish();
@@ -42,7 +42,7 @@ public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     }
 
     private void initWebView() {
-        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09141c);
+        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091430);
         this.mAdWebView = ksAdWebView;
         p.b(ksAdWebView);
     }
@@ -83,7 +83,7 @@ public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d0470);
+        setContentView(R.layout.obfuscated_res_0x7f0d047b);
         initView();
         initWebView();
         loadUrl();

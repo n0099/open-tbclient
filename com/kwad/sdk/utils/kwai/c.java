@@ -58,7 +58,7 @@ public final class c {
     /* loaded from: classes10.dex */
     public static class a {
         public static int aqb = 11;
-        public static final C0690c aqc = new C0690c(11);
+        public static final C0695c aqc = new C0695c(11);
         public final String apC;
         public int apX = 0;
         public b[] aqd;
@@ -80,21 +80,21 @@ public final class c {
 
         public final c Bq() {
             String str = this.apC + this.name;
-            c ei = C0690c.ei(str);
+            c ei = C0695c.ei(str);
             if (ei == null) {
                 synchronized (a.class) {
-                    ei = C0690c.ei(str);
+                    ei = C0695c.ei(str);
                     if (ei == null) {
                         ei = new c(this.apC, this.name, this.aqd, this.apX);
-                        C0690c.b(str, ei);
+                        C0695c.b(str, ei);
                     }
                 }
             }
-            Integer num = C0690c.aqh.get(str);
+            Integer num = C0695c.aqh.get(str);
             if (num != null) {
-                C0690c.aqh.put(str, Integer.valueOf(num.intValue() + 1));
+                C0695c.aqh.put(str, Integer.valueOf(num.intValue() + 1));
             } else {
-                C0690c.aqh.put(str, 1);
+                C0695c.aqh.put(str, 1);
             }
             return ei;
         }
@@ -111,13 +111,13 @@ public final class c {
 
     /* renamed from: com.kwad.sdk.utils.kwai.c$c  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0690c {
+    public static class C0695c {
         public static Map<String, c> aqe;
         public static List<String> aqf;
         public static int aqg;
         public static Map<String, Integer> aqh;
 
-        public C0690c(int i) {
+        public C0695c(int i) {
             int size = getSize(i);
             aqe = new ConcurrentHashMap(size);
             aqh = new HashMap(size);
@@ -491,7 +491,7 @@ public final class c {
                         } else if (b3 == 7) {
                             Object string2 = z ? bVar.getString(i5) : bVar.getBytes(i5);
                             map = this.apO;
-                            cVar = new a.C0689a(i, i4 + 2, string2, i5, z);
+                            cVar = new a.C0694a(i, i4 + 2, string2, i5, z);
                         } else if (z) {
                             String string3 = bVar.getString(i5);
                             map = this.apO;
@@ -985,7 +985,7 @@ public final class c {
                 str2 = obj;
                 length = bArr.length;
             }
-            this.apO.put(str, b2 == 6 ? new a.i(this.apQ, a2, (String) str2, length, z) : b2 == 7 ? new a.C0689a(this.apQ, a2, str2, length, z) : new a.h(this.apQ, a2, str2, length, z));
+            this.apO.put(str, b2 == 6 ? new a.i(this.apQ, a2, (String) str2, length, z) : b2 == 7 ? new a.C0694a(this.apQ, a2, str2, length, z) : new a.h(this.apQ, a2, str2, length, z));
             Bk();
         }
     }
@@ -1213,9 +1213,9 @@ public final class c {
         }
     }
 
-    private byte[] a(a.C0689a c0689a) {
+    private byte[] a(a.C0694a c0694a) {
         try {
-            byte[] ab = h.ab(new File(this.apC + this.name, (String) c0689a.value));
+            byte[] ab = h.ab(new File(this.apC + this.name, (String) c0694a.value));
             return ab != null ? ab : apy;
         } catch (Exception e2) {
             b(e2);
@@ -1274,7 +1274,7 @@ public final class c {
         if (bArr == null) {
             remove(str);
         } else {
-            a(str, bArr, bArr, (a.C0689a) this.apO.get(str), (byte) 7);
+            a(str, bArr, bArr, (a.C0694a) this.apO.get(str), (byte) 7);
         }
     }
 
@@ -1693,11 +1693,11 @@ public final class c {
                     valueOf = jVar.value;
                     break;
                 case 7:
-                    a.C0689a c0689a = (a.C0689a) value;
-                    boolean z2 = c0689a.apu;
-                    jVar = c0689a;
+                    a.C0694a c0694a = (a.C0694a) value;
+                    boolean z2 = c0694a.apu;
+                    jVar = c0694a;
                     if (z2) {
-                        valueOf = a(c0689a);
+                        valueOf = a(c0694a);
                         break;
                     }
                     valueOf = jVar.value;
@@ -1880,8 +1880,8 @@ public final class c {
         this.apG = null;
         this.apJ = null;
         this.apK = null;
-        C0690c c0690c = a.aqc;
-        C0690c.remove(this.apC + this.name);
+        C0695c c0695c = a.aqc;
+        C0695c.remove(this.apC + this.name);
     }
 
     public final synchronized void remove(String str) {

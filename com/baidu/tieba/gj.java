@@ -1,91 +1,128 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.security.GeneralSecurityException;
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+/* loaded from: classes6.dex */
 public class gj {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f, Paint paint, String str, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), paint, str, Integer.valueOf(i)})) == null) {
-            if (f == 0.0f || i == 0 || str == null || str.isEmpty()) {
-                return 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448305450, "Lcom/baidu/tieba/gj;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (!str.contains("\n")) {
-                return Math.min((int) Math.ceil(paint.measureText(str) / f), i);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448305450, "Lcom/baidu/tieba/gj;");
+                return;
             }
-            String[] split = str.split("\n");
-            if (split.length > i) {
-                return Math.min(split.length, i);
-            }
-            int i2 = 0;
-            for (int i3 = 0; i3 < i && split.length > i3; i3++) {
-                if (i3 < i - 1) {
-                    i2 += (int) Math.ceil(paint.measureText(split[i3]) / f);
-                } else {
-                    i2++;
-                }
-            }
-            return Math.min(i2, i);
         }
-        return invokeCommon.intValue;
+        Charset.forName("UTF-8");
+        a = new byte[]{-92, Constants.GZIP_CAST_TYPE, -56, 52, -42, -107, -13, 19};
     }
 
-    public static boolean b(float f, Paint paint, String str, int i) {
-        InterceptResult invokeCommon;
+    public static byte[] a(SecretKey secretKey, byte[] bArr, int i, int i2) throws GeneralSecurityException {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), paint, str, Integer.valueOf(i)})) == null) {
-            return c(f, paint, str, i, 5);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65537, null, secretKey, bArr, i, i2)) == null) {
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+            cipher.init(2, secretKey);
+            return cipher.doFinal(bArr, i, i2);
         }
-        return invokeCommon.booleanValue;
+        return (byte[]) invokeLLII.objValue;
     }
 
-    public static boolean c(float f, Paint paint, String str, int i, int i2) {
-        InterceptResult invokeCommon;
-        float measureText;
+    public static byte[] b(Key key, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), paint, str, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            float f2 = 0.0f;
-            if (f != 0.0f && i != 0 && str != null && !str.isEmpty() && paint != null) {
-                if (!str.contains("\n")) {
-                    if (paint.measureText(str) < f * i) {
-                        return false;
-                    }
-                    return true;
-                }
-                String[] split = str.split("\n");
-                if (split.length > i) {
-                    return true;
-                }
-                int i3 = 0;
-                for (int i4 = 0; i4 < i && split.length > i4; i4++) {
-                    if (i4 < i - 1) {
-                        measureText = paint.measureText(split[i4]);
-                        int ceil = (int) Math.ceil(measureText / f);
-                        i3 += ceil;
-                        if (i3 < i2) {
-                            measureText = ceil * f;
-                        }
-                    } else {
-                        measureText = paint.measureText(split[i4]);
-                        i3++;
-                    }
-                    f2 += measureText;
-                    if (i3 >= 5) {
-                        if (f2 < f * i) {
-                            return false;
-                        }
-                        return true;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, key, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(2, key);
+            return cipher.doFinal(bArr);
         }
-        return invokeCommon.booleanValue;
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] c(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, secretKey, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+            cipher.init(1, secretKey);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] d(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, publicKey, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(1, publicKey);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static PublicKey e(byte[] bArr) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr));
+        }
+        return (PublicKey) invokeL.objValue;
+    }
+
+    public static SecretKey f(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            int length = str.length();
+            char[] cArr = new char[length];
+            for (int i = 0; i < length; i++) {
+                cArr[i] = (char) (((byte) str.charAt(i)) & 255);
+            }
+            return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, a, 5, 256));
+        }
+        return (SecretKey) invokeL.objValue;
+    }
+
+    public static String g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
+            if (bigInteger.length() > i) {
+                return bigInteger.substring(0, bigInteger.length());
+            }
+            return bigInteger;
+        }
+        return (String) invokeI.objValue;
     }
 }

@@ -1,29 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.IFlyingScheduleIoc;
+import com.baidu.cyberplayer.sdk.context.CyberMediaContextDef;
+import com.baidu.cyberplayer.sdk.context.ICyberGlobalOptions;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public class tu9 implements IFlyingScheduleIoc {
+public class tu9 extends CyberMediaContextDef {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.unitedscheme.IFlyingScheduleIoc
-    public boolean enableFlyingSchedule() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    public kv9 a;
 
     public tu9() {
         Interceptable interceptable = $ic;
@@ -35,7 +23,19 @@ public class tu9 implements IFlyingScheduleIoc {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new kv9();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.context.CyberMediaContextDef, com.baidu.cyberplayer.sdk.context.ICyberMediaContext
+    public ICyberGlobalOptions getCyberGlobalOptions() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (ICyberGlobalOptions) invokeV.objValue;
     }
 }

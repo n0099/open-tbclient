@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,25 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class sr0 {
+public final class sr0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
+    public static final sr0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public int a;
-    @JvmField
-    public int b;
-    @JvmField
-    public Object c;
-    @JvmField
-    public mr0 d;
-    @JvmField
-    public pr0 e;
 
     static {
         InterceptResult invokeClinit;
@@ -40,58 +29,7 @@ public class sr0 {
                 return;
             }
         }
-        f = new a(null);
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        @JvmStatic
-        public final sr0 a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("popover");
-                if (optJSONObject == null) {
-                    optJSONObject = c31.c(jSONObject.optString("popover"));
-                }
-                if (optJSONObject == null) {
-                    return null;
-                }
-                sr0 sr0Var = new sr0();
-                sr0Var.a = optJSONObject.optInt("type");
-                sr0Var.b = optJSONObject.optInt("show_time");
-                optJSONObject.optInt("async_get_popover_data_switch");
-                optJSONObject.optInt("async_get_popover_data_delay_time");
-                optJSONObject.optString("popover_data_request_url");
-                optJSONObject.optJSONObject("popover_data_request_params");
-                return sr0Var;
-            }
-            return (sr0) invokeL.objValue;
-        }
+        a = new sr0();
     }
 
     public sr0() {
@@ -106,5 +44,22 @@ public class sr0 {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public final boolean a(tr0 tr0Var, Context context, Intent intent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, tr0Var, context, intent)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            int b = oa1.b(context.getApplicationContext(), null);
+            if (b == 0) {
+                return false;
+            }
+            if ((2 == b || 1 == b || 4 == b) && intent != null) {
+                intent.putExtra("downgrade_to_native", "1");
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

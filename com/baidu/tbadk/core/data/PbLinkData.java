@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tieba.zo6;
+import com.baidu.tieba.dq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbLinkInfo;
 /* loaded from: classes4.dex */
-public class PbLinkData extends zo6 implements Serializable {
+public class PbLinkData extends dq6 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String content1;
@@ -41,7 +41,7 @@ public class PbLinkData extends zo6 implements Serializable {
         }
     }
 
-    @Override // com.baidu.tieba.zo6
+    @Override // com.baidu.tieba.dq6
     public int sort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -25,11 +25,11 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j68;
+import com.baidu.tieba.eb8;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public TextView o;
     public TextView p;
     public TextView q;
-    public j68 r;
+    public eb8 r;
     public ColorStateList s;
     public ColorStateList t;
     public Runnable u;
@@ -264,7 +264,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
             }
         }
         this.a = 3;
-        this.j = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds107);
+        this.j = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds107);
         this.k = 0;
         this.s = SkinManager.getColorList(R.color.CAM_X0308);
         this.t = SkinManager.getColorList(R.color.CAM_X0303);
@@ -330,7 +330,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
             }
         }
         this.a = 3;
-        this.j = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds107);
+        this.j = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds107);
         this.k = 0;
         this.s = SkinManager.getColorList(R.color.CAM_X0308);
         this.t = SkinManager.getColorList(R.color.CAM_X0303);
@@ -358,7 +358,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
             }
         }
         this.a = 3;
-        this.j = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds107);
+        this.j = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds107);
         this.k = 0;
         this.s = SkinManager.getColorList(R.color.CAM_X0308);
         this.t = SkinManager.getColorList(R.color.CAM_X0303);
@@ -380,10 +380,10 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         }
     }
 
-    public void i(@NonNull j68 j68Var) {
+    public void i(@NonNull eb8 eb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, j68Var) == null) {
-            this.r = j68Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, eb8Var) == null) {
+            this.r = eb8Var;
             q(false);
             m(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -394,9 +394,9 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091c54) {
+            if (id == R.id.obfuscated_res_0x7f091c6b) {
                 n();
-            } else if (id == R.id.obfuscated_res_0x7f091c55) {
+            } else if (id == R.id.obfuscated_res_0x7f091c6c) {
                 o();
             }
         }
@@ -405,7 +405,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public final void t(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.b.getOrignalPage().K1(this.r, i);
+            this.b.getOrignalPage().H1(this.r, i);
         }
     }
 
@@ -457,7 +457,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            TiebaStatic.log(new StatisticItem("c13818").param("uid", TbadkCoreApplication.getCurrentAccount()).param("topic_id", this.b.getOrignalPage().z1()));
+            TiebaStatic.log(new StatisticItem("c13818").param("uid", TbadkCoreApplication.getCurrentAccount()).param("topic_id", this.b.getOrignalPage().w1()));
         }
     }
 
@@ -468,28 +468,28 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
             if (a2 instanceof TbPageContext) {
                 this.b = (TbPageContext) a2;
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03fe, (ViewGroup) this, true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09231e);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092514);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090874);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c54);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0409, (ViewGroup) this, true);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092351);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092548);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090875);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c6b);
             this.f = textView;
             textView.setOnClickListener(this);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091c55);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091c6c);
             this.g = textView2;
             textView2.setOnClickListener(this);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d2f);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d49);
             this.h = findViewById;
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             this.i = layoutParams;
             layoutParams.height = this.k;
             this.h.setLayoutParams(layoutParams);
             this.h.setAlpha(0.0f);
-            this.m = (HotTopicDetailPkProcess) findViewById(R.id.obfuscated_res_0x7f091d2a);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091c57);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091c59);
-            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f091c58);
-            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f091c5a);
+            this.m = (HotTopicDetailPkProcess) findViewById(R.id.obfuscated_res_0x7f091d44);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091c6e);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091c70);
+            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f091c6f);
+            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f091c71);
         }
     }
 
@@ -499,27 +499,27 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            j68 j68Var = this.r;
-            if (j68Var.f == 1) {
+            eb8 eb8Var = this.r;
+            if (eb8Var.f == 1) {
                 i = 1;
             } else {
                 i = 0;
             }
-            if (j68Var.f == 2) {
+            if (eb8Var.f == 2) {
                 i2 = 1;
             } else {
                 i2 = 0;
             }
             long j2 = i2;
-            long j3 = j68Var.i + j68Var.j + i + j2;
-            this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a05), StringHelper.numberUniformFormatExtra(j3)));
-            this.e.setText(j68Var.a);
-            this.f.setText(j68Var.b);
-            this.g.setText(j68Var.d);
-            this.n.setText("" + (j68Var.i + j));
-            this.p.setText("" + (j68Var.j + j2));
+            long j3 = eb8Var.i + eb8Var.j + i + j2;
+            this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a10), StringHelper.numberUniformFormatExtra(j3)));
+            this.e.setText(eb8Var.a);
+            this.f.setText(eb8Var.b);
+            this.g.setText(eb8Var.d);
+            this.n.setText("" + (eb8Var.i + j));
+            this.p.setText("" + (eb8Var.j + j2));
             if (j3 > 0) {
-                int i3 = j68Var.f;
+                int i3 = eb8Var.f;
                 float f = 0.02f;
                 if (i3 == 1) {
                     if (j3 > 1) {
@@ -528,7 +528,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                         if (f3 >= 0.02f) {
                             f = f3;
                         }
-                        this.m.setProcess(((((float) j68Var.i) * 1.0f) / f2) + f, z);
+                        this.m.setProcess(((((float) eb8Var.i) * 1.0f) / f2) + f, z);
                     } else {
                         this.m.setProcess(1.0f, z);
                     }
@@ -539,18 +539,18 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                         if (f5 >= 0.02f) {
                             f = f5;
                         }
-                        this.m.setProcess(((((float) j68Var.i) * 1.0f) / f4) - f, z);
+                        this.m.setProcess(((((float) eb8Var.i) * 1.0f) / f4) - f, z);
                     } else {
                         this.m.setProcess(0.0f, z);
                     }
                 } else {
-                    this.m.setProcess((((float) j68Var.i) * 1.0f) / ((float) j3), z);
+                    this.m.setProcess((((float) eb8Var.i) * 1.0f) / ((float) j3), z);
                 }
             } else {
                 this.m.setProcess(0.5f, z);
             }
             if (this.h.getVisibility() != 0) {
-                if (j68Var.f != 0) {
+                if (eb8Var.f != 0) {
                     this.k = this.j;
                     ViewGroup.LayoutParams layoutParams = this.h.getLayoutParams();
                     this.i = layoutParams;
@@ -572,12 +572,12 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     }
 
     public final void r() {
-        j68 j68Var;
+        eb8 eb8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (j68Var = this.r) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (eb8Var = this.r) == null) {
             return;
         }
-        int i = j68Var.f;
+        int i = eb8Var.f;
         if (i == 1) {
             this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f08033c);
             this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f08033d);

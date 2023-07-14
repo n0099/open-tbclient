@@ -1,83 +1,80 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.plugin.capture.bean.FaceItem;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-@Deprecated
 /* loaded from: classes8.dex */
-public final class tn5 {
+public class tn5 extends on5 {
     public static /* synthetic */ Interceptable $ic;
-    @NonNull
-    public static final tn5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, sn5> a;
+    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948186990, "Lcom/baidu/tieba/tn5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948186990, "Lcom/baidu/tieba/tn5;");
-                return;
-            }
+    @Override // com.baidu.tieba.on5
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FaceItem.DIR_STICKER : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.on5
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
-        b = new tn5();
     }
 
     public tn5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = "";
     }
 
-    public static void a(@NonNull String str, @NonNull sn5 sn5Var) {
+    @Override // com.baidu.tieba.on5
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, sn5Var) == null) {
-            b.a.put(str, sn5Var);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            TbImageMemoryCache.v().t(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.loadResizedBitmap(this.a, yi.l(TbadkCoreApplication.getInst()), yi.j(TbadkCoreApplication.getInst()));
         }
+        return (Bitmap) invokeLZ.objValue;
     }
 
-    @Nullable
-    public static <T> T b(@NonNull String str) {
+    @Override // com.baidu.tieba.on5
+    public Bitmap c(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return (T) b.a.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return b(BitmapHelper.loadResizedBitmap(str, yi.l(TbadkCoreApplication.getInst()), yi.j(TbadkCoreApplication.getInst())), true);
         }
-        return (T) invokeL.objValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    @NonNull
-    public static <T> T c(@NonNull String str) {
-        InterceptResult invokeL;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return (T) Objects.requireNonNull(b(str));
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
         }
-        return (T) invokeL.objValue;
     }
 }

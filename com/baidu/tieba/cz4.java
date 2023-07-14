@@ -1,146 +1,112 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.JavascriptInterface;
-import android.webkit.WebView;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
-import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tbadk.browser.editor.tools.topview.InputContainer;
+import com.baidu.tbadk.browser.editor.tools.topview.ReplyContainer;
+import com.baidu.tbadk.browser.editor.tools.topview.StarContainer;
+import com.baidu.tbadk.editortools.topview.MultiTopEditContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class cz4 extends AbsJsInterface {
+public final class cz4 extends lj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dz4 a;
+    public final String t;
+    public final String u;
+    public final String v;
 
-    public cz4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cz4(Context context) {
+        super(context, (String) null, 40);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.t = "reply";
+        this.u = "star";
+        this.v = "input";
+        this.o = false;
+        this.n = 3;
+        this.m = new MultiTopEditContainer(context);
+        this.p = new int[]{4, 17, 44, 24, 3, 9, 6, 8};
     }
 
-    @Override // com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface
-    public void deAttachWebView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.deAttachWebView();
-            dz4 dz4Var = this.a;
-            if (dz4Var != null) {
-                dz4Var.e();
-                this.a = null;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface
-    public void attachWebView(@Nullable WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, webView) == null) {
-            super.attachWebView(webView);
-            if (this.a == null) {
-                this.a = new dz4();
-            }
-        }
-    }
-
-    @JavascriptInterface
-    public void reportData(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            ew8 hybridLog = HybridLog.getInstance();
-            hybridLog.c("TbChannelJsInterfaceNew", "reportData:" + str);
-            dz4 dz4Var = this.a;
-            if (dz4Var != null) {
-                dz4Var.g(str, 2);
-            }
-        }
-    }
-
-    @JavascriptInterface
-    public String getInitData() {
-        InterceptResult invokeV;
+    public final void h(zy4 config) {
         int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = "";
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (this.mWebView != null && (this.mWebView.getParent() instanceof TbWebView)) {
-                    str = ((TbWebView) this.mWebView.getParent()).getUrl();
-                    Map<String, gj6<Object>> bizData = ((TbWebView) this.mWebView.getParent()).getBizData();
-                    if (!tm6.b(bizData)) {
-                        JSONObject jSONObject2 = new JSONObject();
-                        for (Map.Entry<String, gj6<Object>> entry : bizData.entrySet()) {
-                            try {
-                                gj6<Object> value = entry.getValue();
-                                if (!TextUtils.isEmpty(entry.getKey()) && value != null) {
-                                    jSONObject2.put(entry.getKey(), value.call());
-                                }
-                            } catch (Exception e) {
-                                BdLog.e(e);
-                            }
-                        }
-                        jSONObject.put("bizData", jSONObject2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, config) == null) {
+            Intrinsics.checkNotNullParameter(config, "config");
+            mj5 mj5Var = this.m;
+            if (mj5Var != null) {
+                MultiTopEditContainer multiTopEditContainer = (MultiTopEditContainer) mj5Var;
+                View b = multiTopEditContainer.b(this.u);
+                int i3 = 0;
+                if (b != null) {
+                    if (config.e) {
+                        i2 = 0;
+                    } else {
+                        i2 = 8;
                     }
+                    b.setVisibility(i2);
                 }
-            } catch (Exception e2) {
-                BdLog.e(e2);
-            }
-            try {
-                if (this.a != null) {
-                    jSONObject.put("perfData", this.a.c(this.mWebView));
-                }
-            } catch (Exception e3) {
-                BdLog.e(e3);
-            }
-            try {
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("cuid", TbadkCoreApplication.getInst().getCuid());
-                jSONObject3.put("clientType", "2");
-                jSONObject3.put("clientVersion", TbConfig.getVersion());
-                jSONObject3.put("skin", SkinManager.getCurrentSkinTypeString());
-                if (TbadkCoreApplication.isLogin()) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                jSONObject3.put("isLogin", i);
-                Map<String, String> baseData = ((TbWebView) this.mWebView.getParent()).getBaseData();
-                if (!tm6.b(baseData)) {
-                    for (Map.Entry<String, String> entry2 : baseData.entrySet()) {
-                        if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
-                            jSONObject3.put(entry2.getKey(), entry2.getValue());
-                        }
+                View b2 = multiTopEditContainer.b(this.t);
+                if (b2 != null) {
+                    if (config.d) {
+                        i = 0;
+                    } else {
+                        i = 8;
                     }
+                    b2.setVisibility(i);
                 }
-                jSONObject.put("baseData", jSONObject3);
-            } catch (Exception e4) {
-                BdLog.e(e4);
+                View b3 = multiTopEditContainer.b(this.v);
+                if (b3 != null) {
+                    if (!config.c) {
+                        i3 = 8;
+                    }
+                    b3.setVisibility(i3);
+                }
+                multiTopEditContainer.setData(config.a());
+                return;
             }
-            ew8 hybridLog = HybridLog.getInstance();
-            hybridLog.c("TbChannelJsInterfaceNew", str + " getInitData:" + jSONObject);
-            return jSONObject.toString();
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.editortools.topview.MultiTopEditContainer");
         }
-        return (String) invokeV.objValue;
+    }
+
+    public final void g(zy4 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, config) == null) {
+            Intrinsics.checkNotNullParameter(config, "config");
+            mj5 mj5Var = this.m;
+            if (mj5Var != null) {
+                MultiTopEditContainer multiTopEditContainer = (MultiTopEditContainer) mj5Var;
+                multiTopEditContainer.a(this.u, new StarContainer(getContext(), null, 0, 6, null));
+                multiTopEditContainer.a(this.t, new ReplyContainer(getContext(), null, 0, 6, null));
+                String str = this.v;
+                Context context = getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "context");
+                multiTopEditContainer.a(str, new InputContainer(context, null, 0, 6, null));
+                multiTopEditContainer.c();
+                return;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.editortools.topview.MultiTopEditContainer");
+        }
     }
 }

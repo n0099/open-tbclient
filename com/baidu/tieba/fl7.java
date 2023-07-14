@@ -1,86 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
+import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fl7 extends jn5 {
+public class fl7 implements sm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public dx7 a;
 
-    @Override // com.baidu.tieba.jn5
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public fl7(int i, String str) {
+    public fl7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        kn5 kn5Var = this.a;
-        kn5Var.e = i;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) kn5Var.a;
-        specialFrsWebFragment.z2(i);
-        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
-            if (str.contains("&ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            } else if (str.contains("?ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            }
-        }
-        specialFrsWebFragment.P1(str);
     }
 
-    @Override // com.baidu.tieba.jn5
-    public kn5 a() {
+    @Override // com.baidu.tieba.sm7
+    public tm7 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            kn5 kn5Var = new kn5();
-            kn5Var.a = new SpecialFrsWebFragment();
-            kn5Var.e = 101;
-            kn5Var.i = kn5.k;
-            return kn5Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new hl7();
         }
-        return (kn5) invokeV.objValue;
+        return (tm7) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jn5
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.sm7
+    public nw7 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, frsFragment, noPressedRelativeLayout)) == null) {
+            if (!frsFragment.k4()) {
+                return new nw7(frsFragment, noPressedRelativeLayout);
+            }
+            return null;
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
+        return (nw7) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sm7
+    public um7 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, frsFragment, noPressedRelativeLayout)) == null) {
+            return new lw7(frsFragment, noPressedRelativeLayout);
+        }
+        return (um7) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sm7
+    public qm7 b(FrsFragment frsFragment, eo eoVar, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsFragment, eoVar, z)) == null) {
+            return new cm7(frsFragment, eoVar, z);
+        }
+        return (qm7) invokeLLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.sm7
+    public dx7 e(String str, FrsFragment frsFragment, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, str, frsFragment, i)) == null) {
+            if (frsFragment == null) {
+                return null;
+            }
+            gl7 gl7Var = new gl7(frsFragment, null, null, i);
+            this.a = gl7Var;
+            gl7Var.T(frsFragment.F3());
+            return this.a;
+        }
+        return (dx7) invokeLLI.objValue;
     }
 }

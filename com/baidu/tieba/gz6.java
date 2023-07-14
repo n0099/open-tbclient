@@ -1,117 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankHttpResMsg;
-import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankReqMsg;
-import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankSocketResMsg;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.PvThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public class gz6 {
+public final class gz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public ez6 c;
-    public b d;
-    public kb e;
+    public long a;
+    public final boolean b;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(ez6 ez6Var);
-
-        void onError(int i, String str);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends kb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gz6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gz6 gz6Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gz6Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gz6Var;
-        }
-
-        @Override // com.baidu.tieba.kb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
-                return;
-            }
-            ez6 ez6Var = null;
-            if (responsedMessage instanceof HotUserRankHttpResMsg) {
-                ez6Var = ((HotUserRankHttpResMsg) responsedMessage).getPageData();
-            } else if (responsedMessage instanceof HotUserRankSocketResMsg) {
-                ez6Var = ((HotUserRankSocketResMsg) responsedMessage).getPageData();
-            }
-            if (responsedMessage.getError() == 0) {
-                if (this.a.b == 1 && (ez6Var == null || ListUtils.isEmpty(ez6Var.b))) {
-                    if (this.a.d != null) {
-                        this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e0f));
-                    }
-                } else if (ez6Var != null) {
-                    this.a.c.a = ez6Var.a;
-                    this.a.c.b.addAll(ez6Var.b);
-                    this.a.c.c = ez6Var.c;
-                    this.a.c.d = ez6Var.d;
-                    this.a.c.e = ez6Var.e;
-                    this.a.c.f = ez6Var.f;
-                    if (!ListUtils.isEmpty(ez6Var.b)) {
-                        this.a.c.g = ez6Var.g;
-                        gz6.c(this.a);
-                    } else {
-                        this.a.c.g = false;
-                    }
-                    if (this.a.d != null) {
-                        this.a.d.a(ez6Var);
-                    }
-                }
-            } else if (this.a.d != null) {
-                this.a.d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
-            }
-        }
-    }
-
-    public gz6(BdUniqueId bdUniqueId) {
+    public gz6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -121,108 +34,44 @@ public class gz6 {
                 return;
             }
         }
-        this.b = 1;
-        a aVar = new a(this, CmdConfigHttp.CMD_HOT_USER_RANK, 309652);
-        this.e = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.e);
-        m();
-        l();
-        this.c = new ez6();
+        this.b = UbsABTestHelper.isAddExtraDuration();
     }
 
-    public static /* synthetic */ int c(gz6 gz6Var) {
-        int i = gz6Var.b;
-        gz6Var.b = i + 1;
-        return i;
-    }
-
-    public void h(long j) {
+    public final void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
-            hotUserRankReqMsg.forumId = j;
-            hotUserRankReqMsg.pageSize = 20;
-            hotUserRankReqMsg.pageNum = this.b;
-            hotUserRankReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (!this.b) {
+                return;
+            }
+            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
+                if (!(activity instanceof BaseActivity) && !(activity instanceof BaseFragmentActivity)) {
+                    String localClassName = activity.getLocalClassName();
+                    Intrinsics.checkNotNullExpressionValue(localClassName, "activity.localClassName");
+                    if (StringsKt__StringsKt.contains$default((CharSequence) localClassName, (CharSequence) "FlutterPageActivity", false, 2, (Object) null)) {
+                        return;
+                    }
+                } else {
+                    return;
+                }
+            }
+            long currentTimeMillis = (System.currentTimeMillis() - this.a) / 1000;
+            if (PermissionUtil.isAgreePrivacyPolicy() && currentTimeMillis > 0) {
+                PvThread pvThread = new PvThread("use", String.valueOf(currentTimeMillis));
+                pvThread.setPageName(activity.getLocalClassName());
+                pvThread.start();
+            }
         }
     }
 
-    public void i(String str) {
+    public final void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
-            hotUserRankReqMsg.category = str;
-            hotUserRankReqMsg.pageSize = 20;
-            hotUserRankReqMsg.pageNum = this.b;
-            hotUserRankReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
-        }
-    }
-
-    public void n(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public ez6 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (ez6) invokeV.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().removeMessage(this.a);
-            MessageManager.getInstance().unRegisterListener(this.a);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            wt5 wt5Var = new wt5(309652);
-            wt5Var.setResponsedClass(HotUserRankSocketResMsg.class);
-            wt5Var.g(true);
-            wt5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(wt5Var);
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, v3a.a(TbConfig.HOT_USER_RANK_URL, 309652));
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setResponsedClass(HotUserRankHttpResMsg.class);
-            tbHttpMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (!this.b) {
+                return;
+            }
+            this.a = System.currentTimeMillis();
         }
     }
 }

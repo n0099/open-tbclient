@@ -74,8 +74,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     /* loaded from: classes.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int DIALOG_NEGATIVE_TEXT_CANCEL = 2131690897;
-        public static final int DIALOG_POSITIVE_TEXT_OK = 2131690901;
+        public static final int DIALOG_NEGATIVE_TEXT_CANCEL = 2131690900;
+        public static final int DIALOG_POSITIVE_TEXT_OK = 2131690904;
         public static HashMap<String, Builder> sBuilderMap;
         public static ArrayList sDialogList;
         public transient /* synthetic */ FieldHolder $fh;
@@ -830,28 +830,28 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     public void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092530);
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b4);
-            this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f0908a9);
-            this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908aa);
-            this.mPositiveButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091cb8);
-            this.mNegativeButton = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c5);
-            this.mNeutralButton = (TextView) findViewById(R.id.obfuscated_res_0x7f0918da);
-            this.mDivider3 = findViewById(R.id.obfuscated_res_0x7f0908e8);
-            this.mDivider4 = findViewById(R.id.obfuscated_res_0x7f0908e9);
-            this.mDialogContent = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09089f);
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908a3);
-            this.mDialogLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0920d3);
-            this.mDivider2 = findViewById(R.id.obfuscated_res_0x7f0908e7);
-            this.mScrollView = (BoxScrollView) findViewById(R.id.obfuscated_res_0x7f09172d);
-            this.mBtnPanelLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904ce);
-            this.mDialogCustomPanel = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09089e);
-            this.mBtnHeight = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d1);
+            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092564);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b5);
+            this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f0908aa);
+            this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908ab);
+            this.mPositiveButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd2);
+            this.mNegativeButton = (TextView) findViewById(R.id.obfuscated_res_0x7f0918db);
+            this.mNeutralButton = (TextView) findViewById(R.id.obfuscated_res_0x7f0918f0);
+            this.mDivider3 = findViewById(R.id.obfuscated_res_0x7f0908e9);
+            this.mDivider4 = findViewById(R.id.obfuscated_res_0x7f0908ea);
+            this.mDialogContent = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908a0);
+            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908a4);
+            this.mDialogLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092107);
+            this.mDivider2 = findViewById(R.id.obfuscated_res_0x7f0908e8);
+            this.mScrollView = (BoxScrollView) findViewById(R.id.obfuscated_res_0x7f09173e);
+            this.mBtnPanelLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904cf);
+            this.mDialogCustomPanel = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09089f);
+            this.mBtnHeight = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d7);
             if (this.mBuilder.mScrollViewHeight > 0) {
                 this.mScrollView.getLayoutParams().height = this.mBuilder.mScrollViewHeight;
             }
             if (DeviceUtil.OSInfo.isGingerbread() || DeviceUtil.OSInfo.isGingerbreadmr1()) {
-                int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d6);
+                int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702dc);
                 this.mMessage.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
         }
@@ -864,7 +864,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             int d = x.d(this);
             super.onCreate(bundle);
             x.a(this, d);
-            setContentView(R.layout.obfuscated_res_0x7f0d086a);
+            setContentView(R.layout.obfuscated_res_0x7f0d0884);
             getWindow().setLayout(-1, -1);
             Intent intent = getIntent();
             if (intent != null) {
@@ -957,7 +957,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             }
             linearLayout.setVisibility(i);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908aa);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908ab);
             this.mBtnPanelLayout.setLayoutParams(layoutParams);
         }
     }
@@ -971,7 +971,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 this.mDialogContent.addView(view2);
                 this.mMessageContent.setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09089e);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09089f);
                 this.mBtnPanelLayout.setLayoutParams(layoutParams);
             }
         }

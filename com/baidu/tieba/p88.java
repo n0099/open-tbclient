@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.ActivityPage.HotTopic;
+import tbclient.RecomTopicList;
 /* loaded from: classes7.dex */
-public class p88 {
+public class p88 extends p38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<q88> a;
-    public List<q88> b;
+    public String b;
 
     public p88() {
         Interceptable interceptable = $ic;
@@ -30,55 +27,31 @@ public class p88 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11f4);
     }
 
-    @NonNull
-    public List<q88> a() {
-        InterceptResult invokeV;
+    public void e(HotTopic hotTopic) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.a)) {
-                arrayList.addAll(this.a);
-            }
-            if (!ListUtils.isEmpty(this.b)) {
-                arrayList.addAll(this.b);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void b(@Nullable JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hotTopic) != null) || hotTopic == null) {
             return;
         }
-        this.a = c(jSONObject, "tieba_memes");
-        this.b = c(jSONObject, "outer_memes");
+        this.floorPosition = hotTopic.floor_position.intValue();
+        parserProtobuf(hotTopic.topic_list);
     }
 
-    @Nullable
-    public final List<q88> c(@NonNull JSONObject jSONObject, @NonNull String str) {
-        InterceptResult invokeLL;
+    public void parserProtobuf(List<RecomTopicList> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray(str);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    q88 q88Var = new q88();
-                    q88Var.a(optJSONArray.optJSONObject(i));
-                    if (q88Var.isValid()) {
-                        arrayList.add(q88Var);
-                    }
-                }
-                return arrayList;
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        return (List) invokeLL.objValue;
+        int min = Math.min(list.size(), 6);
+        ArrayList arrayList = new ArrayList(list.size());
+        for (int i = 0; i < min; i++) {
+            arrayList.add(new o38(list.get(i), i));
+        }
+        d(arrayList);
     }
 }

@@ -1,57 +1,78 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.Agree;
-import tbclient.FeedSocialComponent;
 /* loaded from: classes5.dex */
 public final class e77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final l97 a;
+    public final lb7 b;
+    public boolean c;
 
-    public static final void a(FeedSocialComponent feedSocialComponent, List<t87<?>> dataList, v57 feedExtraData, p67 videoSchemaData) {
-        boolean z;
+    public e77(l97 data, lb7 statData, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, feedSocialComponent, dataList, feedExtraData, videoSchemaData) == null) {
-            Intrinsics.checkNotNullParameter(feedSocialComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            l67 l67Var = new l67();
-            Agree agree = feedSocialComponent.agree;
-            if (agree != null) {
-                Integer num = agree.agree_type;
-                Intrinsics.checkNotNullExpressionValue(num, "agree.agree_type");
-                l67Var.e = num.intValue();
-                Integer num2 = feedSocialComponent.agree.has_agree;
-                Intrinsics.checkNotNullExpressionValue(num2, "agree.has_agree");
-                if (num2.intValue() > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                l67Var.f = z;
-                l67Var.g = feedSocialComponent.agree.agree_num.longValue();
-                Long l = feedSocialComponent.agree.diff_agree_num;
-                Intrinsics.checkNotNullExpressionValue(l, "agree.diff_agree_num");
-                l67Var.h = l.longValue();
-                Long l2 = feedSocialComponent.agree.disagree_num;
-                Intrinsics.checkNotNullExpressionValue(l2, "agree.disagree_num");
-                l67Var.i = l2.longValue();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, statData, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            l67Var.a = feedSocialComponent.share_num.intValue();
-            l67Var.b = feedSocialComponent.comment_num.intValue();
-            l67Var.c = String.valueOf(feedSocialComponent.tid);
-            Long fid = feedSocialComponent.fid;
-            Intrinsics.checkNotNullExpressionValue(fid, "fid");
-            l67Var.d = fid.longValue();
-            l67Var.l = feedExtraData.a();
-            videoSchemaData.f(l67Var.f);
-            videoSchemaData.e(l67Var.g);
-            l67Var.j = videoSchemaData;
-            dataList.add(new u87(new d57(l67Var, w57.b(feedExtraData, "comment_btn_click"), null, null, null, 28, null), "social_bar"));
+        }
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(statData, "statData");
+        this.a = data;
+        this.b = statData;
+        this.c = z;
+    }
+
+    public /* synthetic */ e77(l97 l97Var, lb7 lb7Var, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(l97Var, lb7Var, (i & 4) != 0 ? true : z);
+    }
+
+    public final l97 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (l97) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final lb7 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (lb7) invokeV.objValue;
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
         }
     }
 }

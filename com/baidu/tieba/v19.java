@@ -1,27 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class v19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public Context c;
-    public TextView d;
+    public String a;
 
     public v19() {
         Interceptable interceptable = $ic;
@@ -37,48 +27,23 @@ public class v19 {
         }
     }
 
-    public void a(TbPageContext<?> tbPageContext) {
-        boolean z;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            h05 layoutMode = tbPageContext.getLayoutMode();
-            if (skinType == 4) {
-                z = true;
-            } else {
-                z = false;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        JSONObject optJSONObject = jSONObject.optJSONObject("error");
+        if (optJSONObject != null) {
+            optJSONObject.optInt("errno");
+            String optString = optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+            this.a = optString;
+            if (!StringUtils.isNull(optString)) {
+                this.a = optJSONObject.optString("errmsg");
             }
-            layoutMode.l(z);
-            tbPageContext.getLayoutMode().k(this.a);
         }
-    }
-
-    public void c(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+        if (optJSONObject2 != null) {
+            optJSONObject2.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
         }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f15b2), Integer.valueOf(i)));
-        }
-    }
-
-    public View b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.c = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0939, (ViewGroup) null);
-            this.a = inflate;
-            inflate.setTag(this);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0923b8);
-            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0923b7);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
     }
 }

@@ -79,7 +79,7 @@ public final class StateFlowSlot extends AbstractSharedFlowSlot<StateFlowImpl<?>
                 }
             }
             Result.Companion companion = Result.Companion;
-            cancellableContinuationImpl.resumeWith(Result.m844constructorimpl(Unit.INSTANCE));
+            cancellableContinuationImpl.resumeWith(Result.m846constructorimpl(Unit.INSTANCE));
         }
         Object result = cancellableContinuationImpl.getResult();
         if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
@@ -113,7 +113,7 @@ public final class StateFlowSlot extends AbstractSharedFlowSlot<StateFlowImpl<?>
                         symbol4 = StateFlowKt.NONE;
                         if (atomicReferenceFieldUpdater2.compareAndSet(this, obj, symbol4)) {
                             Result.Companion companion = Result.Companion;
-                            ((CancellableContinuationImpl) obj).resumeWith(Result.m844constructorimpl(Unit.INSTANCE));
+                            ((CancellableContinuationImpl) obj).resumeWith(Result.m846constructorimpl(Unit.INSTANCE));
                             return;
                         }
                     }

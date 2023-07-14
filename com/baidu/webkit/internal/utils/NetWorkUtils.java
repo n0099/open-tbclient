@@ -7,7 +7,7 @@ import android.telephony.TelephonyManager;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class NetWorkUtils implements INoProGuard {
     public static final int CELL_2G = 2;
     public static final int CELL_3G = 3;

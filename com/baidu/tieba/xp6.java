@@ -1,187 +1,124 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Set;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class xp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Uri a;
-    public String b;
-    public Bundle c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948308107, "Lcom/baidu/tieba/xp6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948308107, "Lcom/baidu/tieba/xp6;");
-        }
-    }
-
-    public xp6(String str) {
+    public static void a(String str, YyExtData yyExtData, int i, long j, int i2, long j2, long j3, int i3, String str2, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, yyExtData, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), str2, Integer.valueOf(i4)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", i);
+            statisticItem.param("tid", j);
+            statisticItem.param("obj_type", i2);
+            statisticItem.param(TiebaStatic.Params.STAR_ID, j2);
+            statisticItem.param("liveid", j3);
+            if (yyExtData != null) {
+                b(statisticItem, yyExtData);
+                if (yyExtData.isYyGame) {
+                    i3 = 3;
+                } else {
+                    i3 = 2;
+                }
+                str2 = TiebaStatic.YYValues.YY_LIVE;
             }
+            statisticItem.param("obj_param1", i3);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+            statisticItem.param("obj_locate", i4);
+            TiebaStatic.log(statisticItem);
         }
-        g(str);
     }
 
-    public String b(String str) {
+    public static void b(StatisticItem statisticItem, YyExtData yyExtData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, statisticItem, yyExtData) == null) && yyExtData != null) {
+            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
+            statisticItem.param(TiebaStatic.YYParams.YYSID, yyExtData.mSid);
+            statisticItem.param(TiebaStatic.YYParams.YYSID, yyExtData.mSid);
+            statisticItem.param(TiebaStatic.YYParams.YYSSID, yyExtData.mSsid);
+            statisticItem.param("yyuid", yyExtData.mYyUid);
+            statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
+            statisticItem.param("template_id", yyExtData.mTemplateId);
+        }
+    }
+
+    public static StatisticItem c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            return d(str, i, -1, null, "0");
+        }
+        return (StatisticItem) invokeLI.objValue;
+    }
+
+    public static StatisticItem d(String str, int i, int i2, String str2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, str3})) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", str3);
+            statisticItem.param("obj_locate", i);
+            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
+            if (i2 >= 0) {
+                statisticItem.param("obj_param1", i2);
+            }
+            if (!StringUtils.isNull(str2)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeCommon.objValue;
+    }
+
+    public static StatisticItem e(String str, int i, String str2) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, str2)) == null) {
+            return d(str, i, -1, null, str2);
+        }
+        return (StatisticItem) invokeLIL.objValue;
+    }
+
+    public static int f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return c(str, null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public Bundle a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == null) {
-                this.c = new Bundle();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if ("recommend".equals(str)) {
+                return 1;
             }
-            return this.c;
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public Uri d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (Uri) invokeV.objValue;
-    }
-
-    public String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            Bundle bundle = this.c;
-            if (bundle != null) {
-                return bundle.getString(str, str2);
+            if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
+                return 2;
             }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                this.a.getScheme();
-                this.a.getHost();
-                String path = this.a.getPath();
-                this.b = path;
-                if (!TextUtils.isEmpty(path) && this.b.endsWith("/")) {
-                    this.b = this.b.substring(0, this.b.length() - 1);
-                }
-                Set<String> queryParameterNames = this.a.getQueryParameterNames();
-                if (queryParameterNames == null || queryParameterNames.isEmpty()) {
-                    return true;
-                }
-                if (this.c == null) {
-                    this.c = new Bundle();
-                }
-                for (String str : queryParameterNames) {
-                    String queryParameter = this.a.getQueryParameter(str);
-                    this.c.putString(str, queryParameter);
-                    if (TextUtils.equals(str, "params") && !TextUtils.isEmpty(queryParameter)) {
-                        try {
-                            JSONObject jSONObject = new JSONObject(queryParameter);
-                            Iterator<String> keys = jSONObject.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                this.c.putString(next, jSONObject.optString(next, ""));
-                            }
-                        } catch (Exception e) {
-                            if (BdLog.isDebugMode()) {
-                                BdLog.e("builder parseUri e = " + e.toString());
-                            }
-                        }
-                    }
-                }
-                return true;
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("builder parseUri te = " + th.toString());
-                }
-                return false;
+            if ("ala_sub_tab".equals(str)) {
+                return 3;
             }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public xp6 f(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
-            this.a = uri;
-            if (uri != null) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.i("builder uri = " + uri);
-                }
-                e();
-            } else if (BdLog.isDebugMode()) {
-                BdLog.i("builder uri = null");
+            if ("ala_sub_list".equals(str)) {
+                return 4;
             }
-            return this;
-        }
-        return (xp6) invokeL.objValue;
-    }
-
-    public xp6 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Uri uri = null;
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    uri = Uri.parse(str);
-                }
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("builder uri e = " + th.toString());
-                }
+            if ("video_recommend".equals(str)) {
+                return 5;
             }
-            f(uri);
-            return this;
+            if ("video_concern".equals(str)) {
+                return 6;
+            }
+            if ("big_pic".equals(str)) {
+                return 7;
+            }
+            return 0;
         }
-        return (xp6) invokeL.objValue;
+        return invokeL.intValue;
     }
 }

@@ -1,67 +1,46 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class xw2 {
+public abstract class xw2<ValueT> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Integer> a;
+    public final ValueT a;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final xw2 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract ValueT c(Bundle bundle, String str, ValueT valuet);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-275323783, "Lcom/baidu/tieba/xw2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-275323783, "Lcom/baidu/tieba/xw2$a;");
-                    return;
-                }
-            }
-            a = new xw2();
-        }
-    }
+    public abstract void e(Bundle bundle, String str, ValueT valuet);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948314710, "Lcom/baidu/tieba/xw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948314710, "Lcom/baidu/tieba/xw2;");
-                return;
-            }
-        }
-        boolean z = ms1.a;
-        jv2.g0().getSwitch("swan_pms_request_retry_count", 1);
-        b = 1;
-    }
-
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public xw2() {
+        this(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public xw2(ValueT valuet) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {valuet};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -71,77 +50,31 @@ public class xw2 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        this.a = valuet;
     }
 
-    public static xw2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a.a;
-        }
-        return (xw2) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.put(str, Integer.valueOf(c(str) + 1));
-        }
-    }
-
-    public final int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Integer num = this.a.get(str);
-            if (num == null) {
-                return 0;
-            }
-            return num.intValue();
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (d() && c(str) < b) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.remove(str);
-        }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = nj4.b().i().getInt("get_pkg_retry_switch", 0);
-            c92.i("GetPkgRetryController", "getServerRetrySwitch:" + i);
-            if (i != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String e(String str, String str2) {
+    public ValueT a(yw2 yw2Var, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            return str + "_" + str2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, yw2Var, str)) == null) {
+            return b(yw2Var, str, this.a);
         }
-        return (String) invokeLL.objValue;
+        return (ValueT) invokeLL.objValue;
+    }
+
+    public ValueT b(yw2 yw2Var, String str, ValueT valuet) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yw2Var, str, valuet)) == null) {
+            return c(yw2Var.C(), str, valuet);
+        }
+        return (ValueT) invokeLLL.objValue;
+    }
+
+    public void d(yw2 yw2Var, String str, ValueT valuet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, yw2Var, str, valuet) == null) {
+            e(yw2Var.C(), str, valuet);
+        }
     }
 }

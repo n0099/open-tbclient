@@ -327,7 +327,7 @@ public abstract class Visibility extends Transition {
         } else {
             view2 = null;
         }
-        final View view6 = (View) view5.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09206b);
+        final View view6 = (View) view5.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09209d);
         if (view6 != null) {
             view4 = null;
             z2 = true;
@@ -408,11 +408,11 @@ public abstract class Visibility extends Transition {
                 if (onDisappear == null) {
                     ViewGroupUtils.getOverlay(viewGroup).remove(view6);
                 } else {
-                    view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09206b, view6);
+                    view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09209d, view6);
                     addListener(new TransitionListenerAdapter() { // from class: androidx.transition.Visibility.1
                         @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
                         public void onTransitionEnd(@NonNull Transition transition) {
-                            view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09206b, null);
+                            view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09209d, null);
                             ViewGroupUtils.getOverlay(viewGroup).remove(view6);
                             transition.removeListener(this);
                         }

@@ -12,21 +12,17 @@ import kotlin.jvm.internal.Intrinsics;
 public final class jt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<? extends yt<? extends xt<?>>> a;
-    public final Class<? extends xt<?>> b;
-    public final boolean c;
+    public final Class<? extends rt<? extends qt<?>>> a;
+    public final Class<? extends qt<?>> b;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             if (this != obj) {
                 if (obj instanceof jt) {
                     jt jtVar = (jt) obj;
-                    if (Intrinsics.areEqual(this.a, jtVar.a) && Intrinsics.areEqual(this.b, jtVar.b)) {
-                        if (this.c == jtVar.c) {
-                        }
-                    }
+                    return Intrinsics.areEqual(this.a, jtVar.a) && Intrinsics.areEqual(this.b, jtVar.b);
                 }
                 return false;
             }
@@ -35,22 +31,14 @@ public final class jt {
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Class<? extends yt<? extends xt<?>>> cls = this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Class<? extends rt<? extends qt<?>>> cls = this.a;
             int hashCode = (cls != null ? cls.hashCode() : 0) * 31;
-            Class<? extends xt<?>> cls2 = this.b;
-            int hashCode2 = (hashCode + (cls2 != null ? cls2.hashCode() : 0)) * 31;
-            boolean z = this.c;
-            int i = z;
-            if (z != 0) {
-                i = 1;
-            }
-            return hashCode2 + i;
+            Class<? extends qt<?>> cls2 = this.b;
+            return hashCode + (cls2 != null ? cls2.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -58,18 +46,18 @@ public final class jt {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ToastPlugin(viewClass=" + this.a + ", viewModelClass=" + this.b + ", needSysToastFix=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "DialogPlugin(viewClass=" + this.a + ", viewModelClass=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
-    public jt(Class<? extends yt<? extends xt<?>>> cls, Class<? extends xt<?>> cls2, boolean z) {
+    public jt(Class<? extends rt<? extends qt<?>>> cls, Class<? extends qt<?>> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, cls2, Boolean.valueOf(z)};
+            Object[] objArr = {cls, cls2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,31 +69,21 @@ public final class jt {
         }
         this.a = cls;
         this.b = cls2;
-        this.c = z;
     }
 
-    public final boolean a() {
+    public final Class<? extends rt<? extends qt<?>>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final Class<? extends yt<? extends xt<?>>> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
         return (Class) invokeV.objValue;
     }
 
-    public final Class<? extends xt<?>> c() {
+    public final Class<? extends qt<?>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
         return (Class) invokeV.objValue;

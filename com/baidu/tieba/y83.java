@@ -1,40 +1,34 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Message;
-import android.os.RemoteException;
+import android.app.Application;
+import android.content.Context;
+import android.graphics.Color;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.s83;
+import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.swan.apps.publisher.PublishParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class y83 implements s83.c {
+public final class y83 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final List<String> b;
+    public static final List<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Deque<Message> a;
-
-    @Override // com.baidu.tieba.s83.c
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.s83.c
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,78 +43,154 @@ public class y83 implements s83.c {
                 return;
             }
         }
-        boolean z = ms1.a;
+        a = fs1.a;
+        b = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"title", "image", "emoji", "video", "friends", "target"});
+        c = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"image", "emoji"});
     }
 
-    public y83() {
+    public static final PublishParams a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int i;
+        float f;
+        int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-        }
-        this.a = new ArrayDeque();
-    }
-
-    @Override // com.baidu.tieba.s83.c
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            x83 Q = x83.Q();
-            while (Q.O() && !this.a.isEmpty()) {
-                Message peek = this.a.peek();
-                if (peek == null || e(peek)) {
-                    this.a.poll();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s83.c
-    public void b(@NonNull u83 u83Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u83Var) == null) {
-            Message h = u83Var.h();
-            h.arg1 = SwanAppProcessInfo.current().index;
-            if (bc3.K().E()) {
-                Object obj = h.obj;
-                if (obj instanceof Bundle) {
-                    Bundle bundle = (Bundle) obj;
-                    if (!bundle.containsKey("ai_apps_id")) {
-                        bundle.putString("ai_apps_id", bc3.K().getAppId());
+            JSONArray optJSONArray = jSONObject.optJSONArray("moduleList");
+            ArrayList arrayList = new ArrayList(c);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                arrayList.clear();
+                int length = optJSONArray.length();
+                for (int i5 = 0; i5 < length; i5++) {
+                    try {
+                        String string = optJSONArray.getString(i5);
+                        if (b.contains(string)) {
+                            arrayList.add(string);
+                        }
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
-            if (!e(h) && u83Var.n()) {
-                this.a.offer(h);
-                x83.Q().c0();
+            if (arrayList.isEmpty() && a) {
+                Log.d("PublishParams", "展示列表为空");
             }
+            JSONObject optJSONObject = jSONObject.optJSONObject("imageConf");
+            if (optJSONObject != null) {
+                double d = 1.0f;
+                i = Math.min(9, optJSONObject.optInt("maxNum", 9));
+                f = (float) Math.min(d, jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION, d));
+            } else {
+                i = 9;
+                f = 1.0f;
+            }
+            Application context = cv2.c();
+            Intrinsics.checkNotNullExpressionValue(context, "context");
+            String b2 = b(context, jSONObject, "contentPlaceholder", R.string.obfuscated_res_0x7f0f1547);
+            String e2 = e(b(context, jSONObject, "titlePlaceholder", R.string.obfuscated_res_0x7f0f1548), 20, null, 4, null);
+            String e3 = e(b(context, jSONObject, "confirmText", R.string.obfuscated_res_0x7f0f1549), 4, null, 4, null);
+            String e4 = e(b(context, jSONObject, "cancelText", R.string.obfuscated_res_0x7f0f013e), 4, null, 4, null);
+            String e5 = e(b(context, jSONObject, "navBarTitleText", R.string.obfuscated_res_0x7f0f154a), 8, null, 4, null);
+            String c2 = c(jSONObject, "navBarTextStyle", "");
+            if (!CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"black", "white"}).contains(c2)) {
+                c2 = "black";
+            }
+            int parseColor = Color.parseColor(c2);
+            try {
+                i2 = Color.parseColor(c(jSONObject, "navBarBackgroundColor", "#FFFFFF"));
+            } catch (Exception e6) {
+                if (a) {
+                    e6.printStackTrace();
+                }
+                i2 = -1;
+            }
+            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f060b04);
+            try {
+                i3 = Color.parseColor(c(jSONObject, "confirmColor", "#3388FF"));
+            } catch (Exception e7) {
+                if (a) {
+                    e7.printStackTrace();
+                }
+                i3 = color;
+            }
+            try {
+                i4 = Color.parseColor(c(jSONObject, "cancelColor", "#000000"));
+            } catch (Exception e8) {
+                if (a) {
+                    e8.printStackTrace();
+                }
+                i4 = -16777216;
+            }
+            return new PublishParams(b2, e2, e5, parseColor, i2, e3, i3, e4, i4, jSONObject.optString("targetText", ""), jSONObject.optString("emojiPath", ""), jSONObject.optString("cb"), i, f, arrayList, null, null, 98304, null);
         }
+        return (PublishParams) invokeL.objValue;
     }
 
-    public final boolean e(Message message) {
-        InterceptResult invokeL;
+    public static final String b(@NonNull Context context, @NonNull JSONObject obj, @NonNull String key, @StringRes int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, message)) == null) {
-            x83 Q = x83.Q();
-            if (message != null && Q.O()) {
-                try {
-                    Q.S().send(message);
-                    return true;
-                } catch (RemoteException e) {
-                    Q.U();
-                    c92.l("SwanMsgSenderOfClient", " sendMsgToService msg = " + message.toString(), e);
-                    return false;
-                }
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65538, null, context, obj, key, i)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(obj, "obj");
+            Intrinsics.checkNotNullParameter(key, "key");
+            String optString = obj.optString(key);
+            Intrinsics.checkNotNullExpressionValue(optString, "obj.optString(key)");
+            if (StringsKt__StringsJVMKt.isBlank(optString)) {
+                String string = context.getString(i);
+                Intrinsics.checkNotNullExpressionValue(string, "context.getString(defaultStrRes)");
+                return string;
             }
-            return false;
+            return optString;
         }
-        return invokeL.booleanValue;
+        return (String) invokeLLLI.objValue;
+    }
+
+    public static final String c(@NonNull JSONObject obj, @NonNull String key, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, key, str)) == null) {
+            Intrinsics.checkNotNullParameter(obj, "obj");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(str, "default");
+            String optString = obj.optString(key);
+            Intrinsics.checkNotNullExpressionValue(optString, "obj.optString(key)");
+            if (!StringsKt__StringsJVMKt.isBlank(optString)) {
+                return optString;
+            }
+            return str;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static final String d(String s, int i, String substitue) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, s, i, substitue)) == null) {
+            Intrinsics.checkNotNullParameter(s, "s");
+            Intrinsics.checkNotNullParameter(substitue, "substitue");
+            if (s.length() <= i) {
+                return s;
+            }
+            StringBuilder sb = new StringBuilder();
+            String substring = s.substring(0, i - 1);
+            Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+            sb.append(substring);
+            sb.append(substitue);
+            return sb.toString();
+        }
+        return (String) invokeLIL.objValue;
+    }
+
+    public static /* synthetic */ String e(String str, int i, String str2, int i2, Object obj) {
+        if ((i2 & 4) != 0) {
+            str2 = "...";
+        }
+        return d(str, i, str2);
     }
 }

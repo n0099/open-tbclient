@@ -9,12 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.kwad.sdk.core.e.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KsRefluxContentView extends FrameLayout implements GestureDetector.OnGestureListener {
     public GestureDetector kE;
     public a kF;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         boolean eC();
 

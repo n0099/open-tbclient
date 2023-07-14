@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
+import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,21 +17,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class a69 implements Object<List<EmotionPackageData>> {
+public class a69 extends j9<BubbleChooseActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdListView b;
-    public t59 c;
-    public w59 d;
-    public View e;
-    public dn5 f;
-    public FrameLayout g;
-    public NoDataView h;
-    public boolean i;
-    public NoNetworkView j;
+    public NavigationBar a;
+    public ViewGroup b;
+    public GridView c;
+    public View d;
+    public z59 e;
+    public BubbleChooseActivity f;
+    public ProgressBar g;
 
-    public a69(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a69(TbPageContext<BubbleChooseActivity> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,143 +40,104 @@ public class a69 implements Object<List<EmotionPackageData>> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = false;
-        this.a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0328, (ViewGroup) null, false);
-        this.e = inflate;
-        NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-        this.j = noNetworkView;
-        noNetworkView.a(this);
-        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0921ca);
-        this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f0909cb);
-        this.d = new w59(this.e.findViewById(R.id.obfuscated_res_0x7f0909ca), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0637));
-        this.b.setDivider(null);
-        this.b.setOverScrollMode(2);
-        this.b.setVerticalScrollBarEnabled(false);
-        this.c = new t59(tbPageContext, this.b);
-        g();
+        BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
+        this.f = orignalPage;
+        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0182);
+        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.lay_title_bar);
+        this.a = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a.setTitleText(R.string.editor_privilege);
+        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0183, this.f);
+        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0907a2);
+        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090ec5);
+        z59 z59Var = new z59(tbPageContext);
+        this.e = z59Var;
+        this.c.setAdapter((ListAdapter) z59Var);
+        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f090507);
     }
 
-    public View a() {
-        InterceptResult invokeV;
+    public BubbleListData.BubbleData B(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            z59 z59Var = this.e;
+            if (z59Var == null) {
+                return null;
+            }
+            return z59Var.getItem(i);
         }
-        return (View) invokeV.objValue;
+        return (BubbleListData.BubbleData) invokeI.objValue;
     }
 
-    public void b() {
-        FrameLayout frameLayout;
+    public void C() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f != null && (frameLayout = this.g) != null) {
-            frameLayout.setVisibility(8);
-            this.f.dettachView(this.g);
-            this.f = null;
-        }
-    }
-
-    public final void c() {
-        NoDataView noDataView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (noDataView = this.h) != null && noDataView.getParent() == this.g) {
-            this.h.setVisibility(8);
-            this.g.removeView(this.h);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.g.setVisibility(8);
         }
     }
 
-    public final void e() {
+    public void E() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b();
-            c();
-        }
-    }
-
-    public final void f() {
-        BdListView bdListView;
-        w59 w59Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (bdListView = this.b) != null && !this.i && (w59Var = this.d) != null) {
-            this.i = true;
-            bdListView.setEmptyView(w59Var.a());
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            View view2 = this.e;
-            if (view2 != null) {
-                SkinManager.setBackgroundColor(view2, R.color.cp_bg_line_d_alpha90, i);
-            }
-            BdListView bdListView = this.b;
-            if (bdListView != null) {
-                SkinManager.setBackgroundColor(bdListView, R.color.CAM_X0201, i);
-            }
-            w59 w59Var = this.d;
-            if (w59Var != null) {
-                w59Var.b(i);
-            }
-            NoNetworkView noNetworkView = this.j;
-            if (noNetworkView != null) {
-                noNetworkView.d(this.a, i);
-            }
-            FrameLayout frameLayout = this.g;
-            if (frameLayout != null) {
-                SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0201, i);
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && this.g != null) {
-            e();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.g.setVisibility(0);
-            if (this.f == null) {
-                this.f = new dn5(this.a.getPageActivity());
+        }
+    }
+
+    public z59 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (z59) invokeV.objValue;
+    }
+
+    public View y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public GridView z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (GridView) invokeV.objValue;
+    }
+
+    public void D(List<BubbleListData.BubbleData> list, boolean z) {
+        z59 z59Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, list, z) == null) && (z59Var = this.e) != null) {
+            z59Var.d(z);
+            this.e.c(list);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a.onChangeSkinType((TbPageContext) getPageContext(), i);
+            q05 layoutMode = this.f.getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
+                z = false;
             }
-            this.f.attachView(this.g, true);
-            this.f.onChangeSkinType();
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.a != null && this.g != null) {
-            e();
-            this.g.setVisibility(0);
-            NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070358)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0639)), null, true);
-            this.h = b;
-            b.setVisibility(0);
-            this.h.d(this.a);
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && z) {
-            g();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921314));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    public void update(List<EmotionPackageData> list) {
-        t59 t59Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-            f();
-            if (list != null && (t59Var = this.c) != null) {
-                t59Var.update(list);
-            }
+            layoutMode.l(z);
+            this.f.getLayoutMode().k(this.b);
         }
     }
 }

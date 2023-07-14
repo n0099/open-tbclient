@@ -8,20 +8,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class pw3 {
+public class pw3 implements gw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Method a;
-    public Object b;
+    public qw3 a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
 
-    public pw3(Class<?> cls) {
+    public pw3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,64 +32,56 @@ public class pw3 {
                 return;
             }
         }
-        if (cls == null) {
-            return;
-        }
-        try {
-            this.b = gg4.m(cls);
-            Method i3 = gg4.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
-            this.a = i3;
-            if (i3 != null) {
-                i3.setAccessible(true);
-            }
-        } catch (Throwable unused) {
-        }
+        c(context);
     }
 
-    public static pw3 a(@NonNull Context context) {
-        Class<?> cls;
-        InterceptResult invokeL;
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                cls = gg4.b("com.hisi.perfhub.PerfHub", true);
-            } catch (Throwable unused) {
-                cls = null;
-            }
-            return new pw3(cls);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = qw3.a(context);
         }
-        return (pw3) invokeL.objValue;
     }
 
-    public boolean b() {
+    @Override // com.baidu.tieba.gw3
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.b && d()) {
+            this.b = false;
+            if (this.a.c()) {
+                this.a.e(12, 0);
+                this.a.e(13, 0);
+                return;
+            }
+            this.a.d(12, 0);
+            this.a.d(13, 0);
+        }
+    }
+
+    @Override // com.baidu.tieba.gw3
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a != null && !this.b && d()) {
+            this.b = true;
+            if (this.a.c()) {
+                this.a.e(12, i);
+                this.a.e(13, i);
+                return;
+            }
+            this.a.d(12, i);
+            this.a.d(13, i);
+        }
+    }
+
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b != null && this.a != null) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!this.d) {
+                this.d = true;
+                this.c = this.a.g();
             }
-            return false;
+            return this.c;
         }
         return invokeV.booleanValue;
-    }
-
-    public int c(int i, String str, int... iArr) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, iArr)) == null) {
-            if (!b()) {
-                return -1;
-            }
-            try {
-                Object invoke = this.a.invoke(this.b, Integer.valueOf(i), str, iArr);
-                if (invoke == null) {
-                    return -1;
-                }
-                return ((Integer) invoke).intValue();
-            } catch (Throwable unused) {
-                return -1;
-            }
-        }
-        return invokeILL.intValue;
     }
 }

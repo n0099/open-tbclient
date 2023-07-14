@@ -6,7 +6,7 @@ import android.view.Window;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.utils.ap;
 import com.kwad.sdk.utils.q;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class e {
     public static void a(@NonNull Activity activity, int i, boolean z) {
         a(activity, 0, true, true);

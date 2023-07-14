@@ -6,11 +6,11 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.ModuleDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.ErrorUtils;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class ErrorValue extends ConstantValue<Unit> {
     public static final Companion Companion = new Companion(null);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -24,7 +24,7 @@ public abstract class ErrorValue extends ConstantValue<Unit> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class ErrorValueWithMessage extends ErrorValue {
         public final String message;
 

@@ -1,161 +1,132 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class lv6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public float b;
-    public boolean c;
-    public float d;
-    public long e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947956381, "Lcom/baidu/tieba/lv6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947956381, "Lcom/baidu/tieba/lv6;");
-                return;
-            }
-        }
-        f = new a(null);
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final long b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return System.nanoTime();
-            }
-            return invokeV.longValue;
-        }
-    }
+    public Canvas a;
+    public Bitmap b;
+    public int c;
+    public int d;
 
     public lv6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 1.0f;
-        this.c = true;
+        this.a = new Canvas();
+        this.b = ww6.b();
     }
 
-    public final long a() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e / 1000000;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.b.isRecycled()) {
+            return;
         }
-        return invokeV.longValue;
+        this.b.eraseColor(0);
     }
 
-    public final float b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final boolean c() {
+    public final Bitmap c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public final Canvas d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (Canvas) invokeV.objValue;
+    }
+
+    public final int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.c;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static /* synthetic */ void f(lv6 lv6Var, long j, float f2, int i, Object obj) {
-        if ((i & 1) != 0) {
-            j = lv6Var.a();
-        }
-        if ((i & 2) != 0) {
-            f2 = lv6Var.b;
-        }
-        lv6Var.e(j, f2);
-    }
-
-    public final void d(boolean z) {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || Intrinsics.areEqual(this.b, ww6.b())) {
+            return;
         }
+        this.a.setBitmap(null);
+        this.b = ww6.b();
+        this.c = 0;
+        this.d = 0;
     }
 
-    public final void e(long j, float f2) {
+    public final void a(int i, int i2, int i3, boolean z, int i4) {
+        boolean z2;
+        Bitmap.Config config;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Float.valueOf(f2)}) == null) {
-            this.c = false;
-            this.e = j * 1000000;
-            this.b = f2;
-            this.a = f.b();
-        }
-    }
-
-    public final void g(Float f2) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, f2) == null) {
-            long b = f.b();
-            if (this.c) {
-                j = 0;
-            } else if (f2 != null) {
-                j = f2.floatValue() * 1000000000;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)}) == null) {
+            if (!z ? !(i > this.c || i2 > this.d) : !(i != this.c || i2 != this.d)) {
+                z2 = true;
             } else {
-                j = b - this.a;
+                z2 = false;
             }
-            long j2 = ((float) j) * this.b;
-            this.e += j2;
-            this.d = ((float) j2) / 1.0E9f;
-            this.a = b;
+            if (!Intrinsics.areEqual(this.b, ww6.b()) && !this.b.isRecycled() && z2) {
+                this.b.eraseColor(0);
+                this.a.setBitmap(this.b);
+                return;
+            }
+            this.c = Math.max(1, i);
+            this.d = Math.max(1, i2);
+            if (i4 == 32) {
+                config = Bitmap.Config.ARGB_8888;
+            } else {
+                config = Bitmap.Config.ARGB_4444;
+            }
+            try {
+                Bitmap createBitmap = Bitmap.createBitmap(this.c, this.d, config);
+                if (i3 > 0) {
+                    createBitmap.setDensity(i3);
+                }
+                this.a.setBitmap(createBitmap);
+                this.a.setDensity(i3);
+                Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(width, heig…y = density\n            }");
+                this.b = createBitmap;
+            } catch (Exception unused) {
+                this.b = ww6.b();
+                this.a.setBitmap(null);
+                this.c = 0;
+                this.d = 0;
+            }
         }
     }
 }

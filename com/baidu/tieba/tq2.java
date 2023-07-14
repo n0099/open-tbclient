@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes8.dex */
-public class tq2 {
+public class tq2 extends pp2<fs2> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile tq2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ns2> a;
+
+    @Override // com.baidu.tieba.pp2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setUserId" : (String) invokeV.objValue;
+    }
 
     public tq2() {
         Interceptable interceptable = $ic;
@@ -28,64 +31,21 @@ public class tq2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
-    }
-
-    public static tq2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (tq2.class) {
-                    if (b == null) {
-                        b = new tq2();
-                    }
-                }
-            }
-            return b;
-        }
-        return (tq2) invokeV.objValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            if (b != null) {
-                b.b();
-            }
-            b = null;
-        }
-    }
-
-    public final synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                c92.i("RtcRoomWidgetManager", "release");
-                Iterator it = new ArrayList(this.a.values()).iterator();
-                while (it.hasNext()) {
-                    ((ns2) it.next()).onRelease();
-                }
-                this.a.clear();
             }
         }
     }
 
-    public synchronized void c(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pp2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull fs2 fs2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            synchronized (this) {
-                c92.i("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
-                Iterator it = new ArrayList(this.a.values()).iterator();
-                while (it.hasNext()) {
-                    ns2 ns2Var = (ns2) it.next();
-                    if (TextUtils.equals(ns2Var.b(), str)) {
-                        ns2Var.onRelease();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fs2Var) == null) {
+            String str = command.what;
+            d(fs2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Long) {
+                fs2Var.W(((Long) obj).longValue());
             }
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.webkit.logsdk.d;
 
 import android.util.Base64;
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public byte[] a;
     public int b;

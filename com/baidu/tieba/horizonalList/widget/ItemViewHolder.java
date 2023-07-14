@@ -2,7 +2,7 @@ package com.baidu.tieba.horizonalList.widget;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.w58;
+import com.baidu.tieba.ra8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,11 +13,11 @@ public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener a;
 
-    public abstract void a(w58 w58Var);
+    public abstract void b(ra8 ra8Var);
 
-    public abstract ItemViewHolder b(View view2);
+    public abstract ItemViewHolder c(View view2);
 
-    public abstract void c(int i);
+    public abstract void d(int i);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ItemViewHolder(View view2) {
@@ -39,7 +39,7 @@ public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void d(View.OnClickListener onClickListener) {
+    public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             this.a = onClickListener;

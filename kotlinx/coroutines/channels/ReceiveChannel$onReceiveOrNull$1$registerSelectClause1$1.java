@@ -36,12 +36,12 @@ public final class ReceiveChannel$onReceiveOrNull$1$registerSelectClause1$1<E, R
 
     @Override // kotlin.jvm.functions.Function2
     public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2) {
-        return m2314invokeWpGqRn0(((ChannelResult) obj).m2310unboximpl(), (Continuation) obj2);
+        return m2316invokeWpGqRn0(((ChannelResult) obj).m2312unboximpl(), (Continuation) obj2);
     }
 
     /* renamed from: invoke-WpGqRn0  reason: not valid java name */
-    public final Object m2314invokeWpGqRn0(Object obj, Continuation<? super R> continuation) {
-        return ((ReceiveChannel$onReceiveOrNull$1$registerSelectClause1$1) create(ChannelResult.m2298boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object m2316invokeWpGqRn0(Object obj, Continuation<? super R> continuation) {
+        return ((ReceiveChannel$onReceiveOrNull$1$registerSelectClause1$1) create(ChannelResult.m2300boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: kotlin.jvm.functions.Function2<E, kotlin.coroutines.Continuation<? super R>, java.lang.Object> */
@@ -58,17 +58,17 @@ public final class ReceiveChannel$onReceiveOrNull$1$registerSelectClause1$1<E, R
             }
         } else {
             ResultKt.throwOnFailure(obj);
-            Object m2310unboximpl = ((ChannelResult) this.L$0).m2310unboximpl();
-            Throwable m2302exceptionOrNullimpl = ChannelResult.m2302exceptionOrNullimpl(m2310unboximpl);
-            if (m2302exceptionOrNullimpl == null) {
-                Object m2303getOrNullimpl = ChannelResult.m2303getOrNullimpl(m2310unboximpl);
+            Object m2312unboximpl = ((ChannelResult) this.L$0).m2312unboximpl();
+            Throwable m2304exceptionOrNullimpl = ChannelResult.m2304exceptionOrNullimpl(m2312unboximpl);
+            if (m2304exceptionOrNullimpl == null) {
+                Object m2305getOrNullimpl = ChannelResult.m2305getOrNullimpl(m2312unboximpl);
                 this.label = 1;
-                obj = this.$block.invoke(m2303getOrNullimpl, this);
+                obj = this.$block.invoke(m2305getOrNullimpl, this);
                 if (obj == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             } else {
-                throw m2302exceptionOrNullimpl;
+                throw m2304exceptionOrNullimpl;
             }
         }
         return obj;

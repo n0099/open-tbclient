@@ -1,80 +1,75 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.entelechy.adapter.FrsGroupCardLayoutHolder;
-import com.baidu.tieba.frs.view.FrsGroupCardLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SearchPostForum.DataRes;
+import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes6.dex */
-public final class hh7 extends kn<ki7, FrsGroupCardLayoutHolder> {
+public class hh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
+    public SearchForum a;
+    public List<SearchForum> b;
+    public ArrayList<yn> c;
+    public String d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hh7(TbPageContext<?> pageContext) {
-        super(pageContext.getPageActivity(), ki7.c.a());
+    public hh7(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        this.a = pageContext;
+        this.d = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public FrsGroupCardLayoutHolder onCreateViewHolder(ViewGroup parent) {
-        InterceptResult invokeL;
+    public ArrayList<yn> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parent)) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            Activity pageActivity = this.a.getPageActivity();
-            Intrinsics.checkNotNullExpressionValue(pageActivity, "pageContext.pageActivity");
-            return new FrsGroupCardLayoutHolder(new FrsGroupCardLayout(pageActivity, null, 2, null));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (FrsGroupCardLayoutHolder) invokeL.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View convertView, ViewGroup parent, ki7 data, FrsGroupCardLayoutHolder holder) {
-        InterceptResult invokeCommon;
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, data, holder})) == null) {
-            Intrinsics.checkNotNullParameter(convertView, "convertView");
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(holder, "holder");
-            holder.a().setData(data);
-            View view2 = holder.getView();
-            Intrinsics.checkNotNullExpressionValue(view2, "holder.view");
-            return view2;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        this.a = dataRes.exact_match;
+        this.b = dataRes.fuzzy_match;
+        this.c = new ArrayList<>();
+        gh7 gh7Var = new gh7(this.d);
+        SearchForum searchForum = this.a;
+        if (searchForum != null) {
+            gh7Var.k(searchForum);
+            this.c.add(gh7Var);
+        }
+        List<SearchForum> list = this.b;
+        if (list == null) {
+            return;
+        }
+        for (SearchForum searchForum2 : list) {
+            if (searchForum2 != null) {
+                gh7 gh7Var2 = new gh7(this.d);
+                gh7Var2.k(searchForum2);
+                this.c.add(gh7Var2);
+            }
+        }
     }
 }

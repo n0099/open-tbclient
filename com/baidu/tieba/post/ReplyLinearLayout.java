@@ -1,7 +1,6 @@
 package com.baidu.tieba.post;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,14 +22,14 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a65;
+import com.baidu.tieba.d85;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.p55;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.r55;
-import com.baidu.tieba.s75;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.y55;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,30 +49,30 @@ public class ReplyLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public final List<RelativeLayout> a;
     public TbPageContext<?> b;
-    public p55 c;
+    public y55 c;
     public ForumManageModel d;
     public TBAlertBuilder e;
     public PersonPostModel.PostInfoList f;
     public String g;
     public View h;
-    public r55.f i;
+    public a65.f i;
     public k9 j;
     public final View.OnClickListener k;
 
     /* loaded from: classes7.dex */
-    public class a implements r55.f {
+    public class a implements a65.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplyLinearLayout a;
 
         /* renamed from: com.baidu.tieba.post.ReplyLinearLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0454a implements View.OnClickListener {
+        public class View$OnClickListenerC0456a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0454a(a aVar) {
+            public View$OnClickListenerC0456a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,22 +154,22 @@ public class ReplyLinearLayout extends LinearLayout {
             this.a = replyLinearLayout;
         }
 
-        @Override // com.baidu.tieba.r55.f
-        public void M0(r55 r55Var, int i, View view2) {
+        @Override // com.baidu.tieba.a65.f
+        public void L0(a65 a65Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLIL(1048576, this, r55Var, i, view2) != null) || this.a.b == null) {
+            if ((interceptable != null && interceptable.invokeLIL(1048576, this, a65Var, i, view2) != null) || this.a.b == null) {
                 return;
             }
             if (this.a.c != null) {
                 this.a.c.dismiss();
             }
-            Map map = (Map) r55Var.e().getTag();
-            PersonPostModel.PostInfoContent postInfoContent = (PersonPostModel.PostInfoContent) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091e82));
+            Map map = (Map) a65Var.e().getTag();
+            PersonPostModel.PostInfoContent postInfoContent = (PersonPostModel.PostInfoContent) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091eb0));
             if (postInfoContent == null) {
                 return;
             }
             this.a.g = postInfoContent.getPostId();
-            this.a.h = (View) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091e87));
+            this.a.h = (View) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091eb5));
             ReplyLinearLayout replyLinearLayout = this.a;
             replyLinearLayout.p("c14538", replyLinearLayout.g);
             if (this.a.e == null) {
@@ -177,9 +177,9 @@ public class ReplyLinearLayout extends LinearLayout {
                 replyLinearLayout2.e = new TBAlertBuilder(replyLinearLayout2.b.getPageActivity());
             }
             this.a.e.x(this.a.b.getString(R.string.del_post_confirm));
-            this.a.e.q(this.a.b.getString(R.string.obfuscated_res_0x7f0f0540));
+            this.a.e.q(this.a.b.getString(R.string.obfuscated_res_0x7f0f0543));
             this.a.e.o(true);
-            this.a.e.u(new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f03cc), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0454a(this)), new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f0543), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
+            this.a.e.u(new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f03ce), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0456a(this)), new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f0546), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
             this.a.e.d().setCanceledOnTouchOutside(false);
             this.a.e.z();
         }
@@ -250,29 +250,30 @@ public class ReplyLinearLayout extends LinearLayout {
             Map map;
             PersonPostModel.PostInfoContent postInfoContent;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (map = (Map) view2.getTag()) == null || (postInfoContent = (PersonPostModel.PostInfoContent) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091e82))) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (map = (Map) view2.getTag()) == null || (postInfoContent = (PersonPostModel.PostInfoContent) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091eb0))) == null) {
                 return;
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f091e8e) {
-                if (TextUtils.isEmpty(postInfoContent.targetScheme) || !UrlManager.getInstance().dealOneLink(this.a.b, new String[]{postInfoContent.targetScheme})) {
-                    Context context = this.a.getContext();
-                    if (postInfoContent.post_type == 0) {
-                        PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(postInfoContent.threadId, postInfoContent.getPostId(), "person_page");
-                        createNormalCfg.setStartFrom(4);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-                        return;
-                    }
-                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(context).createSubPbActivityConfig(postInfoContent.threadId, postInfoContent.getPostId(), "person_post_reply", false, null, false);
-                    createSubPbActivityConfig.setKeyPageStartFrom(4);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+            if (view2.getId() != R.id.obfuscated_res_0x7f091ebc) {
+                if (StringUtils.isNotNull(postInfoContent.targetScheme)) {
+                    UrlManager.getInstance().dealOneLink(this.a.b, new String[]{postInfoContent.targetScheme});
                     return;
                 }
+                Context context = this.a.getContext();
+                if (postInfoContent.post_type == 0) {
+                    PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(postInfoContent.threadId, postInfoContent.getPostId(), "person_page");
+                    createNormalCfg.setStartFrom(4);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+                    return;
+                }
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(context).createSubPbActivityConfig(postInfoContent.threadId, postInfoContent.getPostId(), "person_post_reply", false, null, false);
+                createSubPbActivityConfig.setKeyPageStartFrom(4);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
                 return;
             }
             this.a.p("c14537", postInfoContent.threadId);
             if (this.a.c == null) {
-                this.a.c = new p55(this.a.b);
-                this.a.c.i(null, new String[]{this.a.b.getString(R.string.obfuscated_res_0x7f0f0543)}, this.a.i);
+                this.a.c = new y55(this.a.b);
+                this.a.c.i(null, new String[]{this.a.b.getString(R.string.obfuscated_res_0x7f0f0546)}, this.a.i);
             }
             this.a.c.g().e().setTag(map);
             this.a.c.l();
@@ -292,8 +293,8 @@ public class ReplyLinearLayout extends LinearLayout {
                 return;
             }
         }
-        l = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds50);
-        m = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        l = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds50);
+        m = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
     }
 
     public final void o() {
@@ -301,9 +302,9 @@ public class ReplyLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             for (int i = 0; i < getChildCount(); i++) {
                 if (i == getChildCount() - 1) {
-                    getChildAt(i).findViewById(R.id.obfuscated_res_0x7f091e88).setVisibility(4);
+                    getChildAt(i).findViewById(R.id.obfuscated_res_0x7f091eb6).setVisibility(4);
                 } else {
-                    getChildAt(i).findViewById(R.id.obfuscated_res_0x7f091e88).setVisibility(0);
+                    getChildAt(i).findViewById(R.id.obfuscated_res_0x7f091eb6).setVisibility(0);
                 }
             }
         }
@@ -371,7 +372,7 @@ public class ReplyLinearLayout extends LinearLayout {
         ForumManageModel forumManageModel2 = this.d;
         String valueOf = String.valueOf(this.f.forum_id);
         PersonPostModel.PostInfoList postInfoList = this.f;
-        forumManageModel2.q0(valueOf, postInfoList.forum_name, String.valueOf(postInfoList.thread_id), str, 1, 0, true, null, false);
+        forumManageModel2.r0(valueOf, postInfoList.forum_name, String.valueOf(postInfoList.thread_id), str, 1, 0, true, null, false);
         removeView(view2);
         this.a.remove(view2);
         o();
@@ -396,16 +397,16 @@ public class ReplyLinearLayout extends LinearLayout {
         if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || viewGroup == null) {
             return;
         }
-        s75 d = s75.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091e81));
+        d85 d = d85.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091eaf));
         d.C(R.dimen.T_X05);
         d.x(R.color.CAM_X0105);
         d.D(R.string.F_X01);
-        WebPManager.setPureDrawable((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091e8e), R.drawable.icon_pure_pb_more18, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
-        s75 d2 = s75.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091e92));
+        WebPManager.setPureDrawable((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ebc), R.drawable.icon_pure_pb_more18, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
+        d85 d2 = d85.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091ec0));
         d2.C(R.dimen.T_X09);
         d2.x(R.color.CAM_X0109);
         d2.D(R.string.F_X01);
-        s75.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091e88)).f(R.color.CAM_X0203);
+        d85.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091eb6)).f(R.color.CAM_X0203);
     }
 
     public final void p(String str, String str2) {
@@ -436,30 +437,30 @@ public class ReplyLinearLayout extends LinearLayout {
                 layoutParams2.topMargin = m;
                 ImageView imageView = new ImageView(getContext());
                 imageView.setLayoutParams(layoutParams2);
-                imageView.setId(R.id.obfuscated_res_0x7f091e8e);
+                imageView.setId(R.id.obfuscated_res_0x7f091ebc);
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_pb_more18, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
                 relativeLayout.addView(imageView);
                 RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
-                layoutParams3.addRule(0, R.id.obfuscated_res_0x7f091e8e);
+                layoutParams3.addRule(0, R.id.obfuscated_res_0x7f091ebc);
                 layoutParams3.topMargin = m;
-                layoutParams3.rightMargin = xi.g(getContext(), R.dimen.tbds78);
+                layoutParams3.rightMargin = yi.g(getContext(), R.dimen.tbds78);
                 TextView textView = new TextView(getContext());
                 textView.setLayoutParams(layoutParams3);
-                textView.setId(R.id.obfuscated_res_0x7f091e81);
+                textView.setId(R.id.obfuscated_res_0x7f091eaf);
                 relativeLayout.addView(textView);
                 RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams4.addRule(3, R.id.obfuscated_res_0x7f091e81);
-                layoutParams4.topMargin = xi.g(getContext(), R.dimen.M_H_X003);
+                layoutParams4.addRule(3, R.id.obfuscated_res_0x7f091eaf);
+                layoutParams4.topMargin = yi.g(getContext(), R.dimen.M_H_X003);
                 TextView textView2 = new TextView(getContext());
                 textView2.setLayoutParams(layoutParams4);
-                textView2.setId(R.id.obfuscated_res_0x7f091e92);
+                textView2.setId(R.id.obfuscated_res_0x7f091ec0);
                 relativeLayout.addView(textView2);
-                RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-1, xi.g(getContext(), R.dimen.tbds1));
-                layoutParams5.topMargin = xi.g(getContext(), R.dimen.tbds26);
-                layoutParams5.addRule(3, R.id.obfuscated_res_0x7f091e92);
+                RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-1, yi.g(getContext(), R.dimen.tbds1));
+                layoutParams5.topMargin = yi.g(getContext(), R.dimen.tbds26);
+                layoutParams5.addRule(3, R.id.obfuscated_res_0x7f091ec0);
                 TextView textView3 = new TextView(getContext());
                 textView3.setLayoutParams(layoutParams5);
-                textView3.setId(R.id.obfuscated_res_0x7f091e88);
+                textView3.setId(R.id.obfuscated_res_0x7f091eb6);
                 relativeLayout.addView(textView3);
                 this.a.add(relativeLayout);
                 addView(relativeLayout);
@@ -470,12 +471,12 @@ public class ReplyLinearLayout extends LinearLayout {
                 if (i3 < list.size()) {
                     PersonPostModel.PostInfoContent postInfoContent = list.get(i3);
                     m(relativeLayout2);
-                    ImageView imageView2 = (ImageView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091e8e);
-                    ((TextView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091e81)).setText(postInfoContent.contentStr);
-                    ((TextView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091e92)).setText(postInfoContent.timeStr);
+                    ImageView imageView2 = (ImageView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091ebc);
+                    ((TextView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091eaf)).setText(postInfoContent.contentStr);
+                    ((TextView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091ec0)).setText(postInfoContent.timeStr);
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf((int) R.id.obfuscated_res_0x7f091e82), postInfoContent);
-                    hashMap.put(Integer.valueOf((int) R.id.obfuscated_res_0x7f091e87), relativeLayout2);
+                    hashMap.put(Integer.valueOf((int) R.id.obfuscated_res_0x7f091eb0), postInfoContent);
+                    hashMap.put(Integer.valueOf((int) R.id.obfuscated_res_0x7f091eb5), relativeLayout2);
                     imageView2.setTag(hashMap);
                     imageView2.setOnClickListener(this.k);
                     relativeLayout2.setVisibility(0);

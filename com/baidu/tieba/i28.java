@@ -1,105 +1,161 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class i28 extends wx<l15> {
+public class i28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaRecommendLayout f;
-    public int g;
+    public TbPageContext a;
+    public BdTypeRecyclerView b;
+    public LinkedList<ln> c;
+    public n28 d;
+    public k28 e;
+    public l28 f;
+    public m28 g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i28(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity());
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public i28(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().b instanceof AlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().b.getParent() == null) {
-            this.f = (AlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().b;
-        } else {
-            this.f = new AlaRecommendLayout(tbPageContext.getPageActivity());
-        }
+        this.a = tbPageContext;
+        this.b = bdTypeRecyclerView;
+        this.c = new LinkedList<>();
+        b();
     }
 
-    @Override // com.baidu.tieba.wx
-    public View k() {
+    public List<yn> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            BdTypeRecyclerView bdTypeRecyclerView = this.b;
+            if (bdTypeRecyclerView != null) {
+                return bdTypeRecyclerView.getData();
+            }
+            return null;
         }
-        return (View) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ry
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public void c() {
+        BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.d(i);
-                q(this.f, 3);
-            }
-            this.g = i;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeRecyclerView = this.b) != null) {
+            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
         }
     }
 
-    public uo6 s(l15 l15Var) {
-        InterceptResult invokeL;
+    public void e() {
+        k28 k28Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, l15Var)) == null) {
-            if (l15Var instanceof o18) {
-                o18 o18Var = (o18) l15Var;
-                return new uo6(o18Var.getType(), o18Var.c(), "recommend");
-            } else if (l15Var instanceof qw7) {
-                qw7 qw7Var = (qw7) l15Var;
-                return new uo6(qw7Var.getType(), qw7Var.c(), ImageViewerConfig.FROM_CONCERN);
-            } else {
-                return new uo6();
-            }
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (k28Var = this.e) != null) {
+            k28Var.onPause();
         }
-        return (uo6) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qy
-    /* renamed from: t */
-    public void a(l15 l15Var) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, l15Var) == null) {
-            uo6 s = s(l15Var);
-            if (s != null && !ListUtils.isEmpty(s.c())) {
-                this.f.setData(s);
-                this.f.d(TbadkCoreApplication.getInst().getSkinType());
-                this.f.setVisibility(0);
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = new n28(this.a, kq6.E0);
+            this.e = new k28(this.a, lq6.U);
+            this.f = new l28(this.a, kq6.N0);
+            this.g = new m28(this.a, kq6.L0);
+            this.d.A(this.b);
+            this.e.C(this.b);
+            this.f.z(this.b);
+            this.g.B(this.b);
+            this.c.add(this.d);
+            this.c.add(this.e);
+            this.c.add(this.f);
+            this.c.add(this.g);
+            this.b.addAdapters(this.c);
+        }
+    }
+
+    public void f(List<yn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.b.setData(list);
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            n28 n28Var = this.d;
+            if (n28Var != null) {
+                n28Var.y(i);
             }
-            this.f.setVisibility(8);
+            k28 k28Var = this.e;
+            if (k28Var != null) {
+                k28Var.A(i);
+            }
+            l28 l28Var = this.f;
+            if (l28Var != null) {
+                l28Var.x(i);
+            }
+            m28 m28Var = this.g;
+            if (m28Var != null) {
+                m28Var.z(i);
+            }
+        }
+    }
+
+    public void h(NEGFeedBackView.b bVar) {
+        m28 m28Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && (m28Var = this.g) != null) {
+            m28Var.y(bVar);
+        }
+    }
+
+    public void i(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
+            n28 n28Var = this.d;
+            if (n28Var != null) {
+                n28Var.z(bdUniqueId);
+            }
+            k28 k28Var = this.e;
+            if (k28Var != null) {
+                k28Var.B(bdUniqueId);
+            }
+            l28 l28Var = this.f;
+            if (l28Var != null) {
+                l28Var.y(bdUniqueId);
+            }
+            m28 m28Var = this.g;
+            if (m28Var != null) {
+                m28Var.A(bdUniqueId);
+            }
         }
     }
 }

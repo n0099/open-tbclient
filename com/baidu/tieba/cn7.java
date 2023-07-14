@@ -1,241 +1,107 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.PraiseData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tbadkCore.PraiseModel;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class cn7 extends en7 {
+public class cn7 extends yh7<oq6, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData h;
-    public boolean i;
-    public String j;
-    public PraiseModel k;
-    public final CustomMessageListener l;
+    public boolean l;
 
     /* loaded from: classes5.dex */
-    public class a implements PraiseModel.b {
+    public class a extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cn7 a;
+        public ip6 a;
 
-        public a(cn7 cn7Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(cn7 cn7Var, ip6 ip6Var) {
+            super(ip6Var.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cn7Var};
+                Object[] objArr = {cn7Var, ip6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = cn7Var;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
-        public void a(int i, String str) {
-            FrsFragment frsFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && (frsFragment = this.a.b) != null && frsFragment.getPageContext() != null && this.a.i && !TextUtils.isEmpty(str)) {
-                if (AntiHelper.m(i, str)) {
-                    AntiHelper.u(this.a.b.getPageContext().getPageActivity(), str);
-                } else {
-                    this.a.b.showToast(str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
-        public void j(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.a.i) {
-                    int i = 1;
-                    if (this.a.h != null && this.a.h.getPraise().getIsLike() == 1) {
-                        i = 0;
-                    }
-                    this.a.h(i);
-                }
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cn7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(cn7 cn7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cn7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cn7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ThreadData)) {
-                ThreadData threadData = (ThreadData) customResponsedMessage.getData();
-                this.a.j = threadData.getId();
-                if (!TextUtils.isEmpty(this.a.j) && threadData.getPraise() != null) {
-                    this.a.h(threadData.getPraise().getIsLike());
-                }
-            }
+            this.a = ip6Var;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cn7(FrsFragment frsFragment) {
-        super(frsFragment);
+    public cn7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
+            Object[] objArr = {tbPageContext, bdUniqueId, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((FrsFragment) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b bVar = new b(this, 2004004);
-        this.l = bVar;
-        this.b.registerListener(bVar);
-        this.k = e();
+        this.l = z;
     }
 
-    public void f(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: G */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.i = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            ip6 ip6Var = new ip6(this.c);
+            ip6Var.u(null, TbadkCoreStatisticKey.FRS_HOT_TOPIC_ITEM_CLICK);
+            return new a(this, ip6Var);
         }
+        return (a) invokeL.objValue;
     }
 
-    public final PraiseModel e() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yh7, com.baidu.tieba.ln
+    /* renamed from: H */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, oq6 oq6Var, a aVar) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.k == null) {
-                this.k = new PraiseModel(this.b.getPageContext(), new a(this));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oq6Var, aVar})) == null) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW));
+            if (oq6Var != null) {
+                oq6Var.f = i + 1;
+                aVar.a.x(yi.d(this.c.getPageActivity(), 7.0f));
+                aVar.a.z(this.l);
+                aVar.a.j(this.c, TbadkCoreApplication.getInst().getSkinType());
             }
-            return this.k;
+            aVar.a.i(oq6Var);
+            return aVar.getView();
         }
-        return (PraiseModel) invokeV.objValue;
-    }
-
-    public void g(ThreadData threadData, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, threadData, i) != null) || threadData == null) {
-            return;
-        }
-        if (i == 1) {
-            PraiseData praise = threadData.getPraise();
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                MetaData metaData = new MetaData();
-                metaData.setName_show(currentAccountObj.getAccount());
-                metaData.setPortrait(currentAccountObj.getPortrait());
-                metaData.setUserId(currentAccountObj.getID());
-                if (praise == null) {
-                    PraiseData praiseData = new PraiseData();
-                    praiseData.setIsLike(i);
-                    praiseData.setNum(1L);
-                    praiseData.getUser().add(0, metaData);
-                    threadData.setPraise(praiseData);
-                    return;
-                }
-                threadData.getPraise().getUser().add(0, metaData);
-                threadData.getPraise().setNum(threadData.getPraise().getNum() + 1);
-                threadData.getPraise().setIsLike(i);
-            }
-        } else if (threadData.getPraise() != null) {
-            threadData.getPraise().setIsLike(i);
-            threadData.getPraise().setNum(threadData.getPraise().getNum() - 1);
-            ArrayList<MetaData> user = threadData.getPraise().getUser();
-            if (user != null) {
-                Iterator<MetaData> it = user.iterator();
-                while (it.hasNext()) {
-                    MetaData next = it.next();
-                    if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
-                        threadData.getPraise().getUser().remove(next);
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    public void h(int i) {
-        FrsViewData c1;
-        ArrayList<xn> threadList;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (c1 = this.b.c1()) != null && this.a != null && (threadList = c1.getThreadList()) != null) {
-            Iterator<xn> it = threadList.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                xn next = it.next();
-                if (next instanceof r45) {
-                    ThreadData threadData = ((r45) next).t;
-                    if (threadData == this.h) {
-                        g(threadData, i);
-                        this.h = null;
-                        break;
-                    } else if (threadData.getId() != null && threadData.getId().equals(this.j)) {
-                        g(threadData, i);
-                        this.j = null;
-                        break;
-                    }
-                }
-            }
-            this.a.a0().g(threadList, c1);
-            this.a.a0().notifyDataSetChanged();
-        }
+        return (View) invokeCommon.objValue;
     }
 }

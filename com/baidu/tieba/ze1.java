@@ -1,35 +1,80 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IPackageGetter;
+import com.baidu.nps.interfa.IPackageGetter_PackageGetter_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ze1 {
     public static /* synthetic */ Interceptable $ic;
+    public static ze1 b;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject
+    public cl1<IPackageGetter> a;
 
-    public static boolean a(Application application) {
-        InterceptResult invokeL;
-        Object f;
-        ClassLoader classLoader;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, application)) == null) {
-            try {
-                Context baseContext = application.getBaseContext();
-                if (baseContext == null || (f = mg1.f(baseContext, "mPackageInfo")) == null || (classLoader = (ClassLoader) mg1.f(f, "mClassLoader")) == null) {
-                    return false;
-                }
-                af1 af1Var = new af1(classLoader.getParent(), classLoader);
-                mg1.k(f, "mClassLoader", af1Var);
-                Thread.currentThread().setContextClassLoader(af1Var);
-                return true;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            al1 b2 = al1.b();
+            this.a = b2;
+            b2.a(new IPackageGetter_PackageGetter_Provider());
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948356963, "Lcom/baidu/tieba/ze1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948356963, "Lcom/baidu/tieba/ze1;");
+                return;
             }
         }
-        return invokeL.booleanValue;
+        b = new ze1();
+    }
+
+    public ze1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        c();
+    }
+
+    public static ze1 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (ze1) invokeV.objValue;
+    }
+
+    public IPackageGetter b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
+        }
+        return (IPackageGetter) invokeV.objValue;
     }
 }

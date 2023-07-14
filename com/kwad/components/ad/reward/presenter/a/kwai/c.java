@@ -25,7 +25,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c extends com.kwad.components.ad.reward.presenter.a implements x.b {
     @Nullable
     public com.kwad.components.ad.i.b bb;
@@ -124,7 +124,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
         boolean aY = com.kwad.sdk.core.response.a.a.aY(this.mAdInfo);
         boolean cc = com.kwad.sdk.core.response.a.d.cc(this.mAdTemplate);
         if (aY && cc) {
-            q qVar = new q(R.id.obfuscated_res_0x7f091314);
+            q qVar = new q(R.id.obfuscated_res_0x7f091328);
             this.sz = qVar;
             qVar.a(new p.a() { // from class: com.kwad.components.ad.reward.presenter.a.kwai.c.2
                 @Override // com.kwad.components.ad.reward.k.p.a
@@ -190,7 +190,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hL() {
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091256);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09126a);
         if (imageView == null) {
             return;
         }
@@ -233,10 +233,10 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
         com.kwad.components.ad.reward.c.eZ().a(this.mRewardVerifyListener);
         this.sw.setCallerContext(this.nM);
         this.sw.a(getContext(), this.nM.mScreenOrientation == 0, hN());
-        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09131a);
-        this.sy = viewStub != null ? new j(this.nM, viewStub) : new j(this.nM, (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09135c));
-        ViewStub viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09131b);
-        this.sA = viewStub2 != null ? new n(this.mAdTemplate, this.nM, viewStub2, this.mDetailVideoView) : new n(this.mAdTemplate, this.nM, (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912fb), this.mDetailVideoView);
+        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09132e);
+        this.sy = viewStub != null ? new j(this.nM, viewStub) : new j(this.nM, (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091370));
+        ViewStub viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09132f);
+        this.sA = viewStub2 != null ? new n(this.mAdTemplate, this.nM, viewStub2, this.mDetailVideoView) : new n(this.mAdTemplate, this.nM, (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09130f), this.mDetailVideoView);
         hJ();
     }
 
@@ -247,8 +247,8 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.sw = (TailFrameView) findViewById(R.id.obfuscated_res_0x7f091411);
-        DetailVideoView detailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09140d);
+        this.sw = (TailFrameView) findViewById(R.id.obfuscated_res_0x7f091425);
+        DetailVideoView detailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091421);
         this.mDetailVideoView = detailVideoView;
         if (detailVideoView.getLayoutTransition() != null) {
             this.mDetailVideoView.getLayoutTransition().enableTransitionType(4);

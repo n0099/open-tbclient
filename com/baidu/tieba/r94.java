@@ -1,7 +1,28 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface r94 {
-    void a(qc4 qc4Var, pc4 pc4Var);
 
-    void b(hc4 hc4Var, gc4 gc4Var);
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class r94 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String errMsg;
+
+    public r94() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

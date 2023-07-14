@@ -1,88 +1,160 @@
 package com.baidu.tieba;
 
+import android.text.SpannableString;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.impl.CronetBidirectionalStream;
-import java.nio.ByteBuffer;
-import org.chromium.base.NativeLibraryLoadedStatus;
-import org.chromium.base.annotations.CheckDiscard;
-import org.chromium.base.natives.GEN_JNI;
-@CheckDiscard("crbug.com/993421")
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class asa implements CronetBidirectionalStream.f {
+public final class asa {
     public static /* synthetic */ Interceptable $ic;
-    public static CronetBidirectionalStream.f a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947627130, "Lcom/baidu/tieba/asa;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947627130, "Lcom/baidu/tieba/asa;");
-        }
-    }
+    public SpannableString a;
+    public int b;
+    public int c;
+    @ColorRes
+    public int d;
+    @DrawableRes
+    public int e;
+    public int f;
+    public String g;
 
     public asa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new SpannableString("");
+        this.b = 1;
+        this.c = 3;
+        this.g = "";
     }
 
-    public static CronetBidirectionalStream.f c() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (GEN_JNI.TESTING_ENABLED) {
-                CronetBidirectionalStream.f fVar = a;
-                if (fVar != null) {
-                    return fVar;
-                }
-                if (GEN_JNI.REQUIRE_MOCK) {
-                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetBidirectionalStream.Natives. The current configuration requires all native implementations to have a mock instance.");
-                }
-            }
-            NativeLibraryLoadedStatus.checkLoaded(false);
-            return new asa();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        return (CronetBidirectionalStream.f) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetBidirectionalStream.f
-    public void a(long j, CronetBidirectionalStream cronetBidirectionalStream, boolean z) {
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), cronetBidirectionalStream, Boolean.valueOf(z)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetBidirectionalStream_destroy(j, cronetBidirectionalStream, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public final SpannableString f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (SpannableString) invokeV.objValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.g = str;
         }
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetBidirectionalStream.f
-    public boolean b(long j, CronetBidirectionalStream cronetBidirectionalStream, ByteBuffer[] byteBufferArr, int[] iArr, int[] iArr2, boolean z) {
-        InterceptResult invokeCommon;
+    public final void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), cronetBidirectionalStream, byteBufferArr, iArr, iArr2, Boolean.valueOf(z)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetBidirectionalStream_writevData(j, cronetBidirectionalStream, byteBufferArr, iArr, iArr2, z);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.d = i;
         }
-        return invokeCommon.booleanValue;
+    }
+
+    public final void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public final void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public final void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public final void m(SpannableString spannableString) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, spannableString) == null) {
+            Intrinsics.checkNotNullParameter(spannableString, "<set-?>");
+            this.a = spannableString;
+        }
+    }
+
+    public final void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.b = i;
+        }
     }
 }

@@ -1,25 +1,38 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class xp8 extends vp8 {
+public class xp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xp8() {
+    public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragmentActivity, i)) == null) {
+            if (!TbadkCoreApplication.getInst().appResponseToCmd(i)) {
+                b(baseFragmentActivity);
+                return false;
             }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void b(BaseFragmentActivity baseFragmentActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, baseFragmentActivity) != null) || baseFragmentActivity == null) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT <= 10) {
+            baseFragmentActivity.showToast(R.string.plugin_not_exit_for_2_3);
+        } else {
+            baseFragmentActivity.showToast(R.string.plugin_not_exit);
         }
     }
 }

@@ -1,46 +1,125 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.du6;
+import com.baidu.tieba.f65;
+import com.baidu.tieba.frs.gametab.FrsSpriteGuideTipController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class hp7 implements p65 {
+public final class hp7 extends f65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final gp7 c;
+    public final FrsSpriteGuideTipController d;
 
-    @Override // com.baidu.tieba.p65
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsGroupChatGuide" : (String) invokeV.objValue;
-    }
-
-    public hp7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hp7(Activity activity, gp7 gp7Var, FrsSpriteGuideTipController frsSpriteGuideTipController) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, gp7Var, frsSpriteGuideTipController};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        this.c = gp7Var;
+        this.d = frsSpriteGuideTipController;
+    }
+
+    public static final void g(hp7 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c();
+        }
+    }
+
+    public static final void h(hp7 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c();
+        }
+    }
+
+    @Override // com.baidu.tieba.f65
+    public void d(f65.a shouldShowCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
+            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
+            shouldShowCallback.callback(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.f65
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            gp7 gp7Var = this.c;
+            if (gp7Var != null) {
+                gp7Var.o();
+            }
+            FrsSpriteGuideTipController frsSpriteGuideTipController = this.d;
+            if (frsSpriteGuideTipController != null) {
+                frsSpriteGuideTipController.g();
             }
         }
     }
 
-    @Override // com.baidu.tieba.p65
-    public Class<? extends n65> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.f65
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return gp7.class;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            DefaultLog.getInstance().c("FrsGuide", "开始显示frs吧引导");
+            gp7 gp7Var = this.c;
+            if (gp7Var != null) {
+                DefaultLog.getInstance().c("FrsGuide", "展示线上吧引导样式");
+                gp7Var.t(new du6.e() { // from class: com.baidu.tieba.bp7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.du6.e
+                    public final void onDismiss() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            hp7.g(hp7.this);
+                        }
+                    }
+                });
+                gp7Var.w();
+            }
+            FrsSpriteGuideTipController frsSpriteGuideTipController = this.d;
+            if (frsSpriteGuideTipController != null) {
+                DefaultLog.getInstance().c("FrsGuide", "展示精灵吧引导样式");
+                frsSpriteGuideTipController.j(new du6.e() { // from class: com.baidu.tieba.dp7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.du6.e
+                    public final void onDismiss() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            hp7.h(hp7.this);
+                        }
+                    }
+                });
+                frsSpriteGuideTipController.l();
+            }
         }
-        return (Class) invokeV.objValue;
     }
 }

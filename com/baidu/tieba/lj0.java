@@ -1,124 +1,97 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.FloatRange;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.model.MonitorUrl;
-import com.baidu.tieba.fs0;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lj0 {
+public class lj0 extends ke1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AdBaseModel a;
+    public View b;
+    public View.OnClickListener c;
 
-    public static boolean a(fs0 fs0Var) {
-        InterceptResult invokeL;
-        fs0.b bVar;
-        fs0.a aVar;
+    public lj0(AdBaseModel adBaseModel, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fs0Var)) == null) {
-            if (fs0Var == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {adBaseModel, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (TextUtils.isEmpty(fs0Var.f) && TextUtils.isEmpty(fs0Var.d) && (((bVar = fs0Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = fs0Var.h) == null || TextUtils.isEmpty(aVar.a)))) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
+        this.a = adBaseModel;
+        this.b = view2;
     }
 
-    public static void b(@Nullable List<MonitorUrl> list) {
+    @Override // com.baidu.tieba.ke1
+    public void a(String str) {
+        AdBaseModel adBaseModel;
+        fs0 fs0Var;
+        as0 as0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (adBaseModel = this.a) != null && (fs0Var = adBaseModel.f) != null && !TextUtils.isEmpty(fs0Var.d)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.FREE_CLICK);
+            clogBuilder.j(str);
+            bs0 bs0Var = adBaseModel.m;
+            if (bs0Var != null && (as0Var = bs0Var.q) != null) {
+                clogBuilder.v(as0Var.a);
+            }
+            clogBuilder.p(adBaseModel.f.d);
+            n41.e(clogBuilder);
         }
-        for (MonitorUrl monitorUrl : list) {
-            if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.clickUrl)) {
-                s31.b(monitorUrl.clickUrl);
+    }
+
+    @Override // com.baidu.tieba.ke1
+    public void b(@NonNull ls0 ls0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ls0Var) == null) {
+            if (ls0Var.c) {
+                ak0.b(ls0Var.a);
+                g(ClogBuilder.LogType.CLICK, "detailbtn", this.a);
+            }
+            View.OnClickListener onClickListener = this.c;
+            if (onClickListener != null) {
+                onClickListener.onClick(this.b);
             }
         }
     }
 
-    public static void c(@Nullable List<MonitorUrl> list) {
+    public void h(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, list) != null) || list == null) {
-            return;
-        }
-        for (MonitorUrl monitorUrl : list) {
-            if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.showUrl)) {
-                s31.b(monitorUrl.showUrl);
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.c = onClickListener;
         }
     }
 
-    public static int d(float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
+        fs0 fs0Var;
+        as0 as0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (i == i2) {
-                return i;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, logType, str, adBaseModel) == null) && adBaseModel != null && (fs0Var = adBaseModel.f) != null && !TextUtils.isEmpty(fs0Var.d)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType);
+            clogBuilder.j(str);
+            bs0 bs0Var = adBaseModel.m;
+            if (bs0Var != null && (as0Var = bs0Var.q) != null) {
+                clogBuilder.v(as0Var.a);
             }
-            if (f <= 0.0f) {
-                return i;
-            }
-            if (f >= 1.0f) {
-                return i2;
-            }
-            int red = Color.red(i);
-            int blue = Color.blue(i);
-            int green = Color.green(i);
-            int alpha = Color.alpha(i);
-            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static String e(@FloatRange(from = 0.0d, to = 1.0d) float f, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), str})) == null) {
-            String hexString = Integer.toHexString(Math.round(f * 255.0f));
-            if (hexString.length() < 2) {
-                hexString = "0" + hexString;
-            }
-            if (hexString.length() != 2) {
-                return "";
-            }
-            return "#" + hexString + str;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return ContextCompat.getColor(ok0.b(), i);
-            }
-            try {
-                return Color.parseColor(str);
-            } catch (IllegalArgumentException unused) {
-                return ContextCompat.getColor(ok0.b(), i);
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static void g(View view2) {
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, view2) == null) && view2 != null && (viewGroup = (ViewGroup) view2.getParent()) != null) {
-            viewGroup.removeView(view2);
+            clogBuilder.p(adBaseModel.f.d);
+            n41.e(clogBuilder);
         }
     }
 }

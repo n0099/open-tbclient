@@ -1,68 +1,260 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Locale;
 /* loaded from: classes7.dex */
 public class s71 {
     public static /* synthetic */ Interceptable $ic;
-    public static final float[] b;
+    public static String a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948104220, "Lcom/baidu/tieba/s71;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static String a() {
+        InterceptResult invokeV;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String lowerCase = Build.MANUFACTURER.toLowerCase(Locale.getDefault());
+            switch (lowerCase.hashCode()) {
+                case -1443430368:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_SMARTISAN)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1245779295:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_GIONEE)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1206476313:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_HUAWEI)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -759499589:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_XIAOMI)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3418016:
+                    if (lowerCase.equals("oppo")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3620012:
+                    if (lowerCase.equals("vivo")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 103777484:
+                    if (lowerCase.equals("meizu")) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 105170387:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_NUBIA)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948104220, "Lcom/baidu/tieba/s71;");
-                return;
+            switch (c) {
+                case 0:
+                    String e = e("ro.build.version.emui");
+                    b = e;
+                    if (!TextUtils.isEmpty(e)) {
+                        a = "EMUI";
+                        return "EMUI";
+                    }
+                    return d();
+                case 1:
+                    String e2 = e("ro.miui.ui.version.name");
+                    b = e2;
+                    if (!TextUtils.isEmpty(e2)) {
+                        a = "MIUI";
+                        return "MIUI";
+                    }
+                    return d();
+                case 2:
+                    String e3 = e("ro.build.version.opporom");
+                    b = e3;
+                    if (!TextUtils.isEmpty(e3)) {
+                        a = "OPPO";
+                        return "OPPO";
+                    }
+                    return d();
+                case 3:
+                    String e4 = e("ro.vivo.os.version");
+                    b = e4;
+                    if (!TextUtils.isEmpty(e4)) {
+                        a = "VIVO";
+                        return "VIVO";
+                    }
+                    return d();
+                case 4:
+                    String e5 = e("ro.smartisan.version");
+                    b = e5;
+                    if (!TextUtils.isEmpty(e5)) {
+                        a = "SMARTISAN";
+                        return "SMARTISAN";
+                    }
+                    return d();
+                case 5:
+                    String e6 = e(RomUtils.KEY_VERSION_GIONEE);
+                    b = e6;
+                    if (!TextUtils.isEmpty(e6)) {
+                        a = RomUtils.ROM_GIONEE;
+                        return RomUtils.ROM_GIONEE;
+                    }
+                    return d();
+                case 6:
+                    String e7 = e(RomUtils.KEY_VERSION_NUBIA);
+                    b = e7;
+                    if (!TextUtils.isEmpty(e7)) {
+                        a = RomUtils.ROM_NUBIA;
+                        return RomUtils.ROM_NUBIA;
+                    }
+                    return d();
+                case 7:
+                    if (Build.DISPLAY.toUpperCase(Locale.getDefault()).contains("FLYME")) {
+                        a = "FLYME";
+                        return "FLYME";
+                    }
+                    return d();
+                default:
+                    return d();
             }
         }
-        b = new float[]{0.0f, 1.0E-4f, 2.0E-4f, 5.0E-4f, 9.0E-4f, 0.0014f, 0.002f, 0.0027f, 0.0036f, 0.0046f, 0.0058f, 0.0071f, 0.0085f, 0.0101f, 0.0118f, 0.0137f, 0.0158f, 0.018f, 0.0205f, 0.0231f, 0.0259f, 0.0289f, 0.0321f, 0.0355f, 0.0391f, 0.043f, 0.0471f, 0.0514f, 0.056f, 0.0608f, 0.066f, 0.0714f, 0.0771f, 0.083f, 0.0893f, 0.0959f, 0.1029f, 0.1101f, 0.1177f, 0.1257f, 0.1339f, 0.1426f, 0.1516f, 0.161f, 0.1707f, 0.1808f, 0.1913f, 0.2021f, 0.2133f, 0.2248f, 0.2366f, 0.2487f, 0.2611f, 0.2738f, 0.2867f, 0.2998f, 0.3131f, 0.3265f, 0.34f, 0.3536f, 0.3673f, 0.381f, 0.3946f, 0.4082f, 0.4217f, 0.4352f, 0.4485f, 0.4616f, 0.4746f, 0.4874f, 0.5f, 0.5124f, 0.5246f, 0.5365f, 0.5482f, 0.5597f, 0.571f, 0.582f, 0.5928f, 0.6033f, 0.6136f, 0.6237f, 0.6335f, 0.6431f, 0.6525f, 0.6616f, 0.6706f, 0.6793f, 0.6878f, 0.6961f, 0.7043f, 0.7122f, 0.7199f, 0.7275f, 0.7349f, 0.7421f, 0.7491f, 0.7559f, 0.7626f, 0.7692f, 0.7756f, 0.7818f, 0.7879f, 0.7938f, 0.7996f, 0.8053f, 0.8108f, 0.8162f, 0.8215f, 0.8266f, 0.8317f, 0.8366f, 0.8414f, 0.8461f, 0.8507f, 0.8551f, 0.8595f, 0.8638f, 0.8679f, 0.872f, 0.876f, 0.8798f, 0.8836f, 0.8873f, 0.8909f, 0.8945f, 0.8979f, 0.9013f, 0.9046f, 0.9078f, 0.9109f, 0.9139f, 0.9169f, 0.9198f, 0.9227f, 0.9254f, 0.9281f, 0.9307f, 0.9333f, 0.9358f, 0.9382f, 0.9406f, 0.9429f, 0.9452f, 0.9474f, 0.9495f, 0.9516f, 0.9536f, 0.9556f, 0.9575f, 0.9594f, 0.9612f, 0.9629f, 0.9646f, 0.9663f, 0.9679f, 0.9695f, 0.971f, 0.9725f, 0.9739f, 0.9753f, 0.9766f, 0.9779f, 0.9791f, 0.9803f, 0.9815f, 0.9826f, 0.9837f, 0.9848f, 0.9858f, 0.9867f, 0.9877f, 0.9885f, 0.9894f, 0.9902f, 0.991f, 0.9917f, 0.9924f, 0.9931f, 0.9937f, 0.9944f, 0.9949f, 0.9955f, 0.996f, 0.9964f, 0.9969f, 0.9973f, 0.9977f, 0.998f, 0.9984f, 0.9986f, 0.9989f, 0.9991f, 0.9993f, 0.9995f, 0.9997f, 0.9998f, 0.9999f, 0.9999f, 1.0f, 1.0f};
+        return (String) invokeV.objValue;
     }
 
-    public s71() {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return Build.PRODUCT;
         }
-        this.a = 1.0f / (b.length - 1);
+        return (String) invokeV.objValue;
     }
 
-    public float a(float f) {
-        InterceptResult invokeF;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            if (f >= 1.0f) {
-                return 1.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = a;
+            if (str == null) {
+                return a();
             }
-            if (f <= 0.0f) {
-                return 0.0f;
-            }
-            float[] fArr = b;
-            int min = Math.min((int) ((fArr.length - 1) * f), fArr.length - 2);
-            float f2 = this.a;
-            float f3 = (f - (min * f2)) / f2;
-            float[] fArr2 = b;
-            return fArr2[min] + (f3 * (fArr2[min + 1] - fArr2[min]));
+            return str;
         }
-        return invokeF.floatValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String str = Build.DISPLAY;
+            b = str;
+            if (str.toUpperCase(Locale.getDefault()).contains("FLYME")) {
+                a = "FLYME";
+            } else {
+                b = "unknown";
+                a = Build.MANUFACTURER.toUpperCase(Locale.getDefault());
+            }
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0064: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:26:0x0064 */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String e(String str) {
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            BufferedReader bufferedReader3 = null;
+            try {
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
+                    try {
+                        String readLine = bufferedReader.readLine();
+                        bufferedReader.close();
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        return readLine;
+                    } catch (IOException e2) {
+                        e = e2;
+                        Log.e("Rom", "Unable to read prop " + str, e);
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        return null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedReader3 = bufferedReader2;
+                    if (bufferedReader3 != null) {
+                        try {
+                            bufferedReader3.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+            } catch (IOException e5) {
+                e = e5;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (bufferedReader3 != null) {
+                }
+                throw th;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
     }
 }

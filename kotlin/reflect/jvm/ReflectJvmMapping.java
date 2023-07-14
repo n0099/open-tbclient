@@ -60,7 +60,7 @@ public final class ReflectJvmMapping {
         KCallableImpl<?> asKCallableImpl = UtilKt.asKCallableImpl(kFunction);
         Constructor<T> constructor = null;
         if (asKCallableImpl != null && (caller = asKCallableImpl.getCaller()) != null) {
-            obj = caller.mo2091getMember();
+            obj = caller.mo2093getMember();
         } else {
             obj = null;
         }
@@ -88,7 +88,7 @@ public final class ReflectJvmMapping {
         KCallableImpl<?> asKCallableImpl = UtilKt.asKCallableImpl(kFunction);
         Method method = null;
         if (asKCallableImpl != null && (caller = asKCallableImpl.getCaller()) != null) {
-            obj = caller.mo2091getMember();
+            obj = caller.mo2093getMember();
         } else {
             obj = null;
         }

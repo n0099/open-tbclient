@@ -1,9 +1,23 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface b51 {
-    void a(@NonNull Runnable runnable, @NonNull String str, int i, long j);
+public final class b51 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull Runnable runnable, @NonNull String str, long j);
+    public static <T> T a(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
+            try {
+                return cls.getConstructor(new Class[0]).newInstance(new Object[0]);
+            } catch (Exception e) {
+                throw new RuntimeException(cls + " can't init new instance by default constructor.", e);
+            }
+        }
+        return (T) invokeL.objValue;
+    }
 }

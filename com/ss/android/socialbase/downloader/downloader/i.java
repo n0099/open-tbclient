@@ -137,11 +137,11 @@ public interface i extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.i$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static class C0761a implements i {
+        public static class C0766a implements i {
             public static i a;
             public IBinder b;
 
-            public C0761a(IBinder iBinder) {
+            public C0766a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -1353,7 +1353,7 @@ public interface i extends IInterface {
         }
 
         public static i g() {
-            return C0761a.a;
+            return C0766a.a;
         }
 
         public static i a(IBinder iBinder) {
@@ -1364,7 +1364,7 @@ public interface i extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof i)) {
                 return (i) queryLocalInterface;
             }
-            return new C0761a(iBinder);
+            return new C0766a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -1385,7 +1385,7 @@ public interface i extends IInterface {
                 switch (i) {
                     case 1:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        a(a.AbstractBinderC0765a.a(parcel.readStrongBinder()));
+                        a(a.AbstractBinderC0770a.a(parcel.readStrongBinder()));
                         parcel2.writeNoException();
                         return true;
                     case 2:

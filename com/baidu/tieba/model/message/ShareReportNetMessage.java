@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.gx5;
+import com.baidu.tieba.ky5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.Share.DataReq;
 import tbclient.Share.ShareReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ShareReportNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1135common;
+    public CommonReq f1142common;
     public long fid;
     public int from;
     public long tid;
@@ -55,7 +55,7 @@ public class ShareReportNetMessage extends NetMessage {
             builder.tid = Long.valueOf(getTid());
             builder.from = Integer.valueOf(getFrom());
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                gx5.a(builder, true);
+                ky5.a(builder, true);
             }
             ShareReqIdl.Builder builder2 = new ShareReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -68,7 +68,7 @@ public class ShareReportNetMessage extends NetMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f1135common;
+            return this.f1142common;
         }
         return (CommonReq) invokeV.objValue;
     }
@@ -103,7 +103,7 @@ public class ShareReportNetMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, commonReq) == null) {
-            this.f1135common = commonReq;
+            this.f1142common = commonReq;
         }
     }
 

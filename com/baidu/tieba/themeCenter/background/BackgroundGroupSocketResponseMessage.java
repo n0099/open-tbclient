@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.iba;
-import com.baidu.tieba.laa;
+import com.baidu.tieba.cja;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,12 +18,12 @@ import tbclient.Error;
 import tbclient.GetBgByCategory.DataRes;
 import tbclient.GetBgByCategory.GetBgByCategoryResIdl;
 import tbclient.GetBgByCategory.ThemeBgInMain;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<laa> mBackgroundGroupList;
-    public iba mRecommand;
+    public List<cja> mBackgroundGroupList;
+    public zja mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundGroupSocketResponseMessage() {
@@ -43,7 +43,7 @@ public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage
         }
     }
 
-    public List<laa> getGroupList() {
+    public List<cja> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -52,13 +52,13 @@ public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage
         return (List) invokeV.objValue;
     }
 
-    public iba getRecommand() {
+    public zja getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (iba) invokeV.objValue;
+        return (zja) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -79,17 +79,17 @@ public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage
             DataRes dataRes = getBgByCategoryResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    iba ibaVar = new iba();
-                    this.mRecommand = ibaVar;
-                    ibaVar.d(getBgByCategoryResIdl.data.recommend);
+                    zja zjaVar = new zja();
+                    this.mRecommand = zjaVar;
+                    zjaVar.d(getBgByCategoryResIdl.data.recommend);
                 }
                 if (getBgByCategoryResIdl.data.bgs != null) {
                     this.mBackgroundGroupList = new ArrayList();
                     for (ThemeBgInMain themeBgInMain : getBgByCategoryResIdl.data.bgs) {
                         if (themeBgInMain != null && !StringUtils.isNull(themeBgInMain.bg_category)) {
-                            laa laaVar = new laa();
-                            laaVar.c(themeBgInMain);
-                            this.mBackgroundGroupList.add(laaVar);
+                            cja cjaVar = new cja();
+                            cjaVar.c(themeBgInMain);
+                            this.mBackgroundGroupList.add(cjaVar);
                         }
                     }
                 }

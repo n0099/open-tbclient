@@ -1,33 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
 import androidx.annotation.NonNull;
-import androidx.core.content.FileProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.util.Collections;
+import java.util.HashSet;
 /* loaded from: classes8.dex */
-public final class zp3 {
+public class zp3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Uri a(@NonNull Context context, @NonNull File file) {
-        InterceptResult invokeLL;
+    @NonNull
+    @SafeVarargs
+    public static <E> HashSet<E> a(E... eArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, file)) == null) {
-            return FileProvider.getUriForFile(context, b().a(context), file);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, eArr)) == null) {
+            if (eArr != null && eArr.length > 0) {
+                HashSet<E> hashSet = new HashSet<>(eArr.length);
+                Collections.addAll(hashSet, eArr);
+                return hashSet;
+            }
+            return new HashSet<>();
         }
-        return (Uri) invokeLL.objValue;
-    }
-
-    public static qv1 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return jv2.p();
-        }
-        return (qv1) invokeV.objValue;
+        return (HashSet) invokeL.objValue;
     }
 }

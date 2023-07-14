@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.r95;
+import com.baidu.tieba.da5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public class WindowGreySwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ef
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ff
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class WindowGreySwitch extends BaseNormalSwitch {
                 return false;
             }
             if (mCachedSwitchValue < 0) {
-                mCachedSwitchValue = r95.p().q(KEY_SWITCH, 0);
+                mCachedSwitchValue = da5.p().q(KEY_SWITCH, 0);
             }
             if (mCachedSwitchValue != 1) {
                 return false;
@@ -86,7 +86,7 @@ public class WindowGreySwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
             mCachedSwitchValue = i;
-            r95.p().F(KEY_SWITCH, i);
+            da5.p().F(KEY_SWITCH, i);
         }
     }
 }

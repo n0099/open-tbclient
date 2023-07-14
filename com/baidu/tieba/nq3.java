@@ -1,170 +1,92 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.tieba.po3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Collection;
 /* loaded from: classes7.dex */
-public class nq3 extends po3.a {
+public final class nq3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948011065, "Lcom/baidu/tieba/nq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oq3 a;
+        public final /* synthetic */ Object b;
+
+        public a(oq3 oq3Var, Object obj) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oq3Var, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948011065, "Lcom/baidu/tieba/nq3;");
-                return;
+            this.a = oq3Var;
+            this.b = obj;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(this.b);
             }
         }
-        c = ms1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nq3(boolean z) {
-        super(z);
-        String str;
+    public static <T> void a(Handler handler, oq3<T> oq3Var, Collection<T> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, handler, oq3Var, collection) == null) && oq3Var != null && collection != null && !collection.isEmpty()) {
+            for (T t : collection) {
+                e(handler, oq3Var, t);
             }
         }
-        if (z) {
-            str = "swan_js_native_v8_ab.txt";
-        } else {
-            str = "swan_js_native_webview_ab.txt";
-        }
-        this.b = yu2.g().getPath() + File.separator + "js_native" + File.separator + str;
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
-        boolean z;
+    public static <T> void b(Handler handler, oq3<T> oq3Var, T... tArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            String str = yu2.g().getPath() + File.separator + "js_native" + File.separator;
-            if ((i & 1) != 0) {
-                z = gs4.M(str + "swan_js_native_v8_ab.txt");
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, handler, oq3Var, tArr) == null) && oq3Var != null && tArr != null && tArr.length >= 1) {
+            for (T t : tArr) {
+                e(handler, oq3Var, t);
+            }
+        }
+    }
+
+    public static <T> void e(Handler handler, oq3<T> oq3Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, handler, oq3Var, t) == null) {
+            if (handler == null) {
+                oq3Var.a(t);
             } else {
-                z = true;
+                handler.post(new a(oq3Var, t));
             }
-            if ((i & 2) != 0) {
-                return z & gs4.M(str + "swan_js_native_webview_ab.txt");
-            }
-            return z;
         }
-        return invokeI.booleanValue;
     }
 
-    @Nullable
-    public final List<String> b(boolean z, String str) {
-        InterceptResult invokeZL;
-        String str2;
-        String str3;
+    public static <T> void c(oq3<T> oq3Var, Collection<T> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
-            if (z) {
-                str2 = SchemeCollecter.CLASSIFY_SWAN_V8;
-            } else {
-                str2 = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
-            }
-            if (z) {
-                str3 = "swan/v8_ab";
-            } else {
-                str3 = "swan/webview_ab";
-            }
-            List<JSONObject> b = lq3.b(str2, str3);
-            if (b != null) {
-                File file = new File(str);
-                ArrayList arrayList = new ArrayList();
-                for (JSONObject jSONObject : b) {
-                    if (jSONObject != null) {
-                        arrayList.add(jSONObject.toString());
-                    }
-                }
-                if (file.exists()) {
-                    gs4.L(file);
-                }
-                gs4.h(file);
-                gs4.P(arrayList, file);
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(65538, null, oq3Var, collection) == null) {
+            a(null, oq3Var, collection);
         }
-        return (List) invokeZL.objValue;
     }
 
-    public boolean c(@NonNull JSONArray jSONArray) {
-        InterceptResult invokeL;
-        String str;
+    public static <T> void d(oq3<T> oq3Var, T... tArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-            if (jSONArray.length() > 0 && gs4.v(this.b)) {
-                if (this.a) {
-                    str = SchemeCollecter.CLASSIFY_SWAN_V8;
-                } else {
-                    str = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
-                }
-                return mq3.a(jSONArray, new File(this.b), SchemeCollecter.getSchemesDesListSize(str));
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(65539, null, oq3Var, tArr) == null) {
+            b(null, oq3Var, tArr);
         }
-        return invokeL.booleanValue;
-    }
-
-    public List<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (c) {
-                Log.i("SwanAppCompat", "FileDescriptionsManager obtain desc...");
-            }
-            if (!jo4.b() && !TextUtils.equals(jo4.a(), "0")) {
-                File file = new File(this.b);
-                if (file.exists()) {
-                    gs4.L(file);
-                }
-            }
-            if (gs4.v(this.b)) {
-                if (c) {
-                    Log.d("SwanAppCompat", "start create cache");
-                }
-                return gs4.F(new File(this.b));
-            }
-            return b(this.a, this.b);
-        }
-        return (List) invokeV.objValue;
     }
 }

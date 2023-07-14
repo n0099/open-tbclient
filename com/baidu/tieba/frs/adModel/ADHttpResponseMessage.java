@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.adModel;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.cg7;
+import com.baidu.tieba.ik7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class ADHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int has_more;
-    public List<cg7> list;
+    public List<ik7> list;
     public long offset;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -64,15 +64,15 @@ public class ADHttpResponseMessage extends TbHttpResponsedMessage {
             return;
         }
         for (int i2 = 0; i2 < getADListResIdl.data.ad_list.size(); i2++) {
-            cg7 cg7Var = new cg7();
-            cg7Var.l(getADListResIdl.data.ad_list.get(i2));
+            ik7 ik7Var = new ik7();
+            ik7Var.k(getADListResIdl.data.ad_list.get(i2));
             if (getADListResIdl.data.ad_list.size() - 1 == i2) {
-                cg7Var.m(true);
+                ik7Var.m(true);
             } else {
-                cg7Var.m(false);
+                ik7Var.m(false);
             }
-            if (cg7Var.k() == 0 || cg7Var.k() == 2) {
-                this.list.add(cg7Var);
+            if (ik7Var.i() == 0 || ik7Var.i() == 2) {
+                this.list.add(ik7Var);
             }
         }
         this.has_more = getADListResIdl.data.has_more.intValue();
@@ -88,7 +88,7 @@ public class ADHttpResponseMessage extends TbHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public List<cg7> getList() {
+    public List<ik7> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

@@ -1,136 +1,101 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.util.ItemClickJumpUtil;
-import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tieba.s37;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jq6 implements s37.f {
+public class jq6 extends kq6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId S0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r47 a;
-        public final /* synthetic */ ItemData b;
-
-        public a(jq6 jq6Var, r47 r47Var, ItemData itemData) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947891994, "Lcom/baidu/tieba/jq6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jq6Var, r47Var, itemData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = r47Var;
-            this.b = itemData;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int i = 2;
-                int i2 = 0;
-                if (ImageViewerConfig.FROM_CONCERN.equals(this.a.c().b)) {
-                    i2 = 2;
-                } else {
-                    i = 0;
-                }
-                ItemData itemData = this.b;
-                ItemClickJumpUtil.itemClickJump(itemData.forumName, String.valueOf(itemData.itemId), i, Integer.valueOf(i2));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947891994, "Lcom/baidu/tieba/jq6;");
+                return;
             }
         }
+        S0 = BdUniqueId.gen();
     }
 
-    public jq6() {
+    @Override // com.baidu.tieba.kq6, com.baidu.tieba.cq6, com.baidu.tieba.t15
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kq6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return S0;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public jq6(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = threadData;
     }
 
-    @Override // com.baidu.tieba.s37.l
-    public void a(@NonNull ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof ItemCardView)) {
-            ((ItemCardView) viewGroup).G();
-        }
-    }
-
-    @Override // com.baidu.tieba.s37.f
-    @NonNull
-    public ViewGroup create(Context context) {
+    public static boolean X(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new ItemCardView(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            if (threadData == null) {
+                return false;
+            }
+            if (threadData.getThreadType() != 49 && threadData.getThreadType() != 69) {
+                return false;
+            }
+            return true;
         }
-        return (ViewGroup) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.s37.f
-    public void update(@NonNull ViewGroup viewGroup, @NonNull r47 r47Var) {
-        String str;
+    public StatisticItem b0(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, r47Var) == null) && viewGroup != null && r47Var != null && r47Var.a() != null) {
-            f67 a2 = r47Var.a();
-            ItemData itemData = new ItemData();
-            itemData.itemId = a2.a;
-            itemData.buttonName = a2.h;
-            itemData.buttonLink = a2.i;
-            itemData.buttonLinkType = 2;
-            itemData.mIconUrl = a2.b;
-            itemData.mTitle = a2.d;
-            itemData.mTags = a2.g;
-            itemData.mScore = a2.f;
-            itemData.mStar = a2.e;
-            itemData.mIconSize = a2.c;
-            itemData.forumName = a2.k;
-            int i = a2.j;
-            if (i != 0) {
-                ((ItemCardView) viewGroup).setBackGroundColor(i);
-            }
-            if (r47Var.c() != null) {
-                str = r47Var.c().a;
-            } else {
-                str = "";
-            }
-            ItemCardView itemCardView = (ItemCardView) viewGroup;
-            itemCardView.setIsShowRightBtn(true);
-            itemCardView.setData(itemData, 13, str);
-            if (r47Var.b()) {
-                viewGroup.setOnClickListener(new a(this, r47Var, itemData));
-            } else {
-                viewGroup.setClickable(false);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            StatisticItem d = d(str);
+            d.delete("obj_type");
+            d.delete("obj_type");
+            d.param("obj_type", 3);
+            return d;
         }
+        return (StatisticItem) invokeL.objValue;
     }
 }

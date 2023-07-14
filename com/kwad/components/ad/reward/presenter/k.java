@@ -17,7 +17,7 @@ import com.kwad.components.ad.reward.presenter.platdetail.actionbar.RewardAction
 import com.kwad.components.core.playable.PlayableSource;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class k extends a implements View.OnClickListener, com.kwad.components.ad.reward.presenter.platdetail.actionbar.a {
     public static long pU = 300;
     public ImageView nC;
@@ -48,9 +48,9 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams2;
             if (layoutParams.height == -1) {
-                i = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070538);
+                i = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07053e);
             } else {
-                int dimensionPixelSize = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070537);
+                int dimensionPixelSize = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07053d);
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
                     WeakReference<View> weakReference = this.pZ;
@@ -81,7 +81,7 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
     public Animator gZ() {
         ValueAnimator valueAnimator;
         AnimatorSet animatorSet = new AnimatorSet();
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.pV, Key.TRANSLATION_X, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07053a));
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.pV, Key.TRANSLATION_X, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070540));
         Drawable background = this.nC.getBackground();
         if (background instanceof ColorDrawable) {
             final ColorDrawable colorDrawable = (ColorDrawable) background;
@@ -105,10 +105,10 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (viewGroup == null) {
             return;
         }
-        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091311);
+        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091325);
         this.nC = imageView;
         imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06079d));
-        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091312);
+        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091326);
         this.pV.setOnClickListener(this);
     }
 
@@ -145,8 +145,8 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
     public final void aq() {
         super.aq();
         if (this.pV == null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091317);
-            this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f091316));
+            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09132b);
+            this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f09132a));
             initView();
         }
         if (!this.nM.fy()) {
@@ -154,7 +154,7 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         } else if (com.kwad.sdk.core.response.a.b.e(getContext(), this.nM.mAdTemplate)) {
             a(new ViewGroup.LayoutParams(-1, -1));
         } else {
-            a(new ViewGroup.LayoutParams(-1, this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07051f)));
+            a(new ViewGroup.LayoutParams(-1, this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070527)));
         }
         this.nM.a(this.mPlayEndPageListener);
     }

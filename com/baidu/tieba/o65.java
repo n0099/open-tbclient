@@ -1,25 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Inject;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.ArrayMap;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class o65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public kl1<p65> a;
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            il1 b = il1.b();
-            this.a = b;
-            b.a(new q65());
-        }
-    }
+    public final Map<String, String> a;
 
     public o65() {
         Interceptable interceptable = $ic;
@@ -34,6 +29,44 @@ public class o65 {
                 return;
             }
         }
-        a();
+        this.a = new ArrayMap();
+    }
+
+    @NonNull
+    public static o65 b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            o65 o65Var = new o65();
+            if (!str2.startsWith("http") && !str2.startsWith("https")) {
+                if (str2.startsWith("dialoginternal://")) {
+                    Uri parse = Uri.parse(str2);
+                    for (String str3 : parse.getQueryParameterNames()) {
+                        String queryParameter = parse.getQueryParameter(str3);
+                        if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(queryParameter)) {
+                            o65Var.a.put(str3, queryParameter);
+                        }
+                    }
+                    o65Var.a.put("yun_dialogClass", parse.getAuthority());
+                    o65Var.a.put("yun_dialogName", str);
+                    o65Var.a.put("yun_dialogUrl", str2);
+                }
+            } else {
+                o65Var.a.put("yun_dialogClass", "WebViewYunDialog");
+                o65Var.a.put("yun_dialogName", str);
+                o65Var.a.put("yun_dialogUrl", str2);
+            }
+            return o65Var;
+        }
+        return (o65) invokeLL.objValue;
+    }
+
+    public String a(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return this.a.get(str);
+        }
+        return (String) invokeL.objValue;
     }
 }

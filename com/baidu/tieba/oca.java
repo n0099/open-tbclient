@@ -1,45 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Process;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class oca {
+public class oca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public AgreeData b;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    public oca() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String packageName = ada.d().getPackageName();
-            Intrinsics.checkNotNullExpressionValue(packageName, "getAppCtx().packageName");
-            return packageName;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmOverloads
-    public static final void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            Intent launchIntentForPackage = ada.d().getPackageManager().getLaunchIntentForPackage(ada.d().getPackageName());
-            if (launchIntentForPackage != null) {
-                launchIntentForPackage.addFlags(335577088);
-            }
-            if (launchIntentForPackage != null) {
-                int h = ada.h();
-                ada.d().startActivity(launchIntentForPackage);
-                if (z && h > 0) {
-                    Process.killProcess(h);
-                    System.exit(0);
-                    throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
     }
 }

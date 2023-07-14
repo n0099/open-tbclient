@@ -1,104 +1,125 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.widget.bubble.BubbleManager;
+import com.baidu.nadcore.widget.bubble.BubblePosition;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class fd1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] AdImageView;
-    public static final int AdImageView_adCornerRadius = 0;
-    public static final int AdImageView_borderColor = 1;
-    public static final int AdImageView_borderColorWidth = 2;
-    public static final int AdImageView_circleType = 3;
-    public static final int AdImageView_errorHolder = 4;
-    public static final int AdImageView_holder = 5;
-    public static final int AdImageView_imageScaleType = 6;
-    public static final int AdImageView_leftBottomRadius = 7;
-    public static final int AdImageView_leftTopRadius = 8;
-    public static final int AdImageView_loadingHolder = 9;
-    public static final int AdImageView_rightBottomRadius = 10;
-    public static final int AdImageView_rightTopRadius = 11;
-    public static final int[] ExpandIconView;
-    public static final int ExpandIconView_animationDuration = 0;
-    public static final int ExpandIconView_color = 1;
-    public static final int ExpandIconView_length = 2;
-    public static final int ExpandIconView_thick = 3;
-    public static final int[] NADUnifyTextView;
-    public static final int NADUnifyTextView_spannable_bottom_padding = 0;
-    public static final int NADUnifyTextView_spannable_top_padding = 1;
-    public static final int[] NadBdThumbSeekBar;
-    public static final int NadBdThumbSeekBar_nad_ThumbSeekBarStyle = 0;
-    public static final int[] NadEnhanceButtonView;
-    public static final int NadEnhanceButtonView_btnBackgroundEndColor = 0;
-    public static final int NadEnhanceButtonView_btnBackgroundStartColor = 1;
-    public static final int NadEnhanceButtonView_btnCornerRadius = 2;
-    public static final int[] NadRoundProgressBar;
-    public static final int NadRoundProgressBar_max = 0;
-    public static final int NadRoundProgressBar_nad_style = 1;
-    public static final int NadRoundProgressBar_reverse = 2;
-    public static final int NadRoundProgressBar_roundColor = 3;
-    public static final int NadRoundProgressBar_roundHintTextSize = 4;
-    public static final int NadRoundProgressBar_roundMax = 5;
-    public static final int NadRoundProgressBar_roundPaintCapRound = 6;
-    public static final int NadRoundProgressBar_roundProgressColor = 7;
-    public static final int NadRoundProgressBar_roundTextColor = 8;
-    public static final int NadRoundProgressBar_roundTextSize = 9;
-    public static final int NadRoundProgressBar_roundWidth = 10;
-    public static final int NadRoundProgressBar_textColor = 11;
-    public static final int NadRoundProgressBar_textIsDisplayable = 12;
-    public static final int NadRoundProgressBar_textSize = 13;
-    public static final int[] NadShadowViewGroup;
-    public static final int NadShadowViewGroup_containerCornerRadius = 0;
-    public static final int NadShadowViewGroup_containerDeltaHeight = 1;
-    public static final int NadShadowViewGroup_containerDeltaWidth = 2;
-    public static final int NadShadowViewGroup_containerShadowColor = 3;
-    public static final int NadShadowViewGroup_containerShadowRadius = 4;
-    public static final int NadShadowViewGroup_deltaX = 5;
-    public static final int NadShadowViewGroup_deltaY = 6;
-    public static final int NadShadowViewGroup_enable = 7;
-    public static final int NadShadowViewGroup_shadowAlpha = 8;
-    public static final int[] NadTextProgressView;
-    public static final int NadTextProgressView_nad_progressGravity = 0;
-    public static final int NadTextProgressView_nad_progressTextColor = 1;
-    public static final int NadTextProgressView_nad_progressTextMode = 2;
-    public static final int NadTextProgressView_nad_progressTextSize = 3;
-    public static final int[] RoundCornerRelativeLayout;
-    public static final int RoundCornerRelativeLayout_round_edge_radius = 0;
-    public static final int[] SimpleAdInfoView;
-    public static final int SimpleAdInfoView_layoutId = 0;
-    public static final int[] nad_bdvideoplayer_bdPlayerProgressView;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressGravity = 0;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextColor = 1;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextMode = 2;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextSize = 3;
+public abstract class fd1<T> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public md1 a;
+    public id1 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947760182, "Lcom/baidu/tieba/fd1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947760182, "Lcom/baidu/tieba/fd1;");
+    public fd1(id1 id1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {id1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        AdImageView = new int[]{R.attr.adCornerRadius, R.attr.obfuscated_res_0x7f0400ea, R.attr.borderColorWidth, R.attr.obfuscated_res_0x7f040161, R.attr.obfuscated_res_0x7f0402a7, R.attr.obfuscated_res_0x7f040345, R.attr.imageScaleType, R.attr.leftBottomRadius, R.attr.leftTopRadius, R.attr.loadingHolder, R.attr.rightBottomRadius, R.attr.rightTopRadius};
-        ExpandIconView = new int[]{R.attr.obfuscated_res_0x7f040093, R.attr.obfuscated_res_0x7f040177, R.attr.obfuscated_res_0x7f040455, R.attr.obfuscated_res_0x7f04076c};
-        NADUnifyTextView = new int[]{R.attr.obfuscated_res_0x7f0406a7, R.attr.obfuscated_res_0x7f0406a8};
-        NadBdThumbSeekBar = new int[]{R.attr.nad_ThumbSeekBarStyle};
-        NadEnhanceButtonView = new int[]{R.attr.btnBackgroundEndColor, R.attr.btnBackgroundStartColor, R.attr.btnCornerRadius};
-        NadRoundProgressBar = new int[]{R.attr.obfuscated_res_0x7f0404e4, R.attr.nad_style, R.attr.obfuscated_res_0x7f040604, R.attr.obfuscated_res_0x7f040622, R.attr.roundHintTextSize, R.attr.obfuscated_res_0x7f040625, R.attr.obfuscated_res_0x7f040626, R.attr.obfuscated_res_0x7f040628, R.attr.roundTextColor, R.attr.roundTextSize, R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040756, R.attr.obfuscated_res_0x7f040760, R.attr.obfuscated_res_0x7f040763};
-        NadShadowViewGroup = new int[]{R.attr.obfuscated_res_0x7f040199, R.attr.obfuscated_res_0x7f04019a, R.attr.obfuscated_res_0x7f04019b, R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f04019d, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f040254, R.attr.obfuscated_res_0x7f04029a, R.attr.obfuscated_res_0x7f040672};
-        NadTextProgressView = new int[]{R.attr.nad_progressGravity, R.attr.nad_progressTextColor, R.attr.nad_progressTextMode, R.attr.nad_progressTextSize};
-        RoundCornerRelativeLayout = new int[]{R.attr.round_edge_radius};
-        SimpleAdInfoView = new int[]{R.attr.obfuscated_res_0x7f040434};
-        nad_bdvideoplayer_bdPlayerProgressView = new int[]{R.attr.nad_bdvideoplayer_progressGravity, R.attr.nad_bdvideoplayer_progressTextColor, R.attr.nad_bdvideoplayer_progressTextMode, R.attr.nad_bdvideoplayer_progressTextSize};
+        this.a = id1Var.f();
+        this.b = id1Var;
+    }
+
+    public fd1<T> a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.b.d(z);
+            return this;
+        }
+        return (fd1) invokeZ.objValue;
+    }
+
+    public fd1<T> c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            this.b.m(i);
+            return this;
+        }
+        return (fd1) invokeI.objValue;
+    }
+
+    public fd1<T> e(BubblePosition bubblePosition) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bubblePosition)) == null) {
+            this.b.e().d = false;
+            this.b.e().e = bubblePosition;
+            return this;
+        }
+        return (fd1) invokeL.objValue;
+    }
+
+    public fd1<T> f(BubbleManager.b bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
+            this.b.n(bVar);
+            return this;
+        }
+        return (fd1) invokeL.objValue;
+    }
+
+    public fd1<T> g(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+            this.b.e().q(f);
+            return this;
+        }
+        return (fd1) invokeF.objValue;
+    }
+
+    public fd1<T> b(View view2, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, viewGroup)) == null) {
+            this.a.s(view2, viewGroup);
+            return this;
+        }
+        return (fd1) invokeLL.objValue;
+    }
+
+    public fd1<T> d(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            if (i != -1) {
+                try {
+                    this.a.w(i);
+                } catch (Exception e) {
+                    rl0.h("BubbleBuilder", "", e);
+                    this.a.w(-1);
+                    return this;
+                }
+            }
+            if (i2 != -1) {
+                try {
+                    this.a.x(i2);
+                } catch (Exception e2) {
+                    rl0.h("BubbleBuilder", "", e2);
+                    this.a.x(-1);
+                }
+            }
+            return this;
+        }
+        return (fd1) invokeII.objValue;
     }
 }

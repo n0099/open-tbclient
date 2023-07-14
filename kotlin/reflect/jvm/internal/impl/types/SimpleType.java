@@ -11,7 +11,7 @@ import kotlin.reflect.jvm.internal.impl.renderer.DescriptorRenderer;
 import kotlin.reflect.jvm.internal.impl.types.model.SimpleTypeMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeArgumentListMarker;
 import kotlin.text.StringsKt__StringBuilderKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class SimpleType extends UnwrappedType implements SimpleTypeMarker, TypeArgumentListMarker {
     @Override // kotlin.reflect.jvm.internal.impl.types.UnwrappedType
     public abstract SimpleType makeNullableAsSpecified(boolean z);

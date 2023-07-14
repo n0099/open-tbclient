@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vg;
-import com.baidu.tieba.xz4;
+import com.baidu.tieba.g05;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class ClickableHeaderImageView extends HeadImageView {
     public ThreadData U0;
     public boolean V0;
     public View.OnClickListener W0;
-    public xz4 X0;
+    public g05 X0;
     public View.OnClickListener Y0;
 
     /* loaded from: classes4.dex */
@@ -59,8 +59,8 @@ public class ClickableHeaderImageView extends HeadImageView {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                xz4 xz4Var = this.a.X0;
-                if ((xz4Var != null && xz4Var.a(view2)) || this.a.U0 == null) {
+                g05 g05Var = this.a.X0;
+                if ((g05Var != null && g05Var.a(view2)) || this.a.U0 == null) {
                     return;
                 }
                 if (this.a.V0) {
@@ -69,8 +69,8 @@ public class ClickableHeaderImageView extends HeadImageView {
                     author = this.a.U0.getAuthor();
                 }
                 if (author != null && !StringUtils.isNull(author.getName_show()) && !StringUtils.isNull(author.getUserId())) {
-                    long g = vg.g(author.getUserId(), 0L);
-                    if (g == vg.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                    long g = wg.g(author.getUserId(), 0L);
+                    if (g == wg.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
                         z = true;
                     } else {
                         z = false;
@@ -149,10 +149,10 @@ public class ClickableHeaderImageView extends HeadImageView {
         setData(threadData);
     }
 
-    public void setOnInterceptClickEventListener(xz4 xz4Var) {
+    public void setOnInterceptClickEventListener(g05 g05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xz4Var) == null) {
-            this.X0 = xz4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, g05Var) == null) {
+            this.X0 = g05Var;
         }
     }
 

@@ -9,11 +9,11 @@ import kotlin.reflect.jvm.internal.impl.descriptors.SimpleFunctionDescriptor;
 import kotlin.reflect.jvm.internal.impl.incremental.components.LookupLocation;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface MemberScope extends ResolutionScope {
     public static final Companion Companion = Companion.$$INSTANCE;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class DefaultImpls {
         public static void recordLookup(MemberScope memberScope, Name name, LookupLocation lookupLocation) {
             ResolutionScope.DefaultImpls.recordLookup(memberScope, name, lookupLocation);
@@ -29,7 +29,7 @@ public interface MemberScope extends ResolutionScope {
 
     Set<Name> getVariableNames();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE = new Companion();
         public static final Function1<Name, Boolean> ALL_NAME_FILTER = new Function1<Name, Boolean>() { // from class: kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope$Companion$ALL_NAME_FILTER$1
@@ -51,7 +51,7 @@ public interface MemberScope extends ResolutionScope {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Empty extends MemberScopeImpl {
         public static final Empty INSTANCE = new Empty();
 

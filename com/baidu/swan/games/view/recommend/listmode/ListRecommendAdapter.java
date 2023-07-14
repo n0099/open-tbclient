@@ -8,13 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rf4;
+import com.baidu.tieba.kf4;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendViewHolder> implements View.OnClickListener {
     public LayoutInflater a;
     public a b;
-    public rf4 c;
+    public kf4 c;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -25,12 +25,12 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         this.a = LayoutInflater.from(context);
     }
 
-    public void m(a aVar) {
+    public void n(a aVar) {
         this.b = aVar;
     }
 
-    public void n(rf4 rf4Var) {
-        this.c = rf4Var;
+    public void o(kf4 kf4Var) {
+        this.c = kf4Var;
         notifyDataSetChanged();
     }
 
@@ -44,8 +44,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         List<RecommendItemModel> list;
-        rf4 rf4Var = this.c;
-        if (rf4Var != null && (list = rf4Var.b) != null) {
+        kf4 kf4Var = this.c;
+        if (kf4Var != null && (list = kf4Var.b) != null) {
             return list.size();
         }
         return 0;
@@ -53,7 +53,7 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: k */
+    /* renamed from: l */
     public void onBindViewHolder(ListRecommendViewHolder listRecommendViewHolder, int i) {
         RecommendItemModel recommendItemModel = this.c.b.get(i);
         if (recommendItemModel != null) {
@@ -70,8 +70,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: l */
+    /* renamed from: m */
     public ListRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0919, viewGroup, false));
+        return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0933, viewGroup, false));
     }
 }

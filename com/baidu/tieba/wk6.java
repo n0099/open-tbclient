@@ -1,85 +1,73 @@
 package com.baidu.tieba;
 
-import android.webkit.WebResourceResponse;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.core.webview.flyweight.loader.WebViewDiskLoader;
+import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public class wk6 extends xk6<WebResourceResponse> {
+public class wk6 extends uk6<MonitorWebView> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wk6 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yk6 b;
 
-    @Override // com.baidu.tieba.xk6
-    public boolean e(String str, String str2, Map<String, String> map) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public wk6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wk6(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new yk6();
-        WebViewDiskLoader webViewDiskLoader = new WebViewDiskLoader();
-        webViewDiskLoader.d(this.b);
-        d(webViewDiskLoader);
-    }
-
-    public static wk6 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (wk6.class) {
-                    if (c == null) {
-                        c = new wk6();
-                    }
-                }
-            }
-            return c;
-        }
-        return (wk6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk6
+    @Override // com.baidu.tieba.vk6
     /* renamed from: h */
-    public WebResourceResponse c(String str, String str2, Map<String, String> map) {
-        InterceptResult invokeLLL;
+    public synchronized void a(@NonNull MonitorWebView monitorWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, map)) == null) {
-            if (a() != null) {
-                return a().b(str, str2, map);
+        if (interceptable == null || interceptable.invokeL(1048579, this, monitorWebView) == null) {
+            synchronized (this) {
+                if (e(monitorWebView)) {
+                    monitorWebView.s();
+                } else if (c()) {
+                    monitorWebView.s();
+                    f(monitorWebView);
+                } else {
+                    monitorWebView.destroy();
+                }
             }
-            return null;
         }
-        return (WebResourceResponse) invokeLLL.objValue;
     }
 
-    public void f(String str, Map<String, String> map) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uk6
+    /* renamed from: g */
+    public synchronized MonitorWebView b() {
+        InterceptResult invokeV;
+        MonitorWebView monitorWebView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, map) == null) {
-            this.b.p(str, map);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                monitorWebView = (MonitorWebView) super.b();
+                if (monitorWebView != null) {
+                    monitorWebView.u();
+                }
+            }
+            return monitorWebView;
         }
+        return (MonitorWebView) invokeV.objValue;
     }
 }

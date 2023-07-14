@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.storage;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SingleThreadValue<T> {
     public final Thread thread = Thread.currentThread();
     public final T value;

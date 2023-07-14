@@ -1,14 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.text.TextUtils;
+import android.util.Base64InputStream;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,148 +13,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l2b {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String c = "UnionIDHelper";
-    public static boolean d;
-    public static final String e;
-    public static final String f;
-    public static final Object g;
-    public static l2b h;
+public abstract class l2b implements f3b {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile o2b a;
-    public AtomicBoolean b;
+    public s3b a;
+    public String b;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ b b;
-        public final /* synthetic */ l2b c;
+    public abstract p3b j(String str, InputStream inputStream, Map<String, String> map) throws IOException;
 
-        public a(l2b l2bVar, Context context, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l2bVar, context, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = l2bVar;
-            this.a = context;
-            this.b = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (l2b.d) {
-                    Log.d(l2b.c, "asyncRequest, Thread runn！");
-                }
-                m2b m = this.c.m(this.a);
-                if (l2b.d) {
-                    String str = l2b.c;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("asyncRequest, cachedBean == null ？");
-                    if (m == null) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    Log.d(str, sb.toString());
-                }
-                if (m == null || this.c.q(m)) {
-                    if (l2b.d) {
-                        Log.d(l2b.c, "asyncRequest, requestFromManufacturer");
-                    }
-                    this.c.r();
-                    if (l2b.d) {
-                        Log.d(l2b.c, "asyncRequest, trySaveFiles！");
-                    }
-                    this.c.b.set(this.c.t(this.a));
-                    if (l2b.d) {
-                        Log.d(l2b.c, "asyncRequest, trySaveFiles done");
-                    }
-                }
-                if (l2b.d) {
-                    Log.d(l2b.c, "asyncRequest, send  innerHandler message");
-                }
-                this.b.obtainMessage(100, this.c.a).sendToTarget();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public n2b a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper, n2b n2bVar) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper, n2bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n2bVar;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            String oaid;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what == 100) {
-                    o2b o2bVar = (o2b) message.obj;
-                    if (l2b.d) {
-                        String str = l2b.c;
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("handleMessage ，what：");
-                        if (o2bVar == null) {
-                            oaid = "";
-                        } else {
-                            oaid = o2bVar.getOAID();
-                        }
-                        sb.append(oaid);
-                        Log.d(str, sb.toString());
-                    }
-                    n2b n2bVar = this.a;
-                    if (n2bVar != null) {
-                        n2bVar.a(o2bVar);
-                    }
-                }
-            }
-        }
-    }
+    public abstract p3b k(String str, byte[] bArr, Map<String, String> map) throws IOException;
 
     static {
         InterceptResult invokeClinit;
@@ -172,10 +46,7 @@ public class l2b {
                 return;
             }
         }
-        d = h2b.e();
-        e = j(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
-        f = j(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
-        g = new Object();
+        c = m3b.m();
     }
 
     public l2b() {
@@ -191,315 +62,228 @@ public class l2b {
                 return;
             }
         }
-        new AtomicBoolean(false);
-        this.b = new AtomicBoolean(false);
+        this.a = new s3b();
+        this.b = "";
     }
 
-    public static l2b o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (h == null) {
-                synchronized (l2b.class) {
-                    if (h == null) {
-                        h = new l2b();
-                    }
-                }
-            }
-            return h;
-        }
-        return (l2b) invokeV.objValue;
-    }
-
-    public final long n() {
+    public final HashMap<String, String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return h2b.a(i2b.a()) * 60 * 1000;
+            HashMap<String, String> hashMap = new HashMap<>(2);
+            hashMap.put("Content-type", "application/x-www-form-urlencoded");
+            hashMap.put(BaseContentUploader.NB, "1");
+            return hashMap;
         }
-        return invokeV.longValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    public final boolean p() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.f3b
+    public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return h2b.d(i2b.a());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return i(this.b, jSONObject, z, z2);
         }
-        return invokeV.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static String j(byte[]... bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.f3b
+    public boolean b(File file, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte[] bArr2 : bArr) {
-                sb.append(new String(v2b.a(bArr2)));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return h(this.b, file, j, z, z2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = m3b.k(z);
             }
-            return sb.toString();
+            return this.b;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeZ.objValue;
     }
 
-    public static String l(String str) {
+    public final String e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        String c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            boolean isUBCDebug = this.a.isUBCDebug();
+            if (TextUtils.isEmpty(str)) {
+                str = d(isUBCDebug);
+            }
+            if (z2) {
+                c2 = m3b.h(str);
+            } else {
+                c2 = m3b.c(str);
+            }
+            if (isUBCDebug && !TextUtils.isEmpty(c2)) {
+                c2 = s4b.a(c2, "debug", "1");
+            }
+            if (z) {
+                c2 = s4b.a(c2, "reallog", "1");
+            }
+            if (r2b.o().E()) {
+                return s4b.a(c2, "beta", "1");
+            }
+            return c2;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final boolean f(p3b p3bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, p3bVar)) == null) {
+            if (p3bVar == null) {
+                return false;
+            }
+            if (!p3bVar.e()) {
+                if (c) {
+                    Log.d("UploadManager", "postByteRequest, fail: " + p3bVar.d());
+                } else {
+                    o3b.a().i(p3bVar.d(), null);
+                }
+                if (r2b.o().M()) {
+                    g(p3bVar.c());
+                }
+                p3bVar.a();
+                return false;
             }
             try {
-                return v2b.c(t2b.b(e, f, str.getBytes()), "utf-8");
-            } catch (UnsupportedEncodingException | Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean q(@NonNull m2b m2bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, m2bVar)) == null) {
-            if (Math.abs(System.currentTimeMillis() - m2bVar.a) > n()) {
-                if (d) {
-                    Log.d(c, "isExpireTime ：超过缓存有效期");
-                    return true;
+                int i = new JSONObject(p3bVar.b()).getInt("error");
+                if (i != 0) {
+                    if (c) {
+                        Log.d("UploadManager", "server error");
+                    }
+                    if (!c) {
+                        o3b.a().k(i);
+                    }
                 }
-                return true;
-            } else if (d) {
-                Log.d(c, "isExpireTime ：没有超过缓存有效期");
-                return false;
-            } else {
-                return false;
+            } catch (Exception e) {
+                if (c) {
+                    Log.d("UploadManager", "body tostring fail:" + e.getMessage());
+                } else {
+                    o3b.a().j(Log.getStackTraceString(e));
+                }
             }
+            p3bVar.a();
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static String k(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: Removed duplicated region for block: B:20:0x002a  */
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void g(int i) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return new String(t2b.a(e, f, v2b.a(str.getBytes())));
-            } catch (Exception e2) {
-                if (d) {
-                    String str2 = c;
-                    Log.d(str2, "getCacheObject ，decryptUnionID：" + e2.getMessage());
-                    return "";
-                }
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public synchronized void i(Context context, @NonNull Looper looper, @Nullable n2b n2bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, looper, n2bVar) == null) {
-            synchronized (this) {
-                if (looper != null) {
-                    b bVar = new b(looper, n2bVar);
-                    if (p()) {
-                        bVar.obtainMessage(100, null).sendToTarget();
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            boolean z = true;
+            if (i != 403 && i != 408 && i != 499) {
+                if (i >= 500 && i < 600) {
+                    j = 300000;
+                } else {
+                    z = false;
+                    if (!z) {
+                        r2b.o().Z(currentTimeMillis);
                         return;
-                    }
-                    if (this.a != null && this.b.get()) {
-                        if (d) {
-                            String str = c;
-                            Log.d(str, "asyncRequest, mIUnionId.getOAID：" + this.a.getOAID());
-                            String str2 = c;
-                            Log.d(str2, "asyncRequest, mIUnionId.isTrackLimited：" + this.a.c());
-                            String str3 = c;
-                            Log.d(str3, "asyncRequest, mIUnionId.getStatusCode：" + this.a.getStatusCode());
-                        }
-                        bVar.obtainMessage(100, this.a).sendToTarget();
-                    } else {
-                        if (!this.b.get()) {
-                            this.a = new j2b(context).a;
-                        }
-                        new Thread(new a(this, context, bVar)).start();
                     }
                     return;
                 }
-                throw new NullPointerException("param looper not null");
+            } else {
+                j = 60000;
+            }
+            currentTimeMillis += j;
+            if (!z) {
             }
         }
     }
 
-    public final m2b m(Context context) {
-        InterceptResult invokeL;
+    public final boolean h(String str, File file, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
-            if (!file.exists()) {
-                if (d) {
-                    Log.d(c, "getCacheObject dir 不存在 , 首次需要创建");
-                }
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (file == null || !file.exists()) {
+                return false;
             }
-            File file2 = new File(file, ".bd_un_info.so");
-            if (!file2.exists()) {
-                if (d) {
-                    Log.d(c, "getCacheObject  file 不存在, 首次需要创建");
-                }
-                return null;
+            String e = e(str, z, z2);
+            HashMap<String, String> c2 = c();
+            if (t3b.m().p() && j > 0) {
+                c2.put("Content-Length", String.valueOf(j));
             }
-            String a2 = x2b.a(file2, g);
-            if (d) {
-                String str = c;
-                Log.d(str, "getCacheObject ，content：" + a2);
-            }
-            if (TextUtils.isEmpty(a2)) {
-                return null;
-            }
-            String k = k(a2);
-            if (d) {
-                String str2 = c;
-                Log.d(str2, "getCacheObject ，json：" + k);
-            }
+            InputStream inputStream2 = null;
             try {
-                JSONObject jSONObject = new JSONObject(k);
-                m2b m2bVar = new m2b();
-                s(m2bVar, jSONObject);
-                return m2bVar;
-            } catch (Exception e2) {
-                if (d) {
-                    String str3 = c;
-                    Log.d(str3, "getCacheObject , " + e2.getMessage());
+                inputStream = new BufferedInputStream(new Base64InputStream(new FileInputStream(file), 2));
+                try {
+                    try {
+                        boolean f = f(j(e, inputStream, c2));
+                        n4b.b(inputStream);
+                        return f;
+                    } catch (Exception e2) {
+                        e = e2;
+                        if (c) {
+                            Log.d("UploadManager", "postByteRequest, Exception: ", e);
+                        } else {
+                            o3b.a().i(null, Log.getStackTraceString(e));
+                        }
+                        n4b.b(inputStream);
+                        return false;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream2 = inputStream;
+                    n4b.b(inputStream2);
+                    throw th;
                 }
-                return null;
+            } catch (Exception e3) {
+                e = e3;
+                inputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
             }
+        } else {
+            return invokeCommon.booleanValue;
         }
-        return (m2b) invokeL.objValue;
     }
 
-    public final void r() {
+    public boolean i(String str, JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        byte[] a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = this.a.d();
-            if (d) {
-                String str = c;
-                Log.d(str, "asyncRequest, requestFromManufacturer done :" + this.a.getOAID());
-            }
-        }
-    }
-
-    public final boolean s(m2b m2bVar, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, m2bVar, jSONObject)) == null) {
-            try {
-                long optLong = jSONObject.optLong(new String(v2b.a("dGltZQ==".getBytes())));
-                m2bVar.a = optLong;
-                if (d) {
-                    String str = c;
-                    Log.d(str, "tryParseCacheJsonObject ，time：" + optLong);
-                    String str2 = c;
-                    Log.d(str2, "tryParseCacheJsonObject ，System.currentTimeMillis() - time：" + (System.currentTimeMillis() - optLong));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (jSONObject != null && (a = p4b.a(jSONObject.toString().getBytes())) != null && a.length >= 2) {
+                a[0] = 117;
+                a[1] = 123;
+                String e = e(str, z, z2);
+                HashMap<String, String> c2 = c();
+                if (t3b.m().p()) {
+                    c2.put("Content-Length", String.valueOf(a.length));
                 }
-                String str3 = new String(v2b.a("dW5pb25JRG9iag==".getBytes()));
-                if (d) {
-                    String str4 = c;
-                    Log.d(str4, "tryParseCacheJsonObject objKey：" + str3);
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject(str3);
-                if (d) {
-                    String str5 = c;
-                    Log.d(str5, "tryParseCacheJsonObject ，jsonObject：" + optJSONObject);
-                }
-                if (optJSONObject != null) {
-                    String str6 = new String(v2b.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
-                    String str7 = new String(v2b.a("aXNTdXBwb3J0".getBytes()));
-                    String str8 = new String(v2b.a("c3RhdHVzY29kZQ==".getBytes()));
-                    String str9 = new String(v2b.a("b2FpZA==".getBytes()));
-                    String str10 = new String(v2b.a("YWFpZA==".getBytes()));
-                    String str11 = new String(v2b.a("dmFpZA==".getBytes()));
-                    boolean optBoolean = optJSONObject.optBoolean(str6);
-                    boolean optBoolean2 = optJSONObject.optBoolean(str7);
-                    int optInt = optJSONObject.optInt(str8);
-                    String optString = optJSONObject.optString(str9);
-                    String optString2 = optJSONObject.optString(str10);
-                    String optString3 = optJSONObject.optString(str11);
-                    this.a.h(optBoolean);
-                    this.a.e(optBoolean2);
-                    this.a.a(optInt);
-                    this.a.g(optString);
-                    this.a.f(optString2);
-                    this.a.b(optString3);
-                    m2bVar.b = this.a;
-                    return true;
-                }
-                m2bVar.b = null;
-                if (d) {
-                    Log.d(c, "tryParseCacheJsonObject return cause null：");
-                }
-                return false;
-            } catch (Exception e2) {
-                if (d) {
-                    String str12 = c;
-                    Log.d(str12, "tryParseCacheJsonObject ：" + e2.getMessage());
-                }
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean t(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            try {
-                if (this.a != null && !TextUtils.isEmpty(this.a.getOAID())) {
-                    File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
-                    if (!file.exists()) {
-                        file.mkdirs();
+                try {
+                    return f(k(e, a, c2));
+                } catch (IOException e2) {
+                    if (c) {
+                        Log.d("UploadManager", "postByteRequest, Exception: ", e2);
+                    } else {
+                        o3b.a().i(null, Log.getStackTraceString(e2));
                     }
-                    File file2 = new File(file, ".bd_un_info.so");
-                    String str = new String(v2b.a("dGltZQ==".getBytes()));
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(str, System.currentTimeMillis());
-                    String str2 = new String(v2b.a("dW5pb25JRG9iag==".getBytes()));
-                    JSONObject optJSONObject = jSONObject.optJSONObject(str2);
-                    if (optJSONObject == null) {
-                        optJSONObject = new JSONObject();
-                    }
-                    String str3 = new String(v2b.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
-                    String str4 = new String(v2b.a("aXNTdXBwb3J0".getBytes()));
-                    String str5 = new String(v2b.a("c3RhdHVzY29kZQ==".getBytes()));
-                    String str6 = new String(v2b.a("b2FpZA==".getBytes()));
-                    String str7 = new String(v2b.a("YWFpZA==".getBytes()));
-                    String str8 = new String(v2b.a("dmFpZA==".getBytes()));
-                    optJSONObject.put(str3, this.a.c());
-                    optJSONObject.put(str4, this.a.isSupport());
-                    optJSONObject.put(str5, this.a.getStatusCode());
-                    optJSONObject.put(str6, this.a.getOAID());
-                    optJSONObject.put(str7, this.a.getAAID());
-                    optJSONObject.put(str8, this.a.getVAID());
-                    jSONObject.put(str2, optJSONObject);
-                    x2b.b(l(jSONObject.toString()), file2, false, g);
-                    if (d) {
-                        String str9 = c;
-                        Log.d(str9, "trySaveFiles, app: " + jSONObject.toString());
-                        return true;
-                    }
-                    return true;
                 }
-                return false;
-            } catch (Exception e2) {
-                if (d) {
-                    String str10 = c;
-                    Log.d(str10, "trySaveFiles, error " + e2.getMessage());
-                }
-                return false;
             }
+            return false;
         }
-        return invokeL.booleanValue;
+        return invokeCommon.booleanValue;
     }
 }

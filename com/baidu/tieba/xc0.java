@@ -1,7 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes8.dex */
-public interface xc0 {
-    void a(Context context, String str);
+public class xc0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    @Inject(force = false)
+    public static yc0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return ec0.a();
+        }
+        return (yc0) invokeV.objValue;
+    }
 }

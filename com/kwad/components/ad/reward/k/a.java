@@ -1,7 +1,7 @@
 package com.kwad.components.ad.reward.k;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements b {
     public Context mContext;
     public com.kwad.components.ad.reward.k nM;

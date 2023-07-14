@@ -1,52 +1,113 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
-public class m8a extends CustomMessageListener {
+public final class m8a extends pl1<vp5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final e7a b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m8a(MainTabActivity mainTabActivity, e7a e7aVar) {
-        super(2010045);
+    /* loaded from: classes6.dex */
+    public static final class a implements vp5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vp5
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return FunnySpriteResDownloadUtil.j("funny_sprite_chat_baseboard", null, false, 6, null);
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vp5
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return FunnySpriteResDownloadUtil.j("funny_sprite_chat_wall", null, false, 6, null);
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vp5
+        public String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return FunnySpriteResDownloadUtil.j("funny_sprite_chat_light", null, false, 6, null);
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vp5
+        public tu6 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                tu6 tu6Var = new tu6();
+                tu6Var.d(FunnySpriteResDownloadUtil.j("personal_chat_sprite_stage", null, false, 6, null));
+                tu6Var.c(true);
+                if (StringsKt__StringsJVMKt.endsWith$default(tu6Var.a(), DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, false, 2, null)) {
+                    tu6Var.e(1);
+                } else if (StringsKt__StringsJVMKt.endsWith$default(tu6Var.a(), ".webp", false, 2, null)) {
+                    tu6Var.e(2);
+                } else if (TbadkCoreApplication.getInst().isDebugMode()) {
+                    throw new IllegalStateException("unsupported file path " + tu6Var.a());
+                }
+                return tu6Var;
+            }
+            return (tu6) invokeV.objValue;
+        }
+    }
+
+    public m8a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, e7aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = e7aVar;
-        setTag(mainTabActivity.getUniqueId());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.tieba.pl1
+    /* renamed from: a */
+    public vp5 createService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && this.b != null && TbadkCoreApplication.getInst().getCurrentActivity() == this.a) {
-            boolean z = false;
-            this.b.t = vg.b(customResponsedMessage.getData().toString(), false);
-            e7a e7aVar = this.b;
-            this.b.D((e7aVar.t || e7aVar.u) ? true : true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
         }
+        return (vp5) invokeV.objValue;
     }
 }

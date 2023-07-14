@@ -1,39 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.NewHottopic.DataRes;
-import tbclient.NewHottopic.RelateThread;
-import tbclient.NewHottopic.SpecialTopic;
-import tbclient.NewHottopic.TopicDetail;
-import tbclient.NewHottopic.TopicThread;
-import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public class j48 {
+public class j48 implements w38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public k48 e;
-    public List<xn> f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+    public x38 a;
+    public v38 b;
 
-    public j48() {
+    public j48(x38 x38Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x38Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,105 +30,60 @@ public class j48 {
                 return;
             }
         }
-        this.i = false;
+        this.a = x38Var;
+        this.b = new i48(this);
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w38
+    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
+            v38 v38Var = this.b;
+            if (v38Var != null) {
+                return v38Var.a(bdUniqueId, str, str2, str3);
+            }
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public void b(DataRes dataRes) {
+    @Override // com.baidu.tieba.w38
+    public boolean b(int i, h48 h48Var) {
+        InterceptResult invokeIL;
+        x38 x38Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        boolean z = false;
-        this.h = false;
-        TopicDetail topicDetail = dataRes.topic_info;
-        if (topicDetail != null) {
-            this.a = topicDetail.topic_id.longValue();
-            TopicDetail topicDetail2 = dataRes.topic_info;
-            this.b = topicDetail2.topic_name;
-            this.c = topicDetail2.share_title;
-            this.d = topicDetail2.share_pic;
-            k48 k48Var = new k48();
-            this.e = k48Var;
-            k48Var.a(dataRes.topic_info);
-            if (!StringUtils.isNull(dataRes.topic_info.topic_image)) {
-                this.h = true;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, h48Var)) == null) {
+            if (h48Var != null && (x38Var = this.a) != null) {
+                x38Var.setData(h48Var.getDataList());
+                return true;
             }
+            return false;
         }
-        if (dataRes.pk_module != null) {
-            this.i = true;
-            this.h = true;
-            if (this.e == null) {
-                this.e = new k48();
+        return invokeIL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.w38
+    public boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            x38 x38Var = this.a;
+            if (x38Var != null) {
+                x38Var.b(i);
+                return true;
             }
-            this.e.b(dataRes.pk_module);
-        } else {
-            this.i = false;
+            return false;
         }
-        if (dataRes.time_line != null) {
-            this.h = true;
-            if (this.e == null) {
-                this.e = new k48();
-            }
-            this.e.c(dataRes.time_line);
-        }
-        this.f = new ArrayList();
-        if (!ListUtils.isEmpty(dataRes.special_topic)) {
-            this.h = true;
-            int i = 1;
-            for (SpecialTopic specialTopic : dataRes.special_topic) {
-                if (specialTopic != null && !ListUtils.isEmpty(specialTopic.thread_list)) {
-                    boolean z2 = false;
-                    for (ThreadInfo threadInfo : specialTopic.thread_list) {
-                        if (threadInfo != null) {
-                            m48 m48Var = new m48();
-                            if (!z2) {
-                                m48Var.a = true;
-                                m48Var.d = specialTopic.title;
-                                z2 = true;
-                            }
-                            m48Var.b = i;
-                            m48Var.c = this.a;
-                            m48Var.c(threadInfo);
-                            this.f.add(m48Var);
-                            i++;
-                        }
-                    }
-                }
-            }
-        }
-        if (this.h) {
-            a58 a58Var = new a58();
-            a58Var.a = R.dimen.tbds78;
-            a58Var.b = R.color.CAM_X0201;
-            this.f.add(a58Var);
-        }
-        RelateThread relateThread = dataRes.relate_thread;
-        if (relateThread != null && !ListUtils.isEmpty(relateThread.thread_list)) {
-            a58 a58Var2 = new a58();
-            a58Var2.a = R.dimen.tbds16;
-            this.f.add(a58Var2);
-            if (dataRes.relate_thread.has_more.intValue() == 1) {
-                z = true;
-            }
-            this.g = z;
-            for (TopicThread topicThread : dataRes.relate_thread.thread_list) {
-                if (topicThread != null) {
-                    l48 l48Var = new l48();
-                    l48Var.c(topicThread);
-                    l48Var.c = this.a;
-                    l48Var.f = this.i;
-                    this.f.add(l48Var);
-                }
-            }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.w38
+    public void setData(List<yn> list) {
+        x38 x38Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (x38Var = this.a) != null) {
+            x38Var.setData(list);
         }
     }
 }

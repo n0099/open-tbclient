@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dz5;
 import com.baidu.tieba.view.AlaPlayAnimationView;
-import com.baidu.tieba.zx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -101,7 +101,7 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     private void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00ee, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00ed, (ViewGroup) this, true);
             this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901d9);
             this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901da);
             this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090230);
@@ -149,8 +149,8 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             } else {
                 str = "";
             }
-            if (zx5.e(str) > 10) {
-                str = zx5.m(str, 10) + "...";
+            if (dz5.e(str) > 10) {
+                str = dz5.m(str, 10) + "...";
             }
             if (alaUserInfoData != null) {
                 this.alaCardUserHeadImg.N(alaUserInfoData.portrait, 28, false);

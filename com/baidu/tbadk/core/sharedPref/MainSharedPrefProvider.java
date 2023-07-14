@@ -13,7 +13,7 @@ import com.baidu.android.util.KVStorageFactory;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.UniKVTestSwitch;
-import com.baidu.tieba.q95;
+import com.baidu.tieba.ca5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,7 +77,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                return getContext().getSharedPreferences("common_settings", 0);
+                return TbadkCoreApplication.getInst().getSharedPreferences("common_settings2", 0);
             } catch (Exception unused) {
                 return null;
             }
@@ -90,7 +90,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return KVStorageFactory.getSharedPreferences("common_settings", 0);
+                return KVStorageFactory.getSharedPreferences("common_settings2", 0);
             } catch (Exception unused) {
                 return null;
             }
@@ -131,9 +131,9 @@ public class MainSharedPrefProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (str != null && str.length() != 0) {
-                int length = q95.l.length;
+                int length = ca5.o.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(q95.l[i])) {
+                    if (str.equals(ca5.o[i])) {
                         return true;
                     }
                 }
@@ -161,12 +161,12 @@ public class MainSharedPrefProvider extends ContentProvider {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, uri, str, strArr)) == null) {
             String lastPathSegment = uri.getLastPathSegment();
             if (lastPathSegment != null && lastPathSegment.length() > 0) {
-                if ((UniKVTestSwitch.isTypeSp() || UniKVTestSwitch.isTypeDoubleKv()) && (c = c()) != null) {
+                if ((UniKVTestSwitch.isTypeSp() || UniKVTestSwitch.isTypeDoubleKv() || UniKVTestSwitch.isTypeDoubleSp()) && (c = c()) != null) {
                     SharedPreferences.Editor edit = c.edit();
                     edit.remove(lastPathSegment);
                     edit.commit();
                 }
-                if ((UniKVTestSwitch.isTypeKv() || UniKVTestSwitch.isTypeDoubleKv()) && (d = d()) != null) {
+                if ((UniKVTestSwitch.isTypeDoubleSp() || UniKVTestSwitch.isTypeDoubleKv()) && (d = d()) != null) {
                     SharedPreferences.Editor edit2 = d.edit();
                     edit2.remove(lastPathSegment);
                     edit2.commit();
@@ -217,7 +217,7 @@ public class MainSharedPrefProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
         InterceptResult invokeL;
-        SharedPreferences d;
+        SharedPreferences c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uri)) == null) {
             String lastPathSegment = uri.getLastPathSegment();
@@ -225,13 +225,13 @@ public class MainSharedPrefProvider extends ContentProvider {
                 if (a(lastPathSegment)) {
                     return b(lastPathSegment);
                 }
-                if (UniKVTestSwitch.isTypeSp()) {
-                    d = c();
+                if (!UniKVTestSwitch.isTypeSp() && !UniKVTestSwitch.isTypeDoubleSp()) {
+                    c = d();
                 } else {
-                    d = d();
+                    c = c();
                 }
-                if (d != null) {
-                    return d.getString(lastPathSegment, null);
+                if (c != null) {
+                    return c.getString(lastPathSegment, null);
                 }
             }
             return null;
@@ -252,12 +252,12 @@ public class MainSharedPrefProvider extends ContentProvider {
                 if (a(lastPathSegment) && TextUtils.equals(asString, b(lastPathSegment))) {
                     return null;
                 }
-                if ((UniKVTestSwitch.isTypeSp() || UniKVTestSwitch.isTypeDoubleKv()) && (c = c()) != null) {
+                if ((UniKVTestSwitch.isTypeSp() || UniKVTestSwitch.isTypeDoubleKv() || UniKVTestSwitch.isTypeDoubleSp()) && (c = c()) != null) {
                     SharedPreferences.Editor edit = c.edit();
                     edit.putString(lastPathSegment, asString);
                     edit.commit();
                 }
-                if ((UniKVTestSwitch.isTypeKv() || UniKVTestSwitch.isTypeDoubleKv()) && (d = d()) != null) {
+                if ((UniKVTestSwitch.isTypeDoubleSp() || UniKVTestSwitch.isTypeDoubleKv()) && (d = d()) != null) {
                     SharedPreferences.Editor edit2 = d.edit();
                     edit2.putString(lastPathSegment, asString);
                     edit2.commit();

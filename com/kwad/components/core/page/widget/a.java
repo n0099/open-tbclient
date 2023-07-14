@@ -14,14 +14,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends Dialog {
-    public final InterfaceC0650a GY;
+    public final InterfaceC0655a GY;
     public final String GZ;
 
     /* renamed from: com.kwad.components.core.page.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0650a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0655a {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);
@@ -29,45 +29,45 @@ public final class a extends Dialog {
         void c(DialogInterface dialogInterface);
     }
 
-    public a(@NonNull Context context, @NonNull InterfaceC0650a interfaceC0650a) {
-        this(context, null, interfaceC0650a);
+    public a(@NonNull Context context, @NonNull InterfaceC0655a interfaceC0655a) {
+        this(context, null, interfaceC0655a);
     }
 
-    public a(@NonNull Context context, String str, @NonNull InterfaceC0650a interfaceC0650a) {
+    public a(@NonNull Context context, String str, @NonNull InterfaceC0655a interfaceC0655a) {
         super(context);
         if (context instanceof Activity) {
             setOwnerActivity((Activity) context);
         }
-        this.GY = interfaceC0650a;
+        this.GY = interfaceC0655a;
         this.GZ = str;
     }
 
     private View nZ() {
-        View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d04ee, (ViewGroup) null, false);
-        inflate.findViewById(R.id.obfuscated_res_0x7f091295).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.1
+        View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d04f9, (ViewGroup) null, false);
+        inflate.findViewById(R.id.obfuscated_res_0x7f0912a9).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 a.this.GY.c(a.this);
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f091294).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.2
+        inflate.findViewById(R.id.obfuscated_res_0x7f0912a8).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f091424).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.3
+        inflate.findViewById(R.id.obfuscated_res_0x7f091438).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.3
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 a.this.GY.a(a.this);
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f091423).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.4
+        inflate.findViewById(R.id.obfuscated_res_0x7f091437).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.4
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 a.this.GY.b(a.this);
             }
         });
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091293);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912a7);
         if (!TextUtils.isEmpty(this.GZ)) {
             textView.setText(this.GZ);
         }

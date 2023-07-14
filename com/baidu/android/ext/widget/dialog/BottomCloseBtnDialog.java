@@ -123,7 +123,7 @@ public class BottomCloseBtnDialog extends BaseDialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BottomCloseBtnDialog(@NonNull Context context) {
-        super(context, R.style.obfuscated_res_0x7f10014e);
+        super(context, R.style.obfuscated_res_0x7f10014f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,7 +206,7 @@ public class BottomCloseBtnDialog extends BaseDialog {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             setContentView(R.layout.bottom_close_btn_dialog_layout);
             this.mUpperContainer = (ViewGroup) findViewById(R.id.upper_container);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090724);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090727);
             this.mCloseBtn = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.android.ext.widget.dialog.BottomCloseBtnDialog.2
                 public static /* synthetic */ Interceptable $ic;

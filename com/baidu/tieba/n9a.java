@@ -1,53 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class n9a extends CustomMessageListener {
+public class n9a extends c9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+    public o9a c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n9a(MainTabActivity mainTabActivity, e7a e7aVar) {
-        super(2016493);
+    public n9a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, e7aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        nh5 nh5Var;
+    public o9a h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof nh5) && (nh5Var = (nh5) customResponsedMessage.getData()) != null && !StringUtils.isNull(nh5Var.a)) {
-            vw5.h(nh5Var);
-            if (StringUtils.isNull(nh5Var.c)) {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{nh5Var.a});
-            } else {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{nh5Var.a, nh5Var.c});
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (o9a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c9a
+    public void d(JSONObject jSONObject) throws Exception {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("forum_dir")) != null) {
+            o9a o9aVar = new o9a();
+            o9aVar.a(optJSONObject);
+            i(o9aVar);
+        }
+    }
+
+    public void i(o9a o9aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o9aVar) == null) {
+            this.c = o9aVar;
+            g(null);
         }
     }
 }

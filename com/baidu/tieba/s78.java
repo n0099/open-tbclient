@@ -1,0 +1,21 @@
+package com.baidu.tieba;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
+/* loaded from: classes7.dex */
+public interface s78 {
+    void K(String str, String str2, int i);
+
+    void b();
+
+    boolean d();
+
+    void destory();
+
+    void i(BdUniqueId bdUniqueId);
+
+    void refresh();
+
+    List<ThreadData> v();
+}

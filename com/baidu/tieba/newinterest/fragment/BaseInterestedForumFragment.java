@@ -3,8 +3,8 @@ package com.baidu.tieba.newinterest.fragment;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.l69;
-import com.baidu.tieba.s69;
+import com.baidu.tieba.pc9;
+import com.baidu.tieba.wc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String[] b;
-    public List<l69> c;
+    public List<pc9> c;
     public View d;
 
     public BaseInterestedForumFragment() {
@@ -56,7 +56,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 2) {
-                s69.c(2, this.a);
+                wc9.c(2, this.a);
             }
         }
     }
@@ -69,7 +69,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
         }
     }
 
-    public void K1(List<l69> list) {
+    public void K1(List<pc9> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.c = list;

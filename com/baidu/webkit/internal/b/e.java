@@ -10,7 +10,7 @@ import com.baidu.searchbox.IntentConstants;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e extends g {
     @Override // com.baidu.webkit.internal.b.g
     public final boolean a(Context context, String str) {

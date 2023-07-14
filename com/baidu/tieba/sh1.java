@@ -1,112 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class sh1 {
+public class sh1 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sh1() {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = fj1.a();
-            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
-            PackageManager packageManager = a.getPackageManager();
-            try {
-                Context a2 = fj1.a();
-                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
-                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).packageName;
-                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.packageName");
-                return str;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeV.objValue;
     }
 
-    public static final String b() {
-        InterceptResult invokeV;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Context a = fj1.a();
-            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
-            PackageManager packageManager = a.getPackageManager();
-            try {
-                Context a2 = fj1.a();
-                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
-                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).versionName;
-                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.versionName");
-                return str;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final void c(lh1 lh1Var, String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, lh1Var, str) == null) && lh1Var != null) {
-            boolean z2 = false;
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            super.handleMessage(message);
+            th1 th1Var = (th1) message.obj;
+            ImageView imageView = th1Var.a;
+            if (((String) imageView.getTag()).equals(th1Var.b)) {
+                imageView.setImageBitmap(th1Var.c);
             } else {
-                z = true;
-            }
-            if (!z) {
-                String a = lh1Var.a("Cookie");
-                String str2 = "BDUSS=" + str;
-                if ((a == null || StringsKt__StringsJVMKt.isBlank(a)) ? true : true) {
-                    lh1Var.d("Cookie", str2);
-                    return;
-                }
-                lh1Var.d("Cookie", a + "; " + str2);
+                ui1.g("不是最新数据");
             }
         }
-    }
-
-    public static final void d(lh1 lh1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, lh1Var) == null) && lh1Var != null) {
-            lh1Var.d("channel", "cashiersdk");
-            lh1Var.d("deviceType", "ANDROID");
-            lh1Var.d("osVersion", Build.VERSION.RELEASE);
-            lh1Var.d(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
-            lh1Var.d("appVersion", b());
-            lh1Var.d("sdkPgName", a());
-            lh1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        }
-    }
-
-    public static final kh1 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            kh1 kh1Var = new kh1();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    kh1Var.d(next, jSONObject.optString(next));
-                }
-            }
-            return kh1Var;
-        }
-        return (kh1) invokeL.objValue;
     }
 }

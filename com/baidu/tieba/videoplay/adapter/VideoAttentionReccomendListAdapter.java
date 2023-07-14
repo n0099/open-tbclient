@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.d85;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,22 +69,22 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910e8);
-            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c6f);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c71);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092438);
-            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092443);
-            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910d1);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f0910bd);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910fa);
+            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c86);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c88);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09246b);
+            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092476);
+            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910e2);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f0910d1);
             this.b.setRadiusById(R.string.J_X05);
             this.b.setConrers(3);
-            s75.d(this.h).u(R.array.Mask_X003);
-            s75 d = s75.d(view2);
+            d85.d(this.h).u(R.array.Mask_X003);
+            d85 d = d85.d(view2);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0613);
         }
 
-        public void a(View.OnClickListener onClickListener) {
+        public void b(View.OnClickListener onClickListener) {
             View view2;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) && (view2 = this.a) != null) {
@@ -129,7 +129,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                 videoRecommentPlayActivityConfig.setVideoShowIndex(this.a);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
                 this.c.d = this.b.thread_id;
-                this.c.n(4);
+                this.c.o(4);
             }
         }
     }
@@ -153,7 +153,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         this.a = context;
     }
 
-    public void n(int i) {
+    public void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_ACCOUNT_ATTENTION_PAGE_CLICK);
@@ -166,7 +166,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
 
     public void setData(List<VideoItemData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.b.clear();
             this.b.addAll(list);
             notifyDataSetChanged();
@@ -175,28 +175,28 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: p */
+    /* renamed from: q */
     public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            this.c = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d09a6, viewGroup, false);
+            this.c = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d09c0, viewGroup, false);
             return new ForumViewHolder(this.c);
         }
         return (ForumViewHolder) invokeLI.objValue;
     }
 
-    public final void q(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
+    public final void r(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048582, this, videoItemData, forumViewHolder) == null) && videoItemData != null && forumViewHolder != null) {
             forumViewHolder.e.setText(StringHelper.numberUniformFormatExtra(videoItemData.play_count));
-            s75 d = s75.d(forumViewHolder.e);
+            d85 d = d85.d(forumViewHolder.e);
             d.C(R.dimen.T_X09);
             d.x(R.color.CAM_X0101);
         }
     }
 
-    public final void t(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
+    public final void u(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048586, this, videoItemData, forumViewHolder) == null) && videoItemData != null && forumViewHolder != null) {
             forumViewHolder.b.N(videoItemData.thumbnail_url, 10, false);
@@ -219,27 +219,27 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: o */
+    /* renamed from: p */
     public void onBindViewHolder(ForumViewHolder forumViewHolder, int i) {
         List<VideoItemData> list;
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, forumViewHolder, i) != null) || forumViewHolder == null || (list = this.b) == null || (videoItemData = list.get(i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048580, this, forumViewHolder, i) != null) || forumViewHolder == null || (list = this.b) == null || (videoItemData = list.get(i)) == null) {
             return;
         }
-        t(videoItemData, forumViewHolder);
-        r(videoItemData, forumViewHolder);
-        q(videoItemData, forumViewHolder);
+        u(videoItemData, forumViewHolder);
         s(videoItemData, forumViewHolder);
-        forumViewHolder.a(new a(this, i, videoItemData));
+        r(videoItemData, forumViewHolder);
+        t(videoItemData, forumViewHolder);
+        forumViewHolder.b(new a(this, i, videoItemData));
     }
 
-    public final void s(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
+    public final void t(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoItemData, forumViewHolder) == null) && videoItemData != null && forumViewHolder != null) {
-            if (!wi.isEmpty(videoItemData.title)) {
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, videoItemData, forumViewHolder) == null) && videoItemData != null && forumViewHolder != null) {
+            if (!xi.isEmpty(videoItemData.title)) {
                 forumViewHolder.f.setText(videoItemData.title);
-            } else if (!wi.isEmpty(videoItemData.abstext)) {
+            } else if (!xi.isEmpty(videoItemData.abstext)) {
                 forumViewHolder.f.setText(videoItemData.abstext);
             } else {
                 forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.original_recommend_video_attention_txt));
@@ -247,7 +247,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         }
     }
 
-    public final void r(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
+    public final void s(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048583, this, videoItemData, forumViewHolder) == null) && videoItemData != null && forumViewHolder != null) {
             StringBuilder sb = new StringBuilder();
@@ -280,7 +280,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             } else {
                 sb.append("00");
             }
-            s75 d = s75.d(forumViewHolder.d);
+            d85 d = d85.d(forumViewHolder.d);
             d.C(R.dimen.T_X09);
             d.x(R.color.CAM_X0101);
             forumViewHolder.d.setText(sb.toString());
